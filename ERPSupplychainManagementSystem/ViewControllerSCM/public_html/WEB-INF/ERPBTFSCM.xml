@@ -9,5 +9,11 @@
       <name>P_ADF_USER_ID</name>
     </input-parameter-definition>
     <method-call id="doSetSCMErpApplicationGlobals"></method-call>
+    <method-call id="ERPSCMSetupExeWithPara">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
   </task-flow-definition>
 </adfc-config>

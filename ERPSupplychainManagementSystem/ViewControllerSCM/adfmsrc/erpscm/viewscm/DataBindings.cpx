@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
              SeparateXMLFiles="false" Package="erpscm.viewscm" ClientType="Generic">
+  <pageMap>
+    <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ERPSCMSetupExeWithPara"
+          usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef"/>
+  </pageMap>
   <dataControlUsages>
     <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
@@ -8,4 +12,8 @@
                      SupportsSortCollection="true" Configuration="ERPTemModuleLocal" syncMode="Immediate"
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
   </dataControlUsages>
+  <pageDefinitionUsages>
+    <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef"
+          path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef"/>
+  </pageDefinitionUsages>
 </Application>
