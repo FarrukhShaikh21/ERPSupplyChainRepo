@@ -38,7 +38,7 @@ public class ERPSCMClass {
         return ERPUserAttributes;
     }
 
-    /*public void doSetFMSErpApplicationGlobals() {
+    public void doSetSCMErpApplicationGlobals() {
 
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_SNO",1);
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_CODE","FARRUKH");
@@ -48,7 +48,7 @@ public class ERPSCMClass {
         ADFContext.getCurrent().getPageFlowScope().put("G_TEMP_DEPT_ACCESS_TABLE","temp_admin_department_access");
          if (1==1) {
             return;
-
+         }
 
         //System.out.println("one erp");
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_SNO",getERPUserAttributes().getUserId());
@@ -69,5 +69,5 @@ public class ERPSCMClass {
         System.out.println("six erp-01-new:"+getERPuserId());
        ////////
 
-    }*/   
+    }   
 }
