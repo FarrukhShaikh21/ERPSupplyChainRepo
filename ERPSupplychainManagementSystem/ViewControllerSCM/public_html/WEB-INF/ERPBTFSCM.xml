@@ -6,8 +6,30 @@
       <shared/>
     </data-control-scope>
     <input-parameter-definition id="__1">
-      <name>P_ADF_USER_ID</name>
+      <name>P_ADF_USER_SNO</name>
+      <value>#{pageFlowScope.OracleERPBean.ERPuserId}</value>
+      <class>erpscm.viewscm.ERPSCMClass</class>
     </input-parameter-definition>
+    <input-parameter-definition id="__10">
+      <name>P_ADF_USER_CODE</name>
+      <value>#{pageFlowScope.OracleERPBean.ERPuserCode}</value>
+      <class>erpscm.viewscm.ERPSCMClass</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__11">
+      <name>P_ADF_USER_ATTRIBUTE</name>
+      <value>#{pageFlowScope.OracleERPBean.ERPUserAttributes}</value>
+      <class>erpscm.viewscm.ERPSCMClass</class>
+    </input-parameter-definition>
+    <managed-bean id="__12">
+      <managed-bean-name>OracleERPBean</managed-bean-name>
+      <managed-bean-class>erpscm.viewscm.ERPSCMClass</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__13">
+      <managed-bean-name>ERPMainTempBean</managed-bean-name>
+      <managed-bean-class>erptemplate.viewtemp.ERPTEMPClass</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
     <method-call id="doSetSCMErpApplicationGlobals"></method-call>
     <method-call id="ERPSCMSetupExeWithPara">
       <method>#{bindings.ExecuteWithParams.execute}</method>
