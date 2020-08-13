@@ -30,7 +30,12 @@
       <managed-bean-class>erptemplate.viewtemp.ERPTEMPClass</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
-    <method-call id="doSetSCMErpApplicationGlobals"></method-call>
+    <method-call id="doSetSCMErpApplicationGlobals">
+      <method>#{pageFlowScope.OracleERPBean.doSetSCMErpApplicationGlobals}</method>
+      <outcome>
+        <fixed-outcome>ACT-GOTOSCM-MENU</fixed-outcome>
+      </outcome>
+    </method-call>
     <method-call id="ERPSCMSetupExeWithPara">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
@@ -56,6 +61,15 @@
     </method-call>
     <view id="SCM_MAIN">
       <page>/SCM_MAIN.jsf</page>
+    </view>
+    <method-call id="doSCMGotoErpActivity">
+      <method>#{pageFlowScope.ERPMainTempBean.doGotoErpActivity}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="SCM_0001">
+      <page>/SCM_0001.jsf</page>
     </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
@@ -85,5 +99,22 @@
         <to-activity-id>SCM_MAIN</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>doStartERPTaskFlow</from-outcome>
+        <to-activity-id>doSCMGotoErpActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id>doSCMGotoErpActivity</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>ACT-SCM_0001</from-outcome>
+        <to-activity-id>SCM_0001</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
   </task-flow-definition>
 </adfc-config>
