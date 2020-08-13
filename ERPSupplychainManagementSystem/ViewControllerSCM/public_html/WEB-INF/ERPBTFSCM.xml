@@ -29,9 +29,12 @@
     <method-call id="ERPSCMReportsExeWitPara">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+        <fixed-outcome>ERP-ACT-SCM_MAIN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_MAIN">
+      <page>/SCM_MAIN.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -51,6 +54,13 @@
       <control-flow-case id="__7">
         <from-outcome>ERPSCMParaReports</from-outcome>
         <to-activity-id>ERPSCMReportsExeWitPara</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>ERPSCMReportsExeWitPara</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>ERP-ACT-SCM_MAIN</from-outcome>
+        <to-activity-id>SCM_MAIN</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
   </task-flow-definition>
