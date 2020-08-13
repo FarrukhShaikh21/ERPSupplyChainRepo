@@ -23,6 +23,12 @@
     <method-call id="ERPSCMTransExeWitPara">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
+        <fixed-outcome>ERPSCMParaReports</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPSCMReportsExeWitPara">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
         <fixed-outcome>ExecuteWithParams</fixed-outcome>
       </outcome>
     </method-call>
@@ -38,6 +44,13 @@
       <control-flow-case id="__5">
         <from-outcome>ERPSCMParaTrans</from-outcome>
         <to-activity-id>ERPSCMTransExeWitPara</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>ERPSCMTransExeWitPara</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>ERPSCMParaReports</from-outcome>
+        <to-activity-id>ERPSCMReportsExeWitPara</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
   </task-flow-definition>
