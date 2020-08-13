@@ -12,7 +12,7 @@
     <method-call id="ERPSCMSetupExeWithPara">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+        <fixed-outcome>ERPSCMParaTrans</fixed-outcome>
       </outcome>
     </method-call>
     <task-flow-return id="RETURNSCMRETURN">
@@ -26,5 +26,19 @@
         <fixed-outcome>ExecuteWithParams</fixed-outcome>
       </outcome>
     </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>ACT-GOTOSCM-MENU</from-outcome>
+        <to-activity-id>ERPSCMSetupExeWithPara</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>ERPSCMSetupExeWithPara</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>ERPSCMParaTrans</from-outcome>
+        <to-activity-id>ERPSCMTransExeWitPara</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
   </task-flow-definition>
 </adfc-config>

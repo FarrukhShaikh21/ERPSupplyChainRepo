@@ -13,9 +13,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">89.59766</property>
+         name="y">98.896484</property>
       <property
-         name="x">230.0</property>
+         name="x">73.0</property>
    </MethodCall>
    <MethodCall
       id="MethodCall3">
@@ -41,9 +41,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">109.24707</property>
+         name="y">86.5459</property>
       <property
-         name="x">767.0</property>
+         name="x">832.0</property>
    </TaskFlowReturn>
    <MethodCall
       id="MethodCall5">
@@ -54,8 +54,28 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">129.79883</property>
+         name="y">99.09766</property>
       <property
-         name="x">621.35156</property>
+         name="x">623.35156</property>
    </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="MethodCall2"
+      to="MethodCall3">
+      <property
+         name="fromOutcome">ACT-GOTOSCM-MENU</property>
+      <property
+         name="sdm:polyPoints">R50,114.0,98.5459,402.35156,99.44824,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="MethodCall3"
+      to="MethodCall5">
+      <property
+         name="fromOutcome">ERPSCMParaTrans</property>
+      <property
+         name="sdm:polyPoints">R50,484.35156,99.44824,582.35156,99.09766,L50</property>
+   </ControlFlowCase>
 </SDM>
