@@ -2,16 +2,36 @@ package erpscm.viewscm;
 
 import erpglobals.modelglobals.ERPUserAttribute;
 
+import erpglobals.viewglobals.ERPGlobalsClass;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
 import oracle.adf.share.ADFContext;
+import oracle.adf.view.rich.event.DialogEvent;
+
+import oracle.binding.OperationBinding;
+
+import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
+import org.apache.myfaces.trinidad.util.Service;
 
 
 public class ERPSCMClass {
     private Integer ERPuserId;
     private String ERPuserCode = "";
     private ERPUserAttribute ERPUserAttributes;
+    private String lIteratorDetailName;
     
     public ERPSCMClass() {
         super();
+    }
+
+    public void setLIteratorDetailName(String lIteratorDetailName) {
+        this.lIteratorDetailName = lIteratorDetailName;
+    }
+
+    public String getLIteratorDetailName() {
+        return lIteratorDetailName;
     }
 
     public void setERPuserId(Integer ERPuserId) {
@@ -69,5 +89,36 @@ public class ERPSCMClass {
         System.out.println("six erp-01-new:"+getERPuserId());
        ////////
 
-    }   
+    }
+  
+    public String doERPAddRecordWithPara() {
+    
+        if (ERPGlobalsClass.doCheckERPTransactionDirty() ) {
+            lIteratorDetailName=null;
+           FacesMessage fm=new FacesMessage("Please Save/Undo Changes Before Adding Record.");
+           FacesContext.getCurrentInstance().addMessage(null,fm);
+           return null;
+        }        
+        OperationBinding ob=ERPGlobalsClass.doGetERPOperation("CreateWithParams");
+        ob.execute();
+                
+        return null;
+    }
+    
+    public void doERPConfirmDelete(DialogEvent erpde) {
+         //this is using on form sec_0006_edit
+         if (erpde.getOutcome()==DialogEvent.Outcome.yes) {
+             OperationBinding ob = ERPGlobalsClass.doGetERPOperation("Delete");
+             ob.execute();
+             ob = ERPGlobalsClass.doGetERPOperation("Commit");
+             Object o= ob.execute();
+             doERPShowSaveMessage("Record Deleted Successfully.");      
+         }
+     }    
+
+    public void doERPShowSaveMessage(String pMessage){
+           FacesContext context = FacesContext.getCurrentInstance();
+           ExtendedRenderKitService erks = Service.getService(context.getRenderKit(), ExtendedRenderKitService.class);
+           erks.addScript(context, "showNotificationCallback('"+pMessage+"')");
+       }  
 }
