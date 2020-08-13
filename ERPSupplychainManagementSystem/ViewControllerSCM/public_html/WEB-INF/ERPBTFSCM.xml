@@ -20,5 +20,11 @@
         <name>RETURNSCMRETURN</name>
       </outcome>
     </task-flow-return>
+    <method-call id="ERPSCMTransExeWitPara">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
   </task-flow-definition>
 </adfc-config>
