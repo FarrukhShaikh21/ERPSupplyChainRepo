@@ -124,5 +124,10 @@ public class ERPSCMClass {
            FacesContext context = FacesContext.getCurrentInstance();
            ExtendedRenderKitService erks = Service.getService(context.getRenderKit(), ExtendedRenderKitService.class);
            erks.addScript(context, "showNotificationCallback('"+pMessage+"')");
-       }  
+       }
+
+    public String doBackFromEdit() {
+        // Add event code here...
+        return null;
+    }
 }

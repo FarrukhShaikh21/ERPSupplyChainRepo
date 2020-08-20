@@ -71,6 +71,21 @@
     <view id="SCM_0001">
       <page>/SCM_0001.jsf</page>
     </view>
+    <view id="SCM_0001_EDIT">
+      <page>/SCM_0001_EDIT.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParSCMPARAByCompany">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParamsCompanyWise">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -106,11 +121,39 @@
         <to-activity-id>doSCMGotoErpActivity</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__16">
+    <control-flow-rule id="__22">
       <from-activity-id>doSCMGotoErpActivity</from-activity-id>
-      <control-flow-case id="__17">
+      <control-flow-case id="__23">
         <from-outcome>ERP-ACT-SCM_0001</from-outcome>
         <to-activity-id>SCM_0001</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__24">
+      <from-activity-id>SCM_0001_EDIT</from-activity-id>
+      <control-flow-case id="__25">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0001</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id>SCM_0001</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome>ERP-ACT-SCM_0001_EDIT</from-outcome>
+        <to-activity-id>ExecuteWithParSCMPARAByCompany</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>ExecuteWithParSCMPARAByCompany</from-activity-id>
+      <control-flow-case id="__30">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>ExecuteWithParamsCompanyWise</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__31">
+      <from-activity-id>ExecuteWithParamsCompanyWise</from-activity-id>
+      <control-flow-case id="__32">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>SCM_0001_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

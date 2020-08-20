@@ -9,5 +9,26 @@
   ClearCacheOnRollback="true">
   <ViewUsage
     Name="ScmParameterByCompanyCRUD"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmParameterVO"/>
+    ViewObjectName="erpscm.modelscm.scmvo.ScmParameterVO">
+    <ViewCriteriaUsage
+      Name="ScmParameterByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmParameterVO.ScmParameterByCompanyIDVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="AdminCompanyVORO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO">
+    <ViewCriteriaUsage
+      Name="AdminCompanyCOAUserAccessVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyCOAUserAccessVC"/>
+    <ViewCriteriaUsage
+      Name="AdminCompanyVOCompanyOnlyVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyVOCompanyOnlyVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="AdminCompanyVOByCompanyRO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompCodeVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompCodeVC"/>
+  </ViewUsage>
 </AppModule>

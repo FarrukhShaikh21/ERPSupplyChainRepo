@@ -135,9 +135,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">323.1953</property>
+         name="y">254.79297</property>
       <property
-         name="x">256.0</property>
+         name="x">181.0</property>
    </MethodCall>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule13">
@@ -156,7 +156,7 @@
       <property
          name="fromOutcome">doStartERPTaskFlow</property>
       <property
-         name="sdm:polyPoints">L50,347.0,197.19531,256.0,268.84473,T50</property>
+         name="sdm:polyPoints">L50,347.0,197.19531,222.0,254.44238,R50</property>
    </ControlFlowCase>
    <View
       id="View15">
@@ -169,18 +169,99 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">339.79883</property>
+         name="y">421.48828</property>
       <property
-         name="x">438.5</property>
+         name="x">181.5</property>
    </View>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase16"
+      id="ControlFlowCase29"
       from="MethodCall12"
       to="View15">
       <property
          name="fromOutcome">ERP-ACT-SCM_0001</property>
       <property
-         name="sdm:polyPoints">R50,297.0,322.84473,397.5,339.44824,L50</property>
+         name="sdm:polyPoints">B50,181.0,308.44238,181.5,367.1377,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View21">
+      <property
+         name="activityId">SCM_0001_EDIT</property>
+      <property
+         name="page">/SCM_0001_EDIT.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SCM_0001_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">421.5918</property>
+      <property
+         name="x">592.0215</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase23"
+      from="View21"
+      to="View15">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">L50,551.0215,421.2412,222.5,421.1377,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall31">
+      <property
+         name="activityId">ExecuteWithParSCMPARAByCompany</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParSCMPARAByCompany&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">648.09766</property>
+      <property
+         name="x">168.35156</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase32"
+      from="View15"
+      to="MethodCall31">
+      <property
+         name="fromOutcome">ERP-ACT-SCM_0001_EDIT</property>
+      <property
+         name="sdm:polyPoints">B50,181.5,475.1377,168.35156,593.7471,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall33">
+      <property
+         name="activityId">ExecuteWithParamsCompanyWise</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParamsCompanyWise&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">650.44824</property>
+      <property
+         name="x">516.35156</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase34"
+      from="MethodCall31"
+      to="MethodCall33">
+      <property
+         name="fromOutcome">ExecuteWithParams</property>
+      <property
+         name="sdm:polyPoints">R50,209.35156,647.7471,475.35156,650.09766,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase35"
+      from="MethodCall33"
+      to="View21">
+      <property
+         name="fromOutcome">ExecuteWithParams</property>
+      <property
+         name="sdm:polyPoints">T50,516.35156,596.09766,592.0215,475.2412,B50</property>
    </ControlFlowCase>
 </SDM>
