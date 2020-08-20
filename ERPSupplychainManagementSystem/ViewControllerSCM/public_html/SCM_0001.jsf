@@ -35,7 +35,8 @@
                               <af:panelGroupLayout id="pgl8" layout="horizontal">
                                 <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
                                          styleClass="ERPHeroBannerFont ERPLink" action="ERP-ACT-SCM_0001_EDIT"/>
-                                <af:outputFormatted value="#{item.bindings.CompanyShortName.inputValue}" id="of1" styleClass="ERPHeroBannerFont"/>
+                                <af:outputFormatted value="#{item.bindings.CompanyShortName.inputValue}" id="of1" styleClass="ERPHeroBannerFont"
+                                                    shortDesc="Short Name"/>
                                 <af:link id="l2" partialSubmit="true"
                                          text="#{item.bindings.CompanyShortName.inputValue}"
                                          styleClass="ERPHeroBannerFont" rendered="false"/>
