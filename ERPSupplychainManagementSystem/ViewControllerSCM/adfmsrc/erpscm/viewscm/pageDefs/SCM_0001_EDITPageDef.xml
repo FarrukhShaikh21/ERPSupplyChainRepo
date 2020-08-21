@@ -40,14 +40,15 @@
         <Item Value="CompanyName"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="ScmParameterByCompanyCRUDIterator" id="Delete"
-            InstanceName="ERPSCMModuleDataControl.ScmParameterByCompanyCRUD" DataControl="ERPSCMModuleDataControl"
-            RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action id="Rollback" DataControl="ERPSCMModuleDataControl" RequiresUpdateModel="false"
             Action="rollbackTransaction"/>
     <action id="Commit" DataControl="ERPSCMModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <action IterBinding="ScmParameterByCompanyCRUDIterator" id="CreateInsert"
             InstanceName="ERPSCMModuleDataControl.ScmParameterByCompanyCRUD" DataControl="ERPSCMModuleDataControl"
-            RequiresUpdateModel="true" Action="createWithParams"/>
+            RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{bindings.CompCode.inputValue}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ScmParameterByCompanyCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

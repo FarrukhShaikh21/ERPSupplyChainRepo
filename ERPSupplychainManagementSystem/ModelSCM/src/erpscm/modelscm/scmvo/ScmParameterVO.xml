@@ -52,6 +52,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_ParameterId"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ParameterId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmParameter"
     Entity="erpscm.modelscm.scmeo.ScmParameter"/>
@@ -61,7 +79,15 @@
     PrecisionRule="true"
     EntityAttrName="ParameterId"
     EntityUsage="ScmParameter"
-    AliasName="PARAMETER_ID"/>
+    AliasName="PARAMETER_ID"
+    LOVName="LOV_ParameterId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ParameterValue"
     IsNotNull="true"

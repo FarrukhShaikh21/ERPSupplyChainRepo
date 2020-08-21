@@ -67,18 +67,17 @@
                                               rowSelection="single"
                                               fetchSize="#{bindings.ScmParameterByCompanyCRUD.rangeSize}" id="t1"
                                               styleClass="AFStretchWidth" columnStretching="column:c3"
-                                              partialTriggers=":::l2">
+                                              partialTriggers=":::l6 :::l2 ::t1 :::l3">
                                         <af:column headerText="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.label}"
                                                    id="c1">
-                                            <af:inputText value="#{row.bindings.ParameterId.inputValue}"
-                                                          label="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.label}"
-                                                          required="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.mandatory}"
-                                                          columns="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.displayWidth}"
-                                                          maximumLength="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.precision}"
-                                                          shortDesc="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.tooltip}"
-                                                          id="it5">
+                                            <af:selectOneChoice value="#{row.bindings.ParameterId.inputValue}"
+                                                                label="#{row.bindings.ParameterId.label}"
+                                                                required="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.mandatory}"
+                                                                shortDesc="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.tooltip}"
+                                                                id="soc2">
+                                                <f:selectItems value="#{row.bindings.ParameterId.items}" id="si2"/>
                                                 <f:validator binding="#{row.bindings.ParameterId.validator}"/>
-                                            </af:inputText>
+                                            </af:selectOneChoice>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterValue.label}"
                                                    id="c2">
@@ -131,19 +130,24 @@
                                 <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
                                     <af:link text="Close" id="l1" icon="#{resource['images:imgCloseDialog.png']}"
                                              iconPosition="top" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}">
-                                        <af:setActionListener from="#{'GlParameterCRUDIterator'}"
+                                        <af:setActionListener from="#{'ScmParameterByCompanyCRUDIterator'}"
                                                               to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                        <af:setActionListener from="#{'ERPBACKCRUD'}"
+                                                              to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
                                     </af:link>
-                                    <af:link text="Delete" id="l2" icon="#{resource['images:imgDeleteRecord.png']}"
-                                             iconPosition="top" actionListener="#{bindings.Delete.execute}"/>
+                                    <af:link actionListener="#{bindings.Delete1.execute}" text="Delete"
+                                             disabled="#{!bindings.Delete1.enabled}" id="l6"
+                                             icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"/>
                                     <af:link text="Add" id="l3" icon="#{resource['images:imgAddRecord.png']}"
                                              iconPosition="top" actionListener="#{bindings.CreateInsert.execute}"/>
-                                    <af:link text="Undo" id="l4" icon="#{resource['images:imgUndo.png']}"
-                                             iconPosition="top"
-                                             action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"/>
-                                    <af:link text="Save" id="l5" icon="#{resource['images:imgSave.png']}"
-                                             iconPosition="top"
-                                             action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                    <af:link actionListener="#{bindings.Rollback.execute}" text="Undo"
+                                             disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l2"
+                                             icon="#{resource['images:imgUndo.png']}" iconPosition="top">
+                                        <af:resetActionListener/>
+                                    </af:link>
+                                    <af:link actionListener="#{bindings.Commit.execute}" text="Save"
+                                             disabled="#{!bindings.Commit.enabled}" id="l4"
+                                             icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
                                     <f:facet name="separator">
                                         <af:spacer width="10" height="10" id="s1"/>
                                     </f:facet>

@@ -86,7 +86,6 @@
     PrimaryKey="true"/>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -96,12 +95,12 @@
     TableName="SCM_PARAMETER"/>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PARAMETER"/>
+    TableName="SCM_PARAMETER"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -117,7 +116,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PARAMETER"/>
+    TableName="SCM_PARAMETER"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="GlobalCompanyId"
     IsNotNull="true"

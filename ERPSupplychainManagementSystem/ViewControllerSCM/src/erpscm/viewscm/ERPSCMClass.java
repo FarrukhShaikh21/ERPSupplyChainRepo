@@ -21,9 +21,27 @@ public class ERPSCMClass {
     private String ERPuserCode = "";
     private ERPUserAttribute ERPUserAttributes;
     private String lIteratorDetailName;
+    private String ERPBackActionName="ERPBACKCRUD";
+    private String lIteratorName="SysUsersCRUDIterator";
     
     public ERPSCMClass() {
         super();
+    }
+
+    public void setERPBackActionName(String ERPBackActionName) {
+        this.ERPBackActionName = ERPBackActionName;
+    }
+
+    public String getERPBackActionName() {
+        return ERPBackActionName;
+    }
+
+    public void setLIteratorName(String lIteratorName) {
+        this.lIteratorName = lIteratorName;
+    }
+
+    public String getLIteratorName() {
+        return lIteratorName;
     }
 
     public void setLIteratorDetailName(String lIteratorDetailName) {
@@ -127,7 +145,27 @@ public class ERPSCMClass {
        }
 
     public String doBackFromEdit() {
-        // Add event code here...
-        return null;
+        
+        if (ERPGlobalsClass.doCheckERPTransactionDirty()) {
+           FacesMessage fm=new FacesMessage("Please Save/Undo Changes Before Going Back.");
+           FacesContext.getCurrentInstance().addMessage(null,fm);
+           
+           return null;
+                }
+        /*if (ERPGlobalsClass.isRecordChanged(lIteratorName).equals("YES") ||(lIteratorDetailName!=null && ERPGlobalsClass.isRecordChanged(lIteratorDetailName).equals("YES"))) {
+            lIteratorDetailName=null;
+           FacesMessage fm=new FacesMessage("Please Save/Undo Changes Before Going Back.");
+           FacesContext.getCurrentInstance().addMessage(null,fm);
+           
+           return null;
+        } */       
+        return ERPBackActionName;
     }
+  
+    public String doErpUndoRecord() {
+        OperationBinding ob = ERPGlobalsClass.doGetERPOperation("Rollback");
+        ob.execute();
+        doERPShowSaveMessage("Record Undo Successfully.");
+        return null;
+    }  
 }
