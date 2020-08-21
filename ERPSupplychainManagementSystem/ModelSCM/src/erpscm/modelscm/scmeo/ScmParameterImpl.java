@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmeo;
 
+import erpglobals.modelglobals.ERPEntityImpl;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.Key;
@@ -12,7 +14,7 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ScmParameterImpl extends EntityImpl {
+public class ScmParameterImpl extends ERPEntityImpl {
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -49,6 +51,7 @@ public class ScmParameterImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int PARAMETERID = AttributesEnum.ParameterId.index();
     public static final int PARAMETERVALUE = AttributesEnum.ParameterValue.index();
     public static final int PARAMETERDESCRPTION = AttributesEnum.ParameterDescrption.index();
@@ -64,6 +67,13 @@ public class ScmParameterImpl extends EntityImpl {
      * This is the default constructor (do not remove).
      */
     public ScmParameterImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmParameter");
     }
 
     /**
@@ -226,6 +236,7 @@ public class ScmParameterImpl extends EntityImpl {
         setAttributeInternal(ISACTIVE, value);
     }
 
+
     /**
      * @param parameterId key constituent
      * @param companyId key constituent
@@ -237,13 +248,6 @@ public class ScmParameterImpl extends EntityImpl {
         return new Key(new Object[] { parameterId, companyId, globalCompanyId });
     }
 
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmParameter");
-    }
-    
     /**
      * Add locking logic here.
      */

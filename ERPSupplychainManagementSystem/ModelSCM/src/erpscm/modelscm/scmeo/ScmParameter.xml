@@ -12,8 +12,9 @@
   BindingStyle="JDBC"
   RowClass="erpscm.modelscm.scmeo.ScmParameterImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
   </DesignTime>
   <Attribute
     Name="ParameterId"
@@ -128,7 +129,9 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PARAMETER"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="IsActive"
     IsNotNull="true"

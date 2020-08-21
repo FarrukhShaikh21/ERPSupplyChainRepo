@@ -129,25 +129,27 @@
                             <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
                                 <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
                                     <af:link text="Close" id="l1" icon="#{resource['images:imgCloseDialog.png']}"
-                                             iconPosition="top" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}">
+                                             iconPosition="top" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                             partialSubmit="true">
                                         <af:setActionListener from="#{'ScmParameterByCompanyCRUDIterator'}"
                                                               to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                         <af:setActionListener from="#{'ERPBACKCRUD'}"
                                                               to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
                                     </af:link>
-                                    <af:link actionListener="#{bindings.Delete1.execute}" text="Delete"
-                                             disabled="#{!bindings.Delete1.enabled}" id="l6"
-                                             icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"/>
+                                    <af:link actionListener="#{bindings.Delete1.execute}" text="Delete" id="l6"
+                                             icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
+                                             partialSubmit="true"/>
                                     <af:link text="Add" id="l3" icon="#{resource['images:imgAddRecord.png']}"
-                                             iconPosition="top" actionListener="#{bindings.CreateInsert.execute}"/>
-                                    <af:link actionListener="#{bindings.Rollback.execute}" text="Undo"
-                                             disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l2"
-                                             icon="#{resource['images:imgUndo.png']}" iconPosition="top">
+                                             iconPosition="top" actionListener="#{bindings.CreateInsert.execute}"
+                                             partialSubmit="true"/>
+                                    <af:link actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="l2"
+                                             icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                             partialSubmit="true">
                                         <af:resetActionListener/>
                                     </af:link>
-                                    <af:link actionListener="#{bindings.Commit.execute}" text="Save"
-                                             disabled="#{!bindings.Commit.enabled}" id="l4"
-                                             icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
+                                    <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l4"
+                                             icon="#{resource['images:imgSave.png']}" iconPosition="top"
+                                             partialSubmit="true"/>
                                     <f:facet name="separator">
                                         <af:spacer width="10" height="10" id="s1"/>
                                     </f:facet>
