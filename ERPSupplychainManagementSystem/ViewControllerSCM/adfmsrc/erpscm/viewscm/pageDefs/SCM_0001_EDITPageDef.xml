@@ -11,7 +11,7 @@
   </executables>
   <bindings>
     <tree IterBinding="ScmParameterByCompanyCRUDIterator" id="ScmParameterByCompanyCRUD">
-      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmParameterVO" Name="ScmParameterByCompanyCRUD0">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmParameterVO" Name="ScmParameterByCompanyCRUD">
         <AttrNames>
           <Item Value="ParameterId"/>
           <Item Value="ParameterValue"/>
@@ -42,7 +42,6 @@
     </attributeValues>
     <action id="Rollback" DataControl="ERPSCMModuleDataControl" RequiresUpdateModel="false"
             Action="rollbackTransaction"/>
-    <action id="Commit" DataControl="ERPSCMModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
     <action IterBinding="ScmParameterByCompanyCRUDIterator" id="CreateInsert"
             InstanceName="ERPSCMModuleDataControl.ScmParameterByCompanyCRUD" DataControl="ERPSCMModuleDataControl"
             RequiresUpdateModel="true" Action="createWithParams">
@@ -50,5 +49,6 @@
     </action>
     <action IterBinding="ScmParameterByCompanyCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
   </bindings>
 </pageDefinition>

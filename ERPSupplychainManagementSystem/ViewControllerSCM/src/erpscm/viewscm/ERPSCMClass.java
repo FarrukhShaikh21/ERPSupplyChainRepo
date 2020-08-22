@@ -168,4 +168,15 @@ public class ERPSCMClass {
         doERPShowSaveMessage("Record Undo Successfully.");
         return null;
     }  
+    public String doERPCommitRecord() {
+       OperationBinding ob=ERPGlobalsClass.doGetERPOperation("Commit");
+        Object execute = ob.execute(); 
+        //error occurs during saving the record.
+        if (!ob.getErrors().isEmpty()) {
+         // FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(ob.getErrors().toString()));  
+          return null;
+        }
+          doERPShowSaveMessage("Record Saved Successfully.");      
+         return null;
+    }
 }
