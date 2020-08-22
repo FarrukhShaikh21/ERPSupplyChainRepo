@@ -8,7 +8,10 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import oracle.adf.share.ADFContext;
+import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
+
+import oracle.adf.view.rich.render.ClientEvent;
 
 import oracle.binding.OperationBinding;
 
@@ -23,9 +26,16 @@ public class ERPSCMClass {
     private String lIteratorDetailName;
     private String ERPBackActionName="ERPBACKCRUD";
     private String lIteratorName="SysUsersCRUDIterator";
+    private String erpScreenSize;
     
     public ERPSCMClass() {
         super();
+    }
+    public void setErpScreenSize(String erpScreenSize) {
+        this.erpScreenSize = erpScreenSize;
+    }
+    public String getErpScreenSize() {
+        return erpScreenSize;
     }
 
     public void setERPBackActionName(String ERPBackActionName) {
@@ -179,4 +189,5 @@ public class ERPSCMClass {
           doERPShowSaveMessage("Record Saved Successfully.");      
          return null;
     }
+
 }

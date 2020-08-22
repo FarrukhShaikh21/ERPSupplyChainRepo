@@ -54,7 +54,8 @@
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
-                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                                    featuresOff="viewMenu detach">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar"/>
                                     <f:facet name="statusbar"/>
@@ -67,20 +68,23 @@
                                               rowSelection="single"
                                               fetchSize="#{bindings.ScmParameterByCompanyCRUD.rangeSize}" id="t1"
                                               styleClass="AFStretchWidth" columnStretching="column:c3"
-                                              partialTriggers=":::l6 :::l2 ::t1 :::l3">
+                                              partialTriggers=":::l6 :::l2 ::t1 :::l3"
+                                              autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?8:15}"
+                                              scrollPolicy="page">
                                         <af:column headerText="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.label}"
-                                                   id="c1">
-                                            <af:selectOneChoice value="#{row.bindings.ParameterId.inputValue}"
-                                                                label="#{row.bindings.ParameterId.label}"
-                                                                required="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.mandatory}"
-                                                                shortDesc="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.tooltip}"
-                                                                id="soc2">
-                                                <f:selectItems value="#{row.bindings.ParameterId.items}" id="si2"/>
+                                                   id="c5" width="200">
+                                            <af:inputText value="#{row.bindings.ParameterId.inputValue}"
+                                                          label="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.label}"
+                                                          required="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.mandatory}"
+                                                          columns="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.displayWidth}"
+                                                          maximumLength="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.precision}"
+                                                          shortDesc="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.tooltip}"
+                                                          id="it5">
                                                 <f:validator binding="#{row.bindings.ParameterId.validator}"/>
-                                            </af:selectOneChoice>
+                                            </af:inputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterValue.label}"
-                                                   id="c2">
+                                                   id="c2" width="200">
                                             <af:inputText value="#{row.bindings.ParameterValue.inputValue}"
                                                           label="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterValue.label}"
                                                           required="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterValue.mandatory}"
@@ -99,7 +103,7 @@
                                                           columns="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterDescrption.displayWidth}"
                                                           maximumLength="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterDescrption.precision}"
                                                           shortDesc="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterDescrption.tooltip}"
-                                                          id="it7">
+                                                          id="it7" contentStyle="width:100%">
                                                 <f:validator binding="#{row.bindings.ParameterDescrption.validator}"/>
                                             </af:inputText>
                                         </af:column>
