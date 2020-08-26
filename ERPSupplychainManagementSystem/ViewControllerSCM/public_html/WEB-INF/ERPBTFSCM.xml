@@ -86,6 +86,18 @@
         <fixed-outcome>ExecuteWithParams</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0002">
+      <page>/SCM_0002.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParSCMPARAByComp">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCM_0002_EDIT">
+      <page>/SCM_0002_EDIT.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -127,6 +139,10 @@
         <from-outcome>ERP-ACT-SCM_0001</from-outcome>
         <to-activity-id>SCM_0001</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>ERP-ACT-SCM_0002</from-outcome>
+        <to-activity-id>SCM_0002</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
       <from-activity-id>SCM_0001_EDIT</from-activity-id>
@@ -154,6 +170,20 @@
       <control-flow-case id="__32">
         <from-outcome>ExecuteWithParams</from-outcome>
         <to-activity-id>SCM_0001_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>SCM_0002</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>ERP-ACT-SCM_0002</from-outcome>
+        <to-activity-id>ExecuteWithParSCMPARAByComp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>ExecuteWithParSCMPARAByComp</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>SCM_0002_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
