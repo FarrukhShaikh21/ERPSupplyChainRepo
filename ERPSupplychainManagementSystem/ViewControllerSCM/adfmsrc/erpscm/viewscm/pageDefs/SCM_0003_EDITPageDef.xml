@@ -4,9 +4,10 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="AdminCompanyVOByCompanyROIterator"/>
+    <iterator Binds="ScmPaymentTermHeaderByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPaymentTermHeaderByCompanyROIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">
@@ -27,6 +28,21 @@
     <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortCode">
       <AttrNames>
         <Item Value="CompanyShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderByCompanyROIterator" id="PaymentTermHeaderSno">
+      <AttrNames>
+        <Item Value="PaymentTermHeaderSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderByCompanyROIterator" id="PaymentTermHeaderCode">
+      <AttrNames>
+        <Item Value="PaymentTermHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderByCompanyROIterator" id="PaymentTermShortName">
+      <AttrNames>
+        <Item Value="PaymentTermShortName"/>
       </AttrNames>
     </attributeValues>
   </bindings>

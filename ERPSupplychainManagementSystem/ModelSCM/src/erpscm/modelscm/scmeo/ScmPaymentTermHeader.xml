@@ -4,12 +4,18 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmPaymentTermHeader"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="SCM_PAYMENT_TERM_HEADER"
   AliasName="ScmPaymentTermHeader"
-  BindingStyle="OracleName">
+  BindingStyle="JDBC"
+  RowClass="erpscm.modelscm.scmeo.ScmPaymentTermHeaderImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="PaymentTermHeaderSno"
     Precision="6"
