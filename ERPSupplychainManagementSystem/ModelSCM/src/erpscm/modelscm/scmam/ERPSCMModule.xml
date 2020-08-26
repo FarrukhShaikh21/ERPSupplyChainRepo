@@ -59,4 +59,22 @@
       Name="ScmPaymentTermHeaderByIDVC"
       FullName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO.ScmPaymentTermHeaderByIDVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ScmPaymentTermDueDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermDueVO"/>
+  <ViewUsage
+    Name="ScmPaymentTermDiscountDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermDiscountVO"/>
+  <ViewLinkUsage
+    Name="FkScmPtDuePayHeadSnoLink1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPaymentTermHeaderCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPaymentTermDueDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmPtDiscDueHeadLink1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDiscDueHeadLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPaymentTermDueDetCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPaymentTermDiscountDetCRUD"
+    Reversed="false"/>
 </AppModule>
