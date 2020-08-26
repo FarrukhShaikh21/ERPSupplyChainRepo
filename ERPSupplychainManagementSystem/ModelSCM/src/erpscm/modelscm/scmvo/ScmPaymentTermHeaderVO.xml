@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmPaymentTermHeaderVO"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -13,6 +13,14 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_COMPANY_ID"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_TERM_HEADER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <EntityUsage
     Name="ScmPaymentTermHeader"
     Entity="erpscm.modelscm.scmeo.ScmPaymentTermHeader"/>
@@ -110,6 +118,78 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmPaymentTermHeader"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewCriteria
+    Name="ScmPaymentTermHeaderByCompanyVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPaymentTermHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ScmPaymentTermHeaderVOCriteria_ScmPaymentTermHeaderVOCriteria_row_0_CompanyId"
+        ViewAttribute="CompanyId"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_COMPANY_ID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPaymentTermHeaderByIDVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPaymentTermHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="PaymentTermHeaderSno"
+        ViewAttribute="PaymentTermHeaderSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_TERM_HEADER_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmPaymentTermDueVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
