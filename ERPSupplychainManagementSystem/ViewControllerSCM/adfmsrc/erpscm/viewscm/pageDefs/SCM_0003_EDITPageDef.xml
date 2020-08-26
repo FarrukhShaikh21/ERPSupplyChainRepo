@@ -8,6 +8,8 @@
               id="AdminCompanyVOByCompanyROIterator"/>
     <iterator Binds="ScmPaymentTermHeaderByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPaymentTermHeaderByCompanyROIterator"/>
+    <iterator Binds="ScmPaymentTermHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPaymentTermHeaderCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">
@@ -30,20 +32,26 @@
         <Item Value="CompanyShortCode"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="ScmPaymentTermHeaderByCompanyROIterator" id="ScmPaymentTermHeaderByCompanyRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO" Name="ScmPaymentTermHeaderByCompanyRO0">
+        <AttrNames>
+          <Item Value="PaymentTermShortName"/>
+          <Item Value="PaymentTermHeaderCode"/>
+          <Item Value="PaymentTermName"/>
+          <Item Value="PaymentTermDate"/>
+          <Item Value="StartDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
     <attributeValues IterBinding="ScmPaymentTermHeaderByCompanyROIterator" id="PaymentTermHeaderSno">
       <AttrNames>
         <Item Value="PaymentTermHeaderSno"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmPaymentTermHeaderByCompanyROIterator" id="PaymentTermHeaderCode">
-      <AttrNames>
-        <Item Value="PaymentTermHeaderCode"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ScmPaymentTermHeaderByCompanyROIterator" id="PaymentTermShortName">
-      <AttrNames>
-        <Item Value="PaymentTermShortName"/>
-      </AttrNames>
-    </attributeValues>
+    <action IterBinding="ScmPaymentTermHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="PaymentTermHeaderSno" NDValue="#{''}" NDType="java.lang.String"/>
+      <NamedData NDName="CompanyId" NDValue="#{bindings.CompCode.inputValue}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>
