@@ -191,6 +191,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PAYMENT_TERM_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
