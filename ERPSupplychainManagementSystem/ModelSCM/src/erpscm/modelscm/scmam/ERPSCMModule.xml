@@ -32,10 +32,17 @@
       FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompCodeVC"/>
   </ViewUsage>
   <ViewUsage
-    Name="ScmCustomerVOCRUD"
+    Name="ScmCustomerByCompanyRO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerVO">
     <ViewCriteriaUsage
       Name="ScmCustomerByCompanyIDVC"
       FullName="erpscm.modelscm.scmvo.ScmCustomerVO.ScmCustomerByCompanyIDVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmCustomerCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerVO">
+    <ViewCriteriaUsage
+      Name="ScmCustomerByCustomerIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmCustomerVO.ScmCustomerByCustomerIDVC"/>
   </ViewUsage>
 </AppModule>
