@@ -4,7 +4,7 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ERPSCMModule"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
   <ViewUsage
@@ -44,5 +44,19 @@
     <ViewCriteriaUsage
       Name="ScmCustomerByCustomerIDVC"
       FullName="erpscm.modelscm.scmvo.ScmCustomerVO.ScmCustomerByCustomerIDVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmPaymentTermHeaderByCompanyRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO">
+    <ViewCriteriaUsage
+      Name="ScmPaymentTermHeaderByCompanyVC"
+      FullName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO.ScmPaymentTermHeaderByCompanyVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmPaymentTermHeaderCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO">
+    <ViewCriteriaUsage
+      Name="ScmPaymentTermHeaderByIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO.ScmPaymentTermHeaderByIDVC"/>
   </ViewUsage>
 </AppModule>
