@@ -98,6 +98,24 @@
     <view id="SCM_0002_EDIT">
       <page>/SCM_0002_EDIT.jsf</page>
     </view>
+    <view id="SCM_0003">
+      <page>/SCM_0003.jsf</page>
+    </view>
+    <method-call id="ExeCompanySEC_0003">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM_0002</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCM_0003_EDIT">
+      <page>/SCM_0003_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeParaCompanyByCompID">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM_0002_QUERY</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -143,6 +161,10 @@
         <from-outcome>ERP-ACT-SCM_0002</from-outcome>
         <to-activity-id>SCM_0002</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome>ERP-ACT-SCM_0003</from-outcome>
+        <to-activity-id>ExeCompanySEC_0003</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
       <from-activity-id>SCM_0001_EDIT</from-activity-id>
@@ -184,6 +206,27 @@
       <control-flow-case id="__20">
         <from-outcome>ExecuteWithParams</from-outcome>
         <to-activity-id>SCM_0002_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id>ExeCompanySEC_0003</from-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome>ERP-ACT-SCM_0002</from-outcome>
+        <to-activity-id>SCM_0003</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__34">
+      <from-activity-id>SCM_0003</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome>ERP-ACT-SCM_0002_QUERY</from-outcome>
+        <to-activity-id>ExeParaCompanyByCompID</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id>ExeParaCompanyByCompID</from-activity-id>
+      <control-flow-case id="__37">
+        <from-outcome>ERP-ACT-SCM_0002_QUERY</from-outcome>
+        <to-activity-id>SCM_0003_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
