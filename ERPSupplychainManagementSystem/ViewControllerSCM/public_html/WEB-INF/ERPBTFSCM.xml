@@ -116,6 +116,12 @@
         <fixed-outcome>ERP-ACT-SCM_0002_QUERY</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeTermHeaderByCompany">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExeTermHeaderByCompany</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -226,6 +232,13 @@
       <from-activity-id>ExeParaCompanyByCompID</from-activity-id>
       <control-flow-case id="__37">
         <from-outcome>ERP-ACT-SCM_0002_QUERY</from-outcome>
+        <to-activity-id>ExeTermHeaderByCompany</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__38">
+      <from-activity-id>ExeTermHeaderByCompany</from-activity-id>
+      <control-flow-case id="__39">
+        <from-outcome>ExeTermHeaderByCompany</from-outcome>
         <to-activity-id>SCM_0003_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

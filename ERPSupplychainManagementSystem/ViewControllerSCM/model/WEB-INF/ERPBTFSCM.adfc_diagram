@@ -396,7 +396,7 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">972.44824</property>
+         name="y">971.3965</property>
       <property
          name="x">2.0214844</property>
    </View>
@@ -427,10 +427,33 @@
       islink="true"
       id="ControlFlowCase40"
       from="MethodCall39"
-      to="View37">
+      to="MethodCall41">
       <property
          name="fromOutcome">ERP-ACT-SCM_0002_QUERY</property>
       <property
-         name="sdm:polyPoints">B50,-162.64844,853.7471,-38.978516,972.44824,L50</property>
+         name="sdm:polyPoints">B50,-162.64844,853.7471,-218.64844,919.3965,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall41">
+      <property
+         name="activityId">ExeTermHeaderByCompany</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeTermHeaderByCompany&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">973.7471</property>
+      <property
+         name="x">-218.64844</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase42"
+      from="MethodCall41"
+      to="View37">
+      <property
+         name="fromOutcome">ExeTermHeaderByCompany</property>
+      <property
+         name="sdm:polyPoints">R50,-177.64844,973.3965,-38.978516,971.0459,L50</property>
    </ControlFlowCase>
 </SDM>
