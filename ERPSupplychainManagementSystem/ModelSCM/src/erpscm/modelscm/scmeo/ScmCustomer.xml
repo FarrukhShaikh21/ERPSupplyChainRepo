@@ -9,7 +9,11 @@
   DBObjectType="table"
   DBObjectName="SCM_CUSTOMER"
   AliasName="ScmCustomer"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpglobals.modelglobals.ERPEntityImpl">
+  <DesignTime>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+  </DesignTime>
   <Attribute
     Name="CustomerSno"
     IsNotNull="true"
@@ -17,7 +21,7 @@
     Scale="0"
     ColumnName="CUSTOMER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_CUSTOMER"
     PrimaryKey="true"/>
@@ -28,7 +32,7 @@
     Scale="0"
     ColumnName="CUSTOMER_SHORT_CODE"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_CUSTOMER"/>
   <Attribute
