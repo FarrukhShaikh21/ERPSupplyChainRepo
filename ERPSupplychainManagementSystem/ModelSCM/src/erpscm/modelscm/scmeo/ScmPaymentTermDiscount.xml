@@ -20,7 +20,16 @@
     Type="java.lang.Long"
     ColumnType="NUMBER"
     TableName="SCM_PAYMENT_TERM_DISCOUNT"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.PaymentTermDiscountSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PaymentTermDueSno"
     IsNotNull="true"
@@ -30,7 +39,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.PaymentTermDueSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PaymentTermHeaderSno"
     IsNotNull="true"
@@ -40,7 +58,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.PaymentTermHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DiscountId"
     IsNotNull="true"
@@ -50,7 +77,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.DiscountId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DiscountPercent"
     Precision="9"
@@ -59,7 +95,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.DiscountPercent_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DiscountAmount"
     Precision="16"
@@ -68,7 +113,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.DiscountAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Days"
     Precision="9"
@@ -77,7 +131,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.Days_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Monthss"
     Precision="9"
@@ -86,7 +149,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.Monthss_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="MonthAhead"
     Precision="9"
@@ -95,7 +167,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.MonthAhead_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -105,7 +186,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.CreatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedDate"
     IsNotNull="true"
@@ -113,7 +203,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.CreatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedBy"
     Precision="6"
@@ -122,14 +221,32 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.LastUpdatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedDate"
     ColumnName="LAST_UPDATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT"/>
+    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.LastUpdatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPaymentTermDue"
     Association="erpscm.modelscm.scmeo.FkScmPtDiscDueHeadAssoc"
@@ -158,4 +275,8 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPaymentTermDiscount.PaymentTermDueSno"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </Entity>
