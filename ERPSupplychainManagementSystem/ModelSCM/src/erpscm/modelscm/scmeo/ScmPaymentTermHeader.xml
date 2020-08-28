@@ -168,7 +168,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_PAYMENT_TERM_HEADER"
-    DefaultValue="N">
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -192,7 +192,7 @@
     ColumnType="NUMBER"
     TableName="SCM_PAYMENT_TERM_HEADER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

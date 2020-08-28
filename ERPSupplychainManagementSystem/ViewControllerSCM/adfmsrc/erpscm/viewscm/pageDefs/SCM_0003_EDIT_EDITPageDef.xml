@@ -8,6 +8,8 @@
               id="ScmPaymentTermHeaderCRUDIterator"/>
     <iterator Binds="ScmPaymentTermDueDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPaymentTermDueDetCRUDIterator"/>
+    <iterator Binds="ScmPaymentTermDiscountDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPaymentTermDiscountDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="PaymentTermHeaderSno">
@@ -69,6 +71,18 @@
           <Item Value="DueAmount"/>
           <Item Value="CalenderDate"/>
           <Item Value="FixDate"/>
+          <Item Value="Days"/>
+          <Item Value="Monthss"/>
+          <Item Value="MonthAhead"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ScmPaymentTermDiscountDetCRUDIterator" id="ScmPaymentTermDiscountDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPaymentTermDiscountVO" Name="ScmPaymentTermDiscountDetCRUD0">
+        <AttrNames>
+          <Item Value="DiscountId"/>
+          <Item Value="DiscountPercent"/>
+          <Item Value="DiscountAmount"/>
           <Item Value="Days"/>
           <Item Value="Monthss"/>
           <Item Value="MonthAhead"/>
