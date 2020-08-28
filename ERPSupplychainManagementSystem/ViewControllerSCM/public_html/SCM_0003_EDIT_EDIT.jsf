@@ -233,99 +233,104 @@
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
-                                                <af:table value="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel}"
-                                                          var="row"
-                                                          rows="#{bindings.ScmPaymentTermDiscountDetCRUD.rangeSize}"
-                                                          emptyText="#{bindings.ScmPaymentTermDiscountDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                          rowBandingInterval="0"
-                                                          selectedRowKeys="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel.selectedRow}"
-                                                          selectionListener="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel.makeCurrent}"
-                                                          rowSelection="single"
-                                                          fetchSize="#{bindings.ScmPaymentTermDiscountDetCRUD.rangeSize}"
-                                                          id="t2">
-                                                    <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.label}"
-                                                               id="c8">
-                                                        <af:selectOneChoice value="#{row.bindings.DiscountId.inputValue}"
-                                                                            label="#{row.bindings.DiscountId.label}"
-                                                                            required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.mandatory}"
-                                                                            shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.tooltip}"
-                                                                            id="soc2">
-                                                            <f:selectItems value="#{row.bindings.DiscountId.items}"
-                                                                           id="si2"/>
-                                                            <f:validator binding="#{row.bindings.DiscountId.validator}"/>
-                                                        </af:selectOneChoice>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.label}"
-                                                               id="c9">
-                                                        <af:inputText value="#{row.bindings.DiscountPercent.inputValue}"
-                                                                      label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.label}"
-                                                                      required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.mandatory}"
-                                                                      columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.precision}"
-                                                                      shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.tooltip}"
-                                                                      id="it14">
-                                                            <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.label}"
-                                                               id="c10">
-                                                        <af:inputText value="#{row.bindings.DiscountAmount.inputValue}"
-                                                                      label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.label}"
-                                                                      required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.mandatory}"
-                                                                      columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.precision}"
-                                                                      shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.tooltip}"
-                                                                      id="it15">
-                                                            <f:validator binding="#{row.bindings.DiscountAmount.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.label}"
-                                                               id="c11">
-                                                        <af:inputText value="#{row.bindings.Days.inputValue}"
-                                                                      label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.label}"
-                                                                      required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.mandatory}"
-                                                                      columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.precision}"
-                                                                      shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.tooltip}"
-                                                                      id="it16">
-                                                            <f:validator binding="#{row.bindings.Days.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.label}"
-                                                               id="c12">
-                                                        <af:inputText value="#{row.bindings.Monthss.inputValue}"
-                                                                      label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.label}"
-                                                                      required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.mandatory}"
-                                                                      columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.precision}"
-                                                                      shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.tooltip}"
-                                                                      id="it17">
-                                                            <f:validator binding="#{row.bindings.Monthss.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.label}"
-                                                               id="c13">
-                                                        <af:inputText value="#{row.bindings.MonthAhead.inputValue}"
-                                                                      label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.label}"
-                                                                      required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.mandatory}"
-                                                                      columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.precision}"
-                                                                      shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.tooltip}"
-                                                                      id="it18">
-                                                            <f:validator binding="#{row.bindings.MonthAhead.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                </af:table>
+                                                <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                                                    <f:facet name="menus"/>
+                                                    <f:facet name="toolbar"/>
+                                                    <f:facet name="statusbar"/>
+                                                    <af:table value="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel}"
+                                                              var="row"
+                                                              rows="#{bindings.ScmPaymentTermDiscountDetCRUD.rangeSize}"
+                                                              emptyText="#{bindings.ScmPaymentTermDiscountDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                              rowBandingInterval="0"
+                                                              selectedRowKeys="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel.selectedRow}"
+                                                              selectionListener="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel.makeCurrent}"
+                                                              rowSelection="single"
+                                                              fetchSize="#{bindings.ScmPaymentTermDiscountDetCRUD.rangeSize}"
+                                                              id="t2">
+                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.label}"
+                                                                   id="c8">
+                                                            <af:selectOneChoice value="#{row.bindings.DiscountId.inputValue}"
+                                                                                label="#{row.bindings.DiscountId.label}"
+                                                                                required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.mandatory}"
+                                                                                shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.tooltip}"
+                                                                                id="soc2">
+                                                                <f:selectItems value="#{row.bindings.DiscountId.items}"
+                                                                               id="si2"/>
+                                                                <f:validator binding="#{row.bindings.DiscountId.validator}"/>
+                                                            </af:selectOneChoice>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.label}"
+                                                                   id="c9">
+                                                            <af:inputText value="#{row.bindings.DiscountPercent.inputValue}"
+                                                                          label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.label}"
+                                                                          required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.mandatory}"
+                                                                          columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.precision}"
+                                                                          shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.tooltip}"
+                                                                          id="it14">
+                                                                <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.label}"
+                                                                   id="c10">
+                                                            <af:inputText value="#{row.bindings.DiscountAmount.inputValue}"
+                                                                          label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.label}"
+                                                                          required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.mandatory}"
+                                                                          columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.precision}"
+                                                                          shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.tooltip}"
+                                                                          id="it15">
+                                                                <f:validator binding="#{row.bindings.DiscountAmount.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.label}"
+                                                                   id="c11">
+                                                            <af:inputText value="#{row.bindings.Days.inputValue}"
+                                                                          label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.label}"
+                                                                          required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.mandatory}"
+                                                                          columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.precision}"
+                                                                          shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.tooltip}"
+                                                                          id="it16">
+                                                                <f:validator binding="#{row.bindings.Days.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.label}"
+                                                                   id="c12">
+                                                            <af:inputText value="#{row.bindings.Monthss.inputValue}"
+                                                                          label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.label}"
+                                                                          required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.mandatory}"
+                                                                          columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.precision}"
+                                                                          shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.tooltip}"
+                                                                          id="it17">
+                                                                <f:validator binding="#{row.bindings.Monthss.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.label}"
+                                                                   id="c13">
+                                                            <af:inputText value="#{row.bindings.MonthAhead.inputValue}"
+                                                                          label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.label}"
+                                                                          required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.mandatory}"
+                                                                          columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.precision}"
+                                                                          shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.tooltip}"
+                                                                          id="it18">
+                                                                <f:validator binding="#{row.bindings.MonthAhead.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                    </af:table>
+                                                </af:panelCollection>
                                             </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
