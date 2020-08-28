@@ -4,9 +4,9 @@
     <af:document title="SCM_0003_EDIT_EDIT.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
-            <af:decorativeBox id="db2">
+            <af:decorativeBox id="db2" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:decorativeBox id="db1">
+                    <af:decorativeBox id="db1" dimensionsFrom="parent">
                         <f:facet name="center">
                             <af:panelSplitter id="ps1" splitterPosition="210"
                                               partialTriggers="l5 l9 l8 l7 l6 l4 l3 l2 l1">
@@ -94,7 +94,7 @@
                                                             label="#{bindings.IsActive.label}"
                                                             required="#{bindings.IsActive.hints.mandatory}"
                                                             shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1"
-                                                            contentStyle="width:100%">
+                                                            contentStyle="width:80%" styleClass="AFStretchWidth">
                                             <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
                                             <f:validator binding="#{bindings.IsActive.validator}"/>
                                         </af:selectOneChoice>
@@ -152,7 +152,8 @@
                                                               rowSelection="single"
                                                               fetchSize="#{bindings.ScmPaymentTermDueDetCRUD.rangeSize}"
                                                               id="t1" styleClass="AFStretchWidth"
-                                                              partialTriggers="::l10 ::l11">
+                                                              partialTriggers="::l10 ::l11" autoHeightRows="3"
+                                                              scrollPolicy="page">
                                                         <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.label}"
                                                                    id="c1" width="60" minimumWidth="12">
                                                             <af:inputText value="#{row.bindings.DuePercent.inputValue}"
@@ -276,7 +277,8 @@
                                                               selectionListener="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel.makeCurrent}"
                                                               rowSelection="single"
                                                               fetchSize="#{bindings.ScmPaymentTermDiscountDetCRUD.rangeSize}"
-                                                              id="t2" partialTriggers="::l12 ::l13">
+                                                              id="t2" partialTriggers="::l12 ::l13" scrollPolicy="page"
+                                                              autoHeightRows="5">
                                                         <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.label}"
                                                                    id="c8" width="200" displayIndex="-1">
                                                             <af:selectOneChoice value="#{row.bindings.DiscountId.inputValue}"
