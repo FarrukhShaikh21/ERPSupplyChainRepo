@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="ScmPaymentTermHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPaymentTermHeaderCRUDIterator"/>
+    <iterator Binds="ScmPaymentTermDueDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPaymentTermDueDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="PaymentTermHeaderSno">
@@ -48,11 +50,6 @@
         <Item Value="EndDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="IsActive">
-      <AttrNames>
-        <Item Value="IsActive"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="GlobalCompanyId">
       <AttrNames>
         <Item Value="GlobalCompanyId"/>
@@ -63,5 +60,20 @@
         <Item Value="CompanyId"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="ScmPaymentTermHeaderCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="ScmPaymentTermDueDetCRUDIterator" id="ScmPaymentTermDueDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPaymentTermDueVO" Name="ScmPaymentTermDueDetCRUD0">
+        <AttrNames>
+          <Item Value="DuePercent"/>
+          <Item Value="DueAmount"/>
+          <Item Value="CalenderDate"/>
+          <Item Value="FixDate"/>
+          <Item Value="Days"/>
+          <Item Value="Monthss"/>
+          <Item Value="MonthAhead"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
