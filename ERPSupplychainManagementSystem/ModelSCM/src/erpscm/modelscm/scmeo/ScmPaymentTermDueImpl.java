@@ -1,5 +1,6 @@
 package erpscm.modelscm.scmeo;
 
+import erpglobals.modelglobals.ERPEntityImpl;
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
 import java.math.BigDecimal;
@@ -17,7 +18,7 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ScmPaymentTermDueImpl extends EntityImpl {
+public class ScmPaymentTermDueImpl extends ERPEntityImpl {
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -59,6 +60,7 @@ public class ScmPaymentTermDueImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int PAYMENTTERMDUESNO = AttributesEnum.PaymentTermDueSno.index();
     public static final int PAYMENTTERMHEADERSNO = AttributesEnum.PaymentTermHeaderSno.index();
     public static final int DUEPERCENT = AttributesEnum.DuePercent.index();
@@ -79,6 +81,13 @@ public class ScmPaymentTermDueImpl extends EntityImpl {
      * This is the default constructor (do not remove).
      */
     public ScmPaymentTermDueImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPaymentTermDue");
     }
 
     /**
@@ -310,6 +319,7 @@ public class ScmPaymentTermDueImpl extends EntityImpl {
         setAttributeInternal(SCMPAYMENTTERMHEADER, value);
     }
 
+
     /**
      * @param paymentTermDueSno key constituent
 
@@ -317,13 +327,6 @@ public class ScmPaymentTermDueImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Integer paymentTermDueSno) {
         return new Key(new Object[] { paymentTermDueSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPaymentTermDue");
     }
 
     /**
