@@ -77,7 +77,7 @@
                                              styleClass="AFStretchWidth ERPHeroBackground">
                                   <af:panelGroupLayout id="pgl6" layout="horizontal">
                                     <af:link id="l2" icon="#{resource['images:imgView.png']}"
-                                             styleClass="ERPHeroBannerFont ERPLink"/>
+                                             styleClass="ERPHeroBannerFont ERPLink" action="ERP-ACT-SCM_0003EDITQUERY"/>
                                     <af:outputFormatted value="#{item.bindings.PaymentTermShortName.inputValue}"
                                                         id="of1" styleClass="ERPHeroBannerFont"/>
                                     <f:facet name="separator">
@@ -156,7 +156,8 @@
                   <af:gridCell marginStart="5px" width="50%" id="gc3"/>
                   <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="end">
                     <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
-                      <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"/>
+                      <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"
+                               action="ERP-ACT-SCM_0003ADD"/>
                       <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
                                partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
                       <f:facet name="separator">

@@ -134,7 +134,7 @@
     <method-call id="CreateWithParaPaySCM_0003">
       <method>#{bindings.CreateWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>CreateWithParams</fixed-outcome>
+        <fixed-outcome>ERP-ACT-SCM_0003ADD</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">
@@ -284,6 +284,13 @@
       <control-flow-case id="__46">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0003_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__48">
+      <from-activity-id>CreateWithParaPaySCM_0003</from-activity-id>
+      <control-flow-case id="__49">
+        <from-outcome>ERP-ACT-SCM_0003ADD</from-outcome>
+        <to-activity-id>SCM_0003_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

@@ -8,7 +8,8 @@
                 <f:facet name="center">
                     <af:decorativeBox id="db1">
                         <f:facet name="center">
-                            <af:panelSplitter id="ps1" splitterPosition="200">
+                            <af:panelSplitter id="ps1" splitterPosition="210"
+                                              partialTriggers="l5 l9 l8 l7 l6 l4 l3 l2 l1">
                                 <f:facet name="first">
                                     <af:panelFormLayout id="pfl1" labelAlignment="top">
                                         <af:inputText value="#{bindings.PaymentTermHeaderSno.inputValue}"
@@ -28,7 +29,7 @@
                                                       columns="#{bindings.PaymentTermHeaderCode.hints.displayWidth}"
                                                       maximumLength="#{bindings.PaymentTermHeaderCode.hints.precision}"
                                                       shortDesc="#{bindings.PaymentTermHeaderCode.hints.tooltip}"
-                                                      id="it2" readOnly="true">
+                                                      id="it2" readOnly="true" contentStyle="width:100%">
                                             <f:validator binding="#{bindings.PaymentTermHeaderCode.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.PaymentTermHeaderCode.format}"/>
@@ -47,14 +48,16 @@
                                                       required="#{bindings.PaymentTermName.hints.mandatory}"
                                                       columns="#{bindings.PaymentTermName.hints.displayWidth}"
                                                       maximumLength="#{bindings.PaymentTermName.hints.precision}"
-                                                      shortDesc="#{bindings.PaymentTermName.hints.tooltip}" id="it4">
+                                                      shortDesc="#{bindings.PaymentTermName.hints.tooltip}" id="it4"
+                                                      contentStyle="width:100%">
                                             <f:validator binding="#{bindings.PaymentTermName.validator}"/>
                                         </af:inputText>
                                         <af:inputDate value="#{bindings.PaymentTermDate.inputValue}"
                                                       label="#{bindings.PaymentTermDate.hints.label}"
                                                       required="#{bindings.PaymentTermDate.hints.mandatory}"
                                                       columns="#{bindings.PaymentTermDate.hints.displayWidth}"
-                                                      shortDesc="#{bindings.PaymentTermDate.hints.tooltip}" id="id1">
+                                                      shortDesc="#{bindings.PaymentTermDate.hints.tooltip}" id="id1"
+                                                      contentStyle="width:70%">
                                             <f:validator binding="#{bindings.PaymentTermDate.validator}"/>
                                             <af:convertDateTime pattern="#{bindings.PaymentTermDate.format}"/>
                                         </af:inputDate>
@@ -63,7 +66,8 @@
                                                       required="#{bindings.CutoffDay.hints.mandatory}"
                                                       columns="#{bindings.CutoffDay.hints.displayWidth}"
                                                       maximumLength="#{bindings.CutoffDay.hints.precision}"
-                                                      shortDesc="#{bindings.CutoffDay.hints.tooltip}" id="it5">
+                                                      shortDesc="#{bindings.CutoffDay.hints.tooltip}" id="it5"
+                                                      contentStyle="width:100%">
                                             <f:validator binding="#{bindings.CutoffDay.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.CutoffDay.format}"/>
@@ -72,7 +76,8 @@
                                                       label="#{bindings.StartDate.hints.label}"
                                                       required="#{bindings.StartDate.hints.mandatory}"
                                                       columns="#{bindings.StartDate.hints.displayWidth}"
-                                                      shortDesc="#{bindings.StartDate.hints.tooltip}" id="id2">
+                                                      shortDesc="#{bindings.StartDate.hints.tooltip}" id="id2"
+                                                      contentStyle="width:70%">
                                             <f:validator binding="#{bindings.StartDate.validator}"/>
                                             <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
                                         </af:inputDate>
@@ -80,14 +85,16 @@
                                                       label="#{bindings.EndDate.hints.label}"
                                                       required="#{bindings.EndDate.hints.mandatory}"
                                                       columns="#{bindings.EndDate.hints.displayWidth}"
-                                                      shortDesc="#{bindings.EndDate.hints.tooltip}" id="id3">
+                                                      shortDesc="#{bindings.EndDate.hints.tooltip}" id="id3"
+                                                      contentStyle="width:70%">
                                             <f:validator binding="#{bindings.EndDate.validator}"/>
                                             <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
                                         </af:inputDate>
                                         <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
                                                             label="#{bindings.IsActive.label}"
                                                             required="#{bindings.IsActive.hints.mandatory}"
-                                                            shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1">
+                                                            shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1"
+                                                            contentStyle="width:100%">
                                             <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
                                             <f:validator binding="#{bindings.IsActive.validator}"/>
                                         </af:selectOneChoice>
@@ -121,7 +128,19 @@
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
                                                 <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                                     <f:facet name="menus"/>
-                                                    <f:facet name="toolbar"/>
+                                                    <f:facet name="toolbar">
+                                                        <af:toolbar id="t3">
+                                                            <af:link actionListener="#{bindings.Delete1.execute}"
+                                                                     disabled="#{!bindings.Delete1.enabled}" id="l11"
+                                                                     iconPosition="top"
+                                                                     icon="#{resource['images:imgDeleteRecord.png']}"/>
+                                                            <af:link actionListener="#{bindings.CreateInsert.execute}"
+                                                                     disabled="#{!bindings.CreateInsert.enabled}"
+                                                                     id="l10" partialSubmit="true"
+                                                                     icon="#{resource['images:imgAddRecord.png']}"
+                                                                     iconPosition="top"/>
+                                                        </af:toolbar>
+                                                    </f:facet>
                                                     <f:facet name="statusbar"/>
                                                     <af:table value="#{bindings.ScmPaymentTermDueDetCRUD.collectionModel}"
                                                               var="row"
@@ -132,7 +151,8 @@
                                                               selectionListener="#{bindings.ScmPaymentTermDueDetCRUD.collectionModel.makeCurrent}"
                                                               rowSelection="single"
                                                               fetchSize="#{bindings.ScmPaymentTermDueDetCRUD.rangeSize}"
-                                                              id="t1" styleClass="AFStretchWidth">
+                                                              id="t1" styleClass="AFStretchWidth"
+                                                              partialTriggers="::l10 ::l11">
                                                         <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.label}"
                                                                    id="c1" width="60" minimumWidth="12">
                                                             <af:inputText value="#{row.bindings.DuePercent.inputValue}"
@@ -235,7 +255,17 @@
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
                                                 <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                                                     <f:facet name="menus"/>
-                                                    <f:facet name="toolbar"/>
+                                                    <f:facet name="toolbar">
+                                                        <af:toolbar id="t4">
+                                                            <af:link actionListener="#{bindings.Delete2.execute}"
+                                                                     disabled="#{!bindings.Delete2.enabled}" id="l13"
+                                                                     icon="#{resource['images:imgDeleteRecord.png']}"/>
+                                                            <af:link actionListener="#{bindings.CreateInsert1.execute}"
+                                                                     disabled="#{!bindings.CreateInsert1.enabled}"
+                                                                     id="l12"
+                                                                     icon="#{resource['images:imgAddRecord.png']}"/>
+                                                        </af:toolbar>
+                                                    </f:facet>
                                                     <f:facet name="statusbar"/>
                                                     <af:table value="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel}"
                                                               var="row"
@@ -246,7 +276,7 @@
                                                               selectionListener="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel.makeCurrent}"
                                                               rowSelection="single"
                                                               fetchSize="#{bindings.ScmPaymentTermDiscountDetCRUD.rangeSize}"
-                                                              id="t2">
+                                                              id="t2" partialTriggers="::l12 ::l13">
                                                         <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.label}"
                                                                    id="c8" width="200" displayIndex="-1">
                                                             <af:selectOneChoice value="#{row.bindings.DiscountId.inputValue}"
@@ -344,7 +374,8 @@
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="end">
                                         <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
                                             <af:link text="Close" id="l5" partialSubmit="true" iconPosition="top"
-                                                     icon="#{resource['images:imgCloseDialog.png']}"/>
+                                                     icon="#{resource['images:imgCloseDialog.png']}"
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
                                             <af:link text="Delete" id="l9" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                      iconPosition="top"/>
@@ -353,9 +384,12 @@
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"/>
                                             <af:link text="Undo" id="l7" icon="#{resource['images:imgUndo.png']}"
                                                      action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                     iconPosition="top" partialSubmit="true"/>
+                                                     iconPosition="top" partialSubmit="true" immediate="true">
+                                                <af:resetActionListener/>
+                                            </af:link>
                                             <af:link text="Save" id="l6" icon="#{resource['images:imgSave.png']}"
-                                                     iconPosition="top" partialSubmit="true"/>
+                                                     iconPosition="top" partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l4"
                                                      rendered="false"/>
                                             <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l3"
