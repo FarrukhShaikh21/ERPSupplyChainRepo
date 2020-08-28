@@ -248,7 +248,7 @@
                                                               fetchSize="#{bindings.ScmPaymentTermDiscountDetCRUD.rangeSize}"
                                                               id="t2">
                                                         <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.label}"
-                                                                   id="c8">
+                                                                   id="c8" width="200" displayIndex="-1">
                                                             <af:selectOneChoice value="#{row.bindings.DiscountId.inputValue}"
                                                                                 label="#{row.bindings.DiscountId.label}"
                                                                                 required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.mandatory}"
@@ -337,7 +337,30 @@
                                 </f:facet>
                             </af:panelSplitter>
                         </f:facet>
-                        <f:facet name="top"/>
+                        <f:facet name="top">
+                            <af:panelGridLayout id="pgl2">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc3"/>
+                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="end">
+                                        <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
+                                            <af:link text="Delete" id="l5" partialSubmit="true"/>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l4"
+                                                     rendered="false"/>
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l3"
+                                                     rendered="false">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                     disabled="#{!bindings.Delete.enabled}" id="l2" rendered="false"/>
+                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                     text="CreateWithParams"
+                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
+                                                     rendered="false"/>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
                     </af:decorativeBox>
                 </f:facet>
                 <f:facet name="top"/>
