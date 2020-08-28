@@ -343,7 +343,19 @@
                                     <af:gridCell marginStart="5px" width="50%" id="gc3"/>
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="end">
                                         <af:panelGroupLayout id="pgl3" layout="horizontal" halign="end">
-                                            <af:link text="Delete" id="l5" partialSubmit="true"/>
+                                            <af:link text="Close" id="l5" partialSubmit="true" iconPosition="top"
+                                                     icon="#{resource['images:imgCloseDialog.png']}"/>
+                                            <af:link text="Delete" id="l9" partialSubmit="true"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     iconPosition="top"/>
+                                            <af:link text="Add" id="l8" partialSubmit="true"
+                                                     icon="#{resource['images:imgAddRecord.png']}" iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"/>
+                                            <af:link text="Undo" id="l7" icon="#{resource['images:imgUndo.png']}"
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                     iconPosition="top" partialSubmit="true"/>
+                                            <af:link text="Save" id="l6" icon="#{resource['images:imgSave.png']}"
+                                                     iconPosition="top" partialSubmit="true"/>
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l4"
                                                      rendered="false"/>
                                             <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l3"
@@ -356,6 +368,9 @@
                                                      text="CreateWithParams"
                                                      disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
                                                      rendered="false"/>
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s1"/>
+                                            </f:facet>
                                         </af:panelGroupLayout>
                                     </af:gridCell>
                                 </af:gridRow>

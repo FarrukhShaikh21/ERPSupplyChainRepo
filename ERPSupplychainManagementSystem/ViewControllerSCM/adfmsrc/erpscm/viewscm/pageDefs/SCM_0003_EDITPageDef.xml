@@ -8,8 +8,6 @@
               id="AdminCompanyVOByCompanyROIterator"/>
     <iterator Binds="ScmPaymentTermHeaderByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPaymentTermHeaderByCompanyROIterator"/>
-    <iterator Binds="ScmPaymentTermHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmPaymentTermHeaderCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">
@@ -48,10 +46,5 @@
         <Item Value="PaymentTermHeaderSno"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="ScmPaymentTermHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
-            Action="createWithParams">
-      <NamedData NDName="PaymentTermHeaderSno" NDValue="#{''}" NDType="java.lang.String"/>
-      <NamedData NDName="CompanyId" NDValue="#{bindings.CompCode.inputValue}" NDType="java.lang.String"/>
-    </action>
   </bindings>
 </pageDefinition>

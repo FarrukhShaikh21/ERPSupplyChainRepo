@@ -156,9 +156,7 @@
                   <af:gridCell marginStart="5px" width="50%" id="gc3"/>
                   <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="end">
                     <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
-                      <af:link actionListener="#{bindings.CreateWithParams.execute}"
-                               disabled="#{!bindings.CreateWithParams.enabled}" id="l3"
-                               icon="#{resource['images:imgNewDocument.png']}" iconPosition="top"/>
+                      <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"/>
                       <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
                                partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
                       <f:facet name="separator">

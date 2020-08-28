@@ -2,6 +2,8 @@ package erpscm.modelscm.scmeo;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
+import erpglobals.modelglobals.ERPGlobalPLSQLClass;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.Key;
@@ -57,6 +59,8 @@ public class ScmPaymentTermHeaderImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int PAYMENTTERMHEADERSNO = AttributesEnum.PaymentTermHeaderSno.index();
     public static final int PAYMENTTERMHEADERCODE = AttributesEnum.PaymentTermHeaderCode.index();
     public static final int PAYMENTTERMSHORTNAME = AttributesEnum.PaymentTermShortName.index();
@@ -79,6 +83,14 @@ public class ScmPaymentTermHeaderImpl extends ERPEntityImpl {
      */
     public ScmPaymentTermHeaderImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPaymentTermHeader");
+    }
+
 
     /**
      * Gets the attribute value for PaymentTermHeaderSno, using the alias name PaymentTermHeaderSno.
@@ -327,6 +339,7 @@ public class ScmPaymentTermHeaderImpl extends ERPEntityImpl {
         return (RowIterator) getAttributeInternal(SCMPAYMENTTERMDUE);
     }
 
+
     /**
      * @param paymentTermHeaderSno key constituent
 
@@ -334,13 +347,6 @@ public class ScmPaymentTermHeaderImpl extends ERPEntityImpl {
      */
     public static Key createPrimaryKey(Integer paymentTermHeaderSno) {
         return new Key(new Object[] { paymentTermHeaderSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPaymentTermHeader");
     }
 
     /**
@@ -356,6 +362,20 @@ public class ScmPaymentTermHeaderImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation == DML_INSERT) {
+            
+            String result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "PAYMENT_TERM_HEADER_SNO",
+                                                              this.getEntityDef().getSource(), null, null);
+
+            populateAttributeAsChanged(PAYMENTTERMHEADERSNO, Integer.parseInt(result));
+            result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "PAYMENT_TERM_HEADER_CODE",
+                                                              this.getEntityDef().getSource(), "COMPANY_ID",
+                                                              getCompanyId().toString());
+            populateAttributeAsChanged(PAYMENTTERMHEADERCODE, Integer.parseInt(result));
+
+        }        
         super.doDML(operation, e);
     }
 }
