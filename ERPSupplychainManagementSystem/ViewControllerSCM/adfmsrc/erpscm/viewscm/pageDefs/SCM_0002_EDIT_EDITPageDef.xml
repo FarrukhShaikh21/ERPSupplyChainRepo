@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SCM_0002_EDIT_EDITPageDef"
+                Package="erpfms.viewfms.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlFiscalYearCRUD" RangeSize="25" DataControl="ERPFMSModuleDataControl"
+              id="GlFiscalYearCRUDIterator"/>
+    <iterator Binds="ScmCustomerCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerCRUDIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GlFiscalYearCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPFMSModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPFMSModuleDataControl"/>
+    <action IterBinding="GlFiscalYearCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams" InstanceName="ERPFMSModuleDataControl.GlFiscalYearCRUD"
+            DataControl="ERPFMSModuleDataControl">
+      <NamedData NDName="FiscalYearSno" NDValue="#{0}" NDType="java.lang.String"/>
+      <NamedData NDName="CompanyId" NDValue="#{data.erpfms_viewfms_FMS_0004_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerName">
+      <AttrNames>
+        <Item Value="CustomerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerShortCode">
+      <AttrNames>
+        <Item Value="CustomerShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerTypeSno">
+      <AttrNames>
+        <Item Value="CustomerTypeSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="AccountOpenDate">
+      <AttrNames>
+        <Item Value="AccountOpenDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CnicNo">
+      <AttrNames>
+        <Item Value="CnicNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="SrbPraNo">
+      <AttrNames>
+        <Item Value="SrbPraNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CurrencySno">
+      <AttrNames>
+        <Item Value="CurrencySno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="PaymentTermSno">
+      <AttrNames>
+        <Item Value="PaymentTermSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="BranchId">
+      <AttrNames>
+        <Item Value="BranchId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="BankAccountNo">
+      <AttrNames>
+        <Item Value="BankAccountNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CountrySno">
+      <AttrNames>
+        <Item Value="CountrySno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="PhoneNo">
+      <AttrNames>
+        <Item Value="PhoneNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="Mobile">
+      <AttrNames>
+        <Item Value="Mobile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="Fax">
+      <AttrNames>
+        <Item Value="Fax"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ScmCustomerCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit1" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+  </bindings>
+</pageDefinition>
