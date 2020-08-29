@@ -22,7 +22,7 @@
     Scale="0"
     ColumnName="PAYMENT_TERM_DISCOUNT_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PAYMENT_TERM_DISCOUNT"
     PrimaryKey="true">
@@ -181,7 +181,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -200,12 +199,12 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    TableName="SCM_PAYMENT_TERM_DISCOUNT"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -239,7 +238,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    TableName="SCM_PAYMENT_TERM_DISCOUNT"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
