@@ -11,360 +11,391 @@
                             <af:panelSplitter id="ps1" splitterPosition="210"
                                               partialTriggers="l5 l9 l8 l7 l6 l4 l3 l2 l1">
                                 <f:facet name="first">
-                                    <af:panelFormLayout id="pfl1" labelAlignment="top">
-                                        <af:inputText value="#{bindings.PaymentTermHeaderSno.inputValue}"
-                                                      label="#{bindings.PaymentTermHeaderSno.hints.label}"
-                                                      required="#{bindings.PaymentTermHeaderSno.hints.mandatory}"
-                                                      columns="#{bindings.PaymentTermHeaderSno.hints.displayWidth}"
-                                                      maximumLength="#{bindings.PaymentTermHeaderSno.hints.precision}"
-                                                      shortDesc="#{bindings.PaymentTermHeaderSno.hints.tooltip}"
-                                                      id="it1" rendered="false">
-                                            <f:validator binding="#{bindings.PaymentTermHeaderSno.validator}"/>
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.PaymentTermHeaderSno.format}"/>
-                                        </af:inputText>
-                                        <af:inputText value="#{bindings.PaymentTermHeaderCode.inputValue}"
-                                                      label="#{bindings.PaymentTermHeaderCode.hints.label}"
-                                                      required="#{bindings.PaymentTermHeaderCode.hints.mandatory}"
-                                                      columns="#{bindings.PaymentTermHeaderCode.hints.displayWidth}"
-                                                      maximumLength="#{bindings.PaymentTermHeaderCode.hints.precision}"
-                                                      shortDesc="#{bindings.PaymentTermHeaderCode.hints.tooltip}"
-                                                      id="it2" readOnly="true" contentStyle="width:100%">
-                                            <f:validator binding="#{bindings.PaymentTermHeaderCode.validator}"/>
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.PaymentTermHeaderCode.format}"/>
-                                        </af:inputText>
-                                        <af:inputText value="#{bindings.PaymentTermShortName.inputValue}"
-                                                      label="#{bindings.PaymentTermShortName.hints.label}"
-                                                      required="#{bindings.PaymentTermShortName.hints.mandatory}"
-                                                      columns="#{bindings.PaymentTermShortName.hints.displayWidth}"
-                                                      maximumLength="#{bindings.PaymentTermShortName.hints.precision}"
-                                                      shortDesc="#{bindings.PaymentTermShortName.hints.tooltip}"
-                                                      id="it3">
-                                            <f:validator binding="#{bindings.PaymentTermShortName.validator}"/>
-                                        </af:inputText>
-                                        <af:inputText value="#{bindings.PaymentTermName.inputValue}"
-                                                      label="#{bindings.PaymentTermName.hints.label}"
-                                                      required="#{bindings.PaymentTermName.hints.mandatory}"
-                                                      columns="#{bindings.PaymentTermName.hints.displayWidth}"
-                                                      maximumLength="#{bindings.PaymentTermName.hints.precision}"
-                                                      shortDesc="#{bindings.PaymentTermName.hints.tooltip}" id="it4"
-                                                      contentStyle="width:100%">
-                                            <f:validator binding="#{bindings.PaymentTermName.validator}"/>
-                                        </af:inputText>
-                                        <af:inputDate value="#{bindings.PaymentTermDate.inputValue}"
-                                                      label="#{bindings.PaymentTermDate.hints.label}"
-                                                      required="#{bindings.PaymentTermDate.hints.mandatory}"
-                                                      columns="#{bindings.PaymentTermDate.hints.displayWidth}"
-                                                      shortDesc="#{bindings.PaymentTermDate.hints.tooltip}" id="id1"
-                                                      contentStyle="width:70%">
-                                            <f:validator binding="#{bindings.PaymentTermDate.validator}"/>
-                                            <af:convertDateTime pattern="#{bindings.PaymentTermDate.format}"/>
-                                        </af:inputDate>
-                                        <af:inputText value="#{bindings.CutoffDay.inputValue}"
-                                                      label="#{bindings.CutoffDay.hints.label}"
-                                                      required="#{bindings.CutoffDay.hints.mandatory}"
-                                                      columns="#{bindings.CutoffDay.hints.displayWidth}"
-                                                      maximumLength="#{bindings.CutoffDay.hints.precision}"
-                                                      shortDesc="#{bindings.CutoffDay.hints.tooltip}" id="it5"
-                                                      contentStyle="width:100%">
-                                            <f:validator binding="#{bindings.CutoffDay.validator}"/>
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.CutoffDay.format}"/>
-                                        </af:inputText>
-                                        <af:inputDate value="#{bindings.StartDate.inputValue}"
-                                                      label="#{bindings.StartDate.hints.label}"
-                                                      required="#{bindings.StartDate.hints.mandatory}"
-                                                      columns="#{bindings.StartDate.hints.displayWidth}"
-                                                      shortDesc="#{bindings.StartDate.hints.tooltip}" id="id2"
-                                                      contentStyle="width:70%">
-                                            <f:validator binding="#{bindings.StartDate.validator}"/>
-                                            <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
-                                        </af:inputDate>
-                                        <af:inputDate value="#{bindings.EndDate.inputValue}"
-                                                      label="#{bindings.EndDate.hints.label}"
-                                                      required="#{bindings.EndDate.hints.mandatory}"
-                                                      columns="#{bindings.EndDate.hints.displayWidth}"
-                                                      shortDesc="#{bindings.EndDate.hints.tooltip}" id="id3"
-                                                      contentStyle="width:70%">
-                                            <f:validator binding="#{bindings.EndDate.validator}"/>
-                                            <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
-                                        </af:inputDate>
-                                        <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
-                                                            label="#{bindings.IsActive.label}"
-                                                            required="#{bindings.IsActive.hints.mandatory}"
-                                                            shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1"
-                                                            contentStyle="width:80%" styleClass="AFStretchWidth">
-                                            <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
-                                            <f:validator binding="#{bindings.IsActive.validator}"/>
-                                        </af:selectOneChoice>
-                                        <af:inputText value="#{bindings.GlobalCompanyId.inputValue}"
-                                                      label="#{bindings.GlobalCompanyId.hints.label}"
-                                                      required="#{bindings.GlobalCompanyId.hints.mandatory}"
-                                                      columns="#{bindings.GlobalCompanyId.hints.displayWidth}"
-                                                      maximumLength="#{bindings.GlobalCompanyId.hints.precision}"
-                                                      shortDesc="#{bindings.GlobalCompanyId.hints.tooltip}" id="it7"
-                                                      rendered="false">
-                                            <f:validator binding="#{bindings.GlobalCompanyId.validator}"/>
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.GlobalCompanyId.format}"/>
-                                        </af:inputText>
-                                        <af:inputText value="#{bindings.CompanyId.inputValue}"
-                                                      label="#{bindings.CompanyId.hints.label}"
-                                                      required="#{bindings.CompanyId.hints.mandatory}"
-                                                      columns="#{bindings.CompanyId.hints.displayWidth}"
-                                                      maximumLength="#{bindings.CompanyId.hints.precision}"
-                                                      shortDesc="#{bindings.CompanyId.hints.tooltip}" id="it8"
-                                                      rendered="false">
-                                            <f:validator binding="#{bindings.CompanyId.validator}"/>
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.CompanyId.format}"/>
-                                        </af:inputText>
-                                    </af:panelFormLayout>
+                                    <af:panelBox text="Term Header" id="pb1" showDisclosure="false" background="medium">
+                                        <f:facet name="toolbar"/>
+                                        <af:panelFormLayout id="pfl1" labelAlignment="top">
+                                            <af:inputText value="#{bindings.PaymentTermHeaderSno.inputValue}"
+                                                          label="#{bindings.PaymentTermHeaderSno.hints.label}"
+                                                          required="#{bindings.PaymentTermHeaderSno.hints.mandatory}"
+                                                          columns="#{bindings.PaymentTermHeaderSno.hints.displayWidth}"
+                                                          maximumLength="#{bindings.PaymentTermHeaderSno.hints.precision}"
+                                                          shortDesc="#{bindings.PaymentTermHeaderSno.hints.tooltip}"
+                                                          id="it1" rendered="false">
+                                                <f:validator binding="#{bindings.PaymentTermHeaderSno.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.PaymentTermHeaderSno.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.PaymentTermHeaderCode.inputValue}"
+                                                          label="#{bindings.PaymentTermHeaderCode.hints.label}"
+                                                          required="#{bindings.PaymentTermHeaderCode.hints.mandatory}"
+                                                          columns="#{bindings.PaymentTermHeaderCode.hints.displayWidth}"
+                                                          maximumLength="#{bindings.PaymentTermHeaderCode.hints.precision}"
+                                                          shortDesc="#{bindings.PaymentTermHeaderCode.hints.tooltip}"
+                                                          id="it2" readOnly="true" contentStyle="width:100%">
+                                                <f:validator binding="#{bindings.PaymentTermHeaderCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.PaymentTermHeaderCode.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.PaymentTermShortName.inputValue}"
+                                                          label="#{bindings.PaymentTermShortName.hints.label}"
+                                                          required="#{bindings.PaymentTermShortName.hints.mandatory}"
+                                                          columns="#{bindings.PaymentTermShortName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.PaymentTermShortName.hints.precision}"
+                                                          shortDesc="#{bindings.PaymentTermShortName.hints.tooltip}"
+                                                          id="it3">
+                                                <f:validator binding="#{bindings.PaymentTermShortName.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.PaymentTermName.inputValue}"
+                                                          label="#{bindings.PaymentTermName.hints.label}"
+                                                          required="#{bindings.PaymentTermName.hints.mandatory}"
+                                                          columns="#{bindings.PaymentTermName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.PaymentTermName.hints.precision}"
+                                                          shortDesc="#{bindings.PaymentTermName.hints.tooltip}" id="it4"
+                                                          contentStyle="width:100%">
+                                                <f:validator binding="#{bindings.PaymentTermName.validator}"/>
+                                            </af:inputText>
+                                            <af:inputDate value="#{bindings.PaymentTermDate.inputValue}"
+                                                          label="#{bindings.PaymentTermDate.hints.label}"
+                                                          required="#{bindings.PaymentTermDate.hints.mandatory}"
+                                                          columns="#{bindings.PaymentTermDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.PaymentTermDate.hints.tooltip}" id="id1"
+                                                          contentStyle="width:70%">
+                                                <f:validator binding="#{bindings.PaymentTermDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.PaymentTermDate.format}"/>
+                                            </af:inputDate>
+                                            <af:inputText value="#{bindings.CutoffDay.inputValue}"
+                                                          label="#{bindings.CutoffDay.hints.label}"
+                                                          required="#{bindings.CutoffDay.hints.mandatory}"
+                                                          columns="#{bindings.CutoffDay.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CutoffDay.hints.precision}"
+                                                          shortDesc="#{bindings.CutoffDay.hints.tooltip}" id="it5"
+                                                          contentStyle="width:100%">
+                                                <f:validator binding="#{bindings.CutoffDay.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.CutoffDay.format}"/>
+                                            </af:inputText>
+                                            <af:inputDate value="#{bindings.StartDate.inputValue}"
+                                                          label="#{bindings.StartDate.hints.label}"
+                                                          required="#{bindings.StartDate.hints.mandatory}"
+                                                          columns="#{bindings.StartDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.StartDate.hints.tooltip}" id="id2"
+                                                          contentStyle="width:70%">
+                                                <f:validator binding="#{bindings.StartDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
+                                            </af:inputDate>
+                                            <af:inputDate value="#{bindings.EndDate.inputValue}"
+                                                          label="#{bindings.EndDate.hints.label}"
+                                                          required="#{bindings.EndDate.hints.mandatory}"
+                                                          columns="#{bindings.EndDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.EndDate.hints.tooltip}" id="id3"
+                                                          contentStyle="width:70%">
+                                                <f:validator binding="#{bindings.EndDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
+                                            </af:inputDate>
+                                            <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
+                                                                label="#{bindings.IsActive.label}"
+                                                                required="#{bindings.IsActive.hints.mandatory}"
+                                                                shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1"
+                                                                contentStyle="width:80%" styleClass="AFStretchWidth">
+                                                <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
+                                                <f:validator binding="#{bindings.IsActive.validator}"/>
+                                            </af:selectOneChoice>
+                                            <af:inputText value="#{bindings.GlobalCompanyId.inputValue}"
+                                                          label="#{bindings.GlobalCompanyId.hints.label}"
+                                                          required="#{bindings.GlobalCompanyId.hints.mandatory}"
+                                                          columns="#{bindings.GlobalCompanyId.hints.displayWidth}"
+                                                          maximumLength="#{bindings.GlobalCompanyId.hints.precision}"
+                                                          shortDesc="#{bindings.GlobalCompanyId.hints.tooltip}" id="it7"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.GlobalCompanyId.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.GlobalCompanyId.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.CompanyId.inputValue}"
+                                                          label="#{bindings.CompanyId.hints.label}"
+                                                          required="#{bindings.CompanyId.hints.mandatory}"
+                                                          columns="#{bindings.CompanyId.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CompanyId.hints.precision}"
+                                                          shortDesc="#{bindings.CompanyId.hints.tooltip}" id="it8"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.CompanyId.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.CompanyId.format}"/>
+                                            </af:inputText>
+                                        </af:panelFormLayout>
+                                    </af:panelBox>
                                 </f:facet>
                                 <f:facet name="second">
                                     <af:panelGridLayout id="pgl1">
                                         <af:gridRow marginTop="5px" height="auto" id="gr1">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
-                                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                                                    <f:facet name="menus"/>
-                                                    <f:facet name="toolbar">
-                                                        <af:toolbar id="t3">
-                                                            <af:link actionListener="#{bindings.Delete1.execute}"
-                                                                     disabled="#{!bindings.Delete1.enabled}" id="l11"
-                                                                     iconPosition="top"
-                                                                     icon="#{resource['images:imgDeleteRecord.png']}"/>
-                                                            <af:link actionListener="#{bindings.CreateInsert.execute}"
-                                                                     disabled="#{!bindings.CreateInsert.enabled}"
-                                                                     id="l10" partialSubmit="true"
-                                                                     icon="#{resource['images:imgAddRecord.png']}"
-                                                                     iconPosition="top"/>
-                                                        </af:toolbar>
-                                                    </f:facet>
-                                                    <f:facet name="statusbar"/>
-                                                    <af:table value="#{bindings.ScmPaymentTermDueDetCRUD.collectionModel}"
-                                                              var="row"
-                                                              rows="#{bindings.ScmPaymentTermDueDetCRUD.rangeSize}"
-                                                              emptyText="#{bindings.ScmPaymentTermDueDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                              rowBandingInterval="0"
-                                                              selectedRowKeys="#{bindings.ScmPaymentTermDueDetCRUD.collectionModel.selectedRow}"
-                                                              selectionListener="#{bindings.ScmPaymentTermDueDetCRUD.collectionModel.makeCurrent}"
-                                                              rowSelection="single"
-                                                              fetchSize="#{bindings.ScmPaymentTermDueDetCRUD.rangeSize}"
-                                                              id="t1" styleClass="AFStretchWidth"
-                                                              partialTriggers="::l10 ::l11" autoHeightRows="5"
-                                                              scrollPolicy="page" columnStretching="column:c1">
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.label}"
-                                                                   id="c1" width="60" minimumWidth="12">
-                                                            <af:inputText value="#{row.bindings.DuePercent.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.label}"
-                                                                          required="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.precision}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.tooltip}"
-                                                                          id="it6">
-                                                                <f:validator binding="#{row.bindings.DuePercent.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.label}"
-                                                                   id="c2">
-                                                            <af:inputText value="#{row.bindings.DueAmount.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.label}"
-                                                                          required="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.precision}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.tooltip}"
-                                                                          id="it9">
-                                                                <f:validator binding="#{row.bindings.DueAmount.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.label}"
-                                                                   id="c3" rendered="false">
-                                                            <af:inputDate value="#{row.bindings.CalenderDate.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.label}"
-                                                                          required="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.tooltip}"
-                                                                          id="id4">
-                                                                <f:validator binding="#{row.bindings.CalenderDate.validator}"/>
-                                                                <af:convertDateTime pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.format}"/>
-                                                            </af:inputDate>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.label}"
-                                                                   id="c4" width="150" displayIndex="-1">
-                                                            <af:inputDate value="#{row.bindings.FixDate.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.label}"
-                                                                          required="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.tooltip}"
-                                                                          id="id5" contentStyle="width:60%">
-                                                                <f:validator binding="#{row.bindings.FixDate.validator}"/>
-                                                                <af:convertDateTime pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.format}"/>
-                                                            </af:inputDate>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.label}"
-                                                                   id="c5">
-                                                            <af:inputText value="#{row.bindings.Days.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.label}"
-                                                                          required="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.precision}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.tooltip}"
-                                                                          id="it10">
-                                                                <f:validator binding="#{row.bindings.Days.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.label}"
-                                                                   id="c6">
-                                                            <af:inputText value="#{row.bindings.Monthss.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.label}"
-                                                                          required="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.precision}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.tooltip}"
-                                                                          id="it11">
-                                                                <f:validator binding="#{row.bindings.Monthss.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.label}"
-                                                                   id="c7">
-                                                            <af:inputText value="#{row.bindings.MonthAhead.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.label}"
-                                                                          required="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.precision}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.tooltip}"
-                                                                          id="it12">
-                                                                <f:validator binding="#{row.bindings.MonthAhead.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                    </af:table>
-                                                </af:panelCollection>
+                                                <af:panelBox text="Payment Term Due" id="pb2" showDisclosure="false">
+                                                    <f:facet name="toolbar"/>
+                                                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                                        <f:facet name="menus"/>
+                                                        <f:facet name="toolbar">
+                                                            <af:toolbar id="t3">
+                                                                <af:link actionListener="#{bindings.Delete1.execute}"
+                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null}"
+                                                                         id="l11" iconPosition="top"
+                                                                         icon="#{resource['images:imgDeleteRecord.png']}"
+                                                                         partialSubmit="true"/>
+                                                                <af:link actionListener="#{bindings.CreateInsert.execute}"
+                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null}"
+                                                                         id="l10" partialSubmit="true"
+                                                                         icon="#{resource['images:imgAddRecord.png']}"
+                                                                         iconPosition="top"/>
+                                                            </af:toolbar>
+                                                        </f:facet>
+                                                        <f:facet name="statusbar"/>
+                                                        <af:table value="#{bindings.ScmPaymentTermDueDetCRUD.collectionModel}"
+                                                                  var="row"
+                                                                  rows="#{bindings.ScmPaymentTermDueDetCRUD.rangeSize}"
+                                                                  emptyText="#{bindings.ScmPaymentTermDueDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                                  rowBandingInterval="0"
+                                                                  selectedRowKeys="#{bindings.ScmPaymentTermDueDetCRUD.collectionModel.selectedRow}"
+                                                                  selectionListener="#{bindings.ScmPaymentTermDueDetCRUD.collectionModel.makeCurrent}"
+                                                                  rowSelection="single"
+                                                                  fetchSize="#{bindings.ScmPaymentTermDueDetCRUD.rangeSize}"
+                                                                  id="t1" styleClass="AFStretchWidth"
+                                                                  partialTriggers="::l10 ::l11" autoHeightRows="5"
+                                                                  scrollPolicy="page" columnStretching="column:c1">
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.PaymentTermDueSno.label}"
+                                                                       id="c14" rendered="false">
+                                                                <af:inputText value="#{row.bindings.PaymentTermDueSno.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDueDetCRUD.hints.PaymentTermDueSno.label}"
+                                                                              required="#{bindings.ScmPaymentTermDueDetCRUD.hints.PaymentTermDueSno.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.PaymentTermDueSno.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.PaymentTermDueSno.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.PaymentTermDueSno.tooltip}"
+                                                                              id="it13">
+                                                                    <f:validator binding="#{row.bindings.PaymentTermDueSno.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.PaymentTermDueSno.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.label}"
+                                                                       id="c1" width="60" minimumWidth="12">
+                                                                <af:inputText value="#{row.bindings.DuePercent.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.label}"
+                                                                              required="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.tooltip}"
+                                                                              id="it6" autoSubmit="true"
+                                                                              disabled="#{row.bindings.DueAmount.inputValue!=null}"
+                                                                              partialTriggers="it9">
+                                                                    <f:validator binding="#{row.bindings.DuePercent.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.label}"
+                                                                       id="c2">
+                                                                <af:inputText value="#{row.bindings.DueAmount.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.label}"
+                                                                              required="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.tooltip}"
+                                                                              id="it9" autoSubmit="true"
+                                                                              disabled="#{row.bindings.DuePercent.inputValue!=null}"
+                                                                              partialTriggers="it6">
+                                                                    <f:validator binding="#{row.bindings.DueAmount.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.label}"
+                                                                       id="c3" rendered="false">
+                                                                <af:inputDate value="#{row.bindings.CalenderDate.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.label}"
+                                                                              required="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.displayWidth}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.tooltip}"
+                                                                              id="id4">
+                                                                    <f:validator binding="#{row.bindings.CalenderDate.validator}"/>
+                                                                    <af:convertDateTime pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.format}"/>
+                                                                </af:inputDate>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.label}"
+                                                                       id="c4" width="150" displayIndex="-1">
+                                                                <af:inputDate value="#{row.bindings.FixDate.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.label}"
+                                                                              required="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.displayWidth}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.tooltip}"
+                                                                              id="id5" contentStyle="width:60%">
+                                                                    <f:validator binding="#{row.bindings.FixDate.validator}"/>
+                                                                    <af:convertDateTime pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.format}"/>
+                                                                </af:inputDate>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.label}"
+                                                                       id="c5">
+                                                                <af:inputText value="#{row.bindings.Days.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.label}"
+                                                                              required="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.tooltip}"
+                                                                              id="it10">
+                                                                    <f:validator binding="#{row.bindings.Days.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.label}"
+                                                                       id="c6">
+                                                                <af:inputText value="#{row.bindings.Monthss.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.label}"
+                                                                              required="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.tooltip}"
+                                                                              id="it11">
+                                                                    <f:validator binding="#{row.bindings.Monthss.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.label}"
+                                                                       id="c7">
+                                                                <af:inputText value="#{row.bindings.MonthAhead.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.label}"
+                                                                              required="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.tooltip}"
+                                                                              id="it12">
+                                                                    <f:validator binding="#{row.bindings.MonthAhead.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                        </af:table>
+                                                    </af:panelCollection>
+                                                </af:panelBox>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
                                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
-                                                <af:panelCollection id="pc2" styleClass="AFStretchWidth">
-                                                    <f:facet name="menus"/>
-                                                    <f:facet name="toolbar">
-                                                        <af:toolbar id="t4">
-                                                            <af:link actionListener="#{bindings.Delete2.execute}"
-                                                                     disabled="#{!bindings.Delete2.enabled}" id="l13"
-                                                                     icon="#{resource['images:imgDeleteRecord.png']}"
-                                                                     partialSubmit="true"/>
-                                                            <af:link actionListener="#{bindings.CreateInsert1.execute}"
-                                                                     disabled="#{!bindings.CreateInsert1.enabled}"
-                                                                     id="l12"
-                                                                     icon="#{resource['images:imgAddRecord.png']}"
-                                                                     partialSubmit="true"/>
-                                                        </af:toolbar>
-                                                    </f:facet>
-                                                    <f:facet name="statusbar"/>
-                                                    <af:table value="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel}"
-                                                              var="row"
-                                                              rows="#{bindings.ScmPaymentTermDiscountDetCRUD.rangeSize}"
-                                                              emptyText="#{bindings.ScmPaymentTermDiscountDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                              rowBandingInterval="0"
-                                                              selectedRowKeys="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel.selectedRow}"
-                                                              selectionListener="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel.makeCurrent}"
-                                                              rowSelection="single"
-                                                              fetchSize="#{bindings.ScmPaymentTermDiscountDetCRUD.rangeSize}"
-                                                              id="t2" partialTriggers="::l12 ::l13" scrollPolicy="page"
-                                                              autoHeightRows="5">
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.label}"
-                                                                   id="c8" width="200" displayIndex="-1">
-                                                            <af:selectOneChoice value="#{row.bindings.DiscountId.inputValue}"
-                                                                                label="#{row.bindings.DiscountId.label}"
-                                                                                required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.mandatory}"
-                                                                                shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.tooltip}"
-                                                                                id="soc2">
-                                                                <f:selectItems value="#{row.bindings.DiscountId.items}"
-                                                                               id="si2"/>
-                                                                <f:validator binding="#{row.bindings.DiscountId.validator}"/>
-                                                            </af:selectOneChoice>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.label}"
-                                                                   id="c9">
-                                                            <af:inputText value="#{row.bindings.DiscountPercent.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.label}"
-                                                                          required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.precision}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.tooltip}"
-                                                                          id="it14">
-                                                                <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.label}"
-                                                                   id="c10">
-                                                            <af:inputText value="#{row.bindings.DiscountAmount.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.label}"
-                                                                          required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.precision}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.tooltip}"
-                                                                          id="it15">
-                                                                <f:validator binding="#{row.bindings.DiscountAmount.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.label}"
-                                                                   id="c11">
-                                                            <af:inputText value="#{row.bindings.Days.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.label}"
-                                                                          required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.precision}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.tooltip}"
-                                                                          id="it16">
-                                                                <f:validator binding="#{row.bindings.Days.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.label}"
-                                                                   id="c12">
-                                                            <af:inputText value="#{row.bindings.Monthss.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.label}"
-                                                                          required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.precision}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.tooltip}"
-                                                                          id="it17">
-                                                                <f:validator binding="#{row.bindings.Monthss.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.label}"
-                                                                   id="c13">
-                                                            <af:inputText value="#{row.bindings.MonthAhead.inputValue}"
-                                                                          label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.label}"
-                                                                          required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.mandatory}"
-                                                                          columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.precision}"
-                                                                          shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.tooltip}"
-                                                                          id="it18">
-                                                                <f:validator binding="#{row.bindings.MonthAhead.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                    </af:table>
-                                                </af:panelCollection>
+                                                <af:panelBox text="Payment Term Discount" id="pb3"
+                                                             showDisclosure="false">
+                                                    <f:facet name="toolbar"/>
+                                                    <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                                                        <f:facet name="menus"/>
+                                                        <f:facet name="toolbar">
+                                                            <af:toolbar id="t4">
+                                                                <af:link actionListener="#{bindings.Delete2.execute}"
+                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null}"
+                                                                         id="l13"
+                                                                         icon="#{resource['images:imgDeleteRecord.png']}"
+                                                                         partialSubmit="true"/>
+                                                                <af:link actionListener="#{bindings.CreateInsert1.execute}"
+                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null}"
+                                                                         id="l12"
+                                                                         icon="#{resource['images:imgAddRecord.png']}"
+                                                                         partialSubmit="true"/>
+                                                            </af:toolbar>
+                                                        </f:facet>
+                                                        <f:facet name="statusbar"/>
+                                                        <af:table value="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel}"
+                                                                  var="row"
+                                                                  rows="#{bindings.ScmPaymentTermDiscountDetCRUD.rangeSize}"
+                                                                  emptyText="#{bindings.ScmPaymentTermDiscountDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                                  rowBandingInterval="0"
+                                                                  selectedRowKeys="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel.selectedRow}"
+                                                                  selectionListener="#{bindings.ScmPaymentTermDiscountDetCRUD.collectionModel.makeCurrent}"
+                                                                  rowSelection="single"
+                                                                  fetchSize="#{bindings.ScmPaymentTermDiscountDetCRUD.rangeSize}"
+                                                                  id="t2" partialTriggers="::l12 ::l13"
+                                                                  scrollPolicy="page" autoHeightRows="5"
+                                                                  columnStretching="last" styleClass="AFStretchWidth">
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.label}"
+                                                                       id="c8" width="150" displayIndex="-1">
+                                                                <af:selectOneChoice value="#{row.bindings.DiscountId.inputValue}"
+                                                                                    label="#{row.bindings.DiscountId.label}"
+                                                                                    required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.mandatory}"
+                                                                                    shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.tooltip}"
+                                                                                    id="soc2">
+                                                                    <f:selectItems value="#{row.bindings.DiscountId.items}"
+                                                                                   id="si2"/>
+                                                                    <f:validator binding="#{row.bindings.DiscountId.validator}"/>
+                                                                </af:selectOneChoice>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.label}"
+                                                                       id="c9">
+                                                                <af:inputText value="#{row.bindings.DiscountPercent.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.label}"
+                                                                              required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.tooltip}"
+                                                                              id="it14">
+                                                                    <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.label}"
+                                                                       id="c10">
+                                                                <af:inputText value="#{row.bindings.DiscountAmount.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.label}"
+                                                                              required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.tooltip}"
+                                                                              id="it15">
+                                                                    <f:validator binding="#{row.bindings.DiscountAmount.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.label}"
+                                                                       id="c11">
+                                                                <af:inputText value="#{row.bindings.Days.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.label}"
+                                                                              required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.tooltip}"
+                                                                              id="it16">
+                                                                    <f:validator binding="#{row.bindings.Days.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.label}"
+                                                                       id="c12">
+                                                                <af:inputText value="#{row.bindings.Monthss.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.label}"
+                                                                              required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.tooltip}"
+                                                                              id="it17">
+                                                                    <f:validator binding="#{row.bindings.Monthss.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.label}"
+                                                                       id="c13">
+                                                                <af:inputText value="#{row.bindings.MonthAhead.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.label}"
+                                                                              required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.tooltip}"
+                                                                              id="it18">
+                                                                    <f:validator binding="#{row.bindings.MonthAhead.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                        </af:table>
+                                                    </af:panelCollection>
+                                                </af:panelBox>
                                             </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>

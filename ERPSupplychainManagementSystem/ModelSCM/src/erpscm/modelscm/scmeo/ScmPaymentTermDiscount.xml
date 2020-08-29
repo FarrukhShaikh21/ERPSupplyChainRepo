@@ -62,6 +62,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PAYMENT_TERM_DISCOUNT">
+    <TransientExpression><![CDATA[ScmPaymentTermDue?.PaymentTermHeaderSno]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

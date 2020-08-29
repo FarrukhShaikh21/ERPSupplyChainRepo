@@ -331,6 +331,7 @@ public class ScmPaymentTermDueImpl extends ERPEntityImpl {
         return (RowSet) getAttributeInternal(SCMPAYMENTTERMDUEVOSEQ);
     }
 
+
     /**
      * @param paymentTermDueSno key constituent
 
@@ -359,7 +360,8 @@ public class ScmPaymentTermDueImpl extends ERPEntityImpl {
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "PAYMENT_TERM_DUE_SNO",
                                                               this.getEntityDef().getSource(), null, null);
 
-            populateAttributeAsChanged(PAYMENTTERMDUESNO, Integer.parseInt(result));
+           // populateAttributeAsChanged(PAYMENTTERMDUESNO, Integer.parseInt(result));
+            setPaymentTermDueSno(Integer.parseInt(result));
         
         }         
         super.doDML(operation, e);

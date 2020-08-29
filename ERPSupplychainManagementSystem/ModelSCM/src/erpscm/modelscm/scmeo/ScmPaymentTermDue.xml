@@ -31,8 +31,6 @@
     TableName="SCM_PAYMENT_TERM_DUE"
     PrimaryKey="true"
     ChangeIndicator="true">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[-(ScmPaymentTermDueVOSEQ.getEstimatedRowCount()+1)]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

@@ -4,7 +4,7 @@
 <Association
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="FkScmPtDiscDueHeadAssoc"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
@@ -13,7 +13,9 @@
     Name="ScmPaymentTermDue"
     Cardinality="1"
     Source="true"
-    Owner="erpscm.modelscm.scmeo.ScmPaymentTermDue">
+    Owner="erpscm.modelscm.scmeo.ScmPaymentTermDue"
+    LockLevel="NONE"
+    CascadeUpdate="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPaymentTermDue"/>
@@ -28,7 +30,8 @@
   <AssociationEnd
     Name="ScmPaymentTermDiscount"
     Cardinality="-1"
-    Owner="erpscm.modelscm.scmeo.ScmPaymentTermDiscount">
+    Owner="erpscm.modelscm.scmeo.ScmPaymentTermDiscount"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPaymentTermDiscount"/>

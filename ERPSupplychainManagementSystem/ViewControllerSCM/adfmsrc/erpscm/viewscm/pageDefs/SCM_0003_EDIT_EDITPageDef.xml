@@ -7,7 +7,7 @@
     <iterator Binds="ScmPaymentTermHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPaymentTermHeaderCRUDIterator"/>
     <iterator Binds="ScmPaymentTermDueDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmPaymentTermDueDetCRUDIterator"/>
+              id="ScmPaymentTermDueDetCRUDIterator" ChangeEventPolicy="none"/>
     <iterator Binds="ScmPaymentTermDiscountDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPaymentTermDiscountDetCRUDIterator"/>
   </executables>
@@ -74,6 +74,7 @@
           <Item Value="Days"/>
           <Item Value="Monthss"/>
           <Item Value="MonthAhead"/>
+          <Item Value="PaymentTermDueSno"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -100,7 +101,12 @@
             DataControl="ERPSCMModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <action IterBinding="ScmPaymentTermDueDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+            Action="createWithParams" InstanceName="ERPSCMModuleDataControl.ScmPaymentTermDueDetCRUD"
+            DataControl="ERPSCMModuleDataControl">
+      <NamedData NDName="PaymentTermDueSno"
+                 NDValue="#{(bindings.ScmPaymentTermDueDetCRUDIterator.estimatedRowCount +1) *-1}"
+                 NDType="java.lang.String"/>
+    </action>
     <action IterBinding="ScmPaymentTermDueDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <action IterBinding="ScmPaymentTermDiscountDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"

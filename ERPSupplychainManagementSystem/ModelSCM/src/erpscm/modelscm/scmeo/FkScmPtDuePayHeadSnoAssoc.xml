@@ -4,7 +4,7 @@
 <Association
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="FkScmPtDuePayHeadSnoAssoc"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
@@ -13,7 +13,8 @@
     Name="ScmPaymentTermHeader"
     Cardinality="1"
     Source="true"
-    Owner="erpscm.modelscm.scmeo.ScmPaymentTermHeader">
+    Owner="erpscm.modelscm.scmeo.ScmPaymentTermHeader"
+    LockLevel="NONE">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPaymentTermHeader"/>
