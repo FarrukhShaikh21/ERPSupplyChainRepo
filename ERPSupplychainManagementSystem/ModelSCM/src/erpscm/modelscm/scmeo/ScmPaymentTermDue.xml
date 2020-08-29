@@ -16,6 +16,10 @@
     <Attr Name="_isCodegen" Value="true"/>
     <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
   </DesignTime>
+  <ViewAccessor
+    Name="ScmPaymentTermDueVOSEQ"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermDueVO"
+    RowLevelBinds="true"/>
   <Attribute
     Name="PaymentTermDueSno"
     Precision="6"
@@ -27,6 +31,8 @@
     TableName="SCM_PAYMENT_TERM_DUE"
     PrimaryKey="true"
     ChangeIndicator="true">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[-(ScmPaymentTermDueVOSEQ.getEstimatedRowCount()+1)]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
