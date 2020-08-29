@@ -152,8 +152,8 @@
                                                               rowSelection="single"
                                                               fetchSize="#{bindings.ScmPaymentTermDueDetCRUD.rangeSize}"
                                                               id="t1" styleClass="AFStretchWidth"
-                                                              partialTriggers="::l10 ::l11" autoHeightRows="3"
-                                                              scrollPolicy="page">
+                                                              partialTriggers="::l10 ::l11" autoHeightRows="5"
+                                                              scrollPolicy="page" columnStretching="column:c1">
                                                         <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.label}"
                                                                    id="c1" width="60" minimumWidth="12">
                                                             <af:inputText value="#{row.bindings.DuePercent.inputValue}"
@@ -183,7 +183,7 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.label}"
-                                                                   id="c3">
+                                                                   id="c3" rendered="false">
                                                             <af:inputDate value="#{row.bindings.CalenderDate.inputValue}"
                                                                           label="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.label}"
                                                                           required="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.mandatory}"
@@ -195,13 +195,13 @@
                                                             </af:inputDate>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.label}"
-                                                                   id="c4">
+                                                                   id="c4" width="150" displayIndex="-1">
                                                             <af:inputDate value="#{row.bindings.FixDate.inputValue}"
                                                                           label="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.label}"
                                                                           required="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.mandatory}"
                                                                           columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.tooltip}"
-                                                                          id="id5">
+                                                                          id="id5" contentStyle="width:60%">
                                                                 <f:validator binding="#{row.bindings.FixDate.validator}"/>
                                                                 <af:convertDateTime pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.format}"/>
                                                             </af:inputDate>
@@ -260,11 +260,13 @@
                                                         <af:toolbar id="t4">
                                                             <af:link actionListener="#{bindings.Delete2.execute}"
                                                                      disabled="#{!bindings.Delete2.enabled}" id="l13"
-                                                                     icon="#{resource['images:imgDeleteRecord.png']}"/>
+                                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                                     partialSubmit="true"/>
                                                             <af:link actionListener="#{bindings.CreateInsert1.execute}"
                                                                      disabled="#{!bindings.CreateInsert1.enabled}"
                                                                      id="l12"
-                                                                     icon="#{resource['images:imgAddRecord.png']}"/>
+                                                                     icon="#{resource['images:imgAddRecord.png']}"
+                                                                     partialSubmit="true"/>
                                                         </af:toolbar>
                                                     </f:facet>
                                                     <f:facet name="statusbar"/>
