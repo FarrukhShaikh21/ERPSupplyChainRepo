@@ -162,6 +162,42 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmPaymentTermHeader"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="IsSupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsSupervised"
+    EntityUsage="ScmPaymentTermHeader"
+    AliasName="IS_SUPERVISED"/>
+  <ViewAttribute
+    Name="IsUnsupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsUnsupervised"
+    EntityUsage="ScmPaymentTermHeader"
+    AliasName="IS_UNSUPERVISED"/>
+  <ViewAttribute
+    Name="UnSupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedBy"
+    EntityUsage="ScmPaymentTermHeader"
+    AliasName="UN_SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="UnSupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedDate"
+    EntityUsage="ScmPaymentTermHeader"
+    AliasName="UN_SUPERVISED_DATE"/>
+  <ViewAttribute
+    Name="SupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedBy"
+    EntityUsage="ScmPaymentTermHeader"
+    AliasName="SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="SupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedDate"
+    EntityUsage="ScmPaymentTermHeader"
+    AliasName="SUPERVISED_DATE"/>
   <ViewCriteria
     Name="ScmPaymentTermHeaderByCompanyVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"

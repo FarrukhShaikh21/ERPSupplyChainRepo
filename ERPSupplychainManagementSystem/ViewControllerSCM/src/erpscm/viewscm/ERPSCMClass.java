@@ -7,12 +7,15 @@ import erpglobals.viewglobals.ERPGlobalsClass;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
+import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.adf.view.rich.render.ClientEvent;
 
+import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
 import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
@@ -27,10 +30,30 @@ public class ERPSCMClass {
     private String ERPBackActionName="ERPBACKCRUD";
     private String lIteratorName="SysUsersCRUDIterator";
     private String erpScreenSize;
+    private RichPopup lerpSupervisePopupConfirm;
+    private RichPopup lerpUnSupervisePopupConfirm;
+        
     
     public ERPSCMClass() {
         super();
     }
+
+    public void setLerpSupervisePopupConfirm(RichPopup lerpSupervisePopupConfirm) {
+        this.lerpSupervisePopupConfirm = lerpSupervisePopupConfirm;
+    }
+
+    public RichPopup getLerpSupervisePopupConfirm() {
+        return lerpSupervisePopupConfirm;
+    }
+
+    public void setLerpUnSupervisePopupConfirm(RichPopup lerpUnSupervisePopupConfirm) {
+        this.lerpUnSupervisePopupConfirm = lerpUnSupervisePopupConfirm;
+    }
+
+    public RichPopup getLerpUnSupervisePopupConfirm() {
+        return lerpUnSupervisePopupConfirm;
+    }
+
     public void setErpScreenSize(String erpScreenSize) {
         this.erpScreenSize = erpScreenSize;
     }
@@ -190,4 +213,45 @@ public class ERPSCMClass {
          return null;
     }
 
+
+    public String doERPPopSupervisedRecord() {
+
+        OperationBinding ob=ERPGlobalsClass.doGetERPOperation("Commit");
+        Object execute = ob.execute(); 
+        ob.execute();
+        //error occurs during saving the record.
+        if (!ob.getErrors().isEmpty()) {
+          FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(ob.getErrors().toString()));  
+          return null;
+        }
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.lerpSupervisePopupConfirm.show(hints); 
+         return null;
+    }
+    
+    public void doERPConfirmUnSuperviseDialog(DialogEvent de) {
+          ///user wants to save the record
+          if (de.getOutcome() == DialogEvent.Outcome.yes) {
+              BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+              DCIteratorBinding ib = (DCIteratorBinding) bc.get(lIteratorName);
+              ib.getCurrentRow().setAttribute("IsSupervised", "N");
+              ib.getCurrentRow().setAttribute("SupervisedDate", null);
+              ib.getCurrentRow().setAttribute("SupervisedBy", null);
+              ib.getCurrentRow().setAttribute("IsUnsupervised", "Y");
+              
+              OperationBinding ob = ERPGlobalsClass.doGetERPOperation("Commit");
+              ob.execute();
+              //error occurs during saving the record.
+              if (!ob.getErrors().isEmpty()) {
+                  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(ob.getErrors().toString()));
+                  return;
+              }
+              doERPShowSaveMessage("Record Unupervised Successfully.");   
+          }
+      }    
+    public String doERPPopUnSuperviseRecord() {
+         RichPopup.PopupHints hints = new RichPopup.PopupHints();
+         this.lerpUnSupervisePopupConfirm.show(hints); 
+          return null;
+     }
 }
