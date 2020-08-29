@@ -393,7 +393,8 @@
                                                                               maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.tooltip}"
                                                                               id="it14"
-                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (row.bindings.PaymentTermDiscountSno.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
+                                                                              disabled="#{row.bindings.DiscountAmount.inputValue!=null|| bindings.IsSupervised.inputValue=='Y'|| (row.bindings.PaymentTermDiscountSno.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}"
+                                                                              autoSubmit="true" partialTriggers="it15">
                                                                     <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
                                                                                       pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.format}"/>
@@ -408,7 +409,8 @@
                                                                               maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.tooltip}"
                                                                               id="it15"
-                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (row.bindings.PaymentTermDiscountSno.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
+                                                                              disabled="#{row.bindings.DiscountPercent.inputValue!=null||bindings.IsSupervised.inputValue=='Y'|| (row.bindings.PaymentTermDiscountSno.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}"
+                                                                              autoSubmit="true" partialTriggers="it14">
                                                                     <f:validator binding="#{row.bindings.DiscountAmount.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
                                                                                       pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.format}"/>
@@ -485,7 +487,8 @@
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.PaymentTermHeaderCode.inputValue==null}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.PaymentTermHeaderCode.inputValue==null}"
+                                                     partialTriggers="l6">
                                                 <af:setActionListener from="#{'ScmPaymentTermHeaderCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                                     
@@ -493,7 +496,8 @@
                                                      icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.PaymentTermHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.PaymentTermHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                     partialTriggers="l6">
                                                 <af:setActionListener from="#{'ScmPaymentTermHeaderCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                                     
