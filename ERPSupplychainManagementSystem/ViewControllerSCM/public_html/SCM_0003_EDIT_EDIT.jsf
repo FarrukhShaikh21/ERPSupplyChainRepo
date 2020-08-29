@@ -4,16 +4,50 @@
     <af:document title="SCM_0003_EDIT_EDIT.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                        binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
+                  <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>   
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                        binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
+                  <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>        
             <af:decorativeBox id="db2" dimensionsFrom="parent">
                 <f:facet name="center">
                     <af:decorativeBox id="db1" dimensionsFrom="parent">
                         <f:facet name="center">
                             <af:panelSplitter id="ps1" splitterPosition="210"
-                                              partialTriggers="l5 l9 l8 l7 l6 l4 l3 l2 l1">
+                                              partialTriggers="l5 l9 l8 l7 l6 l4 l3 l2 l1 d4 d3">
                                 <f:facet name="first">
                                     <af:panelBox text="Term Header" id="pb1" showDisclosure="false" background="medium">
                                         <f:facet name="toolbar"/>
                                         <af:panelFormLayout id="pfl1" labelAlignment="top">
+                                            <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                          label="#{bindings.IsUnsupervised.hints.label}"
+                                                          required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                          columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                          maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                          shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
+                                                          id="it20" rendered="false">
+                                                <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                          label="#{bindings.IsSupervised.hints.label}"
+                                                          required="#{bindings.IsSupervised.hints.mandatory}"
+                                                          columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                          maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                          shortDesc="#{bindings.IsSupervised.hints.tooltip}" id="it19"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                            </af:inputText>
                                             <af:inputText value="#{bindings.PaymentTermHeaderSno.inputValue}"
                                                           label="#{bindings.PaymentTermHeaderSno.hints.label}"
                                                           required="#{bindings.PaymentTermHeaderSno.hints.mandatory}"
@@ -42,7 +76,8 @@
                                                           columns="#{bindings.PaymentTermShortName.hints.displayWidth}"
                                                           maximumLength="#{bindings.PaymentTermShortName.hints.precision}"
                                                           shortDesc="#{bindings.PaymentTermShortName.hints.tooltip}"
-                                                          id="it3">
+                                                          id="it3"
+                                                          disabled="#{bindings.IsSupervised.inputValue=='Y' ||(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.PaymentTermHeaderCode.inputValue!=null)}">
                                                 <f:validator binding="#{bindings.PaymentTermShortName.validator}"/>
                                             </af:inputText>
                                             <af:inputText value="#{bindings.PaymentTermName.inputValue}"
@@ -51,7 +86,8 @@
                                                           columns="#{bindings.PaymentTermName.hints.displayWidth}"
                                                           maximumLength="#{bindings.PaymentTermName.hints.precision}"
                                                           shortDesc="#{bindings.PaymentTermName.hints.tooltip}" id="it4"
-                                                          contentStyle="width:100%">
+                                                          contentStyle="width:100%"
+                                                          disabled="#{bindings.IsSupervised.inputValue=='Y' ||(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.PaymentTermHeaderCode.inputValue!=null)}">
                                                 <f:validator binding="#{bindings.PaymentTermName.validator}"/>
                                             </af:inputText>
                                             <af:inputDate value="#{bindings.PaymentTermDate.inputValue}"
@@ -59,7 +95,8 @@
                                                           required="#{bindings.PaymentTermDate.hints.mandatory}"
                                                           columns="#{bindings.PaymentTermDate.hints.displayWidth}"
                                                           shortDesc="#{bindings.PaymentTermDate.hints.tooltip}" id="id1"
-                                                          contentStyle="width:70%">
+                                                          contentStyle="width:70%"
+                                                          disabled="#{bindings.IsSupervised.inputValue=='Y' ||(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.PaymentTermHeaderCode.inputValue!=null)}">
                                                 <f:validator binding="#{bindings.PaymentTermDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.PaymentTermDate.format}"/>
                                             </af:inputDate>
@@ -69,7 +106,8 @@
                                                           columns="#{bindings.CutoffDay.hints.displayWidth}"
                                                           maximumLength="#{bindings.CutoffDay.hints.precision}"
                                                           shortDesc="#{bindings.CutoffDay.hints.tooltip}" id="it5"
-                                                          contentStyle="width:100%">
+                                                          contentStyle="width:100%"
+                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' ||(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.PaymentTermHeaderCode.inputValue!=null)}">
                                                 <f:validator binding="#{bindings.CutoffDay.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.CutoffDay.format}"/>
@@ -79,7 +117,8 @@
                                                           required="#{bindings.StartDate.hints.mandatory}"
                                                           columns="#{bindings.StartDate.hints.displayWidth}"
                                                           shortDesc="#{bindings.StartDate.hints.tooltip}" id="id2"
-                                                          contentStyle="width:70%">
+                                                          contentStyle="width:70%"
+                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' ||(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.PaymentTermHeaderCode.inputValue!=null)}">
                                                 <f:validator binding="#{bindings.StartDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
                                             </af:inputDate>
@@ -88,7 +127,8 @@
                                                           required="#{bindings.EndDate.hints.mandatory}"
                                                           columns="#{bindings.EndDate.hints.displayWidth}"
                                                           shortDesc="#{bindings.EndDate.hints.tooltip}" id="id3"
-                                                          contentStyle="width:70%">
+                                                          contentStyle="width:70%"
+                                                          readOnly="#{bindings.IsSupervised.inputValue=='Y' ||(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.PaymentTermHeaderCode.inputValue!=null)}">
                                                 <f:validator binding="#{bindings.EndDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
                                             </af:inputDate>
@@ -96,7 +136,8 @@
                                                                 label="#{bindings.IsActive.label}"
                                                                 required="#{bindings.IsActive.hints.mandatory}"
                                                                 shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1"
-                                                                contentStyle="width:80%" styleClass="AFStretchWidth">
+                                                                contentStyle="width:80%" styleClass="AFStretchWidth"
+                                                                readOnly="#{bindings.IsSupervised.inputValue=='Y' ||(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.PaymentTermHeaderCode.inputValue!=null)}">
                                                 <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
                                                 <f:validator binding="#{bindings.IsActive.validator}"/>
                                             </af:selectOneChoice>
@@ -136,12 +177,12 @@
                                                         <f:facet name="toolbar">
                                                             <af:toolbar id="t3">
                                                                 <af:link actionListener="#{bindings.Delete1.execute}"
-                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null}"
+                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null || bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
                                                                          id="l11" iconPosition="top"
                                                                          icon="#{resource['images:imgDeleteRecord.png']}"
                                                                          partialSubmit="true"/>
                                                                 <af:link actionListener="#{bindings.CreateInsert.execute}"
-                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null}"
+                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null || bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
                                                                          id="l10" partialSubmit="true"
                                                                          icon="#{resource['images:imgAddRecord.png']}"
                                                                          iconPosition="top"/>
@@ -183,7 +224,7 @@
                                                                               maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.DuePercent.tooltip}"
                                                                               id="it6" autoSubmit="true"
-                                                                              disabled="#{row.bindings.DueAmount.inputValue!=null}"
+                                                                              disabled="#{row.bindings.DueAmount.inputValue!=null || bindings.IsSupervised.inputValue=='Y'|| (bindings.PaymentTermHeaderCode.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}"
                                                                               partialTriggers="it9">
                                                                     <f:validator binding="#{row.bindings.DuePercent.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
@@ -199,7 +240,7 @@
                                                                               maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.DueAmount.tooltip}"
                                                                               id="it9" autoSubmit="true"
-                                                                              disabled="#{row.bindings.DuePercent.inputValue!=null}"
+                                                                              disabled="#{row.bindings.DuePercent.inputValue!=null || bindings.IsSupervised.inputValue=='Y'|| (bindings.PaymentTermHeaderCode.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}"
                                                                               partialTriggers="it6">
                                                                     <f:validator binding="#{row.bindings.DueAmount.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
@@ -213,7 +254,8 @@
                                                                               required="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.mandatory}"
                                                                               columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.displayWidth}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.tooltip}"
-                                                                              id="id4">
+                                                                              id="id4"
+                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (bindings.PaymentTermHeaderCode.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
                                                                     <f:validator binding="#{row.bindings.CalenderDate.validator}"/>
                                                                     <af:convertDateTime pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.CalenderDate.format}"/>
                                                                 </af:inputDate>
@@ -225,7 +267,8 @@
                                                                               required="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.mandatory}"
                                                                               columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.displayWidth}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.tooltip}"
-                                                                              id="id5" contentStyle="width:60%">
+                                                                              id="id5" contentStyle="width:60%"
+                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (bindings.PaymentTermHeaderCode.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
                                                                     <f:validator binding="#{row.bindings.FixDate.validator}"/>
                                                                     <af:convertDateTime pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.FixDate.format}"/>
                                                                 </af:inputDate>
@@ -238,7 +281,8 @@
                                                                               columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.displayWidth}"
                                                                               maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.tooltip}"
-                                                                              id="it10">
+                                                                              id="it10"
+                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (bindings.PaymentTermHeaderCode.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
                                                                     <f:validator binding="#{row.bindings.Days.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
                                                                                       pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.Days.format}"/>
@@ -252,7 +296,8 @@
                                                                               columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.displayWidth}"
                                                                               maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.tooltip}"
-                                                                              id="it11">
+                                                                              id="it11"
+                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (bindings.PaymentTermHeaderCode.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
                                                                     <f:validator binding="#{row.bindings.Monthss.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
                                                                                       pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.Monthss.format}"/>
@@ -266,7 +311,8 @@
                                                                               columns="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.displayWidth}"
                                                                               maximumLength="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.tooltip}"
-                                                                              id="it12">
+                                                                              id="it12"
+                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (bindings.PaymentTermHeaderCode.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
                                                                     <f:validator binding="#{row.bindings.MonthAhead.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
                                                                                       pattern="#{bindings.ScmPaymentTermDueDetCRUD.hints.MonthAhead.format}"/>
@@ -287,12 +333,12 @@
                                                         <f:facet name="toolbar">
                                                             <af:toolbar id="t4">
                                                                 <af:link actionListener="#{bindings.Delete2.execute}"
-                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null}"
+                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null || bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
                                                                          id="l13"
                                                                          icon="#{resource['images:imgDeleteRecord.png']}"
                                                                          partialSubmit="true"/>
                                                                 <af:link actionListener="#{bindings.CreateInsert1.execute}"
-                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null}"
+                                                                         disabled="#{bindings.PaymentTermHeaderCode.inputValue==null || bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
                                                                          id="l12"
                                                                          icon="#{resource['images:imgAddRecord.png']}"
                                                                          partialSubmit="true"/>
@@ -311,13 +357,28 @@
                                                                   id="t2" partialTriggers="::l12 ::l13"
                                                                   scrollPolicy="page" autoHeightRows="5"
                                                                   columnStretching="last" styleClass="AFStretchWidth">
+                                                            <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.PaymentTermDiscountSno.label}"
+                                                                       id="c15" rendered="false">
+                                                                <af:inputText value="#{row.bindings.PaymentTermDiscountSno.inputValue}"
+                                                                              label="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.PaymentTermDiscountSno.label}"
+                                                                              required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.PaymentTermDiscountSno.mandatory}"
+                                                                              columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.PaymentTermDiscountSno.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.PaymentTermDiscountSno.precision}"
+                                                                              shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.PaymentTermDiscountSno.tooltip}"
+                                                                              id="it21">
+                                                                    <f:validator binding="#{row.bindings.PaymentTermDiscountSno.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.PaymentTermDiscountSno.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
                                                             <af:column headerText="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.label}"
                                                                        id="c8" width="150" displayIndex="-1">
                                                                 <af:selectOneChoice value="#{row.bindings.DiscountId.inputValue}"
                                                                                     label="#{row.bindings.DiscountId.label}"
                                                                                     required="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.mandatory}"
                                                                                     shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountId.tooltip}"
-                                                                                    id="soc2">
+                                                                                    id="soc2"
+                                                                                    disabled="#{bindings.IsSupervised.inputValue=='Y'|| (row.bindings.PaymentTermDiscountSno.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
                                                                     <f:selectItems value="#{row.bindings.DiscountId.items}"
                                                                                    id="si2"/>
                                                                     <f:validator binding="#{row.bindings.DiscountId.validator}"/>
@@ -331,7 +392,8 @@
                                                                               columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.displayWidth}"
                                                                               maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.tooltip}"
-                                                                              id="it14">
+                                                                              id="it14"
+                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (row.bindings.PaymentTermDiscountSno.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
                                                                     <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
                                                                                       pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountPercent.format}"/>
@@ -345,7 +407,8 @@
                                                                               columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.displayWidth}"
                                                                               maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.tooltip}"
-                                                                              id="it15">
+                                                                              id="it15"
+                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (row.bindings.PaymentTermDiscountSno.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
                                                                     <f:validator binding="#{row.bindings.DiscountAmount.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
                                                                                       pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.DiscountAmount.format}"/>
@@ -359,7 +422,8 @@
                                                                               columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.displayWidth}"
                                                                               maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.tooltip}"
-                                                                              id="it16">
+                                                                              id="it16"
+                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (row.bindings.PaymentTermDiscountSno.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
                                                                     <f:validator binding="#{row.bindings.Days.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
                                                                                       pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Days.format}"/>
@@ -373,7 +437,8 @@
                                                                               columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.displayWidth}"
                                                                               maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.tooltip}"
-                                                                              id="it17">
+                                                                              id="it17"
+                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (row.bindings.PaymentTermDiscountSno.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
                                                                     <f:validator binding="#{row.bindings.Monthss.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
                                                                                       pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.Monthss.format}"/>
@@ -387,7 +452,8 @@
                                                                               columns="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.displayWidth}"
                                                                               maximumLength="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.precision}"
                                                                               shortDesc="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.tooltip}"
-                                                                              id="it18">
+                                                                              id="it18"
+                                                                              disabled="#{bindings.IsSupervised.inputValue=='Y'|| (row.bindings.PaymentTermDiscountSno.inputValue!=null &amp;&amp; pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' )}">
                                                                     <f:validator binding="#{row.bindings.MonthAhead.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
                                                                                       pattern="#{bindings.ScmPaymentTermDiscountDetCRUD.hints.MonthAhead.format}"/>
@@ -413,7 +479,24 @@
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
                                             <af:link text="Delete" id="l9" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     iconPosition="top"/>
+                                                     iconPosition="top"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"/>
+                                            <af:link text="Supervise" id="l17" partialSubmit="true"
+                                                     icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.PaymentTermHeaderCode.inputValue==null}">
+                                                <af:setActionListener from="#{'ScmPaymentTermHeaderCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>                                                     
+                                            <af:link text="UnSupervise" id="l18" partialSubmit="true"
+                                                     icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.PaymentTermHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
+                                                <af:setActionListener from="#{'ScmPaymentTermHeaderCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>                                                     
                                             <af:link text="Add" id="l8" partialSubmit="true"
                                                      icon="#{resource['images:imgAddRecord.png']}" iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"/>

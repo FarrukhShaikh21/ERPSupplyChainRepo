@@ -87,6 +87,7 @@
           <Item Value="Days"/>
           <Item Value="Monthss"/>
           <Item Value="MonthAhead"/>
+          <Item Value="PaymentTermDiscountSno"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -113,5 +114,15 @@
             Action="createInsertRow"/>
     <action IterBinding="ScmPaymentTermDiscountDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

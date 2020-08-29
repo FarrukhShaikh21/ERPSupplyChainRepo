@@ -337,7 +337,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PAYMENT_TERM_HEADER"/>
+    TableName="SCM_PAYMENT_TERM_HEADER"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="UnSupervisedBy"
     Precision="5"
@@ -353,7 +354,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PAYMENT_TERM_HEADER"/>
+    TableName="SCM_PAYMENT_TERM_HEADER"
+    RetrievedOnUpdate="true"/>
   <AccessorAttribute
     Name="ScmPaymentTermDue"
     Association="erpscm.modelscm.scmeo.FkScmPtDuePayHeadSnoAssoc"

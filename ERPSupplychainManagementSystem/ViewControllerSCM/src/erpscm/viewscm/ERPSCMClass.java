@@ -18,6 +18,8 @@ import oracle.adf.view.rich.render.ClientEvent;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
+import oracle.jbo.Row;
+
 import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
 import org.apache.myfaces.trinidad.util.Service;
 
@@ -254,4 +256,33 @@ public class ERPSCMClass {
          this.lerpUnSupervisePopupConfirm.show(hints); 
           return null;
      }
+    public void doERPConfirmSuperviseDialog(DialogEvent de) {
+        ///user wants to save the record
+        if (de.getOutcome() == DialogEvent.Outcome.yes) {
+            OperationBinding ob = ERPGlobalsClass.doGetERPOperation("Commit");
+            //error occurs during saving the record.
+            ob.execute();
+            if (!ob.getErrors().isEmpty()) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(ob.getErrors().toString()));
+                return;
+            }
+            BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+            DCIteratorBinding ib = (DCIteratorBinding) bc.get(lIteratorName);
+            ib.getCurrentRow().setAttribute("IsSupervised", "Y");
+            ib.getCurrentRow().setAttribute("IsUnsupervised", "N");
+            ib.getCurrentRow().setAttribute("UnSupervisedDate", null);
+            ib.getCurrentRow().setAttribute("UnSupervisedBy", null);
+            
+            ob.execute();
+            
+            //error occurs during saving the record.
+            if (!ob.getErrors().isEmpty()) {
+                System.out.println("erorr while supervising");
+                //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(ob.getErrors().toString()));
+                ib.getCurrentRow().refresh(Row.REFRESH_UNDO_CHANGES);
+                return;
+            }
+            doERPShowSaveMessage("Record Supervised Successfully."); 
+        }
+    }   
 }
