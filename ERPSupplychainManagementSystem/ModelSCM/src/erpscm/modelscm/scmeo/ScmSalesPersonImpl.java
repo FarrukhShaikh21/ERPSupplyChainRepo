@@ -56,6 +56,8 @@ public class ScmSalesPersonImpl extends EntityImpl {
             return vals;
         }
     }
+
+
     public static final int SALESPERSONSNO = AttributesEnum.SalesPersonSno.index();
     public static final int SALESPERSONSHORTCODE = AttributesEnum.SalesPersonShortCode.index();
     public static final int SALESPERSONSHORTNAME = AttributesEnum.SalesPersonShortName.index();
@@ -78,18 +80,26 @@ public class ScmSalesPersonImpl extends EntityImpl {
     }
 
     /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmSalesPerson");
+    }
+
+
+    /**
      * Gets the attribute value for SalesPersonSno, using the alias name SalesPersonSno.
      * @return the value of SalesPersonSno
      */
-    public Long getSalesPersonSno() {
-        return (Long) getAttributeInternal(SALESPERSONSNO);
+    public Integer getSalesPersonSno() {
+        return (Integer) getAttributeInternal(SALESPERSONSNO);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for SalesPersonSno.
      * @param value value to set the SalesPersonSno
      */
-    public void setSalesPersonSno(Long value) {
+    public void setSalesPersonSno(Integer value) {
         setAttributeInternal(SALESPERSONSNO, value);
     }
 
@@ -97,15 +107,15 @@ public class ScmSalesPersonImpl extends EntityImpl {
      * Gets the attribute value for SalesPersonShortCode, using the alias name SalesPersonShortCode.
      * @return the value of SalesPersonShortCode
      */
-    public Long getSalesPersonShortCode() {
-        return (Long) getAttributeInternal(SALESPERSONSHORTCODE);
+    public Integer getSalesPersonShortCode() {
+        return (Integer) getAttributeInternal(SALESPERSONSHORTCODE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for SalesPersonShortCode.
      * @param value value to set the SalesPersonShortCode
      */
-    public void setSalesPersonShortCode(Long value) {
+    public void setSalesPersonShortCode(Integer value) {
         setAttributeInternal(SALESPERSONSHORTCODE, value);
     }
 
@@ -177,15 +187,15 @@ public class ScmSalesPersonImpl extends EntityImpl {
      * Gets the attribute value for EmployeeId, using the alias name EmployeeId.
      * @return the value of EmployeeId
      */
-    public Long getEmployeeId() {
-        return (Long) getAttributeInternal(EMPLOYEEID);
+    public Integer getEmployeeId() {
+        return (Integer) getAttributeInternal(EMPLOYEEID);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for EmployeeId.
      * @param value value to set the EmployeeId
      */
-    public void setEmployeeId(Long value) {
+    public void setEmployeeId(Integer value) {
         setAttributeInternal(EMPLOYEEID, value);
     }
 
@@ -301,20 +311,14 @@ public class ScmSalesPersonImpl extends EntityImpl {
         setAttributeInternal(LASTUPDATEDDATE, value);
     }
 
+
     /**
      * @param salesPersonSno key constituent
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(Long salesPersonSno) {
+    public static Key createPrimaryKey(Integer salesPersonSno) {
         return new Key(new Object[] { salesPersonSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmSalesPerson");
     }
 
     /**
