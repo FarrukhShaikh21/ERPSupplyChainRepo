@@ -287,7 +287,7 @@
       <property
          name="fromOutcome">ERP-ACT-SCM_0002</property>
       <property
-         name="sdm:polyPoints">L50,119.0,196.74121,-111.56871,192.79297,R46</property>
+         name="sdm:polyPoints">L46,119.0,193.24121,-111.594826,192.79297,R46</property>
    </ControlFlowCase>
    <View
       id="View29">
@@ -669,7 +669,7 @@
       <property
          name="fromOutcome">ERPEDITSCM_0002_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">L54,-243.28357,611.7412,-440.64844,594.3965,R50</property>
+         name="sdm:polyPoints">L62,-252.48834,618.7412,-440.64844,594.3965,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -700,10 +700,33 @@
       islink="true"
       id="ControlFlowCase67"
       from="MethodCall12"
-      to="View66">
+      to="MethodCall68">
       <property
          name="fromOutcome">ERP-ACT-SCM_0004</property>
       <property
-         name="sdm:polyPoints">T97,T85</property>
+         name="sdm:polyPoints">B39,153.0,250.74121,-496.5,1082.0977,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall68">
+      <property
+         name="activityId">ExeCompanySCM_0004</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeCompanySCM_0004&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1082.4482</property>
+      <property
+         name="x">-537.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase69"
+      from="MethodCall68"
+      to="View66">
+      <property
+         name="fromOutcome">ExeCompanySCM_0004</property>
+      <property
+         name="sdm:polyPoints">B50,-537.5,1136.0977,-454.5,1172.4482,T50</property>
    </ControlFlowCase>
 </SDM>
