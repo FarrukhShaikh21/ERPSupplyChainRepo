@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SCM_0002_EDIT_EDITPageDef"
+                Package="erpfms.viewfms.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ScmCustomerCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerName">
+      <AttrNames>
+        <Item Value="CustomerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerShortCode">
+      <AttrNames>
+        <Item Value="CustomerShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CnicNo">
+      <AttrNames>
+        <Item Value="CnicNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="SrbPraNo">
+      <AttrNames>
+        <Item Value="SrbPraNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CurrencySno">
+      <AttrNames>
+        <Item Value="CurrencySno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="PaymentTermSno">
+      <AttrNames>
+        <Item Value="PaymentTermSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="BranchId">
+      <AttrNames>
+        <Item Value="BranchId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="BankAccountNo">
+      <AttrNames>
+        <Item Value="BankAccountNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="PhoneNo">
+      <AttrNames>
+        <Item Value="PhoneNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="Fax">
+      <AttrNames>
+        <Item Value="Fax"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CountrySno">
+      <AttrNames>
+        <Item Value="CountrySno"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ScmCustomerCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ScmCustomerCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerShortName">
+      <AttrNames>
+        <Item Value="CustomerShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerTypeSno">
+      <AttrNames>
+        <Item Value="CustomerTypeSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerCategorySno">
+      <AttrNames>
+        <Item Value="CustomerCategorySno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="Nationality">
+      <AttrNames>
+        <Item Value="Nationality"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="AccountOpenDate">
+      <AttrNames>
+        <Item Value="AccountOpenDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="ParentCustomerSno">
+      <AttrNames>
+        <Item Value="ParentCustomerSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="IsActive">
+      <AttrNames>
+        <Item Value="IsActive"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CnicExpiryDate">
+      <AttrNames>
+        <Item Value="CnicExpiryDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="NtnNo">
+      <AttrNames>
+        <Item Value="NtnNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="StrnFbrGst">
+      <AttrNames>
+        <Item Value="StrnFbrGst"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="IsTaxable">
+      <AttrNames>
+        <Item Value="IsTaxable"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="FixedDiscountPercent">
+      <AttrNames>
+        <Item Value="FixedDiscountPercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="DeliveryTermSno">
+      <AttrNames>
+        <Item Value="DeliveryTermSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="BankAccountTitle">
+      <AttrNames>
+        <Item Value="BankAccountTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="IbanNo">
+      <AttrNames>
+        <Item Value="IbanNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="Mobile">
+      <AttrNames>
+        <Item Value="Mobile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="Website">
+      <AttrNames>
+        <Item Value="Website"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="ContactPerson">
+      <AttrNames>
+        <Item Value="ContactPerson"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CitySno">
+      <AttrNames>
+        <Item Value="CitySno"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action IterBinding="ScmCustomerCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0002_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

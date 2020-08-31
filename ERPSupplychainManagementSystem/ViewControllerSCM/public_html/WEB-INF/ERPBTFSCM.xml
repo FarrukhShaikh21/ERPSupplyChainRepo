@@ -146,6 +146,18 @@
         <fixed-outcome>CreateWithParams</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeCompanyByCompanySCM_0002_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ERPEDITSCM_0002_EDIT_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPEDITSCM_0002_EDIT_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -299,7 +311,7 @@
       <from-activity-id>ExecuteWithParaCUSTBYCOMP</from-activity-id>
       <control-flow-case id="__20">
         <from-outcome>ExecuteWithParams</from-outcome>
-        <to-activity-id>SCM_0002_EDIT</to-activity-id>
+        <to-activity-id>ExeCompanyByCompanySCM_0002_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__50">
@@ -308,11 +320,40 @@
         <from-outcome>ERPADDSCM_0002_EDIT_EDIT</from-outcome>
         <to-activity-id>CreateWithParaCUSTSNO</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__56">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0002</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__59">
+        <from-outcome>ERPEDITSCM_0002_EDIT_EDIT</from-outcome>
+        <to-activity-id>ERPEDITSCM_0002_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__52">
       <from-activity-id>CreateWithParaCUSTSNO</from-activity-id>
       <control-flow-case id="__53">
         <from-outcome>CreateWithParams</from-outcome>
+        <to-activity-id>SCM_0002_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__54">
+      <from-activity-id>ExeCompanyByCompanySCM_0002_EDIT</from-activity-id>
+      <control-flow-case id="__55">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>SCM_0002_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__57">
+      <from-activity-id>SCM_0002_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__58">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0002_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__60">
+      <from-activity-id>ERPEDITSCM_0002_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__61">
+        <from-outcome>ERPEDITSCM_0002_EDIT_EDIT</from-outcome>
         <to-activity-id>SCM_0002_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
