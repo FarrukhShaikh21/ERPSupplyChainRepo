@@ -300,9 +300,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">646.09766</property>
+         name="y">497.29297</property>
       <property
-         name="x">-157.97852</property>
+         name="x">-166.97852</property>
    </View>
    <View
       id="View31">
@@ -523,5 +523,86 @@
          name="fromOutcome">ERP-ACT-SCM_0003ADD</property>
       <property
          name="sdm:polyPoints">L50,-151.98047,1239.0977,-218.97461,1178.7471,B50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall52">
+      <property
+         name="activityId">ExecuteWithParaCUSTBYCOMP</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParaCUSTBYCOMP&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">346.44824</property>
+      <property
+         name="x">-173.64844</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase53"
+      from="View25"
+      to="MethodCall52">
+      <property
+         name="fromOutcome">ERP-ACT-SCM_0002_EDIT</property>
+      <property
+         name="sdm:polyPoints">B50,-156.5,250.29297,-173.64844,292.09766,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase54"
+      from="MethodCall52"
+      to="View29">
+      <property
+         name="fromOutcome">ExecuteWithParams</property>
+      <property
+         name="sdm:polyPoints">B50,-173.64844,400.09766,-166.97852,442.94238,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View55">
+      <property
+         name="activityId">SCM_0002_EDIT_EDIT</property>
+      <property
+         name="page">/SCM_0002_EDIT_EDIT.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SCM_0002_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">331.6953</property>
+      <property
+         name="x">-384.9746</property>
+   </View>
+   <MethodCall
+      id="MethodCall56">
+      <property
+         name="activityId">CreateWithParaCUSTSNO</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CreateWithParaCUSTSNO&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">532.29297</property>
+      <property
+         name="x">-446.98047</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase57"
+      from="View29"
+      to="MethodCall56">
+      <property
+         name="fromOutcome">ERPADDSCM_0002_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">L50,-207.97852,496.94238,-405.98047,532.29297,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase58"
+      from="MethodCall56"
+      to="View55">
+      <property
+         name="fromOutcome">CreateWithParams</property>
+      <property
+         name="sdm:polyPoints">T50,-446.98047,478.29297,-384.9746,385.34473,B50</property>
    </ControlFlowCase>
 </SDM>

@@ -89,12 +89,6 @@
     <view id="SCM_0002">
       <page>/SCM_0002.jsf</page>
     </view>
-    <method-call id="ExecuteWithParSCMPARAByComp">
-      <method>#{bindings.ExecuteWithParams.execute}</method>
-      <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
-      </outcome>
-    </method-call>
     <view id="SCM_0002_EDIT">
       <page>/SCM_0002_EDIT.jsf</page>
     </view>
@@ -135,6 +129,21 @@
       <method>#{bindings.CreateWithParams.execute}</method>
       <outcome>
         <fixed-outcome>ERP-ACT-SCM_0003ADD</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParaCUSTBYCOMP">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCM_0002_EDIT_EDIT">
+      <page>/SCM_0002_EDIT_EDIT.jsf</page>
+    </view>
+    <method-call id="CreateWithParaCUSTSNO">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateWithParams</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">
@@ -215,20 +224,6 @@
         <to-activity-id>SCM_0001_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__17">
-      <from-activity-id>SCM_0002</from-activity-id>
-      <control-flow-case id="__18">
-        <from-outcome>ERP-ACT-SCM_0002</from-outcome>
-        <to-activity-id>ExecuteWithParSCMPARAByComp</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__19">
-      <from-activity-id>ExecuteWithParSCMPARAByComp</from-activity-id>
-      <control-flow-case id="__20">
-        <from-outcome>ExecuteWithParams</from-outcome>
-        <to-activity-id>SCM_0002_EDIT</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
     <control-flow-rule id="__26">
       <from-activity-id>ExeCompanySEC_0003</from-activity-id>
       <control-flow-case id="__33">
@@ -291,6 +286,34 @@
       <control-flow-case id="__49">
         <from-outcome>ERP-ACT-SCM_0003ADD</from-outcome>
         <to-activity-id>SCM_0003_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>SCM_0002</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>ERP-ACT-SCM_0002_EDIT</from-outcome>
+        <to-activity-id>ExecuteWithParaCUSTBYCOMP</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>ExecuteWithParaCUSTBYCOMP</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>SCM_0002_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__50">
+      <from-activity-id>SCM_0002_EDIT</from-activity-id>
+      <control-flow-case id="__51">
+        <from-outcome>ERPADDSCM_0002_EDIT_EDIT</from-outcome>
+        <to-activity-id>CreateWithParaCUSTSNO</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__52">
+      <from-activity-id>CreateWithParaCUSTSNO</from-activity-id>
+      <control-flow-case id="__53">
+        <from-outcome>CreateWithParams</from-outcome>
+        <to-activity-id>SCM_0002_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

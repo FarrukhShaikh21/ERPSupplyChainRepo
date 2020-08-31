@@ -17,8 +17,6 @@
           usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef1111"/>
     <page path="/SCM_0002.jsf" usageId="erpscm_viewscm_SCM_0002PageDef"/>
     <page path="/SCM_0002_EDIT.jsf" usageId="erpscm_viewscm_SCM_0002_EDITPageDef"/>
-    <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ExecuteWithParSCMPARAByComp"
-          usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef11111"/>
      <page path="/SCM_0003.jsf" usageId="erpscm_viewscm_SCM_0003PageDef"/>
     <page path="/SCM_0003_EDIT.jsf" usageId="erpscm_viewscm_SCM_0003_EDITPageDef"/>
     <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ExeCompanySEC_0003"
@@ -32,6 +30,11 @@
           usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef11111111"/>
     <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@CreateWithParaPaySCM_0003"
           usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_CreateWithParametersPageDef"/>
+    <page path="/SCM_0002_EDIT_EDIT.jsf" usageId="erpscm_viewscm_SCM_0002_EDIT_EDITPageDef"/>
+    <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ExecuteWithParaCUSTBYCOMP"
+          usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef11111"/>
+    <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@CreateWithParaCUSTSNO"
+          usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_CreateWithParametersPageDef1"/>
   </pageMap>
   <dataControlUsages>
     <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"
@@ -61,8 +64,6 @@
           path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef1111"/>
     <page id="erpscm_viewscm_SCM_0002PageDef" path="erpscm.viewscm.pageDefs.SCM_0002PageDef"/>
     <page id="erpscm_viewscm_SCM_0002_EDITPageDef" path="erpscm.viewscm.pageDefs.SCM_0002_EDITPageDef"/>
-    <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef11111"
-          path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef11111"/>
     <page id="erpscm_viewscm_SCM_0003PageDef" path="erpscm.viewscm.pageDefs.SCM_0003PageDef"/>
     <page id="erpscm_viewscm_SCM_0003_EDITPageDef" path="erpscm.viewscm.pageDefs.SCM_0003_EDITPageDef"/>
     <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef"
@@ -76,5 +77,10 @@
           path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef11111111"/>
     <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_CreateWithParametersPageDef"
           path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_CreateWithParametersPageDef"/>
+    <page id="erpscm_viewscm_SCM_0002_EDIT_EDITPageDef" path="erpfms.viewfms.pageDefs.SCM_0002_EDIT_EDITPageDef"/>
+    <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef11111"
+          path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef11111"/>
+    <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_CreateWithParametersPageDef1"
+          path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_CreateWithParametersPageDef1"/>
   </pageDefinitionUsages>
 </Application>
