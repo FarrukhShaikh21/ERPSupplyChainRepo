@@ -204,10 +204,14 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_SALES_PERSON">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSalesPerson.GlobalCompanyId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -225,6 +229,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSalesPerson.CreatedBy_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -240,6 +246,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSalesPerson.CreatedDate_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -256,6 +264,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSalesPerson.LastUpdatedBy_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -271,6 +281,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSalesPerson.LastUpdatedDate_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
