@@ -65,6 +65,20 @@
   <ViewUsage
     Name="ScmPaymentTermDiscountDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermDiscountVO"/>
+  <ViewUsage
+    Name="ScmSalesPersonByCompanyRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSalesPersonVO">
+    <ViewCriteriaUsage
+      Name="ScmSalesPersonByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmSalesPersonVO.ScmSalesPersonByCompanyIDVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmSalesPersonCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSalesPersonVO">
+    <ViewCriteriaUsage
+      Name="ScmSalesPersonByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmSalesPersonVO.ScmSalesPersonByCompanyIDVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
