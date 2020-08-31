@@ -10,13 +10,14 @@
   DBObjectName="SCM_CUSTOMER"
   AliasName="ScmCustomer"
   BindingStyle="JDBC"
-  RowClass="erpglobals.modelglobals.ERPEntityImpl">
+  RowClass="erpscm.modelscm.scmeo.ScmCustomerImpl">
   <DesignTime>
     <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Attribute
     Name="CustomerSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="CUSTOMER_SNO"
@@ -24,20 +25,36 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_CUSTOMER"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CustomerSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CustomerShortCode"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="CUSTOMER_SHORT_CODE"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CustomerShortCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CustomerName"
-    IsNotNull="true"
     Precision="100"
     ColumnName="CUSTOMER_NAME"
     SQLType="VARCHAR"
@@ -47,10 +64,17 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CustomerName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CustomerShortName"
-    IsNotNull="true"
     Precision="20"
     ColumnName="CUSTOMER_SHORT_NAME"
     SQLType="VARCHAR"
@@ -60,6 +84,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CustomerShortName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="PhoneNo"
@@ -72,6 +104,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.PhoneNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Mobile"
@@ -84,6 +124,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.Mobile_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Email"
@@ -96,6 +144,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.Email_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Fax"
@@ -108,6 +164,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.Fax_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CountrySno"
@@ -117,7 +181,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CountrySno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CitySno"
     Precision="5"
@@ -126,25 +199,46 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CitySno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -153,14 +247,28 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedDate"
     ColumnName="LAST_UPDATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ChartOfAccountId"
     Precision="10"
@@ -169,27 +277,52 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.ChartOfAccountId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CompanyId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="COMPANY_ID"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CompanyId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CustomerTypeSno"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CUSTOMER_TYPE_SNO"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CustomerTypeSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Nationality"
     Precision="30"
@@ -201,6 +334,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.Nationality_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Dob"
@@ -208,7 +349,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.Dob_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CnicNo"
     Precision="20"
@@ -220,6 +370,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CnicNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="NtnNo"
@@ -232,6 +390,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.NtnNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="BankId"
@@ -241,7 +407,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.BankId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="BranchId"
     Precision="5"
@@ -250,7 +425,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.BranchId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="BankAccountNo"
     Precision="50"
@@ -262,6 +446,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.BankAccountNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="BankAccountTitle"
@@ -274,6 +466,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.BankAccountTitle_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="IbanNo"
@@ -286,6 +486,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.IbanNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="SrbPraNo"
@@ -298,6 +506,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.SrbPraNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="StrnFbrGst"
@@ -310,6 +526,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.StrnFbrGst_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="FixedDiscountPercent"
@@ -319,7 +543,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.FixedDiscountPercent_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PaymentTermSno"
     Precision="5"
@@ -328,7 +561,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.PaymentTermSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DeliveryTermSno"
     Precision="5"
@@ -337,17 +579,34 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.DeliveryTermSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CustomerCategorySno"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CUSTOMER_CATEGORY_SNO"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CustomerCategorySno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CurrencySno"
     Precision="5"
@@ -356,7 +615,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CurrencySno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ContactPerson"
     Precision="50"
@@ -368,6 +636,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.ContactPerson_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="IsActive"
@@ -381,6 +657,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.IsActive_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Website"
@@ -393,6 +677,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.Website_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CustomerPictureName"
@@ -405,10 +697,17 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CustomerPictureName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="IsTaxable"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_TAXABLE"
     SQLType="VARCHAR"
@@ -418,41 +717,84 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.IsTaxable_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="AccountOpenDate"
-    IsNotNull="true"
     ColumnName="ACCOUNT_OPEN_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.AccountOpenDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ParentCustomerSno"
     Precision="10"
     Scale="0"
     ColumnName="PARENT_CUSTOMER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.ParentCustomerSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="GlobalCompanyCode"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="GLOBAL_COMPANY_CODE"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.GlobalCompanyCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CnicExpiryDate"
     ColumnName="CNIC_EXPIRY_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER"/>
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.CnicExpiryDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmCustomerSites"
     Association="erpscm.modelscm.scmeo.FkScmCustSiteCustSnoAssoc"
@@ -470,4 +812,8 @@
       <Item Value="erpscm.modelscm.scmeo.ScmCustomer.CustomerSno"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </Entity>
