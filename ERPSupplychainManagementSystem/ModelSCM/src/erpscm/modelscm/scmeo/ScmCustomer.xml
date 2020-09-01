@@ -795,6 +795,44 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtCountryName"
+    Precision="80"
+    ColumnName="txt_Country_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_CUSTOMER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.txtCountryName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtCityName"
+    Precision="80"
+    ColumnName="txt_City_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_CUSTOMER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.txtCityName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmCustomerSites"
     Association="erpscm.modelscm.scmeo.FkScmCustSiteCustSnoAssoc"
@@ -802,6 +840,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.FkScmCustSiteCustSnoAssoc.ScmCustomer"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SmCountry"
+    Association="erpscm.modelscm.scmeo.SmCountrySmCustomerCountryIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.SmCountrySmCustomerCountryIdAsso.SmCountry"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.SmCountrySmCustomerCountryIdAsso.ScmCustomer"
+    Type="erpadm.modeladm.admeo.SmCountryImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmCustomer"
     PrimaryKey="true">
@@ -810,6 +855,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmCustomer.CustomerSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmCustomer">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SM_COUNTRY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Customer"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustomer.CountrySno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

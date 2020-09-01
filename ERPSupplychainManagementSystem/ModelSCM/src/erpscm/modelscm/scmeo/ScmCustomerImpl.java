@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmeo;
 
+import erpadm.modeladm.admeo.SmCountryImpl;
+
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
@@ -65,7 +67,10 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         ParentCustomerSno,
         GlobalCompanyCode,
         CnicExpiryDate,
-        ScmCustomerSites;
+        txtCountryName,
+        txtCityName,
+        ScmCustomerSites,
+        SmCountry;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -88,6 +93,7 @@ public class ScmCustomerImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
 
     public static final int CUSTOMERSNO = AttributesEnum.CustomerSno.index();
     public static final int CUSTOMERSHORTCODE = AttributesEnum.CustomerShortCode.index();
@@ -131,7 +137,10 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     public static final int PARENTCUSTOMERSNO = AttributesEnum.ParentCustomerSno.index();
     public static final int GLOBALCOMPANYCODE = AttributesEnum.GlobalCompanyCode.index();
     public static final int CNICEXPIRYDATE = AttributesEnum.CnicExpiryDate.index();
+    public static final int TXTCOUNTRYNAME = AttributesEnum.txtCountryName.index();
+    public static final int TXTCITYNAME = AttributesEnum.txtCityName.index();
     public static final int SCMCUSTOMERSITES = AttributesEnum.ScmCustomerSites.index();
+    public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -145,6 +154,7 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmCustomer");
     }
+
 
     /**
      * Gets the attribute value for CustomerSno, using the alias name CustomerSno.
@@ -819,10 +829,57 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtCountryName, using the alias name txtCountryName.
+     * @return the value of txtCountryName
+     */
+    public String gettxtCountryName() {
+        return (String) getAttributeInternal(TXTCOUNTRYNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCountryName.
+     * @param value value to set the txtCountryName
+     */
+    public void settxtCountryName(String value) {
+        setAttributeInternal(TXTCOUNTRYNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCityName, using the alias name txtCityName.
+     * @return the value of txtCityName
+     */
+    public String gettxtCityName() {
+        return (String) getAttributeInternal(TXTCITYNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCityName.
+     * @param value value to set the txtCityName
+     */
+    public void settxtCityName(String value) {
+        setAttributeInternal(TXTCITYNAME, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getScmCustomerSites() {
         return (RowIterator) getAttributeInternal(SCMCUSTOMERSITES);
+    }
+
+
+    /**
+     * @return the associated entity erpadm.modeladm.admeo.SmCountryImpl.
+     */
+    public SmCountryImpl getSmCountry() {
+        return (SmCountryImpl) getAttributeInternal(SMCOUNTRY);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpadm.modeladm.admeo.SmCountryImpl.
+     */
+    public void setSmCountry(SmCountryImpl value) {
+        setAttributeInternal(SMCOUNTRY, value);
     }
 
 
