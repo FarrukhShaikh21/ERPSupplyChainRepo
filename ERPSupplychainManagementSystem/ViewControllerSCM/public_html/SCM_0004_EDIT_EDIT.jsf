@@ -13,21 +13,54 @@
                                 <af:panelBox text="Basic Information" id="pb1" showDisclosure="false">
                                     <f:facet name="toolbar"/>
                                     <af:panelGridLayout id="pgl2">
+                                        <af:gridRow id="gr9" marginTop="5px" marginBottom="05px">
+                                            <af:gridCell id="gc17" width="15%" halign="center">
+                                                <af:outputLabel value="#{bindings.FirstName.hints.label}" id="ol7"/>
+                                            </af:gridCell>
+                                            <af:gridCell id="gc18" width="85%" halign="stretch">
+                                                <af:inputText value="#{bindings.FirstName.inputValue}"
+                                                              label="#{bindings.FirstName.hints.label}"
+                                                              required="#{bindings.FirstName.hints.mandatory}"
+                                                              columns="#{bindings.FirstName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.FirstName.hints.precision}"
+                                                              shortDesc="#{bindings.FirstName.hints.tooltip}" id="it6"
+                                                              simple="true" contentStyle="width:100%" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.FirstName.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr8" marginTop="5px" marginBottom="5px">
+                                            <af:gridCell id="gc15" width="15%" halign="center">
+                                                <af:outputLabel value="#{bindings.LastName.hints.label}" id="ol8"/>
+                                            </af:gridCell>
+                                            <af:gridCell id="gc16" width="85%" halign="stretch">
+                                                <af:inputText value="#{bindings.LastName.inputValue}"
+                                                              label="#{bindings.LastName.hints.label}"
+                                                              required="#{bindings.LastName.hints.mandatory}"
+                                                              columns="#{bindings.LastName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.LastName.hints.precision}"
+                                                              shortDesc="#{bindings.LastName.hints.tooltip}" id="it7"
+                                                              simple="true" contentStyle="width:100%" autoSubmit="true">
+                                                    <f:validator binding="#{bindings.LastName.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
+                                        </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr2">
                                             <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
                                                          halign="center">
-                                                <af:outputLabel value="#{bindings.SalesPersonName.hints.label}" id="ol1"/>
+                                                <af:outputLabel value="#{bindings.txtSalesPersonName.hints.label}" id="ol1"/>
                                             </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc4" halign="stretch"
                                                          columnSpan="1" rowSpan="1">
-                                                <af:inputText value="#{bindings.SalesPersonName.inputValue}"
-                                                              simple="true"
-                                                              required="#{bindings.SalesPersonName.hints.mandatory}"
-                                                              columns="#{bindings.SalesPersonName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.SalesPersonName.hints.precision}"
-                                                              shortDesc="#{bindings.SalesPersonName.hints.tooltip}"
-                                                              id="it1" contentStyle="width:100%">
-                                                    <f:validator binding="#{bindings.SalesPersonName.validator}"/>
+                                                <af:inputText value="#{bindings.txtSalesPersonName.inputValue}"
+                                                              label="#{bindings.txtSalesPersonName.hints.label}"
+                                                              required="#{bindings.txtSalesPersonName.hints.mandatory}"
+                                                              columns="#{bindings.txtSalesPersonName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.txtSalesPersonName.hints.precision}"
+                                                              shortDesc="#{bindings.txtSalesPersonName.hints.tooltip}"
+                                                              id="it1" simple="true" readOnly="true"
+                                                              contentStyle="width:100%" partialTriggers="it7 it6">
+                                                    <f:validator binding="#{bindings.txtSalesPersonName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
                                         </af:gridRow>
@@ -158,6 +191,8 @@
                                                 <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                     disabled="#{!bindings.Delete.enabled}" id="l9" rendered="false"/>
                                             <af:link text="Delete" id="l6" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                      iconPosition="top"/>

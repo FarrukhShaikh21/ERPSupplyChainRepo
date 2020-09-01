@@ -191,6 +191,18 @@
         <fixed-outcome>ERP-ACT-SCM_0004_EDIT_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="CreateParaSCM_0004_EDIT_EDIT">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPADD-ACT-SCM_0004_EDIT_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SCM_0004_EDIT_BACKExecute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -432,6 +444,10 @@
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0004</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__77">
+        <from-outcome>ERPADD-ACT-SCM_0004_EDIT_EDIT</from-outcome>
+        <to-activity-id>CreateParaSCM_0004_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__73">
       <from-activity-id>ExeParaSPerSCM_0004_EDIT_EDIT</from-activity-id>
@@ -443,6 +459,20 @@
     <control-flow-rule id="__75">
       <from-activity-id>SCM_0004_EDIT_EDIT</from-activity-id>
       <control-flow-case id="__76">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0004_EDIT_BACKExecute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__79">
+      <from-activity-id>CreateParaSCM_0004_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__80">
+        <from-outcome>ERPADD-ACT-SCM_0004_EDIT_EDIT</from-outcome>
+        <to-activity-id>SCM_0004_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__81">
+      <from-activity-id>SCM_0004_EDIT_BACKExecute</from-activity-id>
+      <control-flow-case id="__82">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0004_EDIT</to-activity-id>
       </control-flow-case>

@@ -49,6 +49,9 @@
                     </af:panelFormLayout>
                   </af:gridCell>
                 </af:gridRow>
+                <af:gridRow id="gr4">
+                  <af:gridCell id="gc5" halign="stretch"/>
+                </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" valign="stretch"
                                halign="stretch">
@@ -64,14 +67,18 @@
                     <af:listView value="#{bindings.ScmSalesPersonByCompanyRO.collectionModel}" var="item"
                                  emptyText="#{bindings.ScmSalesPersonByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                  fetchSize="#{bindings.ScmSalesPersonByCompanyRO.rangeSize}" id="lv2"
-                                 styleClass="WBDisplayBlockCenter">
+                                 styleClass="WBDisplayBlockCenter"
+                                 selectionListener="#{bindings.ScmSalesPersonByCompanyRO.treeModel.makeCurrent}"
+                                 selectedRowKeys="#{bindings.ScmSalesPersonByCompanyRO.collectionModel.selectedRow}"
+                                 selection="single">
                       <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                         <af:panelGroupLayout id="pgl12" layout="vertical" styleClass="WBCardSize">
                           <af:panelBox text="PanelBox2" id="pb2" showDisclosure="false" showHeader="never">
                             <f:facet name="toolbar"/>
                             <af:panelGridLayout id="pgl11">
                               <af:gridRow marginTop="5px" height="auto" id="gr9" marginBottom="5px">
-                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10">
+                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10"
+                                             styleClass="AFStretchWidth ERPHeroBackground" halign="stretch">
                                   <af:panelGroupLayout id="pgl13" layout="horizontal">
                                     <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgView.png']}"
                                              styleClass="ERPHeroBannerFont ERPLink"
@@ -145,7 +152,7 @@
                   <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="end">
                     <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
                       <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"
-                               action="ERP-ACT-SCM_0003ADD"/>
+                               action="ERPADD-ACT-SCM_0004_EDIT_EDIT"/>
                       <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
                                partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
                       <f:facet name="separator">

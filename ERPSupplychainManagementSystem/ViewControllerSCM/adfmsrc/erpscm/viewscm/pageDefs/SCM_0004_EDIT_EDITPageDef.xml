@@ -8,11 +8,6 @@
               id="ScmSalesPersonCRUDIterator"/>
   </executables>
   <bindings>
-    <attributeValues IterBinding="ScmSalesPersonCRUDIterator" id="SalesPersonName">
-      <AttrNames>
-        <Item Value="SalesPersonName"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ScmSalesPersonCRUDIterator" id="SalesPersonShortCode">
       <AttrNames>
         <Item Value="SalesPersonShortCode"/>
@@ -43,5 +38,21 @@
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action IterBinding="ScmSalesPersonCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="ScmSalesPersonCRUDIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSalesPersonCRUDIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSalesPersonCRUDIterator" id="txtSalesPersonName">
+      <AttrNames>
+        <Item Value="txtSalesPersonName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

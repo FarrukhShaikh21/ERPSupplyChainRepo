@@ -35,7 +35,8 @@ public class ScmSalesPersonImpl extends ERPEntityImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         FirstName,
-        LastName;
+        LastName,
+        txtSalesPersonName;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -76,6 +77,7 @@ public class ScmSalesPersonImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int FIRSTNAME = AttributesEnum.FirstName.index();
     public static final int LASTNAME = AttributesEnum.LastName.index();
+    public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -349,6 +351,22 @@ public class ScmSalesPersonImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtSalesPersonName, using the alias name txtSalesPersonName.
+     * @return the value of txtSalesPersonName
+     */
+    public String gettxtSalesPersonName() {
+        return (String) getAttributeInternal(TXTSALESPERSONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSalesPersonName.
+     * @param value value to set the txtSalesPersonName
+     */
+    public void settxtSalesPersonName(String value) {
+        setAttributeInternal(TXTSALESPERSONNAME, value);
+    }
+
+    /**
      * @param salesPersonSno key constituent
 
      * @return a Key object based on given key constituents.
@@ -398,7 +416,10 @@ public class ScmSalesPersonImpl extends ERPEntityImpl {
                                                               getCompanyId().toString());
             populateAttributeAsChanged(SALESPERSONSHORTCODE, Integer.parseInt(result));
 
-        }         
+        }
+        if (operation!=DML_DELETE) {
+            populateAttributeAsChanged(SALESPERSONNAME, gettxtSalesPersonName());
+       }
         super.doDML(operation, e);
     }
 }

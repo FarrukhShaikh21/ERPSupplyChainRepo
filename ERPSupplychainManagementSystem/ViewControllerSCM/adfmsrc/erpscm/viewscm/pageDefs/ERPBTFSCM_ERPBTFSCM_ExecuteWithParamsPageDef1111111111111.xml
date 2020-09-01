@@ -10,10 +10,10 @@
   <bindings>
     <action IterBinding="ScmSalesPersonCRUDIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
             Action="executeWithParams">
-      <NamedData NDName="P_ADF_COMPANY_ID"
+      <NamedData NDName="P_ADF_COMPANY_ID" NDValue="" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_SALES_PERSON_SNO"
                  NDValue="#{data.erpscm_viewscm_SCM_0004_EDITPageDef.SalesPersonSno.inputValue}"
                  NDType="java.lang.Integer"/>
-      <NamedData NDName="P_ADF_SALES_PERSON_SNO" NDType="java.lang.Integer"/>
     </action>
   </bindings>
 </pageDefinition>

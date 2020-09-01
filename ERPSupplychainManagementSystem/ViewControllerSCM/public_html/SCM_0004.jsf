@@ -19,7 +19,9 @@
                 <af:listView value="#{bindings.AdminCompanyVORO.collectionModel}" var="item"
                              emptyText="#{bindings.AdminCompanyVORO.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.AdminCompanyVORO.rangeSize}" id="lv1"
-                             styleClass="WBDisplayBlockCenter">
+                             styleClass="WBDisplayBlockCenter" selection="single"
+                             selectionListener="#{bindings.AdminCompanyVORO.treeModel.makeCurrent}"
+                             selectedRowKeys="#{bindings.AdminCompanyVORO.collectionModel.selectedRow}">
                   <af:listItem id="li1" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                     <af:panelGroupLayout layout="vertical" styleClass="WBCardSize" id="pgl1">
                       <f:facet name="separator">

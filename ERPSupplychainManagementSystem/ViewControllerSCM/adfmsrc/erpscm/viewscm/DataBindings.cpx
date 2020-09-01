@@ -50,6 +50,10 @@
     <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ExeParaSPerSCM_0004_EDIT_EDIT"
           usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef1111111111111"/>
     <page path="/SCM_0004_EDIT_EDIT.jsf" usageId="erpscm_viewscm_SCM_0004_EDIT_EDITPageDef"/>
+    <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@CreateParaSCM_0004_EDIT_EDIT"
+          usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_CreateWithParametersPageDef11"/>
+    <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@SCM_0004_EDIT_BACKExecute"
+          usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef11"/>
   </pageMap>
   <dataControlUsages>
     <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"
@@ -112,5 +116,9 @@
     <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef1111111111111"
           path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef1111111111111"/>
     <page id="erpscm_viewscm_SCM_0004_EDIT_EDITPageDef" path="erpscm.viewscm.pageDefs.SCM_0004_EDIT_EDITPageDef"/>
+    <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_CreateWithParametersPageDef11"
+          path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_CreateWithParametersPageDef11"/>
+    <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef11"
+          path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecutePageDef11"/>
   </pageDefinitionUsages>
 </Application>

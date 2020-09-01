@@ -325,6 +325,33 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtSalesPersonName"
+    Precision="80"
+    ColumnName="TXT_SALES_PERSON_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_SALES_PERSON"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[FirstName + " " + LastName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSalesPerson.txtSalesPersonName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="FirstName"/>
+      <Item
+        Value="LastName"/>
+    </Dependencies>
+  </Attribute>
   <Key
     Name="PkScmSalesPerson"
     PrimaryKey="true">

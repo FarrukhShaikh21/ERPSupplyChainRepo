@@ -175,6 +175,14 @@
     EntityAttrName="LastName"
     EntityUsage="ScmSalesPerson"
     AliasName="LAST_NAME"/>
+  <ViewAttribute
+    Name="txtSalesPersonName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSalesPersonName"
+    EntityUsage="ScmSalesPerson"
+    AliasName="TXT_SALES_PERSON_NAME"/>
   <ViewCriteria
     Name="ScmSalesPersonByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmSalesPersonVO"
