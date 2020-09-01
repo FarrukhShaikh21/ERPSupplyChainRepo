@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1"
+                id="ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef1111111111111" Package="erpscm.viewscm.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ScmSalesPersonCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmSalesPersonCRUDIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ScmSalesPersonCRUDIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_COMPANY_ID"
+                 NDValue="#{data.erpscm_viewscm_SCM_0004_EDITPageDef.SalesPersonSno.inputValue}"
+                 NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_SALES_PERSON_SNO" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>
