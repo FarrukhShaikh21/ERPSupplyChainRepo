@@ -167,6 +167,15 @@
         <fixed-outcome>ExeCompanySCM_0004</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0004_EDIT">
+      <page>/SCM_0004_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeParaSCM_0004_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM_0004_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -375,6 +384,20 @@
       <control-flow-case id="__64">
         <from-outcome>ExeCompanySCM_0004</from-outcome>
         <to-activity-id>SCM_0004</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__65">
+      <from-activity-id>SCM_0004</from-activity-id>
+      <control-flow-case id="__66">
+        <from-outcome>ERP-ACT-SCM_0004_EDIT</from-outcome>
+        <to-activity-id>ExeParaSCM_0004_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__67">
+      <from-activity-id>ExeParaSCM_0004_EDIT</from-activity-id>
+      <control-flow-case id="__68">
+        <from-outcome>ERP-ACT-SCM_0004_EDIT</from-outcome>
+        <to-activity-id>SCM_0004_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
