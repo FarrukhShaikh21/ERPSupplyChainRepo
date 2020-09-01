@@ -900,6 +900,7 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         setAttributeInternal(SMCITY, value);
     }
 
+
     /**
      * @param customerSno key constituent
 
