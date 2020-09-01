@@ -26,7 +26,7 @@
                                                               columns="#{bindings.SalesPersonName.hints.displayWidth}"
                                                               maximumLength="#{bindings.SalesPersonName.hints.precision}"
                                                               shortDesc="#{bindings.SalesPersonName.hints.tooltip}"
-                                                              id="it1">
+                                                              id="it1" contentStyle="width:100%">
                                                     <f:validator binding="#{bindings.SalesPersonName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -45,7 +45,7 @@
                                                               columns="#{bindings.SalesPersonShortCode.hints.displayWidth}"
                                                               maximumLength="#{bindings.SalesPersonShortCode.hints.precision}"
                                                               shortDesc="#{bindings.SalesPersonShortCode.hints.tooltip}"
-                                                              id="it2" simple="true">
+                                                              id="it2" simple="true" readOnly="true">
                                                     <f:validator binding="#{bindings.SalesPersonShortCode.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.SalesPersonShortCode.format}"/>
@@ -64,7 +64,7 @@
                                                               columns="#{bindings.SalesPersonShortName.hints.displayWidth}"
                                                               maximumLength="#{bindings.SalesPersonShortName.hints.precision}"
                                                               shortDesc="#{bindings.SalesPersonShortName.hints.tooltip}"
-                                                              id="it3" simple="true">
+                                                              id="it3" simple="true" contentStyle="width:100%">
                                                     <f:validator binding="#{bindings.SalesPersonShortName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -102,7 +102,7 @@
                                                               columns="#{bindings.MobileNo.hints.displayWidth}"
                                                               maximumLength="#{bindings.MobileNo.hints.precision}"
                                                               shortDesc="#{bindings.MobileNo.hints.tooltip}" id="it4"
-                                                              simple="true">
+                                                              simple="true" contentStyle="width:100%">
                                                     <f:validator binding="#{bindings.MobileNo.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -121,7 +121,7 @@
                                                               columns="#{bindings.Email.hints.displayWidth}"
                                                               maximumLength="#{bindings.Email.hints.precision}"
                                                               shortDesc="#{bindings.Email.hints.tooltip}" id="it5"
-                                                              simple="true">
+                                                              simple="true" contentStyle="width:100%">
                                                     <f:validator binding="#{bindings.Email.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
