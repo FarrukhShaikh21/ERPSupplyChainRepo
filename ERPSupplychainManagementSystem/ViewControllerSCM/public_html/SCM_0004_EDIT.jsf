@@ -74,7 +74,8 @@
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10">
                                   <af:panelGroupLayout id="pgl13" layout="horizontal">
                                     <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgView.png']}"
-                                             styleClass="ERPHeroBannerFont ERPLink"/>
+                                             styleClass="ERPHeroBannerFont ERPLink"
+                                             action="ERP-ACT-SCM_0004_EDIT_EDIT"/>
                                     <af:outputFormatted value="#{item.bindings.SalesPersonShortName.inputValue}"
                                                         id="of6" styleClass="ERPHeroBannerFont"/>
                                   </af:panelGroupLayout>
