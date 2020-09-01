@@ -366,4 +366,10 @@
     ViewLink="erpscm.modelscm.scmvo.FkScmCustSiteCustSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SmCountryVO"
+    ViewLink="erpscm.modelscm.scmvo.SmCountrySmCustomerCountryIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

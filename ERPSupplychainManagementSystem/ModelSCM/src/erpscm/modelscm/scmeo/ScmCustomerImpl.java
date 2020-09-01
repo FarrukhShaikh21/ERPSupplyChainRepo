@@ -1,5 +1,6 @@
 package erpscm.modelscm.scmeo;
 
+import erpadm.modeladm.admeo.SmCityImpl;
 import erpadm.modeladm.admeo.SmCountryImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
@@ -70,7 +71,8 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         txtCountryName,
         txtCityName,
         ScmCustomerSites,
-        SmCountry;
+        SmCountry,
+        SmCity;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -141,6 +143,7 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     public static final int TXTCITYNAME = AttributesEnum.txtCityName.index();
     public static final int SCMCUSTOMERSITES = AttributesEnum.ScmCustomerSites.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
+    public static final int SMCITY = AttributesEnum.SmCity.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -882,6 +885,20 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         setAttributeInternal(SMCOUNTRY, value);
     }
 
+
+    /**
+     * @return the associated entity erpadm.modeladm.admeo.SmCityImpl.
+     */
+    public SmCityImpl getSmCity() {
+        return (SmCityImpl) getAttributeInternal(SMCITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpadm.modeladm.admeo.SmCityImpl.
+     */
+    public void setSmCity(SmCityImpl value) {
+        setAttributeInternal(SMCITY, value);
+    }
 
     /**
      * @param customerSno key constituent
