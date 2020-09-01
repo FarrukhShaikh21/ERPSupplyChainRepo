@@ -161,14 +161,22 @@
                                             <af:link text="Delete" id="l6" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                      iconPosition="top"/>
-                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="l3"
-                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     partialSubmit="true">
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l8"
+                                                     rendered="false"/>
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l7"
+                                                     rendered="false">
                                                 <af:resetActionListener/>
                                             </af:link>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
+                                            <af:link text="Undo" immediate="true" id="l3"
+                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                                     partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link text="Save" id="l2"
                                                      icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                                     partialSubmit="true"/>
+                                                     partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>

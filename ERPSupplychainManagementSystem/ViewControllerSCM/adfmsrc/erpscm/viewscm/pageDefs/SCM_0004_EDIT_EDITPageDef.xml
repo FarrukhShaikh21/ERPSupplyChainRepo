@@ -35,5 +35,13 @@
         <Item Value="Email"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="ScmSalesPersonCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0004_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
   </bindings>
 </pageDefinition>
