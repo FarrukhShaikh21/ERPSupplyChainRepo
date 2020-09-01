@@ -174,5 +174,10 @@
       <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0002_EDITPageDef.CompCode.inputValue}"
                  NDType="java.lang.String"/>
     </action>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="BankId">
+      <AttrNames>
+        <Item Value="BankId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

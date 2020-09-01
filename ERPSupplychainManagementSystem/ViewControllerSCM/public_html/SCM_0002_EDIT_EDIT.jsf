@@ -16,14 +16,14 @@
                                     <af:panelBox text="Basic Information" id="pb1" showDisclosure="false">
                                         <f:facet name="toolbar"/>
                                         <af:panelGridLayout id="pgl2">
-                                            <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                            <af:gridRow marginTop="5px" height="auto" id="gr2" marginBottom="5px">
                                                 <af:gridCell marginStart="5px" width="13%" id="gc3" marginEnd="5px"
                                                              halign="center" rowSpan="1">
                                                     <af:outputLabel value="#{bindings.CustomerName.hints.label}"
                                                                     id="ol2"/>
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="87%" id="gc4" halign="stretch"
-                                                             columnSpan="4" rowSpan="1">
+                                                             columnSpan="5" rowSpan="1" marginEnd="5px">
                                                     <af:inputText value="#{bindings.CustomerName.inputValue}"
                                                                   simple="true"
                                                                   required="#{bindings.CustomerName.hints.mandatory}"
@@ -49,7 +49,7 @@
                                                                   columns="#{bindings.CustomerShortCode.hints.displayWidth}"
                                                                   maximumLength="#{bindings.CustomerShortCode.hints.precision}"
                                                                   shortDesc="#{bindings.CustomerShortCode.hints.tooltip}"
-                                                                  id="it2" contentStyle="width:100%">
+                                                                  id="it2" contentStyle="width:100%" simple="true">
                                                         <f:validator binding="#{bindings.CustomerShortCode.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.CustomerShortCode.format}"/>
@@ -84,7 +84,7 @@
                                                                   required="#{bindings.AccountOpenDate.hints.mandatory}"
                                                                   columns="#{bindings.AccountOpenDate.hints.displayWidth}"
                                                                   shortDesc="#{bindings.AccountOpenDate.hints.tooltip}"
-                                                                  id="id2" simple="true" contentStyle="width:100%">
+                                                                  id="id2" simple="true" contentStyle="width:80%">
                                                         <f:validator binding="#{bindings.AccountOpenDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.AccountOpenDate.format}"/>
                                                     </af:inputDate>
@@ -121,7 +121,7 @@
                                                                   columns="#{bindings.CustomerCategorySno.hints.displayWidth}"
                                                                   maximumLength="#{bindings.CustomerCategorySno.hints.precision}"
                                                                   shortDesc="#{bindings.CustomerCategorySno.hints.tooltip}"
-                                                                  id="it14" contentStyle="width:100%">
+                                                                  id="it14" contentStyle="width:100%" simple="true">
                                                         <f:validator binding="#{bindings.CustomerCategorySno.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.CustomerCategorySno.format}"/>
@@ -151,23 +151,33 @@
                                                                     id="ol17"/>
                                                 </af:gridCell>
                                                 <af:gridCell id="gc24" width="20%" halign="stretch" marginStart="5px"
-                                                             marginEnd="5px">
+                                                             marginEnd="5px" columnSpan="1">
                                                     <af:inputText value="#{bindings.ParentCustomerSno.inputValue}"
                                                                   required="#{bindings.ParentCustomerSno.hints.mandatory}"
                                                                   columns="#{bindings.ParentCustomerSno.hints.displayWidth}"
                                                                   maximumLength="#{bindings.ParentCustomerSno.hints.precision}"
                                                                   shortDesc="#{bindings.ParentCustomerSno.hints.tooltip}"
-                                                                  id="it17" contentStyle="width:100%">
+                                                                  id="it17" simple="true" contentStyle="width:100%">
                                                         <f:validator binding="#{bindings.ParentCustomerSno.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ParentCustomerSno.format}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
+                                                <af:gridCell id="gc37" width="13%" halign="center" marginStart="5px"
+                                                             marginEnd="5px">
+                                                    <af:outputLabel value="outputLabel1" id="ol32"/>
+                                                </af:gridCell>
+                                                <af:gridCell id="gc38" width="20%" marginStart="5px" marginEnd="5px"
+                                                             halign="stretch">
+                                                    <af:inputText label="Label 1" id="it30" simple="true"
+                                                                  contentStyle="width:100%"/>
+                                                </af:gridCell>
                                                 <af:gridCell id="gc31" width="13%" halign="center" rowSpan="1"
                                                              marginStart="5px" marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.IsActive.hints.label}" id="ol18"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc32" width="20%" halign="stretch">
+                                                <af:gridCell id="gc32" width="21%" halign="stretch" marginStart="5px"
+                                                             marginEnd="5px" columnSpan="1">
                                                     <af:inputText value="#{bindings.IsActive.inputValue}" simple="true"
                                                                   required="#{bindings.IsActive.hints.mandatory}"
                                                                   columns="#{bindings.IsActive.hints.displayWidth}"
@@ -185,10 +195,12 @@
                                         <f:facet name="toolbar"/>
                                         <af:panelGridLayout id="pgl3">
                                             <af:gridRow marginTop="5px" height="auto" id="gr6">
-                                                <af:gridCell marginStart="5px" width="15%" id="gc9" halign="center">
+                                                <af:gridCell marginStart="5px" width="13%" id="gc9" halign="center"
+                                                             marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.CnicNo.hints.label}" id="ol5"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc10">
+                                                <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc10"
+                                                             halign="stretch">
                                                     <af:inputText value="#{bindings.CnicNo.inputValue}" simple="true"
                                                                   required="#{bindings.CnicNo.hints.mandatory}"
                                                                   columns="#{bindings.CnicNo.hints.displayWidth}"
@@ -198,24 +210,28 @@
                                                         <f:validator binding="#{bindings.CnicNo.validator}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc39" width="15%" halign="center">
+                                                <af:gridCell id="gc39" width="13%" halign="center" marginStart="5px"
+                                                             marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.CnicExpiryDate.hints.label}"
                                                                     id="ol19"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc40" width="18%">
+                                                <af:gridCell id="gc40" width="20%" marginStart="5px" marginEnd="5px"
+                                                             halign="stretch">
                                                     <af:inputDate value="#{bindings.CnicExpiryDate.inputValue}"
                                                                   required="#{bindings.CnicExpiryDate.hints.mandatory}"
                                                                   columns="#{bindings.CnicExpiryDate.hints.displayWidth}"
                                                                   shortDesc="#{bindings.CnicExpiryDate.hints.tooltip}"
-                                                                  id="id1">
+                                                                  id="id1" simple="true">
                                                         <f:validator binding="#{bindings.CnicExpiryDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.CnicExpiryDate.format}"/>
                                                     </af:inputDate>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc41" width="15%" halign="center">
+                                                <af:gridCell id="gc41" width="13%" halign="center" marginStart="5px"
+                                                             marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.NtnNo.hints.label}" id="ol20"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc42" width="18%">
+                                                <af:gridCell id="gc42" width="21%" marginStart="5px" marginEnd="5px"
+                                                             halign="stretch">
                                                     <af:inputText value="#{bindings.NtnNo.inputValue}" simple="true"
                                                                   required="#{bindings.NtnNo.hints.mandatory}"
                                                                   columns="#{bindings.NtnNo.hints.displayWidth}"
@@ -227,10 +243,12 @@
                                                 </af:gridCell>
                                             </af:gridRow>
                                             <af:gridRow marginTop="5px" height="auto" id="gr7" marginBottom="5px">
-                                                <af:gridCell marginStart="5px" width="15%" id="gc13" halign="center">
+                                                <af:gridCell marginStart="5px" width="13%" id="gc13" halign="center"
+                                                             marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.SrbPraNo.hints.label}" id="ol6"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc14">
+                                                <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc14"
+                                                             halign="stretch">
                                                     <af:inputText value="#{bindings.SrbPraNo.inputValue}" simple="true"
                                                                   required="#{bindings.SrbPraNo.hints.mandatory}"
                                                                   columns="#{bindings.SrbPraNo.hints.displayWidth}"
@@ -240,11 +258,13 @@
                                                         <f:validator binding="#{bindings.SrbPraNo.validator}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc43" width="15%" halign="center">
+                                                <af:gridCell id="gc43" width="13%" halign="center" marginStart="5px"
+                                                             marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.StrnFbrGst.hints.label}"
                                                                     id="ol21"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc44" width="18%">
+                                                <af:gridCell id="gc44" width="20%" marginStart="5px" marginEnd="5px"
+                                                             halign="stretch">
                                                     <af:inputText value="#{bindings.StrnFbrGst.inputValue}"
                                                                   simple="true"
                                                                   required="#{bindings.StrnFbrGst.hints.mandatory}"
@@ -255,11 +275,13 @@
                                                         <f:validator binding="#{bindings.StrnFbrGst.validator}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc45" width="15%" halign="center">
+                                                <af:gridCell id="gc45" width="13%" halign="center" marginStart="5px"
+                                                             marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.IsTaxable.hints.label}"
                                                                     id="ol22"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc46" width="18%">
+                                                <af:gridCell id="gc46" width="21%" marginStart="5px" marginEnd="5px"
+                                                             halign="stretch">
                                                     <af:inputText value="#{bindings.IsTaxable.inputValue}" simple="true"
                                                                   required="#{bindings.IsTaxable.hints.mandatory}"
                                                                   columns="#{bindings.IsTaxable.hints.displayWidth}"
@@ -271,70 +293,77 @@
                                                 </af:gridCell>
                                             </af:gridRow>
                                             <af:gridRow marginTop="5px" height="auto" id="gr8" marginBottom="5px">
-                                                <af:gridCell marginStart="5px" width="15%" id="gc15" halign="center">
+                                                <af:gridCell marginStart="5px" width="13%" id="gc15" halign="center"
+                                                             marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.CurrencySno.hints.label}"
                                                                     id="ol7"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc16">
+                                                <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc16"
+                                                             halign="stretch">
                                                     <af:inputText value="#{bindings.CurrencySno.inputValue}"
                                                                   required="#{bindings.CurrencySno.hints.mandatory}"
                                                                   columns="#{bindings.CurrencySno.hints.displayWidth}"
                                                                   maximumLength="#{bindings.CurrencySno.hints.precision}"
                                                                   shortDesc="#{bindings.CurrencySno.hints.tooltip}"
-                                                                  id="it7" contentStyle="width:100%">
+                                                                  id="it7" contentStyle="width:100%" simple="true">
                                                         <f:validator binding="#{bindings.CurrencySno.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.CurrencySno.format}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc47" width="15%" halign="center">
+                                                <af:gridCell id="gc47" width="13%" halign="center" marginStart="5px"
+                                                             marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.FixedDiscountPercent.hints.label}"
                                                                     id="ol23"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc48" width="35%">
+                                                <af:gridCell id="gc48" width="20%" halign="stretch">
                                                     <af:inputText value="#{bindings.FixedDiscountPercent.inputValue}"
                                                                   required="#{bindings.FixedDiscountPercent.hints.mandatory}"
                                                                   columns="#{bindings.FixedDiscountPercent.hints.displayWidth}"
                                                                   maximumLength="#{bindings.FixedDiscountPercent.hints.precision}"
                                                                   shortDesc="#{bindings.FixedDiscountPercent.hints.tooltip}"
-                                                                  id="it21" contentStyle="width:100%">
+                                                                  id="it21" contentStyle="width:100%" simple="true">
                                                         <f:validator binding="#{bindings.FixedDiscountPercent.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.FixedDiscountPercent.format}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                            </af:gridRow>
-                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
-                                                <af:gridCell marginStart="5px" width="15%" id="gc17" halign="center">
-                                                    <af:outputLabel value="#{bindings.PaymentTermSno.hints.label}"
-                                                                    id="ol8"/>
-                                                </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc18">
-                                                    <af:inputText value="#{bindings.PaymentTermSno.inputValue}"
-                                                                  required="#{bindings.PaymentTermSno.hints.mandatory}"
-                                                                  columns="#{bindings.PaymentTermSno.hints.displayWidth}"
-                                                                  maximumLength="#{bindings.PaymentTermSno.hints.precision}"
-                                                                  shortDesc="#{bindings.PaymentTermSno.hints.tooltip}"
-                                                                  id="it8" contentStyle="width:100%">
-                                                        <f:validator binding="#{bindings.PaymentTermSno.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.PaymentTermSno.format}"/>
-                                                    </af:inputText>
-                                                </af:gridCell>
-                                                <af:gridCell id="gc49" width="15%" halign="center">
+                                                <af:gridCell id="gc49" width="13%" halign="center" marginStart="5px"
+                                                             marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.DeliveryTermSno.hints.label}"
                                                                     id="ol24"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc50" width="35%">
+                                                <af:gridCell id="gc50" width="21%" halign="stretch" marginStart="5px"
+                                                             marginEnd="5px">
                                                     <af:inputText value="#{bindings.DeliveryTermSno.inputValue}"
                                                                   required="#{bindings.DeliveryTermSno.hints.mandatory}"
                                                                   columns="#{bindings.DeliveryTermSno.hints.displayWidth}"
                                                                   maximumLength="#{bindings.DeliveryTermSno.hints.precision}"
                                                                   shortDesc="#{bindings.DeliveryTermSno.hints.tooltip}"
-                                                                  id="it22" contentStyle="width:100%">
+                                                                  id="it22" contentStyle="width:100%" simple="true">
                                                         <f:validator binding="#{bindings.DeliveryTermSno.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.DeliveryTermSno.format}"/>
+                                                    </af:inputText>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
+                                                <af:gridCell marginStart="5px" width="13%" id="gc17" halign="center"
+                                                             marginEnd="5px">
+                                                    <af:outputLabel value="#{bindings.PaymentTermSno.hints.label}"
+                                                                    id="ol8"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="87%" marginEnd="5px" id="gc18"
+                                                             halign="stretch" columnSpan="5" rowSpan="1">
+                                                    <af:inputText value="#{bindings.PaymentTermSno.inputValue}"
+                                                                  required="#{bindings.PaymentTermSno.hints.mandatory}"
+                                                                  columns="#{bindings.PaymentTermSno.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.PaymentTermSno.hints.precision}"
+                                                                  shortDesc="#{bindings.PaymentTermSno.hints.tooltip}"
+                                                                  id="it8" contentStyle="width:100%" simple="true">
+                                                        <f:validator binding="#{bindings.PaymentTermSno.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.PaymentTermSno.format}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
                                             </af:gridRow>
@@ -343,28 +372,48 @@
                                     <af:panelBox text="Bank Information" id="pb4" showDisclosure="false">
                                         <f:facet name="toolbar"/>
                                         <af:panelGridLayout id="pgl5" styleClass="AFStretchwidth">
-                                            <af:gridRow marginTop="5px" height="auto" id="gr10">
-                                                <af:gridCell marginStart="5px" width="15%" id="gc19" halign="center">
+                                            <af:gridRow marginTop="5px" height="auto" id="gr10" marginBottom="5px">
+                                                <af:gridCell id="gc67" width="13%" marginStart="5px" marginEnd="5px"
+                                                             halign="center">
+                                                    <af:outputLabel value="#{bindings.BankId.hints.label}" id="ol33"/>
+                                                </af:gridCell>
+                                                <af:gridCell id="gc68" width="20%" halign="stretch">
+                                                    <af:inputText value="#{bindings.BankId.inputValue}"
+                                                                  label="#{bindings.BankId.hints.label}"
+                                                                  required="#{bindings.BankId.hints.mandatory}"
+                                                                  columns="#{bindings.BankId.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.BankId.hints.precision}"
+                                                                  shortDesc="#{bindings.BankId.hints.tooltip}"
+                                                                  id="it31" simple="true" contentStyle="width:100%">
+                                                        <f:validator binding="#{bindings.BankId.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.BankId.format}"/>
+                                                    </af:inputText>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="13%" id="gc19"
+                                                             marginEnd="5px" halign="center">
                                                     <af:outputLabel value="#{bindings.BranchId.hints.label}" id="ol9"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc20"
+                                                <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc20"
                                                              halign="stretch">
                                                     <af:inputText value="#{bindings.BranchId.inputValue}"
                                                                   required="#{bindings.BranchId.hints.mandatory}"
                                                                   columns="#{bindings.BranchId.hints.displayWidth}"
                                                                   maximumLength="#{bindings.BranchId.hints.precision}"
                                                                   shortDesc="#{bindings.BranchId.hints.tooltip}"
-                                                                  id="it9" contentStyle="width:100%">
+                                                                  id="it9" contentStyle="width:100%" simple="true">
                                                         <f:validator binding="#{bindings.BranchId.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.BranchId.format}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc51" width="15%" halign="center">
+                                                <af:gridCell id="gc51" width="13%" marginEnd="5px"
+                                                             marginStart="5px" halign="center">
                                                     <af:outputLabel value="#{bindings.BankAccountTitle.hints.label}"
                                                                     id="ol25"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc52" width="30%" halign="stretch">
+                                                <af:gridCell id="gc52" width="21%" halign="stretch" marginStart="5px"
+                                                             marginEnd="5px">
                                                     <af:inputText value="#{bindings.BankAccountTitle.inputValue}"
                                                                   simple="true"
                                                                   required="#{bindings.BankAccountTitle.hints.mandatory}"
@@ -377,11 +426,12 @@
                                                 </af:gridCell>
                                             </af:gridRow>
                                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
-                                                <af:gridCell marginStart="5px" id="gc21" halign="center" width="15%">
+                                                <af:gridCell marginStart="5px" id="gc21" halign="center" width="13%"
+                                                             marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.BankAccountNo.hints.label}"
                                                                     id="ol10"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" marginEnd="5px" id="gc22" width="30%"
+                                                <af:gridCell marginStart="5px" marginEnd="5px" id="gc22" width="20%"
                                                              halign="stretch">
                                                     <af:inputText value="#{bindings.BankAccountNo.inputValue}"
                                                                   simple="true"
@@ -393,10 +443,12 @@
                                                         <f:validator binding="#{bindings.BankAccountNo.validator}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc53" width="15%" halign="center">
+                                                <af:gridCell id="gc53" width="13%" halign="center" marginStart="5px"
+                                                             marginEnd="5px">
                                                     <af:outputLabel value="#{bindings.IbanNo.hints.label}" id="ol26"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc54" width="30%" halign="stretch">
+                                                <af:gridCell id="gc54" width="20%" halign="stretch" marginStart="5px"
+                                                             marginEnd="5px" columnSpan="3" rowSpan="1">
                                                     <af:inputText value="#{bindings.IbanNo.inputValue}" simple="true"
                                                                   required="#{bindings.IbanNo.hints.mandatory}"
                                                                   columns="#{bindings.IbanNo.hints.displayWidth}"
@@ -413,7 +465,7 @@
                                         <f:facet name="toolbar"/>
                                         <af:panelGridLayout id="pgl6">
                                             <af:gridRow marginTop="5px" height="auto" id="gr13">
-                                                <af:gridCell marginStart="5px" width="10%" id="gc25" halign="center">
+                                                <af:gridCell marginStart="5px" width="13%" id="gc25" halign="center">
                                                     <af:outputLabel value="#{bindings.PhoneNo.hints.label}" id="ol11"/>
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc26"
@@ -427,7 +479,7 @@
                                                         <f:validator binding="#{bindings.PhoneNo.validator}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc55" width="10%" halign="center">
+                                                <af:gridCell id="gc55" width="13%" halign="center">
                                                     <af:outputLabel value="#{bindings.Mobile.hints.label}" id="ol27"/>
                                                 </af:gridCell>
                                                 <af:gridCell id="gc56" width="20%" halign="stretch">
@@ -440,10 +492,11 @@
                                                         <f:validator binding="#{bindings.Mobile.validator}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc57" width="10%" halign="center">
+                                                <af:gridCell id="gc57" width="13%" halign="center">
                                                     <af:outputLabel value="#{bindings.Email.hints.label}" id="ol28"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc58" width="20%" halign="stretch">
+                                                <af:gridCell id="gc58" width="21%" halign="stretch" marginStart="5px"
+                                                             marginEnd="5px">
                                                     <af:inputText value="#{bindings.Email.inputValue}" simple="true"
                                                                   required="#{bindings.Email.hints.mandatory}"
                                                                   columns="#{bindings.Email.hints.displayWidth}"
@@ -455,7 +508,7 @@
                                                 </af:gridCell>
                                             </af:gridRow>
                                             <af:gridRow marginTop="5px" height="auto" id="gr14" marginBottom="5px">
-                                                <af:gridCell marginStart="5px" width="10%" id="gc27" halign="center">
+                                                <af:gridCell marginStart="5px" width="13%" id="gc27" halign="center">
                                                     <af:outputLabel value="#{bindings.Fax.hints.label}" id="ol12"/>
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc28"
@@ -469,10 +522,10 @@
                                                         <f:validator binding="#{bindings.Fax.validator}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc59" width="10%" halign="center">
+                                                <af:gridCell id="gc59" width="13%" halign="center">
                                                     <af:outputLabel value="#{bindings.Website.hints.label}" id="ol29"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc60" width="20%">
+                                                <af:gridCell id="gc60" width="20%" halign="stretch">
                                                     <af:inputText value="#{bindings.Website.inputValue}" simple="true"
                                                                   required="#{bindings.Website.hints.mandatory}"
                                                                   columns="#{bindings.Website.hints.displayWidth}"
@@ -482,11 +535,12 @@
                                                         <f:validator binding="#{bindings.Website.validator}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc61" width="10%" halign="center">
+                                                <af:gridCell id="gc61" width="13%" halign="center">
                                                     <af:outputLabel value="#{bindings.ContactPerson.hints.label}"
                                                                     id="ol30"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc62" width="20%">
+                                                <af:gridCell id="gc62" width="21%" marginStart="5px" marginEnd="5px"
+                                                             rowSpan="1" halign="stretch">
                                                     <af:inputText value="#{bindings.ContactPerson.inputValue}"
                                                                   simple="true"
                                                                   required="#{bindings.ContactPerson.hints.mandatory}"
@@ -499,7 +553,7 @@
                                                 </af:gridCell>
                                             </af:gridRow>
                                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr15">
-                                                <af:gridCell marginStart="5px" width="10%" id="gc29" halign="center">
+                                                <af:gridCell marginStart="5px" width="13%" id="gc29" halign="center">
                                                     <af:outputLabel value="#{bindings.CountrySno.hints.label}"
                                                                     id="ol13"/>
                                                 </af:gridCell>
@@ -510,22 +564,22 @@
                                                                   columns="#{bindings.CountrySno.hints.displayWidth}"
                                                                   maximumLength="#{bindings.CountrySno.hints.precision}"
                                                                   shortDesc="#{bindings.CountrySno.hints.tooltip}"
-                                                                  id="it13" contentStyle="width:100%">
+                                                                  id="it13" contentStyle="width:100%" simple="true">
                                                         <f:validator binding="#{bindings.CountrySno.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.CountrySno.format}"/>
                                                     </af:inputText>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc63" width="10%" halign="center">
+                                                <af:gridCell id="gc63" width="13%" halign="center">
                                                     <af:outputLabel value="#{bindings.CitySno.hints.label}" id="ol31"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc64" width="20%" halign="stretch">
+                                                <af:gridCell id="gc64" width="54%" halign="stretch" columnSpan="3">
                                                     <af:inputText value="#{bindings.CitySno.inputValue}"
                                                                   required="#{bindings.CitySno.hints.mandatory}"
                                                                   columns="#{bindings.CitySno.hints.displayWidth}"
                                                                   maximumLength="#{bindings.CitySno.hints.precision}"
                                                                   shortDesc="#{bindings.CitySno.hints.tooltip}"
-                                                                  id="it29" contentStyle="width:100%">
+                                                                  id="it29" contentStyle="width:100%" simple="true">
                                                         <f:validator binding="#{bindings.CitySno.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.CitySno.format}"/>
