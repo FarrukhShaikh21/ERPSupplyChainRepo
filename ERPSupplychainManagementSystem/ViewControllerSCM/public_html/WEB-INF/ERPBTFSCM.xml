@@ -428,12 +428,23 @@
         <from-outcome>ERP-ACT-SCM_0004_EDIT_EDIT</from-outcome>
         <to-activity-id>ExeParaSPerSCM_0004_EDIT_EDIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__78">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0004</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__73">
       <from-activity-id>ExeParaSPerSCM_0004_EDIT_EDIT</from-activity-id>
       <control-flow-case id="__74">
         <from-outcome>ERP-ACT-SCM_0004_EDIT_EDIT</from-outcome>
         <to-activity-id>SCM_0004_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__75">
+      <from-activity-id>SCM_0004_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__76">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0004_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
