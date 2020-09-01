@@ -16,54 +16,115 @@
                                         <af:gridRow marginTop="5px" height="auto" id="gr2">
                                             <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
                                                          halign="center">
-                                                <af:outputLabel value="#{bindings.Description.hints.label}" id="ol1"/>
+                                                <af:outputLabel value="#{bindings.SalesPersonName.hints.label}" id="ol1"/>
                                             </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc4" halign="stretch"
-                                                         columnSpan="1" rowSpan="1"/>
+                                                         columnSpan="1" rowSpan="1">
+                                                <af:inputText value="#{bindings.SalesPersonName.inputValue}"
+                                                              simple="true"
+                                                              required="#{bindings.SalesPersonName.hints.mandatory}"
+                                                              columns="#{bindings.SalesPersonName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.SalesPersonName.hints.precision}"
+                                                              shortDesc="#{bindings.SalesPersonName.hints.tooltip}"
+                                                              id="it1">
+                                                    <f:validator binding="#{bindings.SalesPersonName.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr3">
                                             <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px"
                                                          halign="center">
-                                                <af:outputLabel value="#{bindings.ChartOfAccountCode.hints.label}"
+                                                <af:outputLabel value="#{bindings.SalesPersonShortCode.hints.label}"
                                                                 id="ol2"/>
                                             </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px"
-                                                         halign="stretch" columnSpan="1" rowSpan="1"/>
+                                                         halign="stretch" columnSpan="1" rowSpan="1">
+                                                <af:inputText value="#{bindings.SalesPersonShortCode.inputValue}"
+                                                              label="#{bindings.SalesPersonShortCode.hints.label}"
+                                                              required="#{bindings.SalesPersonShortCode.hints.mandatory}"
+                                                              columns="#{bindings.SalesPersonShortCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.SalesPersonShortCode.hints.precision}"
+                                                              shortDesc="#{bindings.SalesPersonShortCode.hints.tooltip}"
+                                                              id="it2" simple="true">
+                                                    <f:validator binding="#{bindings.SalesPersonShortCode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.SalesPersonShortCode.format}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
                                             <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center">
-                                                <af:outputLabel value="#{bindings.CoaTypeSno.label}" id="ol3"/>
+                                                <af:outputLabel value="#{bindings.SalesPersonShortName.hints.label}" id="ol3"/>
                                             </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px"
-                                                         columnSpan="1" halign="stretch" rowSpan="1"/>
+                                                         columnSpan="1" halign="stretch" rowSpan="1">
+                                                <af:inputText value="#{bindings.SalesPersonShortName.inputValue}"
+                                                              label="#{bindings.SalesPersonShortName.hints.label}"
+                                                              required="#{bindings.SalesPersonShortName.hints.mandatory}"
+                                                              columns="#{bindings.SalesPersonShortName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.SalesPersonShortName.hints.precision}"
+                                                              shortDesc="#{bindings.SalesPersonShortName.hints.tooltip}"
+                                                              id="it3" simple="true">
+                                                    <f:validator binding="#{bindings.SalesPersonShortName.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr5">
                                             <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
                                                          halign="center">
                                                 <af:outputLabel value="#{bindings.IsActive.label}" id="ol4"/>
                                             </af:gridCell>
-                                            <af:gridCell id="gc6" halign="stretch"/>
+                                            <af:gridCell id="gc6" halign="stretch">
+                                                <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
+                                                                    label="#{bindings.IsActive.label}"
+                                                                    required="#{bindings.IsActive.hints.mandatory}"
+                                                                    shortDesc="#{bindings.IsActive.hints.tooltip}"
+                                                                    id="soc1" simple="true" contentStyle="width:100%">
+                                                    <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
+                                                    <f:validator binding="#{bindings.IsActive.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
                                 </af:panelBox>
-                                <af:panelBox text="Parent Account Information" id="pb3" showDisclosure="false">
+                                <af:panelBox text="Contact Information" id="pb3" showDisclosure="false">
                                     <f:facet name="toolbar"/>
                                     <af:panelGridLayout id="pgl3">
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
                                             <af:gridCell marginStart="5px" width="15%" id="gc9" marginEnd="5px"
                                                          halign="center">
-                                                <af:outputLabel value="#{bindings.txtParentCOADescription.hints.label}" id="ol6"/>
+                                                <af:outputLabel value="#{bindings.MobileNo.hints.label}" id="ol6"/>
                                             </af:gridCell>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch"/>
+                                            <af:gridCell marginStart="5px" width="85%" id="gc10" halign="stretch">
+                                                <af:inputText value="#{bindings.MobileNo.inputValue}"
+                                                              label="#{bindings.MobileNo.hints.label}"
+                                                              required="#{bindings.MobileNo.hints.mandatory}"
+                                                              columns="#{bindings.MobileNo.hints.displayWidth}"
+                                                              maximumLength="#{bindings.MobileNo.hints.precision}"
+                                                              shortDesc="#{bindings.MobileNo.hints.tooltip}" id="it4"
+                                                              simple="true">
+                                                    <f:validator binding="#{bindings.MobileNo.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr7">
                                             <af:gridCell marginStart="5px" width="15%" id="gc13" marginEnd="5px"
                                                          halign="center">
-                                                <af:outputLabel value="#{bindings.txtParentCOACode.hints.label}"
+                                                <af:outputLabel value="#{bindings.Email.hints.label}"
                                                                 id="ol5"/>
                                             </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" marginEnd="5px" id="gc14"
-                                                         halign="stretch"/>
+                                                         halign="stretch">
+                                                <af:inputText value="#{bindings.Email.inputValue}"
+                                                              label="#{bindings.Email.hints.label}"
+                                                              required="#{bindings.Email.hints.mandatory}"
+                                                              columns="#{bindings.Email.hints.displayWidth}"
+                                                              maximumLength="#{bindings.Email.hints.precision}"
+                                                              shortDesc="#{bindings.Email.hints.tooltip}" id="it5"
+                                                              simple="true">
+                                                    <f:validator binding="#{bindings.Email.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
                                 </af:panelBox>
