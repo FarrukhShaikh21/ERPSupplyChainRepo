@@ -291,7 +291,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_SALES_PERSON">
+    TableName="SCM_SALES_PERSON"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -331,7 +332,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_SALES_PERSON"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -359,6 +359,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmSalesPerson.SalesPersonSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmSalesPersonFirstNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Scm_Sales_Person_First_Name_Ch"/>
+      <Attr Name="_checkCondition" Value='"FIRST_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmSalesPerson.FirstName"/>
     </AttrArray>
   </Key>
   <Key

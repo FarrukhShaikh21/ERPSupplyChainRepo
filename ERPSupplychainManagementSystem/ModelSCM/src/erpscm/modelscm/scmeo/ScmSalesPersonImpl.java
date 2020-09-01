@@ -366,6 +366,7 @@ public class ScmSalesPersonImpl extends ERPEntityImpl {
         setAttributeInternal(TXTSALESPERSONNAME, value);
     }
 
+
     /**
      * @param salesPersonSno key constituent
 
