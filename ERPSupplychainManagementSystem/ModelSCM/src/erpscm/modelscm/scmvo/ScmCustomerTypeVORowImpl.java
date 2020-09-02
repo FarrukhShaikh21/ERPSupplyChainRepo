@@ -10,6 +10,8 @@ import java.sql.Timestamp;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class ScmCustomerTypeVORowImpl extends ERPViewRowImpl {
+
+
     public static final int ENTITY_SCMCUSTOMERTYPE = 0;
 
     /**
@@ -33,8 +35,10 @@ public class ScmCustomerTypeVORowImpl extends ERPViewRowImpl {
         IsUnsupervised,
         UnSupervisedDate,
         SupervisedBy,
-        UnSupervisedBy;
-        private static AttributesEnum[] vals = null;
+        UnSupervisedBy,
+        AccSysGeneralValueVO;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -56,6 +60,8 @@ public class ScmCustomerTypeVORowImpl extends ERPViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int CUSTOMERTYPESNO = AttributesEnum.CustomerTypeSno.index();
     public static final int CUSTOMERTYPECODE = AttributesEnum.CustomerTypeCode.index();
     public static final int CUSTOMERTYPESHORTNAME = AttributesEnum.CustomerTypeShortName.index();
@@ -74,6 +80,7 @@ public class ScmCustomerTypeVORowImpl extends ERPViewRowImpl {
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
+    public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
 
     /**
      * This is the default constructor (do not remove).
