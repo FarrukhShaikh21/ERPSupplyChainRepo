@@ -168,6 +168,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_CUSTOMER_TYPE">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -179,7 +181,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -198,7 +199,6 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"

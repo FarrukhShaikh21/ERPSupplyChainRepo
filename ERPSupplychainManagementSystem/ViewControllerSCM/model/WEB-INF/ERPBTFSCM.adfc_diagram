@@ -1103,40 +1103,27 @@
       <property
          name="fromOutcome">ERPQUERY-ACT-SCM_0005_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">R50,-1026.6484,951.3965,-957.9746,1001.3447,L50</property>
+         name="sdm:polyPoints">R50,-1026.6484,951.3965,-957.9746,997.8447,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase102"
       from="View98"
-      to="MethodCall103">
+      to="MethodCall108">
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">R50,-875.9746,1001.3447,-875.9746,1114.0459,-985.5,1114.0459,B50</property>
+         name="sdm:polyPoints">L54,-957.9746,1004.8447,-1058.5,1067.0977,R50</property>
    </ControlFlowCase>
-   <MethodCall
-      id="MethodCall103">
-      <property
-         name="activityId">ExeCustomerTypeCRUDSCM_0005_EDIT</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>ExeCustomerTypeCRUDSCM_0005_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">1060.3965</property>
-      <property
-         name="x">-985.5</property>
-   </MethodCall>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase104"
-      from="MethodCall103"
+      from="MethodCall108"
       to="View92">
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">L50,-1026.5,1060.0459,-1397.9562,1007.1953,R54</property>
+         name="sdm:polyPoints">L50,-1140.5,1067.0977,-1397.803,1007.1953,R54</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall105">
@@ -1171,4 +1158,17 @@
       <property
          name="sdm:polyPoints">T50,-1269.9805,857.7471,-916.9746,947.3447,T50</property>
    </ControlFlowCase>
+   <MethodCall
+      id="MethodCall108">
+      <property
+         name="activityId">ExeCustTypeByCompSCM_0005_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeCustTypeByCompSCM_0005_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1067.0977</property>
+      <property
+         name="x">-1099.5</property>
+   </MethodCall>
 </SDM>
