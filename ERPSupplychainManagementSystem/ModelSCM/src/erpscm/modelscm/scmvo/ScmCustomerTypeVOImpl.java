@@ -13,5 +13,37 @@ public class ScmCustomerTypeVOImpl extends ERPViewObjectImpl {
      */
     public ScmCustomerTypeVOImpl() {
     }
+
+    /**
+     * Returns the variable value for P_ADF_COMPANY_TYPE_SNO.
+     * @return variable value for P_ADF_COMPANY_TYPE_SNO
+     */
+    public Integer getP_ADF_COMPANY_TYPE_SNO() {
+        return (Integer) ensureVariableManager().getVariableValue("P_ADF_COMPANY_TYPE_SNO");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_COMPANY_TYPE_SNO.
+     * @param value value to bind as P_ADF_COMPANY_TYPE_SNO
+     */
+    public void setP_ADF_COMPANY_TYPE_SNO(Integer value) {
+        ensureVariableManager().setVariableValue("P_ADF_COMPANY_TYPE_SNO", value);
+    }
+
+    /**
+     * Returns the variable value for P_ADF_COMPANY_ID.
+     * @return variable value for P_ADF_COMPANY_ID
+     */
+    public Integer getP_ADF_COMPANY_ID() {
+        return (Integer) ensureVariableManager().getVariableValue("P_ADF_COMPANY_ID");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_COMPANY_ID.
+     * @param value value to bind as P_ADF_COMPANY_ID
+     */
+    public void setP_ADF_COMPANY_ID(Integer value) {
+        ensureVariableManager().setVariableValue("P_ADF_COMPANY_ID", value);
+    }
 }
 
