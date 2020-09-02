@@ -533,6 +533,13 @@
         <to-activity-id>SCM_0005_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
+    <control-flow-rule id="__92">
+      <from-activity-id>SCM_0005_EDIT</from-activity-id>
+      <control-flow-case id="__93">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0005</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <visibility>
       <url-invoke-allowed/>
     </visibility>
