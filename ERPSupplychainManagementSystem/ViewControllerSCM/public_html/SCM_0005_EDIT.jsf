@@ -61,9 +61,8 @@
                   </af:gridCell>
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5" halign="stretch"
-                               valign="stretch">
-                    <af:panelGroupLayout id="pgl3" layout="scroll" halign="center">
+                  <af:gridCell marginStart="5px" width="0%" marginEnd="5px" id="gc5">
+                    <af:panelGroupLayout id="pgl3" styleClass="AFStretchWidth">
                       <af:listView value="#{bindings.ScmCustomerTypeByCopmanyRO.collectionModel}" var="item"
                                    emptyText="#{bindings.ScmCustomerTypeByCopmanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                    fetchSize="#{bindings.ScmCustomerTypeByCopmanyRO.rangeSize}" id="lv2"
@@ -145,8 +144,8 @@
                                                halign="stretch">
                                     <af:panelGroupLayout id="pgl13" layout="horizontal">
                                       <af:image source="#{resource['images:imgActive.png']}" id="i4"/>
-                                      <af:outputFormatted value="#{item.bindings.IsActive.inputValue}" id="of10"
-                                                          styleClass="ERPHeroDetailColor"/>
+                                      <af:outputFormatted value="#{item.bindings.IsActive.inputValue=='0'?'YES':'NO'}"
+                                                          id="of10" styleClass="ERPHeroDetailColor"/>
                                       <f:facet name="separator">
                                         <af:spacer width="10" height="10" id="s2"/>
                                       </f:facet>
