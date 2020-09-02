@@ -11,12 +11,28 @@
                     <af:outputText value="Do you want to delete this record?" id="ot3"
                                    styleClass="ErpDeleteConfirmText"/>
                 </af:dialog>
-            </af:popup>            
+            </af:popup> 
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                        binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
+                  <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>   
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                        binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
+                  <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>              
             <af:decorativeBox id="db1" dimensionsFrom="parent">
                 <f:facet name="center">
                     <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
                         <f:facet name="center">
-                            <af:panelBox text="PanelBox1" id="pb2" showHeader="never">
+                            <af:panelBox text="PanelBox1" id="pb2" showHeader="never" partialTriggers="d3 d4">
                                 <f:facet name="toolbar"/>
                                 <af:panelBox text="Basic Information" id="pb1" showDisclosure="false">
                                     <f:facet name="toolbar"/>
@@ -27,6 +43,24 @@
                                                                 showRequired="true"/>
                                             </af:gridCell>
                                             <af:gridCell id="gc18" width="85%" halign="stretch">
+                                                <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                              label="#{bindings.IsUnsupervised.hints.label}"
+                                                              required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
+                                                              id="it9" rendered="false">
+                                                    <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                              label="#{bindings.IsSupervised.hints.label}"
+                                                              required="#{bindings.IsSupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}"
+                                                              id="it8" rendered="false">
+                                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                                </af:inputText>
                                                 <af:inputText value="#{bindings.FirstName.inputValue}"
                                                               label="#{bindings.FirstName.hints.label}"
                                                               required="#{bindings.FirstName.hints.mandatory}"
@@ -34,7 +68,8 @@
                                                               maximumLength="#{bindings.FirstName.hints.precision}"
                                                               shortDesc="#{bindings.FirstName.hints.tooltip}" id="it6"
                                                               simple="true" contentStyle="width:100%" autoSubmit="true"
-                                                              clientComponent="true">
+                                                              clientComponent="true"
+                                                              readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
                                                     <f:validator binding="#{bindings.FirstName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -50,7 +85,8 @@
                                                               columns="#{bindings.LastName.hints.displayWidth}"
                                                               maximumLength="#{bindings.LastName.hints.precision}"
                                                               shortDesc="#{bindings.LastName.hints.tooltip}" id="it7"
-                                                              simple="true" contentStyle="width:100%" autoSubmit="true">
+                                                              simple="true" contentStyle="width:100%" autoSubmit="true"
+                                                              readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
                                                     <f:validator binding="#{bindings.LastName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -108,7 +144,8 @@
                                                               columns="#{bindings.SalesPersonShortName.hints.displayWidth}"
                                                               maximumLength="#{bindings.SalesPersonShortName.hints.precision}"
                                                               shortDesc="#{bindings.SalesPersonShortName.hints.tooltip}"
-                                                              id="it3" simple="true" contentStyle="width:100%">
+                                                              id="it3" simple="true" contentStyle="width:100%"
+                                                              readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
                                                     <f:validator binding="#{bindings.SalesPersonShortName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -123,7 +160,8 @@
                                                                     label="#{bindings.IsActive.label}"
                                                                     required="#{bindings.IsActive.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsActive.hints.tooltip}"
-                                                                    id="soc1" simple="true" contentStyle="width:100%">
+                                                                    id="soc1" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
                                                     <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
                                                     <f:validator binding="#{bindings.IsActive.validator}"/>
                                                 </af:selectOneChoice>
@@ -146,7 +184,8 @@
                                                               columns="#{bindings.MobileNo.hints.displayWidth}"
                                                               maximumLength="#{bindings.MobileNo.hints.precision}"
                                                               shortDesc="#{bindings.MobileNo.hints.tooltip}" id="it4"
-                                                              simple="true" contentStyle="width:100%">
+                                                              simple="true" contentStyle="width:100%"
+                                                              readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
                                                     <f:validator binding="#{bindings.MobileNo.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -165,7 +204,8 @@
                                                               columns="#{bindings.Email.hints.displayWidth}"
                                                               maximumLength="#{bindings.Email.hints.precision}"
                                                               shortDesc="#{bindings.Email.hints.tooltip}" id="it5"
-                                                              simple="true" contentStyle="width:100%">
+                                                              simple="true" contentStyle="width:100%"
+                                                              readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
                                                     <f:validator binding="#{bindings.Email.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -207,8 +247,8 @@
                                             <af:link text="Delete" id="l11"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                      iconPosition="top" partialSubmit="true"
-                                                     disabled="#{bindings.ScmSalesPersonCRUDIterator.estimatedRowCount==0 ||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
-                                                     partialTriggers="d2"
+                                                     disabled="#{bindings.ScmSalesPersonCRUDIterator.estimatedRowCount==0 ||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' ||bindings.IsSupervised.inputValue=='Y'}"
+                                                     partialTriggers="d2 d3"
                                                      actionListener="#{bindings.Delete.execute}">
                                                 <af:showPopupBehavior popupId="p1"/>
                                             </af:link>
@@ -216,18 +256,16 @@
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.PaymentTermHeaderCode.inputValue==null}"
-                                                     partialTriggers="l6">
-                                                <af:setActionListener from="#{'ScmPaymentTermHeaderCRUDIterator'}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.SalesPersonShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                <af:setActionListener from="#{'ScmSalesPersonCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                                     
                                             <af:link text="UnSupervise" id="l20" partialSubmit="true"
                                                      icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.PaymentTermHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
-                                                     partialTriggers="l6">
-                                                <af:setActionListener from="#{'ScmPaymentTermHeaderCRUDIterator'}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.SalesPersonShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
+                                                <af:setActionListener from="#{'ScmSalesPersonCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                            
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l8"

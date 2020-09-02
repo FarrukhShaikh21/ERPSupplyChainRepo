@@ -12,7 +12,12 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpscm.modelscm.scmvo.ScmSalesPersonVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Variable
     Name="P_ADF_COMPANY_ID"
     Kind="viewcriteria"
@@ -46,6 +51,44 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="IsActive"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsSupervised"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsSupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsUnsupervised"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsUnsupervised"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -183,6 +226,58 @@
     EntityAttrName="txtSalesPersonName"
     EntityUsage="ScmSalesPerson"
     AliasName="TXT_SALES_PERSON_NAME"/>
+  <ViewAttribute
+    Name="IsSupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsSupervised"
+    EntityUsage="ScmSalesPerson"
+    AliasName="IS_SUPERVISED"
+    LOVName="LovIsSupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IsUnsupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsUnsupervised"
+    EntityUsage="ScmSalesPerson"
+    AliasName="IS_UNSUPERVISED"
+    LOVName="LovIsUnsupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UnSupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedDate"
+    EntityUsage="ScmSalesPerson"
+    AliasName="UN_SUPERVISED_DATE"/>
+  <ViewAttribute
+    Name="UnSupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedBy"
+    EntityUsage="ScmSalesPerson"
+    AliasName="UN_SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="SupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedDate"
+    EntityUsage="ScmSalesPerson"
+    AliasName="SUPERVISED_DATE"/>
+  <ViewAttribute
+    Name="SupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedBy"
+    EntityUsage="ScmSalesPerson"
+    AliasName="SUPERVISED_BY"/>
   <ViewCriteria
     Name="ScmSalesPersonByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmSalesPersonVO"

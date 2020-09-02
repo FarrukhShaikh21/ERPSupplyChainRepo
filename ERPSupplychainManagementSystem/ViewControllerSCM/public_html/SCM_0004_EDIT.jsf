@@ -50,7 +50,16 @@
                   </af:gridCell>
                 </af:gridRow>
                 <af:gridRow id="gr4">
-                  <af:gridCell id="gc5" halign="stretch"/>
+                  <af:gridCell id="gc5" halign="center">
+                    <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                   value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                   model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                   queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                      <f:facet name="end">
+                        <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                      </f:facet>
+                    </af:quickQuery>
+                  </af:gridCell>
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" valign="stretch"
@@ -70,7 +79,7 @@
                                  styleClass="WBDisplayBlockCenter"
                                  selectionListener="#{bindings.ScmSalesPersonByCompanyRO.treeModel.makeCurrent}"
                                  selectedRowKeys="#{bindings.ScmSalesPersonByCompanyRO.collectionModel.selectedRow}"
-                                 selection="single">
+                                 selection="single" partialTriggers="qryId1">
                       <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                         <af:panelGroupLayout id="pgl12" layout="vertical" styleClass="WBCardSize">
                           <af:panelBox text="PanelBox2" id="pb2" showDisclosure="false" showHeader="never">
