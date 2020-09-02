@@ -814,6 +814,10 @@
           ResId="erpscm.modelscm.scmeo.ScmCustomer.txtCountryName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="CountrySno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtCityName"
@@ -822,7 +826,10 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_CUSTOMER">
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SmCity?.Cityname]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -831,6 +838,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="CitySno"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="ScmCustomerSites"

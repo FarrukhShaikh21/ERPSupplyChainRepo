@@ -21,6 +21,60 @@
     Name="P_ADF_CUSTOMER_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
+  <ViewAccessor
+    Name="SmCityVO1"
+    ViewObjectName="erpadm.modeladm.admvo.SmCityVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SmCountryVO1"
+    ViewObjectName="erpadm.modeladm.admvo.SmCountryVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_txtCityName"
+    ListVOName="SmCityVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="2"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCityName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CitySno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Cityname"/>
+      <Item Value="Citycode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Cityname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_txtCountryName"
+    ListVOName="SmCountryVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="2"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCountryName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CountrySno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Countryname"/>
+      <Item Value="Countrycode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Countryname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmCustomer"
     Entity="erpscm.modelscm.scmeo.ScmCustomer"/>
@@ -289,6 +343,38 @@
     EntityAttrName="CnicExpiryDate"
     EntityUsage="ScmCustomer"
     AliasName="CNIC_EXPIRY_DATE"/>
+  <ViewAttribute
+    Name="txtCityName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCityName"
+    EntityUsage="ScmCustomer"
+    AliasName="txt_City_Name"
+    LOVName="LOV_txtCityName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtCountryName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCountryName"
+    EntityUsage="ScmCustomer"
+    AliasName="txt_Country_Name"
+    LOVName="LOV_txtCountryName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmCustomerByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerVO"
