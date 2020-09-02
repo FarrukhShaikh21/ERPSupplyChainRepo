@@ -49,7 +49,16 @@
                   </af:gridCell>
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" id="gr3">
-                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4"/>
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="center">
+                    <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                   value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                   model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                   queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                      <f:facet name="end">
+                        <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                      </f:facet>
+                    </af:quickQuery>
+                  </af:gridCell>
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5" halign="stretch"
@@ -61,7 +70,7 @@
                                    selection="single"
                                    selectionListener="#{bindings.ScmCustomerTypeByCopmanyRO.treeModel.makeCurrent}"
                                    selectedRowKeys="#{bindings.ScmCustomerTypeByCopmanyRO.collectionModel.selectedRow}"
-                                   styleClass="WBDisplayBlockCenter">
+                                   styleClass="WBDisplayBlockCenter" partialTriggers="::qryId1">
                         <af:listItem id="li2"
                                      styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                           <af:panelGroupLayout id="pgl10" styleClass="WBCardSize" layout="vertical">
