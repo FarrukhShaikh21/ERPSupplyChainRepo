@@ -227,6 +227,21 @@
         <fixed-outcome>ERPQUERY-ACT-SCM_0005</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0005_EDIT_EDIT">
+      <page>/SCM_0005_EDIT_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeWithParaCustTypeSCM_0005_EDIT_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPQUERY-ACT-SCM_0005_EDIT_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeCustomerTypeCRUDSCM_0005_EDIT">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -538,6 +553,31 @@
       <control-flow-case id="__93">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0005</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__94">
+        <from-outcome>ERPQUERY-ACT-SCM_0005_EDIT_EDIT</from-outcome>
+        <to-activity-id>ExeWithParaCustTypeSCM_0005_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__95">
+      <from-activity-id>ExeWithParaCustTypeSCM_0005_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__96">
+        <from-outcome>ERPQUERY-ACT-SCM_0005_EDIT_EDIT</from-outcome>
+        <to-activity-id>SCM_0005_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__97">
+      <from-activity-id>SCM_0005_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__98">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>ExeCustomerTypeCRUDSCM_0005_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__99">
+      <from-activity-id>ExeCustomerTypeCRUDSCM_0005_EDIT</from-activity-id>
+      <control-flow-case id="__100">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0005_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

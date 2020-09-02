@@ -1012,7 +1012,7 @@
       <property
          name="fromOutcome">ERPQUERY-ACT-SCM_0005</property>
       <property
-         name="sdm:polyPoints">L50,-942.5,1230.3447,-1025.6484,1231.6953,R50</property>
+         name="sdm:polyPoints">L54,-943.5915,1233.8447,-1025.6484,1231.6953,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -1055,6 +1055,87 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">R50,-1177.9785,1068.7471,-942.5,1226.8447,L46</property>
+         name="sdm:polyPoints">R54,-1177.9785,1072.2471,-942.5,1226.8447,L46</property>
+   </ControlFlowCase>
+   <View
+      id="View98">
+      <property
+         name="activityId">SCM_0005_EDIT_EDIT</property>
+      <property
+         name="page">/SCM_0005_EDIT_EDIT.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SCM_0005_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1001.6953</property>
+      <property
+         name="x">-916.9746</property>
+   </View>
+   <MethodCall
+      id="MethodCall99">
+      <property
+         name="activityId">ExeWithParaCustTypeSCM_0005_EDIT_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeWithParaCustTypeSCM_0005_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">951.7471</property>
+      <property
+         name="x">-1067.6484</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase100"
+      from="View92"
+      to="MethodCall99">
+      <property
+         name="fromOutcome">ERPQUERY-ACT-SCM_0005_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">T50,-1218.9785,1014.7471,-1108.6484,951.3965,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase101"
+      from="MethodCall99"
+      to="View98">
+      <property
+         name="fromOutcome">ERPQUERY-ACT-SCM_0005_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">R50,-1026.6484,951.3965,-957.9746,1001.3447,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase102"
+      from="View98"
+      to="MethodCall103">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">R50,-875.9746,1001.3447,-875.9746,1114.0459,-985.5,1114.0459,B50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall103">
+      <property
+         name="activityId">ExeCustomerTypeCRUDSCM_0005_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeCustomerTypeCRUDSCM_0005_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1060.3965</property>
+      <property
+         name="x">-985.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase104"
+      from="MethodCall103"
+      to="View92">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">L50,-1026.5,1060.0459,-1177.9785,1065.2471,R46</property>
    </ControlFlowCase>
 </SDM>
