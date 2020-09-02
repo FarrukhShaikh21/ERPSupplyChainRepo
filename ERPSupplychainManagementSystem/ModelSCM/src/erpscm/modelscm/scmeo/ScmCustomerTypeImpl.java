@@ -2,6 +2,8 @@ package erpscm.modelscm.scmeo;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
+import erpglobals.modelglobals.ERPGlobalPLSQLClass;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.Key;
@@ -400,6 +402,20 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation == DML_INSERT) {
+            
+            String result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_TYPE_SNO",
+                                                              this.getEntityDef().getSource(), null, null);
+
+            populateAttributeAsChanged(CUSTOMERTYPESNO, Integer.parseInt(result));
+            result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_TYPE_CODE",
+                                                              this.getEntityDef().getSource(), "COMPANY_ID",
+                                                              getCompanyId().toString());
+            populateAttributeAsChanged(CUSTOMERTYPECODE, Integer.parseInt(result));
+
+        }        
         super.doDML(operation, e);
     }
 }
