@@ -242,6 +242,12 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ERPADD-ACT-SCM_0005_EDIT_EDIT">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPADD-ACT-SCM_0005_EDIT_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -558,6 +564,10 @@
         <from-outcome>ERPEDIT-ACT-SCM_0005_EDIT_EDIT</from-outcome>
         <to-activity-id>ExeWithParaCustTypeSCM_0005_EDIT_EDIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__101">
+        <from-outcome>ERPADD-ACT-SCM_0005_EDIT_EDIT</from-outcome>
+        <to-activity-id>ERPADD-ACT-SCM_0005_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__95">
       <from-activity-id>ExeWithParaCustTypeSCM_0005_EDIT_EDIT</from-activity-id>
@@ -578,6 +588,13 @@
       <control-flow-case id="__100">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0005_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__102">
+      <from-activity-id>ERPADD-ACT-SCM_0005_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__103">
+        <from-outcome>ERPADD-ACT-SCM_0005_EDIT_EDIT</from-outcome>
+        <to-activity-id>SCM_0005_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

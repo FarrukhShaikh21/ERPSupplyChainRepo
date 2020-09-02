@@ -4,9 +4,10 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="ScmCustomerTypeByCopmanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmCustomerTypeByCopmanyROIterator"/>
+    <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="AdminCompanyVOByCompanyROIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="ScmCustomerTypeByCopmanyROIterator" id="ScmCustomerTypeByCopmanyRO">
@@ -23,6 +24,26 @@
     <attributeValues IterBinding="ScmCustomerTypeByCopmanyROIterator" id="CustomerTypeSno">
       <AttrNames>
         <Item Value="CustomerTypeSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortName">
+      <AttrNames>
+        <Item Value="CompanyShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortCode">
+      <AttrNames>
+        <Item Value="CompanyShortCode"/>
       </AttrNames>
     </attributeValues>
   </bindings>
