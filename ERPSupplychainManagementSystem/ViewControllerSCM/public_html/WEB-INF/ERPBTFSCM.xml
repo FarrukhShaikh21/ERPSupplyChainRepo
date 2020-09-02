@@ -209,7 +209,7 @@
     <method-call id="ExeCompanySCM_0005">
       <method>#{bindings.Execute.execute}</method>
       <outcome>
-        <fixed-outcome>Execute</fixed-outcome>
+        <fixed-outcome>ERP-ACT-SCM_0005</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">
@@ -267,7 +267,7 @@
       </control-flow-case>
       <control-flow-case id="__84">
         <from-outcome>ERP-ACT-SCM_0005</from-outcome>
-        <to-activity-id>SCM_0005</to-activity-id>
+        <to-activity-id>ExeCompanySCM_0005</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -488,6 +488,13 @@
       <control-flow-case id="__82">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0004_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__85">
+      <from-activity-id>ExeCompanySCM_0005</from-activity-id>
+      <control-flow-case id="__86">
+        <from-outcome>ERP-ACT-SCM_0005</from-outcome>
+        <to-activity-id>SCM_0005</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
