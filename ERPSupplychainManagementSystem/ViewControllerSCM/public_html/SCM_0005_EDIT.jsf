@@ -19,6 +19,15 @@
                     <af:panelGroupLayout id="pgl10" styleClass="WBCardSize" layout="vertical">
                       <af:panelBox text="PanelBox2" id="pb2" showDisclosure="false" showHeader="never">
                         <f:facet name="toolbar"/>
+                        <af:inputText value="#{bindings.CustomerTypeSno.inputValue}"
+                                      label="#{bindings.CustomerTypeSno.hints.label}"
+                                      required="#{bindings.CustomerTypeSno.hints.mandatory}"
+                                      columns="#{bindings.CustomerTypeSno.hints.displayWidth}"
+                                      maximumLength="#{bindings.CustomerTypeSno.hints.precision}"
+                                      shortDesc="#{bindings.CustomerTypeSno.hints.tooltip}" id="it1" rendered="false">
+                          <f:validator binding="#{bindings.CustomerTypeSno.validator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerTypeSno.format}"/>
+                        </af:inputText>
                         <af:panelGridLayout id="pgl9">
                           <af:gridRow marginTop="5px" height="auto" id="gr6">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
