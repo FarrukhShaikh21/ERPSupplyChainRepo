@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmvo;
 
+import erpglobals.modelglobals.ERPViewRowImpl;
+
 import erpscm.modelscm.scmeo.ScmSalesPersonImpl;
 
 import java.sql.Timestamp;
@@ -12,7 +14,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ScmSalesPersonVORowImpl extends ViewRowImpl {
+public class ScmSalesPersonVORowImpl extends ERPViewRowImpl {
+
     public static final int ENTITY_SCMSALESPERSON = 0;
 
     /**
@@ -43,7 +46,8 @@ public class ScmSalesPersonVORowImpl extends ViewRowImpl {
         SupervisedDate,
         SupervisedBy,
         AccSysGeneralValueVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -65,6 +69,7 @@ public class ScmSalesPersonVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int SALESPERSONSNO = AttributesEnum.SalesPersonSno.index();
     public static final int SALESPERSONSHORTCODE = AttributesEnum.SalesPersonShortCode.index();
     public static final int SALESPERSONSHORTNAME = AttributesEnum.SalesPersonShortName.index();
