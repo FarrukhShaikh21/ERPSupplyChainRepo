@@ -22,16 +22,26 @@
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
   <ViewAccessor
-    Name="SmCityVO1"
+    Name="AccSmCityVO"
     ViewObjectName="erpadm.modeladm.admvo.SmCityVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SmCityCountryWiseVC"
+      FullName="erpadm.modeladm.admvo.SmCityVO.SmCityCountryWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COUNTRY_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CountrySno==null?-1:CountrySno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
-    Name="SmCountryVO1"
+    Name="AccSmCountryVO"
     ViewObjectName="erpadm.modeladm.admvo.SmCountryVO"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_txtCityName"
-    ListVOName="SmCityVO1"
+    ListVOName="AccSmCityVO"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="2"
@@ -49,12 +59,15 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Cityname"/>
+      <Item Value="CityShortName"/>
+      <Item Value="CityShortCode"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Name="SmCityFindVC"/>
   </ListBinding>
   <ListBinding
     Name="LOV_txtCountryName"
-    ListVOName="SmCountryVO1"
+    ListVOName="AccSmCountryVO"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="2"
@@ -72,8 +85,11 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Countryname"/>
+      <Item Value="CountryShortName"/>
+      <Item Value="CountryShortCode"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Name="SmCountryVOFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmCustomer"

@@ -208,6 +208,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="txtCountryName"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="CreatedBy"
@@ -841,6 +845,8 @@
     <Dependencies>
       <Item
         Value="CitySno"/>
+      <Item
+        Value="txtCountryName"/>
     </Dependencies>
   </Attribute>
   <AccessorAttribute
