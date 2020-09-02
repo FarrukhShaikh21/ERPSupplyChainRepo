@@ -1018,10 +1018,33 @@
       islink="true"
       id="ControlFlowCase94"
       from="MethodCall93"
+      to="MethodCall95">
+      <property
+         name="fromOutcome">ERPQUERY-ACT-SCM_0005</property>
+      <property
+         name="sdm:polyPoints">L50,-1120.6484,1208.3965,-1177.6484,1232.7471,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall95">
+      <property
+         name="activityId">ExeCustTypeByCompanySCM_0005_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeCustTypeByCompanySCM_0005_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1233.0977</property>
+      <property
+         name="x">-1218.6484</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase96"
+      from="MethodCall95"
       to="View92">
       <property
          name="fromOutcome">ERPQUERY-ACT-SCM_0005</property>
       <property
-         name="sdm:polyPoints">T44,-1083.1484,1154.3965,-1129.9785,1142.4482,B50</property>
+         name="sdm:polyPoints">T50,-1218.6484,1178.7471,-1129.9785,1142.4482,B50</property>
    </ControlFlowCase>
 </SDM>

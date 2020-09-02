@@ -221,6 +221,12 @@
         <fixed-outcome>ERPQUERY-ACT-SCM_0005</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeCustTypeByCompanySCM_0005_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPQUERY-ACT-SCM_0005</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -516,6 +522,13 @@
     <control-flow-rule id="__88">
       <from-activity-id>ExeCompByCompIdSCM_005_EDIT</from-activity-id>
       <control-flow-case id="__89">
+        <from-outcome>ERPQUERY-ACT-SCM_0005</from-outcome>
+        <to-activity-id>ExeCustTypeByCompanySCM_0005_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__90">
+      <from-activity-id>ExeCustTypeByCompanySCM_0005_EDIT</from-activity-id>
+      <control-flow-case id="__91">
         <from-outcome>ERPQUERY-ACT-SCM_0005</from-outcome>
         <to-activity-id>SCM_0005_EDIT</to-activity-id>
       </control-flow-case>

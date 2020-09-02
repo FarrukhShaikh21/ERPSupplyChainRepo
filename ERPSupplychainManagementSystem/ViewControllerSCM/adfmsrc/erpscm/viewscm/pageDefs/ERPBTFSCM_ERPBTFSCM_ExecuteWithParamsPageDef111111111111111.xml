@@ -4,7 +4,15 @@
                 SkipValidation="true">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
+    <iterator Binds="ScmCustomerTypeByCopmanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerTypeByCopmanyROIterator" Refresh="never"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <action IterBinding="ScmCustomerTypeByCopmanyROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_COMPANY_TYPE_SNO" NDValue="" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_COMPANY_ID" NDValue="#{data.erpscm_viewscm_SCM_0005PageDef.CompCode.inputValue}"
+                 NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
 </pageDefinition>
