@@ -94,31 +94,8 @@
       FullName="erpscm.modelscm.scmvo.ScmCustomerTypeVO.ScmCustomerTypeByCustomerTypeID"/>
   </ViewUsage>
   <ViewUsage
-    Name="ScmCustomerSitesBTDetCRUD"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerSitesVO">
-    <ViewCriteriaUsage
-      Name="ScmCustomerSitesByBillToShipToVC"
-      FullName="erpscm.modelscm.scmvo.ScmCustomerSitesVO.ScmCustomerSitesByBillToShipToVC"/>
-    <ParameterMap>
-      <PIMap Variable="P_ADF_SITE_TYPE">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA["B"]]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
-  </ViewUsage>
-  <ViewUsage
-    Name="ScmCustomerSitesSTDetCRUD"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerSitesVO">
-    <ViewCriteriaUsage
-      Name="ScmCustomerSitesByBillToShipToVC"
-      FullName="erpscm.modelscm.scmvo.ScmCustomerSitesVO.ScmCustomerSitesByBillToShipToVC"/>
-    <ParameterMap>
-      <PIMap Variable="P_ADF_SITE_TYPE">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA["S"]]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
-  </ViewUsage>
+    Name="ScmCustomerSitesDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerSitesVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -135,12 +112,6 @@
     Name="FkScmCustSiteCustSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmCustSiteCustSnoLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerCRUD"
-    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerSitesBTDetCRUD"
-    Reversed="false"/>
-  <ViewLinkUsage
-    Name="FkScmCustSiteCustSnoLink3"
-    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmCustSiteCustSnoLink"
-    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerCRUD"
-    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerSitesSTDetCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerSitesDetCRUD"
     Reversed="false"/>
 </AppModule>
