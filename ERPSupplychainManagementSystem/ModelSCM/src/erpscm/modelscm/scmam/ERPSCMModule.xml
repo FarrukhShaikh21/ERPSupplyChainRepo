@@ -4,7 +4,7 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ERPSCMModule"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
   <ViewUsage
@@ -93,6 +93,32 @@
       Name="ScmCustomerTypeByCustomerTypeID"
       FullName="erpscm.modelscm.scmvo.ScmCustomerTypeVO.ScmCustomerTypeByCustomerTypeID"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ScmCustomerSitesBTDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerSitesVO">
+    <ViewCriteriaUsage
+      Name="ScmCustomerSitesByBillToShipToVC"
+      FullName="erpscm.modelscm.scmvo.ScmCustomerSitesVO.ScmCustomerSitesByBillToShipToVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_SITE_TYPE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA["B"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmCustomerSitesSTDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerSitesVO">
+    <ViewCriteriaUsage
+      Name="ScmCustomerSitesByBillToShipToVC"
+      FullName="erpscm.modelscm.scmvo.ScmCustomerSitesVO.ScmCustomerSitesByBillToShipToVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_SITE_TYPE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA["S"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -104,5 +130,17 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDiscDueHeadLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPaymentTermDueDetCRUD"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPaymentTermDiscountDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmCustSiteCustSnoLink1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmCustSiteCustSnoLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerSitesBTDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmCustSiteCustSnoLink3"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmCustSiteCustSnoLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerSitesSTDetCRUD"
     Reversed="false"/>
 </AppModule>

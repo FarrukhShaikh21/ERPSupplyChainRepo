@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_SITE_TYPE"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="ScmCustomerSites"
     Entity="erpscm.modelscm.scmeo.ScmCustomerSites"/>
@@ -137,4 +141,41 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmCustomerSites"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewCriteria
+    Name="ScmCustomerSitesByBillToShipToVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerSitesVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmCustomerSitesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SiteType"
+        ViewAttribute="SiteType"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_SITE_TYPE"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>
