@@ -70,9 +70,11 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         CnicExpiryDate,
         txtCountryName,
         txtCityName,
+        txtCustType,
         ScmCustomerSites,
         SmCountry,
-        SmCity;
+        SmCity,
+        ScmCustomerType;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -141,9 +143,11 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     public static final int CNICEXPIRYDATE = AttributesEnum.CnicExpiryDate.index();
     public static final int TXTCOUNTRYNAME = AttributesEnum.txtCountryName.index();
     public static final int TXTCITYNAME = AttributesEnum.txtCityName.index();
+    public static final int TXTCUSTTYPE = AttributesEnum.txtCustType.index();
     public static final int SCMCUSTOMERSITES = AttributesEnum.ScmCustomerSites.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int SMCITY = AttributesEnum.SmCity.index();
+    public static final int SCMCUSTOMERTYPE = AttributesEnum.ScmCustomerType.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -864,6 +868,22 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtCustType, using the alias name txtCustType.
+     * @return the value of txtCustType
+     */
+    public String gettxtCustType() {
+        return (String) getAttributeInternal(TXTCUSTTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCustType.
+     * @param value value to set the txtCustType
+     */
+    public void settxtCustType(String value) {
+        setAttributeInternal(TXTCUSTTYPE, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getScmCustomerSites() {
@@ -898,6 +918,21 @@ public class ScmCustomerImpl extends ERPEntityImpl {
      */
     public void setSmCity(SmCityImpl value) {
         setAttributeInternal(SMCITY, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmCustomerTypeImpl.
+     */
+    public ScmCustomerTypeImpl getScmCustomerType() {
+        return (ScmCustomerTypeImpl) getAttributeInternal(SCMCUSTOMERTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmCustomerTypeImpl.
+     */
+    public void setScmCustomerType(ScmCustomerTypeImpl value) {
+        setAttributeInternal(SCMCUSTOMERTYPE, value);
     }
 
 

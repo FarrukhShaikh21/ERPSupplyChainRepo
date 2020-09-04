@@ -49,7 +49,8 @@
                                                                   columns="#{bindings.CustomerShortCode.hints.displayWidth}"
                                                                   maximumLength="#{bindings.CustomerShortCode.hints.precision}"
                                                                   shortDesc="#{bindings.CustomerShortCode.hints.tooltip}"
-                                                                  id="it2" contentStyle="width:100%" simple="true">
+                                                                  id="it2" contentStyle="width:100%" simple="true"
+                                                                  readOnly="true">
                                                         <f:validator binding="#{bindings.CustomerShortCode.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.CustomerShortCode.format}"/>
@@ -93,21 +94,19 @@
                                             <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
                                                 <af:gridCell id="gc35" width="13%" rowSpan="1" halign="center"
                                                              marginStart="5px" marginEnd="5px">
-                                                    <af:outputLabel value="#{bindings.CustomerTypeSno.hints.label}"
-                                                                    id="ol4"/>
+                                                    <af:outputLabel value="Customer Type" id="ol4"/>
                                                 </af:gridCell>
                                                 <af:gridCell id="gc33" width="20%" halign="stretch" marginStart="5px"
                                                              marginEnd="5px">
-                                                    <af:inputText value="#{bindings.CustomerTypeSno.inputValue}"
-                                                                  required="#{bindings.CustomerTypeSno.hints.mandatory}"
-                                                                  columns="#{bindings.CustomerTypeSno.hints.displayWidth}"
-                                                                  maximumLength="#{bindings.CustomerTypeSno.hints.precision}"
-                                                                  shortDesc="#{bindings.CustomerTypeSno.hints.tooltip}"
-                                                                  id="it4" simple="true" contentStyle="width:100%">
-                                                        <f:validator binding="#{bindings.CustomerTypeSno.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.CustomerTypeSno.format}"/>
-                                                    </af:inputText>
+                                                    <af:inputComboboxListOfValues id="txtCustTypeId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtCustType.hints.label}"
+                                                                                  value="#{bindings.txtCustType.inputValue}"
+                                                                                  model="#{bindings.txtCustType.listOfValuesModel}"
+                                                                                  required="#{bindings.txtCustType.hints.mandatory}"
+                                                                                  columns="#{bindings.txtCustType.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtCustType.hints.tooltip}">
+                                                        <f:validator binding="#{bindings.txtCustType.validator}"/>
+                                                    </af:inputComboboxListOfValues>
                                                 </af:gridCell>
                                                 <af:gridCell id="gc5" width="13%" marginStart="5px" marginEnd="5px" rowSpan="1"
                                                              halign="center">
@@ -553,37 +552,40 @@
                                                 </af:gridCell>
                                             </af:gridRow>
                                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr15">
-                                                <af:gridCell marginStart="5px" width="13%" id="gc29" halign="center">
-                                                    <af:outputLabel value="#{bindings.CountrySno.hints.label}"
-                                                                    id="ol13"/>
+                                                <af:gridCell marginStart="5px" width="13%" id="gc29" halign="center"
+                                                             valign="middle">
+                                                    <af:outputLabel value="#{bindings.txtCountryName.hints.label}" id="ol13"/>
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc30"
                                                              halign="stretch">
-                                                    <af:inputText value="#{bindings.CountrySno.inputValue}"
-                                                                  required="#{bindings.CountrySno.hints.mandatory}"
-                                                                  columns="#{bindings.CountrySno.hints.displayWidth}"
-                                                                  maximumLength="#{bindings.CountrySno.hints.precision}"
-                                                                  shortDesc="#{bindings.CountrySno.hints.tooltip}"
-                                                                  id="it13" contentStyle="width:100%" simple="true">
-                                                        <f:validator binding="#{bindings.CountrySno.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.CountrySno.format}"/>
-                                                    </af:inputText>
+                                                    <af:inputComboboxListOfValues id="txtCountryNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtCountryName.hints.label}"
+                                                                                  value="#{bindings.txtCountryName.inputValue}"
+                                                                                  label="#{bindings.txtCountryName.hints.label}"
+                                                                                  model="#{bindings.txtCountryName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtCountryName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtCountryName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtCountryName.hints.tooltip}"
+                                                                                  simple="true" autoSubmit="true">
+                                                        <f:validator binding="#{bindings.txtCountryName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc63" width="13%" halign="center">
-                                                    <af:outputLabel value="#{bindings.CitySno.hints.label}" id="ol31"/>
+                                                <af:gridCell id="gc63" width="13%" halign="center" valign="middle">
+                                                    <af:outputLabel value="#{bindings.txtCityName.hints.label}" id="ol31"/>
                                                 </af:gridCell>
                                                 <af:gridCell id="gc64" width="54%" halign="stretch" columnSpan="3">
-                                                    <af:inputText value="#{bindings.CitySno.inputValue}"
-                                                                  required="#{bindings.CitySno.hints.mandatory}"
-                                                                  columns="#{bindings.CitySno.hints.displayWidth}"
-                                                                  maximumLength="#{bindings.CitySno.hints.precision}"
-                                                                  shortDesc="#{bindings.CitySno.hints.tooltip}"
-                                                                  id="it29" contentStyle="width:100%" simple="true">
-                                                        <f:validator binding="#{bindings.CitySno.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.CitySno.format}"/>
-                                                    </af:inputText>
+                                                    <af:inputComboboxListOfValues id="txtCityNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtCityName.hints.label}"
+                                                                                  value="#{bindings.txtCityName.inputValue}"
+                                                                                  label="#{bindings.txtCityName.hints.label}"
+                                                                                  model="#{bindings.txtCityName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtCityName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtCityName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtCityName.hints.tooltip}"
+                                                                                  simple="true"
+                                                                                  partialTriggers="txtCountryNameId">
+                                                        <f:validator binding="#{bindings.txtCityName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
                                                 </af:gridCell>
                                             </af:gridRow>
                                         </af:panelGridLayout>

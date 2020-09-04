@@ -39,6 +39,20 @@
     Name="AccSmCountryVO"
     ViewObjectName="erpadm.modeladm.admvo.SmCountryVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmCustomerTypeVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerTypeVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmCustomerTypeByCompanyVC"
+      FullName="erpscm.modelscm.scmvo.ScmCustomerTypeVO.ScmCustomerTypeByCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_txtCityName"
     ListVOName="AccSmCityVO"
@@ -90,6 +104,32 @@
     </AttrArray>
     <DisplayCriteria
       Name="SmCountryVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_txtCustType"
+    ListVOName="AccScmCustomerTypeVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="2"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCustType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CustomerTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerTypeName"/>
+      <Item Value="CustomerTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustomerTypeName"/>
+      <Item Value="CustomerTypeShortName"/>
+      <Item Value="CustomerTypeCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmCustomerTypeFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmCustomer"
@@ -391,6 +431,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtCustType"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCustType"
+    EntityUsage="ScmCustomer"
+    AliasName="txt_Cust_Type"
+    LOVName="LOV_txtCustType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmCustomerByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerVO"
@@ -477,6 +533,12 @@
   <ViewLinkAccessor
     Name="SmCityVO"
     ViewLink="erpscm.modelscm.scmvo.SmCitySmCustomerCityIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmCustomerTypeVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmCustTypeScmCustomerCustomerTypeIdVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

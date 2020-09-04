@@ -7,6 +7,7 @@ import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 import java.sql.Timestamp;
 
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -37,7 +38,8 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
         IsUnsupervised,
         UnSupervisedDate,
         SupervisedBy,
-        UnSupervisedBy;
+        UnSupervisedBy,
+        ScmCustomer;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -60,6 +62,8 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int CUSTOMERTYPESNO = AttributesEnum.CustomerTypeSno.index();
     public static final int CUSTOMERTYPECODE = AttributesEnum.CustomerTypeCode.index();
     public static final int CUSTOMERTYPESHORTNAME = AttributesEnum.CustomerTypeShortName.index();
@@ -78,12 +82,21 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
+    public static final int SCMCUSTOMER = AttributesEnum.ScmCustomer.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public ScmCustomerTypeImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmCustomerType");
+    }
+
 
     /**
      * Gets the attribute value for CustomerTypeSno, using the alias name CustomerTypeSno.
@@ -374,19 +387,20 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
     }
 
     /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmCustomer() {
+        return (RowIterator) getAttributeInternal(SCMCUSTOMER);
+    }
+
+
+    /**
      * @param customerTypeSno key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer customerTypeSno) {
         return new Key(new Object[] { customerTypeSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmCustomerType");
     }
 
     /**

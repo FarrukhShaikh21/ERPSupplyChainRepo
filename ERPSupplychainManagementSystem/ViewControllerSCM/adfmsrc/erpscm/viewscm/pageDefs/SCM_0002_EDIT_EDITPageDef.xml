@@ -58,11 +58,6 @@
         <Item Value="Fax"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CountrySno">
-      <AttrNames>
-        <Item Value="CountrySno"/>
-      </AttrNames>
-    </attributeValues>
     <action IterBinding="ScmCustomerCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
     <action IterBinding="ScmCustomerCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
@@ -71,11 +66,6 @@
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerShortName">
       <AttrNames>
         <Item Value="CustomerShortName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerTypeSno">
-      <AttrNames>
-        <Item Value="CustomerTypeSno"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerCategorySno">
@@ -163,11 +153,6 @@
         <Item Value="ContactPerson"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CitySno">
-      <AttrNames>
-        <Item Value="CitySno"/>
-      </AttrNames>
-    </attributeValues>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <action IterBinding="ScmCustomerCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams">
@@ -179,5 +164,9 @@
         <Item Value="BankId"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LOV_txtCountryName"
+                  id="txtCountryName"/>
+    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LOV_txtCityName" id="txtCityName"/>
+    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LOV_txtCustType" id="txtCustType"/>
   </bindings>
 </pageDefinition>

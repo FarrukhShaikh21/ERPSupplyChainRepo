@@ -235,7 +235,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER">
+    TableName="SCM_CUSTOMER"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -265,7 +266,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER">
+    TableName="SCM_CUSTOMER"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -737,6 +739,8 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_CUSTOMER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -849,6 +853,30 @@
         Value="txtCountryName"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtCustType"
+    Precision="80"
+    ColumnName="txt_Cust_Type"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmCustomerType?.CustomerTypeName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="CustomerTypeSno"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.txtCustType_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmCustomerSites"
     Association="erpscm.modelscm.scmeo.FkScmCustSiteCustSnoAssoc"
@@ -869,6 +897,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.SmCitySmCustomerCityIdAsso.SmCity"
     AssociationOtherEnd="erpscm.modelscm.scmeo.SmCitySmCustomerCityIdAsso.ScmCustomer"
     Type="erpadm.modeladm.admeo.SmCityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmCustomerType"
+    Association="erpscm.modelscm.scmeo.ScmCustTypeScmCustomerCustomerTypeIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmCustTypeScmCustomerCustomerTypeIdAsso.ScmCustomerType"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustTypeScmCustomerCustomerTypeIdAsso.ScmCustomer"
+    Type="erpscm.modelscm.scmeo.ScmCustomerTypeImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmCustomer"
@@ -911,6 +946,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmCustomer.CitySno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmCustomer3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_CUSTOMER_TYPE"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Customer3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustomer.CustomerTypeSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
