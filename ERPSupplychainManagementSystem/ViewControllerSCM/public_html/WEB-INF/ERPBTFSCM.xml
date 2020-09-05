@@ -30,6 +30,7 @@
       <managed-bean-class>erptemplate.viewtemp.ERPTEMPClass</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
+    <exception-handler>SCMExceptionHandler</exception-handler>
     <method-call id="doSetSCMErpApplicationGlobals">
       <method>#{pageFlowScope.OracleERPBean.doSetSCMErpApplicationGlobals}</method>
       <outcome>
@@ -279,6 +280,21 @@
       <method>#{bindings.CreateWithParams.execute}</method>
       <outcome>
         <fixed-outcome>ERPADD-ACT-SCM_0006_EDIT_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCMExceptionHandler">
+      <page>/SCMExceptionHandler.jsf</page>
+    </view>
+    <method-call id="ExeCustCatByCustCatID">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPEDIT-ACT-SCM_0006_EDIT_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeCustCatByCompSEC_0006">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">
@@ -676,12 +692,16 @@
         <from-outcome>ERPADD-ACT-SCM_0006_EDIT_EDIT</from-outcome>
         <to-activity-id>CWPSCM_0006_EDIT_EDIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__121">
+        <from-outcome>ERPEDIT-ACT-SCM_0006_EDIT_EDIT</from-outcome>
+        <to-activity-id>ExeCustCatByCustCatID</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__115">
       <from-activity-id>SCM_0006_EDIT_EDIT</from-activity-id>
       <control-flow-case id="__116">
         <from-outcome>ERPBACKCRUD</from-outcome>
-        <to-activity-id>SCM_0006_EDIT</to-activity-id>
+        <to-activity-id>ExeCustCatByCompSEC_0006</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__119">
@@ -689,6 +709,20 @@
       <control-flow-case id="__120">
         <from-outcome>ERPADD-ACT-SCM_0006_EDIT_EDIT</from-outcome>
         <to-activity-id>SCM_0006_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__122">
+      <from-activity-id>ExeCustCatByCustCatID</from-activity-id>
+      <control-flow-case id="__123">
+        <from-outcome>ERPEDIT-ACT-SCM_0006_EDIT_EDIT</from-outcome>
+        <to-activity-id>SCM_0006_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__124">
+      <from-activity-id>ExeCustCatByCompSEC_0006</from-activity-id>
+      <control-flow-case id="__125">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0006_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

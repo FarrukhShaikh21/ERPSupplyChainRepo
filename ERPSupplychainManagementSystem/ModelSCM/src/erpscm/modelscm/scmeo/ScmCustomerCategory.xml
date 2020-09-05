@@ -18,7 +18,6 @@
   </DesignTime>
   <Attribute
     Name="CategorySno"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CATEGORY_SNO"
@@ -35,8 +34,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER_CATEGORY"
-    IsNotNull="true"/>
+    TableName="SCM_CUSTOMER_CATEGORY"/>
   <Attribute
     Name="CategoryShortName"
     IsNotNull="true"
@@ -71,8 +69,7 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_CUSTOMER_CATEGORY">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="IsActive"
@@ -108,12 +105,10 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_CUSTOMER_CATEGORY">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -214,18 +209,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmCustomerCategory.CategorySno"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="ScmCustomerCategoryCategoryShortCodeCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_DBObjectName" Value="SCM_CUSTOMER_CATEGORY_CATEGORY"/>
-      <Attr Name="_checkCondition" Value='"CATEGORY_SHORT_CODE" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="erpscm.modelscm.scmeo.ScmCustomerCategory.CategoryShortCode"/>
     </AttrArray>
   </Key>
 </Entity>
