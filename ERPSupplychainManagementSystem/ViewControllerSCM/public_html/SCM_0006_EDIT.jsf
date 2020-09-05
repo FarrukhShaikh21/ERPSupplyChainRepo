@@ -98,7 +98,7 @@
                               required="#{bindings.CategorySno.hints.mandatory}"
                               columns="#{bindings.CategorySno.hints.displayWidth}"
                               maximumLength="#{bindings.CategorySno.hints.precision}"
-                              shortDesc="#{bindings.CategorySno.hints.tooltip}" id="it6" rendered="false">
+                              shortDesc="#{bindings.CategorySno.hints.tooltip}" id="it6">
                   <f:validator binding="#{bindings.CategorySno.validator}"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.CategorySno.format}"/>
                 </af:inputText>
