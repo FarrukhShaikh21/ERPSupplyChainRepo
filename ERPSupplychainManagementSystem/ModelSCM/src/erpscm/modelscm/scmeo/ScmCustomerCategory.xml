@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="SCM_CUSTOMER_CATEGORY"
   AliasName="ScmCustomerCategory"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpscm.modelscm.scmeo.ScmCustomerCategoryImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+  </DesignTime>
   <Attribute
     Name="CategorySno"
     IsNotNull="true"
@@ -23,14 +29,14 @@
     PrimaryKey="true"/>
   <Attribute
     Name="CategoryShortCode"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CATEGORY_SHORT_CODE"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER_CATEGORY"/>
+    TableName="SCM_CUSTOMER_CATEGORY"
+    IsNotNull="true"/>
   <Attribute
     Name="CategoryShortName"
     IsNotNull="true"
@@ -64,7 +70,10 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER_CATEGORY"/>
+    TableName="SCM_CUSTOMER_CATEGORY">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="IsActive"
     IsNotNull="true"
@@ -73,7 +82,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_CUSTOMER_CATEGORY">
+    TableName="SCM_CUSTOMER_CATEGORY"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -97,7 +107,10 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUSTOMER_CATEGORY"/>
+    TableName="SCM_CUSTOMER_CATEGORY">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -110,12 +123,12 @@
     TableName="SCM_CUSTOMER_CATEGORY"/>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER_CATEGORY"/>
+    TableName="SCM_CUSTOMER_CATEGORY"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -131,7 +144,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER_CATEGORY"/>
+    TableName="SCM_CUSTOMER_CATEGORY"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="IsSupervised"
     IsNotNull="true"
@@ -140,7 +154,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_CUSTOMER_CATEGORY">
+    TableName="SCM_CUSTOMER_CATEGORY"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -160,7 +175,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_CUSTOMER_CATEGORY">
+    TableName="SCM_CUSTOMER_CATEGORY"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -198,6 +214,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmCustomerCategory.CategorySno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmCustomerCategoryCategoryShortCodeCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_CUSTOMER_CATEGORY_CATEGORY"/>
+      <Attr Name="_checkCondition" Value='"CATEGORY_SHORT_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustomerCategory.CategoryShortCode"/>
     </AttrArray>
   </Key>
 </Entity>

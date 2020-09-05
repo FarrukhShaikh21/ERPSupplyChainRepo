@@ -248,6 +248,15 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0006">
+      <page>/SCM_0006.jsf</page>
+    </view>
+    <method-call id="ExeSCM_0006_CompanyWise">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM_0006</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -304,6 +313,10 @@
       <control-flow-case id="__84">
         <from-outcome>ERP-ACT-SCM_0005</from-outcome>
         <to-activity-id>ExeCompanySCM_0005</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__106">
+        <from-outcome>ERP-ACT-SCM_0006</from-outcome>
+        <to-activity-id>ExeSCM_0006_CompanyWise</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -595,6 +608,13 @@
       <control-flow-case id="__100">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0005_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__107">
+      <from-activity-id>ExeSCM_0006_CompanyWise</from-activity-id>
+      <control-flow-case id="__108">
+        <from-outcome>ERP-ACT-SCM_0006</from-outcome>
+        <to-activity-id>SCM_0006</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
