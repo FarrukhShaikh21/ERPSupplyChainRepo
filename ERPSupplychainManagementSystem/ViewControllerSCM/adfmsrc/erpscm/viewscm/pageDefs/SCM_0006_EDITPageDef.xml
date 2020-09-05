@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="ScmCustomerCategoryByCompRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmCustomerCategoryByCompROIterator"/>
+    <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="AdminCompanyVOByCompanyROIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="ScmCustomerCategoryByCompROIterator" id="ScmCustomerCategoryByCompRO">
@@ -22,6 +24,21 @@
     <attributeValues IterBinding="ScmCustomerCategoryByCompROIterator" id="CategorySno">
       <AttrNames>
         <Item Value="CategorySno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="TypeLevel">
+      <AttrNames>
+        <Item Value="TypeLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
       </AttrNames>
     </attributeValues>
   </bindings>

@@ -1317,7 +1317,7 @@
       <property
          name="fromOutcome">ERPQRY-ACT-SCM_0006_EDIT</property>
       <property
-         name="sdm:polyPoints">B44,-1395.4785,927.7471,-1562.4746,1051.551,T44</property>
+         name="sdm:polyPoints">B50,-1391.9785,931.56946,-1562.4746,1051.4423,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -1327,7 +1327,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">T56,-1555.4746,1055.0459,-1388.4785,931.21295,B56</property>
+         name="sdm:polyPoints">T56,-1555.4746,1055.0459,-1384.9785,935.0789,B61</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -1338,5 +1338,38 @@
          name="fromOutcome">ERPBACKCRUD</property>
       <property
          name="sdm:polyPoints">L46,-1432.9785,870.2471,-1493.5,830.0459,B50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall123">
+      <property
+         name="activityId">CWPSCM_0006_EDIT_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CWPSCM_0006_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1045.0977</property>
+      <property
+         name="x">-1645.9805</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase124"
+      from="View114"
+      to="MethodCall123">
+      <property
+         name="fromOutcome">ERPADD-ACT-SCM_0006_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">B39,-1398.9785,927.7471,-1604.9805,1041.2471,R46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase125"
+      from="MethodCall123"
+      to="View119">
+      <property
+         name="fromOutcome">ERPADD-ACT-SCM_0006_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">R54,-1604.9805,1048.2471,-1599.9746,1109.0459,L50</property>
    </ControlFlowCase>
 </SDM>
