@@ -82,7 +82,7 @@
                       <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" action="ERPBACKCRUD"
                                partialSubmit="true"/>
                       <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
-                               action="ERPADD-ACT-SCM_0005_EDIT_EDIT"/>
+                               action="ERPADD-ACT-SCM_0006_EDIT_EDIT"/>
                     </af:gridCell>
                   </af:gridRow>
                 </af:panelGridLayout>
@@ -118,7 +118,8 @@
                                          styleClass="AFStretchWidth ERPHeroBackground" halign="stretch"
                                          valign="stretch">
                               <af:panelGroupLayout id="pgl5" layout="horizontal">
-                                <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"/>
+                                <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
+                                         action="ERPQRY-ACT-SCM_0006_EDIT"/>
                                 <af:outputFormatted value="#{item.bindings.CategoryShortName.inputValue}" id="of1"
                                                     styleClass="ERPHeroBannerFont"/>
                               </af:panelGroupLayout>
