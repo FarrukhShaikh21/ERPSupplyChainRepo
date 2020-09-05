@@ -34,7 +34,7 @@
                         <f:facet name="center">
                             <af:panelBox text="PanelBox1" id="pb2" showHeader="never" partialTriggers="d3 d4">
                                 <f:facet name="toolbar"/>
-                                <af:panelBox text="Basic Information" id="pb1" showDisclosure="false">
+                                <af:panelBox id="pb1" showDisclosure="false" text="Basic Information">
                                     <f:facet name="toolbar"/>
                                     <af:panelGridLayout id="pgl2">
                                         <af:gridRow id="gr9" marginTop="5px" marginBottom="05px">
@@ -105,7 +105,7 @@
                                                               columns="#{bindings.CategoryShortName.hints.displayWidth}"
                                                               maximumLength="#{bindings.CategoryShortName.hints.precision}"
                                                               shortDesc="#{bindings.CategoryShortName.hints.tooltip}"
-                                                              id="it3" simple="true">
+                                                              id="it3" simple="true" contentStyle="width:100%">
                                                     <f:validator binding="#{bindings.CategoryShortName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -123,7 +123,7 @@
                                                               required="#{bindings.OpenDate.hints.mandatory}"
                                                               columns="#{bindings.OpenDate.hints.displayWidth}"
                                                               shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id1"
-                                                              simple="true">
+                                                              simple="true" contentStyle="width:90%">
                                                     <f:validator binding="#{bindings.OpenDate.validator}"/>
                                                     <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
                                                 </af:inputDate>
@@ -139,7 +139,7 @@
                                                                     label="#{bindings.IsActive.label}"
                                                                     required="#{bindings.IsActive.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsActive.hints.tooltip}"
-                                                                    id="soc1" simple="true">
+                                                                    id="soc1" simple="true" contentStyle="width:100%">
                                                     <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
                                                     <f:validator binding="#{bindings.IsActive.validator}"/>
                                                 </af:selectOneChoice>

@@ -55,16 +55,7 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr3">
-                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="center">
-                          <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
-                                         value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
-                                         model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
-                                         queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
-                            <f:facet name="end">
-                              <af:commandLink text="Advanced" rendered="false" id="cl1"/>
-                            </f:facet>
-                          </af:quickQuery>
-                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="center"/>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
                         <af:gridCell marginStart="5px" width="0%" marginEnd="5px" id="gc5" valign="stretch"/>
@@ -98,7 +89,7 @@
                               required="#{bindings.CategorySno.hints.mandatory}"
                               columns="#{bindings.CategorySno.hints.displayWidth}"
                               maximumLength="#{bindings.CategorySno.hints.precision}"
-                              shortDesc="#{bindings.CategorySno.hints.tooltip}" id="it6">
+                              shortDesc="#{bindings.CategorySno.hints.tooltip}" id="it6" rendered="false">
                   <f:validator binding="#{bindings.CategorySno.validator}"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.CategorySno.format}"/>
                 </af:inputText>
@@ -119,7 +110,7 @@
                                          valign="stretch">
                               <af:panelGroupLayout id="pgl5" layout="horizontal">
                                 <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
-                                         action="ERPQRY-ACT-SCM_0006_EDIT"/>
+                                         action="ERPEDIT-ACT-SCM_0006_EDIT_EDIT"/>
                                 <af:outputFormatted value="#{item.bindings.CategoryShortName.inputValue}" id="of1"
                                                     styleClass="ERPHeroBannerFont"/>
                               </af:panelGroupLayout>
