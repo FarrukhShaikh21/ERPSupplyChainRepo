@@ -257,6 +257,9 @@
         <fixed-outcome>ERP-ACT-SCM_0006</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0006_EDIT">
+      <page>/SCM_0006_EDIT.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -615,6 +618,13 @@
       <control-flow-case id="__108">
         <from-outcome>ERP-ACT-SCM_0006</from-outcome>
         <to-activity-id>SCM_0006</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__109">
+      <from-activity-id>SCM_0006</from-activity-id>
+      <control-flow-case id="__110">
+        <from-outcome>ERPQRY-ACT-SCM_0006</from-outcome>
+        <to-activity-id>SCM_0006_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
