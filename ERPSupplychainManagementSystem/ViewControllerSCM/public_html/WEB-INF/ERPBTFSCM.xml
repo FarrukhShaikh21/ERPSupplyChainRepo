@@ -260,6 +260,18 @@
     <view id="SCM_0006_EDIT">
       <page>/SCM_0006_EDIT.jsf</page>
     </view>
+    <method-call id="ExeWithParaSCMCustCatCompWise">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPQRY-ACT-SCM_0006</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeCompanyWiseByComp">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPQRY-ACT-SCM_0006</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -623,6 +635,20 @@
     <control-flow-rule id="__109">
       <from-activity-id>SCM_0006</from-activity-id>
       <control-flow-case id="__110">
+        <from-outcome>ERPQRY-ACT-SCM_0006</from-outcome>
+        <to-activity-id>ExeWithParaSCMCustCatCompWise</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__104">
+      <from-activity-id>ExeWithParaSCMCustCatCompWise</from-activity-id>
+      <control-flow-case id="__105">
+        <from-outcome>ERPQRY-ACT-SCM_0006</from-outcome>
+        <to-activity-id>ExeCompanyWiseByComp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__111">
+      <from-activity-id>ExeCompanyWiseByComp</from-activity-id>
+      <control-flow-case id="__112">
         <from-outcome>ERPQRY-ACT-SCM_0006</from-outcome>
         <to-activity-id>SCM_0006_EDIT</to-activity-id>
       </control-flow-case>

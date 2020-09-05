@@ -1242,10 +1242,56 @@
       islink="true"
       id="ControlFlowCase115"
       from="View109"
+      to="MethodCall115">
+      <property
+         name="fromOutcome">ERPQRY-ACT-SCM_0006</property>
+      <property
+         name="sdm:polyPoints">L50,-1534.5,776.0459,-1598.6484,832.2471,R46</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall115">
+      <property
+         name="activityId">ExeWithParaSCMCustCatCompWise</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeWithParaSCMCustCatCompWise&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">836.09766</property>
+      <property
+         name="x">-1639.6484</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase116"
+      from="MethodCall115"
+      to="MethodCall117">
+      <property
+         name="fromOutcome">ERPQRY-ACT-SCM_0006</property>
+      <property
+         name="sdm:polyPoints">B50,-1639.6484,889.7471,-1568.6484,905.09766,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall117">
+      <property
+         name="activityId">ExeCompanyWiseByComp</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeCompanyWiseByComp&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">959.44824</property>
+      <property
+         name="x">-1568.6484</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase118"
+      from="MethodCall117"
       to="View114">
       <property
          name="fromOutcome">ERPQRY-ACT-SCM_0006</property>
       <property
-         name="sdm:polyPoints">B50,-1493.5,830.0459,-1432.9785,873.7471,L50</property>
+         name="sdm:polyPoints">R50,-1527.6484,959.09766,-1432.9785,873.7471,L50</property>
    </ControlFlowCase>
 </SDM>
