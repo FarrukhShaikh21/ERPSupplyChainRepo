@@ -5,6 +5,87 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="ScmCustomerSitesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerSitesDetCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="CustomerSiteCode">
+      <AttrNames>
+        <Item Value="CustomerSiteCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SiteType">
+      <AttrNames>
+        <Item Value="SiteType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SiteOpenDate">
+      <AttrNames>
+        <Item Value="SiteOpenDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SitePhoneNo">
+      <AttrNames>
+        <Item Value="SitePhoneNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SiteMobileNo">
+      <AttrNames>
+        <Item Value="SiteMobileNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SiteFaxNo">
+      <AttrNames>
+        <Item Value="SiteFaxNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SitePostalCode">
+      <AttrNames>
+        <Item Value="SitePostalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SiteAddress1">
+      <AttrNames>
+        <Item Value="SiteAddress1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SiteAddress2">
+      <AttrNames>
+        <Item Value="SiteAddress2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SiteAddress3">
+      <AttrNames>
+        <Item Value="SiteAddress3"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="txtCountryName">
+      <AttrNames>
+        <Item Value="txtCountryName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmCustomerSitesDetCRUDIterator" StaticList="false" Uses="LOV_txtCountryName"
+                  id="txtCountryName1"/>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="txtCityName">
+      <AttrNames>
+        <Item Value="txtCityName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmCustomerSitesDetCRUDIterator" StaticList="false" Uses="LOV_txtCityName"
+                  id="txtCityName1"/>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="txtProvienceName">
+      <AttrNames>
+        <Item Value="txtProvienceName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmCustomerSitesDetCRUDIterator" StaticList="false" Uses="LOV_txtProvienceName"
+                  id="txtProvienceName1"/>
+    <action IterBinding="ScmCustomerSitesDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ScmCustomerSitesDetCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+  </bindings>
 </pageDefinition>
