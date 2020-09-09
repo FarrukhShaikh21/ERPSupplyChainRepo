@@ -297,6 +297,29 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <task-flow-return id="ERPFMSLOGOUT">
+      <outcome>
+        <name>ERPFMSLOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-call id="ERPCHPWDBTF">
+      <task-flow-reference>
+        <document>/WEB-INF/ERPCHPWDBTF.xml</document>
+        <id>ERPCHPWDBTF</id>
+      </task-flow-reference>
+      <input-parameter id="__132">
+        <name>P_ADF_USER_ID</name>
+        <value>#{pageFlowScope.OracleERPBean.ERPuserId}</value>
+      </input-parameter>
+      <input-parameter id="__133">
+        <name>P_ADF_USER_CODE</name>
+        <value>#{pageFlowScope.OracleERPBean.ERPuserCode}</value>
+      </input-parameter>
+      <input-parameter id="__134">
+        <name>P_ADF_USER_ATTRIBUTE</name>
+        <value>#{pageFlowScope.OracleERPBean.ERPUserAttributes}</value>
+      </input-parameter>
+    </task-flow-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -733,6 +756,17 @@
       <control-flow-case id="__128">
         <from-outcome>ERPACTEXITTASKFLOW</from-outcome>
         <to-activity-id>ERPSCMRETURN</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__129">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__130">
+        <from-outcome>ERPLOGOUTAPP</from-outcome>
+        <to-activity-id>ERPFMSLOGOUT</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__131">
+        <from-outcome>ERPLCHANGEPWD</from-outcome>
+        <to-activity-id>ERPCHPWDBTF</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

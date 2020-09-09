@@ -1462,4 +1462,65 @@
       <property
          name="sdm:polyPoints">T44,931.1699,283.44824,871.0,126.79297,B50</property>
    </ControlFlowCase>
+   <TaskFlowReturn
+      id="TaskFlowReturn135">
+      <property
+         name="activityId">ERPFMSLOGOUT</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPFMSLOGOUT&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  ERPFMSLOGOUT&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">241.94824</property>
+      <property
+         name="x">1172.0</property>
+   </TaskFlowReturn>
+   <TaskFlowCall
+      id="TaskFlowCall136">
+      <property
+         name="taskFlowId">ERPCHPWDBTF</property>
+      <property
+         name="activityId">ERPCHPWDBTF</property>
+      <property
+         name="documentReference">/WEB-INF/ERPCHPWDBTF.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPCHPWDBTF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">268.1494</property>
+      <property
+         name="x">1326.333</property>
+   </TaskFlowCall>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule137">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">46.29883</property>
+      <property
+         name="x">1272.0</property>
+   </WildcardControlFlowRule>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase138"
+      from="WildcardControlFlowRule137"
+      to="TaskFlowReturn135">
+      <property
+         name="fromOutcome">ERPLOGOUTAPP</property>
+      <property
+         name="sdm:polyPoints">B50,1272.0,88.94824,1172.0,187.59766,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase139"
+      from="WildcardControlFlowRule137"
+      to="TaskFlowCall136">
+      <property
+         name="fromOutcome">ERPLCHANGEPWD</property>
+      <property
+         name="sdm:polyPoints">B57,1275.5,88.94824,1326.333,213.79883,T50</property>
+   </ControlFlowCase>
 </SDM>
