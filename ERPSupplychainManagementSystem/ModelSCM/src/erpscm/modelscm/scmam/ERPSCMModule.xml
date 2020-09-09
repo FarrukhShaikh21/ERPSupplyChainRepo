@@ -95,7 +95,11 @@
   </ViewUsage>
   <ViewUsage
     Name="ScmCustomerSitesDetCRUD"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerSitesVO"/>
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerSitesVO">
+    <ViewCriteriaUsage
+      Name="ScmCustomerSitesBySiteSnoVC"
+      FullName="erpscm.modelscm.scmvo.ScmCustomerSitesVO.ScmCustomerSitesBySiteSnoVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="ScmCustomerCategoryByCompRO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerCategoryVO">
@@ -110,6 +114,9 @@
       Name="ScmCustomerCategoryByCategoryID"
       FullName="erpscm.modelscm.scmvo.ScmCustomerCategoryVO.ScmCustomerCategoryByCategoryID"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ScmCustomerSitesDetRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerSitesVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -127,5 +134,11 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmCustSiteCustSnoLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerCRUD"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerSitesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmCustSiteCustSnoLink2"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmCustSiteCustSnoLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerSitesDetRO"
     Reversed="false"/>
 </AppModule>
