@@ -43,9 +43,9 @@
         <fixed-outcome>ERPSCMParaTrans</fixed-outcome>
       </outcome>
     </method-call>
-    <task-flow-return id="RETURNSCMRETURN">
+    <task-flow-return id="ERPSCMRETURN">
       <outcome>
-        <name>RETURNSCMRETURN</name>
+        <name>ERPSCMRETURN</name>
       </outcome>
     </task-flow-return>
     <method-call id="ERPSCMTransExeWitPara">
@@ -719,6 +719,20 @@
       <control-flow-case id="__125">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0006_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__114">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__126">
+        <from-outcome>ERPACTEXITFORM</from-outcome>
+        <to-activity-id>SCM_MAIN</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__127">
+      <from-activity-id>SCM_MAIN</from-activity-id>
+      <control-flow-case id="__128">
+        <from-outcome>ERPACTEXITTASKFLOW</from-outcome>
+        <to-activity-id>ERPSCMRETURN</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

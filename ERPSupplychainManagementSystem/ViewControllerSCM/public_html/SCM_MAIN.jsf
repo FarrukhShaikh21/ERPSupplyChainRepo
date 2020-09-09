@@ -7,7 +7,10 @@
             <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
                 <f:facet name="ERPMain"/>
                 <f:facet name="ERPLeft"/>
-                <f:facet name="ERPToolbar"/>
+                <f:facet name="ERPToolbar">
+                    <af:link id="l1" icon="#{resource['images:imgHome.png']}" action="ERPACTEXITTASKFLOW"
+                             partialSubmit="true"/>
+                </f:facet>
             </af:pageTemplate>
         </af:form>
     </af:document>

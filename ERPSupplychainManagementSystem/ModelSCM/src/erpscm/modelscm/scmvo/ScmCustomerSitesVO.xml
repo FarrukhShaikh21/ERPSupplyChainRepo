@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmCustomerSitesVO"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -256,10 +256,11 @@
     IsQueriable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="txtCountryName"
-    EntityUsage="ScmCustomerSites"
     AliasName="TXT_COUNTRY_NAME"
-    LOVName="LOV_txtCountryName">
+    LOVName="LOV_txtCountryName"
+    Type="java.lang.String"
+    ColumnType="$none$"
+    SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -272,10 +273,11 @@
     IsQueriable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="txtProvienceName"
-    EntityUsage="ScmCustomerSites"
     AliasName="TXT_PROVIENCE_NAME"
-    LOVName="LOV_txtProvienceName">
+    LOVName="LOV_txtProvienceName"
+    Type="java.lang.String"
+    ColumnType="$none$"
+    SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

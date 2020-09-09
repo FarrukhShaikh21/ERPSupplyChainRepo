@@ -33,15 +33,15 @@
    <TaskFlowReturn
       id="TaskFlowReturn4">
       <property
-         name="activityId">RETURNSCMRETURN</property>
+         name="activityId">ERPSCMRETURN</property>
       <property
          name="finish">true</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>RETURNSCMRETURN&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  RETURNSCMRETURN&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>ERPSCMRETURN&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  ERPSCMRETURN&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">73.84473</property>
+         name="y">73.143555</property>
       <property
          name="x">871.0</property>
    </TaskFlowReturn>
@@ -1432,5 +1432,34 @@
          name="fromOutcome">ERPBACKCRUD</property>
       <property
          name="sdm:polyPoints">T50,-1456.5,942.09766,-1395.4785,927.7471,B44</property>
+   </ControlFlowCase>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule132">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">96.29883</property>
+      <property
+         name="x">1049.0</property>
+   </WildcardControlFlowRule>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase133"
+      from="WildcardControlFlowRule132"
+      to="View10">
+      <property
+         name="fromOutcome">ERPACTEXITFORM</property>
+      <property
+         name="sdm:polyPoints">B50,1049.0,138.94824,938.1699,283.44824,T56</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase134"
+      from="View10"
+      to="TaskFlowReturn4">
+      <property
+         name="fromOutcome">ERPACTEXITTASKFLOW</property>
+      <property
+         name="sdm:polyPoints">T44,931.1699,283.44824,871.0,126.79297,B50</property>
    </ControlFlowCase>
 </SDM>
