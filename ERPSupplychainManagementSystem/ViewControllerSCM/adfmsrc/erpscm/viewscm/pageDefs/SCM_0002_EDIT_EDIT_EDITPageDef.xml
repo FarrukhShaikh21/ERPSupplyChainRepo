@@ -87,5 +87,15 @@
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SiteName">
+      <AttrNames>
+        <Item Value="SiteName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SiteShortName">
+      <AttrNames>
+        <Item Value="SiteShortName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -12,7 +12,7 @@
                             <af:panelTabbed position="above" id="pt1">
                                 <af:showDetailItem id="tab1" text="Customer" disclosed="true">
                                     <af:panelBox text="PanelBox1" id="pb2"
-                                                 partialTriggers="l9 l3 l1 l7 l2 l4 l8 l5" showDisclosure="false"
+                                                  showDisclosure="false"
                                                  showHeader="never">
                                         <f:facet name="toolbar"/>
                                         <af:panelGroupLayout id="pgl7" layout="scroll">
@@ -676,38 +676,146 @@
                                     </af:panelBox>
                                 </af:showDetailItem>
                                 <af:showDetailItem id="tab2" text="Customer Sites">
-                                    <af:panelBox text="PanelBox2" id="pb6" showHeader="never" showDisclosure="false">
-                                        <f:facet name="toolbar"/>
-                                    </af:panelBox>
+                                    <af:decorativeBox id="db3">
+        <f:facet name="center">
+          <af:decorativeBox id="db4">
+            <f:facet name="center">
+              <af:panelGridLayout id="pgl10">
+                <af:gridRow id="gr23">
+                  <af:gridCell id="gc78" width="100%" halign="center"/>
+                </af:gridRow>
+                <af:gridRow id="gr22">
+                  <af:gridCell id="gc77" halign="stretch" valign="stretch" width="100%" marginStart="5px"
+                               marginEnd="5px">
+                                                                <af:listView value="#{bindings.ScmCustomerSitesDetRO.collectionModel}"
+                                                                             var="item"
+                                                                             emptyText="#{bindings.ScmCustomerSitesDetRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                                             fetchSize="#{bindings.ScmCustomerSitesDetRO.rangeSize}"
+                                                                             id="lv1" selection="single"
+                                                                             selectionListener="#{bindings.ScmCustomerSitesDetRO.treeModel.makeCurrent}"
+                                                                             selectedRowKeys="#{bindings.ScmCustomerSitesDetRO.collectionModel.selectedRow}">
+                                                                    <af:listItem id="li1"
+                                                                                 styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                                                                        <af:panelGroupLayout id="pgl8"
+                                                                                             layout="vertical"
+                                                                                             styleClass="WBCardSize">
+                                                                            <af:panelBox text="PanelBox2" id="pb6"
+                                                                                         showDisclosure="false"
+                                                                                         showHeader="never">
+                                                                                <f:facet name="toolbar"/>
+                                                                                <af:panelGridLayout id="pgl1">
+                                                                                    <af:gridRow marginTop="5px"
+                                                                                                height="auto" id="gr1">
+                                                                                        <af:gridCell marginStart="5px"
+                                                                                                     width="100%"
+                                                                                                     marginEnd="5px"
+                                                                                                     id="gc1">
+                                                                                            <af:outputFormatted value="#{item.bindings.SiteShortName.inputValue}"
+                                                                                                                id="of1"/>
+                                                                                        </af:gridCell>
+                                                                                    </af:gridRow>
+                                                                                    <af:gridRow marginTop="5px"
+                                                                                                height="auto" id="gr17">
+                                                                                        <af:gridCell marginStart="5px"
+                                                                                                     width="100%"
+                                                                                                     marginEnd="5px"
+                                                                                                     id="gc2">
+                                                                                            <af:outputFormatted value="#{item.bindings.CustomerSiteCode.inputValue}"
+                                                                                                                id="of2">
+                                                                                                <af:convertNumber groupingUsed="false"
+                                                                                                                  pattern="#{bindings.ScmCustomerSitesDetRO.hints.CustomerSiteCode.format}"/>
+                                                                                            </af:outputFormatted>
+                                                                                        </af:gridCell>
+                                                                                    </af:gridRow>
+                                                                                    <af:gridRow marginTop="5px"
+                                                                                                height="auto" id="gr18">
+                                                                                        <af:gridCell marginStart="5px"
+                                                                                                     width="100%"
+                                                                                                     marginEnd="5px"
+                                                                                                     id="gc73">
+                                                                                            <af:outputFormatted value="#{item.bindings.SiteName.inputValue}"
+                                                                                                                id="of3"/>
+                                                                                        </af:gridCell>
+                                                                                    </af:gridRow>
+                                                                                    <af:gridRow marginTop="5px"
+                                                                                                height="auto" id="gr19">
+                                                                                        <af:gridCell marginStart="5px"
+                                                                                                     width="100%"
+                                                                                                     marginEnd="5px"
+                                                                                                     id="gc74">
+                                                                                            <af:outputFormatted value="#{item.bindings.SiteType.inputValue}"
+                                                                                                                id="of4"/>
+                                                                                        </af:gridCell>
+                                                                                    </af:gridRow>
+                                                                                    <af:gridRow marginTop="5px"
+                                                                                                height="auto"
+                                                                                                marginBottom="5px"
+                                                                                                id="gr20">
+                                                                                        <af:gridCell marginStart="5px"
+                                                                                                     width="100%"
+                                                                                                     marginEnd="5px"
+                                                                                                     id="gc75">
+                                                                                            <af:outputFormatted value="#{item.bindings.SitePhoneNo.inputValue}"
+                                                                                                                id="of5"/>
+                                                                                        </af:gridCell>
+                                                                                    </af:gridRow>
+                                                                                </af:panelGridLayout>
+                                                                            </af:panelBox>
+                                                                        </af:panelGroupLayout>
+                                                                    </af:listItem>
+                                                                </af:listView>
+                                                            </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+            </f:facet>
+            <f:facet name="top">
+              <af:panelGridLayout id="pgl11">
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr12">
+                  <af:gridCell marginStart="5px" width="50%" id="gc70"/>
+                  <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc69" halign="end">
+                    <af:panelGroupLayout id="pgl12" layout="horizontal" halign="end">
+                      <af:link id="l9" icon="#{resource['images:imgNewDocument.png']}"
+                               disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                      <f:facet name="separator">
+                        <af:spacer width="10" height="10" id="s7"/>
+                      </f:facet>
+                    </af:panelGroupLayout>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+            </f:facet>
+          </af:decorativeBox>
+        </f:facet>
+      </af:decorativeBox>
                                 </af:showDetailItem>
                             </af:panelTabbed>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGridLayout id="pgl1">
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc1"/>
-                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2"
+                            <af:panelGridLayout id="pgl13">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr16">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc71"/>
+                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc72"
                                                  halign="end">
-                                        <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                            <af:link text="Close" id="l9"
+                                        <af:panelGroupLayout id="pgl14" layout="horizontal">
+                                            <af:link text="Close" id="l11"
                                                      icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l5"
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l12"
                                                      icon="#{resource['images:imgSave.png']}" iconPosition="top"
                                                      partialSubmit="true"/>
                                             <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l8"
+                                                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l13"
                                                      rendered="false">
                                                 <af:resetActionListener/>
                                             </af:link>
-                                            <af:link text="Undo" immediate="true" id="l7"
+                                            <af:link text="Undo" immediate="true" id="l14"
                                                      icon="#{resource['images:imgUndo.png']}" iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
                                                      partialSubmit="true">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <f:facet name="separator">
-                                                <af:spacer width="10" height="10" id="s2"/>
+                                                <af:spacer width="10" height="10" id="s8"/>
                                             </f:facet>
                                         </af:panelGroupLayout>
                                     </af:gridCell>

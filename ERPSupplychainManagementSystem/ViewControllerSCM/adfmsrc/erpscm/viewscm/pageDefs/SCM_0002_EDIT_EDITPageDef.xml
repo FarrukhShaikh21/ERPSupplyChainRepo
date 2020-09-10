@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="ScmCustomerCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmCustomerCRUDIterator"/>
+    <iterator Binds="ScmCustomerSitesDetRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerSitesDetROIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerName">
@@ -168,5 +170,16 @@
                   id="txtCountryName"/>
     <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LOV_txtCityName" id="txtCityName"/>
     <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LOV_txtCustType" id="txtCustType"/>
+    <tree IterBinding="ScmCustomerSitesDetROIterator" id="ScmCustomerSitesDetRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmCustomerSitesVO" Name="ScmCustomerSitesDetRO0">
+        <AttrNames>
+          <Item Value="SiteShortName"/>
+          <Item Value="CustomerSiteCode"/>
+          <Item Value="SiteName"/>
+          <Item Value="SiteType"/>
+          <Item Value="SitePhoneNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
