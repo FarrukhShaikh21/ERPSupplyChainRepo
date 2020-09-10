@@ -320,6 +320,15 @@
         <value>#{pageFlowScope.OracleERPBean.ERPUserAttributes}</value>
       </input-parameter>
     </task-flow-call>
+    <method-call id="ExeAdmCompSCM_0007">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM_0007</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCM_0007">
+      <page>/SCM_0007.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -380,6 +389,10 @@
       <control-flow-case id="__106">
         <from-outcome>ERP-ACT-SCM_0006</from-outcome>
         <to-activity-id>ExeSCM_0006_CompanyWise</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__139">
+        <from-outcome>ERP-ACT-SCM_0007</from-outcome>
+        <to-activity-id>ExeAdmCompSCM_0007</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -767,6 +780,13 @@
       <control-flow-case id="__131">
         <from-outcome>ERPLCHANGEPWD</from-outcome>
         <to-activity-id>ERPCHPWDBTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__135">
+      <from-activity-id>ExeAdmCompSCM_0007</from-activity-id>
+      <control-flow-case id="__136">
+        <from-outcome>ERP-ACT-SCM_0007</from-outcome>
+        <to-activity-id>SCM_0007</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
