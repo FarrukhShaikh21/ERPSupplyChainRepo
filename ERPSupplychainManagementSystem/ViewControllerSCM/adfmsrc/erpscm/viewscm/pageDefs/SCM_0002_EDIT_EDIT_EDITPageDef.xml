@@ -59,13 +59,6 @@
         <Item Value="SiteAddress3"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="txtCountryName">
-      <AttrNames>
-        <Item Value="txtCountryName"/>
-      </AttrNames>
-    </attributeValues>
-    <listOfValues IterBinding="ScmCustomerSitesDetCRUDIterator" StaticList="false" Uses="LOV_txtCountryName"
-                  id="txtCountryName1"/>
     <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="txtCityName">
       <AttrNames>
         <Item Value="txtCityName"/>
@@ -97,5 +90,6 @@
         <Item Value="SiteShortName"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="ScmCustomerSitesDetCRUDIterator" StaticList="false" Uses="LovIsDefault" id="IsDefault"/>
   </bindings>
 </pageDefinition>
