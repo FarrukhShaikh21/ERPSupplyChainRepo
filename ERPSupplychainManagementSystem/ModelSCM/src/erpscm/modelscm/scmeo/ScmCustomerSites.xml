@@ -56,7 +56,6 @@
   </Attribute>
   <Attribute
     Name="SiteType"
-    IsNotNull="true"
     Precision="1"
     ColumnName="SITE_TYPE"
     SQLType="VARCHAR"
@@ -373,8 +372,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[SmCity?.Cityname]]></TransientExpression>
+    <TransientExpression><![CDATA[SmCity?.Cityname]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -397,8 +395,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
+    <TransientExpression><![CDATA[SmCountry?.Countryname]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -419,9 +416,10 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[AdminProvience?.ProvienceName]]></TransientExpression>
+    IsQueriable="false"
+    IsPersistent="false"
+    IsNotNull="false">
+    <TransientExpression><![CDATA[AdminProvience?.ProvienceName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -553,6 +551,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmCustomerSites.CustomerSitesSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmCustomerSitesTxtProvienceNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Scm_Customer_Sites_Txt_Provien"/>
+      <Attr Name="_checkCondition" Value='"TXT_PROVIENCE_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustomerSites.txtProvienceName"/>
     </AttrArray>
   </Key>
   <Key
