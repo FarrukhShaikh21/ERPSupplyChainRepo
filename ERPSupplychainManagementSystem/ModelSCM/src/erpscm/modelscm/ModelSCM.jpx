@@ -4,7 +4,7 @@
 <JboProject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ModelSCM"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   SeparateXMLFiles="true"
   PackageName="erpscm.modelscm">
   <DesignTime>
@@ -51,6 +51,14 @@
       <Attr Name="_VL" Value="true"/>
     </DesignTime>
   </Containee>
+  <AppContainee
+    Name="ModelFMS"
+    FullName="erpfms.modelfms.ModelFMS"
+    ObjectType="JboProject">
+    <DesignTime>
+      <Attr Name="_SourceName" Value="ERPModelLIBFinance.jar"/>
+    </DesignTime>
+  </AppContainee>
   <AppContainee
     Name="ModelGlobals"
     FullName="erpglobals.modelglobals.ModelGlobals"
