@@ -3,6 +3,8 @@ package erpscm.modelscm.scmeo;
 import erpadm.modeladm.admeo.SmCityImpl;
 import erpadm.modeladm.admeo.SmCountryImpl;
 
+import erpfms.modelfms.fmseo.GlBankImpl;
+
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
@@ -74,7 +76,8 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         ScmCustomerSites,
         SmCountry,
         SmCity,
-        ScmCustomerType;
+        ScmCustomerType,
+        GlBank;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -148,6 +151,7 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int SMCITY = AttributesEnum.SmCity.index();
     public static final int SCMCUSTOMERTYPE = AttributesEnum.ScmCustomerType.index();
+    public static final int GLBANK = AttributesEnum.GlBank.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -933,6 +937,21 @@ public class ScmCustomerImpl extends ERPEntityImpl {
      */
     public void setScmCustomerType(ScmCustomerTypeImpl value) {
         setAttributeInternal(SCMCUSTOMERTYPE, value);
+    }
+
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlBankImpl.
+     */
+    public GlBankImpl getGlBank() {
+        return (GlBankImpl) getAttributeInternal(GLBANK);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlBankImpl.
+     */
+    public void setGlBank(GlBankImpl value) {
+        setAttributeInternal(GLBANK, value);
     }
 
 
