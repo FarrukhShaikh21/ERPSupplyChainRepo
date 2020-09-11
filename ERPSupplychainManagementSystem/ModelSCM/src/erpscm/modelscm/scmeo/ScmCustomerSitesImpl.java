@@ -48,6 +48,8 @@ public class ScmCustomerSitesImpl extends ERPEntityImpl {
         txtProvienceName,
         SiteName,
         SiteShortName,
+        IsActive,
+        IsDefault,
         ScmCustomer,
         SmCountry,
         SmCity,
@@ -100,6 +102,8 @@ public class ScmCustomerSitesImpl extends ERPEntityImpl {
     public static final int TXTPROVIENCENAME = AttributesEnum.txtProvienceName.index();
     public static final int SITENAME = AttributesEnum.SiteName.index();
     public static final int SITESHORTNAME = AttributesEnum.SiteShortName.index();
+    public static final int ISACTIVE = AttributesEnum.IsActive.index();
+    public static final int ISDEFAULT = AttributesEnum.IsDefault.index();
     public static final int SCMCUSTOMER = AttributesEnum.ScmCustomer.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int SMCITY = AttributesEnum.SmCity.index();
@@ -501,6 +505,38 @@ public class ScmCustomerSitesImpl extends ERPEntityImpl {
      */
     public void setSiteShortName(String value) {
         setAttributeInternal(SITESHORTNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for IsActive, using the alias name IsActive.
+     * @return the value of IsActive
+     */
+    public String getIsActive() {
+        return (String) getAttributeInternal(ISACTIVE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IsActive.
+     * @param value value to set the IsActive
+     */
+    public void setIsActive(String value) {
+        setAttributeInternal(ISACTIVE, value);
+    }
+
+    /**
+     * Gets the attribute value for IsDefault, using the alias name IsDefault.
+     * @return the value of IsDefault
+     */
+    public String getIsDefault() {
+        return (String) getAttributeInternal(ISDEFAULT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IsDefault.
+     * @param value value to set the IsDefault
+     */
+    public void setIsDefault(String value) {
+        setAttributeInternal(ISDEFAULT, value);
     }
 
     /**
