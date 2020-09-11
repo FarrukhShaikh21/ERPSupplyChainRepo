@@ -374,7 +374,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[SmCity?.Cityname]]></TransientExpression>
+      trustMode="trusted"><![CDATA[SmCity?.Cityname]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -398,7 +398,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
+      trustMode="trusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -419,10 +419,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[AdminProvience?.ProvienceName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[AdminProvience?.ProvienceName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
