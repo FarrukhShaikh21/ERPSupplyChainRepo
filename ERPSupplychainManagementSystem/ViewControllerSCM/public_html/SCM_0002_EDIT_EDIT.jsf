@@ -681,9 +681,6 @@
           <af:decorativeBox id="db4">
             <f:facet name="center">
               <af:panelGridLayout id="pgl10">
-                <af:gridRow id="gr23">
-                  <af:gridCell id="gc78" width="100%" halign="center"/>
-                </af:gridRow>
                 <af:gridRow id="gr22">
                   <af:gridCell id="gc77" halign="stretch" valign="stretch" width="100%" marginStart="5px"
                                marginEnd="5px">
@@ -703,6 +700,17 @@
                                                                                          showDisclosure="false"
                                                                                          showHeader="never">
                                                                                 <f:facet name="toolbar"/>
+                                                                                <af:inputText value="#{bindings.CustomerSitesSno.inputValue}"
+                                                                                              label="#{bindings.CustomerSitesSno.hints.label}"
+                                                                                              required="#{bindings.CustomerSitesSno.hints.mandatory}"
+                                                                                              columns="#{bindings.CustomerSitesSno.hints.displayWidth}"
+                                                                                              maximumLength="#{bindings.CustomerSitesSno.hints.precision}"
+                                                                                              shortDesc="#{bindings.CustomerSitesSno.hints.tooltip}"
+                                                                                              id="it4" rendered="false">
+                                                                                    <f:validator binding="#{bindings.CustomerSitesSno.validator}"/>
+                                                                                    <af:convertNumber groupingUsed="false"
+                                                                                                      pattern="#{bindings.CustomerSitesSno.format}"/>
+                                                                                </af:inputText>
                                                                                 <af:panelGridLayout id="pgl1">
                                                                                     <af:gridRow marginTop="5px"
                                                                                                 height="auto" id="gr1">
