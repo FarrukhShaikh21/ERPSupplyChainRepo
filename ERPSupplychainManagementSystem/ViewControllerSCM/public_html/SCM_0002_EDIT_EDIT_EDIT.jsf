@@ -78,14 +78,14 @@
                                                      marginEnd="5px">
                                             <af:outputLabel value="#{bindings.CustomerSiteCode.hints.label}" id="ol3"/>
                                         </af:gridCell>
-                                        <af:gridCell id="gc70" width="20%" halign="stretch" marginStart="5px"
+                                        <af:gridCell id="gc70" width="21%" halign="stretch" marginStart="5px"
                                                      marginEnd="5px">
                                             <af:inputText value="#{bindings.CustomerSiteCode.inputValue}"
                                                           required="#{bindings.CustomerSiteCode.hints.mandatory}"
                                                           columns="#{bindings.CustomerSiteCode.hints.displayWidth}"
                                                           maximumLength="#{bindings.CustomerSiteCode.hints.precision}"
                                                           shortDesc="#{bindings.CustomerSiteCode.hints.tooltip}"
-                                                          id="it3">
+                                                          id="it3" contentStyle="width:100%">
                                                 <f:validator binding="#{bindings.CustomerSiteCode.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.CustomerSiteCode.format}"/>

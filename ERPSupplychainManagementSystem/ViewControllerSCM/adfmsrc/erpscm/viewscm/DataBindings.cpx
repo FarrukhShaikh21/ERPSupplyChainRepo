@@ -89,6 +89,8 @@
     <page path="/SCM_0007.jsf" usageId="erpscm_viewscm_SCM_0007PageDef"/>
     <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ExeAdmCompSCM_0007"
           usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef1111111"/>
+    <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@CreateInsert"
+          usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_CreateInsertPageDef"/>
   </pageMap>
   <dataControlUsages>
     <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"
@@ -191,5 +193,7 @@
     <page id="erpscm_viewscm_SCM_0007PageDef" path="erpscm.viewscm.pageDefs.SCM_0007PageDef"/>
     <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef1111111"
           path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecutePageDef1111111"/>
+    <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_CreateInsertPageDef"
+          path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_CreateInsertPageDef"/>
   </pageDefinitionUsages>
 </Application>

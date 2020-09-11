@@ -710,8 +710,25 @@
                                                                                                      width="100%"
                                                                                                      marginEnd="5px"
                                                                                                      id="gc1">
-                                                                                            <af:outputFormatted value="#{item.bindings.SiteShortName.inputValue}"
-                                                                                                                id="of1"/>
+                                                                                            <af:panelGroupLayout id="pgl9"
+                                                                                                                 layout="horizontal">
+                                                                                                <af:link
+                                                                                                         id="l5"
+                                                                                                         icon="#{resource['images:imgView.png']}"
+                                                                                                         iconPosition="top"
+                                                                                                         styleClass="ERPHeroBannerFont ERPLink"/>
+                                                                                                <af:outputFormatted value="#{item.bindings.SiteShortName.inputValue}"
+                                                                                                                    id="of1"
+                                                                                                                    styleClass="ERPHeroBannerFont"/>
+                                                                                                <af:link text="#{item.bindings.SiteShortName.inputValue}"
+                                                                                                         id="l7"
+                                                                                                         rendered="false"/>
+                                                                                                <f:facet name="separator">
+                                                                                                    <af:spacer width="10"
+                                                                                                               height="10"
+                                                                                                               id="s2"/>
+                                                                                                </f:facet>
+                                                                                            </af:panelGroupLayout>
                                                                                         </af:gridCell>
                                                                                     </af:gridRow>
                                                                                     <af:gridRow marginTop="5px"
@@ -720,11 +737,23 @@
                                                                                                      width="100%"
                                                                                                      marginEnd="5px"
                                                                                                      id="gc2">
-                                                                                            <af:outputFormatted value="#{item.bindings.CustomerSiteCode.inputValue}"
-                                                                                                                id="of2">
-                                                                                                <af:convertNumber groupingUsed="false"
-                                                                                                                  pattern="#{bindings.ScmCustomerSitesDetRO.hints.CustomerSiteCode.format}"/>
-                                                                                            </af:outputFormatted>
+                                                                                            <af:panelGroupLayout id="pgl15"
+                                                                                                                 layout="horizontal">
+                                                                                                <af:link
+                                                                                                         id="l8"
+                                                                                                         icon="#{resource['images:imgDocumentNumber.png']}"/>
+                                                                                                <af:outputFormatted value="#{item.bindings.CustomerSiteCode.inputValue}"
+                                                                                                                    id="of2"
+                                                                                                                    styleClass="ERPHeroBannerFont">
+                                                                                                    <af:convertNumber groupingUsed="false"
+                                                                                                                      pattern="#{bindings.ScmCustomerSitesDetRO.hints.CustomerSiteCode.format}"/>
+                                                                                                </af:outputFormatted>
+                                                                                                <f:facet name="separator">
+                                                                                                    <af:spacer width="10"
+                                                                                                               height="10"
+                                                                                                               id="s3"/>
+                                                                                                </f:facet>
+                                                                                            </af:panelGroupLayout>
                                                                                         </af:gridCell>
                                                                                     </af:gridRow>
                                                                                     <af:gridRow marginTop="5px"
@@ -733,8 +762,20 @@
                                                                                                      width="100%"
                                                                                                      marginEnd="5px"
                                                                                                      id="gc73">
-                                                                                            <af:outputFormatted value="#{item.bindings.SiteName.inputValue}"
-                                                                                                                id="of3"/>
+                                                                                            <af:panelGroupLayout id="pgl16"
+                                                                                                                 layout="horizontal">
+                                                                                                <af:link
+                                                                                                         id="l10"
+                                                                                                         icon="#{resource['images:imgShortName.png']}"/>
+                                                                                                <af:outputFormatted value="#{item.bindings.SiteName.inputValue}"
+                                                                                                                    id="of3"
+                                                                                                                    styleClass="ERPHeroBannerFont"/>
+                                                                                                <f:facet name="separator">
+                                                                                                    <af:spacer width="10"
+                                                                                                               height="10"
+                                                                                                               id="s4"/>
+                                                                                                </f:facet>
+                                                                                            </af:panelGroupLayout>
                                                                                         </af:gridCell>
                                                                                     </af:gridRow>
                                                                                     <af:gridRow marginTop="5px"
@@ -743,8 +784,20 @@
                                                                                                      width="100%"
                                                                                                      marginEnd="5px"
                                                                                                      id="gc74">
-                                                                                            <af:outputFormatted value="#{item.bindings.SiteType.inputValue}"
-                                                                                                                id="of4"/>
+                                                                                            <af:panelGroupLayout id="pgl17"
+                                                                                                                 layout="horizontal">
+                                                                                                <af:link
+                                                                                                         id="l15"
+                                                                                                         icon="#{resource['images:imgDocumentDate.png']}"/>
+                                                                                                <af:outputFormatted value="#{item.bindings.SiteType.inputValue}"
+                                                                                                                    id="of4"
+                                                                                                                    styleClass="ERPHeroBannerFont"/>
+                                                                                                <f:facet name="separator">
+                                                                                                    <af:spacer width="10"
+                                                                                                               height="10"
+                                                                                                               id="s5"/>
+                                                                                                </f:facet>
+                                                                                            </af:panelGroupLayout>
                                                                                         </af:gridCell>
                                                                                     </af:gridRow>
                                                                                     <af:gridRow marginTop="5px"
@@ -755,8 +808,20 @@
                                                                                                      width="100%"
                                                                                                      marginEnd="5px"
                                                                                                      id="gc75">
-                                                                                            <af:outputFormatted value="#{item.bindings.SitePhoneNo.inputValue}"
-                                                                                                                id="of5"/>
+                                                                                            <af:panelGroupLayout id="pgl18"
+                                                                                                                 layout="horizontal">
+                                                                                                <af:link
+                                                                                                         id="l16"
+                                                                                                         icon="#{resource['images:imgCountry.png']}"/>
+                                                                                                <af:outputFormatted value="#{item.bindings.SitePhoneNo.inputValue}"
+                                                                                                                    id="of5"
+                                                                                                                    styleClass="ERPHeroBannerFont"/>
+                                                                                                <f:facet name="separator">
+                                                                                                    <af:spacer width="10"
+                                                                                                               height="10"
+                                                                                                               id="s6"/>
+                                                                                                </f:facet>
+                                                                                            </af:panelGroupLayout>
                                                                                         </af:gridCell>
                                                                                     </af:gridRow>
                                                                                 </af:panelGridLayout>
@@ -775,7 +840,8 @@
                   <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc69" halign="end">
                     <af:panelGroupLayout id="pgl12" layout="horizontal" halign="end">
                       <af:link id="l9" icon="#{resource['images:imgNewDocument.png']}"
-                               disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                               disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                               action="ADD_SCM_0002_EDIT_EDIT_EDIT"/>
                       <f:facet name="separator">
                         <af:spacer width="10" height="10" id="s7"/>
                       </f:facet>

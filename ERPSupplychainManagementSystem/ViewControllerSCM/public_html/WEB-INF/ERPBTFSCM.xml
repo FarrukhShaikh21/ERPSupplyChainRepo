@@ -329,6 +329,15 @@
     <view id="SCM_0007">
       <page>/SCM_0007.jsf</page>
     </view>
+    <view id="SCM_0002_EDIT_EDIT_EDIT">
+      <page>/SCM_0002_EDIT_EDIT_EDIT.jsf</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -535,6 +544,10 @@
       <control-flow-case id="__58">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0002_EDIT</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__137">
+        <from-outcome>ADD_SCM_0002_EDIT_EDIT_EDIT</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__60">
@@ -787,6 +800,13 @@
       <control-flow-case id="__136">
         <from-outcome>ERP-ACT-SCM_0007</from-outcome>
         <to-activity-id>SCM_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__138">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__140">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>SCM_0002_EDIT_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
