@@ -335,7 +335,13 @@
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>
       <outcome>
-        <fixed-outcome>CreateInsert</fixed-outcome>
+        <fixed-outcome>CreateInsertSCM_0002_EDIT_EDIT_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeCustSiteSCM__edit_edit_edit">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>QRY_SCM_0002_EDIT_EDIT_EDIT</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">
@@ -548,6 +554,10 @@
       <control-flow-case id="__137">
         <from-outcome>ADD_SCM_0002_EDIT_EDIT_EDIT</from-outcome>
         <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__144">
+        <from-outcome>QRY_SCM_0002_EDIT_EDIT_EDIT</from-outcome>
+        <to-activity-id>ExeCustSiteSCM__edit_edit_edit</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__60">
@@ -805,7 +815,14 @@
     <control-flow-rule id="__138">
       <from-activity-id>CreateInsert</from-activity-id>
       <control-flow-case id="__140">
-        <from-outcome>CreateInsert</from-outcome>
+        <from-outcome>CreateInsertSCM_0002_EDIT_EDIT_EDIT</from-outcome>
+        <to-activity-id>SCM_0002_EDIT_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__142">
+      <from-activity-id>ExeCustSiteSCM__edit_edit_edit</from-activity-id>
+      <control-flow-case id="__143">
+        <from-outcome>QRY_SCM_0002_EDIT_EDIT_EDIT</from-outcome>
         <to-activity-id>SCM_0002_EDIT_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

@@ -1619,8 +1619,41 @@
       from="MethodCall145"
       to="View144">
       <property
-         name="fromOutcome">CreateInsert</property>
+         name="fromOutcome">CreateInsertSCM_0002_EDIT_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">L50,-681.98535,189.39648,-835.9707,203.94238,R50</property>
+         name="sdm:polyPoints">L50,-681.98535,189.39648,-835.9707,203.5918,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall148">
+      <property
+         name="activityId">ExeCustSiteSCM__edit_edit_edit</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeCustSiteSCM__edit_edit_edit&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">306.44824</property>
+      <property
+         name="x">-747.64844</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase149"
+      from="View55"
+      to="MethodCall148">
+      <property
+         name="fromOutcome">QRY_SCM_0002_EDIT_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">L54,-464.9746,258.44238,-706.64844,306.09766,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase150"
+      from="MethodCall148"
+      to="View144">
+      <property
+         name="fromOutcome">QRY_SCM_0002_EDIT_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">L50,-788.64844,306.09766,-876.9707,257.5918,B50</property>
    </ControlFlowCase>
 </SDM>
