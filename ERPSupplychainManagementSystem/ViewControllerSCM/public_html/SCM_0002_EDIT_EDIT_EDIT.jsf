@@ -43,37 +43,24 @@
                                     </af:panelGroupLayout>
                                                 </f:facet>
                                                 <af:panelGridLayout id="pgl2">
-                                                    <af:gridRow marginTop="5px" height="auto" id="gr2"
-                                                                marginBottom="5px">
-                                                        <af:gridCell marginStart="5px" width="13%" id="gc3"
-                                                                     marginEnd="5px" halign="center" rowSpan="1">
+                                    <af:gridRow id="gr1">
+                                        <af:gridCell id="gc12" width="13%">
                                             <af:outputLabel value="#{bindings.SiteName.hints.label}" id="ol1"/>
                                         </af:gridCell>
-                                                        <af:gridCell marginStart="5px" width="20%" id="gc4"
-                                                                     halign="stretch" columnSpan="1" rowSpan="1"
-                                                                     marginEnd="5px">
+                                        <af:gridCell id="gc11" marginEnd="5px" marginStart="5px" columnSpan="5"
+                                                     rowSpan="1" halign="stretch">
                                             <af:inputText value="#{bindings.SiteName.inputValue}" simple="true"
                                                           required="#{bindings.SiteName.hints.mandatory}"
                                                           columns="#{bindings.SiteName.hints.displayWidth}"
                                                           maximumLength="#{bindings.SiteName.hints.precision}"
-                                                          shortDesc="#{bindings.SiteName.hints.tooltip}" id="it1">
+                                                          shortDesc="#{bindings.SiteName.hints.tooltip}" id="it1"
+                                                          contentStyle="width:100%">
                                                 <f:validator binding="#{bindings.SiteName.validator}"/>
                                             </af:inputText>
                                         </af:gridCell>
-                                        <af:gridCell id="gc1" width="13%" halign="center" marginStart="5px"
-                                                     marginEnd="5px">
-                                            <af:outputLabel value="#{bindings.SiteShortName.hints.label}" id="ol11"/>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc2" width="20%" halign="stretch" marginStart="5px"
-                                                     marginEnd="5px">
-                                            <af:inputText value="#{bindings.SiteShortName.inputValue}" simple="true"
-                                                          required="#{bindings.SiteShortName.hints.mandatory}"
-                                                          columns="#{bindings.SiteShortName.hints.displayWidth}"
-                                                          maximumLength="#{bindings.SiteShortName.hints.precision}"
-                                                          shortDesc="#{bindings.SiteShortName.hints.tooltip}" id="it2">
-                                                <f:validator binding="#{bindings.SiteShortName.validator}"/>
-                                            </af:inputText>
-                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" id="gr2"
+                                                                marginBottom="5px">
                                         <af:gridCell id="gc69" width="13%" halign="center" marginStart="5px"
                                                      marginEnd="5px">
                                             <af:outputLabel value="#{bindings.CustomerSiteCode.hints.label}" id="ol3"/>
@@ -91,6 +78,35 @@
                                                                   pattern="#{bindings.CustomerSiteCode.format}"/>
                                             </af:inputText>
                                         </af:gridCell>
+                                        <af:gridCell id="gc1" width="13%" halign="center" marginStart="5px"
+                                                     marginEnd="5px">
+                                            <af:outputLabel value="#{bindings.SiteShortName.hints.label}" id="ol11"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc2" width="20%" halign="stretch" marginStart="5px"
+                                                     marginEnd="5px">
+                                            <af:inputText value="#{bindings.SiteShortName.inputValue}" simple="true"
+                                                          required="#{bindings.SiteShortName.hints.mandatory}"
+                                                          columns="#{bindings.SiteShortName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.SiteShortName.hints.precision}"
+                                                          shortDesc="#{bindings.SiteShortName.hints.tooltip}" id="it2">
+                                                <f:validator binding="#{bindings.SiteShortName.validator}"/>
+                                            </af:inputText>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="13%" id="gc3"
+                                                                     marginEnd="5px" halign="center" rowSpan="1">
+                                            <af:outputLabel value="#{bindings.SiteOpenDate.hints.label}" id="ol5"/>
+                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="20%" id="gc4"
+                                                                     halign="stretch" columnSpan="1" rowSpan="1"
+                                                                     marginEnd="5px">
+                                            <af:inputDate value="#{bindings.SiteOpenDate.inputValue}"
+                                                          required="#{bindings.SiteOpenDate.hints.mandatory}"
+                                                          columns="#{bindings.SiteOpenDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.SiteOpenDate.hints.tooltip}" id="id1">
+                                                <f:validator binding="#{bindings.SiteOpenDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.SiteOpenDate.format}"/>
+                                            </af:inputDate>
+                                        </af:gridCell>
                                     </af:gridRow>
                                                     <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
                                                         <af:gridCell id="gc35" width="13%" rowSpan="1" halign="center"
@@ -103,24 +119,15 @@
                                                           required="#{bindings.SiteType.hints.mandatory}"
                                                           columns="#{bindings.SiteType.hints.displayWidth}"
                                                           maximumLength="#{bindings.SiteType.hints.precision}"
-                                                          shortDesc="#{bindings.SiteType.hints.tooltip}" id="it4">
+                                                          shortDesc="#{bindings.SiteType.hints.tooltip}" id="it4"
+                                                          contentStyle="width:100%">
                                                 <f:validator binding="#{bindings.SiteType.validator}"/>
                                             </af:inputText>
                                         </af:gridCell>
                                         <af:gridCell id="gc5" marginStart="5px" marginEnd="5px" width="13%"
-                                                     halign="center">
-                                            <af:outputLabel value="#{bindings.SiteOpenDate.hints.label}" id="ol5"/>
-                                        </af:gridCell>
+                                                     halign="center"/>
                                         <af:gridCell id="gc6" width="20%" marginStart="5px" marginEnd="5px"
-                                                     halign="stretch">
-                                            <af:inputDate value="#{bindings.SiteOpenDate.inputValue}"
-                                                          required="#{bindings.SiteOpenDate.hints.mandatory}"
-                                                          columns="#{bindings.SiteOpenDate.hints.displayWidth}"
-                                                          shortDesc="#{bindings.SiteOpenDate.hints.tooltip}" id="id1">
-                                                <f:validator binding="#{bindings.SiteOpenDate.validator}"/>
-                                                <af:convertDateTime pattern="#{bindings.SiteOpenDate.format}"/>
-                                            </af:inputDate>
-                                        </af:gridCell>
+                                                     halign="stretch"/>
                                         <af:gridCell id="gc7" width="13%" marginStart="5px" marginEnd="5px"
                                                      halign="center"/>
                                         <af:gridCell id="gc8" width="21%" marginStart="5px" marginEnd="5px"
