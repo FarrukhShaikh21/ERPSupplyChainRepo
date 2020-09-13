@@ -93,6 +93,47 @@
                   <f:validator binding="#{bindings.CategorySno.validator}"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.CategorySno.format}"/>
                 </af:inputText>
+                <af:listView value="#{bindings.ScmOrderTypeByCompanyRO.collectionModel}" var="item"
+                             emptyText="#{bindings.ScmOrderTypeByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                             fetchSize="#{bindings.ScmOrderTypeByCompanyRO.rangeSize}" id="lv2">
+                  <af:listItem id="li2">
+                    <af:panelGridLayout id="pgl9">
+                      <af:gridRow marginTop="5px" height="auto" id="gr6">
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
+                          <af:outputFormatted value="#{item.bindings.OrderTypeShortName.inputValue}" id="of6"/>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" id="gr7">
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
+                          <af:outputFormatted value="#{item.bindings.OrderTypeCode.inputValue}" id="of7">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ScmOrderTypeByCompanyRO.hints.OrderTypeCode.format}"/>
+                          </af:outputFormatted>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" id="gr8">
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8">
+                          <af:outputFormatted value="#{item.bindings.OrderTypeName.inputValue}" id="of8"/>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" id="gr9">
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
+                          <af:outputFormatted value="#{item.bindings.OpenDate.inputValue}" id="of9">
+                            <af:convertDateTime pattern="#{bindings.ScmOrderTypeByCompanyRO.hints.OpenDate.format}"/>
+                          </af:outputFormatted>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10">
+                          <af:outputFormatted value="#{item.bindings.OrderTypeFor.inputValue}" id="of10">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ScmOrderTypeByCompanyRO.hints.OrderTypeFor.format}"/>
+                          </af:outputFormatted>
+                        </af:gridCell>
+                      </af:gridRow>
+                    </af:panelGridLayout>
+                  </af:listItem>
+                </af:listView>
                 <af:listView value="#{bindings.ScmCustomerCategoryByCompRO.collectionModel}" var="item"
                              emptyText="#{bindings.ScmCustomerCategoryByCompRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.ScmCustomerCategoryByCompRO.rangeSize}" id="lv1" selection="single"
