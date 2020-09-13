@@ -315,20 +315,22 @@
                                                     </af:gridCell>
                                                     <af:gridCell id="gc45" width="13%" halign="center" marginStart="5px"
                                                                  marginEnd="5px">
-                                                        <af:outputLabel value="#{bindings.IsTaxable.hints.label}"
-                                                                        id="ol22"/>
+                                                        <af:outputLabel value="#{bindings.IsTaxable.hints.label}" id="ol22"/>
                                                     </af:gridCell>
                                                     <af:gridCell id="gc46" width="21%" marginStart="5px" marginEnd="5px"
                                                                  halign="stretch">
-                                                        <af:inputText value="#{bindings.IsTaxable.inputValue}"
-                                                                      simple="true"
-                                                                      required="#{bindings.IsTaxable.hints.mandatory}"
-                                                                      columns="#{bindings.IsTaxable.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.IsTaxable.hints.precision}"
-                                                                      shortDesc="#{bindings.IsTaxable.hints.tooltip}"
-                                                                      id="it20" contentStyle="width:100%">
+                                                        <af:inputComboboxListOfValues id="isTaxableId"
+                                                                                      popupTitle="Search and Select: #{bindings.IsTaxable.hints.label}"
+                                                                                      value="#{bindings.IsTaxable.inputValue}"
+                                                                                      label="#{bindings.IsTaxable.hints.label}"
+                                                                                      model="#{bindings.IsTaxable.listOfValuesModel}"
+                                                                                      required="#{bindings.IsTaxable.hints.mandatory}"
+                                                                                      columns="#{bindings.IsTaxable.hints.displayWidth}"
+                                                                                      shortDesc="#{bindings.IsTaxable.hints.tooltip}"
+                                                                                      simple="true"
+                                                                                      contentStyle="width:100%">
                                                             <f:validator binding="#{bindings.IsTaxable.validator}"/>
-                                                        </af:inputText>
+                                                        </af:inputComboboxListOfValues>
                                                     </af:gridCell>
                                                 </af:gridRow>
                                                 <af:gridRow marginTop="5px" height="auto" id="gr8" marginBottom="5px">
