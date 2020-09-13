@@ -350,6 +350,21 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0007_EDIT">
+      <page>/SCM_0007_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeSCM_0007CompanyByCompany">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeSCM_0007EDITOrderTypeByComp">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">

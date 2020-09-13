@@ -593,7 +593,7 @@
       <property
          name="fromOutcome">ERPADDSCM_0002_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">L62,-252.65474,618.7412,-602.98047,568.4365,R50</property>
+         name="sdm:polyPoints">L62,-252.69571,618.7412,-602.98047,568.4365,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -603,7 +603,7 @@
       <property
          name="fromOutcome">CreateWithParams</property>
       <property
-         name="sdm:polyPoints">T50,-643.98047,514.4365,-430.9746,308.94238,B39</property>
+         name="sdm:polyPoints">T50,-643.98047,514.4365,-427.4746,313.41098,B44</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall59">
@@ -646,7 +646,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">B61,-416.9746,308.94238,-247.88373,604.7412,L46</property>
+         name="sdm:polyPoints">B67,-413.4746,308.94238,-247.9042,604.7412,L46</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall63">
@@ -669,7 +669,7 @@
       <property
          name="fromOutcome">ERPEDITSCM_0002_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">L54,-251.14589,611.7412,-408.64844,472.99414,R50</property>
+         name="sdm:polyPoints">L54,-251.18686,611.7412,-408.64844,472.99414,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -1689,4 +1689,45 @@
       <property
          name="sdm:polyPoints">R50,-831.5,375.09766,-434.4746,308.94238,B33</property>
    </ControlFlowCase>
+   <View
+      id="View154">
+      <property
+         name="activityId">SCM_0007_EDIT</property>
+      <property
+         name="page">/SCM_0007_EDIT.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SCM_0007_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1610.7988</property>
+      <property
+         name="x">-1132.9785</property>
+   </View>
+   <MethodCall
+      id="MethodCall155">
+      <property
+         name="activityId">ExeSCM_0007CompanyByCompany</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeSCM_0007CompanyByCompany&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1611.7471</property>
+      <property
+         name="x">-1339.6484</property>
+   </MethodCall>
+   <MethodCall
+      id="MethodCall156">
+      <property
+         name="activityId">ExeSCM_0007EDITOrderTypeByComp</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeSCM_0007EDITOrderTypeByComp&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1718.7988</property>
+      <property
+         name="x">-1246.6484</property>
+   </MethodCall>
 </SDM>
