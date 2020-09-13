@@ -7,6 +7,7 @@ import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 import java.sql.Timestamp;
 
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -37,7 +38,8 @@ public class ScmCustomerCategoryImpl extends ERPEntityImpl {
         IsUnsupervised,
         UnSupervisedDate,
         SupervisedBy,
-        UnSupervisedBy;
+        UnSupervisedBy,
+        ScmCustomer;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -80,6 +82,7 @@ public class ScmCustomerCategoryImpl extends ERPEntityImpl {
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
+    public static final int SCMCUSTOMER = AttributesEnum.ScmCustomer.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -381,6 +384,14 @@ public class ScmCustomerCategoryImpl extends ERPEntityImpl {
      */
     public void setUnSupervisedBy(Integer value) {
         setAttributeInternal(UNSUPERVISEDBY, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmCustomer() {
+        return (RowIterator) getAttributeInternal(SCMCUSTOMER);
     }
 
 

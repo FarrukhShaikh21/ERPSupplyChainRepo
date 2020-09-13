@@ -40,11 +40,6 @@
         <Item Value="PaymentTermSno"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="BranchId">
-      <AttrNames>
-        <Item Value="BranchId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="BankAccountNo">
       <AttrNames>
         <Item Value="BankAccountNo"/>
@@ -68,11 +63,6 @@
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerShortName">
       <AttrNames>
         <Item Value="CustomerShortName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerCategorySno">
-      <AttrNames>
-        <Item Value="CustomerCategorySno"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="Nationality">
@@ -161,11 +151,6 @@
       <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0002_EDITPageDef.CompCode.inputValue}"
                  NDType="java.lang.String"/>
     </action>
-    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="BankId">
-      <AttrNames>
-        <Item Value="BankId"/>
-      </AttrNames>
-    </attributeValues>
     <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LOV_txtCountryName"
                   id="txtCountryName"/>
     <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LOV_txtCityName" id="txtCityName"/>
@@ -186,5 +171,25 @@
         <Item Value="CustomerSitesSno"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="txtBankName">
+      <AttrNames>
+        <Item Value="txtBankName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="lovtxtBankName" id="txtBankName1"/>
+    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovtxtBankBranchName"
+                  id="txtBankBranchName"/>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="txtBankBranchName1">
+      <AttrNames>
+        <Item Value="txtBankBranchName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="txtCustomerCategory">
+      <AttrNames>
+        <Item Value="txtCustomerCategory"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="lovtxtCustomerCategory"
+                  id="txtCustomerCategory1"/>
   </bindings>
 </pageDefinition>

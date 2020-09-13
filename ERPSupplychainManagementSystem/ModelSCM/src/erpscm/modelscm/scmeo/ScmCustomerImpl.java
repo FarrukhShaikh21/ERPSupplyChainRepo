@@ -3,6 +3,7 @@ package erpscm.modelscm.scmeo;
 import erpadm.modeladm.admeo.SmCityImpl;
 import erpadm.modeladm.admeo.SmCountryImpl;
 
+import erpfms.modelfms.fmseo.GlBankBranchImpl;
 import erpfms.modelfms.fmseo.GlBankImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
@@ -73,11 +74,16 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         txtCountryName,
         txtCityName,
         txtCustType,
+        txtBankName,
+        txtBankBranchName,
+        txtCustomerCategory,
         ScmCustomerSites,
         SmCountry,
         SmCity,
         ScmCustomerType,
-        GlBank;
+        GlBank,
+        ScmCustomerCategory,
+        GlBankBranch;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -147,11 +153,16 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     public static final int TXTCOUNTRYNAME = AttributesEnum.txtCountryName.index();
     public static final int TXTCITYNAME = AttributesEnum.txtCityName.index();
     public static final int TXTCUSTTYPE = AttributesEnum.txtCustType.index();
+    public static final int TXTBANKNAME = AttributesEnum.txtBankName.index();
+    public static final int TXTBANKBRANCHNAME = AttributesEnum.txtBankBranchName.index();
+    public static final int TXTCUSTOMERCATEGORY = AttributesEnum.txtCustomerCategory.index();
     public static final int SCMCUSTOMERSITES = AttributesEnum.ScmCustomerSites.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int SMCITY = AttributesEnum.SmCity.index();
     public static final int SCMCUSTOMERTYPE = AttributesEnum.ScmCustomerType.index();
     public static final int GLBANK = AttributesEnum.GlBank.index();
+    public static final int SCMCUSTOMERCATEGORY = AttributesEnum.ScmCustomerCategory.index();
+    public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -888,6 +899,55 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtBankName, using the alias name txtBankName.
+     * @return the value of txtBankName
+     */
+    public String gettxtBankName() {
+        return (String) getAttributeInternal(TXTBANKNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtBankName.
+     * @param value value to set the txtBankName
+     */
+    public void settxtBankName(String value) {
+        setAttributeInternal(TXTBANKNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtBankBranchName, using the alias name txtBankBranchName.
+     * @return the value of txtBankBranchName
+     */
+    public String gettxtBankBranchName() {
+        return (String) getAttributeInternal(TXTBANKBRANCHNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtBankBranchName.
+     * @param value value to set the txtBankBranchName
+     */
+    public void settxtBankBranchName(String value) {
+        setAttributeInternal(TXTBANKBRANCHNAME, value);
+    }
+
+
+    /**
+     * Gets the attribute value for txtCustomerCategory, using the alias name txtCustomerCategory.
+     * @return the value of txtCustomerCategory
+     */
+    public String gettxtCustomerCategory() {
+        return (String) getAttributeInternal(TXTCUSTOMERCATEGORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCustomerCategory.
+     * @param value value to set the txtCustomerCategory
+     */
+    public void settxtCustomerCategory(String value) {
+        setAttributeInternal(TXTCUSTOMERCATEGORY, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getScmCustomerSites() {
@@ -952,6 +1012,36 @@ public class ScmCustomerImpl extends ERPEntityImpl {
      */
     public void setGlBank(GlBankImpl value) {
         setAttributeInternal(GLBANK, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmCustomerCategoryImpl.
+     */
+    public ScmCustomerCategoryImpl getScmCustomerCategory() {
+        return (ScmCustomerCategoryImpl) getAttributeInternal(SCMCUSTOMERCATEGORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmCustomerCategoryImpl.
+     */
+    public void setScmCustomerCategory(ScmCustomerCategoryImpl value) {
+        setAttributeInternal(SCMCUSTOMERCATEGORY, value);
+    }
+
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlBankBranchImpl.
+     */
+    public GlBankBranchImpl getGlBankBranch() {
+        return (GlBankBranchImpl) getAttributeInternal(GLBANKBRANCH);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlBankBranchImpl.
+     */
+    public void setGlBankBranch(GlBankBranchImpl value) {
+        setAttributeInternal(GLBANKBRANCH, value);
     }
 
 
