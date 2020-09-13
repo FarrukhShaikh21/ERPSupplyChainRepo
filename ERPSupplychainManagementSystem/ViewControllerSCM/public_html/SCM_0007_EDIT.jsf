@@ -95,8 +95,10 @@
                 </af:inputText>
                 <af:listView value="#{bindings.ScmOrderTypeByCompanyRO.collectionModel}" var="item"
                              emptyText="#{bindings.ScmOrderTypeByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                             fetchSize="#{bindings.ScmOrderTypeByCompanyRO.rangeSize}" id="lv2">
-                  <af:listItem id="li2">
+                             fetchSize="#{bindings.ScmOrderTypeByCompanyRO.rangeSize}" id="lv2" selection="single"
+                             selectedRowKeys="#{bindings.ScmOrderTypeByCompanyRO.collectionModel.selectedRow}"
+                             selectionListener="#{bindings.ScmOrderTypeByCompanyRO.treeModel.makeCurrent}">
+                  <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                     <af:panelGridLayout id="pgl9">
                       <af:gridRow marginTop="5px" height="auto" id="gr6">
                         <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
