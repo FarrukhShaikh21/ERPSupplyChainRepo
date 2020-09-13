@@ -1770,4 +1770,52 @@
       <property
          name="sdm:polyPoints">L46,-1173.9785,1606.9482,-1217.5,1518.9482,R54</property>
    </ControlFlowCase>
+   <MethodCall
+      id="MethodCall161">
+      <property
+         name="activityId">ExeOrdetTypeCRUDSCM_0007_EDIT_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeOrdetTypeCRUDSCM_0007_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1756.4482</property>
+      <property
+         name="x">-1085.6484</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase162"
+      from="View154"
+      to="MethodCall161">
+      <property
+         name="fromOutcome">ERP-EDIT-ACT-SCM_0007_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">B50,-1132.9785,1664.4482,-1085.6484,1702.0977,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View163">
+      <property
+         name="activityId">SCM_0007_EDIT_EDIT</property>
+      <property
+         name="page">/SCM_0007_EDIT_EDIT.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SCM_0007_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1895.7988</property>
+      <property
+         name="x">-1148.9746</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase164"
+      from="MethodCall161"
+      to="View163">
+      <property
+         name="fromOutcome">ERP-EDIT-ACT-SCM_0007_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">B50,-1085.6484,1810.0977,-1148.9746,1841.4482,T50</property>
+   </ControlFlowCase>
 </SDM>

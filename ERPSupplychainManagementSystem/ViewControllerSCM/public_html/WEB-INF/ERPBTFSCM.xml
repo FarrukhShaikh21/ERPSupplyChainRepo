@@ -365,6 +365,15 @@
         <fixed-outcome>ERP-EDIT-ACT-SCM_0007</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeOrdetTypeCRUDSCM_0007_EDIT_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-EDIT-ACT-SCM_0007_EDIT_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCM_0007_EDIT_EDIT">
+      <page>/SCM_0007_EDIT_EDIT.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -887,6 +896,17 @@
       <control-flow-case id="__155">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0007</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__156">
+        <from-outcome>ERP-EDIT-ACT-SCM_0007_EDIT_EDIT</from-outcome>
+        <to-activity-id>ExeOrdetTypeCRUDSCM_0007_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__157">
+      <from-activity-id>ExeOrdetTypeCRUDSCM_0007_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__158">
+        <from-outcome>ERP-EDIT-ACT-SCM_0007_EDIT_EDIT</from-outcome>
+        <to-activity-id>SCM_0007_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
