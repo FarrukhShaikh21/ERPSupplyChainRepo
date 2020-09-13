@@ -82,6 +82,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmPaymentTermHeaderVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_txtCityName"
     ListVOName="AccSmCityVO"
@@ -248,6 +252,31 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtPaymentTermName"
+    ListVOName="AccScmPaymentTermHeaderVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtPaymentTermName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PaymentTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PaymentTermName"/>
+      <Item Value="PaymentTermHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PaymentTermName"/>
+      <Item Value="PaymentTermShortName"/>
+      <Item Value="PaymentTermHeaderCode"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -630,7 +659,15 @@
     PrecisionRule="true"
     EntityAttrName="txtPaymentTermName"
     EntityUsage="ScmCustomer"
-    AliasName="TXT_PAYMENT_TERM_NAME"/>
+    AliasName="TXT_PAYMENT_TERM_NAME"
+    LOVName="LovtxtPaymentTermName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmCustomerByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerVO"
