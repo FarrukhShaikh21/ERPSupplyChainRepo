@@ -13,6 +13,14 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_COMPANY_ID"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_ORDER_TYPE_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <EntityUsage
     Name="ScmOrderType"
     Entity="erpscm.modelscm.scmeo.ScmOrderType"/>
@@ -141,4 +149,76 @@
     EntityAttrName="UnSupervisedBy"
     EntityUsage="ScmOrderType"
     AliasName="UN_SUPERVISED_BY"/>
+  <ViewCriteria
+    Name="ScmOrderTypeByCopmanyRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmOrderTypeVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmOrderTypeVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ScmOrderTypeVOCriteria_ScmOrderTypeVOCriteria_row_0_CompanyId"
+        ViewAttribute="CompanyId"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_COMPANY_ID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ScmOrderTypeByOrderTypeSnoVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmOrderTypeVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmOrderTypeVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="OrderTypeSno"
+        ViewAttribute="OrderTypeSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_ORDER_TYPE_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>
