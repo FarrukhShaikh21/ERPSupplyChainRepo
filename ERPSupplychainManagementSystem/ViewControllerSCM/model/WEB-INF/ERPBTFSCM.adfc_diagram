@@ -1559,7 +1559,7 @@
       <property
          name="fromOutcome">ERP-ACT-SCM_0007</property>
       <property
-         name="sdm:polyPoints">L50,-1156.5,1455.6953,-1217.5,1515.4482,R50</property>
+         name="sdm:polyPoints">L50,-1156.5,1455.6953,-1217.5,1511.9482,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -1759,5 +1759,15 @@
          name="fromOutcome">ERP-EDIT-ACT-SCM_0007</property>
       <property
          name="sdm:polyPoints">T50,-1246.6484,1664.4482,-1173.9785,1610.4482,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase160"
+      from="View154"
+      to="View141">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">L46,-1173.9785,1606.9482,-1217.5,1518.9482,R54</property>
    </ControlFlowCase>
 </SDM>
