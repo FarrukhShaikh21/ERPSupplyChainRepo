@@ -102,7 +102,7 @@
                                   <af:panelGroupLayout id="pgl14" layout="horizontal">
                                     <af:image source="#{resource['images:imgDocumentNumber.png']}" id="i6"/>
                                     <af:outputFormatted value="#{item.bindings.SalesPersonShortCode.inputValue}"
-                                                        id="of7">
+                                                        id="of7" styleClass="ERPHeroDetailColor">
                                       <af:convertNumber groupingUsed="false"
                                                         pattern="#{bindings.ScmSalesPersonByCompanyRO.hints.SalesPersonShortCode.format}"/>
                                     </af:outputFormatted>
@@ -116,7 +116,8 @@
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc12">
                                   <af:panelGroupLayout id="pgl17" layout="horizontal">
                                     <af:image source="#{resource['images:imgShortName.png']}" id="i5"/>
-                                    <af:outputFormatted value="#{item.bindings.SalesPersonName.inputValue}" id="of8"/>
+                                    <af:outputFormatted value="#{item.bindings.SalesPersonName.inputValue}" id="of8"
+                                                        styleClass="ERPHeroDetailColor"/>
                                     <f:facet name="separator">
                                       <af:spacer width="10" height="10" id="s9"/>
                                     </f:facet>
@@ -127,7 +128,8 @@
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc13">
                                   <af:panelGroupLayout id="pgl16" layout="horizontal">
                                     <af:image source="#{resource['images:imgMobile.png']}" id="i7"/>
-                                    <af:outputFormatted value="#{item.bindings.MobileNo.inputValue}" id="of9"/>
+                                    <af:outputFormatted value="#{item.bindings.MobileNo.inputValue}" id="of9"
+                                                        styleClass="ERPHeroDetailColor"/>
                                     <f:facet name="separator">
                                       <af:spacer width="10" height="10" id="s8"/>
                                     </f:facet>
@@ -138,7 +140,8 @@
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc14">
                                   <af:panelGroupLayout id="pgl15" layout="horizontal">
                                     <af:image source="#{resource['images:imgEmailAddress.png']}" id="i8"/>
-                                    <af:outputFormatted value="#{item.bindings.Email.inputValue}" id="of10"/>
+                                    <af:outputFormatted value="#{item.bindings.Email.inputValue}" id="of10"
+                                                        styleClass="ERPHeroDetailColor"/>
                                     <f:facet name="separator">
                                       <af:spacer width="10" height="10" id="s7"/>
                                     </f:facet>
