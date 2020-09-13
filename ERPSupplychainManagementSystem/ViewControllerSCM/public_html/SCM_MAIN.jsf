@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="SCM_MAIN.jsf" id="d1">
-        <af:serverListener type="customEvent" method="#{pageFlowScope.OracleERPBean.handleEvent}"/>
-        <af:clientListener type="load" method="load"/>
+        <af:serverListener type="customEvent" method="#{pageFlowScope.OracleERPBean.scmhandleEvent}"/>
+        <af:clientListener type="load" method="Scmload"/>
         <af:messages id="m1"/>
         <af:form id="f1">
             <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">

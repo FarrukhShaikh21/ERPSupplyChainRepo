@@ -284,5 +284,20 @@ public class ERPSCMClass {
             }
             doERPShowSaveMessage("Record Supervised Successfully."); 
         }
-    }   
+    } 
+    
+    public void scmhandleEvent(ClientEvent clientEvent) {
+        //UIComponent form = clientEvent.getComponent().getChildren().get(1);
+        //form=form.getChildren().get(0);
+        AdfFacesContext afContext = AdfFacesContext.getCurrentInstance();
+        String screen = clientEvent.getParameters().get("screenSize").toString();
+        //ADFContext.getCurrent().getSessionScope().put("screenSize", screen);
+       
+      setErpScreenSize(screen);
+      
+        System.out.println("this is scm java script"+ screen);
+            System.out.println("setScreenSize"+ getErpScreenSize());
+       // afContext.addPartialTarget(getRit());  
+        //System.out.println(form.getId() +" get form id");
+        }  
 }
