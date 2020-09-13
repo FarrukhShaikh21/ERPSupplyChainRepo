@@ -83,7 +83,8 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         ScmCustomerType,
         GlBank,
         ScmCustomerCategory,
-        GlBankBranch;
+        GlBankBranch,
+        ScmPaymentTermHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -163,6 +164,7 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     public static final int GLBANK = AttributesEnum.GlBank.index();
     public static final int SCMCUSTOMERCATEGORY = AttributesEnum.ScmCustomerCategory.index();
     public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
+    public static final int SCMPAYMENTTERMHEADER = AttributesEnum.ScmPaymentTermHeader.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1044,6 +1046,20 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         setAttributeInternal(GLBANKBRANCH, value);
     }
 
+
+    /**
+     * @return the associated entity ScmPaymentTermHeaderImpl.
+     */
+    public ScmPaymentTermHeaderImpl getScmPaymentTermHeader() {
+        return (ScmPaymentTermHeaderImpl) getAttributeInternal(SCMPAYMENTTERMHEADER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmPaymentTermHeaderImpl.
+     */
+    public void setScmPaymentTermHeader(ScmPaymentTermHeaderImpl value) {
+        setAttributeInternal(SCMPAYMENTTERMHEADER, value);
+    }
 
     /**
      * @param customerSno key constituent

@@ -35,11 +35,6 @@
         <Item Value="CurrencySno"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="PaymentTermSno">
-      <AttrNames>
-        <Item Value="PaymentTermSno"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="BankAccountNo">
       <AttrNames>
         <Item Value="BankAccountNo"/>
@@ -98,11 +93,6 @@
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="StrnFbrGst">
       <AttrNames>
         <Item Value="StrnFbrGst"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="IsTaxable">
-      <AttrNames>
-        <Item Value="IsTaxable"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="FixedDiscountPercent">
@@ -171,15 +161,11 @@
         <Item Value="CustomerSitesSno"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="txtCustomerCategory">
-      <AttrNames>
-        <Item Value="txtCustomerCategory"/>
-      </AttrNames>
-    </attributeValues>
-    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="lovtxtCustomerCategory"
-                  id="txtCustomerCategory1"/>
     <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="lovtxtBankName" id="txtBankName"/>
     <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovtxtBankBranchName"
                   id="txtBankBranchName"/>
+    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="lovtxtCustomerCategory"
+                  id="txtCustomerCategory"/>
+    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovIsTaxable" id="IsTaxable"/>
   </bindings>
 </pageDefinition>

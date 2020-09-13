@@ -390,23 +390,9 @@
                                                 </af:gridRow>
                                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
                                                     <af:gridCell marginStart="5px" width="13%" id="gc17" halign="center"
-                                                                 marginEnd="5px">
-                                                        <af:outputLabel value="#{bindings.PaymentTermSno.hints.label}"
-                                                                        id="ol8"/>
-                                                    </af:gridCell>
+                                                                 marginEnd="5px"/>
                                                     <af:gridCell marginStart="5px" width="87%" marginEnd="5px" id="gc18"
-                                                                 halign="stretch" columnSpan="5" rowSpan="1">
-                                                        <af:inputText value="#{bindings.PaymentTermSno.inputValue}"
-                                                                      required="#{bindings.PaymentTermSno.hints.mandatory}"
-                                                                      columns="#{bindings.PaymentTermSno.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.PaymentTermSno.hints.precision}"
-                                                                      shortDesc="#{bindings.PaymentTermSno.hints.tooltip}"
-                                                                      id="it8" contentStyle="width:100%" simple="true">
-                                                            <f:validator binding="#{bindings.PaymentTermSno.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.PaymentTermSno.format}"/>
-                                                        </af:inputText>
-                                                    </af:gridCell>
+                                                                 halign="stretch" columnSpan="5" rowSpan="1"/>
                                                 </af:gridRow>
                                             </af:panelGridLayout>
                                         </af:panelBox>
