@@ -85,14 +85,6 @@
           <af:decorativeBox id="db3">
             <f:facet name="center">
               <af:panelGroupLayout id="pgl3" halign="center" layout="scroll">
-                <af:inputText value="#{bindings.CategorySno.inputValue}" label="#{bindings.CategorySno.hints.label}"
-                              required="#{bindings.CategorySno.hints.mandatory}"
-                              columns="#{bindings.CategorySno.hints.displayWidth}"
-                              maximumLength="#{bindings.CategorySno.hints.precision}"
-                              shortDesc="#{bindings.CategorySno.hints.tooltip}" id="it6" rendered="false">
-                  <f:validator binding="#{bindings.CategorySno.validator}"/>
-                  <af:convertNumber groupingUsed="false" pattern="#{bindings.CategorySno.format}"/>
-                </af:inputText>
                 <af:listView value="#{bindings.ScmOrderTypeByCompanyRO.collectionModel}" var="item"
                              emptyText="#{bindings.ScmOrderTypeByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.ScmOrderTypeByCompanyRO.rangeSize}" id="lv2" selection="single"
@@ -103,6 +95,15 @@
                     <af:panelGroupLayout id="pgl10" layout="vertical" styleClass="WBCardSize">
                       <af:panelBox text="PanelBox5" id="pb2" showHeader="never" showDisclosure="false">
                         <f:facet name="toolbar"/>
+                        <af:inputText value="#{bindings.OrderTypeSno.inputValue}"
+                                      label="#{bindings.OrderTypeSno.hints.label}"
+                                      required="#{bindings.OrderTypeSno.hints.mandatory}"
+                                      columns="#{bindings.OrderTypeSno.hints.displayWidth}"
+                                      maximumLength="#{bindings.OrderTypeSno.hints.precision}"
+                                      shortDesc="#{bindings.OrderTypeSno.hints.tooltip}" id="it5" rendered="false">
+                          <f:validator binding="#{bindings.OrderTypeSno.validator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.OrderTypeSno.format}"/>
+                        </af:inputText>
                         <af:panelGridLayout id="pgl9">
                           <af:gridRow marginTop="5px" height="auto" id="gr6">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
