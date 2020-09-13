@@ -1,78 +1,35 @@
-/**
- * Javascript functions to show top nitification
- * Success/Info messages
- * Developed By: FARRUKH SHAIKH
- * url: http://androidhive.info
- * © androidhive.info
- *
- * Created On: 21/4/2020
- *
- *
- * version 1.0
- *
- * Usage: call this function with params
- showNotification(message);
- **/
-function showNotificationCallback(message) {
-    showNotification(message);
+function load() {
+    console.log('load');
+    var listener = new ResizeListener();
+    if (listener._matchMediaQueryList) {
+        listener._handleChange(listener._matchMediaQueryList);
+    }
 }
 
-function showNotificationJavaScript(message) {
-    return function (componentEvent) {
-        showNotification(message);
-    };
+function ResizeListener() {
+    console.log('ResizeListener()');
+    this.Init();
 }
 
-function showNotification(message) {
-    var duration = 2;//2 sec
-    var time = new Date().getTime();
-
-    // Parent Div container
-    var container = '<div id="info_message_' + time + '" class="info_message"><div class="center_auto"><div class="message_area">';
-    container += message;
-    container += '</div></div></div></div></div>';
-
-    $notification = $(container);
-
-    $('div.info_message').remove();
-
-    // Appeding notification to Body
-    $('body').append($notification);
-
-    var divHeight = $('div#info_message_' + time).height();
-    // see CSS top to minus of div height
-    $('div#info_message_' + time).css( {
-        top : '-' + divHeight + 'px'
-    });
-
-    // showing notification message, default it will be hidden
-    $('div#info_message_' + time).show();
-
-    // sliding down the notification
-    setTimeout(function () {
-        $('div#info_message_' + time).animate( {
-            top : 0
-        });
-        setTimeout(function () {
-            closeNotification(duration, time);
-        },
-        duration);
-    },
-    parseInt(0));
+AdfObject.createSubclass(ResizeListener, AdfObject);
+/*768*/
+ResizeListener.prototype.Init = function () {
+    console.log('ResizeListener()');
+    
+    this._matchMediaQueryList = window.matchMedia("screen and (max-height:768px)");
+    this._matchMediaQueryList.addListener(this._handleChange);
 }
 
-// function to close notification message
-function closeNotification(duration, time) {
-    var divHeight = $('div#info_message_' + time).height();
-    setTimeout(function () {
-        $('div#info_message_' + time).animate( {
-            top : '-' + divHeight
-        });
-        // removing the notification from body
-        setTimeout(function () {
-            $('div#info_message_' + time).remove();
-        },
-        1000);
-    },
-    parseInt(duration * 1000));
+ResizeListener.prototype._handleChange = function (_matchMediaQueryList) {
+
+    var document = AdfPage.PAGE.findComponent("d1");
+
+    if (_matchMediaQueryList.matches) {
+    
+        AdfCustomEvent.queue(document, "customEvent", {screenSize : 'portrait'}, true);
+        
+    }
+    else {
+        AdfCustomEvent.queue(document, "customEvent", { screenSize : 'landscape' }, true);
+    }
 }
