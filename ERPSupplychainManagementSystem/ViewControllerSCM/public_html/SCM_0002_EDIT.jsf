@@ -94,7 +94,7 @@
                                       <af:link id="l4" icon="#{resource['images:imgDocumentNumber.png']}"
                                                partialSubmit="true"/>
                                       <af:outputFormatted value="#{item.bindings.CustomerShortCode.inputValue}" id="of2"
-                                                          styleClass="ERPHeroBannerFont">
+                                                          styleClass="ERPHeroDetailColor">
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.ScmCustomerByCompanyRO.hints.CustomerShortCode.format}"/>
                                       </af:outputFormatted>
@@ -111,7 +111,7 @@
                                       <af:link id="l5"
                                                partialSubmit="true"/>
                                       <af:outputFormatted value="#{item.bindings.CustomerName.inputValue}" id="of3"
-                                                          styleClass="ERPHeroBannerFont"/>
+                                                          styleClass="ERPHeroDetailColor"/>
                                       <f:facet name="separator">
                                         <af:spacer width="10" height="10" id="s3"/>
                                       </f:facet>
@@ -124,7 +124,7 @@
                                       <af:link id="l6" icon="#{resource['images:imgDocumentDate.png']}"
                                                partialSubmit="true"/>
                                       <af:outputFormatted value="#{item.bindings.AccountOpenDate.inputValue}" id="of4"
-                                                          styleClass="ERPHeroBannerFont">
+                                                          styleClass="ERPHeroDetailColor">
                                         <af:convertDateTime pattern="#{bindings.ScmCustomerByCompanyRO.hints.AccountOpenDate.format}"/>
                                       </af:outputFormatted>
                                       <f:facet name="separator">
@@ -139,7 +139,7 @@
                                       <af:link id="l7" icon="#{resource['images:imgCountry.png']}"
                                                partialSubmit="true"/>
                                       <af:outputFormatted value="#{item.bindings.CustomerTypeSno.inputValue}" id="of5"
-                                                          styleClass="ERPHeroBannerFont">
+                                                          styleClass="ERPHeroDetailColor">
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.ScmCustomerByCompanyRO.hints.CustomerTypeSno.format}"/>
                                       </af:outputFormatted>
