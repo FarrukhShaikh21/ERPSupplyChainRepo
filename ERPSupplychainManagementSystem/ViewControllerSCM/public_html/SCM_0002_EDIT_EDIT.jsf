@@ -728,7 +728,7 @@
                                                                                                          icon="#{resource['images:imgDocumentNumber.png']}"/>
                                                                                                 <af:outputFormatted value="#{item.bindings.CustomerSiteCode.inputValue}"
                                                                                                                     id="of2"
-                                                                                                                    styleClass="ERPHeroBannerFont">
+                                                                                                                    styleClass="ERPHeroDetailColor">
                                                                                                     <af:convertNumber groupingUsed="false"
                                                                                                                       pattern="#{bindings.ScmCustomerSitesDetRO.hints.CustomerSiteCode.format}"/>
                                                                                                 </af:outputFormatted>
@@ -753,7 +753,7 @@
                                                                                                          icon="#{resource['images:imgShortName.png']}"/>
                                                                                                 <af:outputFormatted value="#{item.bindings.SiteName.inputValue}"
                                                                                                                     id="of3"
-                                                                                                                    styleClass="ERPHeroBannerFont"/>
+                                                                                                                    styleClass="ERPHeroDetailColor"/>
                                                                                                 <f:facet name="separator">
                                                                                                     <af:spacer width="10"
                                                                                                                height="10"
@@ -775,7 +775,7 @@
                                                                                                          icon="#{resource['images:imgDocumentDate.png']}"/>
                                                                                                 <af:outputFormatted value="#{item.bindings.SiteType.inputValue}"
                                                                                                                     id="of4"
-                                                                                                                    styleClass="ERPHeroBannerFont"/>
+                                                                                                                    styleClass="ERPHeroDetailColor"/>
                                                                                                 <f:facet name="separator">
                                                                                                     <af:spacer width="10"
                                                                                                                height="10"
@@ -799,7 +799,7 @@
                                                                                                          icon="#{resource['images:imgCountry.png']}"/>
                                                                                                 <af:outputFormatted value="#{item.bindings.SitePhoneNo.inputValue}"
                                                                                                                     id="of5"
-                                                                                                                    styleClass="ERPHeroBannerFont"/>
+                                                                                                                    styleClass="ERPHeroDetailColor"/>
                                                                                                 <f:facet name="separator">
                                                                                                     <af:spacer width="10"
                                                                                                                height="10"
