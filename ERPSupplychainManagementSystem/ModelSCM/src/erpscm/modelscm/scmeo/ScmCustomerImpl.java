@@ -1061,6 +1061,7 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         setAttributeInternal(SCMPAYMENTTERMHEADER, value);
     }
 
+
     /**
      * @param customerSno key constituent
 

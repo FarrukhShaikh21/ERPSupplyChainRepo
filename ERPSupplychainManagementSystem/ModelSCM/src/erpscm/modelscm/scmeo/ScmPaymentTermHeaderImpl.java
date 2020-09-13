@@ -457,6 +457,7 @@ public class ScmPaymentTermHeaderImpl extends ERPEntityImpl {
         return (RowIterator) getAttributeInternal(SCMCUSTOMER);
     }
 
+
     /**
      * @param paymentTermHeaderSno key constituent
 
