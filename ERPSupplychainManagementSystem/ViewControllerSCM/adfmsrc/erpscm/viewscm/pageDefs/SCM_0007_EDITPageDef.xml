@@ -8,19 +8,10 @@
               id="ScmCustomerCategoryByCompROIterator"/>
     <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="AdminCompanyVOByCompanyROIterator"/>
+    <iterator Binds="ScmOrderTypeByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmOrderTypeByCompanyROIterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="ScmCustomerCategoryByCompROIterator" id="ScmCustomerCategoryByCompRO">
-      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmCustomerCategoryVO" Name="ScmCustomerCategoryByCompRO0">
-        <AttrNames>
-          <Item Value="CategoryShortName"/>
-          <Item Value="CategoryShortCode"/>
-          <Item Value="CategoryTypeName"/>
-          <Item Value="OpenDate"/>
-          <Item Value="IsActive"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <attributeValues IterBinding="ScmCustomerCategoryByCompROIterator" id="CategorySno">
       <AttrNames>
         <Item Value="CategorySno"/>
@@ -41,5 +32,16 @@
         <Item Value="CompanyName"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="ScmOrderTypeByCompanyROIterator" id="ScmOrderTypeByCompanyRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmOrderTypeVO" Name="ScmOrderTypeByCompanyRO0">
+        <AttrNames>
+          <Item Value="OrderTypeShortName"/>
+          <Item Value="OrderTypeCode"/>
+          <Item Value="OrderTypeName"/>
+          <Item Value="OpenDate"/>
+          <Item Value="OrderTypeFor"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
