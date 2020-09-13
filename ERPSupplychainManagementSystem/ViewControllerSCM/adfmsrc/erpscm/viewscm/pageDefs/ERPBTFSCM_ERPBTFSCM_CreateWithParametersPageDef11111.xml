@@ -4,7 +4,14 @@
                 SkipValidation="true">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
+    <iterator Binds="ScmOrderTypeCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmOrderTypeCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <action IterBinding="ScmOrderTypeCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0007_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
+  </bindings>
 </pageDefinition>
