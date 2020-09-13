@@ -140,19 +140,21 @@
                                                     </af:gridCell>
                                                     <af:gridCell id="gc5" width="13%" marginStart="5px" marginEnd="5px"
                                                                  rowSpan="1" halign="center">
-                                                        <af:outputLabel value="#{bindings.txtCustomerCategory.hints.label}"
-                                                                        id="ol33"/>
+                                                        <af:outputLabel value="#{bindings.txtCustomerCategory.hints.label}" id="ol33"/>
                                                     </af:gridCell>
                                                     <af:gridCell id="gc6" width="20%" marginStart="5px" marginEnd="5px"
                                                                  halign="stretch">
-                                                        <af:inputComboboxListOfValues id="txtCustomerCategory1Id"
-                                                                                      popupTitle="Search and Select: #{bindings.txtCustomerCategory1.hints.label}"
-                                                                                      value="#{bindings.txtCustomerCategory1.inputValue}"
-                                                                                      model="#{bindings.txtCustomerCategory1.listOfValuesModel}"
-                                                                                      required="#{bindings.txtCustomerCategory1.hints.mandatory}"
-                                                                                      columns="#{bindings.txtCustomerCategory1.hints.displayWidth}"
-                                                                                      shortDesc="#{bindings.txtCustomerCategory1.hints.tooltip}">
-                                                            <f:validator binding="#{bindings.txtCustomerCategory1.validator}"/>
+                                                        <af:inputComboboxListOfValues id="txtCustomerCategoryId"
+                                                                                      popupTitle="Search and Select: #{bindings.txtCustomerCategory.hints.label}"
+                                                                                      value="#{bindings.txtCustomerCategory.inputValue}"
+                                                                                      label="#{bindings.txtCustomerCategory.hints.label}"
+                                                                                      model="#{bindings.txtCustomerCategory.listOfValuesModel}"
+                                                                                      required="#{bindings.txtCustomerCategory.hints.mandatory}"
+                                                                                      columns="#{bindings.txtCustomerCategory.hints.displayWidth}"
+                                                                                      shortDesc="#{bindings.txtCustomerCategory.hints.tooltip}"
+                                                                                      simple="true"
+                                                                                      contentStyle="width:100%">
+                                                            <f:validator binding="#{bindings.txtCustomerCategory.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
                                                     <af:gridCell id="gc34" width="13%" rowSpan="1" halign="center"
