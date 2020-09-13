@@ -171,19 +171,6 @@
         <Item Value="CustomerSitesSno"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="txtBankName">
-      <AttrNames>
-        <Item Value="txtBankName"/>
-      </AttrNames>
-    </attributeValues>
-    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="lovtxtBankName" id="txtBankName1"/>
-    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovtxtBankBranchName"
-                  id="txtBankBranchName"/>
-    <attributeValues IterBinding="ScmCustomerCRUDIterator" id="txtBankBranchName1">
-      <AttrNames>
-        <Item Value="txtBankBranchName"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="txtCustomerCategory">
       <AttrNames>
         <Item Value="txtCustomerCategory"/>
@@ -191,5 +178,8 @@
     </attributeValues>
     <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="lovtxtCustomerCategory"
                   id="txtCustomerCategory1"/>
+    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="lovtxtBankName" id="txtBankName"/>
+    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovtxtBankBranchName"
+                  id="txtBankBranchName"/>
   </bindings>
 </pageDefinition>
