@@ -77,6 +77,7 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         txtBankName,
         txtBankBranchName,
         txtCustomerCategory,
+        txtPaymentTermName,
         ScmCustomerSites,
         SmCountry,
         SmCity,
@@ -157,6 +158,7 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     public static final int TXTBANKNAME = AttributesEnum.txtBankName.index();
     public static final int TXTBANKBRANCHNAME = AttributesEnum.txtBankBranchName.index();
     public static final int TXTCUSTOMERCATEGORY = AttributesEnum.txtCustomerCategory.index();
+    public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
     public static final int SCMCUSTOMERSITES = AttributesEnum.ScmCustomerSites.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int SMCITY = AttributesEnum.SmCity.index();
@@ -947,6 +949,22 @@ public class ScmCustomerImpl extends ERPEntityImpl {
      */
     public void settxtCustomerCategory(String value) {
         setAttributeInternal(TXTCUSTOMERCATEGORY, value);
+    }
+
+    /**
+     * Gets the attribute value for txtPaymentTermName, using the alias name txtPaymentTermName.
+     * @return the value of txtPaymentTermName
+     */
+    public String gettxtPaymentTermName() {
+        return (String) getAttributeInternal(TXTPAYMENTTERMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtPaymentTermName.
+     * @param value value to set the txtPaymentTermName
+     */
+    public void settxtPaymentTermName(String value) {
+        setAttributeInternal(TXTPAYMENTTERMNAME, value);
     }
 
     /**

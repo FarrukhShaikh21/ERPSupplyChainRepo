@@ -623,6 +623,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtPaymentTermName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtPaymentTermName"
+    EntityUsage="ScmCustomer"
+    AliasName="TXT_PAYMENT_TERM_NAME"/>
   <ViewCriteria
     Name="ScmCustomerByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerVO"

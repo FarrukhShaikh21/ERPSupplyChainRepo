@@ -949,6 +949,31 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtPaymentTermName"
+    Precision="80"
+    ColumnName="TXT_PAYMENT_TERM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_CUSTOMER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPaymentTermHeader?.PaymentTermName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="PaymentTermSno"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.txtPaymentTermName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmCustomerSites"
     Association="erpscm.modelscm.scmeo.FkScmCustSiteCustSnoAssoc"
