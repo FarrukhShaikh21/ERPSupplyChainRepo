@@ -46,7 +46,7 @@
                               <af:panelGroupLayout id="pgl5" layout="horizontal">
                                 <af:link id="l3" icon="#{resource['images:imgShortName.png']}"/>
                                 <af:outputFormatted value="#{item.bindings.CompanyName.inputValue}" id="of2"
-                                                    styleClass="ERPHeroBannerFont"/>
+                                                    styleClass="ERPHeroDetailColor"/>
                               </af:panelGroupLayout>
                             </af:gridCell>
                           </af:gridRow>
@@ -55,7 +55,7 @@
                               <af:panelGroupLayout id="pgl6" layout="horizontal">
                                 <af:link id="l6" icon="#{resource['images:imgDocumentNumber.png']}"/>
                                 <af:outputFormatted value="#{item.bindings.CompanyShortCode.inputValue}" id="of3"
-                                                    styleClass="ERPHeroBannerFont">
+                                                    styleClass="ERPHeroDetailColor">
                                   <af:convertNumber groupingUsed="false"
                                                     pattern="#{bindings.AdminCompanyVORO.hints.CompanyShortCode.format}"/>
                                 </af:outputFormatted>
@@ -67,7 +67,7 @@
                               <af:panelGroupLayout id="pgl7">
                                 <af:link id="l4" icon="#{resource['images:imgCountry.png']}"/>
                                 <af:outputFormatted value="#{item.bindings.txtCountryName.inputValue}" id="of4"
-                                                    styleClass="ERPHeroBannerFont"/>
+                                                    styleClass="ERPHeroDetailColor"/>
                               </af:panelGroupLayout>
                             </af:gridCell>
                           </af:gridRow>
@@ -76,7 +76,7 @@
                               <af:panelGroupLayout id="pgl8" layout="horizontal">
                                 <af:link id="l5" icon="#{resource['images:imgEmail.png']}"/>
                                 <af:outputFormatted value="#{item.bindings.Email.inputValue}" id="of5"
-                                                    styleClass="ERPHeroBannerFont"/>
+                                                    styleClass="ERPHeroDetailColor"/>
                               </af:panelGroupLayout>
                             </af:gridCell>
                           </af:gridRow>
