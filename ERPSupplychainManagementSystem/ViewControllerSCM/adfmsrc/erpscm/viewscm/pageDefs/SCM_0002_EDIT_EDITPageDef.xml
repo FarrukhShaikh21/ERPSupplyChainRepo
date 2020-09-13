@@ -166,8 +166,9 @@
                   id="txtBankBranchName"/>
     <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="lovtxtCustomerCategory"
                   id="txtCustomerCategory"/>
-    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovIsTaxable" id="IsTaxable"/>
     <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovtxtPaymentTermName"
                   id="txtPaymentTermName"/>
+    <list IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovIsTaxable" id="IsTaxable"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
