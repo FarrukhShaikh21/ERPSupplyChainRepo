@@ -97,43 +97,77 @@
                              emptyText="#{bindings.ScmOrderTypeByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.ScmOrderTypeByCompanyRO.rangeSize}" id="lv2" selection="single"
                              selectedRowKeys="#{bindings.ScmOrderTypeByCompanyRO.collectionModel.selectedRow}"
-                             selectionListener="#{bindings.ScmOrderTypeByCompanyRO.treeModel.makeCurrent}">
+                             selectionListener="#{bindings.ScmOrderTypeByCompanyRO.treeModel.makeCurrent}"
+                             styleClass="WBDisplayBlockCenter">
                   <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
-                    <af:panelGridLayout id="pgl9">
-                      <af:gridRow marginTop="5px" height="auto" id="gr6">
-                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
-                          <af:outputFormatted value="#{item.bindings.OrderTypeShortName.inputValue}" id="of6"/>
-                        </af:gridCell>
-                      </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" id="gr7">
-                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
-                          <af:outputFormatted value="#{item.bindings.OrderTypeCode.inputValue}" id="of7">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.ScmOrderTypeByCompanyRO.hints.OrderTypeCode.format}"/>
-                          </af:outputFormatted>
-                        </af:gridCell>
-                      </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" id="gr8">
-                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8">
-                          <af:outputFormatted value="#{item.bindings.OrderTypeName.inputValue}" id="of8"/>
-                        </af:gridCell>
-                      </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" id="gr9">
-                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
-                          <af:outputFormatted value="#{item.bindings.OpenDate.inputValue}" id="of9">
-                            <af:convertDateTime pattern="#{bindings.ScmOrderTypeByCompanyRO.hints.OpenDate.format}"/>
-                          </af:outputFormatted>
-                        </af:gridCell>
-                      </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
-                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10">
-                          <af:outputFormatted value="#{item.bindings.OrderTypeFor.inputValue}" id="of10">
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.ScmOrderTypeByCompanyRO.hints.OrderTypeFor.format}"/>
-                          </af:outputFormatted>
-                        </af:gridCell>
-                      </af:gridRow>
-                    </af:panelGridLayout>
+                    <af:panelGroupLayout id="pgl10" layout="vertical" styleClass="WBCardSize">
+                      <af:panelBox text="PanelBox5" id="pb2" showHeader="never" showDisclosure="false">
+                        <f:facet name="toolbar"/>
+                        <af:panelGridLayout id="pgl9">
+                          <af:gridRow marginTop="5px" height="auto" id="gr6">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
+                                         styleClass="AFStretchWidth ERPHeroBackground" halign="stretch">
+                              <af:panelGroupLayout id="pgl11" layout="horizontal">
+                                <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
+                                         action="ERPEDIT-ACT-SCM_0006_EDIT_EDIT"/>
+                                <af:outputFormatted value="#{item.bindings.OrderTypeShortName.inputValue}" id="of6"
+                                                    styleClass="ERPHeroBannerFont"/>
+                              </af:panelGroupLayout>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="5px" height="auto" id="gr7">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7" halign="stretch">
+                              <af:panelGroupLayout id="pgl12" layout="horizontal">
+                                <af:image id="i1" source="#{resource['images:imgDocumentNumber.png']}"/>
+                                <af:outputFormatted value="#{item.bindings.OrderTypeCode.inputValue}" id="of7"
+                                                    styleClass="ERPHeroDetailColor">
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.ScmOrderTypeByCompanyRO.hints.OrderTypeCode.format}"/>
+                                </af:outputFormatted>
+                                <f:facet name="separator">
+                                  <af:spacer width="10" height="10" id="s2"/>
+                                </f:facet>
+                              </af:panelGroupLayout>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="5px" height="auto" id="gr8">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8" halign="stretch">
+                              <af:panelGroupLayout id="pgl13" layout="horizontal">
+                                <af:image source="#{resource['images:imgUserType.png']}" id="i5"/>
+                                <af:outputFormatted value="#{item.bindings.OrderTypeName.inputValue}" id="of8"
+                                                    styleClass="ERPHeroDetailColor"/>
+                                <f:facet name="separator">
+                                  <af:spacer width="10" height="10" id="s3"/>
+                                </f:facet>
+                              </af:panelGroupLayout>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="5px" height="auto" id="gr9">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9" halign="stretch">
+                              <af:panelGroupLayout id="pgl14" layout="horizontal">
+                                <af:image source="#{resource['images:imgDocumentDate.png']}" id="i6"/>
+                                <af:outputFormatted value="#{item.bindings.OpenDate.inputValue}" id="of9"
+                                                    styleClass="ERPHeroDetailColor">
+                                  <af:convertDateTime pattern="#{bindings.ScmOrderTypeByCompanyRO.hints.OpenDate.format}"/>
+                                </af:outputFormatted>
+                                <f:facet name="separator">
+                                  <af:spacer width="10" height="10" id="s4"/>
+                                </f:facet>
+                              </af:panelGroupLayout>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10" halign="stretch">
+                              <af:outputFormatted value="#{item.bindings.OrderTypeFor.inputValue}" id="of10"
+                                                  styleClass="ERPHeroDetailColor">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ScmOrderTypeByCompanyRO.hints.OrderTypeFor.format}"/>
+                              </af:outputFormatted>
+                            </af:gridCell>
+                          </af:gridRow>
+                        </af:panelGridLayout>
+                      </af:panelBox>
+                    </af:panelGroupLayout>
                   </af:listItem>
                 </af:listView>
                 <af:listView value="#{bindings.ScmCustomerCategoryByCompRO.collectionModel}" var="item"
@@ -152,8 +186,6 @@
                                          styleClass="AFStretchWidth ERPHeroBackground" halign="stretch"
                                          valign="stretch">
                               <af:panelGroupLayout id="pgl5" layout="horizontal">
-                                <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
-                                         action="ERPEDIT-ACT-SCM_0006_EDIT_EDIT"/>
                                 <af:outputFormatted value="#{item.bindings.CategoryShortName.inputValue}" id="of1"
                                                     styleClass="ERPHeroBannerFont"/>
                               </af:panelGroupLayout>
@@ -162,7 +194,6 @@
                           <af:gridRow marginTop="5px" height="auto" id="gr11">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc12">
                               <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                <af:image id="i1" source="#{resource['images:imgDocumentNumber.png']}"/>
                                 <af:outputFormatted value="#{item.bindings.CategoryShortCode.inputValue}" id="of2"
                                                     styleClass="ERPHeroDetailColor">
                                   <af:convertNumber groupingUsed="false"
