@@ -423,7 +423,8 @@
                                                                                       required="#{bindings.txtBankName.hints.mandatory}"
                                                                                       columns="#{bindings.txtBankName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtBankName.hints.tooltip}"
-                                                                                      simple="true">
+                                                                                      simple="true"
+                                                                                      contentStyle="width:100%">
                                                             <f:validator binding="#{bindings.txtBankName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
@@ -441,7 +442,8 @@
                                                                                       required="#{bindings.txtBankBranchName.hints.mandatory}"
                                                                                       columns="#{bindings.txtBankBranchName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtBankBranchName.hints.tooltip}"
-                                                                                      simple="true">
+                                                                                      simple="true"
+                                                                                      contentStyle="width:100%">
                                                             <f:validator binding="#{bindings.txtBankBranchName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
