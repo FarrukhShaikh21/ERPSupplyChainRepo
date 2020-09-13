@@ -356,13 +356,13 @@
     <method-call id="ExeSCM_0007CompanyByCompany">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+        <fixed-outcome>ERP-EDIT-ACT-SCM_0007</fixed-outcome>
       </outcome>
     </method-call>
     <method-call id="ExeSCM_0007EDITOrderTypeByComp">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+        <fixed-outcome>ERP-EDIT-ACT-SCM_0007</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">
@@ -859,6 +859,27 @@
       <control-flow-case id="__147">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0002_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__148">
+      <from-activity-id>SCM_0007</from-activity-id>
+      <control-flow-case id="__149">
+        <from-outcome>ERP-EDIT-ACT-SCM_0007</from-outcome>
+        <to-activity-id>ExeSCM_0007CompanyByCompany</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__150">
+      <from-activity-id>ExeSCM_0007CompanyByCompany</from-activity-id>
+      <control-flow-case id="__151">
+        <from-outcome>ERP-EDIT-ACT-SCM_0007</from-outcome>
+        <to-activity-id>ExeSCM_0007EDITOrderTypeByComp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__152">
+      <from-activity-id>ExeSCM_0007EDITOrderTypeByComp</from-activity-id>
+      <control-flow-case id="__153">
+        <from-outcome>ERP-EDIT-ACT-SCM_0007</from-outcome>
+        <to-activity-id>SCM_0007_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
