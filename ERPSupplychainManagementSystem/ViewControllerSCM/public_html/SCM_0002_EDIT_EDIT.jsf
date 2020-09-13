@@ -390,9 +390,24 @@
                                                 </af:gridRow>
                                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
                                                     <af:gridCell marginStart="5px" width="13%" id="gc17" halign="center"
-                                                                 marginEnd="5px"/>
+                                                                 marginEnd="5px">
+                                                        <af:outputLabel value="#{bindings.txtPaymentTermName.hints.label}" id="ol8"/>
+                                                    </af:gridCell>
                                                     <af:gridCell marginStart="5px" width="87%" marginEnd="5px" id="gc18"
-                                                                 halign="stretch" columnSpan="5" rowSpan="1"/>
+                                                                 halign="stretch" columnSpan="5" rowSpan="1">
+                                                        <af:inputComboboxListOfValues id="txtPaymentTermNameId"
+                                                                                      popupTitle="Search and Select: #{bindings.txtPaymentTermName.hints.label}"
+                                                                                      value="#{bindings.txtPaymentTermName.inputValue}"
+                                                                                      label="#{bindings.txtPaymentTermName.hints.label}"
+                                                                                      model="#{bindings.txtPaymentTermName.listOfValuesModel}"
+                                                                                      required="#{bindings.txtPaymentTermName.hints.mandatory}"
+                                                                                      columns="#{bindings.txtPaymentTermName.hints.displayWidth}"
+                                                                                      shortDesc="#{bindings.txtPaymentTermName.hints.tooltip}"
+                                                                                      simple="true"
+                                                                                      contentStyle="width:100%">
+                                                            <f:validator binding="#{bindings.txtPaymentTermName.validator}"/>
+                                                        </af:inputComboboxListOfValues>
+                                                    </af:gridCell>
                                                 </af:gridRow>
                                             </af:panelGridLayout>
                                         </af:panelBox>
