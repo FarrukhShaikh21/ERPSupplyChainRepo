@@ -93,7 +93,9 @@
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr8" marginTop="5px" marginBottom="5px">
-                                            <af:gridCell id="gc15" width="15%" halign="center"/>
+                                            <af:gridCell id="gc15" width="15%" halign="center">
+                                                <af:outputLabel value="#{bindings.OrderTypeCode.hints.label}" id="ol6"/>
+                                            </af:gridCell>
                                             <af:gridCell id="gc16" width="85%" halign="stretch">
                                                 <af:inputText value="#{bindings.OrderTypeCode.inputValue}"
                                                               label="#{bindings.OrderTypeCode.hints.label}"
@@ -111,7 +113,7 @@
                                         <af:gridRow marginTop="5px" height="auto" id="gr2">
                                             <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
                                                          halign="center">
-                                                <af:outputLabel value="outputLabel1" id="ol2"/>
+                                                <af:outputLabel value="#{bindings.OrderTypeShortName.hints.label}" id="ol2"/>
                                             </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc4" halign="stretch"
                                                          columnSpan="1" rowSpan="1">
@@ -197,6 +199,16 @@
                                                 <af:setActionListener from="#{'ERPBACKCRUD'}"
                                                                       to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
                                             </af:link>
+                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                     text="CreateWithParams"
+                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
+                                                     rendered="false"/>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                     disabled="#{!bindings.Delete.enabled}" id="l6" rendered="false"/>
+                                            <af:link text="Delete" id="l9" actionListener="#{bindings.Delete.execute}"
+                                                     iconPosition="top"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     partialSubmit="true"/>
                                             <af:link text="Add" id="l1" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top" partialSubmit="true"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"

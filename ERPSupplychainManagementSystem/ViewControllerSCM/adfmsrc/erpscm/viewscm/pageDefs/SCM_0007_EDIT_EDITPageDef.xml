@@ -47,5 +47,11 @@
     </attributeValues>
     <list IterBinding="ScmOrderTypeCRUDIterator" StaticList="false" Uses="LovOrderTypeFor" id="OrderTypeFor"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action IterBinding="ScmOrderTypeCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0007_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ScmOrderTypeCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

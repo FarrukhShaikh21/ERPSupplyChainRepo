@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="SCM_ORDER_TYPE"
   AliasName="ScmOrderType"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpscm.modelscm.scmeo.ScmOrderTypeImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="OrderTypeSno"
     IsNotNull="true"
