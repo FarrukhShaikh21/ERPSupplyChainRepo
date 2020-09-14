@@ -145,9 +145,20 @@
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center"/>
+                                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center">
+                                                <af:outputLabel value="#{bindings.OrderTypeFor.label}" id="ol5"/>
+                                            </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px"
-                                                         columnSpan="1" halign="stretch" rowSpan="1"/>
+                                                         columnSpan="1" halign="stretch" rowSpan="1">
+                                                <af:selectOneChoice value="#{bindings.OrderTypeFor.inputValue}"
+                                                                    label="#{bindings.OrderTypeFor.label}"
+                                                                    required="#{bindings.OrderTypeFor.hints.mandatory}"
+                                                                    shortDesc="#{bindings.OrderTypeFor.hints.tooltip}"
+                                                                    id="soc2" simple="true">
+                                                    <f:selectItems value="#{bindings.OrderTypeFor.items}" id="si2"/>
+                                                    <f:validator binding="#{bindings.OrderTypeFor.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr5">
                                             <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"

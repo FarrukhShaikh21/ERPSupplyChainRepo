@@ -45,5 +45,7 @@
         <Item Value="OrderTypeSno"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="ScmOrderTypeCRUDIterator" StaticList="false" Uses="LovOrderTypeFor" id="OrderTypeFor"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
