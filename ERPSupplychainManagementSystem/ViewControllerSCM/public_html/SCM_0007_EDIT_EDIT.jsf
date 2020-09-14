@@ -42,6 +42,17 @@
                                                 <af:outputLabel value="#{bindings.OrderTypeName.hints.label}" id="ol1"/>
                                             </af:gridCell>
                                             <af:gridCell id="gc18" width="85%" halign="stretch">
+                                                <af:inputText value="#{bindings.OrderTypeSno.inputValue}"
+                                                              label="#{bindings.OrderTypeSno.hints.label}"
+                                                              required="#{bindings.OrderTypeSno.hints.mandatory}"
+                                                              columns="#{bindings.OrderTypeSno.hints.displayWidth}"
+                                                              maximumLength="#{bindings.OrderTypeSno.hints.precision}"
+                                                              shortDesc="#{bindings.OrderTypeSno.hints.tooltip}"
+                                                              id="it7" rendered="false">
+                                                    <f:validator binding="#{bindings.OrderTypeSno.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.OrderTypeSno.format}"/>
+                                                </af:inputText>
                                                 <af:inputText value="#{bindings.OrderTypeCode.inputValue}"
                                                               label="#{bindings.OrderTypeCode.hints.label}"
                                                               required="#{bindings.OrderTypeCode.hints.mandatory}"
@@ -140,8 +151,19 @@
                                         </af:gridRow>
                                         <af:gridRow id="gr5">
                                             <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
-                                                         halign="center"/>
-                                            <af:gridCell id="gc6" halign="stretch"/>
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.IsActive.label}" id="ol4"/>
+                                            </af:gridCell>
+                                            <af:gridCell id="gc6" halign="stretch">
+                                                <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
+                                                                    label="#{bindings.IsActive.label}"
+                                                                    required="#{bindings.IsActive.hints.mandatory}"
+                                                                    shortDesc="#{bindings.IsActive.hints.tooltip}"
+                                                                    id="soc1" simple="true">
+                                                    <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
+                                                    <f:validator binding="#{bindings.IsActive.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
                                 </af:panelBox>

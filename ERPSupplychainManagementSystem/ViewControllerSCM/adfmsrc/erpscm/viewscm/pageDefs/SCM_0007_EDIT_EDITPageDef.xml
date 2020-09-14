@@ -38,5 +38,12 @@
         <Item Value="OpenDate"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="ScmOrderTypeCRUDIterator" StaticList="false" Uses="LOV_IsActive" id="IsActive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ScmOrderTypeCRUDIterator" id="OrderTypeSno">
+      <AttrNames>
+        <Item Value="OrderTypeSno"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
