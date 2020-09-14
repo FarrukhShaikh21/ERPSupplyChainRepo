@@ -193,12 +193,7 @@
                                                      icon="#{resource['images:imgCloseDialog.png']}"
                                                      text="Close"
                                                      iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}">
-                                                <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                                <af:setActionListener from="#{'ERPBACKCRUD'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.ERPBackActionName}"/>
-                                            </af:link>
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
                                             <af:link actionListener="#{bindings.CreateWithParams.execute}"
                                                      text="CreateWithParams"
                                                      disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
@@ -213,7 +208,7 @@
                                                      iconPosition="top" partialSubmit="true"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
                                                      disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}">
-                                                <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
+                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
                                             <af:link text="Supervise" id="l19" partialSubmit="true"
@@ -221,7 +216,7 @@
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
                                                      disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
-                                                <af:setActionListener from="#{'ScmCustomerCategoryCRUDIterator'}"
+                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                                     
                                             <af:link text="UnSupervise" id="l20" partialSubmit="true"
@@ -229,11 +224,11 @@
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
                                                      disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
-                                                <af:setActionListener from="#{'ScmCustomerCategoryCRUDIterator'}"
+                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
                                             <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l7"
-                                                     rendered="false" partialSubmit="true">
+                                                     rendered="false">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <af:link text="Undo" immediate="true" id="l3"

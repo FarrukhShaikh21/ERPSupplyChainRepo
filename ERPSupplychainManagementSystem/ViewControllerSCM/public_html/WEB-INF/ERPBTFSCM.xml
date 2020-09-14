@@ -380,6 +380,12 @@
         <fixed-outcome>ERP-ADD-ACT-SCM_0007_EDIT_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeOrderTypeByCompsSCM_0007">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -924,6 +930,20 @@
       <control-flow-case id="__161">
         <from-outcome>ERP-ADD-ACT-SCM_0007_EDIT_EDIT</from-outcome>
         <to-activity-id>SCM_0007_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__162">
+      <from-activity-id>SCM_0007_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__163">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>ExeOrderTypeByCompsSCM_0007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__164">
+      <from-activity-id>ExeOrderTypeByCompsSCM_0007</from-activity-id>
+      <control-flow-case id="__165">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0007_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

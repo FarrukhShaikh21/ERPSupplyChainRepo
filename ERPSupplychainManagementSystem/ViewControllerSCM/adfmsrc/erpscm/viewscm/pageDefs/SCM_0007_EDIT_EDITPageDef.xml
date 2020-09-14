@@ -53,5 +53,8 @@
                  NDType="java.lang.String"/>
     </action>
     <action IterBinding="ScmOrderTypeCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
   </bindings>
 </pageDefinition>

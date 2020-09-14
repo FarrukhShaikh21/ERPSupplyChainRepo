@@ -70,7 +70,8 @@
                   <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
                     <af:gridCell marginStart="5px" width="50%" id="gc1" halign="center"/>
                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" halign="end">
-                      <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" action="ERPBACKCRUD"
+                      <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}"
+                               action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
                                partialSubmit="true"/>
                       <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
                                action="ERP-ADD-ACT-SCM_0007_EDIT_EDIT"/>
@@ -110,7 +111,7 @@
                                          styleClass="AFStretchWidth ERPHeroBackground" halign="stretch">
                               <af:panelGroupLayout id="pgl11" layout="horizontal">
                                 <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
-                                         action="ERPEDIT-ACT-SCM_0006_EDIT_EDIT"/>
+                                         action="ERP-EDIT-ACT-SCM_0007_EDIT_EDIT"/>
                                 <af:outputFormatted value="#{item.bindings.OrderTypeShortName.inputValue}" id="of6"
                                                     styleClass="ERPHeroBannerFont"/>
                               </af:panelGroupLayout>
