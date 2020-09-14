@@ -120,7 +120,7 @@
     ColumnType="DATE"
     TableName="SCM_ORDER_TYPE">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -182,6 +182,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_ORDER_TYPE">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -193,7 +195,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -212,12 +213,12 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_ORDER_TYPE">
+    TableName="SCM_ORDER_TYPE"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -251,7 +252,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_ORDER_TYPE">
+    TableName="SCM_ORDER_TYPE"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -269,7 +271,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_ORDER_TYPE">
+    TableName="SCM_ORDER_TYPE"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -288,7 +291,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_ORDER_TYPE">
+    TableName="SCM_ORDER_TYPE"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -306,7 +310,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_ORDER_TYPE">
+    TableName="SCM_ORDER_TYPE"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -325,7 +330,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_ORDER_TYPE">
+    TableName="SCM_ORDER_TYPE"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
