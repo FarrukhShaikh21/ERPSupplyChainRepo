@@ -55,7 +55,16 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr3">
-                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="center"/>
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="center">
+                          <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                         value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                         model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                         queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                            <f:facet name="end">
+                              <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                            </f:facet>
+                          </af:quickQuery>
+                        </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
                         <af:gridCell marginStart="5px" width="0%" marginEnd="5px" id="gc5" valign="stretch"/>
@@ -91,7 +100,7 @@
                              fetchSize="#{bindings.ScmOrderTypeByCompanyRO.rangeSize}" id="lv2" selection="single"
                              selectedRowKeys="#{bindings.ScmOrderTypeByCompanyRO.collectionModel.selectedRow}"
                              selectionListener="#{bindings.ScmOrderTypeByCompanyRO.treeModel.makeCurrent}"
-                             styleClass="WBDisplayBlockCenter">
+                             styleClass="WBDisplayBlockCenter" partialTriggers="::qryId1">
                   <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                     <af:panelGroupLayout id="pgl10" layout="vertical" styleClass="WBCardSize">
                       <af:panelBox text="PanelBox5" id="pb2" showHeader="never" showDisclosure="false">
