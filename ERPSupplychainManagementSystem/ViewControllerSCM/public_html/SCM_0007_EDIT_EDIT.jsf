@@ -132,11 +132,11 @@
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" id="gr3">
                                             <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px"
-                                                         halign="center">
+                                                         halign="center" valign="middle">
                                                 <af:outputLabel value="#{bindings.OpenDate.hints.label}" id="ol3"/>
                                             </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px"
-                                                         halign="stretch" columnSpan="1" rowSpan="1">
+                                                         halign="stretch" columnSpan="1" rowSpan="1" valign="middle">
                                                 <af:inputDate value="#{bindings.OpenDate.inputValue}"
                                                               label="#{bindings.OpenDate.hints.label}"
                                                               required="#{bindings.OpenDate.hints.mandatory}"
@@ -151,16 +151,18 @@
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center"
+                                                         valign="middle">
                                                 <af:outputLabel value="#{bindings.OrderTypeFor.label}" id="ol5"/>
                                             </af:gridCell>
                                             <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px"
-                                                         columnSpan="1" halign="stretch" rowSpan="1">
+                                                         columnSpan="1" halign="stretch" rowSpan="1" valign="middle">
                                                 <af:selectOneChoice value="#{bindings.OrderTypeFor.inputValue}"
                                                                     label="#{bindings.OrderTypeFor.label}"
                                                                     required="#{bindings.OrderTypeFor.hints.mandatory}"
                                                                     shortDesc="#{bindings.OrderTypeFor.hints.tooltip}"
-                                                                    id="soc2" simple="true" contentStyle="width:100%">
+                                                                    id="soc2" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                     <f:selectItems value="#{bindings.OrderTypeFor.items}" id="si2"/>
                                                     <f:validator binding="#{bindings.OrderTypeFor.validator}"/>
                                                 </af:selectOneChoice>
@@ -168,15 +170,16 @@
                                         </af:gridRow>
                                         <af:gridRow id="gr5">
                                             <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
-                                                         halign="center">
+                                                         halign="center" valign="middle">
                                                 <af:outputLabel value="#{bindings.IsActive.label}" id="ol4"/>
                                             </af:gridCell>
-                                            <af:gridCell id="gc6" halign="stretch">
+                                            <af:gridCell id="gc6" halign="stretch" valign="middle">
                                                 <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
                                                                     label="#{bindings.IsActive.label}"
                                                                     required="#{bindings.IsActive.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsActive.hints.tooltip}"
-                                                                    id="soc1" simple="true" contentStyle="width:100%">
+                                                                    id="soc1" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                     <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
                                                     <f:validator binding="#{bindings.IsActive.validator}"/>
                                                 </af:selectOneChoice>

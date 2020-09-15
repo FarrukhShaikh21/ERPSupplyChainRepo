@@ -4,181 +4,185 @@
   <af:document title="SCM_0004_EDIT.jsf" id="d1">
     <af:messages id="m1"/>
     <af:form id="f1">
-      <af:decorativeBox id="db2" dimensionsFrom="parent">
-        <f:facet name="center">
+      <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="160">
+        <f:facet name="first">
+          <af:panelBox text="PanelBox3" id="pb1" showDisclosure="false" showHeader="never">
+            <f:facet name="toolbar"/>
+            <af:panelGridLayout id="pgl3">
+              <af:gridRow marginTop="10px" height="auto" marginBottom="10px" id="gr3">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="end">
+                  <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
+                    <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
+                             partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
+                    <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"
+                             action="ERPADD-ACT-SCM_0004_EDIT_EDIT"/>
+                    <f:facet name="separator">
+                      <af:spacer width="10" height="10" id="s6"/>
+                    </f:facet>
+                  </af:panelGroupLayout>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="10px" height="auto" id="gr1" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="center">
+                  <af:panelFormLayout id="pfl1" rows="1" maxColumns="4" labelWidth="150" fieldWidth="100">
+                    <af:inputText value="#{bindings.CompCode.inputValue}" label="#{bindings.CompCode.hints.label}"
+                                  required="#{bindings.CompCode.hints.mandatory}"
+                                  columns="#{bindings.CompCode.hints.displayWidth}"
+                                  maximumLength="#{bindings.CompCode.hints.precision}"
+                                  shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1" readOnly="true"
+                                  rendered="false">
+                      <f:validator binding="#{bindings.CompCode.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CompCode.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CompanyName.inputValue}" label="#{bindings.CompanyName.hints.label}"
+                                  required="#{bindings.CompanyName.hints.mandatory}"
+                                  columns="#{bindings.CompanyName.hints.displayWidth}"
+                                  maximumLength="#{bindings.CompanyName.hints.precision}"
+                                  shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it2" readOnly="true">
+                      <f:validator binding="#{bindings.CompanyName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CompanyShortName.inputValue}"
+                                  label="#{bindings.CompanyShortName.hints.label}"
+                                  required="#{bindings.CompanyShortName.hints.mandatory}"
+                                  columns="#{bindings.CompanyShortName.hints.displayWidth}"
+                                  maximumLength="#{bindings.CompanyShortName.hints.precision}"
+                                  shortDesc="#{bindings.CompanyShortName.hints.tooltip}" id="it3" readOnly="true">
+                      <f:validator binding="#{bindings.CompanyShortName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
+                                  label="#{bindings.CompanyShortCode.hints.label}"
+                                  required="#{bindings.CompanyShortCode.hints.mandatory}"
+                                  columns="#{bindings.CompanyShortCode.hints.displayWidth}"
+                                  maximumLength="#{bindings.CompanyShortCode.hints.precision}"
+                                  shortDesc="#{bindings.CompanyShortCode.hints.tooltip}" id="it4" readOnly="true">
+                      <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.CompanyShortCode.format}"/>
+                    </af:inputText>
+                  </af:panelFormLayout>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow id="gr4" marginBottom="10px" marginTop="10px">
+                <af:gridCell id="gc5" halign="center">
+                  <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                 value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                 model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                 queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                    <f:facet name="end">
+                      <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                    </f:facet>
+                  </af:quickQuery>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+          </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
           <af:decorativeBox id="db1" dimensionsFrom="parent">
             <f:facet name="center">
-              <af:panelGridLayout id="pgl1">
-                <af:gridRow marginTop="5px" height="auto" id="gr1">
-                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
-                    <af:panelFormLayout id="pfl1" rows="1" maxColumns="4" labelWidth="150" fieldWidth="100">
-                      <af:inputText value="#{bindings.CompCode.inputValue}" label="#{bindings.CompCode.hints.label}"
-                                    required="#{bindings.CompCode.hints.mandatory}"
-                                    columns="#{bindings.CompCode.hints.displayWidth}"
-                                    maximumLength="#{bindings.CompCode.hints.precision}"
-                                    shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1" readOnly="true"
-                                    rendered="false">
-                        <f:validator binding="#{bindings.CompCode.validator}"/>
-                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CompCode.format}"/>
+              <af:panelGroupLayout id="pgl4" layout="scroll">
+                <af:panelGridLayout id="pgl1">
+                  <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" valign="stretch"
+                                 halign="stretch">
+                      <af:inputText value="#{bindings.SalesPersonSno.inputValue}"
+                                    label="#{bindings.SalesPersonSno.hints.label}"
+                                    required="#{bindings.SalesPersonSno.hints.mandatory}"
+                                    columns="#{bindings.SalesPersonSno.hints.displayWidth}"
+                                    maximumLength="#{bindings.SalesPersonSno.hints.precision}"
+                                    shortDesc="#{bindings.SalesPersonSno.hints.tooltip}" id="it5" rendered="false">
+                        <f:validator binding="#{bindings.SalesPersonSno.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.SalesPersonSno.format}"/>
                       </af:inputText>
-                      <af:inputText value="#{bindings.CompanyName.inputValue}"
-                                    label="#{bindings.CompanyName.hints.label}"
-                                    required="#{bindings.CompanyName.hints.mandatory}"
-                                    columns="#{bindings.CompanyName.hints.displayWidth}"
-                                    maximumLength="#{bindings.CompanyName.hints.precision}"
-                                    shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it2" readOnly="true">
-                        <f:validator binding="#{bindings.CompanyName.validator}"/>
-                      </af:inputText>
-                      <af:inputText value="#{bindings.CompanyShortName.inputValue}"
-                                    label="#{bindings.CompanyShortName.hints.label}"
-                                    required="#{bindings.CompanyShortName.hints.mandatory}"
-                                    columns="#{bindings.CompanyShortName.hints.displayWidth}"
-                                    maximumLength="#{bindings.CompanyShortName.hints.precision}"
-                                    shortDesc="#{bindings.CompanyShortName.hints.tooltip}" id="it3" readOnly="true">
-                        <f:validator binding="#{bindings.CompanyShortName.validator}"/>
-                      </af:inputText>
-                      <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
-                                    label="#{bindings.CompanyShortCode.hints.label}"
-                                    required="#{bindings.CompanyShortCode.hints.mandatory}"
-                                    columns="#{bindings.CompanyShortCode.hints.displayWidth}"
-                                    maximumLength="#{bindings.CompanyShortCode.hints.precision}"
-                                    shortDesc="#{bindings.CompanyShortCode.hints.tooltip}" id="it4" readOnly="true">
-                        <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
-                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CompanyShortCode.format}"/>
-                      </af:inputText>
-                    </af:panelFormLayout>
-                  </af:gridCell>
-                </af:gridRow>
-                <af:gridRow id="gr4">
-                  <af:gridCell id="gc5" halign="center">
-                    <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
-                                   value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
-                                   model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
-                                   queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
-                      <f:facet name="end">
-                        <af:commandLink text="Advanced" rendered="false" id="cl1"/>
-                      </f:facet>
-                    </af:quickQuery>
-                  </af:gridCell>
-                </af:gridRow>
-                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
-                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" valign="stretch"
-                               halign="stretch">
-                    <af:inputText value="#{bindings.SalesPersonSno.inputValue}"
-                                  label="#{bindings.SalesPersonSno.hints.label}"
-                                  required="#{bindings.SalesPersonSno.hints.mandatory}"
-                                  columns="#{bindings.SalesPersonSno.hints.displayWidth}"
-                                  maximumLength="#{bindings.SalesPersonSno.hints.precision}"
-                                  shortDesc="#{bindings.SalesPersonSno.hints.tooltip}" id="it5" rendered="false">
-                      <f:validator binding="#{bindings.SalesPersonSno.validator}"/>
-                      <af:convertNumber groupingUsed="false" pattern="#{bindings.SalesPersonSno.format}"/>
-                    </af:inputText>
-                    <af:listView value="#{bindings.ScmSalesPersonByCompanyRO.collectionModel}" var="item"
-                                 emptyText="#{bindings.ScmSalesPersonByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                 fetchSize="#{bindings.ScmSalesPersonByCompanyRO.rangeSize}" id="lv2"
-                                 styleClass="WBDisplayBlockCenter"
-                                 selectionListener="#{bindings.ScmSalesPersonByCompanyRO.treeModel.makeCurrent}"
-                                 selectedRowKeys="#{bindings.ScmSalesPersonByCompanyRO.collectionModel.selectedRow}"
-                                 selection="single" partialTriggers="qryId1">
-                      <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
-                        <af:panelGroupLayout id="pgl12" layout="vertical" styleClass="WBCardSize">
-                          <af:panelBox text="PanelBox2" id="pb2" showDisclosure="false" showHeader="never">
-                            <f:facet name="toolbar"/>
-                            <af:panelGridLayout id="pgl11">
-                              <af:gridRow marginTop="5px" height="auto" id="gr9" marginBottom="5px">
-                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10"
-                                             styleClass="AFStretchWidth ERPHeroBackground" halign="stretch">
-                                  <af:panelGroupLayout id="pgl13" layout="horizontal">
-                                    <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgView.png']}"
-                                             styleClass="ERPHeroBannerFont ERPLink"
-                                             action="ERP-ACT-SCM_0004_EDIT_EDIT"/>
-                                    <af:outputFormatted value="#{item.bindings.SalesPersonShortName.inputValue}"
-                                                        id="of6" styleClass="ERPHeroBannerFont"/>
-                                  </af:panelGroupLayout>
-                                </af:gridCell>
-                              </af:gridRow>
-                              <af:gridRow marginTop="5px" height="auto" id="gr10" marginBottom="5px">
-                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc11">
-                                  <af:panelGroupLayout id="pgl14" layout="horizontal">
-                                    <af:image source="#{resource['images:imgDocumentNumber.png']}" id="i6"/>
-                                    <af:outputFormatted value="#{item.bindings.SalesPersonShortCode.inputValue}"
-                                                        id="of7" styleClass="ERPHeroDetailColor">
-                                      <af:convertNumber groupingUsed="false"
-                                                        pattern="#{bindings.ScmSalesPersonByCompanyRO.hints.SalesPersonShortCode.format}"/>
-                                    </af:outputFormatted>
-                                    <f:facet name="separator">
-                                      <af:spacer width="10" height="10" id="s10"/>
-                                    </f:facet>
-                                  </af:panelGroupLayout>
-                                </af:gridCell>
-                              </af:gridRow>
-                              <af:gridRow marginTop="5px" height="auto" id="gr11" marginBottom="5px">
-                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc12">
-                                  <af:panelGroupLayout id="pgl17" layout="horizontal">
-                                    <af:image source="#{resource['images:imgShortName.png']}" id="i5"/>
-                                    <af:outputFormatted value="#{item.bindings.SalesPersonName.inputValue}" id="of8"
-                                                        styleClass="ERPHeroDetailColor"/>
-                                    <f:facet name="separator">
-                                      <af:spacer width="10" height="10" id="s9"/>
-                                    </f:facet>
-                                  </af:panelGroupLayout>
-                                </af:gridCell>
-                              </af:gridRow>
-                              <af:gridRow marginTop="5px" height="auto" id="gr12" marginBottom="5px">
-                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc13">
-                                  <af:panelGroupLayout id="pgl16" layout="horizontal">
-                                    <af:image source="#{resource['images:imgMobile.png']}" id="i7"/>
-                                    <af:outputFormatted value="#{item.bindings.MobileNo.inputValue}" id="of9"
-                                                        styleClass="ERPHeroDetailColor"/>
-                                    <f:facet name="separator">
-                                      <af:spacer width="10" height="10" id="s8"/>
-                                    </f:facet>
-                                  </af:panelGroupLayout>
-                                </af:gridCell>
-                              </af:gridRow>
-                              <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr13">
-                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc14">
-                                  <af:panelGroupLayout id="pgl15" layout="horizontal">
-                                    <af:image source="#{resource['images:imgEmailAddress.png']}" id="i8"/>
-                                    <af:outputFormatted value="#{item.bindings.Email.inputValue}" id="of10"
-                                                        styleClass="ERPHeroDetailColor"/>
-                                    <f:facet name="separator">
-                                      <af:spacer width="10" height="10" id="s7"/>
-                                    </f:facet>
-                                  </af:panelGroupLayout>
-                                </af:gridCell>
-                              </af:gridRow>
-                            </af:panelGridLayout>
-                          </af:panelBox>
-                        </af:panelGroupLayout>
-                      </af:listItem>
-                    </af:listView>
-                  </af:gridCell>
-                </af:gridRow>
-              </af:panelGridLayout>
+                      <af:listView value="#{bindings.ScmSalesPersonByCompanyRO.collectionModel}" var="item"
+                                   emptyText="#{bindings.ScmSalesPersonByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                   fetchSize="#{bindings.ScmSalesPersonByCompanyRO.rangeSize}" id="lv2"
+                                   styleClass="WBDisplayBlockCenter"
+                                   selectionListener="#{bindings.ScmSalesPersonByCompanyRO.treeModel.makeCurrent}"
+                                   selectedRowKeys="#{bindings.ScmSalesPersonByCompanyRO.collectionModel.selectedRow}"
+                                   selection="single" partialTriggers="qryId1">
+                        <af:listItem id="li2"
+                                     styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                          <af:panelGroupLayout id="pgl12" layout="vertical" styleClass="WBCardSize">
+                            <af:panelBox text="PanelBox2" id="pb2" showDisclosure="false" showHeader="never">
+                              <f:facet name="toolbar"/>
+                              <af:panelGridLayout id="pgl11">
+                                <af:gridRow marginTop="5px" height="auto" id="gr9" marginBottom="5px">
+                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10"
+                                               styleClass="AFStretchWidth ERPHeroBackground" halign="stretch">
+                                    <af:panelGroupLayout id="pgl13" layout="horizontal">
+                                      <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgView.png']}"
+                                               styleClass="ERPHeroBannerFont ERPLink"
+                                               action="ERP-ACT-SCM_0004_EDIT_EDIT"/>
+                                      <af:outputFormatted value="#{item.bindings.SalesPersonShortName.inputValue}"
+                                                          id="of6" styleClass="ERPHeroBannerFont"/>
+                                    </af:panelGroupLayout>
+                                  </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" id="gr10" marginBottom="5px">
+                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc11">
+                                    <af:panelGroupLayout id="pgl14" layout="horizontal">
+                                      <af:image source="#{resource['images:imgDocumentNumber.png']}" id="i6"/>
+                                      <af:outputFormatted value="#{item.bindings.SalesPersonShortCode.inputValue}"
+                                                          id="of7" styleClass="ERPHeroDetailColor">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.ScmSalesPersonByCompanyRO.hints.SalesPersonShortCode.format}"/>
+                                      </af:outputFormatted>
+                                      <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s10"/>
+                                      </f:facet>
+                                    </af:panelGroupLayout>
+                                  </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" id="gr11" marginBottom="5px">
+                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc12">
+                                    <af:panelGroupLayout id="pgl17" layout="horizontal">
+                                      <af:image source="#{resource['images:imgShortName.png']}" id="i5"/>
+                                      <af:outputFormatted value="#{item.bindings.SalesPersonName.inputValue}" id="of8"
+                                                          styleClass="ERPHeroDetailColor"/>
+                                      <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s9"/>
+                                      </f:facet>
+                                    </af:panelGroupLayout>
+                                  </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" id="gr12" marginBottom="5px">
+                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc13">
+                                    <af:panelGroupLayout id="pgl16" layout="horizontal">
+                                      <af:image source="#{resource['images:imgMobile.png']}" id="i7"/>
+                                      <af:outputFormatted value="#{item.bindings.MobileNo.inputValue}" id="of9"
+                                                          styleClass="ERPHeroDetailColor"/>
+                                      <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s8"/>
+                                      </f:facet>
+                                    </af:panelGroupLayout>
+                                  </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr13">
+                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc14">
+                                    <af:panelGroupLayout id="pgl15" layout="horizontal">
+                                      <af:image source="#{resource['images:imgEmailAddress.png']}" id="i8"/>
+                                      <af:outputFormatted value="#{item.bindings.Email.inputValue}" id="of10"
+                                                          styleClass="ERPHeroDetailColor"/>
+                                      <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s7"/>
+                                      </f:facet>
+                                    </af:panelGroupLayout>
+                                  </af:gridCell>
+                                </af:gridRow>
+                              </af:panelGridLayout>
+                            </af:panelBox>
+                          </af:panelGroupLayout>
+                        </af:listItem>
+                      </af:listView>
+                    </af:gridCell>
+                  </af:gridRow>
+                </af:panelGridLayout>
+              </af:panelGroupLayout>
             </f:facet>
-            <f:facet name="top">
-              <af:panelGridLayout id="pgl3">
-                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
-                  <af:gridCell marginStart="5px" width="50%" id="gc3"/>
-                  <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="end">
-                    <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
-                      <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"
-                               action="ERPADD-ACT-SCM_0004_EDIT_EDIT"/>
-                      <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
-                               partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
-                      <f:facet name="separator">
-                        <af:spacer width="10" height="10" id="s6"/>
-                      </f:facet>
-                    </af:panelGroupLayout>
-                  </af:gridCell>
-                </af:gridRow>
-              </af:panelGridLayout>
-            </f:facet>
+            <f:facet name="top"/>
           </af:decorativeBox>
         </f:facet>
-        <f:facet name="top"/>
-      </af:decorativeBox>
+      </af:panelSplitter>
     </af:form>
   </af:document>
 </f:view>

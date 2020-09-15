@@ -68,7 +68,8 @@
                                                               maximumLength="#{bindings.CategoryTypeName.hints.precision}"
                                                               shortDesc="#{bindings.CategoryTypeName.hints.tooltip}"
                                                               id="it1" simple="true" contentStyle="width:100%"
-                                                              clientComponent="true">
+                                                              clientComponent="true"
+                                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CategoryShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                     <f:validator binding="#{bindings.CategoryTypeName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -105,7 +106,8 @@
                                                               columns="#{bindings.CategoryShortName.hints.displayWidth}"
                                                               maximumLength="#{bindings.CategoryShortName.hints.precision}"
                                                               shortDesc="#{bindings.CategoryShortName.hints.tooltip}"
-                                                              id="it3" simple="true" contentStyle="width:100%">
+                                                              id="it3" simple="true" contentStyle="width:100%"
+                                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CategoryShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                     <f:validator binding="#{bindings.CategoryShortName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -123,7 +125,8 @@
                                                               required="#{bindings.OpenDate.hints.mandatory}"
                                                               columns="#{bindings.OpenDate.hints.displayWidth}"
                                                               shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id1"
-                                                              simple="true" contentStyle="width:90%">
+                                                              simple="true" contentStyle="width:90%"
+                                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CategoryShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                     <f:validator binding="#{bindings.OpenDate.validator}"/>
                                                     <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
                                                 </af:inputDate>
@@ -139,7 +142,8 @@
                                                                     label="#{bindings.IsActive.label}"
                                                                     required="#{bindings.IsActive.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsActive.hints.tooltip}"
-                                                                    id="soc1" simple="true" contentStyle="width:100%">
+                                                                    id="soc1" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CategoryShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                     <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
                                                     <f:validator binding="#{bindings.IsActive.validator}"/>
                                                 </af:selectOneChoice>

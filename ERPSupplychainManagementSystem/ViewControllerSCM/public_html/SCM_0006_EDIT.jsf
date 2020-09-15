@@ -4,7 +4,7 @@
   <af:document title="SCM_0006.jsf" id="d1">
     <af:messages id="m1"/>
     <af:form id="f1">
-      <af:panelSplitter id="ps1" orientation="vertical" disabled="true" splitterPosition="201">
+      <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="180">
         <f:facet name="first">
           <af:panelBox text="PanelBox3" id="pb1" showHeader="never">
             <f:facet name="toolbar"/>
@@ -55,7 +55,16 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr3">
-                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="center"/>
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="center">
+                          <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                         value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                         model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                         queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                            <f:facet name="end">
+                              <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                            </f:facet>
+                          </af:quickQuery>
+                        </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
                         <af:gridCell marginStart="5px" width="0%" marginEnd="5px" id="gc5" valign="stretch"/>
@@ -98,7 +107,8 @@
                              fetchSize="#{bindings.ScmCustomerCategoryByCompRO.rangeSize}" id="lv1" selection="single"
                              styleClass="WBDisplayBlockCenter"
                              selectedRowKeys="#{bindings.ScmCustomerCategoryByCompRO.collectionModel.selectedRow}"
-                             selectionListener="#{bindings.ScmCustomerCategoryByCompRO.treeModel.makeCurrent}">
+                             selectionListener="#{bindings.ScmCustomerCategoryByCompRO.treeModel.makeCurrent}"
+                             partialTriggers="::qryId1">
                   <af:listItem id="li1" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                     <af:panelGroupLayout id="pgl17" styleClass="WBCardSize" layout="vertical">
                       <af:panelBox text="PanelBox4" id="pb3" showHeader="never">
@@ -161,7 +171,7 @@
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc15">
                               <af:panelGroupLayout id="pgl16" layout="horizontal">
                                 <af:image source="#{resource['images:imgActive.png']}" id="i4"/>
-                                <af:outputFormatted value="#{item.bindings.IsActive.inputValue}" id="of5"
+                                <af:outputFormatted value="#{item.bindings.IsActive.inputValue=='0'?'YES':'NO'}" id="of5"
                                                     styleClass="ERPHeroDetailColor"/>
                                 <f:facet name="separator">
                                   <af:spacer width="10" height="10" id="s9"/>

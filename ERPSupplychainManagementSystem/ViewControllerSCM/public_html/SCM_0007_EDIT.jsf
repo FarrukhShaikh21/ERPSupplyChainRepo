@@ -4,7 +4,7 @@
   <af:document title="SCM_0007.jsf" id="d1">
     <af:messages id="m1"/>
     <af:form id="f1">
-      <af:panelSplitter id="ps1" orientation="vertical" disabled="true" splitterPosition="201">
+      <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="180">
         <f:facet name="first">
           <af:panelBox text="PanelBox3" id="pb1" showHeader="never">
             <f:facet name="toolbar"/>
@@ -13,7 +13,7 @@
                 <af:decorativeBox id="db1">
                   <f:facet name="center">
                     <af:panelGridLayout id="pgl2">
-                      <af:gridRow marginTop="5px" height="auto" id="gr2">
+                      <af:gridRow marginTop="5px" height="auto" id="gr2" marginBottom="5px">
                         <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="center">
                           <af:panelFormLayout id="pfl1" maxColumns="4" rows="1">
                             <af:inputText value="#{bindings.CompCode.inputValue}"
@@ -54,7 +54,7 @@
                           </af:panelFormLayout>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" id="gr3">
+                      <af:gridRow marginTop="5px" height="auto" id="gr3" marginBottom="5px">
                         <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="center">
                           <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
                                          value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
@@ -94,13 +94,13 @@
         <f:facet name="second">
           <af:decorativeBox id="db3">
             <f:facet name="center">
-              <af:panelGroupLayout id="pgl3" halign="center" layout="scroll">
+              <af:panelGroupLayout id="pgl3" halign="center" layout="scroll" partialTriggers="::qryId1">
                 <af:listView value="#{bindings.ScmOrderTypeByCompanyRO.collectionModel}" var="item"
                              emptyText="#{bindings.ScmOrderTypeByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.ScmOrderTypeByCompanyRO.rangeSize}" id="lv2" selection="single"
                              selectedRowKeys="#{bindings.ScmOrderTypeByCompanyRO.collectionModel.selectedRow}"
                              selectionListener="#{bindings.ScmOrderTypeByCompanyRO.treeModel.makeCurrent}"
-                             styleClass="WBDisplayBlockCenter" partialTriggers="::qryId1">
+                             styleClass="WBDisplayBlockCenter">
                   <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                     <af:panelGroupLayout id="pgl10" layout="vertical" styleClass="WBCardSize">
                       <af:panelBox text="PanelBox5" id="pb2" showHeader="never" showDisclosure="false">
@@ -170,12 +170,9 @@
                           <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10" halign="stretch">
                               <af:panelGroupLayout id="pgl4" layout="horizontal">
-                                <af:image source="#{resource['images:imgUserType.png']}" id="i5"/>
-                                <af:outputFormatted value="#{item.bindings.OrderTypeFor.inputValue}" id="of10"
-                                                    styleClass="ERPHeroDetailColor">
-                                  <af:convertNumber groupingUsed="false"
-                                                    pattern="#{bindings.ScmOrderTypeByCompanyRO.hints.OrderTypeFor.format}"/>
-                                </af:outputFormatted>
+                                <af:image source="#{resource['images:imgActive.png']}" id="i5"/>
+                                <af:outputFormatted value="#{item.bindings.IsActive.inputValue=='0'?'YES':'NO'}" id="of1"
+                                                    styleClass="ERPHeroDetailColor"/>
                                 <f:facet name="separator">
                                   <af:spacer width="10" height="10" id="s1"/>
                                 </f:facet>

@@ -65,31 +65,6 @@
       </StringRefAddr>
     </RefAddresses>
   </Reference>
-  <Reference name="ERPConnSCM" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="ERPConnSCM"
-             xmlns="">
-    <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
-    <RefAddresses>
-      <StringRefAddr addrType="sid">
-        <Contents>ELEVENG</Contents>
-      </StringRefAddr>
-      <StringRefAddr addrType="subtype">
-        <Contents>oraJDBC</Contents>
-      </StringRefAddr>
-      <StringRefAddr addrType="user">
-        <Contents>ORALINKS</Contents>
-      </StringRefAddr>
-      <StringRefAddr addrType="hostname">
-        <Contents>localhost</Contents>
-      </StringRefAddr>
-      <StringRefAddr addrType="port">
-        <Contents>1521</Contents>
-      </StringRefAddr>
-      <SecureRefAddr addrType="password"/>
-      <StringRefAddr addrType="oraDriverType">
-        <Contents>thin</Contents>
-      </StringRefAddr>
-    </RefAddresses>
-  </Reference>
   <Reference name="ERPFmsConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider" partial="true"
              manageInOracleEnterpriseManager="true" deployable="true" xmlns="">
     <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
@@ -103,6 +78,28 @@
       <StringRefAddr addrType="hostname">
         <Contents>localhost</Contents>
       </StringRefAddr>
+      <StringRefAddr addrType="driver">
+        <Contents>com.mysql.jdbc.Driver</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="dataSourceName">
+        <Contents>erporacle</Contents>
+      </StringRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="ERPConnSCM" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="ERPConnSCM"
+             xmlns="">
+    <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
+    <RefAddresses>
+      <StringRefAddr addrType="subtype">
+        <Contents>MYSQL</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="user">
+        <Contents>root</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="hostname">
+        <Contents>localhost</Contents>
+      </StringRefAddr>
+      <SecureRefAddr addrType="password"/>
       <StringRefAddr addrType="driver">
         <Contents>com.mysql.jdbc.Driver</Contents>
       </StringRefAddr>

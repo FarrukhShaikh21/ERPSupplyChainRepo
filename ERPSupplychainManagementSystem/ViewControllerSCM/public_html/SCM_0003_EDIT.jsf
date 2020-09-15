@@ -156,10 +156,10 @@
                   <af:gridCell marginStart="5px" width="50%" id="gc3"/>
                   <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="end">
                     <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
-                      <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"
-                               action="ERP-ACT-SCM_0003ADD"/>
                       <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
                                partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
+                      <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"
+                               action="ERP-ACT-SCM_0003ADD"/>
                       <f:facet name="separator">
                         <af:spacer width="10" height="10" id="s6"/>
                       </f:facet>

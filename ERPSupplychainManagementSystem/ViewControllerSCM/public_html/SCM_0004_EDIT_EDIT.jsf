@@ -69,7 +69,7 @@
                                                               shortDesc="#{bindings.FirstName.hints.tooltip}" id="it6"
                                                               simple="true" contentStyle="width:100%" autoSubmit="true"
                                                               clientComponent="true"
-                                                              readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
+                                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.SalesPersonShortCode.inputValue!=null) }">
                                                     <f:validator binding="#{bindings.FirstName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -86,7 +86,7 @@
                                                               maximumLength="#{bindings.LastName.hints.precision}"
                                                               shortDesc="#{bindings.LastName.hints.tooltip}" id="it7"
                                                               simple="true" contentStyle="width:100%" autoSubmit="true"
-                                                              readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
+                                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.SalesPersonShortCode.inputValue!=null) }">
                                                     <f:validator binding="#{bindings.LastName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -145,7 +145,7 @@
                                                               maximumLength="#{bindings.SalesPersonShortName.hints.precision}"
                                                               shortDesc="#{bindings.SalesPersonShortName.hints.tooltip}"
                                                               id="it3" simple="true" contentStyle="width:100%"
-                                                              readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
+                                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.SalesPersonShortCode.inputValue!=null) }">
                                                     <f:validator binding="#{bindings.SalesPersonShortName.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -161,7 +161,7 @@
                                                                     required="#{bindings.IsActive.hints.mandatory}"
                                                                     shortDesc="#{bindings.IsActive.hints.tooltip}"
                                                                     id="soc1" simple="true" contentStyle="width:100%"
-                                                                    readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
+                                                                    readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.SalesPersonShortCode.inputValue!=null) }">
                                                     <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
                                                     <f:validator binding="#{bindings.IsActive.validator}"/>
                                                 </af:selectOneChoice>

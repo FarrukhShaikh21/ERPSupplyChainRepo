@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmCustomerCategoryVO"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -256,6 +256,76 @@
         Conjunction="AND"
         Value=":P_ADF_CATEGORY_SNO"
         IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ScmCustomerCategoryFindVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerCategoryVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmCustomerCategoryVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ScmCustomerCategoryVOCriteria_ScmCustomerCategoryVOCriteria_row_0_CategoryShortCode"
+        ViewAttribute="CategoryShortCode"
+        Operator="="
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ScmCustomerCategoryVOCriteria_ScmCustomerCategoryVOCriteria_row_0_CategoryShortName"
+        ViewAttribute="CategoryShortName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CategoryTypeName"
+        ViewAttribute="CategoryTypeName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="OpenDate"
+        ViewAttribute="OpenDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="IsActive"
+        ViewAttribute="IsActive"
+        Operator="="
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="IsSupervised"
+        ViewAttribute="IsSupervised"
+        Operator="="
+        Conjunction="AND"
+        Value=""
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
