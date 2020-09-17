@@ -53,8 +53,6 @@
     <action IterBinding="ScmCustomerCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
     <action IterBinding="ScmCustomerCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
-            DataControl="ERPSCMModuleDataControl"/>
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerShortName">
       <AttrNames>
         <Item Value="CustomerShortName"/>
@@ -135,7 +133,6 @@
         <Item Value="ContactPerson"/>
       </AttrNames>
     </attributeValues>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <action IterBinding="ScmCustomerCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams">
       <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0002_EDITPageDef.CompCode.inputValue}"
@@ -170,5 +167,8 @@
                   id="txtPaymentTermName"/>
     <list IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovIsTaxable" id="IsTaxable"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
   </bindings>
 </pageDefinition>
