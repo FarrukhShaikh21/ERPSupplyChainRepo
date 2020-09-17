@@ -13,7 +13,7 @@
                                 <af:showDetailItem id="tab1" text="Customer" disclosed="true">
                                     <af:panelBox text="PanelBox1" id="pb2"
                                                   showDisclosure="false"
-                                                 showHeader="never" partialTriggers="l11 l12 l13 l14">
+                                                 showHeader="never" partialTriggers="l11 l17 l14 l12 l13 l1 l3">
                                         <f:facet name="toolbar"/>
                                         <af:panelBox text="Basic Information" id="pb1" showDisclosure="false">
                                             <f:facet name="toolbar">
@@ -857,14 +857,6 @@
                                             <af:link text="Save" id="l17" partialSubmit="true"
                                                      icon="#{resource['images:imgSave.png']}" iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l12"
-                                                     icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                                     partialSubmit="true" rendered="false"/>
-                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l13"
-                                                     rendered="false">
-                                                <af:resetActionListener/>
-                                            </af:link>
                                             <af:link text="Undo" immediate="true" id="l14"
                                                      icon="#{resource['images:imgUndo.png']}" iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
@@ -874,6 +866,13 @@
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s8"/>
                                             </f:facet>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                     disabled="#{!bindings.Commit.enabled}" id="l12" rendered="false"/>
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l13"
+                                                     rendered="false">
+                                                <af:resetActionListener/>
+                                            </af:link>
                                         </af:panelGroupLayout>
                                     </af:gridCell>
                                 </af:gridRow>
@@ -884,6 +883,10 @@
                 <f:facet name="top"/>
             </af:decorativeBox>
         </af:form>
-        <f:facet name="metaContainer"/>
+        <f:facet name="metaContainer">
+            <af:resource type="javascript" source="/resources/js/ERPSCMJavaScript.js"/>
+            <af:resource type="css" source="/resources/css/ERPSCMStyleSheet.css"/>
+            <af:resource type="javascript" source="http://code.jquery.com/jquery-1.10.2.js"/>
+        </f:facet>
     </af:document>
 </f:view>
