@@ -669,6 +669,42 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="SupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedBy"
+    EntityUsage="ScmCustomer"
+    AliasName="SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="SupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedDate"
+    EntityUsage="ScmCustomer"
+    AliasName="SUPERVISED_DATE"/>
+  <ViewAttribute
+    Name="UnSupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedBy"
+    EntityUsage="ScmCustomer"
+    AliasName="UN_SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="UnSupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedDate"
+    EntityUsage="ScmCustomer"
+    AliasName="UN_SUPERVISED_DATE"/>
+  <ViewAttribute
+    Name="IsSupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsSupervised"
+    EntityUsage="ScmCustomer"
+    AliasName="IS_SUPERVISED"/>
+  <ViewAttribute
+    Name="IsUnsupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsUnsupervised"
+    EntityUsage="ScmCustomer"
+    AliasName="IS_UNSUPERVISED"/>
   <ViewCriteria
     Name="ScmCustomerByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerVO"
