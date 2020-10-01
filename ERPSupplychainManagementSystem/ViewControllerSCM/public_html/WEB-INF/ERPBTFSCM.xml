@@ -404,6 +404,9 @@
     <view id="SCM_0008_EDIT">
       <page>/SCM_0008_EDIT.jsf</page>
     </view>
+    <view id="SCM_0008_EDIT_EDIT">
+      <page>/SCM_0008_EDIT_EDIT.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -986,6 +989,24 @@
       <from-activity-id>ExeCompByCompSCM_0008_EDIT</from-activity-id>
       <control-flow-case id="__174">
         <from-outcome>ERP-QRY-ACT-SCM_0008</from-outcome>
+        <to-activity-id>SCM_0008_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__175">
+      <from-activity-id>SCM_0008_EDIT</from-activity-id>
+      <control-flow-case id="__176">
+        <from-outcome>ERP-QRY-ACT-SCM_0008_EDIT</from-outcome>
+        <to-activity-id>SCM_0008_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__179">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0008</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__177">
+      <from-activity-id>SCM_0008_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__178">
+        <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0008_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
