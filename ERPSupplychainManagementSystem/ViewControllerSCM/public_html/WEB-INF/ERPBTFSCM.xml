@@ -398,9 +398,12 @@
     <method-call id="ExeCompByCompSCM_0008_EDIT">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0008</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0008_EDIT">
+      <page>/SCM_0008_EDIT.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -970,6 +973,20 @@
       <control-flow-case id="__170">
         <from-outcome>ERP-ACT-SCM_0008</from-outcome>
         <to-activity-id>SCM_0008</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__171">
+      <from-activity-id>SCM_0008</from-activity-id>
+      <control-flow-case id="__172">
+        <from-outcome>ERP-QRY-ACT-SCM_0008</from-outcome>
+        <to-activity-id>ExeCompByCompSCM_0008_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__173">
+      <from-activity-id>ExeCompByCompSCM_0008_EDIT</from-activity-id>
+      <control-flow-case id="__174">
+        <from-outcome>ERP-QRY-ACT-SCM_0008</from-outcome>
+        <to-activity-id>SCM_0008_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
