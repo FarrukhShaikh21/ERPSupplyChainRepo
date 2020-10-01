@@ -6,8 +6,6 @@
     <variableIterator id="variables"/>
     <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="AdminCompanyVOByCompanyROIterator"/>
-    <iterator Binds="ScmOrderTypeByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmOrderTypeByCompanyROIterator"/>
     <iterator Binds="GlTaxTypeCustTypeRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="GlTaxTypeCustTypeROIterator"/>
     <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
@@ -29,22 +27,16 @@
         <Item Value="CompanyName"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="ScmOrderTypeByCompanyROIterator" id="ScmOrderTypeByCompanyRO">
-      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmOrderTypeVO" Name="ScmOrderTypeByCompanyRO0">
+    <tree IterBinding="GlTaxTypeCustTypeROIterator" id="GlTaxTypeCustTypeRO">
+      <nodeDefinition DefName="erpfms.modelfms.fmsvo.GlTaxTypeVO" Name="GlTaxTypeCustTypeRO0">
         <AttrNames>
-          <Item Value="OrderTypeShortName"/>
-          <Item Value="OrderTypeCode"/>
-          <Item Value="OrderTypeName"/>
+          <Item Value="TaxTypeShortName"/>
+          <Item Value="TaxTypeCode"/>
+          <Item Value="TaxTypeName"/>
           <Item Value="OpenDate"/>
-          <Item Value="OrderTypeFor"/>
           <Item Value="IsActive"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="ScmOrderTypeByCompanyROIterator" id="OrderTypeSno">
-      <AttrNames>
-        <Item Value="OrderTypeSno"/>
-      </AttrNames>
-    </attributeValues>
   </bindings>
 </pageDefinition>
