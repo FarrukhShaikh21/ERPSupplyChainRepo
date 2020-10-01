@@ -34,83 +34,80 @@
                         <f:facet name="center">
                             <af:panelBox text="PanelBox1" id="pb2" showHeader="never" partialTriggers="d3 d4">
                                 <f:facet name="toolbar"/>
-                                <af:panelBox id="pb1" showDisclosure="false" text="Basic Information">
-                                    <f:facet name="toolbar"/>
-                                    <af:panelGridLayout id="pgl2">
-                                        <af:gridRow id="gr9" marginTop="5px" marginBottom="5px">
-                                            <af:gridCell id="gc17" width="15%" halign="center"/>
-                                            <af:gridCell id="gc18" width="85%" halign="stretch">
-                                                <af:inputText value="#{bindings.OrderTypeSno.inputValue}"
-                                                              label="#{bindings.OrderTypeSno.hints.label}"
-                                                              required="#{bindings.OrderTypeSno.hints.mandatory}"
-                                                              columns="#{bindings.OrderTypeSno.hints.displayWidth}"
-                                                              maximumLength="#{bindings.OrderTypeSno.hints.precision}"
-                                                              shortDesc="#{bindings.OrderTypeSno.hints.tooltip}"
-                                                              id="it7" rendered="false">
-                                                    <f:validator binding="#{bindings.OrderTypeSno.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.OrderTypeSno.format}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.OrderTypeCode.inputValue}"
-                                                              label="#{bindings.OrderTypeCode.hints.label}"
-                                                              required="#{bindings.OrderTypeCode.hints.mandatory}"
-                                                              columns="#{bindings.OrderTypeCode.hints.displayWidth}"
-                                                              maximumLength="#{bindings.OrderTypeCode.hints.precision}"
-                                                              shortDesc="#{bindings.OrderTypeCode.hints.tooltip}"
-                                                              id="it4" rendered="false">
-                                                    <f:validator binding="#{bindings.OrderTypeCode.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.OrderTypeCode.format}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
-                                                              label="#{bindings.IsUnsupervised.hints.label}"
-                                                              required="#{bindings.IsUnsupervised.hints.mandatory}"
-                                                              columns="#{bindings.IsUnsupervised.hints.displayWidth}"
-                                                              maximumLength="#{bindings.IsUnsupervised.hints.precision}"
-                                                              shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
-                                                              id="it3" rendered="false">
-                                                    <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
-                                                              label="#{bindings.IsSupervised.hints.label}"
-                                                              required="#{bindings.IsSupervised.hints.mandatory}"
-                                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
-                                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
-                                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}"
-                                                              id="it2" rendered="false">
-                                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
-                                                </af:inputText>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow id="gr8" marginTop="5px" marginBottom="5px">
-                                            <af:gridCell id="gc15" width="15%" halign="center"/>
-                                            <af:gridCell id="gc16" width="85%" halign="stretch"/>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr2">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
-                                                         halign="center"/>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc4" halign="stretch"
-                                                         columnSpan="1" rowSpan="1"/>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px"
-                                                         halign="center" valign="middle"/>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px"
-                                                         halign="stretch" columnSpan="1" rowSpan="1" valign="middle"/>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center"
-                                                         valign="middle"/>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px"
-                                                         columnSpan="1" halign="stretch" rowSpan="1" valign="middle"/>
-                                        </af:gridRow>
-                                        <af:gridRow id="gr5">
-                                            <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
-                                                         halign="center" valign="middle"/>
-                                            <af:gridCell id="gc6" halign="stretch" valign="middle"/>
-                                        </af:gridRow>
-                                    </af:panelGridLayout>
-                                </af:panelBox>
+                                <af:panelGridLayout id="pgl2">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                                        <af:gridCell marginStart="5px" width="40%" id="gc3" halign="stretch">
+                                            <af:panelCollection id="pc1">
+                                                <f:facet name="menus"/>
+                                                <f:facet name="toolbar"/>
+                                                <f:facet name="statusbar"/>
+                                                <af:table value="#{bindings.CustomerTypeForTaxCatRO.collectionModel}"
+                                                          var="row" rows="#{bindings.CustomerTypeForTaxCatRO.rangeSize}"
+                                                          emptyText="#{bindings.CustomerTypeForTaxCatRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.CustomerTypeForTaxCatRO.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.CustomerTypeForTaxCatRO.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.CustomerTypeForTaxCatRO.rangeSize}"
+                                                          id="t1">
+                                                    <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.label}"
+                                                               id="c1">
+                                                        <af:inputText value="#{row.bindings.CustomerTypeCode.inputValue}"
+                                                                      label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.label}"
+                                                                      required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.mandatory}"
+                                                                      columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.displayWidth}"
+                                                                      maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.precision}"
+                                                                      shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.tooltip}"
+                                                                      id="it1">
+                                                            <f:validator binding="#{row.bindings.CustomerTypeCode.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
+                                                               id="c2">
+                                                        <af:inputText value="#{row.bindings.CustomerTypeShortName.inputValue}"
+                                                                      label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
+                                                                      required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.mandatory}"
+                                                                      columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.displayWidth}"
+                                                                      maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.precision}"
+                                                                      shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.tooltip}"
+                                                                      id="it2">
+                                                            <f:validator binding="#{row.bindings.CustomerTypeShortName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.label}"
+                                                               id="c3">
+                                                        <af:inputText value="#{row.bindings.CustomerTypeName.inputValue}"
+                                                                      label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.label}"
+                                                                      required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.mandatory}"
+                                                                      columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.displayWidth}"
+                                                                      maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.precision}"
+                                                                      shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.tooltip}"
+                                                                      id="it3">
+                                                            <f:validator binding="#{row.bindings.CustomerTypeName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.label}"
+                                                               id="c4" rendered="false">
+                                                        <af:inputText value="#{row.bindings.CustomerTypeSno.inputValue}"
+                                                                      label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.label}"
+                                                                      required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.mandatory}"
+                                                                      columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.displayWidth}"
+                                                                      maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.precision}"
+                                                                      shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.tooltip}"
+                                                                      id="it4">
+                                                            <f:validator binding="#{row.bindings.CustomerTypeSno.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                </af:table>
+                                            </af:panelCollection>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4"/>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
                             </af:panelBox>
                         </f:facet>
                         <f:facet name="top">
