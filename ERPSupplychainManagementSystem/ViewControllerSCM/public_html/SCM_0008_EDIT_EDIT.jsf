@@ -37,7 +37,7 @@
                                 <af:panelGridLayout id="pgl2">
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
                                         <af:gridCell marginStart="5px" width="40%" id="gc3" halign="stretch">
-                                            <af:panelCollection id="pc1">
+                                            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                                 <f:facet name="menus"/>
                                                 <f:facet name="toolbar"/>
                                                 <f:facet name="statusbar"/>
@@ -49,7 +49,7 @@
                                                           selectionListener="#{bindings.CustomerTypeForTaxCatRO.collectionModel.makeCurrent}"
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.CustomerTypeForTaxCatRO.rangeSize}"
-                                                          id="t1">
+                                                          id="t1" columnStretching="last">
                                                     <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.label}"
                                                                id="c1">
                                                         <af:inputText value="#{row.bindings.CustomerTypeCode.inputValue}"
@@ -105,7 +105,8 @@
                                                 </af:table>
                                             </af:panelCollection>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4"/>
+                                        <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4"
+                                                     halign="stretch"/>
                                     </af:gridRow>
                                 </af:panelGridLayout>
                             </af:panelBox>
