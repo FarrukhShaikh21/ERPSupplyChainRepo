@@ -287,7 +287,7 @@
       <property
          name="fromOutcome">ERP-ACT-SCM_0002</property>
       <property
-         name="sdm:polyPoints">L46,118.35283,193.24121,-115.5,196.29297,R50</property>
+         name="sdm:polyPoints">L42,116.50944,189.74121,-115.5,196.29297,R50</property>
    </ControlFlowCase>
    <View
       id="View29">
@@ -1198,7 +1198,7 @@
       <property
          name="fromsrcid">__22</property>
       <property
-         name="sdm:polyPoints">L54,119.0,200.24121,-1272.5,713.0459,R50</property>
+         name="sdm:polyPoints">L50,117.186714,196.74121,-1272.5,713.0459,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall112">
@@ -1899,4 +1899,31 @@
       <property
          name="x">-1414.5</property>
    </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase173"
+      from="MethodCall12"
+      to="View171">
+      <property
+         name="fromOutcome">ERP-ACT-SCM_0008</property>
+      <property
+         name="tosrcid">__168</property>
+      <property
+         name="fromsrcid">__22</property>
+      <property
+         name="sdm:polyPoints">L58,119.0,203.74121,-1414.5,1376.4482,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall174">
+      <property
+         name="activityId">ExeParaCompSCM_0008</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeParaCompSCM_0008&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1365.7988</property>
+      <property
+         name="x">-1484.5</property>
+   </MethodCall>
 </SDM>

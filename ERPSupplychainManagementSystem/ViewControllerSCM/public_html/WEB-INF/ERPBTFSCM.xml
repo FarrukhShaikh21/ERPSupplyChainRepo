@@ -389,6 +389,12 @@
     <view id="SCM_0008">
       <page>/SCM_0008.jsf</page>
     </view>
+    <method-call id="ExeParaCompSCM_0008">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -453,6 +459,10 @@
       <control-flow-case id="__139">
         <from-outcome>ERP-ACT-SCM_0007</from-outcome>
         <to-activity-id>ExeAdmCompSCM_0007</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__168">
+        <from-outcome>ERP-ACT-SCM_0008</from-outcome>
+        <to-activity-id>SCM_0008</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
