@@ -21,11 +21,19 @@
   <Variable
     Name="P_ADF_COMPANY_ID"
     Kind="where"
-    Type="java.lang.Integer"/>
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+    </AttrArray>
+  </Variable>
   <Variable
     Name="P_ADF_TAX_TYPE_SNO"
     Kind="where"
-    Type="java.lang.Integer"/>
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="1"/>
+    </AttrArray>
+  </Variable>
   <SQLQuery><![CDATA[select ct.customer_type_code, 
      ct.customer_type_name, 
        ct.customer_type_short_name, 
