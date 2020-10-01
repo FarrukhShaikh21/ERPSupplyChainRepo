@@ -1,7 +1,196 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="SCM_0008_EDIT_EDIT.jsf" id="d1">
-        <af:form id="f1"></af:form>
+    <af:document title="FMS_0008_EDIT_EDIT.jsf" id="d1" initialFocusId="it1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
+                <af:dialog id="d2" title="Confirmation!" type="yesNo"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmDelete}">
+                    <f:facet name="buttonBar"/>
+                    <af:outputText value="Do you want to delete this record?" id="ot3"
+                                   styleClass="ErpDeleteConfirmText"/>
+                </af:dialog>
+            </af:popup> 
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                        binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
+                  <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>   
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                        binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
+                  <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>              
+            <af:decorativeBox id="db1" dimensionsFrom="parent">
+                <f:facet name="center">
+                    <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
+                        <f:facet name="center">
+                            <af:panelBox text="PanelBox1" id="pb2" showHeader="never" partialTriggers="d3 d4">
+                                <f:facet name="toolbar"/>
+                                <af:panelBox id="pb1" showDisclosure="false" text="Basic Information">
+                                    <f:facet name="toolbar"/>
+                                    <af:panelGridLayout id="pgl2">
+                                        <af:gridRow id="gr9" marginTop="5px" marginBottom="5px">
+                                            <af:gridCell id="gc17" width="15%" halign="center"/>
+                                            <af:gridCell id="gc18" width="85%" halign="stretch">
+                                                <af:inputText value="#{bindings.OrderTypeSno.inputValue}"
+                                                              label="#{bindings.OrderTypeSno.hints.label}"
+                                                              required="#{bindings.OrderTypeSno.hints.mandatory}"
+                                                              columns="#{bindings.OrderTypeSno.hints.displayWidth}"
+                                                              maximumLength="#{bindings.OrderTypeSno.hints.precision}"
+                                                              shortDesc="#{bindings.OrderTypeSno.hints.tooltip}"
+                                                              id="it7" rendered="false">
+                                                    <f:validator binding="#{bindings.OrderTypeSno.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.OrderTypeSno.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.OrderTypeCode.inputValue}"
+                                                              label="#{bindings.OrderTypeCode.hints.label}"
+                                                              required="#{bindings.OrderTypeCode.hints.mandatory}"
+                                                              columns="#{bindings.OrderTypeCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.OrderTypeCode.hints.precision}"
+                                                              shortDesc="#{bindings.OrderTypeCode.hints.tooltip}"
+                                                              id="it4" rendered="false">
+                                                    <f:validator binding="#{bindings.OrderTypeCode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.OrderTypeCode.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                              label="#{bindings.IsUnsupervised.hints.label}"
+                                                              required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
+                                                              id="it3" rendered="false">
+                                                    <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                              label="#{bindings.IsSupervised.hints.label}"
+                                                              required="#{bindings.IsSupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}"
+                                                              id="it2" rendered="false">
+                                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                                </af:inputText>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr8" marginTop="5px" marginBottom="5px">
+                                            <af:gridCell id="gc15" width="15%" halign="center"/>
+                                            <af:gridCell id="gc16" width="85%" halign="stretch"/>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
+                                                         halign="center"/>
+                                            <af:gridCell marginStart="5px" width="85%" id="gc4" halign="stretch"
+                                                         columnSpan="1" rowSpan="1"/>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px"
+                                                         halign="center" valign="middle"/>
+                                            <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px"
+                                                         halign="stretch" columnSpan="1" rowSpan="1" valign="middle"/>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center"
+                                                         valign="middle"/>
+                                            <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px"
+                                                         columnSpan="1" halign="stretch" rowSpan="1" valign="middle"/>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr5">
+                                            <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
+                                                         halign="center" valign="middle"/>
+                                            <af:gridCell id="gc6" halign="stretch" valign="middle"/>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:panelBox>
+                            </af:panelBox>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelGridLayout id="pgl1">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc1"/>
+                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2"
+                                                 halign="stretch">
+<af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                            <af:link id="l5" partialSubmit="true"
+                                                     icon="#{resource['images:imgCloseDialog.png']}"
+                                                     text="Close"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
+                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                     text="CreateWithParams"
+                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
+                                                     rendered="false"/>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                     disabled="#{!bindings.Delete.enabled}" id="l6" rendered="false"/>
+                                            <af:link text="Delete" id="l9" actionListener="#{bindings.Delete.execute}"
+                                                     iconPosition="top"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     partialSubmit="true"/>
+                                            <af:link text="Add" id="l1" icon="#{resource['images:imgAddRecord.png']}"
+                                                     iconPosition="top" partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}">
+                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>
+                                            <af:link text="Supervise" id="l19" partialSubmit="true"
+                                                     icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>                                                     
+                                            <af:link text="UnSupervise" id="l20" partialSubmit="true"
+                                                     icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
+                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l7"
+                                                     rendered="false">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link text="Undo" immediate="true" id="l3"
+                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                                     partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l8"
+                                                     rendered="false"/>
+                                            <af:link text="Save" id="l2"
+                                                     icon="#{resource['images:imgSave.png']}" iconPosition="top"
+                                                     partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s1"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>                                                 
+                                    </af:gridCell>             
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="top"/>
+            </af:decorativeBox>
+        </af:form>
+        <f:facet name="metaContainer">
+            <af:resource type="javascript" source="/resources/js/ERPSCMJavaScript.js"/>
+            <af:resource type="css" source="/resources/css/ERPSCMStyleSheet.css"/>
+            <af:resource type="javascript" source="http://code.jquery.com/jquery-1.10.2.js"/>
+        </f:facet>
     </af:document>
 </f:view>
