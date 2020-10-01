@@ -395,6 +395,12 @@
         <fixed-outcome>ERP-ACT-SCM_0008</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeCompByCompSCM_0008_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
