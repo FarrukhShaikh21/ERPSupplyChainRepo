@@ -407,6 +407,12 @@
     <view id="SCM_0008_EDIT_EDIT">
       <page>/SCM_0008_EDIT_EDIT.jsf</page>
     </view>
+    <method-call id="ExeTaxCustTypeSCM_0008">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0008</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -989,7 +995,7 @@
       <from-activity-id>ExeCompByCompSCM_0008_EDIT</from-activity-id>
       <control-flow-case id="__174">
         <from-outcome>ERP-QRY-ACT-SCM_0008</from-outcome>
-        <to-activity-id>SCM_0008_EDIT</to-activity-id>
+        <to-activity-id>ExeTaxCustTypeSCM_0008</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__175">
@@ -1007,6 +1013,13 @@
       <from-activity-id>SCM_0008_EDIT_EDIT</from-activity-id>
       <control-flow-case id="__178">
         <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0008_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__166">
+      <from-activity-id>ExeTaxCustTypeSCM_0008</from-activity-id>
+      <control-flow-case id="__167">
+        <from-outcome>ERP-QRY-ACT-SCM_0008</from-outcome>
         <to-activity-id>SCM_0008_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
