@@ -392,7 +392,7 @@
     <method-call id="ExeParaCompSCM_0008">
       <method>#{bindings.Execute.execute}</method>
       <outcome>
-        <fixed-outcome>Execute</fixed-outcome>
+        <fixed-outcome>ERP-ACT-SCM_0008</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">
@@ -462,7 +462,7 @@
       </control-flow-case>
       <control-flow-case id="__168">
         <from-outcome>ERP-ACT-SCM_0008</from-outcome>
-        <to-activity-id>SCM_0008</to-activity-id>
+        <to-activity-id>ExeParaCompSCM_0008</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -957,6 +957,13 @@
       <control-flow-case id="__165">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0007_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__169">
+      <from-activity-id>ExeParaCompSCM_0008</from-activity-id>
+      <control-flow-case id="__170">
+        <from-outcome>ERP-ACT-SCM_0008</from-outcome>
+        <to-activity-id>SCM_0008</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
