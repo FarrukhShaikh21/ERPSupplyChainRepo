@@ -416,7 +416,13 @@
     <method-call id="ExeCustTypeForTaxAvailSCM_0008_EDIT">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0008_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeCustTypeTaxSCM_0008_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0008_EDIT</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">
@@ -1027,6 +1033,20 @@
       <control-flow-case id="__167">
         <from-outcome>ERP-QRY-ACT-SCM_0008</from-outcome>
         <to-activity-id>SCM_0008_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__180">
+      <from-activity-id>ExeCustTypeForTaxAvailSCM_0008_EDIT</from-activity-id>
+      <control-flow-case id="__181">
+        <from-outcome>ERP-QRY-ACT-SCM_0008_EDIT</from-outcome>
+        <to-activity-id>ExeCustTypeTaxSCM_0008_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__182">
+      <from-activity-id>ExeCustTypeTaxSCM_0008_EDIT</from-activity-id>
+      <control-flow-case id="__183">
+        <from-outcome>ERP-QRY-ACT-SCM_0008_EDIT</from-outcome>
+        <to-activity-id>SCM_0008_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

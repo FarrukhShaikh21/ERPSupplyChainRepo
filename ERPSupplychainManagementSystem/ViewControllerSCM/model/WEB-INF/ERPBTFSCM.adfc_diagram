@@ -2017,7 +2017,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">T56,-1508.4746,1797.8228,-1526.4785,1678.0459,B56</property>
+         name="sdm:polyPoints">T50,-1511.9746,1798.3447,-1526.4785,1678.0459,B56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -2065,4 +2065,37 @@
       <property
          name="x">-1615.6484</property>
    </MethodCall>
+   <MethodCall
+      id="MethodCall188">
+      <property
+         name="activityId">ExeCustTypeTaxSCM_0008_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeCustTypeTaxSCM_0008_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">2004.4482</property>
+      <property
+         name="x">-1567.6484</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase189"
+      from="MethodCall187"
+      to="MethodCall188">
+      <property
+         name="fromOutcome">ERP-QRY-ACT-SCM_0008_EDIT</property>
+      <property
+         name="sdm:polyPoints">B50,-1615.6484,1932.0977,-1567.6484,1950.0977,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase190"
+      from="MethodCall188"
+      to="View180">
+      <property
+         name="fromOutcome">ERP-QRY-ACT-SCM_0008_EDIT</property>
+      <property
+         name="sdm:polyPoints">T56,-1564.1484,1950.0977,-1511.9746,1906.3447,B50</property>
+   </ControlFlowCase>
 </SDM>
