@@ -15,7 +15,8 @@ public class CustomerTypeForTaxCatQVORowImpl extends ViewRowImpl {
         CustomerTypeCode,
         CustomerTypeName,
         CustomerTypeShortName,
-        CustomerTypeSno;
+        CustomerTypeSno,
+        txtSelected;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -38,10 +39,13 @@ public class CustomerTypeForTaxCatQVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int CUSTOMERTYPECODE = AttributesEnum.CustomerTypeCode.index();
     public static final int CUSTOMERTYPENAME = AttributesEnum.CustomerTypeName.index();
     public static final int CUSTOMERTYPESHORTNAME = AttributesEnum.CustomerTypeShortName.index();
     public static final int CUSTOMERTYPESNO = AttributesEnum.CustomerTypeSno.index();
+    public static final int TXTSELECTED = AttributesEnum.txtSelected.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -79,6 +83,22 @@ public class CustomerTypeForTaxCatQVORowImpl extends ViewRowImpl {
      */
     public Integer getCustomerTypeSno() {
         return (Integer) getAttributeInternal(CUSTOMERTYPESNO);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtSelected.
+     * @return the txtSelected
+     */
+    public String gettxtSelected() {
+        return (String) getAttributeInternal(TXTSELECTED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtSelected.
+     * @param value value to set the  txtSelected
+     */
+    public void settxtSelected(String value) {
+        setAttributeInternal(TXTSELECTED, value);
     }
 }
 
