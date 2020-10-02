@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmCustomerType"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="SCM_CUSTOMER_TYPE"
@@ -367,6 +367,13 @@
     Association="erpscm.modelscm.scmeo.ScmCustTypeScmCustomerCustomerTypeIdAsso"
     AssociationEnd="erpscm.modelscm.scmeo.ScmCustTypeScmCustomerCustomerTypeIdAsso.ScmCustomer"
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustTypeScmCustomerCustomerTypeIdAsso.ScmCustomerType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmCustTypeTax"
+    Association="erpscm.modelscm.scmeo.ScmCustTypeScmCutTypeTaxCustomerTypeIDAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmCustTypeScmCutTypeTaxCustomerTypeIDAsso.ScmCustTypeTax"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustTypeScmCutTypeTaxCustomerTypeIDAsso.ScmCustomerType"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key

@@ -122,6 +122,13 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_CUST_TYPE_TAX"/>
+  <AccessorAttribute
+    Name="ScmCustomerType"
+    Association="erpscm.modelscm.scmeo.ScmCustTypeScmCutTypeTaxCustomerTypeIDAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmCustTypeScmCutTypeTaxCustomerTypeIDAsso.ScmCustomerType"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustTypeScmCutTypeTaxCustomerTypeIDAsso.ScmCustTypeTax"
+    Type="erpscm.modelscm.scmeo.ScmCustomerTypeImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmCustTypeTax"
     PrimaryKey="true">
@@ -130,6 +137,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmCustTypeTax.CustTypeTaxSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmCustTypeTax">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_CUSTOMER_TYPE"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Cust_Type_Tax"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustTypeTax.CustomerTypeSno"/>
     </AttrArray>
   </Key>
 </Entity>

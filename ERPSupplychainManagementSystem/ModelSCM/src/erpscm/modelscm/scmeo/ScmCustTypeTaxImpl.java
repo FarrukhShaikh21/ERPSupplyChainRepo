@@ -29,7 +29,8 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
         CreatedBy,
         CreatedDate,
         LastUpdatedBy,
-        LastUpdatedDate;
+        LastUpdatedDate,
+        ScmCustomerType;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -52,6 +53,7 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
     public static final int CUSTTYPETAXSNO = AttributesEnum.CustTypeTaxSno.index();
     public static final int CUSTOMERTYPESNO = AttributesEnum.CustomerTypeSno.index();
     public static final int OPENDATE = AttributesEnum.OpenDate.index();
@@ -63,11 +65,19 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int SCMCUSTOMERTYPE = AttributesEnum.ScmCustomerType.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public ScmCustTypeTaxImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmCustTypeTax");
     }
 
     /**
@@ -247,19 +257,27 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
     }
 
     /**
+     * @return the associated entity ScmCustomerTypeImpl.
+     */
+    public ScmCustomerTypeImpl getScmCustomerType() {
+        return (ScmCustomerTypeImpl) getAttributeInternal(SCMCUSTOMERTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmCustomerTypeImpl.
+     */
+    public void setScmCustomerType(ScmCustomerTypeImpl value) {
+        setAttributeInternal(SCMCUSTOMERTYPE, value);
+    }
+
+
+    /**
      * @param custTypeTaxSno key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Long custTypeTaxSno) {
         return new Key(new Object[] { custTypeTaxSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmCustTypeTax");
     }
 
     /**
