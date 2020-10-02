@@ -54,6 +54,7 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
         }
     }
 
+
     public static final int CUSTTYPETAXSNO = AttributesEnum.CustTypeTaxSno.index();
     public static final int CUSTOMERTYPESNO = AttributesEnum.CustomerTypeSno.index();
     public static final int OPENDATE = AttributesEnum.OpenDate.index();
@@ -79,6 +80,7 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmCustTypeTax");
     }
+
 
     /**
      * Gets the attribute value for CustTypeTaxSno, using the alias name CustTypeTaxSno.

@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmCustomerTypeVO"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -405,6 +405,11 @@
   <ViewLinkAccessor
     Name="ScmCustomerVO"
     ViewLink="erpscm.modelscm.scmvo.ScmCustTypeScmCustomerCustomerTypeIdVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmCustTypeTaxVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmCustTypeScmCutTypeTaxCustomerTypeIDVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

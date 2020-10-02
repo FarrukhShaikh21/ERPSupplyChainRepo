@@ -403,6 +403,7 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
         return (RowIterator) getAttributeInternal(SCMCUSTTYPETAX);
     }
 
+
     /**
      * @param customerTypeSno key constituent
 

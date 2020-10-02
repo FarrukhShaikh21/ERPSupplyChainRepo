@@ -131,4 +131,10 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewLinkAccessor
+    Name="ScmCustomerTypeVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmCustTypeScmCutTypeTaxCustomerTypeIDVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
