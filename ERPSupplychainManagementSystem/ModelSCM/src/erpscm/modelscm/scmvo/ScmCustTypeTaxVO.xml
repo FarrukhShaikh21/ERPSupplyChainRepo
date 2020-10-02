@@ -95,6 +95,14 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmCustTypeTax"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="txtCustTypeName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCustTypeName"
+    EntityUsage="ScmCustTypeTax"
+    AliasName="txt_Cust_Type_Name"/>
   <ViewCriteria
     Name="ScmCustTypeTaxByCompanyVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustTypeTaxVO"

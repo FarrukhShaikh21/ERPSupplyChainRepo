@@ -87,7 +87,10 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CUST_TYPE_TAX"/>
+    TableName="SCM_CUST_TYPE_TAX">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -105,7 +108,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUST_TYPE_TAX"/>
+    TableName="SCM_CUST_TYPE_TAX"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -121,7 +125,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUST_TYPE_TAX"/>
+    TableName="SCM_CUST_TYPE_TAX"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="txtCustTypeName"
     Precision="80"
@@ -132,7 +137,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmCustomerType?.CustomerTypeName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[ScmCustomerType?.CustomerTypeName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
