@@ -2,6 +2,8 @@ package erpscm.modelscm.scmeo;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
+import erpglobals.modelglobals.ERPGlobalPLSQLClass;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
@@ -31,6 +33,7 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         txtCustTypeName,
+        txtCustTypeCode,
         ScmCustomerType;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -68,6 +71,7 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int TXTCUSTTYPENAME = AttributesEnum.txtCustTypeName.index();
+    public static final int TXTCUSTTYPECODE = AttributesEnum.txtCustTypeCode.index();
     public static final int SCMCUSTOMERTYPE = AttributesEnum.ScmCustomerType.index();
 
     /**
@@ -88,15 +92,15 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
      * Gets the attribute value for CustTypeTaxSno, using the alias name CustTypeTaxSno.
      * @return the value of CustTypeTaxSno
      */
-    public Long getCustTypeTaxSno() {
-        return (Long) getAttributeInternal(CUSTTYPETAXSNO);
+    public Integer getCustTypeTaxSno() {
+        return (Integer) getAttributeInternal(CUSTTYPETAXSNO);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for CustTypeTaxSno.
      * @param value value to set the CustTypeTaxSno
      */
-    public void setCustTypeTaxSno(Long value) {
+    public void setCustTypeTaxSno(Integer value) {
         setAttributeInternal(CUSTTYPETAXSNO, value);
     }
 
@@ -277,6 +281,22 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtCustTypeCode, using the alias name txtCustTypeCode.
+     * @return the value of txtCustTypeCode
+     */
+    public String gettxtCustTypeCode() {
+        return (String) getAttributeInternal(TXTCUSTTYPECODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCustTypeCode.
+     * @param value value to set the txtCustTypeCode
+     */
+    public void settxtCustTypeCode(String value) {
+        setAttributeInternal(TXTCUSTTYPECODE, value);
+    }
+
+    /**
      * @return the associated entity ScmCustomerTypeImpl.
      */
     public ScmCustomerTypeImpl getScmCustomerType() {
@@ -296,7 +316,7 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(Long custTypeTaxSno) {
+    public static Key createPrimaryKey(Integer custTypeTaxSno) {
         return new Key(new Object[] { custTypeTaxSno });
     }
 
@@ -328,6 +348,16 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation == DML_INSERT) {
+            
+            String result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUST_TYPE_TAX_SNO",
+                                                              this.getEntityDef().getSource(), null, null);
+
+            populateAttributeAsChanged(CUSTTYPETAXSNO, Integer.parseInt(result));
+
+
+        }        
         super.doDML(operation, e);
     }
 }

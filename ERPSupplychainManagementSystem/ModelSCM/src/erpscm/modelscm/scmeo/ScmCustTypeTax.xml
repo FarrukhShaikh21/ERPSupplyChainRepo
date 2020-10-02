@@ -18,12 +18,11 @@
   </DesignTime>
   <Attribute
     Name="CustTypeTaxSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="CUST_TYPE_TAX_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_CUST_TYPE_TAX"
     PrimaryKey="true">
@@ -38,7 +37,6 @@
   </Attribute>
   <Attribute
     Name="CustomerTypeSno"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="CUSTOMER_TYPE_SNO"
@@ -63,6 +61,7 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_CUST_TYPE_TAX">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -74,7 +73,6 @@
   </Attribute>
   <Attribute
     Name="TaxTypeSno"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="TAX_TYPE_SNO"
@@ -152,7 +150,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -171,7 +168,6 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
@@ -236,6 +232,24 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmCustTypeTax.txtCustTypeName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtCustTypeCode"
+    Precision="80"
+    ColumnName="txt_Cust_Type_Code"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_CUST_TYPE_TAX">
+    <TransientExpression><![CDATA[ScmCustomerType?.CustomerTypeCode]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustTypeTax.txtCustTypeCode_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
