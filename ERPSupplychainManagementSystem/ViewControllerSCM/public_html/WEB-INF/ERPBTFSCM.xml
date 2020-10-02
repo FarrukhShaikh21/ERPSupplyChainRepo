@@ -413,6 +413,12 @@
         <fixed-outcome>ERP-QRY-ACT-SCM_0008</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeCustTypeForTaxAvailSCM_0008_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1002,7 +1008,7 @@
       <from-activity-id>SCM_0008_EDIT</from-activity-id>
       <control-flow-case id="__176">
         <from-outcome>ERP-QRY-ACT-SCM_0008_EDIT</from-outcome>
-        <to-activity-id>SCM_0008_EDIT_EDIT</to-activity-id>
+        <to-activity-id>ExeCustTypeForTaxAvailSCM_0008_EDIT</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__179">
         <from-outcome>ERPBACKCRUD</from-outcome>

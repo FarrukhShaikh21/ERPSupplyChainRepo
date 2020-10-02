@@ -103,6 +103,15 @@
                     <af:panelGroupLayout id="pgl10" layout="vertical" styleClass="WBCardSize">
                       <af:panelBox text="PanelBox5" id="pb2" showHeader="never" showDisclosure="false">
                         <f:facet name="toolbar"/>
+                        <af:inputText value="#{bindings.TaxTypeSno.inputValue}"
+                                      label="#{bindings.TaxTypeSno.hints.label}"
+                                      required="#{bindings.TaxTypeSno.hints.mandatory}"
+                                      columns="#{bindings.TaxTypeSno.hints.displayWidth}"
+                                      maximumLength="#{bindings.TaxTypeSno.hints.precision}"
+                                      shortDesc="#{bindings.TaxTypeSno.hints.tooltip}" id="it5" rendered="false">
+                          <f:validator binding="#{bindings.TaxTypeSno.validator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.TaxTypeSno.format}"/>
+                        </af:inputText>
                         <af:panelGridLayout id="pgl5">
                           <af:gridRow marginTop="5px" height="auto" id="gr5">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc11"
