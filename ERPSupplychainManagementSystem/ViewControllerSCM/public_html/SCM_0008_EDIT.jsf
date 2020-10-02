@@ -39,7 +39,8 @@
                                           required="#{bindings.TypeLevel.hints.mandatory}"
                                           columns="#{bindings.TypeLevel.hints.displayWidth}"
                                           maximumLength="#{bindings.TypeLevel.hints.precision}"
-                                          shortDesc="#{bindings.TypeLevel.hints.tooltip}" id="it3" readOnly="true">
+                                          shortDesc="#{bindings.TypeLevel.hints.tooltip}" id="it3" readOnly="true"
+                                          rendered="false">
                               <f:validator binding="#{bindings.TypeLevel.validator}"/>
                               <af:convertNumber groupingUsed="false" pattern="#{bindings.TypeLevel.format}"/>
                             </af:inputText>

@@ -37,73 +37,77 @@
                                 <af:panelGridLayout id="pgl2">
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
                                         <af:gridCell marginStart="5px" width="40%" id="gc3" halign="stretch">
-                                            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                                                <f:facet name="menus"/>
+                                            <af:panelBox text="Available Customer Type" id="pb1" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
-                                                <f:facet name="statusbar"/>
-                                                <af:table value="#{bindings.CustomerTypeForTaxCatRO.collectionModel}"
-                                                          var="row" rows="#{bindings.CustomerTypeForTaxCatRO.rangeSize}"
-                                                          emptyText="#{bindings.CustomerTypeForTaxCatRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                          rowBandingInterval="0"
-                                                          selectedRowKeys="#{bindings.CustomerTypeForTaxCatRO.collectionModel.selectedRow}"
-                                                          selectionListener="#{bindings.CustomerTypeForTaxCatRO.collectionModel.makeCurrent}"
-                                                          rowSelection="single"
-                                                          fetchSize="#{bindings.CustomerTypeForTaxCatRO.rangeSize}"
-                                                          id="t1" columnStretching="last">
-                                                    <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.label}"
-                                                               id="c1">
-                                                        <af:inputText value="#{row.bindings.CustomerTypeCode.inputValue}"
-                                                                      label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.label}"
-                                                                      required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.mandatory}"
-                                                                      columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.displayWidth}"
-                                                                      maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.precision}"
-                                                                      shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.tooltip}"
-                                                                      id="it1">
-                                                            <f:validator binding="#{row.bindings.CustomerTypeCode.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
-                                                               id="c2">
-                                                        <af:inputText value="#{row.bindings.CustomerTypeShortName.inputValue}"
-                                                                      label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
-                                                                      required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.mandatory}"
-                                                                      columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.displayWidth}"
-                                                                      maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.precision}"
-                                                                      shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.tooltip}"
-                                                                      id="it2">
-                                                            <f:validator binding="#{row.bindings.CustomerTypeShortName.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.label}"
-                                                               id="c3">
-                                                        <af:inputText value="#{row.bindings.CustomerTypeName.inputValue}"
-                                                                      label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.label}"
-                                                                      required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.mandatory}"
-                                                                      columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.displayWidth}"
-                                                                      maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.precision}"
-                                                                      shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.tooltip}"
-                                                                      id="it3">
-                                                            <f:validator binding="#{row.bindings.CustomerTypeName.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.label}"
-                                                               id="c4" rendered="false">
-                                                        <af:inputText value="#{row.bindings.CustomerTypeSno.inputValue}"
-                                                                      label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.label}"
-                                                                      required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.mandatory}"
-                                                                      columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.displayWidth}"
-                                                                      maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.precision}"
-                                                                      shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.tooltip}"
-                                                                      id="it4">
-                                                            <f:validator binding="#{row.bindings.CustomerTypeSno.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                </af:table>
-                                            </af:panelCollection>
+                                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                                    <f:facet name="menus"/>
+                                                    <f:facet name="toolbar"/>
+                                                    <f:facet name="statusbar"/>
+                                                    <af:table value="#{bindings.CustomerTypeForTaxCatRO.collectionModel}"
+                                                              var="row"
+                                                              rows="#{bindings.CustomerTypeForTaxCatRO.rangeSize}"
+                                                              emptyText="#{bindings.CustomerTypeForTaxCatRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                              rowBandingInterval="0"
+                                                              selectedRowKeys="#{bindings.CustomerTypeForTaxCatRO.collectionModel.selectedRow}"
+                                                              selectionListener="#{bindings.CustomerTypeForTaxCatRO.collectionModel.makeCurrent}"
+                                                              rowSelection="single"
+                                                              fetchSize="#{bindings.CustomerTypeForTaxCatRO.rangeSize}"
+                                                              id="t1" columnStretching="last">
+                                                        <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.label}"
+                                                                   id="c1">
+                                                            <af:inputText value="#{row.bindings.CustomerTypeCode.inputValue}"
+                                                                          label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.label}"
+                                                                          required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.mandatory}"
+                                                                          columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.displayWidth}"
+                                                                          maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.precision}"
+                                                                          shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.tooltip}"
+                                                                          id="it1">
+                                                                <f:validator binding="#{row.bindings.CustomerTypeCode.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
+                                                                   id="c2">
+                                                            <af:inputText value="#{row.bindings.CustomerTypeShortName.inputValue}"
+                                                                          label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
+                                                                          required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.mandatory}"
+                                                                          columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.displayWidth}"
+                                                                          maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.precision}"
+                                                                          shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.tooltip}"
+                                                                          id="it2">
+                                                                <f:validator binding="#{row.bindings.CustomerTypeShortName.validator}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.label}"
+                                                                   id="c3">
+                                                            <af:inputText value="#{row.bindings.CustomerTypeName.inputValue}"
+                                                                          label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.label}"
+                                                                          required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.mandatory}"
+                                                                          columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.displayWidth}"
+                                                                          maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.precision}"
+                                                                          shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.tooltip}"
+                                                                          id="it3">
+                                                                <f:validator binding="#{row.bindings.CustomerTypeName.validator}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.label}"
+                                                                   id="c4" rendered="false">
+                                                            <af:inputText value="#{row.bindings.CustomerTypeSno.inputValue}"
+                                                                          label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.label}"
+                                                                          required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.mandatory}"
+                                                                          columns="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.displayWidth}"
+                                                                          maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.precision}"
+                                                                          shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.tooltip}"
+                                                                          id="it4">
+                                                                <f:validator binding="#{row.bindings.CustomerTypeSno.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                    </af:table>
+                                                </af:panelCollection>
+                                            </af:panelBox>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4"
                                                      halign="stretch"/>
