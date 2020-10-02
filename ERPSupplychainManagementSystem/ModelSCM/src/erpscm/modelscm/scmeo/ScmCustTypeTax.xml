@@ -122,6 +122,17 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_CUST_TYPE_TAX"/>
+  <Attribute
+    Name="txtCustTypeName"
+    Precision="80"
+    ColumnName="txt_Cust_Type_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_CUST_TYPE_TAX">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmCustomerType?.CustomerTypeName]]></TransientExpression>
+  </Attribute>
   <AccessorAttribute
     Name="ScmCustomerType"
     Association="erpscm.modelscm.scmeo.ScmCustTypeScmCutTypeTaxCustomerTypeIDAsso"

@@ -30,6 +30,7 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
+        txtCustTypeName,
         ScmCustomerType;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -66,6 +67,7 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int TXTCUSTTYPENAME = AttributesEnum.txtCustTypeName.index();
     public static final int SCMCUSTOMERTYPE = AttributesEnum.ScmCustomerType.index();
 
     /**
@@ -256,6 +258,22 @@ public class ScmCustTypeTaxImpl extends ERPEntityImpl {
      */
     public void setLastUpdatedDate(Timestamp value) {
         setAttributeInternal(LASTUPDATEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCustTypeName, using the alias name txtCustTypeName.
+     * @return the value of txtCustTypeName
+     */
+    public String gettxtCustTypeName() {
+        return (String) getAttributeInternal(TXTCUSTTYPENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCustTypeName.
+     * @param value value to set the txtCustTypeName
+     */
+    public void settxtCustTypeName(String value) {
+        setAttributeInternal(TXTCUSTTYPENAME, value);
     }
 
     /**
