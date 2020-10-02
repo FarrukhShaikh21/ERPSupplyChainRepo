@@ -29,5 +29,14 @@
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <tree IterBinding="ScmCustTypeTaxCRUDIterator" id="ScmCustTypeTaxCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmCustTypeTaxVO" Name="ScmCustTypeTaxCRUD0">
+        <AttrNames>
+          <Item Value="txtCustTypeName"/>
+          <Item Value="OpenDate"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
