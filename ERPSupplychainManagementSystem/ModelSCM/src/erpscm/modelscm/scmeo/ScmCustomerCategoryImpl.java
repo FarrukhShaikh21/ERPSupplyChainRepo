@@ -39,7 +39,8 @@ public class ScmCustomerCategoryImpl extends ERPEntityImpl {
         UnSupervisedDate,
         SupervisedBy,
         UnSupervisedBy,
-        ScmCustomer;
+        ScmCustomer,
+        ScmCustomerCategotyTax;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -83,6 +84,7 @@ public class ScmCustomerCategoryImpl extends ERPEntityImpl {
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
     public static final int SCMCUSTOMER = AttributesEnum.ScmCustomer.index();
+    public static final int SCMCUSTOMERCATEGOTYTAX = AttributesEnum.ScmCustomerCategotyTax.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -394,6 +396,13 @@ public class ScmCustomerCategoryImpl extends ERPEntityImpl {
         return (RowIterator) getAttributeInternal(SCMCUSTOMER);
     }
 
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmCustomerCategotyTax() {
+        return (RowIterator) getAttributeInternal(SCMCUSTOMERCATEGOTYTAX);
+    }
 
     /**
      * @param categorySno key constituent
