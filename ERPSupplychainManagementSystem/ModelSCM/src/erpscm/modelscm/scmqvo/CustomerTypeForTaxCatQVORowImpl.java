@@ -120,7 +120,7 @@ public class CustomerTypeForTaxCatQVORowImpl extends ViewRowImpl implements Cust
             ViewObject vo = getDBTransaction().getRootApplicationModule().findViewObject("ScmCustTypeTaxCRUD");
             Row cr = vo.createRow();
             cr.setAttribute("CompanyId", getCompanyId());
-            cr.setAttribute("TaxTypeSno", getDBTransaction().getRootApplicationModule().findViewObject("GlTaxTypeCustTypeRO").first().getAttribute("TaxTypeSno"));
+            cr.setAttribute("TaxTypeSno", getDBTransaction().getRootApplicationModule().findViewObject("GlTaxTypeByTaxIDRO").first().getAttribute("TaxTypeSno"));
             cr.setAttribute("CustomerTypeSno", getCustomerTypeSno());
         //cr.setAttribute("Remarks", "Copied" + getModuleAction());
             settxtSelected("Y");

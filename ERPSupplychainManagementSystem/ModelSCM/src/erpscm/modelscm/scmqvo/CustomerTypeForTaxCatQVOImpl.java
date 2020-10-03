@@ -60,9 +60,9 @@ public class CustomerTypeForTaxCatQVOImpl extends ViewObjectImpl implements Cust
              //record might be assigned through single assignment
              if (r.getAttribute("txtSelected")== null || r.getAttribute("txtSelected").toString().equals("N")) {
                  r.setAttribute("txtSelected", "Y");
-                 Row cr = vo.createRow();
+                 Row cr = vo.createRow();/*GlTaxTypeByTaxIDRO*/
                  cr.setAttribute("CompanyId", getDBTransaction().getRootApplicationModule().findViewObject("AdminCompanyVOByCompanyRO").first().getAttribute("CompCode"));
-                 cr.setAttribute("TaxTypeSno", getDBTransaction().getRootApplicationModule().findViewObject("GlTaxTypeCustTypeRO").first().getAttribute("TaxTypeSno"));
+                 cr.setAttribute("TaxTypeSno", getDBTransaction().getRootApplicationModule().findViewObject("GlTaxTypeByTaxIDRO").first().getAttribute("TaxTypeSno"));
                  cr.setAttribute("IsActive", "Y");
                  cr.setAttribute("CustomerTypeSno", r.getAttribute("CustomerTypeSno"));
                  vo.insertRow(cr);
