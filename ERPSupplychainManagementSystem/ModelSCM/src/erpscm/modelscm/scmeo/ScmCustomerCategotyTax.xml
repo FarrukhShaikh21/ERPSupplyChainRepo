@@ -12,7 +12,6 @@
   BindingStyle="OracleName">
   <Attribute
     Name="CustomerCategoryTaxSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="CUSTOMER_CATEGORY_TAX_SNO"
@@ -23,7 +22,6 @@
     PrimaryKey="true"/>
   <Attribute
     Name="CategorySno"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="CATEGORY_SNO"
@@ -38,7 +36,10 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER_CATEGOTY_TAX"/>
+    TableName="SCM_CUSTOMER_CATEGOTY_TAX">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="TaxTypeSno"
     IsNotNull="true"
@@ -57,14 +58,14 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_CUSTOMER_CATEGOTY_TAX">
+    TableName="SCM_CUSTOMER_CATEGOTY_TAX"
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="CompanyId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="COMPANY_ID"
@@ -74,7 +75,6 @@
     TableName="SCM_CUSTOMER_CATEGOTY_TAX"/>
   <Attribute
     Name="GlobalCompanyId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="GLOBAL_COMPANY_ID"
@@ -84,7 +84,6 @@
     TableName="SCM_CUSTOMER_CATEGOTY_TAX"/>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -99,7 +98,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER_CATEGOTY_TAX"/>
+    TableName="SCM_CUSTOMER_CATEGOTY_TAX"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -115,7 +115,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER_CATEGOTY_TAX"/>
+    TableName="SCM_CUSTOMER_CATEGOTY_TAX"
+    RetrievedOnUpdate="true"/>
   <Key
     Name="PkScmCustCategotyTax"
     PrimaryKey="true">
