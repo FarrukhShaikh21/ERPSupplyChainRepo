@@ -8,8 +8,10 @@
               id="CustomerTypeForTaxCatROIterator"/>
     <iterator Binds="ScmCustTypeTaxCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmCustTypeTaxCRUDIterator"/>
-    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="CustomerTypeForTaxCatROIterator" id="ImplicitViewCriteriaQuery"/>
+    <searchRegion Criteria="CustomerTypeForTaxCatFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerTypeForTaxCatROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+    <iterator Binds="GlTaxTypeByTaxIDRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="GlTaxTypeByTaxIDROIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="CustomerTypeForTaxCatROIterator" id="CustomerTypeForTaxCatRO">
@@ -52,5 +54,30 @@
                   IsViewObjectMethod="false" DataControl="ERPSCMModuleDataControl"
                   InstanceName="bindings.CustomerTypeForTaxCatROIterator.currentRow" IsLocalObjectReference="true"
                   ReturnName="data.ERPSCMModuleDataControl.methodResults.doErpAssignSingleCustTypeToTaxType_doErpAssignSingleCustTypeToTaxType_doErpAssignSingleCustTypeToTaxType_result"/>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeSno">
+      <AttrNames>
+        <Item Value="TaxTypeSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeCode">
+      <AttrNames>
+        <Item Value="TaxTypeCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeShortName">
+      <AttrNames>
+        <Item Value="TaxTypeShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="OpenDate">
+      <AttrNames>
+        <Item Value="OpenDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeName">
+      <AttrNames>
+        <Item Value="TaxTypeName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

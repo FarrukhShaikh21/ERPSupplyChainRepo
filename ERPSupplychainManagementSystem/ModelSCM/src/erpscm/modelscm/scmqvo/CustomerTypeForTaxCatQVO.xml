@@ -76,7 +76,7 @@ order by ct.customer_type_name]]></SQLQuery>
         <LABEL
           ResId="erpscm.modelscm.scmqvo.CustomerTypeForTaxCatQVO.CustomerTypeCode_LABEL"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -99,7 +99,7 @@ order by ct.customer_type_name]]></SQLQuery>
         <LABEL
           ResId="erpscm.modelscm.scmqvo.CustomerTypeForTaxCatQVO.CustomerTypeName_LABEL"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -122,7 +122,7 @@ order by ct.customer_type_name]]></SQLQuery>
         <LABEL
           ResId="erpscm.modelscm.scmqvo.CustomerTypeForTaxCatQVO.CustomerTypeShortName_LABEL"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -144,6 +144,8 @@ order by ct.customer_type_name]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmqvo.CustomerTypeForTaxCatQVO.CustomerTypeSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -166,7 +168,7 @@ order by ct.customer_type_name]]></SQLQuery>
         <LABEL
           ResId="erpscm.modelscm.scmqvo.CustomerTypeForTaxCatQVO.CompanyId_LABEL"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -179,7 +181,71 @@ order by ct.customer_type_name]]></SQLQuery>
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
+    SQLType="VARCHAR"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="15"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="CustomerTypeForTaxCatFindVC"
+    ViewObjectName="erpscm.modelscm.scmqvo.CustomerTypeForTaxCatQVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CustomerTypeForTaxCatQVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CustomerTypeCode"
+        ViewAttribute="CustomerTypeCode"
+        Operator="="
+        Conjunction="AND"
+        Value=""
+        Required="Optional">
+        <Properties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="10"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="CustomerTypeName"
+        ViewAttribute="CustomerTypeName"
+        Operator="="
+        Conjunction="AND"
+        Value=""
+        Required="Optional">
+        <Properties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="10"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="CustomerTypeSno"/>
   </AttrArray>

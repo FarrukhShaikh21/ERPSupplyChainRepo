@@ -425,6 +425,12 @@
         <fixed-outcome>ERP-QRY-ACT-SCM_0008_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">

@@ -154,6 +154,13 @@
       Name="ScmCustTypeTaxVOCriteria"
       FullName="erpscm.modelscm.scmvo.ScmCustTypeTaxVO.ScmCustTypeTaxVOCriteria"/>
   </ViewUsage>
+  <ViewUsage
+    Name="GlTaxTypeByTaxIDRO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlTaxTypeVO">
+    <ViewCriteriaUsage
+      Name="GlTaxTypeVOByTaxTypeIDVC"
+      FullName="erpfms.modelfms.fmsvo.GlTaxTypeVO.GlTaxTypeVOByTaxTypeIDVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"

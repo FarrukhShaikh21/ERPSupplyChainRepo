@@ -36,7 +36,7 @@
                                 <f:facet name="toolbar"/>
                                 <af:panelGridLayout id="pgl2">
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
-                                        <af:gridCell marginStart="5px" width="50%" id="gc3" halign="stretch"
+                                        <af:gridCell marginStart="5px" width="40%" id="gc3" halign="stretch"
                                                      marginEnd="5px">
                                             <af:panelBox text="Available Customer Type" id="pb1" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
@@ -44,12 +44,12 @@
                                                                     featuresOff="detach viewMenu">
                                                     <f:facet name="menus"/>
                                                     <f:facet name="toolbar">
-                                                        <af:toolbar id="t5" flex="1">
-                                                            <af:quickQuery label="Search" searchDesc="Search"
-                                                                           id="qryId1"
+                                                        <af:toolbar id="t5">
+                                                            <af:quickQuery id="qryId1"
                                                                            value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
                                                                            model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
-                                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                                                                           label=" " styleClass="AFStretchWidth">
                                                                 <f:facet name="end">
                                                                     <af:commandLink text="Advanced" rendered="false"
                                                                                     id="cl1"/>
@@ -61,7 +61,8 @@
                                                         <af:toolbar id="t4" flex="0">
                                                             <af:panelGroupLayout id="pgl3" layout="horizontal">
                                                                 <af:outputText value="Total Record(s) #{bindings.CustomerTypeForTaxCatRO.estimatedRowCount}" id="ot1"
-                                                                               inlineStyle="font-weight:bold"/>
+                                                                               inlineStyle="font-weight:bold"
+                                                                               partialTriggers="qryId1 l10"/>
                                                             </af:panelGroupLayout>
                                                         </af:toolbar>
                                                     </f:facet>
@@ -74,7 +75,7 @@
                                                               selectionListener="#{bindings.CustomerTypeForTaxCatRO.collectionModel.makeCurrent}"
                                                               rowSelection="single"
                                                               fetchSize="#{bindings.CustomerTypeForTaxCatRO.rangeSize}"
-                                                              id="t1" columnStretching="last" partialTriggers="l11">
+                                                              id="t1" columnStretching="column:c3" partialTriggers="l11">
                                                         <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.label}"
                                                                    id="c1">
                                                             <af:inputText value="#{row.bindings.CustomerTypeCode.inputValue}"
@@ -90,7 +91,8 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
-                                                                   id="c2" width="80" displayIndex="-1">
+                                                                   id="c2" width="80" displayIndex="-1"
+                                                                   rendered="false">
                                                             <af:inputText value="#{row.bindings.CustomerTypeShortName.inputValue}"
                                                                           label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
                                                                           required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.mandatory}"
@@ -127,103 +129,99 @@
                                                                                   pattern="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.format}"/>
                                                             </af:inputText>
                                                         </af:column>
-                                                        <af:column id="c9">
+                                                        <af:column id="c9" width="80" displayIndex="-1">
                                                             <af:inputText value="#{row.bindings.txtSelected.inputValue}"
                                                                           label="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.label}"
                                                                           required="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.mandatory}"
                                                                           columns="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.displayWidth}"
                                                                           maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.precision}"
                                                                           shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.tooltip}"
-                                                                          id="it7">
+                                                                          id="it7" rendered="false">
                                                                 <f:validator binding="#{row.bindings.txtSelected.validator}"/>
                                                             </af:inputText>
                                                             <af:link actionListener="#{bindings.doErpAssignSingleCustTypeToTaxType.execute}"
-                                                                     text="doErpAssignSingleCustTypeToTaxType"
+                                                                     text="Assign This"
                                                                      disabled="#{row.bindings.txtSelected.inputValue=='Y'}"
-                                                                     id="l11"/>
+                                                                     id="l11" partialSubmit="true"/>
                                                         </af:column>
                                                     </af:table>
                                                     <f:facet name="secondaryToolbar">
                                                         <af:toolbar id="t3">
                                                             <af:link actionListener="#{bindings.doErpAssignAllCustTypeToTaxType.execute}"
                                                                      text="Assign All"
-                                                                     disabled="#{!bindings.doErpAssignAllCustTypeToTaxType.enabled}"
+                                                                     disabled="#{bindings.CustomerTypeForTaxCatROIterator.estimatedRowCount==0}"
                                                                      id="l10"
-                                                                     partialSubmit="#{bindings.CustomerTypeForTaxCatRO.estimatedRowCount==0}"/>
+                                                                     partialSubmit="true"
+                                                                     partialTriggers="t1:c4 t1:l11"/>
                                                         </af:toolbar>
                                                     </f:facet>
                                                 </af:panelCollection>
                                             </af:panelBox>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4"
+                                        <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4"
                                                      halign="stretch">
                                             <af:panelBox text="Assigned Customer Type" id="pb3" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
-                                                <af:panelCollection id="pc2" featuresOff="viewMenu detach">
-                                                    <f:facet name="menus"/>
-                                                    <f:facet name="toolbar"/>
-                                                    <f:facet name="statusbar"/>
-                                                    <af:table value="#{bindings.ScmCustTypeTaxCRUD.collectionModel}"
-                                                              var="row" rows="#{bindings.ScmCustTypeTaxCRUD.rangeSize}"
-                                                              emptyText="#{bindings.ScmCustTypeTaxCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                              rowBandingInterval="0"
-                                                              selectedRowKeys="#{bindings.ScmCustTypeTaxCRUD.collectionModel.selectedRow}"
-                                                              selectionListener="#{bindings.ScmCustTypeTaxCRUD.collectionModel.makeCurrent}"
-                                                              rowSelection="single"
-                                                              fetchSize="#{bindings.ScmCustTypeTaxCRUD.rangeSize}"
-                                                              id="t2"
-                                                              partialTriggers="::l4 ::l6 ::l9 :::l4 :::l6 :::l9"
-                                                              columnStretching="column:c5">
-                                                        <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.label}"
-                                                                   id="c8" width="60" minimumWidth="12">
-                                                            <af:inputText value="#{row.bindings.txtCustTypeCode.inputValue}"
-                                                                          label="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.label}"
-                                                                          required="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.mandatory}"
-                                                                          columns="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.precision}"
-                                                                          shortDesc="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.tooltip}"
-                                                                          id="it6" readOnly="true">
-                                                                <f:validator binding="#{row.bindings.txtCustTypeCode.validator}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.label}"
-                                                                   id="c5">
-                                                            <af:inputText value="#{row.bindings.txtCustTypeName.inputValue}"
-                                                                          label="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.label}"
-                                                                          required="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.mandatory}"
-                                                                          columns="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.precision}"
-                                                                          shortDesc="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.tooltip}"
-                                                                          id="it5" contentStyle="width:100%">
-                                                                <f:validator binding="#{row.bindings.txtCustTypeName.validator}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.label}"
-                                                                   id="c6" width="120" displayIndex="-1">
-                                                            <af:inputDate value="#{row.bindings.OpenDate.inputValue}"
-                                                                          label="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.label}"
-                                                                          required="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.mandatory}"
-                                                                          columns="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.tooltip}"
-                                                                          id="id1" contentStyle="width:60%">
-                                                                <f:validator binding="#{row.bindings.OpenDate.validator}"/>
-                                                                <af:convertDateTime pattern="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.format}"/>
-                                                            </af:inputDate>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.IsActive.label}"
-                                                                   id="c7">
-                                                            <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
-                                                                                label="#{row.bindings.IsActive.label}"
-                                                                                required="#{bindings.ScmCustTypeTaxCRUD.hints.IsActive.mandatory}"
-                                                                                shortDesc="#{bindings.ScmCustTypeTaxCRUD.hints.IsActive.tooltip}"
-                                                                                id="soc1">
-                                                                <f:selectItems value="#{row.bindings.IsActive.items}"
-                                                                               id="si1"/>
-                                                                <f:validator binding="#{row.bindings.IsActive.validator}"/>
-                                                            </af:selectOneChoice>
-                                                        </af:column>
-                                                    </af:table>
-                                                </af:panelCollection>
+                                                <af:table value="#{bindings.ScmCustTypeTaxCRUD.collectionModel}"
+                                                          var="row" rows="#{bindings.ScmCustTypeTaxCRUD.rangeSize}"
+                                                          emptyText="#{bindings.ScmCustTypeTaxCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.ScmCustTypeTaxCRUD.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.ScmCustTypeTaxCRUD.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.ScmCustTypeTaxCRUD.rangeSize}" id="t2"
+                                                          partialTriggers="::l4 ::l6 ::l9 :::l4 :::l6 :::l9"
+                                                          columnStretching="column:c5" styleClass="AFStretchWidth">
+                                                    <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.label}"
+                                                               id="c8" width="60" minimumWidth="12">
+                                                        <af:inputText value="#{row.bindings.txtCustTypeCode.inputValue}"
+                                                                      label="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.label}"
+                                                                      required="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.mandatory}"
+                                                                      columns="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.precision}"
+                                                                      shortDesc="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.tooltip}"
+                                                                      id="it6" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.txtCustTypeCode.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.label}"
+                                                               id="c5">
+                                                        <af:inputText value="#{row.bindings.txtCustTypeName.inputValue}"
+                                                                      label="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.label}"
+                                                                      required="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.mandatory}"
+                                                                      columns="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.precision}"
+                                                                      shortDesc="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.tooltip}"
+                                                                      id="it5" contentStyle="width:100%"
+                                                                      readOnly="true">
+                                                            <f:validator binding="#{row.bindings.txtCustTypeName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.label}"
+                                                               id="c6" width="120" displayIndex="-1">
+                                                        <af:inputDate value="#{row.bindings.OpenDate.inputValue}"
+                                                                      label="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.label}"
+                                                                      required="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.mandatory}"
+                                                                      columns="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.displayWidth}"
+                                                                      shortDesc="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.tooltip}"
+                                                                      id="id1" contentStyle="width:60%">
+                                                            <f:validator binding="#{row.bindings.OpenDate.validator}"/>
+                                                            <af:convertDateTime pattern="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.format}"/>
+                                                        </af:inputDate>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.IsActive.label}"
+                                                               id="c7" width="70" minimumWidth="12">
+                                                        <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
+                                                                            label="#{row.bindings.IsActive.label}"
+                                                                            required="#{bindings.ScmCustTypeTaxCRUD.hints.IsActive.mandatory}"
+                                                                            shortDesc="#{bindings.ScmCustTypeTaxCRUD.hints.IsActive.tooltip}"
+                                                                            id="soc1" contentStyle="width:100%">
+                                                            <f:selectItems value="#{row.bindings.IsActive.items}"
+                                                                           id="si1"/>
+                                                            <f:validator binding="#{row.bindings.IsActive.validator}"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
+                                                </af:table>
                                             </af:panelBox>
                                         </af:gridCell>
                                     </af:gridRow>
@@ -233,8 +231,61 @@
                         <f:facet name="top">
                             <af:panelGridLayout id="pgl1">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc1"/>
-                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2"
+                                    <af:gridCell marginStart="5px" width="70%" id="gc1" halign="stretch">
+                                        <af:panelFormLayout id="pfl1" maxColumns="4" rows="1"
+                                                            styleClass="AFStretchWidth">
+                                            <af:inputText value="#{bindings.TaxTypeSno.inputValue}"
+                                                          label="#{bindings.TaxTypeSno.hints.label}"
+                                                          required="#{bindings.TaxTypeSno.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeSno.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeSno.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeSno.hints.tooltip}" id="it8"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.TaxTypeSno.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.TaxTypeSno.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.TaxTypeCode.inputValue}"
+                                                          label="#{bindings.TaxTypeCode.hints.label}"
+                                                          required="#{bindings.TaxTypeCode.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeCode.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeCode.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeCode.hints.tooltip}" id="it9"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.TaxTypeCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.TaxTypeCode.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.TaxTypeShortName.inputValue}"
+                                                          label="#{bindings.TaxTypeShortName.hints.label}"
+                                                          required="#{bindings.TaxTypeShortName.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeShortName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeShortName.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeShortName.hints.tooltip}"
+                                                          id="it10" rendered="false">
+                                                <f:validator binding="#{bindings.TaxTypeShortName.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.TaxTypeName.inputValue}"
+                                                          label="#{bindings.TaxTypeName.hints.label}"
+                                                          required="#{bindings.TaxTypeName.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeName.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeName.hints.tooltip}" id="it11"
+                                                          readOnly="true">
+                                                <f:validator binding="#{bindings.TaxTypeName.validator}"/>
+                                            </af:inputText>
+                                            <af:inputDate value="#{bindings.OpenDate.inputValue}"
+                                                          label="#{bindings.OpenDate.hints.label}"
+                                                          required="#{bindings.OpenDate.hints.mandatory}"
+                                                          columns="#{bindings.OpenDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id2"
+                                                          readOnly="true">
+                                                <f:validator binding="#{bindings.OpenDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
+                                            </af:inputDate>
+                                        </af:panelFormLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc2"
                                                  halign="stretch">
 <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
                                             <af:link id="l5" partialSubmit="true"
