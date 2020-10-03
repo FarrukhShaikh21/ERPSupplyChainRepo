@@ -133,10 +133,17 @@ order by ct.customer_type_name]]></SQLQuery>
     ColumnType="INT"
     AliasName="customer_type_sno"
     Expression="customer_type_sno"
-    SQLType="INTEGER">
+    SQLType="INTEGER"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.CustomerTypeForTaxCatQVO.CustomerTypeSno_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CompanyId"
@@ -147,10 +154,19 @@ order by ct.customer_type_name]]></SQLQuery>
     ColumnType="INT"
     AliasName="company_id"
     Expression="company_id"
-    SQLType="NUMERIC">
+    SQLType="NUMERIC"
+    IsQueriable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.CustomerTypeForTaxCatQVO.CompanyId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="txtSelected"

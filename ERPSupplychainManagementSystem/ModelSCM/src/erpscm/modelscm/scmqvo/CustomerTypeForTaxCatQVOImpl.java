@@ -52,7 +52,7 @@ public class CustomerTypeForTaxCatQVOImpl extends ViewObjectImpl implements Cust
     }
     
     public void doErpAssignAllCustTypeToTaxType() {
-         ViewObject vo = getRootApplicationModule().findViewObject("CustomerTypeForTaxCatRO");
+         ViewObject vo = getRootApplicationModule().findViewObject("ScmCustTypeTaxCRUD");
          RowSetIterator rsi =this.getRowSet();
          rsi.setRangeSize(-1);
          for (int i=0;i<rsi.getRowCount();i++) {
