@@ -290,48 +290,47 @@
         ViewAttribute="CategoryShortCode"
         Operator="="
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="ScmCustomerCategoryVOCriteria_ScmCustomerCategoryVOCriteria_row_0_CategoryShortName"
         ViewAttribute="CategoryShortName"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="CategoryTypeName"
         ViewAttribute="CategoryTypeName"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="OpenDate"
         ViewAttribute="OpenDate"
         Operator="BETWEEN"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="IsActive"
         ViewAttribute="IsActive"
         Operator="="
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="IsSupervised"
         ViewAttribute="IsSupervised"
         Operator="="
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmCustomerVO"
     ViewLink="erpscm.modelscm.scmvo.SmCustScmCustCategoryIdVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmCustomerCategotyTaxVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmCustCategoryScmCustCatTaxCategorySnoVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

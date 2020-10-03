@@ -404,6 +404,7 @@ public class ScmCustomerCategoryImpl extends ERPEntityImpl {
         return (RowIterator) getAttributeInternal(SCMCUSTOMERCATEGOTYTAX);
     }
 
+
     /**
      * @param categorySno key constituent
 
