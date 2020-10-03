@@ -16,6 +16,7 @@ public class CustomerTypeForTaxCatQVORowImpl extends ViewRowImpl {
         CustomerTypeName,
         CustomerTypeShortName,
         CustomerTypeSno,
+        CompanyId,
         txtSelected;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -45,6 +46,7 @@ public class CustomerTypeForTaxCatQVORowImpl extends ViewRowImpl {
     public static final int CUSTOMERTYPENAME = AttributesEnum.CustomerTypeName.index();
     public static final int CUSTOMERTYPESHORTNAME = AttributesEnum.CustomerTypeShortName.index();
     public static final int CUSTOMERTYPESNO = AttributesEnum.CustomerTypeSno.index();
+    public static final int COMPANYID = AttributesEnum.CompanyId.index();
     public static final int TXTSELECTED = AttributesEnum.txtSelected.index();
 
     /**
@@ -83,6 +85,14 @@ public class CustomerTypeForTaxCatQVORowImpl extends ViewRowImpl {
      */
     public Integer getCustomerTypeSno() {
         return (Integer) getAttributeInternal(CUSTOMERTYPESNO);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute CompanyId.
+     * @return the CompanyId
+     */
+    public Integer getCompanyId() {
+        return (Integer) getAttributeInternal(COMPANYID);
     }
 
     /**

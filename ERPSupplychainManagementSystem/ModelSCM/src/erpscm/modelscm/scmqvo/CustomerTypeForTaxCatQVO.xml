@@ -40,20 +40,21 @@
       <Item Value="1"/>
     </AttrArray>
   </Variable>
-  <SQLQuery><![CDATA[select ct.customer_type_code, 
-     ct.customer_type_name, 
-       ct.customer_type_short_name, 
-       ct.customer_type_sno 
-from scm_customer_type ct 
-where ct.is_supervised='Y' 
-AND  ct.is_active='Y' 
-and  ct.company_id=? /*0*/ 
-and not exists( 
-        select '' 
-         FROM scm_cust_type_tax X 
-         WHERE ct.customer_type_sno=x.customer_type_sno 
-         and   x.tax_type_sno=? /*1*/ 
-          ) 
+  <SQLQuery><![CDATA[select ct.customer_type_code,   
+     ct.customer_type_name,   
+       ct.customer_type_short_name,   
+       ct.customer_type_sno ,  
+       ct.company_id  
+from scm_customer_type ct   
+where ct.is_supervised='Y'   
+AND  ct.is_active='Y'   
+and  ct.company_id=? /*0*/   
+and not exists(   
+        select ''   
+         FROM scm_cust_type_tax X   
+         WHERE ct.customer_type_sno=x.customer_type_sno   
+         and   x.tax_type_sno=? /*1*/   
+          )   
 order by ct.customer_type_name]]></SQLQuery>
   <ViewAttribute
     Name="CustomerTypeCode"
@@ -133,6 +134,20 @@ order by ct.customer_type_name]]></SQLQuery>
     AliasName="customer_type_sno"
     Expression="customer_type_sno"
     SQLType="INTEGER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CompanyId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="company_id"
+    Expression="company_id"
+    SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
