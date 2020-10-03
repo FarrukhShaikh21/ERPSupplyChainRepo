@@ -11,8 +11,7 @@
     <action IterBinding="GlTaxTypeByTaxIDROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
             Action="executeWithParams">
       <NamedData NDName="P_ADF_COMPANY_ID" NDType="java.lang.Integer"/>
-      <NamedData NDName="P_ADF_TAX_TYPE_SNO"
-                 NDValue="#{data.erpscm_viewscm_SCM_0008_EDIT_EDITPageDef.TaxTypeSno.inputValue}"
+      <NamedData NDName="P_ADF_TAX_TYPE_SNO" NDValue="#{data.erpscm_viewscm_SCM_0008_EDITPageDef.TaxTypeSno.inputValue}"
                  NDType="java.lang.Integer"/>
     </action>
   </bindings>

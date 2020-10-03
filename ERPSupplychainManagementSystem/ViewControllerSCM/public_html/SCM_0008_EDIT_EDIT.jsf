@@ -36,15 +36,16 @@
                                 <f:facet name="toolbar"/>
                                 <af:panelGridLayout id="pgl2">
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
-                                        <af:gridCell marginStart="5px" width="40%" id="gc3" halign="stretch"
+                                        <af:gridCell marginStart="5px" width="45%" id="gc3" halign="stretch"
                                                      marginEnd="5px">
                                             <af:panelBox text="Available Customer Type" id="pb1" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
                                                 <af:panelCollection id="pc1" styleClass="AFStretchWidth"
-                                                                    featuresOff="detach viewMenu">
+                                                                    featuresOff="detach viewMenu"
+                                                                    inlineStyle="border:none">
                                                     <f:facet name="menus"/>
                                                     <f:facet name="toolbar">
-                                                        <af:toolbar id="t5">
+                                                        <af:toolbar id="t5" inlineStyle="border:none">
                                                             <af:quickQuery id="qryId1"
                                                                            value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
                                                                            model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
@@ -58,7 +59,7 @@
                                                         </af:toolbar>
                                                     </f:facet>
                                                     <f:facet name="statusbar">
-                                                        <af:toolbar id="t4" flex="0">
+                                                        <af:toolbar id="t4" flex="0" inlineStyle="border:none">
                                                             <af:panelGroupLayout id="pgl3" layout="horizontal">
                                                                 <af:outputText value="Total Record(s) #{bindings.CustomerTypeForTaxCatRO.estimatedRowCount}" id="ot1"
                                                                                inlineStyle="font-weight:bold"
@@ -146,7 +147,7 @@
                                                         </af:column>
                                                     </af:table>
                                                     <f:facet name="secondaryToolbar">
-                                                        <af:toolbar id="t3">
+                                                        <af:toolbar id="t3" inlineStyle="border:none">
                                                             <af:link actionListener="#{bindings.doErpAssignAllCustTypeToTaxType.execute}"
                                                                      text="Assign All"
                                                                      disabled="#{bindings.CustomerTypeForTaxCatROIterator.estimatedRowCount==0}"
@@ -158,7 +159,7 @@
                                                 </af:panelCollection>
                                             </af:panelBox>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4"
+                                        <af:gridCell marginStart="5px" width="55%" marginEnd="5px" id="gc4"
                                                      halign="stretch">
                                             <af:panelBox text="Assigned Customer Type" id="pb3" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
@@ -231,19 +232,28 @@
                         <f:facet name="top">
                             <af:panelGridLayout id="pgl1">
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                                    <af:gridCell marginStart="5px" width="70%" id="gc1" halign="stretch">
-                                        <af:panelFormLayout id="pfl1" maxColumns="4" rows="1"
-                                                            styleClass="AFStretchWidth">
+                                    <af:gridCell marginStart="5px" width="70%" id="gc1" halign="stretch"
+                                                 valign="middle">
+                                        <af:panelFormLayout id="pfl1" maxColumns="3" rows="1">
                                             <af:inputText value="#{bindings.TaxTypeSno.inputValue}"
                                                           label="#{bindings.TaxTypeSno.hints.label}"
                                                           required="#{bindings.TaxTypeSno.hints.mandatory}"
                                                           columns="#{bindings.TaxTypeSno.hints.displayWidth}"
                                                           maximumLength="#{bindings.TaxTypeSno.hints.precision}"
                                                           shortDesc="#{bindings.TaxTypeSno.hints.tooltip}" id="it8"
-                                                          rendered="false">
+                                                          rendered="false" readOnly="true">
                                                 <f:validator binding="#{bindings.TaxTypeSno.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.TaxTypeSno.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.TaxTypeName.inputValue}"
+                                                          label="#{bindings.TaxTypeName.hints.label}"
+                                                          required="#{bindings.TaxTypeName.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeName.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeName.hints.tooltip}" id="it10"
+                                                          readOnly="true">
+                                                <f:validator binding="#{bindings.TaxTypeName.validator}"/>
                                             </af:inputText>
                                             <af:inputText value="#{bindings.TaxTypeCode.inputValue}"
                                                           label="#{bindings.TaxTypeCode.hints.label}"
@@ -251,28 +261,10 @@
                                                           columns="#{bindings.TaxTypeCode.hints.displayWidth}"
                                                           maximumLength="#{bindings.TaxTypeCode.hints.precision}"
                                                           shortDesc="#{bindings.TaxTypeCode.hints.tooltip}" id="it9"
-                                                          rendered="false">
+                                                          readOnly="true" rendered="false">
                                                 <f:validator binding="#{bindings.TaxTypeCode.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.TaxTypeCode.format}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.TaxTypeShortName.inputValue}"
-                                                          label="#{bindings.TaxTypeShortName.hints.label}"
-                                                          required="#{bindings.TaxTypeShortName.hints.mandatory}"
-                                                          columns="#{bindings.TaxTypeShortName.hints.displayWidth}"
-                                                          maximumLength="#{bindings.TaxTypeShortName.hints.precision}"
-                                                          shortDesc="#{bindings.TaxTypeShortName.hints.tooltip}"
-                                                          id="it10" rendered="false">
-                                                <f:validator binding="#{bindings.TaxTypeShortName.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.TaxTypeName.inputValue}"
-                                                          label="#{bindings.TaxTypeName.hints.label}"
-                                                          required="#{bindings.TaxTypeName.hints.mandatory}"
-                                                          columns="#{bindings.TaxTypeName.hints.displayWidth}"
-                                                          maximumLength="#{bindings.TaxTypeName.hints.precision}"
-                                                          shortDesc="#{bindings.TaxTypeName.hints.tooltip}" id="it11"
-                                                          readOnly="true">
-                                                <f:validator binding="#{bindings.TaxTypeName.validator}"/>
                                             </af:inputText>
                                             <af:inputDate value="#{bindings.OpenDate.inputValue}"
                                                           label="#{bindings.OpenDate.hints.label}"
@@ -283,6 +275,15 @@
                                                 <f:validator binding="#{bindings.OpenDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
                                             </af:inputDate>
+                                            <af:inputText value="#{bindings.TaxTypeShortName.inputValue}"
+                                                          label="#{bindings.TaxTypeShortName.hints.label}"
+                                                          required="#{bindings.TaxTypeShortName.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeShortName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeShortName.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeShortName.hints.tooltip}"
+                                                          id="it11" rendered="false" readOnly="true">
+                                                <f:validator binding="#{bindings.TaxTypeShortName.validator}"/>
+                                            </af:inputText>
                                         </af:panelFormLayout>
                                     </af:gridCell>
                                     <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc2"
@@ -306,7 +307,8 @@
                                             <af:link text="Add" id="l1" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top" partialSubmit="true"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}">
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                     rendered="false">
                                                 <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
