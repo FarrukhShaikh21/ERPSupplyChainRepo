@@ -446,6 +446,18 @@
         <fixed-outcome>ERP-ACT_SCM_0009</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeCompByCompIdSCM_0009_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT_SCM_0009</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeTaxTypeByCompSCM_0009_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT_SCM_0009</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1086,6 +1098,27 @@
       <control-flow-case id="__190">
         <from-outcome>ERP-ACT_SCM_0009</from-outcome>
         <to-activity-id>SCM_0009</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__191">
+      <from-activity-id>SCM_0009</from-activity-id>
+      <control-flow-case id="__192">
+        <from-outcome>ERP-QRY-ACT_SCM_0009</from-outcome>
+        <to-activity-id>ExeCompByCompIdSCM_0009_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__193">
+      <from-activity-id>ExeCompByCompIdSCM_0009_EDIT</from-activity-id>
+      <control-flow-case id="__194">
+        <from-outcome>ERP-QRY-ACT_SCM_0009</from-outcome>
+        <to-activity-id>ExeTaxTypeByCompSCM_0009_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__195">
+      <from-activity-id>ExeTaxTypeByCompSCM_0009_EDIT</from-activity-id>
+      <control-flow-case id="__196">
+        <from-outcome>ERP-QRY-ACT_SCM_0009</from-outcome>
+        <to-activity-id>SCM_0009_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
