@@ -36,13 +36,35 @@
                                 <f:facet name="toolbar"/>
                                 <af:panelGridLayout id="pgl2">
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
-                                        <af:gridCell marginStart="5px" width="40%" id="gc3" halign="stretch">
+                                        <af:gridCell marginStart="5px" width="50%" id="gc3" halign="stretch"
+                                                     marginEnd="5px">
                                             <af:panelBox text="Available Customer Type" id="pb1" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
-                                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                                <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                                                    featuresOff="detach viewMenu">
                                                     <f:facet name="menus"/>
-                                                    <f:facet name="toolbar"/>
-                                                    <f:facet name="statusbar"/>
+                                                    <f:facet name="toolbar">
+                                                        <af:toolbar id="t5" flex="1">
+                                                            <af:quickQuery label="Search" searchDesc="Search"
+                                                                           id="qryId1"
+                                                                           value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                                           model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                                                <f:facet name="end">
+                                                                    <af:commandLink text="Advanced" rendered="false"
+                                                                                    id="cl1"/>
+                                                                </f:facet>
+                                                            </af:quickQuery>
+                                                        </af:toolbar>
+                                                    </f:facet>
+                                                    <f:facet name="statusbar">
+                                                        <af:toolbar id="t4" flex="0">
+                                                            <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                                                <af:outputText value="Total Record(s) #{bindings.CustomerTypeForTaxCatRO.estimatedRowCount}" id="ot1"
+                                                                               inlineStyle="font-weight:bold"/>
+                                                            </af:panelGroupLayout>
+                                                        </af:toolbar>
+                                                    </f:facet>
                                                     <af:table value="#{bindings.CustomerTypeForTaxCatRO.collectionModel}"
                                                               var="row"
                                                               rows="#{bindings.CustomerTypeForTaxCatRO.rangeSize}"
@@ -68,7 +90,7 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
-                                                                   id="c2">
+                                                                   id="c2" width="80" displayIndex="-1">
                                                             <af:inputText value="#{row.bindings.CustomerTypeShortName.inputValue}"
                                                                           label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
                                                                           required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.mandatory}"
@@ -105,15 +127,35 @@
                                                                                   pattern="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.format}"/>
                                                             </af:inputText>
                                                         </af:column>
+                                                        <af:column id="c9" rendered="false">
+                                                            <af:inputText value="#{row.bindings.txtSelected.inputValue}"
+                                                                          label="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.label}"
+                                                                          required="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.mandatory}"
+                                                                          columns="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.displayWidth}"
+                                                                          maximumLength="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.precision}"
+                                                                          shortDesc="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.tooltip}"
+                                                                          id="it7">
+                                                                <f:validator binding="#{row.bindings.txtSelected.validator}"/>
+                                                            </af:inputText>
+                                                        </af:column>
                                                     </af:table>
+                                                    <f:facet name="secondaryToolbar">
+                                                        <af:toolbar id="t3">
+                                                            <af:link actionListener="#{bindings.doErpAssignAllCustTypeToTaxType.execute}"
+                                                                     text="Assign All"
+                                                                     disabled="#{!bindings.doErpAssignAllCustTypeToTaxType.enabled}"
+                                                                     id="l10"
+                                                                     partialSubmit="#{bindings.CustomerTypeForTaxCatRO.estimatedRowCount==0}"/>
+                                                        </af:toolbar>
+                                                    </f:facet>
                                                 </af:panelCollection>
                                             </af:panelBox>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4"
+                                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4"
                                                      halign="stretch">
                                             <af:panelBox text="Assigned Customer Type" id="pb3" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
-                                                <af:panelCollection id="pc2">
+                                                <af:panelCollection id="pc2" featuresOff="viewMenu detach">
                                                     <f:facet name="menus"/>
                                                     <f:facet name="toolbar"/>
                                                     <f:facet name="statusbar"/>
@@ -126,16 +168,17 @@
                                                               rowSelection="single"
                                                               fetchSize="#{bindings.ScmCustTypeTaxCRUD.rangeSize}"
                                                               id="t2"
-                                                              partialTriggers="::l4 ::l6 ::l9 :::l4 :::l6 :::l9">
+                                                              partialTriggers="::l4 ::l6 ::l9 :::l4 :::l6 :::l9"
+                                                              columnStretching="column:c5">
                                                         <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.label}"
-                                                                   id="c8">
+                                                                   id="c8" width="60" minimumWidth="12">
                                                             <af:inputText value="#{row.bindings.txtCustTypeCode.inputValue}"
                                                                           label="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.label}"
                                                                           required="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.mandatory}"
                                                                           columns="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.displayWidth}"
                                                                           maximumLength="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.precision}"
                                                                           shortDesc="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.tooltip}"
-                                                                          id="it6">
+                                                                          id="it6" readOnly="true">
                                                                 <f:validator binding="#{row.bindings.txtCustTypeCode.validator}"/>
                                                             </af:inputText>
                                                         </af:column>
@@ -147,18 +190,18 @@
                                                                           columns="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.displayWidth}"
                                                                           maximumLength="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.precision}"
                                                                           shortDesc="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.tooltip}"
-                                                                          id="it5">
+                                                                          id="it5" contentStyle="width:100%">
                                                                 <f:validator binding="#{row.bindings.txtCustTypeName.validator}"/>
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.label}"
-                                                                   id="c6">
+                                                                   id="c6" width="120" displayIndex="-1">
                                                             <af:inputDate value="#{row.bindings.OpenDate.inputValue}"
                                                                           label="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.label}"
                                                                           required="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.mandatory}"
                                                                           columns="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.displayWidth}"
                                                                           shortDesc="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.tooltip}"
-                                                                          id="id1">
+                                                                          id="id1" contentStyle="width:60%">
                                                                 <f:validator binding="#{row.bindings.OpenDate.validator}"/>
                                                                 <af:convertDateTime pattern="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.format}"/>
                                                             </af:inputDate>

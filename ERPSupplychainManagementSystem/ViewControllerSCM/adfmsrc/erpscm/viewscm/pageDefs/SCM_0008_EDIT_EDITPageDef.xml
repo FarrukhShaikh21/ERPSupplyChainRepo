@@ -8,6 +8,8 @@
               id="CustomerTypeForTaxCatROIterator"/>
     <iterator Binds="ScmCustTypeTaxCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmCustTypeTaxCRUDIterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerTypeForTaxCatROIterator" id="ImplicitViewCriteriaQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="CustomerTypeForTaxCatROIterator" id="CustomerTypeForTaxCatRO">
@@ -17,6 +19,7 @@
           <Item Value="CustomerTypeShortName"/>
           <Item Value="CustomerTypeName"/>
           <Item Value="CustomerTypeSno"/>
+          <Item Value="txtSelected"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -39,5 +42,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <methodAction id="doErpAssignAllCustTypeToTaxType" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doErpAssignAllCustTypeToTaxType" IsViewObjectMethod="true"
+                  DataControl="ERPSCMModuleDataControl"
+                  InstanceName="data.ERPSCMModuleDataControl.CustomerTypeForTaxCatRO"
+                  ReturnName="data.ERPSCMModuleDataControl.methodResults.doErpAssignAllCustTypeToTaxType_ERPSCMModuleDataControl_CustomerTypeForTaxCatRO_doErpAssignAllCustTypeToTaxType_result"/>
   </bindings>
 </pageDefinition>

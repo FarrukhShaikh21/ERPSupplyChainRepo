@@ -244,7 +244,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_CUST_TYPE_TAX">
+    TableName="SCM_CUST_TYPE_TAX"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression><![CDATA[ScmCustomerType?.CustomerTypeCode]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>

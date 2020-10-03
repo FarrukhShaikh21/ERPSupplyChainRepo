@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmqvo;
 
+import erpscm.modelscm.scmqvo.common.CustomerTypeForTaxCatQVO;
+
 import oracle.jbo.Row;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewObject;
@@ -10,7 +12,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class CustomerTypeForTaxCatQVOImpl extends ViewObjectImpl {
+public class CustomerTypeForTaxCatQVOImpl extends ViewObjectImpl implements CustomerTypeForTaxCatQVO {
     /**
      * This is the default constructor (do not remove).
      */
@@ -49,7 +51,7 @@ public class CustomerTypeForTaxCatQVOImpl extends ViewObjectImpl {
         setNamedWhereClauseParam("P_ADF_TAX_TYPE_SNO", value);
     }
     
-    public void doErpAssignAllUserToVoucherType() {
+    public void doErpAssignAllCustTypeToTaxType() {
          ViewObject vo = getRootApplicationModule().findViewObject("CustomerTypeForTaxCatRO");
          RowSetIterator rsi =this.getRowSet();
          rsi.setRangeSize(-1);
