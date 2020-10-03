@@ -6,7 +6,7 @@
   Name="ScmCustomerCategoryForTaxCatQVO"
   Version="12.1.3.2.1"
   InheritPersonalization="merge"
-  BindingStyle="OracleName"
+  BindingStyle="JDBC"
   CustomQuery="true"
   PageIterMode="Full">
   <DesignTime>
@@ -21,11 +21,19 @@
   <Variable
     Name="P_ADF_COMPANY_ID"
     Kind="where"
-    Type="java.lang.String"/>
+    Type="java.lang.String">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+    </AttrArray>
+  </Variable>
   <Variable
     Name="P_ADF_TAX_TYPE_SNO"
     Kind="where"
-    Type="java.lang.Integer"/>
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="1"/>
+    </AttrArray>
+  </Variable>
   <SQLQuery><![CDATA[select ct.category_short_code,    
      ct.category_type_name,    
        ct.category_short_name,    
