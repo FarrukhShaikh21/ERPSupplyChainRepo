@@ -273,6 +273,7 @@ public class ScmCustomerCategotyTaxImpl extends ERPEntityImpl {
         setAttributeInternal(SCMCUSTOMERCATEGORY, value);
     }
 
+
     /**
      * @param customerCategoryTaxSno key constituent
 
@@ -298,7 +299,6 @@ public class ScmCustomerCategotyTaxImpl extends ERPEntityImpl {
         if (operation==DML_INSERT ) {
            String result = ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_CATEGORY_TAX_SNO",this.getEntityDef().getSource(), null, null);
            populateAttributeAsChanged(CUSTOMERCATEGORYTAXSNO,  Integer.parseInt(result));
-           
         }        
         super.doDML(operation, e);
     }
