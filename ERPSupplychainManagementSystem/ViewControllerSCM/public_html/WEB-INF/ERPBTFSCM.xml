@@ -467,7 +467,13 @@
     <method-call id="ExeTaxTypeSCM_0009_EDIT_EDIT">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+        <fixed-outcome>ERP-QRY-ACT_SCM_0009_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeCustCatTaxCRUDSCM_0009_EDIT_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT_SCM_0009_EDIT</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">
@@ -1149,6 +1155,20 @@
       <control-flow-case id="__201">
         <from-outcome>ERP-QRY-ACT_SCM_0009_EDIT</from-outcome>
         <to-activity-id>ExeTaxTypeSCM_0009_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__202">
+      <from-activity-id>ExeTaxTypeSCM_0009_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__203">
+        <from-outcome>ERP-QRY-ACT_SCM_0009_EDIT</from-outcome>
+        <to-activity-id>ExeCustCatTaxCRUDSCM_0009_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__204">
+      <from-activity-id>ExeCustCatTaxCRUDSCM_0009_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__205">
+        <from-outcome>ERP-QRY-ACT_SCM_0009_EDIT</from-outcome>
+        <to-activity-id>SCM_0009_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
