@@ -458,6 +458,18 @@
         <fixed-outcome>ERP-QRY-ACT_SCM_0009</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeCustCatTaxAssignSCM_0009_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT_SCM_0009_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeTaxTypeSCM_0009_EDIT_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1126,6 +1138,17 @@
       <control-flow-case id="__198">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0009</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__199">
+        <from-outcome>ERP-QRY-ACT_SCM_0009_EDIT</from-outcome>
+        <to-activity-id>ExeCustCatTaxAssignSCM_0009_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__200">
+      <from-activity-id>ExeCustCatTaxAssignSCM_0009_EDIT</from-activity-id>
+      <control-flow-case id="__201">
+        <from-outcome>ERP-QRY-ACT_SCM_0009_EDIT</from-outcome>
+        <to-activity-id>ExeTaxTypeSCM_0009_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
