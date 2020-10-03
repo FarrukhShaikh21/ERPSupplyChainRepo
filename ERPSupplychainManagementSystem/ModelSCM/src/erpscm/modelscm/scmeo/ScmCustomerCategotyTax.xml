@@ -9,14 +9,19 @@
   DBObjectType="table"
   DBObjectName="SCM_CUSTOMER_CATEGOTY_TAX"
   AliasName="ScmCustomerCategotyTax"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpscm.modelscm.scmeo.ScmCustomerCategotyTaxImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="CustomerCategoryTaxSno"
     Precision="10"
     Scale="0"
     ColumnName="CUSTOMER_CATEGORY_TAX_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_CUSTOMER_CATEGOTY_TAX"
     PrimaryKey="true"/>
@@ -31,12 +36,12 @@
     TableName="SCM_CUSTOMER_CATEGOTY_TAX"/>
   <Attribute
     Name="OpenDate"
-    IsNotNull="true"
     ColumnName="OPEN_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CUSTOMER_CATEGOTY_TAX">
+    TableName="SCM_CUSTOMER_CATEGOTY_TAX"
+    IsNotNull="true">
     <TransientExpression
       trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
   </Attribute>
@@ -125,6 +130,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmCustomerCategotyTax.CustomerCategoryTaxSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmCustomerCategotyTaxOpenDateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_CUSTOMER_CATEGOTY_TAX_OPEN"/>
+      <Attr Name="_checkCondition" Value='"OPEN_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustomerCategotyTax.OpenDate"/>
     </AttrArray>
   </Key>
 </Entity>
