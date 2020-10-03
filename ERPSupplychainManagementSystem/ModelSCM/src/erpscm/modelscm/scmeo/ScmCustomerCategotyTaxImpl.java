@@ -1,5 +1,6 @@
 package erpscm.modelscm.scmeo;
 
+import erpglobals.modelglobals.ERPEntityImpl;
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
 import java.sql.Timestamp;
@@ -14,7 +15,7 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ScmCustomerCategotyTaxImpl extends EntityImpl {
+public class ScmCustomerCategotyTaxImpl extends ERPEntityImpl {
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -53,6 +54,7 @@ public class ScmCustomerCategotyTaxImpl extends EntityImpl {
         }
     }
 
+
     public static final int CUSTOMERCATEGORYTAXSNO = AttributesEnum.CustomerCategoryTaxSno.index();
     public static final int CATEGORYSNO = AttributesEnum.CategorySno.index();
     public static final int OPENDATE = AttributesEnum.OpenDate.index();
@@ -77,6 +79,7 @@ public class ScmCustomerCategotyTaxImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmCustomerCategotyTax");
     }
+
 
     /**
      * Gets the attribute value for CustomerCategoryTaxSno, using the alias name CustomerCategoryTaxSno.
