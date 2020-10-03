@@ -47,5 +47,10 @@
                   DataControl="ERPSCMModuleDataControl"
                   InstanceName="data.ERPSCMModuleDataControl.CustomerTypeForTaxCatRO"
                   ReturnName="data.ERPSCMModuleDataControl.methodResults.doErpAssignAllCustTypeToTaxType_ERPSCMModuleDataControl_CustomerTypeForTaxCatRO_doErpAssignAllCustTypeToTaxType_result"/>
+    <methodAction IterBinding="CustomerTypeForTaxCatROIterator" id="doErpAssignSingleCustTypeToTaxType"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doErpAssignSingleCustTypeToTaxType"
+                  IsViewObjectMethod="false" DataControl="ERPSCMModuleDataControl"
+                  InstanceName="bindings.CustomerTypeForTaxCatROIterator.currentRow" IsLocalObjectReference="true"
+                  ReturnName="data.ERPSCMModuleDataControl.methodResults.doErpAssignSingleCustTypeToTaxType_doErpAssignSingleCustTypeToTaxType_doErpAssignSingleCustTypeToTaxType_result"/>
   </bindings>
 </pageDefinition>

@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmqvo;
 
+import erpscm.modelscm.scmqvo.common.CustomerTypeForTaxCatQVORow;
+
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.ViewRowImpl;
@@ -9,7 +11,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class CustomerTypeForTaxCatQVORowImpl extends ViewRowImpl {
+public class CustomerTypeForTaxCatQVORowImpl extends ViewRowImpl implements CustomerTypeForTaxCatQVORow {
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */

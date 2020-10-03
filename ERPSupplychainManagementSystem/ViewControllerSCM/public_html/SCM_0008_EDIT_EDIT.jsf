@@ -74,7 +74,7 @@
                                                               selectionListener="#{bindings.CustomerTypeForTaxCatRO.collectionModel.makeCurrent}"
                                                               rowSelection="single"
                                                               fetchSize="#{bindings.CustomerTypeForTaxCatRO.rangeSize}"
-                                                              id="t1" columnStretching="last">
+                                                              id="t1" columnStretching="last" partialTriggers="l11">
                                                         <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.label}"
                                                                    id="c1">
                                                             <af:inputText value="#{row.bindings.CustomerTypeCode.inputValue}"
@@ -127,7 +127,7 @@
                                                                                   pattern="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.format}"/>
                                                             </af:inputText>
                                                         </af:column>
-                                                        <af:column id="c9" rendered="false">
+                                                        <af:column id="c9">
                                                             <af:inputText value="#{row.bindings.txtSelected.inputValue}"
                                                                           label="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.label}"
                                                                           required="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.mandatory}"
@@ -137,6 +137,10 @@
                                                                           id="it7">
                                                                 <f:validator binding="#{row.bindings.txtSelected.validator}"/>
                                                             </af:inputText>
+                                                            <af:link actionListener="#{bindings.doErpAssignSingleCustTypeToTaxType.execute}"
+                                                                     text="doErpAssignSingleCustTypeToTaxType"
+                                                                     disabled="#{row.bindings.txtSelected.inputValue=='Y'}"
+                                                                     id="l11"/>
                                                         </af:column>
                                                     </af:table>
                                                     <f:facet name="secondaryToolbar">
