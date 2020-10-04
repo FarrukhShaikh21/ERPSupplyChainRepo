@@ -30,9 +30,10 @@ public class ScmCustomerCategotyTaxImpl extends ERPEntityImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
-        ScmCustomerCategory,
-        ScmCustomerCategory1;
-        private static AttributesEnum[] vals = null;
+        txtCategoryName,
+        ScmCustomerCategory;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -67,8 +68,8 @@ public class ScmCustomerCategotyTaxImpl extends ERPEntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int TXTCATEGORYNAME = AttributesEnum.txtCategoryName.index();
     public static final int SCMCUSTOMERCATEGORY = AttributesEnum.ScmCustomerCategory.index();
-    public static final int SCMCUSTOMERCATEGORY1 = AttributesEnum.ScmCustomerCategory1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -262,6 +263,22 @@ public class ScmCustomerCategotyTaxImpl extends ERPEntityImpl {
 
 
     /**
+     * Gets the attribute value for txtCategoryName, using the alias name txtCategoryName.
+     * @return the value of txtCategoryName
+     */
+    public String gettxtCategoryName() {
+        return (String) getAttributeInternal(TXTCATEGORYNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCategoryName.
+     * @param value value to set the txtCategoryName
+     */
+    public void settxtCategoryName(String value) {
+        setAttributeInternal(TXTCATEGORYNAME, value);
+    }
+
+    /**
      * @return the associated entity ScmCustomerCategoryImpl.
      */
     public ScmCustomerCategoryImpl getScmCustomerCategory() {
@@ -273,21 +290,6 @@ public class ScmCustomerCategotyTaxImpl extends ERPEntityImpl {
      */
     public void setScmCustomerCategory(ScmCustomerCategoryImpl value) {
         setAttributeInternal(SCMCUSTOMERCATEGORY, value);
-    }
-
-
-    /**
-     * @return the associated entity ScmCustomerCategoryImpl.
-     */
-    public ScmCustomerCategoryImpl getScmCustomerCategory1() {
-        return (ScmCustomerCategoryImpl) getAttributeInternal(SCMCUSTOMERCATEGORY1);
-    }
-
-    /**
-     * Sets <code>value</code> as the associated entity ScmCustomerCategoryImpl.
-     */
-    public void setScmCustomerCategory1(ScmCustomerCategoryImpl value) {
-        setAttributeInternal(SCMCUSTOMERCATEGORY1, value);
     }
 
 

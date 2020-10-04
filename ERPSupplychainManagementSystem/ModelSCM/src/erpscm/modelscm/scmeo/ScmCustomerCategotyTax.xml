@@ -219,18 +219,19 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtCategoryName"
+    Precision="80"
+    ColumnName="TXT_CATEGORY_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_CUSTOMER_CATEGOTY_TAX"/>
   <AccessorAttribute
     Name="ScmCustomerCategory"
     Association="erpscm.modelscm.scmeo.ScmCustCategoryScmCustCatTaxCategorySnoAsso"
     AssociationEnd="erpscm.modelscm.scmeo.ScmCustCategoryScmCustCatTaxCategorySnoAsso.ScmCustomerCategory"
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustCategoryScmCustCatTaxCategorySnoAsso.ScmCustomerCategotyTax"
-    Type="erpscm.modelscm.scmeo.ScmCustomerCategoryImpl"
-    IsUpdateable="true"/>
-  <AccessorAttribute
-    Name="ScmCustomerCategory1"
-    Association="erpscm.modelscm.scmeo.ScmCustCatScmCustCatTaxCategorySnoAsso"
-    AssociationEnd="erpscm.modelscm.scmeo.ScmCustCatScmCustCatTaxCategorySnoAsso.ScmCustomerCategory1"
-    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustCatScmCustCatTaxCategorySnoAsso.ScmCustomerCategotyTax1"
     Type="erpscm.modelscm.scmeo.ScmCustomerCategoryImpl"
     IsUpdateable="true"/>
   <Key
