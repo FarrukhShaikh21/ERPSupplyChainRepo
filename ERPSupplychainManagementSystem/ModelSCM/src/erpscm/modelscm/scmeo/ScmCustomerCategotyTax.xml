@@ -226,7 +226,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_CUSTOMER_CATEGOTY_TAX"/>
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmCustomerCategory?.CategoryTypeName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomerCategotyTax.txtCategoryName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmCustomerCategory"
     Association="erpscm.modelscm.scmeo.ScmCustCategoryScmCustCatTaxCategorySnoAsso"
