@@ -226,6 +226,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustCategoryScmCustCatTaxCategorySnoAsso.ScmCustomerCategotyTax"
     Type="erpscm.modelscm.scmeo.ScmCustomerCategoryImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmCustomerCategory1"
+    Association="erpscm.modelscm.scmeo.ScmCustCatScmCustCatTaxCategorySnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmCustCatScmCustCatTaxCategorySnoAsso.ScmCustomerCategory1"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustCatScmCustCatTaxCategorySnoAsso.ScmCustomerCategotyTax1"
+    Type="erpscm.modelscm.scmeo.ScmCustomerCategoryImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmCustCategotyTax"
     PrimaryKey="true">
@@ -254,6 +261,17 @@
       <Attr Name="_referencedKey" Value="PK_SCM_CUSTOMER_CATEGORY"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="FK_SCM_CUSTOMER_CATEGOTY_TAX"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustomerCategotyTax.CategorySno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmCustomerCategotyTax1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_CUSTOMER_CATEGORY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_CUSTOMER_CATEGOTY_TAX1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmCustomerCategotyTax.CategorySno"/>

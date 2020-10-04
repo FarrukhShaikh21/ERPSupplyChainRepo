@@ -360,6 +360,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustCategoryScmCustCatTaxCategorySnoAsso.ScmCustomerCategory"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmCustomerCategotyTax1"
+    Association="erpscm.modelscm.scmeo.ScmCustCatScmCustCatTaxCategorySnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmCustCatScmCustCatTaxCategorySnoAsso.ScmCustomerCategotyTax1"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustCatScmCustCatTaxCategorySnoAsso.ScmCustomerCategory1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmCustomerCategory"
     PrimaryKey="true">
