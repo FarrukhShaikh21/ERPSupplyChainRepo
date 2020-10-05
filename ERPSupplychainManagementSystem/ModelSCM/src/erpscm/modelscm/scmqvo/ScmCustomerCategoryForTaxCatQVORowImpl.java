@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmqvo;
 
+import erpscm.modelscm.scmqvo.common.ScmCustomerCategoryForTaxCatQVORow;
+
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.ViewRowImpl;
@@ -9,7 +11,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ScmCustomerCategoryForTaxCatQVORowImpl extends ViewRowImpl {
+public class ScmCustomerCategoryForTaxCatQVORowImpl extends ViewRowImpl implements ScmCustomerCategoryForTaxCatQVORow {
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -113,8 +115,8 @@ public class ScmCustomerCategoryForTaxCatQVORowImpl extends ViewRowImpl {
         setAttributeInternal(TXTSELECTED, value);
     }
 
-    public void doErpAssignSingleCustTypeToTaxType() {
-            ViewObject vo = getDBTransaction().getRootApplicationModule().findViewObject("ScmCustTypeTaxCRUD");
+    public void doErpAssignSingleCustCatToTaxType() {
+            ViewObject vo = getDBTransaction().getRootApplicationModule().findViewObject("ScmCustomerCategotyTaxCRUD");
             Row cr = vo.createRow();
             cr.setAttribute("CompanyId", getCompanyId());
             cr.setAttribute("TaxTypeSno", getDBTransaction().getRootApplicationModule().findViewObject("GlTaxTypeByTaxIDRO").first().getAttribute("TaxTypeSno"));
