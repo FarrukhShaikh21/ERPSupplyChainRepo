@@ -239,6 +239,27 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtCategoryCode"
+    Precision="80"
+    ColumnName="TXT_CATEGORY_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_CUSTOMER_CATEGOTY_TAX"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmCustomerCategory?.CategoryShortCode]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomerCategotyTax.txtCategoryCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmCustomerCategory"
     Association="erpscm.modelscm.scmeo.ScmCustCategoryScmCustCatTaxCategorySnoAsso"

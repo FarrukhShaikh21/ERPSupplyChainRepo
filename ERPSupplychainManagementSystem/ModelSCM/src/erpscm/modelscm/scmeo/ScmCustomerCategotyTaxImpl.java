@@ -31,9 +31,9 @@ public class ScmCustomerCategotyTaxImpl extends ERPEntityImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         txtCategoryName,
+        txtCategoryCode,
         ScmCustomerCategory;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -69,6 +69,7 @@ public class ScmCustomerCategotyTaxImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int TXTCATEGORYNAME = AttributesEnum.txtCategoryName.index();
+    public static final int TXTCATEGORYCODE = AttributesEnum.txtCategoryCode.index();
     public static final int SCMCUSTOMERCATEGORY = AttributesEnum.ScmCustomerCategory.index();
 
     /**
@@ -276,6 +277,22 @@ public class ScmCustomerCategotyTaxImpl extends ERPEntityImpl {
      */
     public void settxtCategoryName(String value) {
         setAttributeInternal(TXTCATEGORYNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCategoryCode, using the alias name txtCategoryCode.
+     * @return the value of txtCategoryCode
+     */
+    public String gettxtCategoryCode() {
+        return (String) getAttributeInternal(TXTCATEGORYCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCategoryCode.
+     * @param value value to set the txtCategoryCode
+     */
+    public void settxtCategoryCode(String value) {
+        setAttributeInternal(TXTCATEGORYCODE, value);
     }
 
     /**
