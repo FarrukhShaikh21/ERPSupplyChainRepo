@@ -14,14 +14,6 @@
               id="ScmCustomerCategotyTaxCRUDIterator"/>
   </executables>
   <bindings>
-    <action IterBinding="ScmCustTypeTaxCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
-            Action="createWithParams">
-      <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0008_EDITPageDef.CompCode.inputValue}"
-                 NDType="java.lang.String"/>
-    </action>
-    <action IterBinding="ScmCustTypeTaxCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
-            DataControl="ERPSCMModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <tree IterBinding="ScmCustTypeTaxCRUDIterator" id="ScmCustTypeTaxCRUD">
       <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmCustTypeTaxVO" Name="ScmCustTypeTaxCRUD0">
@@ -85,5 +77,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
   </bindings>
 </pageDefinition>

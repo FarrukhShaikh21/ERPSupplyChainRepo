@@ -247,16 +247,6 @@
                                                      text="Close"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
-                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
-                                                     text="CreateWithParams"
-                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
-                                                     rendered="false"/>
-                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                     disabled="#{!bindings.Delete.enabled}" id="l6" rendered="false"/>
-                                            <af:link text="Delete" id="l9" actionListener="#{bindings.Delete.execute}"
-                                                     iconPosition="top"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     partialSubmit="true"/>
                                             <af:link text="Add" id="l1" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top" partialSubmit="true"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
@@ -283,7 +273,7 @@
                                                 <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
-                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l7"
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l4"
                                                      rendered="false">
                                                 <af:resetActionListener/>
                                             </af:link>
