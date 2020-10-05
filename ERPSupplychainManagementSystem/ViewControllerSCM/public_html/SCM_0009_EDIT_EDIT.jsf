@@ -126,7 +126,7 @@
                                                           selectionListener="#{bindings.ScmCustomerCategotyTaxCRUD.collectionModel.makeCurrent}"
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.ScmCustomerCategotyTaxCRUD.rangeSize}"
-                                                          id="t2" columnStretching="column:c6">
+                                                          id="t2" columnStretching="column:c6" partialTriggers="::l8">
                                                     <af:column headerText="#{bindings.ScmCustomerCategotyTaxCRUD.hints.txtCategoryCode.label}"
                                                                id="c5">
                                                         <af:inputText value="#{row.bindings.txtCategoryCode.inputValue}"
@@ -247,6 +247,11 @@
                                                      text="Close"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
+                                            <af:link text="Delete" id="l9" partialSubmit="true"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     iconPosition="top"/>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                     disabled="#{!bindings.Delete.enabled}" id="l8" rendered="false"/>
                                             <af:link text="Add" id="l1" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top" partialSubmit="true"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
@@ -273,22 +278,23 @@
                                                 <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
-                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l4"
-                                                     rendered="false">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link text="Undo" immediate="true" id="l3"
-                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     partialSubmit="true"
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                     disabled="#{!bindings.Commit.enabled}" id="l6" rendered="false"/>
+                                            <af:link text="Undo" id="l4" icon="#{resource['images:imgUndo.png']}"
+                                                     partialSubmit="true" iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
                                                 <af:resetActionListener/>
                                             </af:link>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l8"
-                                                     rendered="false"/>
-                                            <af:link text="Save" id="l2"
-                                                     icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                                     partialSubmit="true"
+                                            <af:link id="l7" partialSubmit="true"
+                                                     icon="#{resource['images:imgSave.png']}" text="Save"
+                                                     iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l3"
+                                                     rendered="false"/>
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l2"
+                                                     rendered="false">
+                                                <af:resetActionListener/>
+                                            </af:link>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>
