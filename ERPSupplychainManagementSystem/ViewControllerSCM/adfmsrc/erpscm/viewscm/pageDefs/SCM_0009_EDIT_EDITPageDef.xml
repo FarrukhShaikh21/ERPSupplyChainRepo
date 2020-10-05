@@ -10,6 +10,8 @@
               id="GlTaxTypeByTaxIDROIterator"/>
     <iterator Binds="ScmCustomerCategoryForTaxCatRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmCustomerCategoryForTaxCatROIterator"/>
+    <iterator Binds="ScmCustomerCategotyTaxCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerCategotyTaxCRUDIterator"/>
   </executables>
   <bindings>
     <action IterBinding="ScmCustTypeTaxCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
@@ -73,5 +75,15 @@
                   InstanceName="bindings.ScmCustomerCategoryForTaxCatROIterator.currentRow"
                   IsLocalObjectReference="true"
                   ReturnName="data.ERPSCMModuleDataControl.methodResults.doErpAssignSingleCustCatToTaxType_doErpAssignSingleCustCatToTaxType_doErpAssignSingleCustCatToTaxType_result"/>
+    <tree IterBinding="ScmCustomerCategotyTaxCRUDIterator" id="ScmCustomerCategotyTaxCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmCustomerCategotyTaxVO" Name="ScmCustomerCategotyTaxCRUD0">
+        <AttrNames>
+          <Item Value="txtCategoryCode"/>
+          <Item Value="txtCategoryName"/>
+          <Item Value="OpenDate"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
