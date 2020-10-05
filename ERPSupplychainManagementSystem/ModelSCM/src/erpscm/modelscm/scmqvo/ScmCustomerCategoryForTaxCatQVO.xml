@@ -8,9 +8,13 @@
   InheritPersonalization="merge"
   BindingStyle="JDBC"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVORowImpl"
+  ComponentClass="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVOImpl">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -59,7 +63,7 @@ order by ct.category_type_name]]></SQLQuery>
     ColumnType="INTEGER"
     AliasName="CATEGORY_SHORT_CODE"
     Expression="CATEGORY_SHORT_CODE"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="CategoryTypeName"
     IsUpdateable="false"
@@ -101,7 +105,7 @@ order by ct.category_type_name]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="CATEGORY_SNO"
     Expression="CATEGORY_SNO"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="CompanyId"
     IsUpdateable="false"
@@ -113,7 +117,26 @@ order by ct.category_type_name]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="COMPANY_ID"
     Expression="COMPANY_ID"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
+  <ViewAttribute
+    Name="txtSelected"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVO.txtSelected_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="CategorySno"/>
   </AttrArray>

@@ -4,27 +4,12 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="CustomerTypeForTaxCatRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="CustomerTypeForTaxCatROIterator"/>
     <iterator Binds="ScmCustTypeTaxCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmCustTypeTaxCRUDIterator"/>
-    <searchRegion Criteria="CustomerTypeForTaxCatFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="CustomerTypeForTaxCatROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
     <iterator Binds="GlTaxTypeByTaxIDRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="GlTaxTypeByTaxIDROIterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="CustomerTypeForTaxCatROIterator" id="CustomerTypeForTaxCatRO">
-      <nodeDefinition DefName="erpscm.modelscm.scmqvo.CustomerTypeForTaxCatQVO" Name="CustomerTypeForTaxCatRO0">
-        <AttrNames>
-          <Item Value="CustomerTypeCode"/>
-          <Item Value="CustomerTypeShortName"/>
-          <Item Value="CustomerTypeName"/>
-          <Item Value="CustomerTypeSno"/>
-          <Item Value="txtSelected"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <action IterBinding="ScmCustTypeTaxCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams">
       <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0008_EDITPageDef.CompCode.inputValue}"
@@ -44,16 +29,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <methodAction id="doErpAssignAllCustTypeToTaxType" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="doErpAssignAllCustTypeToTaxType" IsViewObjectMethod="true"
-                  DataControl="ERPSCMModuleDataControl"
-                  InstanceName="data.ERPSCMModuleDataControl.CustomerTypeForTaxCatRO"
-                  ReturnName="data.ERPSCMModuleDataControl.methodResults.doErpAssignAllCustTypeToTaxType_ERPSCMModuleDataControl_CustomerTypeForTaxCatRO_doErpAssignAllCustTypeToTaxType_result"/>
-    <methodAction IterBinding="CustomerTypeForTaxCatROIterator" id="doErpAssignSingleCustTypeToTaxType"
-                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doErpAssignSingleCustTypeToTaxType"
-                  IsViewObjectMethod="false" DataControl="ERPSCMModuleDataControl"
-                  InstanceName="bindings.CustomerTypeForTaxCatROIterator.currentRow" IsLocalObjectReference="true"
-                  ReturnName="data.ERPSCMModuleDataControl.methodResults.doErpAssignSingleCustTypeToTaxType_doErpAssignSingleCustTypeToTaxType_doErpAssignSingleCustTypeToTaxType_result"/>
     <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="OpenDate">
       <AttrNames>
         <Item Value="OpenDate"/>
