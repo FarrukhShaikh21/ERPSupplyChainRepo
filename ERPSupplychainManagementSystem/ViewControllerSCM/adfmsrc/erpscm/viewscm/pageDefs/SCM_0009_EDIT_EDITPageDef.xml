@@ -8,6 +8,8 @@
               id="ScmCustTypeTaxCRUDIterator"/>
     <iterator Binds="GlTaxTypeByTaxIDRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="GlTaxTypeByTaxIDROIterator"/>
+    <iterator Binds="ScmCustomerCategoryForTaxCatRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerCategoryForTaxCatROIterator"/>
   </executables>
   <bindings>
     <action IterBinding="ScmCustTypeTaxCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
@@ -54,5 +56,22 @@
         <Item Value="TaxTypeShortName"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="ScmCustomerCategoryForTaxCatROIterator" id="ScmCustomerCategoryForTaxCatRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVO"
+                      Name="ScmCustomerCategoryForTaxCatRO0">
+        <AttrNames>
+          <Item Value="CategoryShortCode"/>
+          <Item Value="CategoryShortName"/>
+          <Item Value="CategoryTypeName"/>
+          <Item Value="txtSelected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction IterBinding="ScmCustomerCategoryForTaxCatROIterator" id="doErpAssignSingleCustCatToTaxType"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doErpAssignSingleCustCatToTaxType"
+                  IsViewObjectMethod="false" DataControl="ERPSCMModuleDataControl"
+                  InstanceName="bindings.ScmCustomerCategoryForTaxCatROIterator.currentRow"
+                  IsLocalObjectReference="true"
+                  ReturnName="data.ERPSCMModuleDataControl.methodResults.doErpAssignSingleCustCatToTaxType_doErpAssignSingleCustCatToTaxType_doErpAssignSingleCustCatToTaxType_result"/>
   </bindings>
 </pageDefinition>

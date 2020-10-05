@@ -40,6 +40,71 @@
                                                      marginEnd="5px">
                                             <af:panelBox text="Available Customer Category" id="pb1" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
+                                                <af:table value="#{bindings.ScmCustomerCategoryForTaxCatRO.collectionModel}"
+                                                          var="row"
+                                                          rows="#{bindings.ScmCustomerCategoryForTaxCatRO.rangeSize}"
+                                                          emptyText="#{bindings.ScmCustomerCategoryForTaxCatRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.ScmCustomerCategoryForTaxCatRO.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.ScmCustomerCategoryForTaxCatRO.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.ScmCustomerCategoryForTaxCatRO.rangeSize}"
+                                                          id="t1" partialTriggers="l10">
+                                                    <af:column headerText="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.label}"
+                                                               id="c1">
+                                                        <af:inputText value="#{row.bindings.CategoryShortCode.inputValue}"
+                                                                      label="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.label}"
+                                                                      required="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.tooltip}"
+                                                                      id="it1">
+                                                            <f:validator binding="#{row.bindings.CategoryShortCode.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortName.label}"
+                                                               id="c2">
+                                                        <af:inputText value="#{row.bindings.CategoryShortName.inputValue}"
+                                                                      label="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortName.label}"
+                                                                      required="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortName.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortName.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortName.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortName.tooltip}"
+                                                                      id="it2">
+                                                            <f:validator binding="#{row.bindings.CategoryShortName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryTypeName.label}"
+                                                               id="c3">
+                                                        <af:inputText value="#{row.bindings.CategoryTypeName.inputValue}"
+                                                                      label="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryTypeName.label}"
+                                                                      required="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryTypeName.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryTypeName.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryTypeName.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryTypeName.tooltip}"
+                                                                      id="it3">
+                                                            <f:validator binding="#{row.bindings.CategoryTypeName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.txtSelected.label}"
+                                                               id="c4">
+                                                        <af:link actionListener="#{bindings.doErpAssignSingleCustCatToTaxType.execute}"
+                                                                 text="Assign This"
+                                                                 disabled="#{row.bindings.txtSelected.inputValue=='Y'}"
+                                                                 id="l10" partialSubmit="true"/>
+                                                        <af:inputText value="#{row.bindings.txtSelected.inputValue}"
+                                                                      label="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.txtSelected.label}"
+                                                                      required="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.txtSelected.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.txtSelected.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.txtSelected.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.txtSelected.tooltip}"
+                                                                      id="it4" rendered="false">
+                                                            <f:validator binding="#{row.bindings.txtSelected.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                </af:table>
                                             </af:panelBox>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="55%" marginEnd="5px" id="gc4"
