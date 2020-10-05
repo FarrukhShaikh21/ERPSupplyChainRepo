@@ -65,7 +65,16 @@ order by ct.category_type_name]]></SQLQuery>
     ColumnType="INTEGER"
     AliasName="CATEGORY_SHORT_CODE"
     Expression="CATEGORY_SHORT_CODE"
-    SQLType="INTEGER"/>
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVO.CategoryShortCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CategoryTypeName"
     IsUpdateable="false"
@@ -80,6 +89,14 @@ order by ct.category_type_name]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVO.CategoryTypeName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CategoryShortName"
@@ -95,6 +112,14 @@ order by ct.category_type_name]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVO.CategoryShortName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CategorySno"
@@ -107,7 +132,16 @@ order by ct.category_type_name]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="CATEGORY_SNO"
     Expression="CATEGORY_SNO"
-    SQLType="INTEGER"/>
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVO.CategorySno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CompanyId"
     IsUpdateable="false"
@@ -119,7 +153,16 @@ order by ct.category_type_name]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="COMPANY_ID"
     Expression="COMPANY_ID"
-    SQLType="INTEGER"/>
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVO.CompanyId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtSelected"
     IsSelected="false"
