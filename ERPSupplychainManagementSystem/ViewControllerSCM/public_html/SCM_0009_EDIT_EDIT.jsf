@@ -34,7 +34,7 @@
                         <f:facet name="center">
                             <af:panelBox text="PanelBox1" id="pb2" showHeader="never" partialTriggers="d3 d4">
                                 <f:facet name="toolbar"/>
-                                <af:panelGridLayout id="pgl2">
+                                <af:panelGridLayout id="pgl2" partialTriggers="l5 l9 l8 l1 l19 l20 l6 l4 l7 l3 l2">
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
                                         <af:gridCell marginStart="5px" width="45%" id="gc3" halign="stretch"
                                                      marginEnd="5px">
@@ -46,7 +46,7 @@
                                                     <f:facet name="toolbar">
                                                         <af:toolbar id="t3">
                                                             <af:panelGroupLayout layout="vertical" id="pgl3">
-                                                                <af:quickQuery label="Search" searchDesc="Search"
+                                                                <af:quickQuery label=" " searchDesc=" "
                                                                                id="qryId1"
                                                                                value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
                                                                                model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
@@ -72,7 +72,7 @@
                                                               id="t1" partialTriggers="l10" styleClass="AFStretchWidth"
                                                               columnStretching="column:c3">
                                                         <af:column headerText="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.label}"
-                                                                   id="c1">
+                                                                   id="c1" width="70" displayIndex="-1">
                                                             <af:inputText value="#{row.bindings.CategoryShortCode.inputValue}"
                                                                           label="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.label}"
                                                                           required="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.mandatory}"
@@ -109,8 +109,8 @@
                                                                 <f:validator binding="#{row.bindings.CategoryTypeName.validator}"/>
                                                             </af:inputText>
                                                         </af:column>
-                                                        <af:column headerText="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.txtSelected.label}"
-                                                                   id="c4">
+                                                        <af:column
+                                                                   id="c4" width="70" displayIndex="-1">
                                                             <af:link actionListener="#{bindings.doErpAssignSingleCustCatToTaxType.execute}"
                                                                      text="Assign This"
                                                                      disabled="#{row.bindings.txtSelected.inputValue=='Y'}"
@@ -126,13 +126,21 @@
                                                             </af:inputText>
                                                         </af:column>
                                                     </af:table>
-                                                    <f:facet name="secondaryToolbar"/>
+                                                    <f:facet name="secondaryToolbar">
+                                                        <af:toolbar id="t4" flex="1">
+                                                            <af:link actionListener="#{bindings.doErpAssignAllCustCategoryToTaxType.execute}"
+                                                                     text="Assign All"
+                                                                     disabled="#{bindings.ScmCustomerCategoryForTaxCatROIterator.estimatedRowCount==0}"
+                                                                     id="l11" partialSubmit="true"
+                                                                     partialTriggers="qryId1 l11"/>
+                                                        </af:toolbar>
+                                                    </f:facet>
                                                 </af:panelCollection>
                                             </af:panelBox>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="55%" marginEnd="5px" id="gc4"
                                                      halign="stretch">
-                                            <af:panelBox text="Assigned Customer Type" id="pb3" showDisclosure="false">
+                                            <af:panelBox text="Assigned Customer Category" id="pb3" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
                                                 <af:table value="#{bindings.ScmCustomerCategotyTaxCRUD.collectionModel}"
                                                           var="row"
@@ -143,9 +151,11 @@
                                                           selectionListener="#{bindings.ScmCustomerCategotyTaxCRUD.collectionModel.makeCurrent}"
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.ScmCustomerCategotyTaxCRUD.rangeSize}"
-                                                          id="t2" columnStretching="column:c6" partialTriggers="::l8">
+                                                          id="t2" columnStretching="column:c6"
+                                                          partialTriggers="::l8 ::l9" autoHeightRows="15"
+                                                          styleClass="AFStretchWidth">
                                                     <af:column headerText="#{bindings.ScmCustomerCategotyTaxCRUD.hints.txtCategoryCode.label}"
-                                                               id="c5">
+                                                               id="c5" width="80" displayIndex="-1">
                                                         <af:inputText value="#{row.bindings.txtCategoryCode.inputValue}"
                                                                       label="#{bindings.ScmCustomerCategotyTaxCRUD.hints.txtCategoryCode.label}"
                                                                       required="#{bindings.ScmCustomerCategotyTaxCRUD.hints.txtCategoryCode.mandatory}"
@@ -169,13 +179,13 @@
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCustomerCategotyTaxCRUD.hints.OpenDate.label}"
-                                                               id="c7">
+                                                               id="c7" width="110" minimumWidth="12">
                                                         <af:inputDate value="#{row.bindings.OpenDate.inputValue}"
                                                                       label="#{bindings.ScmCustomerCategotyTaxCRUD.hints.OpenDate.label}"
                                                                       required="#{bindings.ScmCustomerCategotyTaxCRUD.hints.OpenDate.mandatory}"
                                                                       columns="#{bindings.ScmCustomerCategotyTaxCRUD.hints.OpenDate.displayWidth}"
                                                                       shortDesc="#{bindings.ScmCustomerCategotyTaxCRUD.hints.OpenDate.tooltip}"
-                                                                      id="id1">
+                                                                      id="id1" contentStyle="width:55%">
                                                             <f:validator binding="#{row.bindings.OpenDate.validator}"/>
                                                             <af:convertDateTime pattern="#{bindings.ScmCustomerCategotyTaxCRUD.hints.OpenDate.format}"/>
                                                         </af:inputDate>
@@ -266,7 +276,7 @@
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
                                             <af:link text="Delete" id="l9" partialSubmit="true"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     iconPosition="top"/>
+                                                     iconPosition="top" actionListener="#{bindings.Delete.execute}"/>
                                             <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
                                                      disabled="#{!bindings.Delete.enabled}" id="l8" rendered="false"/>
                                             <af:link text="Add" id="l1" icon="#{resource['images:imgAddRecord.png']}"
@@ -299,7 +309,8 @@
                                                      disabled="#{!bindings.Commit.enabled}" id="l6" rendered="false"/>
                                             <af:link text="Undo" id="l4" icon="#{resource['images:imgUndo.png']}"
                                                      partialSubmit="true" iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                     immediate="true">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <af:link id="l7" partialSubmit="true"

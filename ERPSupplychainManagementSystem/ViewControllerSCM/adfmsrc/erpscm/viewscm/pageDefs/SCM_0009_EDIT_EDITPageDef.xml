@@ -72,5 +72,10 @@
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <action IterBinding="ScmCustomerCategotyTaxCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <methodAction id="doErpAssignAllCustCategoryToTaxType" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doErpAssignAllCustCategoryToTaxType" IsViewObjectMethod="true"
+                  DataControl="ERPSCMModuleDataControl"
+                  InstanceName="data.ERPSCMModuleDataControl.ScmCustomerCategoryForTaxCatRO"
+                  ReturnName="data.ERPSCMModuleDataControl.methodResults.doErpAssignAllCustCategoryToTaxType_ERPSCMModuleDataControl_ScmCustomerCategoryForTaxCatRO_doErpAssignAllCustCategoryToTaxType_result"/>
   </bindings>
 </pageDefinition>

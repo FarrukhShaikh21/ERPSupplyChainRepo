@@ -134,7 +134,8 @@ order by ct.category_type_name]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="CATEGORY_SNO"
     Expression="CATEGORY_SNO"
-    SQLType="INTEGER">
+    SQLType="INTEGER"
+    IsQueriable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -155,7 +156,8 @@ order by ct.category_type_name]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="COMPANY_ID"
     Expression="COMPANY_ID"
-    SQLType="INTEGER">
+    SQLType="INTEGER"
+    IsQueriable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -174,7 +176,8 @@ order by ct.category_type_name]]></SQLQuery>
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
