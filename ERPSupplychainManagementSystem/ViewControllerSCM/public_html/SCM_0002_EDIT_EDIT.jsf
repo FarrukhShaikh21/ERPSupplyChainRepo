@@ -5,6 +5,22 @@
     <af:document title="SCM_0002_EDIT_EDIT.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                        binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
+                  <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                        binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
+                  <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>
             <af:decorativeBox id="db1" dimensionsFrom="parent">
                 <f:facet name="center">
                     <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
@@ -25,6 +41,23 @@
                                                              disabled="#{!bindings.Delete.enabled}" id="l3"
                                                              icon="#{resource['images:imgDeleteRecord.png']}"
                                                              iconPosition="top" partialSubmit="true"/>
+                                                    <af:link text="Supervise" id="l18"
+                                                             icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                             iconPosition="top" partialSubmit="true"
+                                                             action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                             disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.CustomerShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                        <af:setActionListener to="#{pageFlowScope.OracleERPBean.LIteratorName}"
+                                                                              from="#{'ScmCustomerCRUDIterator'}"/>
+                                                    </af:link>
+                                                    <af:link text="UnSupervise" id="l19"
+                                                             icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                             iconPosition="top"
+                                                             action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                             partialSubmit="true"
+                                                             disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.CustomerShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
+                                                        <af:setActionListener from="#{'ScmCustomerCRUDIterator'}"
+                                                                              to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                    </af:link>
                                                     <af:link actionListener="#{bindings.CreateWithParams.execute}"
                                                              text="Add" disabled="#{!bindings.CreateWithParams.enabled}"
                                                              id="l1" partialSubmit="true"
@@ -58,8 +91,37 @@
                                                                       maximumLength="#{bindings.CustomerName.hints.precision}"
                                                                       shortDesc="#{bindings.CustomerName.hints.tooltip}"
                                                                       id="it1" styleClass="AFStretchWidth"
-                                                                      contentStyle="width:100%">
+                                                                      contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.CustomerName.validator}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                                      simple="true"
+                                                                      required="#{bindings.IsSupervised.hints.mandatory}"
+                                                                      columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                                      shortDesc="#{bindings.IsSupervised.hints.tooltip}"
+                                                                      id="it8" rendered="false">
+                                                            <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                                      simple="true"
+                                                                      required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                                      columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                                      shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
+                                                                      id="it9" rendered="false">
+                                                            <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.CustomerSno.inputValue}"
+                                                                      required="#{bindings.CustomerSno.hints.mandatory}"
+                                                                      columns="#{bindings.CustomerSno.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.CustomerSno.hints.precision}"
+                                                                      shortDesc="#{bindings.CustomerSno.hints.tooltip}"
+                                                                      id="it13" rendered="false">
+                                                            <f:validator binding="#{bindings.CustomerSno.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.CustomerSno.format}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
                                                 </af:gridRow>
@@ -97,7 +159,8 @@
                                                                       maximumLength="#{bindings.CustomerShortName.hints.precision}"
                                                                       shortDesc="#{bindings.CustomerShortName.hints.tooltip}"
                                                                       id="it3" styleClass="AFStretchWidth"
-                                                                      contentStyle="width:100%">
+                                                                      contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.CustomerShortName.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -112,7 +175,8 @@
                                                                       required="#{bindings.AccountOpenDate.hints.mandatory}"
                                                                       columns="#{bindings.AccountOpenDate.hints.displayWidth}"
                                                                       shortDesc="#{bindings.AccountOpenDate.hints.tooltip}"
-                                                                      id="id2" simple="true" contentStyle="width:80%">
+                                                                      id="id2" simple="true" contentStyle="width:80%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.AccountOpenDate.validator}"/>
                                                             <af:convertDateTime pattern="#{bindings.AccountOpenDate.format}"/>
                                                         </af:inputDate>
@@ -134,7 +198,8 @@
                                                                                       columns="#{bindings.txtCustType.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtCustType.hints.tooltip}"
                                                                                       contentStyle="width:80%"
-                                                                                      simple="true">
+                                                                                      simple="true"
+                                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.txtCustType.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
@@ -153,7 +218,8 @@
                                                                                       columns="#{bindings.txtCustomerCategory.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtCustomerCategory.hints.tooltip}"
                                                                                       simple="true"
-                                                                                      contentStyle="width:100%">
+                                                                                      contentStyle="width:100%"
+                                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.txtCustomerCategory.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
@@ -170,7 +236,8 @@
                                                                       columns="#{bindings.Nationality.hints.displayWidth}"
                                                                       maximumLength="#{bindings.Nationality.hints.precision}"
                                                                       shortDesc="#{bindings.Nationality.hints.tooltip}"
-                                                                      id="it15" contentStyle="width:100%">
+                                                                      id="it15" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.Nationality.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -188,7 +255,8 @@
                                                                       columns="#{bindings.ParentCustomerSno.hints.displayWidth}"
                                                                       maximumLength="#{bindings.ParentCustomerSno.hints.precision}"
                                                                       shortDesc="#{bindings.ParentCustomerSno.hints.tooltip}"
-                                                                      id="it17" simple="true" contentStyle="width:100%">
+                                                                      id="it17" simple="true" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.ParentCustomerSno.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.ParentCustomerSno.format}"/>
@@ -196,12 +264,13 @@
                                                     </af:gridCell>
                                                     <af:gridCell id="gc37" width="13%" halign="center" marginStart="5px"
                                                                  marginEnd="5px">
-                                                        <af:outputLabel value="outputLabel1" id="ol32"/>
+                                                        <af:outputLabel value="outputLabel1" id="ol32"
+                                                                        rendered="false"/>
                                                     </af:gridCell>
                                                     <af:gridCell id="gc38" width="20%" marginStart="5px" marginEnd="5px"
                                                                  halign="stretch">
                                                         <af:inputText label="Label 1" id="it30" simple="true"
-                                                                      contentStyle="width:100%"/>
+                                                                      contentStyle="width:100%" rendered="false"/>
                                                     </af:gridCell>
                                                     <af:gridCell id="gc31" width="13%" halign="center" rowSpan="1"
                                                                  marginStart="5px" marginEnd="5px">
@@ -217,7 +286,8 @@
                                                                       maximumLength="#{bindings.IsActive.hints.precision}"
                                                                       shortDesc="#{bindings.IsActive.hints.tooltip}"
                                                                       id="it16" styleClass="AFStretchWidth"
-                                                                      contentStyle="width:100%">
+                                                                      contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.IsActive.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -241,7 +311,8 @@
                                                                       columns="#{bindings.CnicNo.hints.displayWidth}"
                                                                       maximumLength="#{bindings.CnicNo.hints.precision}"
                                                                       shortDesc="#{bindings.CnicNo.hints.tooltip}"
-                                                                      id="it5" contentStyle="width:100%">
+                                                                      id="it5" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.CnicNo.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -256,7 +327,8 @@
                                                                       required="#{bindings.CnicExpiryDate.hints.mandatory}"
                                                                       columns="#{bindings.CnicExpiryDate.hints.displayWidth}"
                                                                       shortDesc="#{bindings.CnicExpiryDate.hints.tooltip}"
-                                                                      id="id1" simple="true" contentStyle="width:80%">
+                                                                      id="id1" simple="true" contentStyle="width:80%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.CnicExpiryDate.validator}"/>
                                                             <af:convertDateTime pattern="#{bindings.CnicExpiryDate.format}"/>
                                                         </af:inputDate>
@@ -273,7 +345,8 @@
                                                                       columns="#{bindings.NtnNo.hints.displayWidth}"
                                                                       maximumLength="#{bindings.NtnNo.hints.precision}"
                                                                       shortDesc="#{bindings.NtnNo.hints.tooltip}"
-                                                                      id="it18" contentStyle="width:100%">
+                                                                      id="it18" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.NtnNo.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -292,7 +365,8 @@
                                                                       columns="#{bindings.SrbPraNo.hints.displayWidth}"
                                                                       maximumLength="#{bindings.SrbPraNo.hints.precision}"
                                                                       shortDesc="#{bindings.SrbPraNo.hints.tooltip}"
-                                                                      id="it6" contentStyle="width:100%">
+                                                                      id="it6" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.SrbPraNo.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -309,7 +383,8 @@
                                                                       columns="#{bindings.StrnFbrGst.hints.displayWidth}"
                                                                       maximumLength="#{bindings.StrnFbrGst.hints.precision}"
                                                                       shortDesc="#{bindings.StrnFbrGst.hints.tooltip}"
-                                                                      id="it19" contentStyle="width:100%">
+                                                                      id="it19" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.StrnFbrGst.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -324,7 +399,8 @@
                                                                             required="#{bindings.IsTaxable.hints.mandatory}"
                                                                             shortDesc="#{bindings.IsTaxable.hints.tooltip}"
                                                                             id="soc1" simple="true"
-                                                                            contentStyle="width:100%">
+                                                                            contentStyle="width:100%"
+                                                                            readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:selectItems value="#{bindings.IsTaxable.items}"
                                                                            id="si1"/>
                                                             <f:validator binding="#{bindings.IsTaxable.validator}"/>
@@ -344,7 +420,8 @@
                                                                       columns="#{bindings.CurrencySno.hints.displayWidth}"
                                                                       maximumLength="#{bindings.CurrencySno.hints.precision}"
                                                                       shortDesc="#{bindings.CurrencySno.hints.tooltip}"
-                                                                      id="it7" contentStyle="width:100%" simple="true">
+                                                                      id="it7" contentStyle="width:100%" simple="true"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.CurrencySno.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.CurrencySno.format}"/>
@@ -361,7 +438,8 @@
                                                                       columns="#{bindings.FixedDiscountPercent.hints.displayWidth}"
                                                                       maximumLength="#{bindings.FixedDiscountPercent.hints.precision}"
                                                                       shortDesc="#{bindings.FixedDiscountPercent.hints.tooltip}"
-                                                                      id="it21" contentStyle="width:100%" simple="true">
+                                                                      id="it21" contentStyle="width:100%" simple="true"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.FixedDiscountPercent.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.FixedDiscountPercent.format}"/>
@@ -379,7 +457,8 @@
                                                                       columns="#{bindings.DeliveryTermSno.hints.displayWidth}"
                                                                       maximumLength="#{bindings.DeliveryTermSno.hints.precision}"
                                                                       shortDesc="#{bindings.DeliveryTermSno.hints.tooltip}"
-                                                                      id="it22" contentStyle="width:100%" simple="true">
+                                                                      id="it22" contentStyle="width:100%" simple="true"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.DeliveryTermSno.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.DeliveryTermSno.format}"/>
@@ -402,7 +481,8 @@
                                                                                       columns="#{bindings.txtPaymentTermName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtPaymentTermName.hints.tooltip}"
                                                                                       simple="true"
-                                                                                      contentStyle="width:100%">
+                                                                                      contentStyle="width:100%"
+                                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.txtPaymentTermName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
@@ -427,7 +507,8 @@
                                                                                       columns="#{bindings.txtBankName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtBankName.hints.tooltip}"
                                                                                       simple="true"
-                                                                                      contentStyle="width:100%">
+                                                                                      contentStyle="width:100%"
+                                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.txtBankName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
@@ -446,7 +527,8 @@
                                                                                       columns="#{bindings.txtBankBranchName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtBankBranchName.hints.tooltip}"
                                                                                       simple="true"
-                                                                                      contentStyle="width:100%">
+                                                                                      contentStyle="width:100%"
+                                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.txtBankBranchName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
@@ -463,7 +545,8 @@
                                                                       columns="#{bindings.BankAccountTitle.hints.displayWidth}"
                                                                       maximumLength="#{bindings.BankAccountTitle.hints.precision}"
                                                                       shortDesc="#{bindings.BankAccountTitle.hints.tooltip}"
-                                                                      id="it23" contentStyle="width:100%">
+                                                                      id="it23" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.BankAccountTitle.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -482,7 +565,8 @@
                                                                       columns="#{bindings.BankAccountNo.hints.displayWidth}"
                                                                       maximumLength="#{bindings.BankAccountNo.hints.precision}"
                                                                       shortDesc="#{bindings.BankAccountNo.hints.tooltip}"
-                                                                      id="it10" contentStyle="width:100%">
+                                                                      id="it10" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.BankAccountNo.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -500,7 +584,8 @@
                                                                       columns="#{bindings.IbanNo.hints.displayWidth}"
                                                                       maximumLength="#{bindings.IbanNo.hints.precision}"
                                                                       shortDesc="#{bindings.IbanNo.hints.tooltip}"
-                                                                      id="it24" contentStyle="width:100%">
+                                                                      id="it24" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.IbanNo.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -524,7 +609,8 @@
                                                                       columns="#{bindings.PhoneNo.hints.displayWidth}"
                                                                       maximumLength="#{bindings.PhoneNo.hints.precision}"
                                                                       shortDesc="#{bindings.PhoneNo.hints.tooltip}"
-                                                                      id="it11" contentStyle="width:100%">
+                                                                      id="it11" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.PhoneNo.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -539,7 +625,8 @@
                                                                       columns="#{bindings.Mobile.hints.displayWidth}"
                                                                       maximumLength="#{bindings.Mobile.hints.precision}"
                                                                       shortDesc="#{bindings.Mobile.hints.tooltip}"
-                                                                      id="it25" contentStyle="width:100%">
+                                                                      id="it25" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.Mobile.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -554,7 +641,8 @@
                                                                       columns="#{bindings.Email.hints.displayWidth}"
                                                                       maximumLength="#{bindings.Email.hints.precision}"
                                                                       shortDesc="#{bindings.Email.hints.tooltip}"
-                                                                      id="it26" contentStyle="width:100%">
+                                                                      id="it26" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.Email.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -571,7 +659,8 @@
                                                                       columns="#{bindings.Fax.hints.displayWidth}"
                                                                       maximumLength="#{bindings.Fax.hints.precision}"
                                                                       shortDesc="#{bindings.Fax.hints.tooltip}"
-                                                                      id="it12" contentStyle="width:100%">
+                                                                      id="it12" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.Fax.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -586,7 +675,8 @@
                                                                       columns="#{bindings.Website.hints.displayWidth}"
                                                                       maximumLength="#{bindings.Website.hints.precision}"
                                                                       shortDesc="#{bindings.Website.hints.tooltip}"
-                                                                      id="it27" contentStyle="width:100%">
+                                                                      id="it27" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.Website.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -602,7 +692,8 @@
                                                                       columns="#{bindings.ContactPerson.hints.displayWidth}"
                                                                       maximumLength="#{bindings.ContactPerson.hints.precision}"
                                                                       shortDesc="#{bindings.ContactPerson.hints.tooltip}"
-                                                                      id="it28" contentStyle="width:100%">
+                                                                      id="it28" contentStyle="width:100%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.ContactPerson.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
@@ -624,7 +715,8 @@
                                                                                       columns="#{bindings.txtCountryName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtCountryName.hints.tooltip}"
                                                                                       simple="true" autoSubmit="true"
-                                                                                      contentStyle="width:80%">
+                                                                                      contentStyle="width:80%"
+                                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.txtCountryName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
@@ -644,7 +736,8 @@
                                                                                       shortDesc="#{bindings.txtCityName.hints.tooltip}"
                                                                                       simple="true"
                                                                                       partialTriggers="txtCountryNameId"
-                                                                                      contentStyle="width:80%">
+                                                                                      contentStyle="width:80%"
+                                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.txtCityName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>

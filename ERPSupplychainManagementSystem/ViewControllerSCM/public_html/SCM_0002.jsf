@@ -34,7 +34,7 @@
                                          valign="stretch">
                               <af:panelGroupLayout id="pgl4" layout="horizontal" styleClass="ERPHeroBannerFont ERPLink">
                                 <af:link id="l2" icon="#{resource['images:imgView.png']}"
-                                         action="ERP-ACT-SCM_0002_EDIT"/>
+                                         action="ERP-ACT-SCM_0002_EDIT" styleClass="ERPHeroBannerFont ERPLink"/>
                                 <af:outputFormatted value="#{item.bindings.CompanyShortName.inputValue}" id="of1"
                                                     styleClass="ERPHeroBannerFont"/>
                                 <af:link text="#{item.bindings.CompanyShortName.inputValue}" id="l7" rendered="false"/>
