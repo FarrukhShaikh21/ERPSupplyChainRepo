@@ -110,6 +110,22 @@
                                                             </af:inputText>
                                                         </af:column>
                                                     </af:table>
+                                                    <f:facet name="secondaryToolbar">
+                                                        <af:toolbar id="t3">
+                                                            <af:panelGroupLayout layout="vertical" id="pgl3">
+                                                                <af:quickQuery label="Search" searchDesc="Search"
+                                                                               id="qryId1"
+                                                                               value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                                               model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                                               queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                                                    <f:facet name="end">
+                                                                        <af:commandLink text="Advanced" rendered="false"
+                                                                                        id="cl1"/>
+                                                                    </f:facet>
+                                                                </af:quickQuery>
+                                                            </af:panelGroupLayout>
+                                                        </af:toolbar>
+                                                    </f:facet>
                                                 </af:panelCollection>
                                             </af:panelBox>
                                         </af:gridCell>
