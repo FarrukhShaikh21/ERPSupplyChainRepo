@@ -546,7 +546,7 @@
         <to-activity-id>ExeParaCompSCM_0008</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__188">
-        <from-outcome>ERP-ACT_SCM_0009</from-outcome>
+        <from-outcome>ERP-ACT-SCM_0009</from-outcome>
         <to-activity-id>ExeCompSCM_0009</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
@@ -1141,13 +1141,13 @@
     </control-flow-rule>
     <control-flow-rule id="__197">
       <from-activity-id>SCM_0009_EDIT</from-activity-id>
-      <control-flow-case id="__198">
-        <from-outcome>ERPBACKCRUD</from-outcome>
-        <to-activity-id>SCM_0009</to-activity-id>
-      </control-flow-case>
       <control-flow-case id="__199">
         <from-outcome>ERP-QRY-ACT_SCM_0009_EDIT</from-outcome>
         <to-activity-id>ExeCustCatTaxAssignSCM_0009_EDIT</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__206">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0009</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__200">
@@ -1169,6 +1169,13 @@
       <control-flow-case id="__205">
         <from-outcome>ERP-QRY-ACT_SCM_0009_EDIT</from-outcome>
         <to-activity-id>SCM_0009_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__186">
+      <from-activity-id>SCM_0009_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__187">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0009_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
