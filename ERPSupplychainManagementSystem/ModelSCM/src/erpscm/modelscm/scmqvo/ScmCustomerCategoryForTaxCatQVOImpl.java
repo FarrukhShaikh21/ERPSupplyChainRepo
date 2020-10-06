@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmqvo;
 
+import erpscm.modelscm.scmqvo.common.ScmCustomerCategoryForTaxCatQVO;
+
 import oracle.jbo.Row;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewObject;
@@ -10,7 +12,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ScmCustomerCategoryForTaxCatQVOImpl extends ViewObjectImpl {
+public class ScmCustomerCategoryForTaxCatQVOImpl extends ViewObjectImpl implements ScmCustomerCategoryForTaxCatQVO {
     /**
      * This is the default constructor (do not remove).
      */

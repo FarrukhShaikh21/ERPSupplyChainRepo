@@ -40,9 +40,25 @@
                                                      marginEnd="5px">
                                             <af:panelBox text="Available Customer Category" id="pb1" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
-                                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                                <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                                                    featuresOff="detach viewMenu">
                                                     <f:facet name="menus"/>
-                                                    <f:facet name="toolbar"/>
+                                                    <f:facet name="toolbar">
+                                                        <af:toolbar id="t3">
+                                                            <af:panelGroupLayout layout="vertical" id="pgl3">
+                                                                <af:quickQuery label="Search" searchDesc="Search"
+                                                                               id="qryId1"
+                                                                               value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                                               model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                                               queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                                                    <f:facet name="end">
+                                                                        <af:commandLink text="Advanced" rendered="false"
+                                                                                        id="cl1"/>
+                                                                    </f:facet>
+                                                                </af:quickQuery>
+                                                            </af:panelGroupLayout>
+                                                        </af:toolbar>
+                                                    </f:facet>
                                                     <f:facet name="statusbar"/>
                                                     <af:table value="#{bindings.ScmCustomerCategoryForTaxCatRO.collectionModel}"
                                                               var="row"
@@ -110,22 +126,7 @@
                                                             </af:inputText>
                                                         </af:column>
                                                     </af:table>
-                                                    <f:facet name="secondaryToolbar">
-                                                        <af:toolbar id="t3">
-                                                            <af:panelGroupLayout layout="vertical" id="pgl3">
-                                                                <af:quickQuery label="Search" searchDesc="Search"
-                                                                               id="qryId1"
-                                                                               value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
-                                                                               model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
-                                                                               queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
-                                                                    <f:facet name="end">
-                                                                        <af:commandLink text="Advanced" rendered="false"
-                                                                                        id="cl1"/>
-                                                                    </f:facet>
-                                                                </af:quickQuery>
-                                                            </af:panelGroupLayout>
-                                                        </af:toolbar>
-                                                    </f:facet>
+                                                    <f:facet name="secondaryToolbar"/>
                                                 </af:panelCollection>
                                             </af:panelBox>
                                         </af:gridCell>

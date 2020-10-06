@@ -12,7 +12,9 @@
   RowClass="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVORowImpl"
   ComponentClass="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVOImpl"
   RowInterface="erpscm.modelscm.scmqvo.common.ScmCustomerCategoryForTaxCatQVORow"
-  ClientRowProxyName="erpscm.modelscm.scmqvo.client.ScmCustomerCategoryForTaxCatQVORowClient">
+  ClientRowProxyName="erpscm.modelscm.scmqvo.client.ScmCustomerCategoryForTaxCatQVORowClient"
+  ComponentInterface="erpscm.modelscm.scmqvo.common.ScmCustomerCategoryForTaxCatQVO"
+  ClientProxyName="erpscm.modelscm.scmqvo.client.ScmCustomerCategoryForTaxCatQVOClient">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
@@ -185,6 +187,16 @@ order by ct.category_type_name]]></SQLQuery>
   <AttrArray Name="KeyAttributes">
     <Item Value="CategorySno"/>
   </AttrArray>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doErpAssignAllCustCategoryToTaxType"
+      MethodName="doErpAssignAllCustCategoryToTaxType">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
   <ClientRowInterface
     Name="__rowClientInterface">
     <Method
