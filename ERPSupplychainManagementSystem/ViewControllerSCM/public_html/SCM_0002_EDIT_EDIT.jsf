@@ -38,17 +38,9 @@
                                                         <af:spacer width="10" height="10" id="s1"/>
                                                     </f:facet>
                                                     <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                             disabled="#{!bindings.Delete.enabled}" id="l3"
+                                                             disabled="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}" id="l3"
                                                              icon="#{resource['images:imgDeleteRecord.png']}"
                                                              iconPosition="top" partialSubmit="true"/>
-                                                    <af:link text="Supervise" id="l18"
-                                                             icon="#{resource['images:imgSuperviseRecord.png']}"
-                                                             iconPosition="top" partialSubmit="true"
-                                                             action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                             disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.CustomerShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
-                                                        <af:setActionListener to="#{pageFlowScope.OracleERPBean.LIteratorName}"
-                                                                              from="#{'ScmCustomerCRUDIterator'}"/>
-                                                    </af:link>
                                                     <af:link text="UnSupervise" id="l19"
                                                              icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                              iconPosition="top"
@@ -57,6 +49,14 @@
                                                              disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.CustomerShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
                                                         <af:setActionListener from="#{'ScmCustomerCRUDIterator'}"
                                                                               to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                    </af:link>
+                                                    <af:link text="Supervise" id="l18"
+                                                             icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                             iconPosition="top" partialSubmit="true"
+                                                             action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                             disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.CustomerShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                        <af:setActionListener to="#{pageFlowScope.OracleERPBean.LIteratorName}"
+                                                                              from="#{'ScmCustomerCRUDIterator'}"/>
                                                     </af:link>
                                                     <af:link actionListener="#{bindings.CreateWithParams.execute}"
                                                              text="Add" disabled="#{!bindings.CreateWithParams.enabled}"
