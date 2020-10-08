@@ -4,7 +4,7 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ERPSCMModule"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
   <ViewUsage
@@ -171,6 +171,20 @@
   <ViewUsage
     Name="ScmCustomerCategoryForTaxCatRO"
     ViewObjectName="erpscm.modelscm.scmqvo.ScmCustomerCategoryForTaxCatQVO"/>
+  <ViewUsage
+    Name="ScmSupplierCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO">
+    <ViewCriteriaUsage
+      Name="ScmSupplierBySupplierIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmSupplierVO.ScmSupplierBySupplierIDVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmSupplierByCompanyRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO">
+    <ViewCriteriaUsage
+      Name="ScmSupplierByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmSupplierVO.ScmSupplierByCompanyIDVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
