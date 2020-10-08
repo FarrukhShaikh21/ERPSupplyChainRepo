@@ -1220,14 +1220,14 @@
       <from-activity-id>SCM_0011</from-activity-id>
       <control-flow-case id="__210">
         <from-outcome>ERP-QRY-ACT-SCM_0011</from-outcome>
-        <to-activity-id>SCM_0011_EDIT</to-activity-id>
+        <to-activity-id>ExGlTaxTypeSCM_0011_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__211">
       <from-activity-id>SCM_0011_EDIT</from-activity-id>
-      <control-flow-case id="__212">
+      <control-flow-case id="__217">
         <from-outcome>ERP-QRY-ACT-SCM_0011_EDIT_EDIT</from-outcome>
-        <to-activity-id>ExGlTaxTypeSCM_0011_EDIT</to-activity-id>
+        <to-activity-id>SCM_0011_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__213">
@@ -1237,11 +1237,11 @@
         <to-activity-id>ExeCompSCM_0011_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__215">
+    <control-flow-rule id="__219">
       <from-activity-id>ExeCompSCM_0011_EDIT</from-activity-id>
-      <control-flow-case id="__216">
+      <control-flow-case id="__220">
         <from-outcome>ERP-QRY-ACT-SCM_0011_EDIT_EDIT</from-outcome>
-        <to-activity-id>SCM_0011_EDIT_EDIT</to-activity-id>
+        <to-activity-id>SCM_0011_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

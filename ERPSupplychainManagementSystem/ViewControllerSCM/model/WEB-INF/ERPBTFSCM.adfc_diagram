@@ -2421,19 +2421,19 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">1668.7988</property>
+         name="y">1729.3447</property>
       <property
-         name="x">-2159.9785</property>
+         name="x">-2339.9785</property>
    </View>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase221"
       from="View216"
-      to="View220">
+      to="MethodCall223">
       <property
          name="fromOutcome">ERP-QRY-ACT-SCM_0011</property>
       <property
-         name="sdm:polyPoints">L50,-2114.5,1579.3447,-2118.9785,1668.4482,R50</property>
+         name="sdm:polyPoints">L50,-2114.5,1579.3447,-2215.6484,1551.54,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall222">
@@ -2444,9 +2444,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">1864.3447</property>
+         name="y">1602.9424</property>
       <property
-         name="x">-2360.6484</property>
+         name="x">-2381.6484</property>
    </MethodCall>
    <MethodCall
       id="MethodCall223">
@@ -2457,9 +2457,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">1700.293</property>
+         name="y">1551.8906</property>
       <property
-         name="x">-2371.6484</property>
+         name="x">-2256.6484</property>
    </MethodCall>
    <View
       id="View224">
@@ -2479,12 +2479,12 @@
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase225"
-      from="View220"
-      to="MethodCall223">
+      from="MethodCall222"
+      to="View220">
       <property
          name="fromOutcome">ERP-QRY-ACT-SCM_0011_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">L50,-2200.9785,1668.4482,-2330.6484,1699.9424,R50</property>
+         name="sdm:polyPoints">B50,-2381.6484,1656.5918,-2339.9785,1675.3447,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -2494,16 +2494,16 @@
       <property
          name="fromOutcome">ERP-QRY-ACT-SCM_0011_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">B50,-2371.6484,1753.9424,-2360.6484,1809.9941,T50</property>
+         name="sdm:polyPoints">L50,-2297.6484,1551.54,-2340.6484,1602.5918,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase227"
-      from="MethodCall222"
+      from="View220"
       to="View224">
       <property
          name="fromOutcome">ERP-QRY-ACT-SCM_0011_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">R50,-2319.6484,1863.9941,-2250.9746,1873.4482,L50</property>
+         name="sdm:polyPoints">B50,-2339.9785,1783.3447,-2250.9746,1873.4482,L50</property>
    </ControlFlowCase>
 </SDM>
