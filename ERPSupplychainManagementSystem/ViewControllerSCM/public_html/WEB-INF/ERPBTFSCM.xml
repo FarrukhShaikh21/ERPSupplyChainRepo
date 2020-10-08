@@ -503,6 +503,24 @@
     <view id="SCM_0011_EDIT_EDIT">
       <page>/SCM_0011_EDIT_EDIT.jsf</page>
     </view>
+    <view id="SCM_0010">
+      <page>/SCM_0010.jsf</page>
+    </view>
+    <view id="SCM_0010_EDIT">
+      <page>/SCM_0010_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeSupByCompSCM_0010">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0010_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeAdminCompByCompSCM_0010">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0010_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -579,6 +597,10 @@
       <control-flow-case id="__209">
         <from-outcome>ERP-ACT-SCM_0011</from-outcome>
         <to-activity-id>ExeCompanySCM_0011</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__222">
+        <from-outcome>ERP-ACT-SCM_0010</from-outcome>
+        <to-activity-id>SCM_0010</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -1253,6 +1275,27 @@
       <control-flow-case id="__215">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0011_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__223">
+      <from-activity-id>SCM_0010</from-activity-id>
+      <control-flow-case id="__224">
+        <from-outcome>ERP-QRY-ACT-SCM_0010_EDIT</from-outcome>
+        <to-activity-id>ExeSupByCompSCM_0010</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__225">
+      <from-activity-id>ExeSupByCompSCM_0010</from-activity-id>
+      <control-flow-case id="__226">
+        <from-outcome>ERP-QRY-ACT-SCM_0010_EDIT</from-outcome>
+        <to-activity-id>ExeAdminCompByCompSCM_0010</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__227">
+      <from-activity-id>ExeAdminCompByCompSCM_0010</from-activity-id>
+      <control-flow-case id="__228">
+        <from-outcome>ERP-QRY-ACT-SCM_0010_EDIT</from-outcome>
+        <to-activity-id>SCM_0010_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
