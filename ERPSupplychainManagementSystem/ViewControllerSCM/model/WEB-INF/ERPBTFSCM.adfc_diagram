@@ -2392,7 +2392,7 @@
       from="MethodCall217"
       to="View216">
       <property
-         name="fromOutcome">ERP-QRY-ACT-SCM_0008</property>
+         name="fromOutcome">ERP-ACT-SCM_0011</property>
       <property
          name="sdm:polyPoints">L50,-1977.5,1557.3965,-2032.5,1579.3447,R50</property>
    </ControlFlowCase>
@@ -2402,7 +2402,7 @@
       from="MethodCall12"
       to="MethodCall217">
       <property
-         name="fromOutcome">ERP-QRY-ACT-SCM_0008</property>
+         name="fromOutcome">ERP-ACT-SCM_0011</property>
       <property
          name="tosrcid">__209</property>
       <property
@@ -2410,4 +2410,55 @@
       <property
          name="sdm:polyPoints">L50,114.5366,196.74121,-1936.5,1503.3965,T50</property>
    </ControlFlowCase>
+   <View
+      id="View220">
+      <property
+         name="activityId">SCM_0011_EDIT</property>
+      <property
+         name="page">/SCM_0011_EDIT.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SCM_0011_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1668.7988</property>
+      <property
+         name="x">-2159.9785</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase221"
+      from="View216"
+      to="View220">
+      <property
+         name="fromOutcome">ERP-QRY-ACT-SCM_0011</property>
+      <property
+         name="sdm:polyPoints">L50,-2114.5,1579.3447,-2118.9785,1668.4482,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall222">
+      <property
+         name="activityId">ExeCompSCM_0011_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeCompSCM_0011_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1737.7471</property>
+      <property
+         name="x">-2295.6484</property>
+   </MethodCall>
+   <MethodCall
+      id="MethodCall223">
+      <property
+         name="activityId">ExGlTaxTypeSCM_0011_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExGlTaxTypeSCM_0011_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1635.4482</property>
+      <property
+         name="x">-2263.6484</property>
+   </MethodCall>
 </SDM>
