@@ -491,15 +491,18 @@
     <method-call id="ExeCompSCM_0011_EDIT">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0011_EDIT_EDIT</fixed-outcome>
       </outcome>
     </method-call>
     <method-call id="ExGlTaxTypeSCM_0011_EDIT">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0011_EDIT_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0011_EDIT_EDIT">
+      <page>/SCM_0011_EDIT_EDIT.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1218,6 +1221,27 @@
       <control-flow-case id="__210">
         <from-outcome>ERP-QRY-ACT-SCM_0011</from-outcome>
         <to-activity-id>SCM_0011_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__211">
+      <from-activity-id>SCM_0011_EDIT</from-activity-id>
+      <control-flow-case id="__212">
+        <from-outcome>ERP-QRY-ACT-SCM_0011_EDIT_EDIT</from-outcome>
+        <to-activity-id>ExGlTaxTypeSCM_0011_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__213">
+      <from-activity-id>ExGlTaxTypeSCM_0011_EDIT</from-activity-id>
+      <control-flow-case id="__214">
+        <from-outcome>ERP-QRY-ACT-SCM_0011_EDIT_EDIT</from-outcome>
+        <to-activity-id>ExeCompSCM_0011_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__215">
+      <from-activity-id>ExeCompSCM_0011_EDIT</from-activity-id>
+      <control-flow-case id="__216">
+        <from-outcome>ERP-QRY-ACT-SCM_0011_EDIT_EDIT</from-outcome>
+        <to-activity-id>SCM_0011_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

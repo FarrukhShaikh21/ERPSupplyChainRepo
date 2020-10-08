@@ -2444,9 +2444,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">1737.7471</property>
+         name="y">1864.3447</property>
       <property
-         name="x">-2295.6484</property>
+         name="x">-2360.6484</property>
    </MethodCall>
    <MethodCall
       id="MethodCall223">
@@ -2457,8 +2457,53 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">1635.4482</property>
+         name="y">1700.293</property>
       <property
-         name="x">-2263.6484</property>
+         name="x">-2371.6484</property>
    </MethodCall>
+   <View
+      id="View224">
+      <property
+         name="activityId">SCM_0011_EDIT_EDIT</property>
+      <property
+         name="page">/SCM_0011_EDIT_EDIT.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SCM_0011_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1873.7988</property>
+      <property
+         name="x">-2209.9746</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase225"
+      from="View220"
+      to="MethodCall223">
+      <property
+         name="fromOutcome">ERP-QRY-ACT-SCM_0011_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">L50,-2200.9785,1668.4482,-2330.6484,1699.9424,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase226"
+      from="MethodCall223"
+      to="MethodCall222">
+      <property
+         name="fromOutcome">ERP-QRY-ACT-SCM_0011_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">B50,-2371.6484,1753.9424,-2360.6484,1809.9941,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase227"
+      from="MethodCall222"
+      to="View224">
+      <property
+         name="fromOutcome">ERP-QRY-ACT-SCM_0011_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">R50,-2319.6484,1863.9941,-2250.9746,1873.4482,L50</property>
+   </ControlFlowCase>
 </SDM>
