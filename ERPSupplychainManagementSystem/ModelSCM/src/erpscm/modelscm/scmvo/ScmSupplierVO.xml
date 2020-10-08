@@ -4,15 +4,23 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmSupplierVO"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
   WhereFlags="1"
-  BindingStyle="OracleName"
+  BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_COMPANY_ID"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_SUPPLIER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <EntityUsage
     Name="ScmSupplier"
     Entity="erpscm.modelscm.scmeo.ScmSupplier"/>
@@ -317,4 +325,76 @@
     EntityAttrName="UnSupervisedBy"
     EntityUsage="ScmSupplier"
     AliasName="UN_SUPERVISED_BY"/>
+  <ViewCriteria
+    Name="ScmSupplierByCompanyIDVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmSupplierVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CompanyId"
+        ViewAttribute="CompanyId"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_COMPANY_ID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ScmSupplierBySupplierIDVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmSupplierVOCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SupplierSno"
+        ViewAttribute="SupplierSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_SUPPLIER_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>
