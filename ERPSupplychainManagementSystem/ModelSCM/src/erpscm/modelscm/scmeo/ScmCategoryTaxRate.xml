@@ -17,10 +17,19 @@
     Scale="0"
     ColumnName="CATEGORY_TAX_RATE_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_CATEGORY_TAX_RATE"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.CategoryTaxRateSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CategoryId"
     IsNotNull="true"
@@ -30,7 +39,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.CategoryId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="TaxTypeSno"
     IsNotNull="true"
@@ -40,7 +58,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.TaxTypeSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="OpenDate"
     IsNotNull="true"
@@ -48,7 +75,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.OpenDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="FromDate"
     IsNotNull="true"
@@ -56,7 +92,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.FromDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ToDate"
     IsNotNull="true"
@@ -64,7 +109,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.ToDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="FilerRate"
     IsNotNull="true"
@@ -74,7 +128,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.FilerRate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="NonFilerRate"
     IsNotNull="true"
@@ -84,7 +147,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.NonFilerRate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="GlobalCompanyId"
     IsNotNull="true"
@@ -94,7 +166,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.GlobalCompanyId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CompanyId"
     IsNotNull="true"
@@ -104,7 +185,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.CompanyId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -114,7 +204,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.CreatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedDate"
     IsNotNull="true"
@@ -122,7 +221,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.CreatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -131,14 +239,32 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.LastUpdatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedDate"
     ColumnName="LAST_UPDATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.LastUpdatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IsSupervised"
     IsNotNull="true"
@@ -147,10 +273,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_CATEGORY_TAX_RATE">
+    TableName="SCM_CATEGORY_TAX_RATE"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.IsSupervised_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="SupervisedDate"
@@ -158,7 +293,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.SupervisedDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IsUnsupervised"
     IsNotNull="true"
@@ -167,10 +311,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_CATEGORY_TAX_RATE">
+    TableName="SCM_CATEGORY_TAX_RATE"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.IsUnsupervised_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="UnSupervisedDate"
@@ -178,7 +331,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.UnSupervisedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="SupervisedBy"
     Precision="5"
@@ -187,7 +349,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.SupervisedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="UnSupervisedBy"
     Precision="5"
@@ -196,7 +367,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE"/>
+    TableName="SCM_CATEGORY_TAX_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate.UnSupervisedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Key
     Name="PkScmCategoryTaxRate"
     PrimaryKey="true">
@@ -207,4 +387,8 @@
       <Item Value="erpscm.modelscm.scmeo.ScmCategoryTaxRate.CategoryTaxRateSno"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </Entity>
