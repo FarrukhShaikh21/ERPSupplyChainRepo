@@ -521,6 +521,15 @@
         <fixed-outcome>ERP-QRY-ACT-SCM_0010_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="CreateWithParaSUPPLSNO">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCM_0010_EDIT_EDIT">
+      <page>/SCM_0010_EDIT_EDIT.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1296,6 +1305,20 @@
       <control-flow-case id="__228">
         <from-outcome>ERP-QRY-ACT-SCM_0010_EDIT</from-outcome>
         <to-activity-id>SCM_0010_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__218">
+      <from-activity-id>SCM_0010_EDIT</from-activity-id>
+      <control-flow-case id="__221">
+        <from-outcome>ERPADDSCM_0010_EDIT_EDIT</from-outcome>
+        <to-activity-id>CreateWithParaSUPPLSNO</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__229">
+      <from-activity-id>CreateWithParaSUPPLSNO</from-activity-id>
+      <control-flow-case id="__230">
+        <from-outcome>CreateWithParams</from-outcome>
+        <to-activity-id>SCM_0010_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
