@@ -3,8 +3,8 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="ScmSupplierVO"
-  Version="12.1.3.10.47"
+  Name="ScmCustomerVO"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -18,316 +18,696 @@
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
   <Variable
-    Name="P_ADF_SUPPLIER_SNO"
+    Name="P_ADF_CUSTOMER_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
+  <ViewAccessor
+    Name="AccSmCityVO"
+    ViewObjectName="erpadm.modeladm.admvo.SmCityVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SmCityCountryWiseVC"
+      FullName="erpadm.modeladm.admvo.SmCityVO.SmCityCountryWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COUNTRY_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CountrySno==null?-1:CountrySno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSmCountryVO"
+    ViewObjectName="erpadm.modeladm.admvo.SmCountryVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmCustomerTypeVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerTypeVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmCustomerTypeByCompanyVC"
+      FullName="erpscm.modelscm.scmvo.ScmCustomerTypeVO.ScmCustomerTypeByCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlBankBranchVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBankBranchVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccGlBankVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmCustomerCategoryVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerCategoryVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSysGeneralValueVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[4]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmPaymentTermHeaderVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_txtCityName"
+    ListVOName="AccSmCityVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="2"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCityName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CitySno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Cityname"/>
+      <Item Value="Citycode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Cityname"/>
+      <Item Value="CityShortName"/>
+      <Item Value="CityShortCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SmCityFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_txtCountryName"
+    ListVOName="AccSmCountryVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="2"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCountryName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CountrySno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Countryname"/>
+      <Item Value="Countrycode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Countryname"/>
+      <Item Value="CountryShortName"/>
+      <Item Value="CountryShortCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SmCountryVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_txtCustType"
+    ListVOName="AccScmCustomerTypeVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="2"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCustType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CustomerTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerTypeName"/>
+      <Item Value="CustomerTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustomerTypeName"/>
+      <Item Value="CustomerTypeShortName"/>
+      <Item Value="CustomerTypeCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmCustomerTypeFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtBankBranchName"
+    ListVOName="AccGlBankBranchVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtBankBranchName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BranchId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BranchName"/>
+      <Item Value="BankBranchId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BranchName"/>
+      <Item Value="BranchShortName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="lovtxtBankName"
+    ListVOName="AccGlBankVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtBankName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BankId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BankName"/>
+      <Item Value="BankId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BankName"/>
+      <Item Value="BankShortName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="lovtxtCustomerCategory"
+    ListVOName="AccScmCustomerCategoryVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCustomerCategory"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CustomerCategorySno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CategoryTypeName"/>
+      <Item Value="CategorySno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CategoryTypeName"/>
+      <Item Value="CategoryShortName"/>
+      <Item Value="CategoryShortCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsTaxable"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsTaxable"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtPaymentTermName"
+    ListVOName="AccScmPaymentTermHeaderVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtPaymentTermName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PaymentTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PaymentTermName"/>
+      <Item Value="PaymentTermHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PaymentTermName"/>
+      <Item Value="PaymentTermShortName"/>
+      <Item Value="PaymentTermHeaderCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmPaymentTermHeaderFindVC"/>
+  </ListBinding>
   <EntityUsage
-    Name="ScmSupplier"
-    Entity="erpscm.modelscm.scmeo.ScmSupplier"/>
-  <ViewAttribute
-    Name="SupplierSno"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SupplierSno"
-    EntityUsage="ScmSupplier"
-    AliasName="SUPPLIER_SNO"/>
-  <ViewAttribute
-    Name="SupplierShortCode"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SupplierShortCode"
-    EntityUsage="ScmSupplier"
-    AliasName="SUPPLIER_SHORT_CODE"/>
-  <ViewAttribute
-    Name="SupplierName"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SupplierName"
-    EntityUsage="ScmSupplier"
-    AliasName="SUPPLIER_NAME"/>
-  <ViewAttribute
-    Name="SupplierShortName"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SupplierShortName"
-    EntityUsage="ScmSupplier"
-    AliasName="SUPPLIER_SHORT_NAME"/>
+    Name="ScmCustomer"
+    Entity="erpscm.modelscm.scmeo.ScmCustomer"/>
   <ViewAttribute
     Name="CustomerSno"
+    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CustomerSno"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="CUSTOMER_SNO"/>
+  <ViewAttribute
+    Name="CustomerShortCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustomerShortCode"
+    EntityUsage="ScmCustomer"
+    AliasName="CUSTOMER_SHORT_CODE"/>
+  <ViewAttribute
+    Name="CustomerName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustomerName"
+    EntityUsage="ScmCustomer"
+    AliasName="CUSTOMER_NAME"/>
+  <ViewAttribute
+    Name="CustomerShortName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustomerShortName"
+    EntityUsage="ScmCustomer"
+    AliasName="CUSTOMER_SHORT_NAME"/>
   <ViewAttribute
     Name="PhoneNo"
     PrecisionRule="true"
     EntityAttrName="PhoneNo"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="PHONE_NO"/>
   <ViewAttribute
     Name="Mobile"
     PrecisionRule="true"
     EntityAttrName="Mobile"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="MOBILE"/>
   <ViewAttribute
     Name="Email"
     PrecisionRule="true"
     EntityAttrName="Email"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="EMAIL"/>
   <ViewAttribute
     Name="Fax"
     PrecisionRule="true"
     EntityAttrName="Fax"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="FAX"/>
   <ViewAttribute
     Name="CountrySno"
     PrecisionRule="true"
     EntityAttrName="CountrySno"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="COUNTRY_SNO"/>
   <ViewAttribute
     Name="CitySno"
     PrecisionRule="true"
     EntityAttrName="CitySno"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="CITY_SNO"/>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="CREATED_BY"/>
   <ViewAttribute
     Name="CreatedDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="CREATED_DATE"/>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="LAST_UPDATED_BY"/>
   <ViewAttribute
     Name="LastUpdatedDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="LAST_UPDATED_DATE"/>
   <ViewAttribute
     Name="ChartOfAccountId"
     PrecisionRule="true"
     EntityAttrName="ChartOfAccountId"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="CHART_OF_ACCOUNT_ID"/>
   <ViewAttribute
     Name="CompanyId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CompanyId"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="COMPANY_ID"/>
   <ViewAttribute
-    Name="SupplierTypeSno"
+    Name="CustomerTypeSno"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="SupplierTypeSno"
-    EntityUsage="ScmSupplier"
-    AliasName="SUPPLIER_TYPE_SNO"/>
+    EntityAttrName="CustomerTypeSno"
+    EntityUsage="ScmCustomer"
+    AliasName="CUSTOMER_TYPE_SNO"/>
   <ViewAttribute
     Name="Nationality"
     PrecisionRule="true"
     EntityAttrName="Nationality"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="NATIONALITY"/>
   <ViewAttribute
     Name="Dob"
     PrecisionRule="true"
     EntityAttrName="Dob"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="DOB"/>
   <ViewAttribute
     Name="CnicNo"
     PrecisionRule="true"
     EntityAttrName="CnicNo"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="CNIC_NO"/>
   <ViewAttribute
     Name="NtnNo"
     PrecisionRule="true"
     EntityAttrName="NtnNo"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="NTN_NO"/>
   <ViewAttribute
     Name="BankId"
     PrecisionRule="true"
     EntityAttrName="BankId"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="BANK_ID"/>
   <ViewAttribute
     Name="BranchId"
     PrecisionRule="true"
     EntityAttrName="BranchId"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="BRANCH_ID"/>
   <ViewAttribute
     Name="BankAccountNo"
     PrecisionRule="true"
     EntityAttrName="BankAccountNo"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="BANK_ACCOUNT_NO"/>
   <ViewAttribute
     Name="BankAccountTitle"
     PrecisionRule="true"
     EntityAttrName="BankAccountTitle"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="BANK_ACCOUNT_TITLE"/>
   <ViewAttribute
     Name="IbanNo"
     PrecisionRule="true"
     EntityAttrName="IbanNo"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="IBAN_NO"/>
   <ViewAttribute
     Name="SrbPraNo"
     PrecisionRule="true"
     EntityAttrName="SrbPraNo"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="SRB_PRA_NO"/>
+  <ViewAttribute
+    Name="StrnFbrGst"
+    PrecisionRule="true"
+    EntityAttrName="StrnFbrGst"
+    EntityUsage="ScmCustomer"
+    AliasName="STRN_FBR_GST"/>
   <ViewAttribute
     Name="FixedDiscountPercent"
     PrecisionRule="true"
     EntityAttrName="FixedDiscountPercent"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="FIXED_DISCOUNT_PERCENT"/>
   <ViewAttribute
     Name="PaymentTermSno"
     PrecisionRule="true"
     EntityAttrName="PaymentTermSno"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="PAYMENT_TERM_SNO"/>
   <ViewAttribute
     Name="DeliveryTermSno"
     PrecisionRule="true"
     EntityAttrName="DeliveryTermSno"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="DELIVERY_TERM_SNO"/>
   <ViewAttribute
-    Name="SupplierCategorySno"
+    Name="CustomerCategorySno"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="SupplierCategorySno"
-    EntityUsage="ScmSupplier"
-    AliasName="SUPPLIER_CATEGORY_SNO"/>
+    EntityAttrName="CustomerCategorySno"
+    EntityUsage="ScmCustomer"
+    AliasName="CUSTOMER_CATEGORY_SNO"/>
   <ViewAttribute
     Name="CurrencySno"
     PrecisionRule="true"
     EntityAttrName="CurrencySno"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="CURRENCY_SNO"/>
   <ViewAttribute
     Name="ContactPerson"
     PrecisionRule="true"
     EntityAttrName="ContactPerson"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="CONTACT_PERSON"/>
   <ViewAttribute
     Name="IsActive"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="IsActive"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="IS_ACTIVE"/>
   <ViewAttribute
     Name="Website"
     PrecisionRule="true"
     EntityAttrName="Website"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="WEBSITE"/>
   <ViewAttribute
-    Name="SupplierPictureName"
+    Name="CustomerPictureName"
     PrecisionRule="true"
-    EntityAttrName="SupplierPictureName"
-    EntityUsage="ScmSupplier"
-    AliasName="SUPPLIER_PICTURE_NAME"/>
+    EntityAttrName="CustomerPictureName"
+    EntityUsage="ScmCustomer"
+    AliasName="CUSTOMER_PICTURE_NAME"/>
   <ViewAttribute
     Name="IsTaxable"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="IsTaxable"
-    EntityUsage="ScmSupplier"
-    AliasName="IS_TAXABLE"/>
+    EntityUsage="ScmCustomer"
+    AliasName="IS_TAXABLE"
+    LOVName="LovIsTaxable">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AccountOpenDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="AccountOpenDate"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="ACCOUNT_OPEN_DATE"/>
   <ViewAttribute
-    Name="ParentSupplierSno"
+    Name="ParentCustomerSno"
     PrecisionRule="true"
-    EntityAttrName="ParentSupplierSno"
-    EntityUsage="ScmSupplier"
-    AliasName="PARENT_SUPPLIER_SNO"/>
+    EntityAttrName="ParentCustomerSno"
+    EntityUsage="ScmCustomer"
+    AliasName="PARENT_CUSTOMER_SNO"/>
   <ViewAttribute
     Name="GlobalCompanyCode"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="GlobalCompanyCode"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="GLOBAL_COMPANY_CODE"/>
   <ViewAttribute
     Name="CnicExpiryDate"
     PrecisionRule="true"
     EntityAttrName="CnicExpiryDate"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="CNIC_EXPIRY_DATE"/>
   <ViewAttribute
-    Name="IsSupervised"
+    Name="txtCityName"
+    IsQueriable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="IsSupervised"
-    EntityUsage="ScmSupplier"
-    AliasName="IS_SUPERVISED"/>
+    EntityAttrName="txtCityName"
+    EntityUsage="ScmCustomer"
+    AliasName="txt_City_Name"
+    LOVName="LOV_txtCityName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
-    Name="SupervisedDate"
+    Name="txtCountryName"
+    IsQueriable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="SupervisedDate"
-    EntityUsage="ScmSupplier"
-    AliasName="SUPERVISED_DATE"/>
+    EntityAttrName="txtCountryName"
+    EntityUsage="ScmCustomer"
+    AliasName="txt_Country_Name"
+    LOVName="LOV_txtCountryName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
-    Name="IsUnsupervised"
+    Name="txtCustType"
+    IsQueriable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="IsUnsupervised"
-    EntityUsage="ScmSupplier"
-    AliasName="IS_UNSUPERVISED"/>
+    EntityAttrName="txtCustType"
+    EntityUsage="ScmCustomer"
+    AliasName="txt_Cust_Type"
+    LOVName="LOV_txtCustType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
-    Name="UnSupervisedDate"
+    Name="txtBankBranchName"
+    IsQueriable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="UnSupervisedDate"
-    EntityUsage="ScmSupplier"
-    AliasName="UN_SUPERVISED_DATE"/>
+    EntityAttrName="txtBankBranchName"
+    EntityUsage="ScmCustomer"
+    AliasName="TXT_BANK_BRANCH_NAME"
+    LOVName="LovtxtBankBranchName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtBankName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtBankName"
+    EntityUsage="ScmCustomer"
+    AliasName="TXT_BANK_NAME"
+    LOVName="lovtxtBankName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtCustomerCategory"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCustomerCategory"
+    EntityUsage="ScmCustomer"
+    AliasName="TXT_CUSTOMER_CATEGORY"
+    LOVName="lovtxtCustomerCategory">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtPaymentTermName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtPaymentTermName"
+    EntityUsage="ScmCustomer"
+    AliasName="TXT_PAYMENT_TERM_NAME"
+    LOVName="LovtxtPaymentTermName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SupervisedBy"
     PrecisionRule="true"
     EntityAttrName="SupervisedBy"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="SupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedDate"
+    EntityUsage="ScmCustomer"
+    AliasName="SUPERVISED_DATE"/>
   <ViewAttribute
     Name="UnSupervisedBy"
     PrecisionRule="true"
     EntityAttrName="UnSupervisedBy"
-    EntityUsage="ScmSupplier"
+    EntityUsage="ScmCustomer"
     AliasName="UN_SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="UnSupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedDate"
+    EntityUsage="ScmCustomer"
+    AliasName="UN_SUPERVISED_DATE"/>
+  <ViewAttribute
+    Name="IsSupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsSupervised"
+    EntityUsage="ScmCustomer"
+    AliasName="IS_SUPERVISED"/>
+  <ViewAttribute
+    Name="IsUnsupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsUnsupervised"
+    EntityUsage="ScmCustomer"
+    AliasName="IS_UNSUPERVISED"/>
   <ViewCriteria
-    Name="ScmSupplierByCompanyIDVC"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
+    Name="ScmCustomerByCompanyIDVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerVO"
     Conjunction="AND">
     <Properties>
       <CustomProperties>
@@ -349,7 +729,7 @@
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
-      Name="ScmSupplierVOCriteria_row_0"
+      Name="ScmCustomerVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
         Name="CompanyId"
@@ -362,8 +742,8 @@
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewCriteria
-    Name="ScmSupplierBySupplierIDVC"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
+    Name="ScmCustomerByCustomerIDVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerVO"
     Conjunction="AND">
     <Properties>
       <CustomProperties>
@@ -385,16 +765,63 @@
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
-      Name="ScmSupplierVOCriteria1_row_0"
+      Name="ScmCustomerVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="SupplierSno"
-        ViewAttribute="SupplierSno"
+        Name="CustomerSno"
+        ViewAttribute="CustomerSno"
         Operator="="
         Conjunction="AND"
-        Value=":P_ADF_SUPPLIER_SNO"
+        Value=":P_ADF_CUSTOMER_SNO"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewLinkAccessor
+    Name="ScmCustomerSitesVO"
+    ViewLink="erpscm.modelscm.scmvo.FkScmCustSiteCustSnoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SmCountryVO"
+    ViewLink="erpscm.modelscm.scmvo.SmCountrySmCustomerCountryIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SmCityVO"
+    ViewLink="erpscm.modelscm.scmvo.SmCitySmCustomerCityIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmCustomerTypeVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmCustTypeScmCustomerCustomerTypeIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlBankVO"
+    ViewLink="erpscm.modelscm.scmvo.GlBankScmCustomerBankIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmCustomerCategoryVO"
+    ViewLink="erpscm.modelscm.scmvo.SmCustScmCustCategoryIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlBankBranchVO"
+    ViewLink="erpscm.modelscm.scmvo.GlBankScmCustomerBranchIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPaymentTermHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPayTermHeadScmCustPaymentTermSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

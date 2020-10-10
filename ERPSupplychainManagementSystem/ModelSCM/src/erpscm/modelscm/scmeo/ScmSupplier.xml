@@ -9,15 +9,20 @@
   DBObjectType="table"
   DBObjectName="SCM_SUPPLIER"
   AliasName="ScmSupplier"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpscm.modelscm.scmeo.ScmSupplierImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+  </DesignTime>
   <Attribute
     Name="SupplierSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="SUPPLIER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_SUPPLIER"
     PrimaryKey="true">
@@ -32,12 +37,11 @@
   </Attribute>
   <Attribute
     Name="SupplierShortCode"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="SUPPLIER_SHORT_CODE"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_SUPPLIER">
     <Properties>
@@ -51,7 +55,6 @@
   </Attribute>
   <Attribute
     Name="SupplierName"
-    IsNotNull="true"
     Precision="100"
     ColumnName="SUPPLIER_NAME"
     SQLType="VARCHAR"
@@ -72,7 +75,6 @@
   </Attribute>
   <Attribute
     Name="SupplierShortName"
-    IsNotNull="true"
     Precision="20"
     ColumnName="SUPPLIER_SHORT_NAME"
     SQLType="VARCHAR"
@@ -209,7 +211,6 @@
     TableName="SCM_SUPPLIER"/>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -219,12 +220,12 @@
     TableName="SCM_SUPPLIER"/>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_SUPPLIER"/>
+    TableName="SCM_SUPPLIER"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -240,7 +241,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_SUPPLIER"/>
+    TableName="SCM_SUPPLIER"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="ChartOfAccountId"
     Precision="10"
@@ -536,7 +538,6 @@
   </Attribute>
   <Attribute
     Name="SupplierCategorySno"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="SUPPLIER_CATEGORY_SNO"
@@ -710,7 +711,6 @@
   </Attribute>
   <Attribute
     Name="GlobalCompanyCode"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="GLOBAL_COMPANY_CODE"
@@ -761,7 +761,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_SUPPLIER"/>
+    TableName="SCM_SUPPLIER"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="IsUnsupervised"
     Precision="1"
@@ -780,7 +781,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_SUPPLIER"/>
+    TableName="SCM_SUPPLIER"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="SupervisedBy"
     Precision="5"
@@ -799,6 +801,162 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_SUPPLIER"/>
+  <Attribute
+    Name="txtCountryName"
+    Precision="80"
+    ColumnName="txt_Country_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SmCountry?.Countryname]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSupplier.txtCountryName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtCityName"
+    Precision="80"
+    ColumnName="txt_City_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SmCity?.Cityname]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSupplier.txtCityName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtBankName"
+    Precision="80"
+    ColumnName="txt_Bank_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlBank?.BankName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSupplier.txtBankName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtBankBranchName"
+    Precision="80"
+    ColumnName="txt_Bank_Branch_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlBankBranch?.BranchName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSupplier.txtBankBranchName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtPaymentTermName"
+    Precision="80"
+    ColumnName="txt_Payment_Term_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPaymentTermHeader?.PaymentTermName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSupplier.txtPaymentTermName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtCustType"
+    Precision="80"
+    ColumnName="txt_Cust_Type"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmCustomerType?.CustomerTypeName]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </Attribute>
+  <AccessorAttribute
+    Name="SmCity"
+    Association="erpscm.modelscm.scmeo.SmCitySmSupplierCityIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.SmCitySmSupplierCityIdAsso.SmCity"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.SmCitySmSupplierCityIdAsso.ScmSupplier"
+    Type="erpadm.modeladm.admeo.SmCityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SmCountry"
+    Association="erpscm.modelscm.scmeo.SmCountrySmSupplierCountryIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.SmCountrySmSupplierCountryIdAsso.SmCountry"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.SmCountrySmSupplierCountryIdAsso.ScmSupplier"
+    Type="erpadm.modeladm.admeo.SmCountryImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlBank"
+    Association="erpscm.modelscm.scmeo.GlBankScmSupplierBankIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.GlBankScmSupplierBankIdAsso.GlBank"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GlBankScmSupplierBankIdAsso.ScmSupplier"
+    Type="erpfms.modelfms.fmseo.GlBankImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlBankBranch"
+    Association="erpscm.modelscm.scmeo.GlBankScmSupplierBranchIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.GlBankScmSupplierBranchIdAsso.GlBankBranch"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GlBankScmSupplierBranchIdAsso.ScmSupplier"
+    Type="erpfms.modelfms.fmseo.GlBankBranchImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPaymentTermHeader"
+    Association="erpscm.modelscm.scmeo.ScmPayTermHeadScmSupplPaymentTermSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPayTermHeadScmSupplPaymentTermSnoAsso.ScmPaymentTermHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPayTermHeadScmSupplPaymentTermSnoAsso.ScmSupplier"
+    Type="erpscm.modelscm.scmeo.ScmPaymentTermHeaderImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmCustomerType"
+    Association="erpscm.modelscm.scmeo.ScmCustTypeScmSupplierSupplierTypeIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmCustTypeScmSupplierSupplierTypeIdAsso.ScmCustomerType"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustTypeScmSupplierSupplierTypeIdAsso.ScmSupplier"
+    Type="erpscm.modelscm.scmeo.ScmCustomerTypeImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmSupplier"
     PrimaryKey="true">
@@ -807,6 +965,83 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmSupplier.SupplierSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmSupplier">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SM_CITY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Supplier"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmSupplier.CitySno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmSupplier1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SM_COUNTRY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Supplier1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmSupplier.CountrySno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmSupplier2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_GL_BANK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Supplier2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmSupplier.BankId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmSupplier3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_GL_BANK_BRANCH"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Supplier3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmSupplier.BranchId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmSupplier4">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PAYMENT_TERM_HEADER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Supplier4"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmSupplier.PaymentTermSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmSupplier5">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_CUSTOMER_CATEGORY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Supplier5"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmSupplier.SupplierTypeSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmSupplier6">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_CUSTOMER_TYPE"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Supplier6"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmSupplier.SupplierTypeSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
