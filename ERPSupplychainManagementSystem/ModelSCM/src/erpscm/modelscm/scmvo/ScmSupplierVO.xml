@@ -168,6 +168,31 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_txtSupplierType"
+    ListVOName="AccScmCustomerTypeVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SupplierTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerTypeName"/>
+      <Item Value="CustomerTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustomerTypeName"/>
+      <Item Value="CustomerTypeShortName"/>
+      <Item Value="CustomerTypeCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmSupplier"
     Entity="erpscm.modelscm.scmeo.ScmSupplier"/>
@@ -545,6 +570,22 @@
     EntityUsage="ScmSupplier"
     AliasName="txt_Payment_Term_Name"
     LOVName="LovtxtPaymentTermName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSupplierType"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierType"
+    EntityUsage="ScmSupplier"
+    AliasName="txt_Supplier_Type"
+    LOVName="LOV_txtSupplierType">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

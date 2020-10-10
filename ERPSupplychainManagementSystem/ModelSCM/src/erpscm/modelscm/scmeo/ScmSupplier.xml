@@ -827,6 +827,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="CountrySno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtCityName"
@@ -847,6 +851,12 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="CitySno"/>
+      <Item
+        Value="txtCountryName"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtBankName"
@@ -867,6 +877,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="BankId"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtBankBranchName"
@@ -887,6 +901,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="BranchId"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtPaymentTermName"
@@ -907,6 +925,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="PaymentTermSno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtSupplierType"
@@ -919,6 +941,18 @@
     IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[ScmCustomerType?.CustomerTypeName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="SupplierTypeSno"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSupplier.txtSupplierType_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <AccessorAttribute
     Name="SmCity"

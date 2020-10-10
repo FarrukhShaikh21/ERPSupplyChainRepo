@@ -164,5 +164,12 @@
     <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="lovtxtCityName" id="txtCityName"/>
     <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LovtxtBankBranchName"
                   id="txtBankBranchName"/>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="txtSupplierType">
+      <AttrNames>
+        <Item Value="txtSupplierType"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LOV_txtSupplierType"
+                  id="txtSupplierType1"/>
   </bindings>
 </pageDefinition>
