@@ -134,23 +134,9 @@
                                             </af:gridRow>
                                             <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
                                                 <af:gridCell id="gc35" width="13%" rowSpan="1" halign="center"
-                                                             marginStart="5px" marginEnd="5px">
-                                                    <af:outputLabel value="#{bindings.SupplierTypeSno.hints.label}"
-                                                                    id="ol5"/>
-                                                </af:gridCell>
+                                                             marginStart="5px" marginEnd="5px"/>
                                                 <af:gridCell id="gc33" width="20%" halign="stretch" marginStart="5px"
-                                                             marginEnd="5px">
-                                                    <af:inputText value="#{bindings.SupplierTypeSno.inputValue}"
-                                                                  required="#{bindings.SupplierTypeSno.hints.mandatory}"
-                                                                  columns="#{bindings.SupplierTypeSno.hints.displayWidth}"
-                                                                  maximumLength="#{bindings.SupplierTypeSno.hints.precision}"
-                                                                  shortDesc="#{bindings.SupplierTypeSno.hints.tooltip}"
-                                                                  id="it7" contentStyle="width:100%">
-                                                        <f:validator binding="#{bindings.SupplierTypeSno.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.SupplierTypeSno.format}"/>
-                                                    </af:inputText>
-                                                </af:gridCell>
+                                                             marginEnd="5px"/>
                                                 <af:gridCell id="gc5" width="13%" marginStart="5px" marginEnd="5px"
                                                              rowSpan="1" halign="center"/>
                                                 <af:gridCell id="gc6" width="20%" marginStart="5px" marginEnd="5px"

@@ -81,7 +81,7 @@ public class ScmSupplierImpl extends ERPEntityImpl {
         txtBankName,
         txtBankBranchName,
         txtPaymentTermName,
-        txtCustType,
+        txtSupplierType,
         SmCity,
         SmCountry,
         GlBank,
@@ -165,7 +165,7 @@ public class ScmSupplierImpl extends ERPEntityImpl {
     public static final int TXTBANKNAME = AttributesEnum.txtBankName.index();
     public static final int TXTBANKBRANCHNAME = AttributesEnum.txtBankBranchName.index();
     public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
-    public static final int TXTCUSTTYPE = AttributesEnum.txtCustType.index();
+    public static final int TXTSUPPLIERTYPE = AttributesEnum.txtSupplierType.index();
     public static final int SMCITY = AttributesEnum.SmCity.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int GLBANK = AttributesEnum.GlBank.index();
@@ -1036,20 +1036,21 @@ public class ScmSupplierImpl extends ERPEntityImpl {
         setAttributeInternal(TXTPAYMENTTERMNAME, value);
     }
 
+
     /**
-     * Gets the attribute value for txtCustType, using the alias name txtCustType.
-     * @return the value of txtCustType
+     * Gets the attribute value for txtSupplierType, using the alias name txtSupplierType.
+     * @return the value of txtSupplierType
      */
-    public String gettxtCustType() {
-        return (String) getAttributeInternal(TXTCUSTTYPE);
+    public String gettxtSupplierType() {
+        return (String) getAttributeInternal(TXTSUPPLIERTYPE);
     }
 
     /**
-     * Sets <code>value</code> as the attribute value for txtCustType.
-     * @param value value to set the txtCustType
+     * Sets <code>value</code> as the attribute value for txtSupplierType.
+     * @param value value to set the txtSupplierType
      */
-    public void settxtCustType(String value) {
-        setAttributeInternal(TXTCUSTTYPE, value);
+    public void settxtSupplierType(String value) {
+        setAttributeInternal(TXTSUPPLIERTYPE, value);
     }
 
     /**

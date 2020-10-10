@@ -909,9 +909,9 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="txtCustType"
+    Name="txtSupplierType"
     Precision="80"
-    ColumnName="txt_Cust_Type"
+    ColumnName="txt_Supplier_Type"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
@@ -919,8 +919,6 @@
     IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[ScmCustomerType?.CustomerTypeName]]></TransientExpression>
-    <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
   </Attribute>
   <AccessorAttribute
     Name="SmCity"
