@@ -18,7 +18,6 @@
   </DesignTime>
   <Attribute
     Name="CategoryTaxRateSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="CATEGORY_TAX_RATE_SNO"
@@ -38,7 +37,6 @@
   </Attribute>
   <Attribute
     Name="CategoryId"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="CATEGORY_ID"
@@ -57,7 +55,6 @@
   </Attribute>
   <Attribute
     Name="TaxTypeSno"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="TAX_TYPE_SNO"
@@ -82,6 +79,8 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_CATEGORY_TAX_RATE">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -93,7 +92,6 @@
   </Attribute>
   <Attribute
     Name="FromDate"
-    IsNotNull="true"
     ColumnName="FROM_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
@@ -127,7 +125,6 @@
   </Attribute>
   <Attribute
     Name="FilerRate"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="FILER_RATE"
@@ -146,7 +143,6 @@
   </Attribute>
   <Attribute
     Name="NonFilerRate"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="NON_FILER_RATE"
@@ -185,7 +181,6 @@
   </Attribute>
   <Attribute
     Name="CompanyId"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="COMPANY_ID"
@@ -204,7 +199,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
