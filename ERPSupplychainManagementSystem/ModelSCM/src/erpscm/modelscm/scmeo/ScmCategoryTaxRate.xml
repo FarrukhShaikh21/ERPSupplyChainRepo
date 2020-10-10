@@ -381,6 +381,13 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <AccessorAttribute
+    Name="ScmCustomerCategory"
+    Association="erpscm.modelscm.scmeo.ScmCustomerCatScmCatTaxRateCategorySnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmCustomerCatScmCatTaxRateCategorySnoAsso.ScmCustomerCategory"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustomerCatScmCatTaxRateCategorySnoAsso.ScmCategoryTaxRate"
+    Type="erpscm.modelscm.scmeo.ScmCustomerCategoryImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmCategoryTaxRate"
     PrimaryKey="true">
@@ -389,6 +396,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmCategoryTaxRate.CategoryTaxRateSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmCategoryTaxRate">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_CUSTOMER_CATEGORY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_CATEGORY_TAX_RATE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCategoryTaxRate.CategoryId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

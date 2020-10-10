@@ -41,7 +41,8 @@ public class ScmCategoryTaxRateImpl extends ERPEntityImpl {
         IsUnsupervised,
         UnSupervisedDate,
         SupervisedBy,
-        UnSupervisedBy;
+        UnSupervisedBy,
+        ScmCustomerCategory;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -86,6 +87,7 @@ public class ScmCategoryTaxRateImpl extends ERPEntityImpl {
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
+    public static final int SCMCUSTOMERCATEGORY = AttributesEnum.ScmCustomerCategory.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -419,6 +421,21 @@ public class ScmCategoryTaxRateImpl extends ERPEntityImpl {
      */
     public void setUnSupervisedBy(Integer value) {
         setAttributeInternal(UNSUPERVISEDBY, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmCustomerCategoryImpl.
+     */
+    public ScmCustomerCategoryImpl getScmCustomerCategory() {
+        return (ScmCustomerCategoryImpl) getAttributeInternal(SCMCUSTOMERCATEGORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmCustomerCategoryImpl.
+     */
+    public void setScmCustomerCategory(ScmCustomerCategoryImpl value) {
+        setAttributeInternal(SCMCUSTOMERCATEGORY, value);
     }
 
 
