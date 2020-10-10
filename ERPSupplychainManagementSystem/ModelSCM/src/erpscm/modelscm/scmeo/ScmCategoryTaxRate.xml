@@ -173,8 +173,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_CATEGORY_TAX_RATE">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -224,12 +223,12 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CATEGORY_TAX_RATE">
+    TableName="SCM_CATEGORY_TAX_RATE"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -263,7 +262,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CATEGORY_TAX_RATE">
+    TableName="SCM_CATEGORY_TAX_RATE"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -301,7 +301,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CATEGORY_TAX_RATE">
+    TableName="SCM_CATEGORY_TAX_RATE"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -339,7 +340,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_CATEGORY_TAX_RATE">
+    TableName="SCM_CATEGORY_TAX_RATE"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
