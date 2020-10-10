@@ -1,5 +1,6 @@
 package erpscm.modelscm.scmeo;
 
+import erpglobals.modelglobals.ERPEntityImpl;
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
 import java.math.BigDecimal;
@@ -17,7 +18,7 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ScmCategoryTaxRateImpl extends EntityImpl {
+public class ScmCategoryTaxRateImpl extends ERPEntityImpl {
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -64,6 +65,7 @@ public class ScmCategoryTaxRateImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int CATEGORYTAXRATESNO = AttributesEnum.CategoryTaxRateSno.index();
     public static final int CATEGORYID = AttributesEnum.CategoryId.index();
     public static final int TAXTYPESNO = AttributesEnum.TaxTypeSno.index();
@@ -89,6 +91,13 @@ public class ScmCategoryTaxRateImpl extends EntityImpl {
      * This is the default constructor (do not remove).
      */
     public ScmCategoryTaxRateImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmCategoryTaxRate");
     }
 
     /**
@@ -411,6 +420,7 @@ public class ScmCategoryTaxRateImpl extends EntityImpl {
         setAttributeInternal(UNSUPERVISEDBY, value);
     }
 
+
     /**
      * @param categoryTaxRateSno key constituent
 
@@ -418,13 +428,6 @@ public class ScmCategoryTaxRateImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Integer categoryTaxRateSno) {
         return new Key(new Object[] { categoryTaxRateSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmCategoryTaxRate");
     }
 
     /**
