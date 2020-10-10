@@ -376,6 +376,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustTypeScmCutTypeTaxCustomerTypeIDAsso.ScmCustomerType"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmSupplier"
+    Association="erpscm.modelscm.scmeo.ScmCustTypeScmSupplierSupplierTypeIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmCustTypeScmSupplierSupplierTypeIdAsso.ScmSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustTypeScmSupplierSupplierTypeIdAsso.ScmCustomerType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmCustomerType"
     PrimaryKey="true">
