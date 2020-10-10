@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="SCM_CATEGORY_TAX_RATE"
   AliasName="ScmCategoryTaxRate"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpscm.modelscm.scmeo.ScmCategoryTaxRateImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="CategoryTaxRateSno"
     IsNotNull="true"
