@@ -109,6 +109,80 @@
                                                      halign="stretch">
                                             <af:panelBox text="Assigned Customer Category" id="pb3" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
+                                                <af:table value="#{bindings.ScmCategoryTaxRateCRUD.collectionModel}"
+                                                          var="row" rows="#{bindings.ScmCategoryTaxRateCRUD.rangeSize}"
+                                                          emptyText="#{bindings.ScmCategoryTaxRateCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.ScmCategoryTaxRateCRUD.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.ScmCategoryTaxRateCRUD.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.ScmCategoryTaxRateCRUD.rangeSize}"
+                                                          id="t2">
+                                                    <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.OpenDate.label}"
+                                                               id="c5">
+                                                        <af:inputDate value="#{row.bindings.OpenDate.inputValue}"
+                                                                      label="#{bindings.ScmCategoryTaxRateCRUD.hints.OpenDate.label}"
+                                                                      required="#{bindings.ScmCategoryTaxRateCRUD.hints.OpenDate.mandatory}"
+                                                                      columns="#{bindings.ScmCategoryTaxRateCRUD.hints.OpenDate.displayWidth}"
+                                                                      shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.OpenDate.tooltip}"
+                                                                      id="id1">
+                                                            <f:validator binding="#{row.bindings.OpenDate.validator}"/>
+                                                            <af:convertDateTime pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.OpenDate.format}"/>
+                                                        </af:inputDate>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.label}"
+                                                               id="c6">
+                                                        <af:inputDate value="#{row.bindings.FromDate.inputValue}"
+                                                                      label="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.label}"
+                                                                      required="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.mandatory}"
+                                                                      columns="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.displayWidth}"
+                                                                      shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.tooltip}"
+                                                                      id="id3">
+                                                            <f:validator binding="#{row.bindings.FromDate.validator}"/>
+                                                            <af:convertDateTime pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.format}"/>
+                                                        </af:inputDate>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.label}"
+                                                               id="c7">
+                                                        <af:inputDate value="#{row.bindings.ToDate.inputValue}"
+                                                                      label="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.label}"
+                                                                      required="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.mandatory}"
+                                                                      columns="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.displayWidth}"
+                                                                      shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.tooltip}"
+                                                                      id="id4">
+                                                            <f:validator binding="#{row.bindings.ToDate.validator}"/>
+                                                            <af:convertDateTime pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.format}"/>
+                                                        </af:inputDate>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.label}"
+                                                               id="c8">
+                                                        <af:inputText value="#{row.bindings.FilerRate.inputValue}"
+                                                                      label="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.label}"
+                                                                      required="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.mandatory}"
+                                                                      columns="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.precision}"
+                                                                      shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.tooltip}"
+                                                                      id="it5">
+                                                            <f:validator binding="#{row.bindings.FilerRate.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.label}"
+                                                               id="c9">
+                                                        <af:inputText value="#{row.bindings.NonFilerRate.inputValue}"
+                                                                      label="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.label}"
+                                                                      required="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.mandatory}"
+                                                                      columns="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.precision}"
+                                                                      shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.tooltip}"
+                                                                      id="it6">
+                                                            <f:validator binding="#{row.bindings.NonFilerRate.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                </af:table>
                                             </af:panelBox>
                                         </af:gridCell>
                                     </af:gridRow>

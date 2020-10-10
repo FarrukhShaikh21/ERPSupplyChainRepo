@@ -10,6 +10,8 @@
               id="ScmCustomerCategotyTaxCRUDIterator"/>
     <iterator Binds="ScmCustomerCategoryByCompRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmCustomerCategoryByCompROIterator"/>
+    <iterator Binds="ScmCategoryTaxRateCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCategoryTaxRateCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="OpenDate">
@@ -49,6 +51,17 @@
           <Item Value="CategoryShortCode"/>
           <Item Value="CategoryShortName"/>
           <Item Value="CategoryTypeName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ScmCategoryTaxRateCRUDIterator" id="ScmCategoryTaxRateCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmCategoryTaxRateVO" Name="ScmCategoryTaxRateCRUD0">
+        <AttrNames>
+          <Item Value="OpenDate"/>
+          <Item Value="FromDate"/>
+          <Item Value="ToDate"/>
+          <Item Value="FilerRate"/>
+          <Item Value="NonFilerRate"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
