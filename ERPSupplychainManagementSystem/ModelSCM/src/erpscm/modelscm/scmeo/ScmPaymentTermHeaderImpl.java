@@ -43,7 +43,8 @@ public class ScmPaymentTermHeaderImpl extends ERPEntityImpl {
         UnSupervisedBy,
         UnSupervisedDate,
         ScmPaymentTermDue,
-        ScmCustomer;
+        ScmCustomer,
+        ScmSupplier;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -91,6 +92,7 @@ public class ScmPaymentTermHeaderImpl extends ERPEntityImpl {
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int SCMPAYMENTTERMDUE = AttributesEnum.ScmPaymentTermDue.index();
     public static final int SCMCUSTOMER = AttributesEnum.ScmCustomer.index();
+    public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -455,6 +457,14 @@ public class ScmPaymentTermHeaderImpl extends ERPEntityImpl {
      */
     public RowIterator getScmCustomer() {
         return (RowIterator) getAttributeInternal(SCMCUSTOMER);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmSupplier() {
+        return (RowIterator) getAttributeInternal(SCMSUPPLIER);
     }
 
 

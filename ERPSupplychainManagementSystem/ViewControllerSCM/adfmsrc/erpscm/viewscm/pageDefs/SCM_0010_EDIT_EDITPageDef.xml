@@ -28,5 +28,146 @@
         <Item Value="SupplierSno"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="SupplierShortCode">
+      <AttrNames>
+        <Item Value="SupplierShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="SupplierShortName">
+      <AttrNames>
+        <Item Value="SupplierShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="AccountOpenDate">
+      <AttrNames>
+        <Item Value="AccountOpenDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="SupplierTypeSno">
+      <AttrNames>
+        <Item Value="SupplierTypeSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="Nationality">
+      <AttrNames>
+        <Item Value="Nationality"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="IsActive">
+      <AttrNames>
+        <Item Value="IsActive"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="ParentSupplierSno">
+      <AttrNames>
+        <Item Value="ParentSupplierSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="CnicNo">
+      <AttrNames>
+        <Item Value="CnicNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="SrbPraNo">
+      <AttrNames>
+        <Item Value="SrbPraNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="CurrencySno">
+      <AttrNames>
+        <Item Value="CurrencySno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="PaymentTermSno">
+      <AttrNames>
+        <Item Value="PaymentTermSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="CnicExpiryDate">
+      <AttrNames>
+        <Item Value="CnicExpiryDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="NtnNo">
+      <AttrNames>
+        <Item Value="NtnNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="IsTaxable">
+      <AttrNames>
+        <Item Value="IsTaxable"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="DeliveryTermSno">
+      <AttrNames>
+        <Item Value="DeliveryTermSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="BankId">
+      <AttrNames>
+        <Item Value="BankId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="BankAccountNo">
+      <AttrNames>
+        <Item Value="BankAccountNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="BankAccountTitle">
+      <AttrNames>
+        <Item Value="BankAccountTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="IbanNo">
+      <AttrNames>
+        <Item Value="IbanNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="PhoneNo">
+      <AttrNames>
+        <Item Value="PhoneNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="Fax">
+      <AttrNames>
+        <Item Value="Fax"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="Mobile">
+      <AttrNames>
+        <Item Value="Mobile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="Website">
+      <AttrNames>
+        <Item Value="Website"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="ContactPerson">
+      <AttrNames>
+        <Item Value="ContactPerson"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ScmSupplierCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ScmSupplierCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
+    <action IterBinding="ScmSupplierCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LovtxtPaymentTermName"
+                  id="txtPaymentTermName"/>
+    <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LovtxtBankName" id="txtBankName"/>
+    <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LOV_txtCountryName"
+                  id="txtCountryName"/>
+    <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="lovtxtCityName" id="txtCityName"/>
+    <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LovtxtBankBranchName"
+                  id="txtBankBranchName"/>
   </bindings>
 </pageDefinition>

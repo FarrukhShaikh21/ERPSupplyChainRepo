@@ -266,19 +266,11 @@
                                                                  marginEnd="5px">
                                                         <af:outputLabel value="outputLabel1" id="ol32"
                                                                         rendered="false"/>
-                                                    </af:gridCell>
-                                                    <af:gridCell id="gc38" width="20%" marginStart="5px" marginEnd="5px"
-                                                                 halign="stretch">
-                                                        <af:inputText label="Label 1" id="it30" simple="true"
-                                                                      contentStyle="width:100%" rendered="false"/>
-                                                    </af:gridCell>
-                                                    <af:gridCell id="gc31" width="13%" halign="center" rowSpan="1"
-                                                                 marginStart="5px" marginEnd="5px">
                                                         <af:outputLabel value="#{bindings.IsActive.hints.label}"
                                                                         id="ol18"/>
                                                     </af:gridCell>
-                                                    <af:gridCell id="gc32" width="21%" halign="stretch"
-                                                                 marginStart="5px" marginEnd="5px" columnSpan="1">
+                                                    <af:gridCell id="gc38" width="20%" marginStart="5px" marginEnd="5px"
+                                                                 halign="stretch">
                                                         <af:inputText value="#{bindings.IsActive.inputValue}"
                                                                       simple="true"
                                                                       required="#{bindings.IsActive.hints.mandatory}"
@@ -291,6 +283,10 @@
                                                             <f:validator binding="#{bindings.IsActive.validator}"/>
                                                         </af:inputText>
                                                     </af:gridCell>
+                                                    <af:gridCell id="gc31" width="13%" halign="center" rowSpan="1"
+                                                                 marginStart="5px" marginEnd="5px"/>
+                                                    <af:gridCell id="gc32" width="21%" halign="stretch"
+                                                                 marginStart="5px" marginEnd="5px" columnSpan="1"/>
                                                 </af:gridRow>
                                             </af:panelGridLayout>
                                         </af:panelBox>
