@@ -4,7 +4,7 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ERPSCMModule"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
   <ViewUsage
@@ -185,6 +185,9 @@
       Name="ScmSupplierByCompanyIDVC"
       FullName="erpscm.modelscm.scmvo.ScmSupplierVO.ScmSupplierByCompanyIDVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ScmCategoryTaxRateCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCategoryTaxRateVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -208,5 +211,11 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmCustSiteCustSnoLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerCRUD"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerSitesDetRO"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ScmCustomerCatScmCatTaxRateCategorySnoVL1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.ScmCustomerCatScmCatTaxRateCategorySnoVL"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerCategoryByCompRO"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCategoryTaxRateCRUD"
     Reversed="false"/>
 </AppModule>
