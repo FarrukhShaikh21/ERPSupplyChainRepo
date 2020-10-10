@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1" id="SCM_0011_EDIT_EDITPageDef"
+                Package="erpscm.viewscm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlTaxTypeByTaxIDRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="GlTaxTypeByTaxIDROIterator"/>
+    <iterator Binds="ScmCustomerCategotyTaxCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerCategotyTaxCRUDIterator"/>
+    <iterator Binds="ScmCustomerCategoryByCompRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerCategoryByCompROIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="OpenDate">
+      <AttrNames>
+        <Item Value="OpenDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeSno">
+      <AttrNames>
+        <Item Value="TaxTypeSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeCode">
+      <AttrNames>
+        <Item Value="TaxTypeCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeName">
+      <AttrNames>
+        <Item Value="TaxTypeName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeShortName">
+      <AttrNames>
+        <Item Value="TaxTypeShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action IterBinding="ScmCustomerCategotyTaxCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="ScmCustomerCategoryByCompROIterator" id="ScmCustomerCategoryByCompRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmCustomerCategoryVO" Name="ScmCustomerCategoryByCompRO0">
+        <AttrNames>
+          <Item Value="CategorySno"/>
+          <Item Value="CategoryShortCode"/>
+          <Item Value="CategoryShortName"/>
+          <Item Value="CategoryTypeName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

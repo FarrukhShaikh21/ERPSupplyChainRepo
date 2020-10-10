@@ -1,7 +1,251 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="SCM_0011_EDIT_EDIT.jsf" id="d1">
-        <af:form id="f1"></af:form>
+    <af:document title="FMS_0011_EDIT_EDIT.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
+                <af:dialog id="d2" title="Confirmation!" type="yesNo"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmDelete}">
+                    <f:facet name="buttonBar"/>
+                    <af:outputText value="Do you want to delete this record?" id="ot3"
+                                   styleClass="ErpDeleteConfirmText"/>
+                </af:dialog>
+            </af:popup> 
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                        binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
+                  <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>   
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                        binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
+                  <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>              
+            <af:decorativeBox id="db1" dimensionsFrom="parent">
+                <f:facet name="center">
+                    <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
+                        <f:facet name="center">
+                            <af:panelBox text="PanelBox1" id="pb2" showHeader="never" partialTriggers="d3 d4">
+                                <f:facet name="toolbar"/>
+                                <af:panelGridLayout id="pgl2" partialTriggers="l5 l9 l8 l1 l19 l20 l6 l4 l7 l3 l2">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                                        <af:gridCell marginStart="5px" width="45%" id="gc3" halign="stretch"
+                                                     marginEnd="5px">
+                                            <af:panelBox text="Available Customer Category" id="pb1" showDisclosure="false">
+                                                <f:facet name="toolbar"/>
+                                                <af:table value="#{bindings.ScmCustomerCategoryByCompRO.collectionModel}"
+                                                          var="row"
+                                                          rows="#{bindings.ScmCustomerCategoryByCompRO.rangeSize}"
+                                                          emptyText="#{bindings.ScmCustomerCategoryByCompRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.ScmCustomerCategoryByCompRO.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.ScmCustomerCategoryByCompRO.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.ScmCustomerCategoryByCompRO.rangeSize}"
+                                                          id="t1" columnStretching="last">
+                                                    <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.label}"
+                                                               id="c1" rendered="false">
+                                                        <af:inputText value="#{row.bindings.CategorySno.inputValue}"
+                                                                      label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.label}"
+                                                                      required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.tooltip}"
+                                                                      id="it1">
+                                                            <f:validator binding="#{row.bindings.CategorySno.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.label}"
+                                                               id="c2" width="80" displayIndex="-1">
+                                                        <af:inputText value="#{row.bindings.CategoryShortCode.inputValue}"
+                                                                      label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.label}"
+                                                                      required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.tooltip}"
+                                                                      id="it2" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.CategoryShortCode.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.label}"
+                                                               id="c3">
+                                                        <af:inputText value="#{row.bindings.CategoryShortName.inputValue}"
+                                                                      label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.label}"
+                                                                      required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.tooltip}"
+                                                                      id="it3">
+                                                            <f:validator binding="#{row.bindings.CategoryShortName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.label}"
+                                                               id="c4">
+                                                        <af:inputText value="#{row.bindings.CategoryTypeName.inputValue}"
+                                                                      label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.label}"
+                                                                      required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.tooltip}"
+                                                                      id="it4">
+                                                            <f:validator binding="#{row.bindings.CategoryTypeName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                </af:table>
+                                            </af:panelBox>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="55%" marginEnd="5px" id="gc4"
+                                                     halign="stretch">
+                                            <af:panelBox text="Assigned Customer Category" id="pb3" showDisclosure="false">
+                                                <f:facet name="toolbar"/>
+                                            </af:panelBox>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:panelBox>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelGridLayout id="pgl1">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                    <af:gridCell marginStart="5px" width="70%" id="gc1" halign="stretch"
+                                                 valign="middle">
+                                        <af:panelFormLayout id="pfl1" maxColumns="3" rows="1">
+                                            <af:inputText value="#{bindings.TaxTypeSno.inputValue}"
+                                                          label="#{bindings.TaxTypeSno.hints.label}"
+                                                          required="#{bindings.TaxTypeSno.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeSno.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeSno.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeSno.hints.tooltip}" id="it8"
+                                                          rendered="false" readOnly="true">
+                                                <f:validator binding="#{bindings.TaxTypeSno.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.TaxTypeSno.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.TaxTypeName.inputValue}"
+                                                          label="#{bindings.TaxTypeName.hints.label}"
+                                                          required="#{bindings.TaxTypeName.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeName.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeName.hints.tooltip}" id="it10"
+                                                          readOnly="true">
+                                                <f:validator binding="#{bindings.TaxTypeName.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.TaxTypeCode.inputValue}"
+                                                          label="#{bindings.TaxTypeCode.hints.label}"
+                                                          required="#{bindings.TaxTypeCode.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeCode.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeCode.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeCode.hints.tooltip}" id="it9"
+                                                          readOnly="true" rendered="false">
+                                                <f:validator binding="#{bindings.TaxTypeCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.TaxTypeCode.format}"/>
+                                            </af:inputText>
+                                            <af:inputDate value="#{bindings.OpenDate.inputValue}"
+                                                          label="#{bindings.OpenDate.hints.label}"
+                                                          required="#{bindings.OpenDate.hints.mandatory}"
+                                                          columns="#{bindings.OpenDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id2"
+                                                          readOnly="true">
+                                                <f:validator binding="#{bindings.OpenDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
+                                            </af:inputDate>
+                                            <af:inputText value="#{bindings.TaxTypeShortName.inputValue}"
+                                                          label="#{bindings.TaxTypeShortName.hints.label}"
+                                                          required="#{bindings.TaxTypeShortName.hints.mandatory}"
+                                                          columns="#{bindings.TaxTypeShortName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TaxTypeShortName.hints.precision}"
+                                                          shortDesc="#{bindings.TaxTypeShortName.hints.tooltip}"
+                                                          id="it11" rendered="false" readOnly="true">
+                                                <f:validator binding="#{bindings.TaxTypeShortName.validator}"/>
+                                            </af:inputText>
+                                        </af:panelFormLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc2"
+                                                 halign="stretch">
+<af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                            <af:link id="l5" partialSubmit="true"
+                                                     icon="#{resource['images:imgCloseDialog.png']}"
+                                                     text="Close"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
+                                            <af:link text="Delete" id="l9" partialSubmit="true"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     iconPosition="top" actionListener="#{bindings.Delete.execute}"/>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                     disabled="#{!bindings.Delete.enabled}" id="l8" rendered="false"/>
+                                            <af:link text="Add" id="l1" icon="#{resource['images:imgAddRecord.png']}"
+                                                     iconPosition="top" partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                     rendered="false">
+                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>
+                                            <af:link text="Supervise" id="l19" partialSubmit="true"
+                                                     icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                     rendered="false">
+                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>                                                     
+                                            <af:link text="UnSupervise" id="l20" partialSubmit="true"
+                                                     icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                     rendered="false">
+                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                     disabled="#{!bindings.Commit.enabled}" id="l6" rendered="false"/>
+                                            <af:link text="Undo" id="l4" icon="#{resource['images:imgUndo.png']}"
+                                                     partialSubmit="true" iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                     immediate="true">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link id="l7" partialSubmit="true"
+                                                     icon="#{resource['images:imgSave.png']}" text="Save"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l3"
+                                                     rendered="false"/>
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l2"
+                                                     rendered="false">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s1"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>                                                 
+                                    </af:gridCell>             
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="top"/>
+            </af:decorativeBox>
+        </af:form>
+        <f:facet name="metaContainer">
+            <af:resource type="javascript" source="/resources/js/ERPSCMJavaScript.js"/>
+            <af:resource type="css" source="/resources/css/ERPSCMStyleSheet.css"/>
+            <af:resource type="javascript" source="http://code.jquery.com/jquery-1.10.2.js"/>
+        </f:facet>
     </af:document>
 </f:view>
