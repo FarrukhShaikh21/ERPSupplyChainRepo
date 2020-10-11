@@ -18,16 +18,6 @@
         <Item Value="IsSupervised"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="IsUnsupervised">
-      <AttrNames>
-        <Item Value="IsUnsupervised"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="SupplierSno">
-      <AttrNames>
-        <Item Value="SupplierSno"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ScmSupplierCRUDIterator" id="SupplierShortCode">
       <AttrNames>
         <Item Value="SupplierShortCode"/>
@@ -153,7 +143,6 @@
             Action="createWithParams"/>
     <action IterBinding="ScmSupplierCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
     <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LovtxtPaymentTermName"
@@ -171,5 +160,25 @@
     </attributeValues>
     <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LOV_txtSupplierType"
                   id="txtSupplierType1"/>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="txtSupplierCategory">
+      <AttrNames>
+        <Item Value="txtSupplierCategory"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LOVtxtSupplierCategory"
+                  id="txtSupplierCategory1"/>
+    <list IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LOV_IsTaxable" id="IsTaxable1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="SupplierSno">
+      <AttrNames>
+        <Item Value="SupplierSno"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
