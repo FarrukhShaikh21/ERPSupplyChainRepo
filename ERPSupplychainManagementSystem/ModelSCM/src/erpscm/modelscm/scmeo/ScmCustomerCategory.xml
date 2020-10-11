@@ -367,6 +367,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustomerCatScmCatTaxRateCategorySnoAsso.ScmCustomerCategory"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmSupplier"
+    Association="erpscm.modelscm.scmeo.SmCustScmSupplCategoryIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.SmCustScmSupplCategoryIdAsso.ScmSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.SmCustScmSupplCategoryIdAsso.ScmCustomerCategory"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmCustomerCategory"
     PrimaryKey="true">
