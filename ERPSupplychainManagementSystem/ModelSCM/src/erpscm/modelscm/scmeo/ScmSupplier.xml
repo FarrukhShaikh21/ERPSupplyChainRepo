@@ -204,6 +204,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSupplier.CountrySno_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -215,7 +217,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_SUPPLIER"/>
+    TableName="SCM_SUPPLIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSupplier.CitySno_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
     Precision="5"
@@ -224,7 +235,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_SUPPLIER"/>
+    TableName="SCM_SUPPLIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
@@ -232,7 +250,14 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_SUPPLIER"
-    RetrievedOnInsert="true"/>
+    RetrievedOnInsert="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -241,7 +266,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_SUPPLIER"/>
+    TableName="SCM_SUPPLIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedDate"
     ColumnName="LAST_UPDATED_DATE"
@@ -249,7 +281,14 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_SUPPLIER"
-    RetrievedOnUpdate="true"/>
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ChartOfAccountId"
     Precision="10"
@@ -296,7 +335,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_SUPPLIER"/>
+    TableName="SCM_SUPPLIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Nationality"
     Precision="30"
@@ -662,7 +708,6 @@
   </Attribute>
   <Attribute
     Name="IsTaxable"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_TAXABLE"
     SQLType="VARCHAR"
@@ -683,7 +728,6 @@
   </Attribute>
   <Attribute
     Name="AccountOpenDate"
-    IsNotNull="true"
     ColumnName="ACCOUNT_OPEN_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
@@ -725,6 +769,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_SUPPLIER">
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -761,6 +806,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="SupervisedDate"
@@ -769,7 +820,14 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_SUPPLIER"
-    RetrievedOnInsert="true"/>
+    RetrievedOnInsert="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IsUnsupervised"
     Precision="1"
@@ -781,6 +839,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="UnSupervisedDate"
@@ -789,7 +853,14 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_SUPPLIER"
-    RetrievedOnInsert="true"/>
+    RetrievedOnInsert="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="SupervisedBy"
     Precision="5"
@@ -798,7 +869,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_SUPPLIER"/>
+    TableName="SCM_SUPPLIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="UnSupervisedBy"
     Precision="5"
@@ -807,7 +885,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_SUPPLIER"/>
+    TableName="SCM_SUPPLIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="txtCountryName"
     Precision="80"
@@ -954,6 +1039,30 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtSupplierCategory"
+    Precision="80"
+    ColumnName="txt_Supplier_Category"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmCustomerCategory?.CategoryTypeName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="SupplierCategorySno"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmSupplier.txtSupplierCategory_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SmCity"
     Association="erpscm.modelscm.scmeo.SmCitySmSupplierCityIdAsso"
@@ -995,6 +1104,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.ScmCustTypeScmSupplierSupplierTypeIdAsso.ScmCustomerType"
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmCustTypeScmSupplierSupplierTypeIdAsso.ScmSupplier"
     Type="erpscm.modelscm.scmeo.ScmCustomerTypeImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmCustomerCategory"
+    Association="erpscm.modelscm.scmeo.SmCustScmSupplCategoryIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.SmCustScmSupplCategoryIdAsso.ScmCustomerCategory"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.SmCustScmSupplCategoryIdAsso.ScmSupplier"
+    Type="erpscm.modelscm.scmeo.ScmCustomerCategoryImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmSupplier"
@@ -1081,6 +1197,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmSupplier.SupplierTypeSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmSupplier7">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_CUSTOMER_CATEGORY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Supplier7"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmSupplier.SupplierCategorySno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

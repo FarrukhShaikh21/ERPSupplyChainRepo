@@ -45,6 +45,27 @@
     Name="AccScmCustomerTypeVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerTypeVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmCustomerCategoryVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerCategoryVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSysGeneralValueVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[4]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtBankBranchName"
     ListVOName="AccGlBankBranchVO"
@@ -190,6 +211,49 @@
       <Item Value="CustomerTypeName"/>
       <Item Value="CustomerTypeShortName"/>
       <Item Value="CustomerTypeCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOVtxtSupplierCategory"
+    ListVOName="AccScmCustomerCategoryVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierCategory"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SupplierCategorySno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CategoryTypeName"/>
+      <Item Value="CategorySno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CategoryTypeName"/>
+      <Item Value="CategoryShortName"/>
+      <Item Value="CategoryShortCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_IsTaxable"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsTaxable"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -434,7 +498,15 @@
     PrecisionRule="true"
     EntityAttrName="IsTaxable"
     EntityUsage="ScmSupplier"
-    AliasName="IS_TAXABLE"/>
+    AliasName="IS_TAXABLE"
+    LOVName="LOV_IsTaxable">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AccountOpenDate"
     IsNotNull="true"
@@ -593,6 +665,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtSupplierCategory"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierCategory"
+    EntityUsage="ScmSupplier"
+    AliasName="txt_Supplier_Category"
+    LOVName="LOVtxtSupplierCategory">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmSupplierByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
@@ -698,6 +786,12 @@
   <ViewLinkAccessor
     Name="ScmCustomerTypeVO"
     ViewLink="erpscm.modelscm.scmvo.ScmCustTypeScmSupplierSupplierTypeIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmCustomerCategoryVO"
+    ViewLink="erpscm.modelscm.scmvo.SmCustScmSupplCategoryIdVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

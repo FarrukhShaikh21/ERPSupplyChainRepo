@@ -82,12 +82,14 @@ public class ScmSupplierImpl extends ERPEntityImpl {
         txtBankBranchName,
         txtPaymentTermName,
         txtSupplierType,
+        txtSupplierCategory,
         SmCity,
         SmCountry,
         GlBank,
         GlBankBranch,
         ScmPaymentTermHeader,
-        ScmCustomerType;
+        ScmCustomerType,
+        ScmCustomerCategory;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -166,12 +168,14 @@ public class ScmSupplierImpl extends ERPEntityImpl {
     public static final int TXTBANKBRANCHNAME = AttributesEnum.txtBankBranchName.index();
     public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
     public static final int TXTSUPPLIERTYPE = AttributesEnum.txtSupplierType.index();
+    public static final int TXTSUPPLIERCATEGORY = AttributesEnum.txtSupplierCategory.index();
     public static final int SMCITY = AttributesEnum.SmCity.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int GLBANK = AttributesEnum.GlBank.index();
     public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
     public static final int SCMPAYMENTTERMHEADER = AttributesEnum.ScmPaymentTermHeader.index();
     public static final int SCMCUSTOMERTYPE = AttributesEnum.ScmCustomerType.index();
+    public static final int SCMCUSTOMERCATEGORY = AttributesEnum.ScmCustomerCategory.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1054,6 +1058,22 @@ public class ScmSupplierImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtSupplierCategory, using the alias name txtSupplierCategory.
+     * @return the value of txtSupplierCategory
+     */
+    public String gettxtSupplierCategory() {
+        return (String) getAttributeInternal(TXTSUPPLIERCATEGORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierCategory.
+     * @param value value to set the txtSupplierCategory
+     */
+    public void settxtSupplierCategory(String value) {
+        setAttributeInternal(TXTSUPPLIERCATEGORY, value);
+    }
+
+    /**
      * @return the associated entity erpadm.modeladm.admeo.SmCityImpl.
      */
     public SmCityImpl getSmCity() {
@@ -1139,6 +1159,21 @@ public class ScmSupplierImpl extends ERPEntityImpl {
      */
     public void setScmCustomerType(ScmCustomerTypeImpl value) {
         setAttributeInternal(SCMCUSTOMERTYPE, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmCustomerCategoryImpl.
+     */
+    public ScmCustomerCategoryImpl getScmCustomerCategory() {
+        return (ScmCustomerCategoryImpl) getAttributeInternal(SCMCUSTOMERCATEGORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmCustomerCategoryImpl.
+     */
+    public void setScmCustomerCategory(ScmCustomerCategoryImpl value) {
+        setAttributeInternal(SCMCUSTOMERCATEGORY, value);
     }
 
 
