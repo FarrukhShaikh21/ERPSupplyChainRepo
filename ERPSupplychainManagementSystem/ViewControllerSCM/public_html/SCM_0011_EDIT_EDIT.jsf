@@ -115,7 +115,7 @@
                                                               columns="#{bindings.IsSupervised.hints.displayWidth}"
                                                               maximumLength="#{bindings.IsSupervised.hints.precision}"
                                                               shortDesc="#{bindings.IsSupervised.hints.tooltip}"
-                                                              id="it12">
+                                                              id="it12" rendered="false">
                                                     <f:validator binding="#{bindings.IsSupervised.validator}"/>
                                                 </af:inputText>
                                                 <af:table value="#{bindings.ScmCategoryTaxRateCRUD.collectionModel}"
@@ -292,15 +292,15 @@
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
                                                      disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
-                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
+                                                <af:setActionListener from="#{'ScmCategoryTaxRateCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
                                             <af:link text="Supervise" id="l19" partialSubmit="true"
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
-                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                <af:setActionListener from="#{'ScmCategoryTaxRateCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
