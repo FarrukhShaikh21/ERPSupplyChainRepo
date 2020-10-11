@@ -117,7 +117,7 @@
                                                           selectionListener="#{bindings.ScmCategoryTaxRateCRUD.collectionModel.makeCurrent}"
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.ScmCategoryTaxRateCRUD.rangeSize}"
-                                                          id="t2">
+                                                          id="t2" partialTriggers="::l8">
                                                     <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.OpenDate.label}"
                                                                id="c5">
                                                         <af:inputDate value="#{row.bindings.OpenDate.inputValue}"
@@ -254,11 +254,6 @@
                                                      text="Close"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
-                                            <af:link text="Delete" id="l9" partialSubmit="true"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     iconPosition="top" actionListener="#{bindings.Delete.execute}"/>
-                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                     disabled="#{!bindings.Delete.enabled}" id="l8" rendered="false"/>
                                             <af:link text="Add" id="l1" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top" partialSubmit="true"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
@@ -267,6 +262,10 @@
                                                 <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
+                                            <af:link text="Delete" id="l9"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     iconPosition="top" partialSubmit="true"/>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8" rendered="false"/>
                                             <af:link text="Supervise" id="l19" partialSubmit="true"
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"

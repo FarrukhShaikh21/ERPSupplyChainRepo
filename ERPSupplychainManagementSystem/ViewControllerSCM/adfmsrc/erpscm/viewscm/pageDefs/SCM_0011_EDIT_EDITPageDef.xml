@@ -6,8 +6,6 @@
     <variableIterator id="variables"/>
     <iterator Binds="GlTaxTypeByTaxIDRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="GlTaxTypeByTaxIDROIterator"/>
-    <iterator Binds="ScmCustomerCategotyTaxCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmCustomerCategotyTaxCRUDIterator"/>
     <iterator Binds="ScmCustomerCategoryByCompRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmCustomerCategoryByCompROIterator"/>
     <iterator Binds="ScmCategoryTaxRateCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
@@ -42,8 +40,6 @@
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
-    <action IterBinding="ScmCustomerCategotyTaxCRUDIterator" id="Delete" RequiresUpdateModel="false"
-            Action="removeCurrentRow"/>
     <tree IterBinding="ScmCustomerCategoryByCompROIterator" id="ScmCustomerCategoryByCompRO">
       <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmCustomerCategoryVO" Name="ScmCustomerCategoryByCompRO0">
         <AttrNames>
@@ -65,5 +61,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="ScmCategoryTaxRateCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>
