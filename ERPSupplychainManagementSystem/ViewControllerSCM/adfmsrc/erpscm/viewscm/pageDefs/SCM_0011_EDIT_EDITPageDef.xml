@@ -58,10 +58,22 @@
           <Item Value="ToDate"/>
           <Item Value="FilerRate"/>
           <Item Value="NonFilerRate"/>
+          <Item Value="IsSupervised"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
     <action IterBinding="ScmCategoryTaxRateCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <action IterBinding="ScmCategoryTaxRateCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="TaxTypeSno" NDValue="#{bindings.TaxTypeSno.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0011_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="ScmCategoryTaxRateCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
