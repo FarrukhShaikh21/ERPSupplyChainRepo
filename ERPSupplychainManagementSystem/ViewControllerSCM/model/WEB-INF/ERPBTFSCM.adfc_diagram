@@ -2514,7 +2514,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">L46,-2250.9746,1869.9482,-2336.4785,1782.6436,B56</property>
+         name="sdm:polyPoints">L50,-2250.9746,1873.4482,-2336.4785,1782.6436,B56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -2696,9 +2696,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">2043.4482</property>
+         name="y">2150.046</property>
       <property
-         name="x">-2389.3115</property>
+         name="x">-2256.3115</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -2708,16 +2708,39 @@
       <property
          name="fromOutcome">ERP-QRY-ACT-SCM_0011_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">R50,-2283.6484,1948.0977,-2283.6484,2097.0977,-2389.3115,2097.0977,B50</property>
+         name="sdm:polyPoints">B50,-2324.6484,2002.0977,-2259.8115,2095.6953,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase246"
       from="MethodCall244"
+      to="MethodCall247">
+      <property
+         name="fromOutcome">ERP-QRY-ACT-SCM_0011_EDIT_EDIT</property>
+      <property
+         name="sdm:polyPoints">L50,-2297.3115,2149.6953,-2335.6484,2186.0977,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall247">
+      <property
+         name="activityId">ExeCatTaxByTaxIdSCM_0011_EDIT_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeCatTaxByTaxIdSCM_0011_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">2186.4482</property>
+      <property
+         name="x">-2376.6484</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase248"
+      from="MethodCall247"
       to="View224">
       <property
          name="fromOutcome">ERP-QRY-ACT-SCM_0011_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">T50,-2389.3115,1989.0977,-2250.9746,1876.9482,L54</property>
+         name="sdm:polyPoints">T50,-2376.6484,2132.0977,-2209.9746,1927.4482,B50</property>
    </ControlFlowCase>
 </SDM>
