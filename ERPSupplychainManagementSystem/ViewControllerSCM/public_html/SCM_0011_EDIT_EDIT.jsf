@@ -146,7 +146,8 @@
                                                                       required="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.mandatory}"
                                                                       columns="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.displayWidth}"
                                                                       shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.tooltip}"
-                                                                      id="id3" contentStyle="width:60%">
+                                                                      id="id3" contentStyle="width:60%"
+                                                                      readOnly="#{row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.FromDate.validator}"/>
                                                             <af:convertDateTime pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.format}"/>
                                                         </af:inputDate>
@@ -158,7 +159,8 @@
                                                                       required="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.mandatory}"
                                                                       columns="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.displayWidth}"
                                                                       shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.tooltip}"
-                                                                      id="id4" contentStyle="width:60%">
+                                                                      id="id4" contentStyle="width:60%"
+                                                                      readOnly="#{row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.ToDate.validator}"/>
                                                             <af:convertDateTime pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.format}"/>
                                                         </af:inputDate>
@@ -171,7 +173,8 @@
                                                                       columns="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.displayWidth}"
                                                                       maximumLength="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.precision}"
                                                                       shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.tooltip}"
-                                                                      id="it5">
+                                                                      id="it5"
+                                                                      readOnly="#{row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.FilerRate.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.format}"/>
@@ -185,7 +188,8 @@
                                                                       columns="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.displayWidth}"
                                                                       maximumLength="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.precision}"
                                                                       shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.tooltip}"
-                                                                      id="it6">
+                                                                      id="it6"
+                                                                      readOnly="#{row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.NonFilerRate.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.format}"/>
@@ -285,7 +289,8 @@
                                                      rendered="false"/>
                                             <af:link text="Delete" id="l9"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     iconPosition="top" partialSubmit="true"/>
+                                                     iconPosition="top" partialSubmit="true"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' ||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"/>
                                             <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8" rendered="false"/>
                                             <af:link text="UnSupervise" id="l20" partialSubmit="true"
                                                      icon="#{resource['images:imgUnSuperviseRecord.png']}"
