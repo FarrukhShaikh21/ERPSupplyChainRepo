@@ -36,6 +36,7 @@ public class ScmCustomerTypeVORowImpl extends ERPViewRowImpl {
         UnSupervisedDate,
         SupervisedBy,
         UnSupervisedBy,
+        TypeForId,
         ScmCustomerVO,
         ScmCustTypeTaxVO,
         ScmSupplierVO,
@@ -83,6 +84,7 @@ public class ScmCustomerTypeVORowImpl extends ERPViewRowImpl {
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
+    public static final int TYPEFORID = AttributesEnum.TypeForId.index();
     public static final int SCMCUSTOMERVO = AttributesEnum.ScmCustomerVO.index();
     public static final int SCMCUSTTYPETAXVO = AttributesEnum.ScmCustTypeTaxVO.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();

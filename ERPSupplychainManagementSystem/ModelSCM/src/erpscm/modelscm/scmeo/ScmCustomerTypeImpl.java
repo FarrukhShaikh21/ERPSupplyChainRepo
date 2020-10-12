@@ -39,6 +39,7 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
         UnSupervisedDate,
         SupervisedBy,
         UnSupervisedBy,
+        TypeForId,
         ScmCustomer,
         ScmCustTypeTax,
         ScmSupplier;
@@ -84,6 +85,7 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
+    public static final int TYPEFORID = AttributesEnum.TypeForId.index();
     public static final int SCMCUSTOMER = AttributesEnum.ScmCustomer.index();
     public static final int SCMCUSTTYPETAX = AttributesEnum.ScmCustTypeTax.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
@@ -388,6 +390,22 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
      */
     public void setUnSupervisedBy(Integer value) {
         setAttributeInternal(UNSUPERVISEDBY, value);
+    }
+
+    /**
+     * Gets the attribute value for TypeForId, using the alias name TypeForId.
+     * @return the value of TypeForId
+     */
+    public String getTypeForId() {
+        return (String) getAttributeInternal(TYPEFORID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TypeForId.
+     * @param value value to set the TypeForId
+     */
+    public void setTypeForId(String value) {
+        setAttributeInternal(TYPEFORID, value);
     }
 
     /**

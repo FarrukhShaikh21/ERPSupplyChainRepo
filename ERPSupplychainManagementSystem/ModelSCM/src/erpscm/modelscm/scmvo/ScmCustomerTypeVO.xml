@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmCustomerTypeVO"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -250,6 +250,12 @@
     EntityAttrName="UnSupervisedBy"
     EntityUsage="ScmCustomerType"
     AliasName="UN_SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="TypeForId"
+    PrecisionRule="true"
+    EntityAttrName="TypeForId"
+    EntityUsage="ScmCustomerType"
+    AliasName="TYPE_FOR_ID"/>
   <ViewCriteria
     Name="ScmCustomerTypeByCustomerTypeID"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerTypeVO"
