@@ -40,11 +40,12 @@
                                                      marginEnd="5px">
                                             <af:panelBox text="Available Customer Category" id="pb1" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
-                                                <af:panelCollection id="pc1">
+                                                <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                                                    featuresOff="viewMenu detach">
                                                     <f:facet name="menus"/>
                                                     <f:facet name="toolbar">
                                                         <af:toolbar id="t3">
-                                                            <af:quickQuery label="Search" searchDesc="Search"
+                                                            <af:quickQuery label=" " searchDesc="Search"
                                                                            id="qryId1"
                                                                            value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
                                                                            model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
@@ -184,7 +185,7 @@
                                                         </af:inputDate>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.label}"
-                                                               id="c8" width="70">
+                                                               id="c8" width="100">
                                                         <af:inputText value="#{row.bindings.FilerRate.inputValue}"
                                                                       label="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.label}"
                                                                       required="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.mandatory}"
@@ -199,7 +200,7 @@
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.label}"
-                                                               id="c9" width="70">
+                                                               id="c9" width="100" displayIndex="-1">
                                                         <af:inputText value="#{row.bindings.NonFilerRate.inputValue}"
                                                                       label="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.label}"
                                                                       required="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.mandatory}"
