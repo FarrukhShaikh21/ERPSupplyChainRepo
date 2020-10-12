@@ -40,69 +40,87 @@
                                                      marginEnd="5px">
                                             <af:panelBox text="Available Customer Category" id="pb1" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
-                                                <af:table value="#{bindings.ScmCustomerCategoryByCompRO.collectionModel}"
-                                                          var="row"
-                                                          rows="#{bindings.ScmCustomerCategoryByCompRO.rangeSize}"
-                                                          emptyText="#{bindings.ScmCustomerCategoryByCompRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                          rowBandingInterval="0"
-                                                          selectedRowKeys="#{bindings.ScmCustomerCategoryByCompRO.collectionModel.selectedRow}"
-                                                          selectionListener="#{bindings.ScmCustomerCategoryByCompRO.collectionModel.makeCurrent}"
-                                                          rowSelection="single"
-                                                          fetchSize="#{bindings.ScmCustomerCategoryByCompRO.rangeSize}"
-                                                          id="t1" columnStretching="last">
-                                                    <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.label}"
-                                                               id="c1" rendered="false">
-                                                        <af:inputText value="#{row.bindings.CategorySno.inputValue}"
-                                                                      label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.label}"
-                                                                      required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.mandatory}"
-                                                                      columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.precision}"
-                                                                      shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.tooltip}"
-                                                                      id="it1">
-                                                            <f:validator binding="#{row.bindings.CategorySno.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.label}"
-                                                               id="c2" width="70" displayIndex="-1">
-                                                        <af:inputText value="#{row.bindings.CategoryShortCode.inputValue}"
-                                                                      label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.label}"
-                                                                      required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.mandatory}"
-                                                                      columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.precision}"
-                                                                      shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.tooltip}"
-                                                                      id="it2" readOnly="true">
-                                                            <f:validator binding="#{row.bindings.CategoryShortCode.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.label}"
-                                                               id="c3">
-                                                        <af:inputText value="#{row.bindings.CategoryShortName.inputValue}"
-                                                                      label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.label}"
-                                                                      required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.mandatory}"
-                                                                      columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.precision}"
-                                                                      shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.tooltip}"
-                                                                      id="it3" readOnly="true">
-                                                            <f:validator binding="#{row.bindings.CategoryShortName.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.label}"
-                                                               id="c4">
-                                                        <af:inputText value="#{row.bindings.CategoryTypeName.inputValue}"
-                                                                      label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.label}"
-                                                                      required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.mandatory}"
-                                                                      columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.precision}"
-                                                                      shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.tooltip}"
-                                                                      id="it4" readOnly="true">
-                                                            <f:validator binding="#{row.bindings.CategoryTypeName.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                </af:table>
+                                                <af:panelCollection id="pc1">
+                                                    <f:facet name="menus"/>
+                                                    <f:facet name="toolbar">
+                                                        <af:toolbar id="t3">
+                                                            <af:quickQuery label="Search" searchDesc="Search"
+                                                                           id="qryId1"
+                                                                           value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                                           model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                                                <f:facet name="end">
+                                                                    <af:commandLink text="Advanced" rendered="false"
+                                                                                    id="cl1"/>
+                                                                </f:facet>
+                                                            </af:quickQuery>
+                                                        </af:toolbar>
+                                                    </f:facet>
+                                                    <f:facet name="statusbar"/>
+                                                    <af:table value="#{bindings.ScmCustomerCategoryByCompRO.collectionModel}"
+                                                              var="row"
+                                                              rows="#{bindings.ScmCustomerCategoryByCompRO.rangeSize}"
+                                                              emptyText="#{bindings.ScmCustomerCategoryByCompRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                              rowBandingInterval="0"
+                                                              selectedRowKeys="#{bindings.ScmCustomerCategoryByCompRO.collectionModel.selectedRow}"
+                                                              selectionListener="#{bindings.ScmCustomerCategoryByCompRO.collectionModel.makeCurrent}"
+                                                              rowSelection="single"
+                                                              fetchSize="#{bindings.ScmCustomerCategoryByCompRO.rangeSize}"
+                                                              id="t1" columnStretching="last">
+                                                        <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.label}"
+                                                                   id="c1" rendered="false">
+                                                            <af:inputText value="#{row.bindings.CategorySno.inputValue}"
+                                                                          label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.label}"
+                                                                          required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.mandatory}"
+                                                                          columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.precision}"
+                                                                          shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.tooltip}"
+                                                                          id="it1">
+                                                                <f:validator binding="#{row.bindings.CategorySno.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ScmCustomerCategoryByCompRO.hints.CategorySno.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.label}"
+                                                                   id="c2" width="70" displayIndex="-1">
+                                                            <af:inputText value="#{row.bindings.CategoryShortCode.inputValue}"
+                                                                          label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.label}"
+                                                                          required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.mandatory}"
+                                                                          columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.precision}"
+                                                                          shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.tooltip}"
+                                                                          id="it2" readOnly="true">
+                                                                <f:validator binding="#{row.bindings.CategoryShortCode.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortCode.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.label}"
+                                                                   id="c3">
+                                                            <af:inputText value="#{row.bindings.CategoryShortName.inputValue}"
+                                                                          label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.label}"
+                                                                          required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.mandatory}"
+                                                                          columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.precision}"
+                                                                          shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryShortName.tooltip}"
+                                                                          id="it3" readOnly="true">
+                                                                <f:validator binding="#{row.bindings.CategoryShortName.validator}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.label}"
+                                                                   id="c4">
+                                                            <af:inputText value="#{row.bindings.CategoryTypeName.inputValue}"
+                                                                          label="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.label}"
+                                                                          required="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.mandatory}"
+                                                                          columns="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.precision}"
+                                                                          shortDesc="#{bindings.ScmCustomerCategoryByCompRO.hints.CategoryTypeName.tooltip}"
+                                                                          id="it4" readOnly="true">
+                                                                <f:validator binding="#{row.bindings.CategoryTypeName.validator}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                    </af:table>
+                                                </af:panelCollection>
                                             </af:panelBox>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4"
