@@ -159,7 +159,7 @@
                                                         </af:inputDate>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.label}"
-                                                               id="c6" width="120" displayIndex="-1">
+                                                               id="c6" width="130" displayIndex="-1">
                                                         <af:inputDate value="#{row.bindings.FromDate.inputValue}"
                                                                       label="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.label}"
                                                                       required="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.mandatory}"
@@ -172,7 +172,7 @@
                                                         </af:inputDate>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.label}"
-                                                               id="c7" width="120">
+                                                               id="c7" width="130">
                                                         <af:inputDate value="#{row.bindings.ToDate.inputValue}"
                                                                       label="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.label}"
                                                                       required="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.mandatory}"

@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowSet;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -42,7 +43,8 @@ public class ScmCategoryTaxRateImpl extends ERPEntityImpl {
         UnSupervisedDate,
         SupervisedBy,
         UnSupervisedBy,
-        ScmCustomerCategory;
+        ScmCustomerCategory,
+        AccScmCatTaxRateDateCheck;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -88,6 +90,7 @@ public class ScmCategoryTaxRateImpl extends ERPEntityImpl {
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
     public static final int SCMCUSTOMERCATEGORY = AttributesEnum.ScmCustomerCategory.index();
+    public static final int ACCSCMCATTAXRATEDATECHECK = AttributesEnum.AccScmCatTaxRateDateCheck.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -438,6 +441,13 @@ public class ScmCategoryTaxRateImpl extends ERPEntityImpl {
         setAttributeInternal(SCMCUSTOMERCATEGORY, value);
     }
 
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccScmCatTaxRateDateCheck.
+     */
+    public RowSet getAccScmCatTaxRateDateCheck() {
+        return (RowSet) getAttributeInternal(ACCSCMCATTAXRATEDATECHECK);
+    }
 
     /**
      * @param categoryTaxRateSno key constituent

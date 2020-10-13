@@ -10,12 +10,31 @@
   DBObjectName="SCM_CATEGORY_TAX_RATE"
   AliasName="ScmCategoryTaxRate"
   BindingStyle="JDBC"
-  RowClass="erpscm.modelscm.scmeo.ScmCategoryTaxRateImpl">
+  RowClass="erpscm.modelscm.scmeo.ScmCategoryTaxRateImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_isCodegen" Value="true"/>
     <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
   </DesignTime>
+  <ViewAccessor
+    Name="AccScmCatTaxRateDateCheck"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCategoryTaxRateVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmCategoryTaxRateByTax"
+      FullName="erpscm.modelscm.scmvo.ScmCategoryTaxRateVO.ScmCategoryTaxRateByTax"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_CATEGORY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CategoryId==null?-1:CategoryId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_TAX_TYPE_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[TaxTypeSno==null?-1:TaxTypeSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <Attribute
     Name="CategoryTaxRateSno"
     Precision="10"
@@ -131,7 +150,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE">
+    TableName="SCM_CATEGORY_TAX_RATE"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -149,7 +170,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_CATEGORY_TAX_RATE">
+    TableName="SCM_CATEGORY_TAX_RATE"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -409,6 +432,40 @@
       <Item Value="erpscm.modelscm.scmeo.ScmCategoryTaxRate.CategoryId"/>
     </AttrArray>
   </Key>
+  <validation:CompareValidationBean
+    Name="TaxTateFromToDateCheckBR"
+    ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate_Rule_0"
+    OnAttribute="ToDate"
+    OperandType="ATTR"
+    Inverse="false"
+    CompareType="GREATERTHANEQUALTO"
+    CompareValue="FromDate">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="ToDate"/>
+      <validation:Item
+        Value="FromDate"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      Name="OnConditionExpr"><![CDATA[ToDate!=null]]></validation:OnCondition>
+  </validation:CompareValidationBean>
+  <validation:CompareValidationBean
+    Name="BRCatTaxDateGreaterLastFromDate"
+    ResId="erpscm.modelscm.scmeo.ScmCategoryTaxRate_Rule_1"
+    OnAttribute="FromDate"
+    OperandType="VO_USAGE"
+    Inverse="false"
+    CompareType="GREATERTHAN"
+    ViewAccAttrName="FromDate"
+    ViewAccName="AccScmCatTaxRateDateCheck">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="FromDate"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="untrusted"
+      Name="OnConditionExpr"><![CDATA[FromDate!=null]]></validation:OnCondition>
+  </validation:CompareValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
