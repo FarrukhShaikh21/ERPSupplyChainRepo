@@ -126,8 +126,28 @@
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4"
                                                      halign="stretch">
-                                            <af:panelBox text="Assigned Customer Category" id="pb3" showDisclosure="false">
+                                            <af:panelBox text="Category Tax Rate" id="pb3" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
+                                                <af:inputText value="#{bindings.CategoryTaxRateSno.inputValue}"
+                                                              label="#{bindings.CategoryTaxRateSno.hints.label}"
+                                                              required="#{bindings.CategoryTaxRateSno.hints.mandatory}"
+                                                              columns="#{bindings.CategoryTaxRateSno.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CategoryTaxRateSno.hints.precision}"
+                                                              shortDesc="#{bindings.CategoryTaxRateSno.hints.tooltip}"
+                                                              id="it15" rendered="false">
+                                                    <f:validator binding="#{bindings.CategoryTaxRateSno.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.CategoryTaxRateSno.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                              label="#{bindings.IsUnsupervised.hints.label}"
+                                                              required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
+                                                              id="it14" rendered="false">
+                                                    <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                                </af:inputText>
                                                 <af:inputText value="#{bindings.IsSupervised.inputValue}"
                                                               label="#{bindings.IsSupervised.hints.label}"
                                                               required="#{bindings.IsSupervised.hints.mandatory}"
@@ -145,7 +165,21 @@
                                                           selectionListener="#{bindings.ScmCategoryTaxRateCRUD.collectionModel.makeCurrent}"
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.ScmCategoryTaxRateCRUD.rangeSize}"
-                                                          id="t2" partialTriggers="::l8 ::l1" columnStretching="last">
+                                                          id="t2" partialTriggers="::l8 ::l1 ::l9" columnStretching="last">
+                                                    <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.CategoryTaxRateSno.label}"
+                                                               id="c11" rendered="false">
+                                                        <af:inputText value="#{row.bindings.CategoryTaxRateSno.inputValue}"
+                                                                      label="#{bindings.ScmCategoryTaxRateCRUD.hints.CategoryTaxRateSno.label}"
+                                                                      required="#{bindings.ScmCategoryTaxRateCRUD.hints.CategoryTaxRateSno.mandatory}"
+                                                                      columns="#{bindings.ScmCategoryTaxRateCRUD.hints.CategoryTaxRateSno.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCategoryTaxRateCRUD.hints.CategoryTaxRateSno.precision}"
+                                                                      shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.CategoryTaxRateSno.tooltip}"
+                                                                      id="it13">
+                                                            <f:validator binding="#{row.bindings.CategoryTaxRateSno.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.CategoryTaxRateSno.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
                                                     <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.OpenDate.label}"
                                                                id="c5" width="120" displayIndex="-1" rendered="false">
                                                         <af:inputDate value="#{row.bindings.OpenDate.inputValue}"
@@ -166,7 +200,7 @@
                                                                       columns="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.displayWidth}"
                                                                       shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.tooltip}"
                                                                       id="id3" contentStyle="width:60%"
-                                                                      readOnly="#{row.bindings.IsSupervised.inputValue=='Y'}">
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.CategoryTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.FromDate.validator}"/>
                                                             <af:convertDateTime pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.FromDate.format}"/>
                                                         </af:inputDate>
@@ -179,7 +213,7 @@
                                                                       columns="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.displayWidth}"
                                                                       shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.tooltip}"
                                                                       id="id4" contentStyle="width:60%"
-                                                                      readOnly="#{row.bindings.IsSupervised.inputValue=='Y'}">
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.CategoryTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.ToDate.validator}"/>
                                                             <af:convertDateTime pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.ToDate.format}"/>
                                                         </af:inputDate>
@@ -193,7 +227,7 @@
                                                                       maximumLength="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.precision}"
                                                                       shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.tooltip}"
                                                                       id="it5"
-                                                                      readOnly="#{row.bindings.IsSupervised.inputValue=='Y'}">
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.CategoryTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.FilerRate.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.FilerRate.format}"/>
@@ -208,7 +242,7 @@
                                                                       maximumLength="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.precision}"
                                                                       shortDesc="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.tooltip}"
                                                                       id="it6"
-                                                                      readOnly="#{row.bindings.IsSupervised.inputValue=='Y'}">
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.CategoryTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.NonFilerRate.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.ScmCategoryTaxRateCRUD.hints.NonFilerRate.format}"/>
@@ -301,7 +335,8 @@
                                             <af:link text="Add" id="l10" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                     partialSubmit="true"/>
+                                                     partialSubmit="true"
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
                                             <af:link actionListener="#{bindings.CreateWithParams.execute}"
                                                      text="CreateWithParams"
                                                      disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
@@ -309,13 +344,15 @@
                                             <af:link text="Delete" id="l9"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                      iconPosition="top" partialSubmit="true"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' ||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"/>
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' ||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
+                                                     actionListener="#{bindings.Delete.execute}"/>
                                             <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8" rendered="false"/>
                                             <af:link text="UnSupervise" id="l20" partialSubmit="true"
                                                      icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.CategoryTaxRateSno==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                     partialTriggers="l7">
                                                 <af:setActionListener from="#{'ScmCategoryTaxRateCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
@@ -323,7 +360,8 @@
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.CategoryTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                     partialTriggers="l7">
                                                 <af:setActionListener from="#{'ScmCategoryTaxRateCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>

@@ -27,11 +27,11 @@
     <ParameterMap>
       <PIMap Variable="P_ADF_CATEGORY_ID">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[CategoryId==null?-1:CategoryId]]></TransientExpression>
+          trustMode="trusted"><![CDATA[CategoryId==null?-1:CategoryId]]></TransientExpression>
       </PIMap>
       <PIMap Variable="P_ADF_TAX_TYPE_SNO">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[TaxTypeSno==null?-1:TaxTypeSno]]></TransientExpression>
+          trustMode="trusted"><![CDATA[TaxTypeSno==null?-1:TaxTypeSno]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -99,7 +99,7 @@
     ColumnType="DATE"
     TableName="SCM_CATEGORY_TAX_RATE">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -463,8 +463,8 @@
         Value="FromDate"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      trustMode="untrusted"
-      Name="OnConditionExpr"><![CDATA[FromDate!=null]]></validation:OnCondition>
+      trustMode="trusted"
+      Name="OnConditionExpr"><![CDATA[FromDate!=null && 2==1]]></validation:OnCondition>
   </validation:CompareValidationBean>
   <ResourceBundle>
     <PropertiesBundle

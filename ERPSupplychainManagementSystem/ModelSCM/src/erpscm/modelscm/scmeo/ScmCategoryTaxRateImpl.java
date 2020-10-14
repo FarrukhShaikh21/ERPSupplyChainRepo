@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowSet;
+import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -45,7 +46,8 @@ public class ScmCategoryTaxRateImpl extends ERPEntityImpl {
         UnSupervisedBy,
         ScmCustomerCategory,
         AccScmCatTaxRateDateCheck;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -448,6 +450,7 @@ public class ScmCategoryTaxRateImpl extends ERPEntityImpl {
     public RowSet getAccScmCatTaxRateDateCheck() {
         return (RowSet) getAttributeInternal(ACCSCMCATTAXRATEDATECHECK);
     }
+
 
     /**
      * @param categoryTaxRateSno key constituent

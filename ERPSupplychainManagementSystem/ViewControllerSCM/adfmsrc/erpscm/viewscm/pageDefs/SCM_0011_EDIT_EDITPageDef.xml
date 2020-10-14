@@ -62,6 +62,7 @@
           <Item Value="FilerRate"/>
           <Item Value="NonFilerRate"/>
           <Item Value="IsSupervised"/>
+          <Item Value="CategoryTaxRateSno"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -76,6 +77,16 @@
     <attributeValues IterBinding="ScmCategoryTaxRateCRUDIterator" id="IsSupervised">
       <AttrNames>
         <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCategoryTaxRateCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCategoryTaxRateCRUDIterator" id="CategoryTaxRateSno">
+      <AttrNames>
+        <Item Value="CategoryTaxRateSno"/>
       </AttrNames>
     </attributeValues>
   </bindings>
