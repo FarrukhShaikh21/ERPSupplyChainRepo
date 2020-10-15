@@ -150,4 +150,10 @@
     EntityAttrName="UnSupervisedBy"
     EntityUsage="ScmCustomerTypeTaxRate"
     AliasName="UN_SUPERVISED_BY"/>
+  <ViewLinkAccessor
+    Name="ScmCustomerTypeVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmCustTypeScmCustTypeTaxRateCustomerTypeSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

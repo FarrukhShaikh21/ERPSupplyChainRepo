@@ -41,7 +41,8 @@ public class ScmCustomerTypeTaxRateImpl extends EntityImpl {
         IsUnsupervised,
         UnSupervisedDate,
         SupervisedBy,
-        UnSupervisedBy;
+        UnSupervisedBy,
+        ScmCustomerType;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -65,6 +66,7 @@ public class ScmCustomerTypeTaxRateImpl extends EntityImpl {
         }
     }
 
+
     public static final int TYPETAXRATESNO = AttributesEnum.TypeTaxRateSno.index();
     public static final int CUSTOMERTYPESNO = AttributesEnum.CustomerTypeSno.index();
     public static final int TAXTYPESNO = AttributesEnum.TaxTypeSno.index();
@@ -85,6 +87,7 @@ public class ScmCustomerTypeTaxRateImpl extends EntityImpl {
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
+    public static final int SCMCUSTOMERTYPE = AttributesEnum.ScmCustomerType.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -98,6 +101,7 @@ public class ScmCustomerTypeTaxRateImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmCustomerTypeTaxRate");
     }
+
 
     /**
      * Gets the attribute value for TypeTaxRateSno, using the alias name TypeTaxRateSno.
@@ -417,6 +421,21 @@ public class ScmCustomerTypeTaxRateImpl extends EntityImpl {
      */
     public void setUnSupervisedBy(Integer value) {
         setAttributeInternal(UNSUPERVISEDBY, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmCustomerTypeImpl.
+     */
+    public ScmCustomerTypeImpl getScmCustomerType() {
+        return (ScmCustomerTypeImpl) getAttributeInternal(SCMCUSTOMERTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmCustomerTypeImpl.
+     */
+    public void setScmCustomerType(ScmCustomerTypeImpl value) {
+        setAttributeInternal(SCMCUSTOMERTYPE, value);
     }
 
 

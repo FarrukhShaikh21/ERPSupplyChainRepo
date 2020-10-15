@@ -42,7 +42,8 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
         TypeForId,
         ScmCustomer,
         ScmCustTypeTax,
-        ScmSupplier;
+        ScmSupplier,
+        ScmCustomerTypeTaxRate;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -89,6 +90,7 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
     public static final int SCMCUSTOMER = AttributesEnum.ScmCustomer.index();
     public static final int SCMCUSTTYPETAX = AttributesEnum.ScmCustTypeTax.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
+    public static final int SCMCUSTOMERTYPETAXRATE = AttributesEnum.ScmCustomerTypeTaxRate.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -429,6 +431,14 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
      */
     public RowIterator getScmSupplier() {
         return (RowIterator) getAttributeInternal(SCMSUPPLIER);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmCustomerTypeTaxRate() {
+        return (RowIterator) getAttributeInternal(SCMCUSTOMERTYPETAXRATE);
     }
 
 

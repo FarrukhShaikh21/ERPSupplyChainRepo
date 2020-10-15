@@ -40,6 +40,7 @@ public class ScmCustomerTypeVORowImpl extends ERPViewRowImpl {
         ScmCustomerVO,
         ScmCustTypeTaxVO,
         ScmSupplierVO,
+        ScmCustomerTypeTaxRateVO,
         AccSysGeneralValueVO;
         static AttributesEnum[] vals = null;
         ;
@@ -88,6 +89,7 @@ public class ScmCustomerTypeVORowImpl extends ERPViewRowImpl {
     public static final int SCMCUSTOMERVO = AttributesEnum.ScmCustomerVO.index();
     public static final int SCMCUSTTYPETAXVO = AttributesEnum.ScmCustTypeTaxVO.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
+    public static final int SCMCUSTOMERTYPETAXRATEVO = AttributesEnum.ScmCustomerTypeTaxRateVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
 
     /**
