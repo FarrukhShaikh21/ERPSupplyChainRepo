@@ -581,6 +581,18 @@
         <fixed-outcome>ExecuteWithParams</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeScmTaxByIdSCM_0012_EDIT_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-SCM_0012_EDIT_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeCustTypeTaxRateSCM_0012_EDIT_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-SCM_0012_EDIT_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1431,11 +1443,36 @@
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0012</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__252">
+        <from-outcome>ERP-QRY-SCM_0012_EDIT_EDIT</from-outcome>
+        <to-activity-id>ExeScmTaxByIdSCM_0012_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__250">
       <from-activity-id>SCM_0012_EDIT_EDIT</from-activity-id>
       <control-flow-case id="__251">
         <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0012_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__253">
+      <from-activity-id>ExeScmTaxByIdSCM_0012_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__254">
+        <from-outcome>ERP-QRY-SCM_0012_EDIT_EDIT</from-outcome>
+        <to-activity-id>ExeCustTypeByCompSCM_0012_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__255">
+      <from-activity-id>ExeCustTypeByCompSCM_0012_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__256">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>ExeCustTypeTaxRateSCM_0012_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__257">
+      <from-activity-id>ExeCustTypeTaxRateSCM_0012_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__258">
+        <from-outcome>ERP-QRY-SCM_0012_EDIT_EDIT</from-outcome>
         <to-activity-id>SCM_0012_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

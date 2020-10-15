@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_TAX_TYPE_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <EntityUsage
     Name="ScmCustomerTypeTaxRate"
     Entity="erpscm.modelscm.scmeo.ScmCustomerTypeTaxRate"/>
@@ -150,6 +154,42 @@
     EntityAttrName="UnSupervisedBy"
     EntityUsage="ScmCustomerTypeTaxRate"
     AliasName="UN_SUPERVISED_BY"/>
+  <ViewCriteria
+    Name="ScmCustomerTypeTaxRateByTaxIdVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerTypeTaxRateVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmCustomerTypeTaxRateVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="TaxTypeSno"
+        ViewAttribute="TaxTypeSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_TAX_TYPE_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmCustomerTypeVO"
     ViewLink="erpscm.modelscm.scmvo.ScmCustTypeScmCustTypeTaxRateCustomerTypeSnoVL"

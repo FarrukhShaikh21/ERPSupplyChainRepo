@@ -194,7 +194,11 @@
   </ViewUsage>
   <ViewUsage
     Name="ScmCustomerTypeTaxRateCRUD"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerTypeTaxRateVO"/>
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerTypeTaxRateVO">
+    <ViewCriteriaUsage
+      Name="ScmCustomerTypeTaxRateByTaxIdVC"
+      FullName="erpscm.modelscm.scmvo.ScmCustomerTypeTaxRateVO.ScmCustomerTypeTaxRateByTaxIdVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
