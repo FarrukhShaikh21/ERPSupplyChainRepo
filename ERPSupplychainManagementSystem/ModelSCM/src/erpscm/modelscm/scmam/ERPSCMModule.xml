@@ -192,6 +192,9 @@
       Name="ScmCategoryTaxRateByTaxTypeIDVC"
       FullName="erpscm.modelscm.scmvo.ScmCategoryTaxRateVO.ScmCategoryTaxRateByTaxTypeIDVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ScmCustomerTypeTaxRateCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerTypeTaxRateVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -221,5 +224,11 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.ScmCustomerCatScmCatTaxRateCategorySnoVL"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerCategoryByCompRO"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCategoryTaxRateCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ScmCustTypeScmCustTypeTaxRateCustomerTypeSnoVL1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.ScmCustTypeScmCustTypeTaxRateCustomerTypeSnoVL"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerTypeByCopmanyRO"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmCustomerTypeTaxRateCRUD"
     Reversed="false"/>
 </AppModule>
