@@ -548,6 +548,15 @@
         <fixed-outcome>ERP-QRY-ACT-SCM_0011_EDIT_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0012">
+      <page>/SCM_0012.jsf</page>
+    </view>
+    <method-call id="ExeCompanySCM_0012">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM_0012</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -628,6 +637,10 @@
       <control-flow-case id="__222">
         <from-outcome>ERP-ACT-SCM_0010</from-outcome>
         <to-activity-id>SCM_0010</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__239">
+        <from-outcome>ERP-ACT-SCM_0012</from-outcome>
+        <to-activity-id>ExeCompanySCM_0012</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -1358,6 +1371,13 @@
       <control-flow-case id="__236">
         <from-outcome>ERP-QRY-ACT-SCM_0011_EDIT_EDIT</from-outcome>
         <to-activity-id>SCM_0011_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__240">
+      <from-activity-id>ExeCompanySCM_0012</from-activity-id>
+      <control-flow-case id="__241">
+        <from-outcome>ERP-ACT-SCM_0012</from-outcome>
+        <to-activity-id>SCM_0012</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
