@@ -2852,7 +2852,7 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">1573.4482</property>
+         name="y">1572.3965</property>
       <property
          name="x">-2541.9785</property>
    </View>
@@ -2864,7 +2864,7 @@
       <property
          name="fromOutcome">ERP-QRY-ACT-SCM_0012</property>
       <property
-         name="sdm:polyPoints">B50,-2540.6484,1471.3965,-2541.9785,1519.4482,T50</property>
+         name="sdm:polyPoints">B50,-2540.6484,1471.3965,-2541.9785,1518.0459,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -2874,6 +2874,44 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">R50,-2500.9785,1573.4482,-2264.5,1401.0459,B50</property>
+         name="sdm:polyPoints">R50,-2500.9785,1572.0459,-2264.5,1401.0459,B50</property>
    </ControlFlowCase>
+   <View
+      id="View261">
+      <property
+         name="activityId">SCM_0012_EDIT_EDIT</property>
+      <property
+         name="page">/SCM_0012_EDIT_EDIT.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SCM_0012_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1526.0977</property>
+      <property
+         name="x">-2644.9746</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase262"
+      from="View261"
+      to="View258">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">R50,-2603.9746,1525.7471,-2582.9785,1572.0459,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall263">
+      <property
+         name="activityId">ExeCustTypeByCompSCM_0012_EDIT_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeCustTypeByCompSCM_0012_EDIT_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1663.7988</property>
+      <property
+         name="x">-2643.6484</property>
+   </MethodCall>
 </SDM>
