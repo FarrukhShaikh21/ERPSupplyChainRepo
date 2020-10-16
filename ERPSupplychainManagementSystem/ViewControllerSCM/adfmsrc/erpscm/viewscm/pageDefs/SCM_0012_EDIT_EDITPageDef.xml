@@ -63,10 +63,23 @@
       </nodeDefinition>
     </tree>
     <action IterBinding="ScmCustomerTypeTaxRateCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
-            Action="createWithParams">
+            Action="createWithParams" InstanceName="ERPSCMModuleDataControl.ScmCustomerTypeTaxRateCRUD"
+            DataControl="ERPSCMModuleDataControl">
       <NamedData NDName="TaxTypeSno" NDValue="#{bindings.TaxTypeSno.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0012_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
     </action>
     <action IterBinding="ScmCustomerTypeTaxRateCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <attributeValues IterBinding="ScmCustomerTypeTaxRateCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerTypeTaxRateCRUDIterator" id="TypeTaxRateSno">
+      <AttrNames>
+        <Item Value="TypeTaxRateSno"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -117,6 +117,26 @@
                                                      halign="stretch">
                                             <af:panelBox text="Customer Type Tax Rate" id="pb3" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
+                                                <af:inputText value="#{bindings.TypeTaxRateSno.inputValue}"
+                                                              label="#{bindings.TypeTaxRateSno.hints.label}"
+                                                              required="#{bindings.TypeTaxRateSno.hints.mandatory}"
+                                                              columns="#{bindings.TypeTaxRateSno.hints.displayWidth}"
+                                                              maximumLength="#{bindings.TypeTaxRateSno.hints.precision}"
+                                                              shortDesc="#{bindings.TypeTaxRateSno.hints.tooltip}"
+                                                              id="it14" rendered="false">
+                                                    <f:validator binding="#{bindings.TypeTaxRateSno.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.TypeTaxRateSno.format}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                              label="#{bindings.IsSupervised.hints.label}"
+                                                              required="#{bindings.IsSupervised.hints.mandatory}"
+                                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}"
+                                                              id="it13" rendered="false">
+                                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                                </af:inputText>
                                                 <af:table value="#{bindings.ScmCustomerTypeTaxRateCRUD.collectionModel}"
                                                           var="row"
                                                           rows="#{bindings.ScmCustomerTypeTaxRateCRUD.rangeSize}"
@@ -287,7 +307,7 @@
                                                      icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.CategoryTaxRateSno==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
                                                      partialTriggers="l7">
                                                 <af:setActionListener from="#{'ScmCategoryTaxRateCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
@@ -296,14 +316,15 @@
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.CategoryTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
                                                      partialTriggers="l7">
                                                 <af:setActionListener from="#{'ScmCategoryTaxRateCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
                                             <af:link text="Delete" id="l9" actionListener="#{bindings.Delete.execute}"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     iconPosition="top" partialSubmit="true"/>
+                                                     iconPosition="top" partialSubmit="true"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"/>
                                             <af:link text="Add" id="l10" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"

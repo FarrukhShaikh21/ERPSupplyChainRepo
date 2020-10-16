@@ -1,5 +1,6 @@
 package erpscm.modelscm.scmeo;
 
+import erpglobals.modelglobals.ERPEntityImpl;
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
 import java.math.BigDecimal;
@@ -17,7 +18,7 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ScmCustomerTypeTaxRateImpl extends EntityImpl {
+public class ScmCustomerTypeTaxRateImpl extends ERPEntityImpl {
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */

@@ -9,11 +9,12 @@
   DBObjectType="table"
   DBObjectName="SCM_CUSTOMER_TYPE_TAX_RATE"
   AliasName="ScmCustomerTypeTaxRate"
-  BindingStyle="OracleName"
+  BindingStyle="JDBC"
   RowClass="erpscm.modelscm.scmeo.ScmCustomerTypeTaxRateImpl">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
   </DesignTime>
   <Attribute
     Name="TypeTaxRateSno"
