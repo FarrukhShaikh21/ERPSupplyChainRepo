@@ -162,8 +162,20 @@
                                         </af:gridRow>
                                         <af:gridRow id="gr5">
                                             <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
-                                                         halign="center"/>
-                                            <af:gridCell id="gc6" halign="stretch"/>
+                                                         halign="center">
+                                                <af:outputLabel value="#{bindings.TypeForId.label}" id="ol6"/>
+                                            </af:gridCell>
+                                            <af:gridCell id="gc6" halign="stretch">
+                                                <af:selectOneChoice value="#{bindings.TypeForId.inputValue}"
+                                                                    label="#{bindings.TypeForId.label}"
+                                                                    required="#{bindings.TypeForId.hints.mandatory}"
+                                                                    shortDesc="#{bindings.TypeForId.hints.tooltip}"
+                                                                    id="soc2" simple="true" contentStyle="width:100%"
+                                                                    readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
+                                                    <f:selectItems value="#{bindings.TypeForId.items}" id="si2"/>
+                                                    <f:validator binding="#{bindings.TypeForId.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:gridCell>
                                         </af:gridRow>
                                     </af:panelGridLayout>
                                 </af:panelBox>
