@@ -44,7 +44,18 @@
                                                                     featuresOff="viewMenu detach">
                                                     <f:facet name="menus"/>
                                                     <f:facet name="toolbar">
-                                                        <af:toolbar id="t3"/>
+                                                        <af:toolbar id="t3">
+                                                            <af:quickQuery label=" " searchDesc="Search"
+                                                                           id="qryId1"
+                                                                           value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                                           model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                                                <f:facet name="end">
+                                                                    <af:commandLink text="Advanced" rendered="false"
+                                                                                    id="cl1"/>
+                                                                </f:facet>
+                                                            </af:quickQuery>
+                                                        </af:toolbar>
                                                     </f:facet>
                                                     <f:facet name="statusbar"/>
                                                     <af:table value="#{bindings.ScmCustomerTypeByCopmanyRO.collectionModel}"

@@ -10,6 +10,9 @@
               id="ScmCustomerTypeByCopmanyROIterator"/>
     <iterator Binds="ScmCustomerTypeTaxRateCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmCustomerTypeTaxRateCRUDIterator"/>
+    <searchRegion Criteria="ScmCustomerTypeFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ScmCustomerTypeByCopmanyROIterator" id="ImplicitViewCriteriaQuery"
+                  InitialQueryOverridden="true"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="OpenDate">
