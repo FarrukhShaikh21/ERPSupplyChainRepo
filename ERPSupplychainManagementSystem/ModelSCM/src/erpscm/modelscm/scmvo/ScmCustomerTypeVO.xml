@@ -100,6 +100,25 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="lovTypeForId"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TypeForId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>  
   <EntityUsage
     Name="ScmCustomerType"
     Entity="erpscm.modelscm.scmeo.ScmCustomerType"/>
@@ -255,7 +274,15 @@
     PrecisionRule="true"
     EntityAttrName="TypeForId"
     EntityUsage="ScmCustomerType"
-    AliasName="TYPE_FOR_ID"/>
+    AliasName="TYPE_FOR_ID"
+    LOVName="lovTypeForId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmCustomerTypeByCustomerTypeID"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerTypeVO"
