@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1" id="SCM_0012_EDIT_EDITPageDef"
+                Package="erpscm.viewscm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GlTaxTypeByTaxIDRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="GlTaxTypeByTaxIDROIterator"/>
+    <iterator Binds="ScmCustomerTypeByCopmanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerTypeByCopmanyROIterator"/>
+    <iterator Binds="ScmCustomerTypeTaxRateCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerTypeTaxRateCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="OpenDate">
+      <AttrNames>
+        <Item Value="OpenDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeSno">
+      <AttrNames>
+        <Item Value="TaxTypeSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeCode">
+      <AttrNames>
+        <Item Value="TaxTypeCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeName">
+      <AttrNames>
+        <Item Value="TaxTypeName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GlTaxTypeByTaxIDROIterator" id="TaxTypeShortName">
+      <AttrNames>
+        <Item Value="TaxTypeShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <tree IterBinding="ScmCustomerTypeByCopmanyROIterator" id="ScmCustomerTypeByCopmanyRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmCustomerTypeVO" Name="ScmCustomerTypeByCopmanyRO0">
+        <AttrNames>
+          <Item Value="CustomerTypeSno"/>
+          <Item Value="CustomerTypeCode"/>
+          <Item Value="CustomerTypeShortName"/>
+          <Item Value="CustomerTypeName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ScmCustomerTypeTaxRateCRUDIterator" id="ScmCustomerTypeTaxRateCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmCustomerTypeTaxRateVO" Name="ScmCustomerTypeTaxRateCRUD0">
+        <AttrNames>
+          <Item Value="TypeTaxRateSno"/>
+          <Item Value="FromDate"/>
+          <Item Value="ToDate"/>
+          <Item Value="FilerRate"/>
+          <Item Value="NonFilerRate"/>
+          <Item Value="IsSupervised"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ScmCustomerTypeTaxRateCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="TaxTypeSno" NDValue="#{bindings.TaxTypeSno.inputValue}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ScmCustomerTypeTaxRateCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>
