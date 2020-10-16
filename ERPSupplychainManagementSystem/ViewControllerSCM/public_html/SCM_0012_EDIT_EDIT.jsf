@@ -146,7 +146,8 @@
                                                           selectionListener="#{bindings.ScmCustomerTypeTaxRateCRUD.collectionModel.makeCurrent}"
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.ScmCustomerTypeTaxRateCRUD.rangeSize}"
-                                                          id="t2" partialTriggers="::l1 ::l8 ::l9">
+                                                          id="t2" partialTriggers="::l1 ::l8 ::l9"
+                                                          columnStretching="column:c9">
                                                     <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.label}"
                                                                id="c5" rendered="false">
                                                         <af:inputText value="#{row.bindings.TypeTaxRateSno.inputValue}"
@@ -168,7 +169,8 @@
                                                                       required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.mandatory}"
                                                                       columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.displayWidth}"
                                                                       shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.tooltip}"
-                                                                      id="id1" contentStyle="width:60%">
+                                                                      id="id1" contentStyle="width:60%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.FromDate.validator}"/>
                                                             <af:convertDateTime pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.format}"/>
                                                         </af:inputDate>
@@ -180,41 +182,44 @@
                                                                       required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.mandatory}"
                                                                       columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.displayWidth}"
                                                                       shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.tooltip}"
-                                                                      id="id3" contentStyle="width:60%">
+                                                                      id="id3" contentStyle="width:60%"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.ToDate.validator}"/>
                                                             <af:convertDateTime pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.format}"/>
                                                         </af:inputDate>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.label}"
-                                                               id="c8">
+                                                               id="c8" width="80" displayIndex="-1">
                                                         <af:inputText value="#{row.bindings.FilerRate.inputValue}"
                                                                       label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.label}"
                                                                       required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.mandatory}"
                                                                       columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.displayWidth}"
                                                                       maximumLength="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.precision}"
                                                                       shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.tooltip}"
-                                                                      id="it6">
+                                                                      id="it6"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.FilerRate.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.format}"/>
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.label}"
-                                                               id="c9">
+                                                               id="c9" width="80" displayIndex="-1">
                                                         <af:inputText value="#{row.bindings.NonFilerRate.inputValue}"
                                                                       label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.label}"
                                                                       required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.mandatory}"
                                                                       columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.displayWidth}"
                                                                       maximumLength="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.precision}"
                                                                       shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.tooltip}"
-                                                                      id="it7">
+                                                                      id="it7"
+                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{row.bindings.NonFilerRate.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.format}"/>
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.label}"
-                                                               id="c10">
+                                                               id="c10" width="80" displayIndex="-1">
                                                         <af:inputText value="#{row.bindings.IsSupervised.inputValue}"
                                                                       label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.label}"
                                                                       required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.mandatory}"
@@ -309,7 +314,7 @@
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
                                                      disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
                                                      partialTriggers="l7">
-                                                <af:setActionListener from="#{'ScmCategoryTaxRateCRUDIterator'}"
+                                                <af:setActionListener from="#{'ScmCustomerTypeTaxRateCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
                                             <af:link text="Supervise" id="l19" partialSubmit="true"
@@ -318,7 +323,7 @@
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
                                                      disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
                                                      partialTriggers="l7">
-                                                <af:setActionListener from="#{'ScmCategoryTaxRateCRUDIterator'}"
+                                                <af:setActionListener from="#{'ScmCustomerTypeTaxRateCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
                                             <af:link text="Delete" id="l9" actionListener="#{bindings.Delete.execute}"
