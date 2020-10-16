@@ -55,5 +55,7 @@
         <Item Value="CustomerTypeCode"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="ScmCustomerTypeCRUDIterator" StaticList="false" Uses="lovTypeForId" id="TypeForId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
