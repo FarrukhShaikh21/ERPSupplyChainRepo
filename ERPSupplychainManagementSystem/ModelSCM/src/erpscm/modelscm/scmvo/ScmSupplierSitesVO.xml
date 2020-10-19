@@ -17,6 +17,135 @@
     Name="P_ADF_SUPPLIER_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
+  <ViewAccessor
+    Name="AccSysGeneralValueVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSmCityVO"
+    ViewObjectName="erpadm.modeladm.admvo.SmCityVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSmCountryVO"
+    ViewObjectName="erpadm.modeladm.admvo.SmCountryVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAdminProvienceVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminProvienceVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="lovIsActive"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsActive"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="lovIsDefault"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsDefault"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_txtCityName"
+    ListVOName="AccSmCityVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCityName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SiteCitySno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Cityname"/>
+      <Item Value="Citycode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Cityname"/>
+      <Item Value="CityShortName"/>
+      <Item Value="CityShortCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="lovtxtCountryName"
+    ListVOName="AccSmCountryVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCountryName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SiteCountrySno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Countryname"/>
+      <Item Value="Countrycode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Countryname"/>
+      <Item Value="CountryShortName"/>
+      <Item Value="CountryShortCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="lovtxtProvienceName"
+    ListVOName="AccAdminProvienceVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtProvienceName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SiteProvienceSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProvienceName"/>
+      <Item Value="ProvienceSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProvienceName"/>
+      <Item Value="ProvienceShortName"/>
+      <Item Value="ProvienceShortCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmSupplierSites"
     Entity="erpscm.modelscm.scmeo.ScmSupplierSites"/>
@@ -158,13 +287,77 @@
     PrecisionRule="true"
     EntityAttrName="IsDefault"
     EntityUsage="ScmSupplierSites"
-    AliasName="IS_DEFAULT"/>
+    AliasName="IS_DEFAULT"
+    LOVName="lovIsDefault">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsActive"
     PrecisionRule="true"
     EntityAttrName="IsActive"
     EntityUsage="ScmSupplierSites"
-    AliasName="IS_ACTIVE"/>
+    AliasName="IS_ACTIVE"
+    LOVName="lovIsActive">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtCityName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCityName"
+    EntityUsage="ScmSupplierSites"
+    AliasName="txt_City_Name"
+    LOVName="LOV_txtCityName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtCountryName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCountryName"
+    EntityUsage="ScmSupplierSites"
+    AliasName="txt_Country_Name"
+    LOVName="lovtxtCountryName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtProvienceName"
+    PrecisionRule="true"
+    EntityAttrName="txtProvienceName"
+    EntityUsage="ScmSupplierSites"
+    AliasName="txt_Provience_Name"
+    LOVName="lovtxtProvienceName"
+    IsQueriable="false"
+    IsPersistent="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmSupplierSitesBySupplierIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierSitesVO"
@@ -204,6 +397,24 @@
   <ViewLinkAccessor
     Name="ScmSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmSupplierSiteSupplierSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SmCountryVO"
+    ViewLink="erpscm.modelscm.scmvo.SmCountrySmSupplSitesCountryIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SmCityVO"
+    ViewLink="erpscm.modelscm.scmvo.SmCitySmSupplierSitesCityIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AdminProvienceVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmAdminProvienceScmSupplierSitesScmProvienceIdVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

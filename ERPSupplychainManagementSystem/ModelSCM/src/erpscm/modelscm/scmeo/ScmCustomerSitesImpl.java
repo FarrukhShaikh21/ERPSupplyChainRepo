@@ -143,15 +143,15 @@ public class ScmCustomerSitesImpl extends ERPEntityImpl {
      * Gets the attribute value for CustomerSno, using the alias name CustomerSno.
      * @return the value of CustomerSno
      */
-    public Long getCustomerSno() {
-        return (Long) getAttributeInternal(CUSTOMERSNO);
+    public Integer getCustomerSno() {
+        return (Integer) getAttributeInternal(CUSTOMERSNO);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for CustomerSno.
      * @param value value to set the CustomerSno
      */
-    public void setCustomerSno(Long value) {
+    public void setCustomerSno(Integer value) {
         setAttributeInternal(CUSTOMERSNO, value);
     }
 

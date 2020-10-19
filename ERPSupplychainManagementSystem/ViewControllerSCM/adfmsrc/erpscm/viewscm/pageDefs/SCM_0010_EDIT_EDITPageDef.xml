@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="ScmSupplierCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmSupplierCRUDIterator"/>
+    <iterator Binds="ScmSupplierSitesBySupplierIDRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmSupplierSitesBySupplierIDROIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmSupplierCRUDIterator" id="SupplierName">
@@ -178,6 +180,22 @@
     <attributeValues IterBinding="ScmSupplierCRUDIterator" id="SupplierSno">
       <AttrNames>
         <Item Value="SupplierSno"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ScmSupplierSitesBySupplierIDROIterator" id="ScmSupplierSitesBySupplierIDRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmSupplierSitesVO" Name="ScmSupplierSitesBySupplierIDRO0">
+        <AttrNames>
+          <Item Value="SiteShortName"/>
+          <Item Value="SupplierSiteCode"/>
+          <Item Value="SiteName"/>
+          <Item Value="SiteType"/>
+          <Item Value="SitePhoneNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ScmSupplierSitesBySupplierIDROIterator" id="SupplierSitesSno">
+      <AttrNames>
+        <Item Value="SupplierSitesSno"/>
       </AttrNames>
     </attributeValues>
   </bindings>

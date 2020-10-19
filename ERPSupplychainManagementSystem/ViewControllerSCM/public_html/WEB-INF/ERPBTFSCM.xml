@@ -593,6 +593,21 @@
         <fixed-outcome>ERP-QRY-SCM_0012_EDIT_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="CreateInsert1">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCM_0010_EDIT_EDIT_EDIT">
+      <page>/SCM_0010_EDIT_EDIT_EDIT.jsf</page>
+    </view>
+    <method-call id="ERPEDITSCM_0010_EDIT_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1380,6 +1395,10 @@
         <from-outcome>ERPADDSCM_0010_EDIT_EDIT</from-outcome>
         <to-activity-id>CreateWithParaSUPPLSNO</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__264">
+        <from-outcome>ERPEDITSCM_0010_EDIT_EDIT</from-outcome>
+        <to-activity-id>ERPEDITSCM_0010_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__229">
       <from-activity-id>CreateWithParaSUPPLSNO</from-activity-id>
@@ -1474,6 +1493,38 @@
       <control-flow-case id="__258">
         <from-outcome>ERP-QRY-SCM_0012_EDIT_EDIT</from-outcome>
         <to-activity-id>SCM_0012_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__237">
+      <from-activity-id>SCM_0010_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__238">
+        <from-outcome>ADD_SCM_0010_EDIT_EDIT_EDIT</from-outcome>
+        <to-activity-id>CreateInsert1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__261">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0010_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__259">
+      <from-activity-id>CreateInsert1</from-activity-id>
+      <control-flow-case id="__260">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>SCM_0010_EDIT_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__262">
+      <from-activity-id>SCM_0010_EDIT_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__263">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0010_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__265">
+      <from-activity-id>ERPEDITSCM_0010_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__266">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>SCM_0010_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

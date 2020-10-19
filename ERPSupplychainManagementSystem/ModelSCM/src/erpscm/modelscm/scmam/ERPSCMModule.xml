@@ -204,11 +204,7 @@
     ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierSitesVO"/>
   <ViewUsage
     Name="ScmSupplierSitesBySupplierIDRO"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierSitesVO">
-    <ViewCriteriaUsage
-      Name="ScmSupplierSitesBySupplierIDVC"
-      FullName="erpscm.modelscm.scmvo.ScmSupplierSitesVO.ScmSupplierSitesBySupplierIDVC"/>
-  </ViewUsage>
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierSitesVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -250,5 +246,11 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.ScmSupplierScmSupplierSiteSupplierSnoVL"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmSupplierCRUD"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmSupplierSitesCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ScmSupplierScmSupplierSiteSupplierSnoVL2"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.ScmSupplierScmSupplierSiteSupplierSnoVL"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmSupplierCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmSupplierSitesBySupplierIDRO"
     Reversed="false"/>
 </AppModule>
