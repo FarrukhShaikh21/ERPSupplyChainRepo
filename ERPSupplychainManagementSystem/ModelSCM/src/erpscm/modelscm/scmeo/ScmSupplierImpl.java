@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -89,7 +90,8 @@ public class ScmSupplierImpl extends ERPEntityImpl {
         GlBankBranch,
         ScmPaymentTermHeader,
         ScmCustomerType,
-        ScmCustomerCategory;
+        ScmCustomerCategory,
+        ScmSupplierSites;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -176,6 +178,7 @@ public class ScmSupplierImpl extends ERPEntityImpl {
     public static final int SCMPAYMENTTERMHEADER = AttributesEnum.ScmPaymentTermHeader.index();
     public static final int SCMCUSTOMERTYPE = AttributesEnum.ScmCustomerType.index();
     public static final int SCMCUSTOMERCATEGORY = AttributesEnum.ScmCustomerCategory.index();
+    public static final int SCMSUPPLIERSITES = AttributesEnum.ScmSupplierSites.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1174,6 +1177,14 @@ public class ScmSupplierImpl extends ERPEntityImpl {
      */
     public void setScmCustomerCategory(ScmCustomerCategoryImpl value) {
         setAttributeInternal(SCMCUSTOMERCATEGORY, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmSupplierSites() {
+        return (RowIterator) getAttributeInternal(SCMSUPPLIERSITES);
     }
 
 

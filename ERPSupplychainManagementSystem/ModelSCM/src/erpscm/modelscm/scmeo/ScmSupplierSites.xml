@@ -4,15 +4,20 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmSupplierSites"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="SCM_SUPPLIER_SITES"
   AliasName="ScmSupplierSites"
-  BindingStyle="OracleName">
+  BindingStyle="JDBC"
+  RowClass="erpscm.modelscm.scmeo.ScmSupplierSitesImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="SupplierSitesSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="SUPPLIER_SITES_SNO"
@@ -23,7 +28,6 @@
     PrimaryKey="true"/>
   <Attribute
     Name="SupplierSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="SUPPLIER_SNO"
@@ -33,7 +37,6 @@
     TableName="SCM_SUPPLIER_SITES"/>
   <Attribute
     Name="SiteType"
-    IsNotNull="true"
     Precision="1"
     ColumnName="SITE_TYPE"
     SQLType="VARCHAR"
@@ -46,7 +49,6 @@
   </Attribute>
   <Attribute
     Name="SupplierSiteCode"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="SUPPLIER_SITE_CODE"
@@ -56,7 +58,6 @@
     TableName="SCM_SUPPLIER_SITES"/>
   <Attribute
     Name="SiteOpenDate"
-    IsNotNull="true"
     ColumnName="SITE_OPEN_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
@@ -241,7 +242,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_SUPPLIER_SITES">
+    TableName="SCM_SUPPLIER_SITES"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -253,11 +255,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_SUPPLIER_SITES">
+    TableName="SCM_SUPPLIER_SITES"
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="ScmSupplier"
+    Association="erpscm.modelscm.scmeo.ScmSupplierScmSupplierSiteSupplierSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmSupplierScmSupplierSiteSupplierSnoAsso.ScmSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmSupplierScmSupplierSiteSupplierSnoAsso.ScmSupplierSites"
+    Type="erpscm.modelscm.scmeo.ScmSupplierImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmSupplierSites"
     PrimaryKey="true">
@@ -274,6 +284,17 @@
       <Attr Name="_referencedKey" Value="PK_SCM_SUPPLIER"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="FK_SCM_SUPPLIER_SITE_SUPP_SNO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmSupplierSites.SupplierSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmSupplierSites">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_SUPPLIER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Supplier_Sites"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmSupplierSites.SupplierSno"/>

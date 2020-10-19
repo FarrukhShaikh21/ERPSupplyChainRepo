@@ -1112,6 +1112,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.SmCustScmSupplCategoryIdAsso.ScmSupplier"
     Type="erpscm.modelscm.scmeo.ScmCustomerCategoryImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmSupplierSites"
+    Association="erpscm.modelscm.scmeo.ScmSupplierScmSupplierSiteSupplierSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmSupplierScmSupplierSiteSupplierSnoAsso.ScmSupplierSites"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmSupplierScmSupplierSiteSupplierSnoAsso.ScmSupplier"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmSupplier"
     PrimaryKey="true">
