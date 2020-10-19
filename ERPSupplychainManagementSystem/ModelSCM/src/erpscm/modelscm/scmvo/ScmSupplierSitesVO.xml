@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_SUPPLIER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <EntityUsage
     Name="ScmSupplierSites"
     Entity="erpscm.modelscm.scmeo.ScmSupplierSites"/>
@@ -161,6 +165,42 @@
     EntityAttrName="IsActive"
     EntityUsage="ScmSupplierSites"
     AliasName="IS_ACTIVE"/>
+  <ViewCriteria
+    Name="ScmSupplierSitesBySupplierIDVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierSitesVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmSupplierSitesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SupplierSno"
+        ViewAttribute="SupplierSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_SUPPLIER_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmSupplierSiteSupplierSnoVL"
