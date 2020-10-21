@@ -83,18 +83,18 @@
                                         <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
                                             <af:gridCell id="gc35" width="13%" rowSpan="1" halign="center"
                                                          marginStart="5px" marginEnd="5px">
-                                                <af:outputLabel value="#{bindings.SiteType.hints.label}" id="ol3"/>
+                                                <af:outputLabel value="#{bindings.SiteType.label}" id="ol3"/>
                                             </af:gridCell>
                                             <af:gridCell id="gc33" width="20%" halign="stretch" marginStart="5px"
                                                          marginEnd="5px" columnSpan="1">
-                                                <af:inputText value="#{bindings.SiteType.inputValue}" simple="true"
-                                                              required="#{bindings.SiteType.hints.mandatory}"
-                                                              columns="#{bindings.SiteType.hints.displayWidth}"
-                                                              maximumLength="#{bindings.SiteType.hints.precision}"
-                                                              shortDesc="#{bindings.SiteType.hints.tooltip}" id="it3"
-                                                              contentStyle="width:100%">
+                                                <af:selectOneChoice value="#{bindings.SiteType.inputValue}"
+                                                                    label="#{bindings.SiteType.label}"
+                                                                    required="#{bindings.SiteType.hints.mandatory}"
+                                                                    shortDesc="#{bindings.SiteType.hints.tooltip}"
+                                                                    id="soc3" simple="true">
+                                                    <f:selectItems value="#{bindings.SiteType.items}" id="si3"/>
                                                     <f:validator binding="#{bindings.SiteType.validator}"/>
-                                                </af:inputText>
+                                                </af:selectOneChoice>
                                             </af:gridCell>
                                             <af:gridCell id="gc5" marginStart="5px" marginEnd="5px" width="13%"
                                                          halign="center">

@@ -608,6 +608,12 @@
         <fixed-outcome>ExecuteWithParams</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeSupplSiteSCM__edit_edit_edit">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1399,6 +1405,10 @@
         <from-outcome>ERPEDITSCM_0010_EDIT_EDIT</from-outcome>
         <to-activity-id>ERPEDITSCM_0010_EDIT_EDIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__267">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0010</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__229">
       <from-activity-id>CreateWithParaSUPPLSNO</from-activity-id>
@@ -1505,6 +1515,10 @@
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0010_EDIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__268">
+        <from-outcome>QRY_SCM_0010_EDIT_EDIT_EDIT</from-outcome>
+        <to-activity-id>ExeSupplSiteSCM__edit_edit_edit</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__259">
       <from-activity-id>CreateInsert1</from-activity-id>
@@ -1525,6 +1539,13 @@
       <control-flow-case id="__266">
         <from-outcome>ExecuteWithParams</from-outcome>
         <to-activity-id>SCM_0010_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__269">
+      <from-activity-id>ExeSupplSiteSCM__edit_edit_edit</from-activity-id>
+      <control-flow-case id="__270">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>SCM_0010_EDIT_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

@@ -144,14 +144,6 @@
                           </af:panelGroupLayout>
                         </af:listItem>
                       </af:listView>
-                      <af:listView value="#{bindings.ScmCustomerByCompanyRO.collectionModel}" var="item"
-                                   emptyText="#{bindings.ScmCustomerByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                   fetchSize="#{bindings.ScmCustomerByCompanyRO.rangeSize}" id="lv1" selection="single"
-                                   selectionListener="#{bindings.ScmCustomerByCompanyRO.treeModel.makeCurrent}"
-                                   selectedRowKeys="#{bindings.ScmCustomerByCompanyRO.collectionModel.selectedRow}">
-                        <af:listItem id="li1"
-                                     styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo"/>
-                      </af:listView>
                     </af:panelGroupLayout>
                   </af:gridCell>
                 </af:gridRow>
