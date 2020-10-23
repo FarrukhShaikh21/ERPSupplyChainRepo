@@ -8,8 +8,6 @@
               id="ScmCustomerCRUDIterator"/>
     <iterator Binds="ScmCustomerSitesDetRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmCustomerSitesDetROIterator"/>
-    <iterator Binds="ScmCustomerByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmCustomerByCompanyROIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmCustomerCRUDIterator" id="CustomerName">
@@ -179,7 +177,7 @@
     </attributeValues>
     <list IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <listOfValues IterBinding="ScmCustomerByCompanyROIterator" StaticList="false" Uses="LovtxtCurrencyName"
+    <listOfValues IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovtxtCurrencyName"
                   id="txtCurrencyName"/>
   </bindings>
 </pageDefinition>
