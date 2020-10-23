@@ -336,7 +336,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_CUSTOMER">
+    TableName="SCM_CUSTOMER"
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -719,7 +720,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_CUSTOMER">
+    TableName="SCM_CUSTOMER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -1139,6 +1141,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPayTermHeadScmCustPaymentTermSnoAsso.ScmCustomer"
     Type="erpscm.modelscm.scmeo.ScmPaymentTermHeaderImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SetCurrency"
+    Association="erpscm.modelscm.scmeo.SetCurrencySCMCustomerCurrencySnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.SetCurrencySCMCustomerCurrencySnoAsso.SetCurrency"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.SetCurrencySCMCustomerCurrencySnoAsso.ScmCustomer"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmCustomer"
     PrimaryKey="true">
@@ -1235,6 +1244,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmCustomer.PaymentTermSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmCustomer8">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SET_CURRENCY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Customer8"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustomer.CurrencySno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

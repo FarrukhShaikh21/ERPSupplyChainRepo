@@ -22,7 +22,7 @@
                   </af:panelGroupLayout>
                 </af:gridCell>
               </af:gridRow>
-              <af:gridRow marginTop="10px" height="auto" id="gr1" marginBottom="10px">
+              <af:gridRow marginTop="20px" height="100px" id="gr1" marginBottom="20px">
                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="center">
                   <af:panelFormLayout id="pfl1" rows="1" maxColumns="4" labelWidth="150" fieldWidth="100">
                     <af:inputText value="#{bindings.CompCode.inputValue}" label="#{bindings.CompCode.hints.label}"
@@ -79,7 +79,7 @@
         <f:facet name="second">
           <af:decorativeBox id="db1" dimensionsFrom="parent">
             <f:facet name="center">
-              <af:panelGroupLayout id="pgl4" layout="scroll">
+              <af:panelGroupLayout id="pgl4" layout="scroll" halign="center">
                 <af:panelGridLayout id="pgl1">
                   <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" valign="stretch"
@@ -179,7 +179,6 @@
                 </af:panelGridLayout>
               </af:panelGroupLayout>
             </f:facet>
-            <f:facet name="top"/>
           </af:decorativeBox>
         </f:facet>
       </af:panelSplitter>

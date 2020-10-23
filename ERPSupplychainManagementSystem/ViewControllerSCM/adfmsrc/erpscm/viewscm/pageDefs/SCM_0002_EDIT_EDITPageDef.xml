@@ -180,5 +180,7 @@
         <Item Value="CustomerSno"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="ScmCustomerCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

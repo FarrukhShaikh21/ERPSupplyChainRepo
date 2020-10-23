@@ -56,7 +56,17 @@
   <ViewAccessor
     Name="AccGlBankBranchVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlBankBranchVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlBankBranchVOByBankVC"
+      FullName="erpfms.modelfms.fmsvo.GlBankBranchVO.GlBankBranchVOByBankVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_BANK_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[BankId==null?-1:BankId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccGlBankVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO"
@@ -299,6 +309,25 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LovIsSupervised"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsSupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmCustomer"
     Entity="erpscm.modelscm.scmeo.ScmCustomer"/>
@@ -447,7 +476,14 @@
     PrecisionRule="true"
     EntityAttrName="BranchId"
     EntityUsage="ScmCustomer"
-    AliasName="BRANCH_ID"/>
+    AliasName="BRANCH_ID">
+    <Dependencies>
+      <Item
+        Value="BankId"/>
+      <Item
+        Value="txtBankName"/>
+    </Dependencies>
+  </ViewAttribute>
   <ViewAttribute
     Name="BankAccountNo"
     PrecisionRule="true"
@@ -646,6 +682,12 @@
           Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="BankId"/>
+      <Item
+        Value="txtBankName"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewAttribute
     Name="txtBankName"
@@ -724,7 +766,15 @@
     PrecisionRule="true"
     EntityAttrName="IsSupervised"
     EntityUsage="ScmCustomer"
-    AliasName="IS_SUPERVISED"/>
+    AliasName="IS_SUPERVISED"
+    LOVName="LovIsSupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsUnsupervised"
     PrecisionRule="true"
@@ -803,6 +853,90 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="ScmCustomerVOFindVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmCustomerVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CustomerShortCode"
+        ViewAttribute="CustomerShortCode"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CustomerName"
+        ViewAttribute="CustomerName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CustomerShortName"
+        ViewAttribute="CustomerShortName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Mobile"
+        ViewAttribute="Mobile"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Email"
+        ViewAttribute="Email"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CnicNo"
+        ViewAttribute="CnicNo"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="IsActive"
+        ViewAttribute="IsActive"
+        Operator="="
+        Conjunction="AND"
+        UpperColumns="0"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ScmCustomerVOCriteria_ScmCustomerVOCriteria_row_0_AccountOpenDate"
+        ViewAttribute="AccountOpenDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="IsSupervised"
+        ViewAttribute="IsSupervised"
+        Operator="="
+        Conjunction="AND"
+        UpperColumns="0"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmCustomerSitesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmCustSiteCustSnoLink"
@@ -847,6 +981,12 @@
   <ViewLinkAccessor
     Name="ScmPaymentTermHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPayTermHeadScmCustPaymentTermSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SetCurrencyVO"
+    ViewLink="erpscm.modelscm.scmvo.SetCurrencySCMCustomerCurrencySnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
