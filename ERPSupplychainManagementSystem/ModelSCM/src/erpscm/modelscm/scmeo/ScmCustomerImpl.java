@@ -85,6 +85,7 @@ public class ScmCustomerImpl extends ERPEntityImpl {
         SupervisedDate,
         UnSupervisedBy,
         UnSupervisedDate,
+        txtCurrencyName,
         ScmCustomerSites,
         SmCountry,
         SmCity,
@@ -173,6 +174,7 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     public static final int SUPERVISEDDATE = AttributesEnum.SupervisedDate.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
+    public static final int TXTCURRENCYNAME = AttributesEnum.txtCurrencyName.index();
     public static final int SCMCUSTOMERSITES = AttributesEnum.ScmCustomerSites.index();
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int SMCITY = AttributesEnum.SmCity.index();
@@ -1076,6 +1078,22 @@ public class ScmCustomerImpl extends ERPEntityImpl {
      */
     public void setUnSupervisedDate(Timestamp value) {
         setAttributeInternal(UNSUPERVISEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCurrencyName, using the alias name txtCurrencyName.
+     * @return the value of txtCurrencyName
+     */
+    public String gettxtCurrencyName() {
+        return (String) getAttributeInternal(TXTCURRENCYNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCurrencyName.
+     * @param value value to set the txtCurrencyName
+     */
+    public void settxtCurrencyName(String value) {
+        setAttributeInternal(TXTCURRENCYNAME, value);
     }
 
     /**

@@ -96,6 +96,10 @@
     Name="AccScmPaymentTermHeaderVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSetCurrencyVO"
+    ViewObjectName="erpadm.modeladm.admvo.SetCurrencyVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_txtCityName"
     ListVOName="AccSmCityVO"
@@ -327,6 +331,30 @@
       <Item Value="ValueDescription"/>
     </AttrArray>
     <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtCurrencyName"
+    ListVOName="AccSetCurrencyVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCurrencyName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CurrencySno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CurrencyDescription"/>
+      <Item Value="CurrencySno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CurrencyDescription"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SetCurrencyFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmCustomer"
@@ -781,6 +809,22 @@
     EntityAttrName="IsUnsupervised"
     EntityUsage="ScmCustomer"
     AliasName="IS_UNSUPERVISED"/>
+  <ViewAttribute
+    Name="txtCurrencyName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCurrencyName"
+    EntityUsage="ScmCustomer"
+    AliasName="txt_Currency_Name"
+    LOVName="LovtxtCurrencyName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmCustomerByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerVO"

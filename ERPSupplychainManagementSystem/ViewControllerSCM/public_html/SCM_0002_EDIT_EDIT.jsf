@@ -403,22 +403,22 @@
                                                 <af:gridRow marginTop="5px" height="auto" id="gr8" marginBottom="5px">
                                                     <af:gridCell marginStart="5px" width="13%" id="gc15" halign="center"
                                                                  marginEnd="5px" valign="middle">
-                                                        <af:outputLabel value="#{bindings.CurrencySno.hints.label}"
-                                                                        id="ol7"/>
+                                                        <af:outputLabel value="#{bindings.txtCurrencyName.hints.label}" id="ol7"/>
                                                     </af:gridCell>
                                                     <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc16"
                                                                  halign="stretch" valign="middle">
-                                                        <af:inputText value="#{bindings.CurrencySno.inputValue}"
-                                                                      required="#{bindings.CurrencySno.hints.mandatory}"
-                                                                      columns="#{bindings.CurrencySno.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.CurrencySno.hints.precision}"
-                                                                      shortDesc="#{bindings.CurrencySno.hints.tooltip}"
-                                                                      id="it7" contentStyle="width:100%" simple="true"
-                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{bindings.CurrencySno.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.CurrencySno.format}"/>
-                                                        </af:inputText>
+                                                        <af:inputComboboxListOfValues id="txtCurrencyNameId"
+                                                                                      popupTitle="Search and Select: #{bindings.txtCurrencyName.hints.label}"
+                                                                                      value="#{bindings.txtCurrencyName.inputValue}"
+                                                                                      label="#{bindings.txtCurrencyName.hints.label}"
+                                                                                      model="#{bindings.txtCurrencyName.listOfValuesModel}"
+                                                                                      required="#{bindings.txtCurrencyName.hints.mandatory}"
+                                                                                      columns="#{bindings.txtCurrencyName.hints.displayWidth}"
+                                                                                      shortDesc="#{bindings.txtCurrencyName.hints.tooltip}"
+                                                                                      simple="true"
+                                                                                      contentStyle="width:80%">
+                                                            <f:validator binding="#{bindings.txtCurrencyName.validator}"/>
+                                                        </af:inputComboboxListOfValues>
                                                     </af:gridCell>
                                                     <af:gridCell id="gc47" width="13%" halign="center" marginStart="5px"
                                                                  marginEnd="5px" valign="middle">

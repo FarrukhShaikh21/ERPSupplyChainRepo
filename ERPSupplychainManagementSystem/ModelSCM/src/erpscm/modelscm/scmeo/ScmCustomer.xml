@@ -1085,6 +1085,31 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtCurrencyName"
+    Precision="80"
+    ColumnName="txt_Currency_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_CUSTOMER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SetCurrency?.CurrencyDescription]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmCustomer.txtCurrencyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="CurrencySno"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmCustomerSites"
     Association="erpscm.modelscm.scmeo.FkScmCustSiteCustSnoAssoc"
