@@ -12,7 +12,12 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpscm.modelscm.scmvo.ScmCustomerVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+    <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
+  </DesignTime>
   <Variable
     Name="P_ADF_COMPANY_ID"
     Kind="viewcriteria"
