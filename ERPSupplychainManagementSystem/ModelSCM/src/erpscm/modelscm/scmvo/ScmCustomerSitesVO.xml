@@ -24,7 +24,17 @@
   <ViewAccessor
     Name="SmCityVO1"
     ViewObjectName="erpadm.modeladm.admvo.SmCityVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SmCityCountryWiseVC"
+      FullName="erpadm.modeladm.admvo.SmCityVO.SmCityCountryWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COUNTRY_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SiteCountrySno==null?-1:SiteCountrySno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccSmCountryVO"
     ViewObjectName="erpadm.modeladm.admvo.SmCountryVO"
@@ -47,6 +57,23 @@
       <PIMap Variable="P_ADF_VALUE_SET_ID">
         <TransientExpression
           trustMode="untrusted"><![CDATA[4]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSysGeneralValueSiteTypeVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[11]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -166,6 +193,24 @@
     <DisplayCriteria
       Name="AdminProvienceFindVC"/>
   </ListBinding>
+  <ListBinding
+    Name="LovSiteType"
+    ListVOName="AccSysGeneralValueSiteTypeVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SiteType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmCustomerSites"
     Entity="erpscm.modelscm.scmeo.ScmCustomerSites"/>
@@ -189,7 +234,15 @@
     PrecisionRule="true"
     EntityAttrName="SiteType"
     EntityUsage="ScmCustomerSites"
-    AliasName="SITE_TYPE"/>
+    AliasName="SITE_TYPE"
+    LOVName="LovSiteType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustomerSiteCode"
     IsNotNull="true"

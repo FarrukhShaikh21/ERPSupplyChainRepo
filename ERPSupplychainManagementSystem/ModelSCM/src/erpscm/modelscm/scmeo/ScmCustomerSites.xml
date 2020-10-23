@@ -99,8 +99,7 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_CUSTOMER_SITES">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[adf.curentDate]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -141,6 +140,12 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="SiteCountrySno"/>
+      <Item
+        Value="txtCountryName"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="SitePhoneNo"
@@ -372,7 +377,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false">
+    IsQueriable="false"
+    IsNotNull="true">
     <TransientExpression><![CDATA[SmCity?.Cityname]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
@@ -397,7 +403,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false">
+    IsQueriable="false"
+    IsNotNull="true">
     <TransientExpression><![CDATA[SmCountry?.Countryname]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
@@ -483,7 +490,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_CUSTOMER_SITES"
-    DefaultValue="Y">
+    DefaultValue="Y"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -504,7 +512,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_CUSTOMER_SITES"
-    DefaultValue="N">
+    DefaultValue="N"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -553,6 +562,54 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmCustomerSites.CustomerSitesSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmCustomerSitesIsActiveCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Scm_Customer_Sites_Is_Active_C"/>
+      <Attr Name="_checkCondition" Value='"IS_ACTIVE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustomerSites.IsActive"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmCustomerSitesIsDefaultCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Scm_Customer_Sites_Is_Default_"/>
+      <Attr Name="_checkCondition" Value='"IS_DEFAULT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustomerSites.IsDefault"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmCustomerSitesTxtCityNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Scm_Customer_Sites_Txt_City_Na"/>
+      <Attr Name="_checkCondition" Value='"TXT_CITY_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustomerSites.txtCityName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmCustomerSitesTxtCountryNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Scm_Customer_Sites_Txt_Country"/>
+      <Attr Name="_checkCondition" Value='"TXT_COUNTRY_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmCustomerSites.txtCountryName"/>
     </AttrArray>
   </Key>
   <Key

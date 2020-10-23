@@ -25,7 +25,8 @@
                 <f:facet name="center">
                     <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
                         <f:facet name="center">
-                            <af:panelTabbed position="above" id="pt1" dimensionsFrom="disclosedChild">
+                            <af:panelTabbed position="above" id="pt1" dimensionsFrom="disclosedChild"
+                                            binding="#{pageFlowScope.OracleERPBean.LErpPanelTabbed}">
                                 <af:showDetailItem id="tab1" text="Customer" disclosed="true">
                                     <af:panelBox text="PanelBox1" id="pb2"
                                                   showDisclosure="false"
@@ -58,11 +59,12 @@
                                                         <af:setActionListener to="#{pageFlowScope.OracleERPBean.LIteratorName}"
                                                                               from="#{'ScmCustomerCRUDIterator'}"/>
                                                     </af:link>
-                                                    <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                    <af:link
                                                              text="Add" disabled="#{!bindings.CreateWithParams.enabled}"
                                                              id="l1" partialSubmit="true"
                                                              icon="#{resource['images:imgAddRecord.png']}"
-                                                             iconPosition="top"/>
+                                                             iconPosition="top"
+                                                             action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"/>
                                                     <af:link text="Create With Para" id="l6"
                                                              actionListener="#{bindings.CreateWithParams.execute}"
                                                              rendered="false"/>
@@ -412,11 +414,11 @@
                                                                                       value="#{bindings.txtCurrencyName.inputValue}"
                                                                                       label="#{bindings.txtCurrencyName.hints.label}"
                                                                                       model="#{bindings.txtCurrencyName.listOfValuesModel}"
-                                                                                      required="#{bindings.txtCurrencyName.hints.mandatory}"
                                                                                       columns="#{bindings.txtCurrencyName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtCurrencyName.hints.tooltip}"
                                                                                       simple="true"
-                                                                                      contentStyle="width:80%">
+                                                                                      contentStyle="width:80%"
+                                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.txtCurrencyName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
@@ -940,7 +942,10 @@
                                             <af:link text="Close" id="l11"
                                                      icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                                     partialSubmit="true"/>
+                                                     partialSubmit="true">
+                                                <af:setActionListener from="#{pageFlowScope.OracleERPBean.LErpPanelDefaultTabbed}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LErpPanelTabbed}"/>
+                                            </af:link>
                                             <af:link text="Save" id="l17" partialSubmit="true"
                                                      icon="#{resource['images:imgSave.png']}" iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>

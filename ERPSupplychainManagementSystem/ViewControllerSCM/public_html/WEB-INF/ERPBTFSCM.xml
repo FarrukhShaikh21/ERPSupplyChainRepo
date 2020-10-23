@@ -614,6 +614,12 @@
         <fixed-outcome>ExecuteWithParams</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeCustByCompSCM_0002_EDIT">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1127,7 +1133,7 @@
       <from-activity-id>ExeCustSiteROSCM_0002_EDIT_EDIT</from-activity-id>
       <control-flow-case id="__147">
         <from-outcome>ERPBACKCRUD</from-outcome>
-        <to-activity-id>SCM_0002_EDIT_EDIT</to-activity-id>
+        <to-activity-id>ExeCustByCompSCM_0002_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__148">
@@ -1546,6 +1552,13 @@
       <control-flow-case id="__270">
         <from-outcome>ExecuteWithParams</from-outcome>
         <to-activity-id>SCM_0010_EDIT_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__271">
+      <from-activity-id>ExeCustByCompSCM_0002_EDIT</from-activity-id>
+      <control-flow-case id="__272">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0002_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

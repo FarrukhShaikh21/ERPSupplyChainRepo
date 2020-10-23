@@ -11,6 +11,7 @@
                             <af:panelBox text="PanelBox1" id="pb2" showDisclosure="false" showHeader="never"
                                          partialTriggers="l8 l4 l5 l1 l2 l9 l3 l6 l7">
                                 <f:facet name="toolbar"/>
+                                <af:spacer width="10" height="10" id="s2"/>
                                 <af:panelBox text="Customer Sites" id="pb1" showDisclosure="false">
                                     <f:facet name="toolbar"/>
                                     <af:panelGridLayout id="pgl2">
@@ -84,18 +85,18 @@
                                         <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
                                             <af:gridCell id="gc35" width="13%" rowSpan="1" halign="center"
                                                          marginStart="5px" marginEnd="5px">
-                                                <af:outputLabel value="#{bindings.SiteType.hints.label}" id="ol4"/>
+                                                <af:outputLabel value="#{bindings.SiteType.label}" id="ol4"/>
                                             </af:gridCell>
                                             <af:gridCell id="gc33" width="20%" halign="stretch" marginStart="5px"
                                                          marginEnd="5px" columnSpan="1">
-                                                <af:inputText value="#{bindings.SiteType.inputValue}" simple="true"
-                                                              required="#{bindings.SiteType.hints.mandatory}"
-                                                              columns="#{bindings.SiteType.hints.displayWidth}"
-                                                              maximumLength="#{bindings.SiteType.hints.precision}"
-                                                              shortDesc="#{bindings.SiteType.hints.tooltip}" id="it4"
-                                                              contentStyle="width:100%">
+                                                <af:selectOneChoice value="#{bindings.SiteType.inputValue}"
+                                                                    label="#{bindings.SiteType.label}"
+                                                                    required="#{bindings.SiteType.hints.mandatory}"
+                                                                    shortDesc="#{bindings.SiteType.hints.tooltip}"
+                                                                    id="soc3" simple="true" contentStyle="width:100%">
+                                                    <f:selectItems value="#{bindings.SiteType.items}" id="si3"/>
                                                     <f:validator binding="#{bindings.SiteType.validator}"/>
-                                                </af:inputText>
+                                                </af:selectOneChoice>
                                             </af:gridCell>
                                             <af:gridCell id="gc5" marginStart="5px" marginEnd="5px" width="13%"
                                                          halign="center">
@@ -148,7 +149,9 @@
                                                                               model="#{bindings.txtCountryName.listOfValuesModel}"
                                                                               columns="#{bindings.txtCountryName.hints.displayWidth}"
                                                                               shortDesc="#{bindings.txtCountryName.hints.tooltip}"
-                                                                              simple="true" contentStyle="width:100%">
+                                                                              simple="true" contentStyle="width:80%"
+                                                                              autoSubmit="true"
+                                                                              required="#{bindings.txtCountryName.mandatory}">
                                                     <f:validator binding="#{bindings.txtCountryName.validator}"/>
                                                 </af:inputComboboxListOfValues>
                                             </af:gridCell>
@@ -165,7 +168,9 @@
                                                                               model="#{bindings.txtCityName.listOfValuesModel}"
                                                                               columns="#{bindings.txtCityName.hints.displayWidth}"
                                                                               shortDesc="#{bindings.txtCityName.hints.tooltip}"
-                                                                              simple="true" contentStyle="width:90%">
+                                                                              simple="true" contentStyle="width:80%"
+                                                                              partialTriggers="txtCountryNameId"
+                                                                              required="#{bindings.txtCityName.mandatory}">
                                                     <f:validator binding="#{bindings.txtCityName.validator}"/>
                                                 </af:inputComboboxListOfValues>
                                             </af:gridCell>
@@ -289,41 +294,52 @@
                             </af:panelBox>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
-                                <f:facet name="separator">
-                                    <af:spacer width="10" height="10" id="s1"/>
-                                </f:facet>
-                                <af:link text="Close" id="l8" partialSubmit="true"
-                                         action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                         icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"/>
-                                <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
-                                         disabled="#{!bindings.Delete.enabled}" id="l4"
-                                         icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
-                                         partialSubmit="true"/>
-                                <af:link actionListener="#{bindings.CreateInsert.execute}" text="Add"
-                                         disabled="#{!bindings.CreateInsert.enabled}" id="l5" iconPosition="top"
-                                         icon="#{resource['images:imgAddRecord.png']}" partialSubmit="true"/>
-                                <af:link actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
-                                         disabled="#{!bindings.CreateInsert.enabled}" id="l1" rendered="false"/>
-                                <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
-                                         disabled="#{!bindings.Delete.enabled}" id="l2" rendered="false"/>
-                                <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
-                                         disabled="#{!bindings.Commit.enabled}" id="l9" rendered="false"/>
-                                <af:link text="Save" id="l3"
-                                         icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                         partialSubmit="true"
-                                         action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
-                                <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                         disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l6"
-                                         rendered="false">
-                                    <af:resetActionListener/>
-                                </af:link>
-                                <af:link text="Undo" immediate="true" id="l7"
-                                         icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                         partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
-                                    <af:resetActionListener/>
-                                </af:link>
-                            </af:panelGroupLayout>
+                            <af:panelGridLayout id="pgl3">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                                    <af:gridCell width="100%" id="gc15"
+                                                 halign="stretch" marginStart="5px" marginEnd="5px">
+                                        <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end"
+                                                             styleClass="AFStretchWidth">
+                                            <af:link text="Close" id="l8" partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                     icon="#{resource['images:imgCloseDialog.png']}"
+                                                     iconPosition="top"/>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                     disabled="#{!bindings.Delete.enabled}" id="l4"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
+                                                     partialSubmit="true"/>
+                                            <af:link text="Add" disabled="#{!bindings.CreateInsert.enabled}" id="l5"
+                                                     iconPosition="top" icon="#{resource['images:imgAddRecord.png']}"
+                                                     partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"/>
+                                            <af:link actionListener="#{bindings.CreateInsert.execute}"
+                                                     text="CreateInsert" disabled="#{!bindings.CreateInsert.enabled}"
+                                                     id="l1" rendered="false"/>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                     disabled="#{!bindings.Delete.enabled}" id="l2" rendered="false"/>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                     disabled="#{!bindings.Commit.enabled}" id="l9" rendered="false"/>
+                                            <af:link text="Save" id="l3" icon="#{resource['images:imgSave.png']}"
+                                                     iconPosition="top" partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l6"
+                                                     rendered="false">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link text="Undo" immediate="true" id="l7"
+                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                                     partialSubmit="true"
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s1"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
                         </f:facet>
                     </af:decorativeBox>
                 </f:facet>

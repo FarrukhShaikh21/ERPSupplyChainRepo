@@ -10,6 +10,7 @@ import javax.faces.context.FacesContext;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
@@ -34,7 +35,9 @@ public class ERPSCMClass {
     private String erpScreenSize;
     private RichPopup lerpSupervisePopupConfirm;
     private RichPopup lerpUnSupervisePopupConfirm;
-        
+    private RichPanelTabbed lErpPanelTabbed;
+    private RichPanelTabbed lErpPanelDefaultTabbed;
+            
     
     public ERPSCMClass() {
         super();
@@ -299,5 +302,21 @@ public class ERPSCMClass {
             System.out.println("setScreenSize"+ getErpScreenSize());
        // afContext.addPartialTarget(getRit());  
         //System.out.println(form.getId() +" get form id");
-        }  
+        }
+
+    public void setLErpPanelTabbed(RichPanelTabbed lErpPanelTabbed) {
+        this.lErpPanelTabbed = lErpPanelTabbed;
+    }
+
+    public RichPanelTabbed getLErpPanelTabbed() {
+        return lErpPanelTabbed;
+    }
+
+    public void setLErpPanelDefaultTabbed(RichPanelTabbed lErpPanelDefaultTabbed) {
+        this.lErpPanelDefaultTabbed = lErpPanelDefaultTabbed;
+    }
+
+    public RichPanelTabbed getLErpPanelDefaultTabbed() {
+        return lErpPanelDefaultTabbed;
+    }
 }

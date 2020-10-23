@@ -13,11 +13,6 @@
         <Item Value="CustomerSiteCode"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SiteType">
-      <AttrNames>
-        <Item Value="SiteType"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="SiteOpenDate">
       <AttrNames>
         <Item Value="SiteOpenDate"/>
@@ -83,5 +78,7 @@
                   id="txtCountryName"/>
     <listOfValues IterBinding="ScmCustomerSitesDetCRUDIterator" StaticList="false" Uses="LOV_txtCityName"
                   id="txtCityName"/>
+    <list IterBinding="ScmCustomerSitesDetCRUDIterator" StaticList="false" Uses="LovSiteType" id="SiteType"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
