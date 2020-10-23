@@ -76,7 +76,7 @@
                               <af:panelGridLayout id="pgl2">
                                 <af:gridRow marginTop="5px" height="auto" id="gr1" marginBottom="5px">
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch"
-                                               valign="stretch">
+                                               valign="stretch" styleClass="AFStretchWidth ERPHeroBackground">
                                     <af:panelGroupLayout id="pgl4" layout="horizontal"
                                                          styleClass="ERPHeroBannerFont ERPLink">
                                       <af:link id="l2" icon="#{resource['images:imgView.png']}"
@@ -130,22 +130,6 @@
                                       </af:outputFormatted>
                                       <f:facet name="separator">
                                         <af:spacer width="10" height="10" id="s4"/>
-                                      </f:facet>
-                                    </af:panelGroupLayout>
-                                  </af:gridCell>
-                                </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" id="gr5">
-                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
-                                    <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                      <af:link id="l7" icon="#{resource['images:imgCountry.png']}"
-                                               partialSubmit="true"/>
-                                      <af:outputFormatted value="#{item.bindings.CustomerTypeSno.inputValue}" id="of5"
-                                                          styleClass="ERPHeroDetailColor">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.ScmCustomerByCompanyRO.hints.CustomerTypeSno.format}"/>
-                                      </af:outputFormatted>
-                                      <f:facet name="separator">
-                                        <af:spacer width="10" height="10" id="s5"/>
                                       </f:facet>
                                     </af:panelGroupLayout>
                                   </af:gridCell>

@@ -263,26 +263,9 @@
                                                         </af:inputText>
                                                     </af:gridCell>
                                                     <af:gridCell id="gc37" width="13%" halign="center" marginStart="5px"
-                                                                 marginEnd="5px">
-                                                        <af:outputLabel value="outputLabel1" id="ol32"
-                                                                        rendered="false"/>
-                                                        <af:outputLabel value="#{bindings.IsActive.hints.label}"
-                                                                        id="ol18"/>
-                                                    </af:gridCell>
+                                                                 marginEnd="5px"/>
                                                     <af:gridCell id="gc38" width="20%" marginStart="5px" marginEnd="5px"
-                                                                 halign="stretch">
-                                                        <af:inputText value="#{bindings.IsActive.inputValue}"
-                                                                      simple="true"
-                                                                      required="#{bindings.IsActive.hints.mandatory}"
-                                                                      columns="#{bindings.IsActive.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.IsActive.hints.precision}"
-                                                                      shortDesc="#{bindings.IsActive.hints.tooltip}"
-                                                                      id="it16" styleClass="AFStretchWidth"
-                                                                      contentStyle="width:100%"
-                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{bindings.IsActive.validator}"/>
-                                                        </af:inputText>
-                                                    </af:gridCell>
+                                                                 halign="stretch"/>
                                                     <af:gridCell id="gc31" width="13%" halign="center" rowSpan="1"
                                                                  marginStart="5px" marginEnd="5px"/>
                                                     <af:gridCell id="gc32" width="21%" halign="stretch"
