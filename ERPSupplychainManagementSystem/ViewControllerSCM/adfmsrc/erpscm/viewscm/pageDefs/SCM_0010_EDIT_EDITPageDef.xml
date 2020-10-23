@@ -40,11 +40,6 @@
         <Item Value="Nationality"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="IsActive">
-      <AttrNames>
-        <Item Value="IsActive"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ScmSupplierCRUDIterator" id="ParentSupplierSno">
       <AttrNames>
         <Item Value="ParentSupplierSno"/>
@@ -60,11 +55,6 @@
         <Item Value="SrbPraNo"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="CurrencySno">
-      <AttrNames>
-        <Item Value="CurrencySno"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ScmSupplierCRUDIterator" id="PaymentTermSno">
       <AttrNames>
         <Item Value="PaymentTermSno"/>
@@ -78,11 +68,6 @@
     <attributeValues IterBinding="ScmSupplierCRUDIterator" id="NtnNo">
       <AttrNames>
         <Item Value="NtnNo"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="IsTaxable">
-      <AttrNames>
-        <Item Value="IsTaxable"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="ScmSupplierCRUDIterator" id="DeliveryTermSno">
@@ -142,7 +127,10 @@
     </attributeValues>
     <action IterBinding="ScmSupplierCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action IterBinding="ScmSupplierCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
-            Action="createWithParams"/>
+            Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0011_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
     <action IterBinding="ScmSupplierCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
@@ -155,22 +143,6 @@
     <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="lovtxtCityName" id="txtCityName"/>
     <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LovtxtBankBranchName"
                   id="txtBankBranchName"/>
-    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="txtSupplierType">
-      <AttrNames>
-        <Item Value="txtSupplierType"/>
-      </AttrNames>
-    </attributeValues>
-    <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LOV_txtSupplierType"
-                  id="txtSupplierType1"/>
-    <attributeValues IterBinding="ScmSupplierCRUDIterator" id="txtSupplierCategory">
-      <AttrNames>
-        <Item Value="txtSupplierCategory"/>
-      </AttrNames>
-    </attributeValues>
-    <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LOVtxtSupplierCategory"
-                  id="txtSupplierCategory1"/>
-    <list IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LOV_IsTaxable" id="IsTaxable1"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <attributeValues IterBinding="ScmSupplierCRUDIterator" id="IsUnsupervised">
       <AttrNames>
@@ -198,5 +170,13 @@
         <Item Value="SupplierSitesSno"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LOV_txtSupplierType"
+                  id="txtSupplierType"/>
+    <listOfValues IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LOVtxtSupplierCategory"
+                  id="txtSupplierCategory"/>
+    <list IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="ScmSupplierCRUDIterator" StaticList="false" Uses="LOV_IsTaxable" id="IsTaxable"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

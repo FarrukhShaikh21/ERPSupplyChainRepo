@@ -75,6 +75,22 @@
                                                     <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
                                                              disabled="#{!bindings.Delete.enabled}" id="l4"
                                                              rendered="false"/>
+                                                    <af:link text="Undo" immediate="true" id="l14"
+                                                             icon="#{resource['images:imgUndo.png']}" iconPosition="top"
+                                                             action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                             partialSubmit="true">
+                                                        <af:resetActionListener/>
+                                                    </af:link>
+                                                    <af:link actionListener="#{bindings.Rollback.execute}"
+                                                             text="Rollback" immediate="true" id="l13" rendered="false">
+                                                        <af:resetActionListener/>
+                                                    </af:link>
+                                                    <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                             disabled="#{!bindings.Commit.enabled}" id="l12"
+                                                             rendered="false"/>
+                                                    <af:link text="Save" id="l17" partialSubmit="true"
+                                                             icon="#{resource['images:imgSave.png']}" iconPosition="top"
+                                                             action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
                                                 </af:panelGroupLayout>
                                             </f:facet>
                                             <af:panelGridLayout id="pgl2">
@@ -477,7 +493,7 @@
                                                                                       columns="#{bindings.txtPaymentTermName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtPaymentTermName.hints.tooltip}"
                                                                                       simple="true"
-                                                                                      contentStyle="width:70%"
+                                                                                      contentStyle="width:68%"
                                                                                       readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CustomerShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                             <f:validator binding="#{bindings.txtPaymentTermName.validator}"/>
                                                         </af:inputComboboxListOfValues>
@@ -946,24 +962,9 @@
                                                 <af:setActionListener from="#{pageFlowScope.OracleERPBean.LErpPanelDefaultTabbed}"
                                                                       to="#{pageFlowScope.OracleERPBean.LErpPanelTabbed}"/>
                                             </af:link>
-                                            <af:link text="Save" id="l17" partialSubmit="true"
-                                                     icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
-                                            <af:link text="Undo" immediate="true" id="l14"
-                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                     partialSubmit="true">
-                                                <af:resetActionListener/>
-                                            </af:link>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s8"/>
                                             </f:facet>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
-                                                     disabled="#{!bindings.Commit.enabled}" id="l12" rendered="false"/>
-                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l13"
-                                                     rendered="false">
-                                                <af:resetActionListener/>
-                                            </af:link>
                                         </af:panelGroupLayout>
                                     </af:gridCell>
                                 </af:gridRow>

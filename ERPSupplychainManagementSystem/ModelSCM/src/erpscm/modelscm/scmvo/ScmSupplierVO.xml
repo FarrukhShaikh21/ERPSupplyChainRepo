@@ -31,7 +31,20 @@
   <ViewAccessor
     Name="AccGlBankBranchVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlBankBranchVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlBankBranchFindVC"
+      FullName="erpfms.modelfms.fmsvo.GlBankBranchVO.GlBankBranchFindVC"/>
+    <ViewCriteriaUsage
+      Name="GlBankBranchVOByBankVC"
+      FullName="erpfms.modelfms.fmsvo.GlBankBranchVO.GlBankBranchVOByBankVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_BANK_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[BankId==null?-1:BankId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccGlBankVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlBankVO"
@@ -39,7 +52,17 @@
   <ViewAccessor
     Name="AccSmCityVO"
     ViewObjectName="erpadm.modeladm.admvo.SmCityVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SmCityCountryWiseVC"
+      FullName="erpadm.modeladm.admvo.SmCityVO.SmCityCountryWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COUNTRY_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CountrySno==null?-1:CountrySno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccSmCountryVO"
     ViewObjectName="erpadm.modeladm.admvo.SmCountryVO"
@@ -254,6 +277,24 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="IsTaxable"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsActive"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsActive"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -486,7 +527,15 @@
     PrecisionRule="true"
     EntityAttrName="IsActive"
     EntityUsage="ScmSupplier"
-    AliasName="IS_ACTIVE"/>
+    AliasName="IS_ACTIVE"
+    LOVName="LovIsActive">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Website"
     PrecisionRule="true"
