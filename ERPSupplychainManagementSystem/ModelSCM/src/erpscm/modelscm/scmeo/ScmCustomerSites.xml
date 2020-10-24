@@ -526,6 +526,62 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="IsSupervised"
+    Precision="1"
+    ColumnName="IS_SUPERVISED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_CUSTOMER_SITES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsUnsupervised"
+    Precision="1"
+    ColumnName="IS_UNSUPERVISED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_CUSTOMER_SITES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SupervisedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="SUPERVISED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_CUSTOMER_SITES"/>
+  <Attribute
+    Name="SupervisedDate"
+    ColumnName="SUPERVISED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SCM_CUSTOMER_SITES"/>
+  <Attribute
+    Name="UnSupervisedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="UN_SUPERVISED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_CUSTOMER_SITES"/>
+  <Attribute
+    Name="UnSupervisedDate"
+    ColumnName="UN_SUPERVISED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SCM_CUSTOMER_SITES"/>
   <AccessorAttribute
     Name="ScmCustomer"
     Association="erpscm.modelscm.scmeo.FkScmCustSiteCustSnoAssoc"

@@ -431,6 +431,42 @@
     EntityAttrName="SiteName"
     EntityUsage="ScmCustomerSites"
     AliasName="SITE_NAME"/>
+  <ViewAttribute
+    Name="SupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedBy"
+    EntityUsage="ScmCustomerSites"
+    AliasName="SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="SupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedDate"
+    EntityUsage="ScmCustomerSites"
+    AliasName="SUPERVISED_DATE"/>
+  <ViewAttribute
+    Name="IsSupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsSupervised"
+    EntityUsage="ScmCustomerSites"
+    AliasName="IS_SUPERVISED"/>
+  <ViewAttribute
+    Name="IsUnsupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsUnsupervised"
+    EntityUsage="ScmCustomerSites"
+    AliasName="IS_UNSUPERVISED"/>
+  <ViewAttribute
+    Name="UnSupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedBy"
+    EntityUsage="ScmCustomerSites"
+    AliasName="UN_SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="UnSupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedDate"
+    EntityUsage="ScmCustomerSites"
+    AliasName="UN_SUPERVISED_DATE"/>
   <ViewCriteria
     Name="ScmCustomerSitesByBillToShipToVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerSitesVO"
