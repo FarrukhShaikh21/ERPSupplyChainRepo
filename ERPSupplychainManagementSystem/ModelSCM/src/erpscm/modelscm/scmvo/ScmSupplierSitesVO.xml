@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmSupplierSitesVO"
-  Version="12.1.3.10.47"
+  Version="12.1.3.2.1"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -414,6 +414,42 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="UnSupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedDate"
+    EntityUsage="ScmSupplierSites"
+    AliasName="UN_SUPERVISED_DATE"/>
+  <ViewAttribute
+    Name="UnSupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="UnSupervisedBy"
+    EntityUsage="ScmSupplierSites"
+    AliasName="UN_SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="SupervisedDate"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedDate"
+    EntityUsage="ScmSupplierSites"
+    AliasName="SUPERVISED_DATE"/>
+  <ViewAttribute
+    Name="SupervisedBy"
+    PrecisionRule="true"
+    EntityAttrName="SupervisedBy"
+    EntityUsage="ScmSupplierSites"
+    AliasName="SUPERVISED_BY"/>
+  <ViewAttribute
+    Name="IsSupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsSupervised"
+    EntityUsage="ScmSupplierSites"
+    AliasName="IS_SUPERVISED"/>
+  <ViewAttribute
+    Name="IsUnsupervised"
+    PrecisionRule="true"
+    EntityAttrName="IsUnsupervised"
+    EntityUsage="ScmSupplierSites"
+    AliasName="IS_UNSUPERVISED"/>
   <ViewCriteria
     Name="ScmSupplierSitesBySupplierIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierSitesVO"
