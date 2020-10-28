@@ -80,5 +80,20 @@
                   id="txtCityName"/>
     <list IterBinding="ScmCustomerSitesDetCRUDIterator" StaticList="false" Uses="LovSiteType" id="SiteType"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="CustomerSitesSno">
+      <AttrNames>
+        <Item Value="CustomerSitesSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerSitesDetCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
