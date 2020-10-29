@@ -8,6 +8,8 @@
               id="AdminCompanyVOByCompanyROIterator"/>
     <iterator Binds="ScmSupplierByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmSupplierByCompanyROIterator"/>
+    <searchRegion Criteria="ScmSupplierFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ScmSupplierByCompanyROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">

@@ -132,7 +132,8 @@
                                         <af:gridRow id="gr5" marginTop="5px" marginBottom="5px">
                                             <af:gridCell id="gc35" width="13%" rowSpan="1" halign="center"
                                                          marginStart="5px" marginEnd="5px">
-                                                <af:outputLabel value="#{bindings.SiteType.label}" id="ol3"/>
+                                                <af:outputLabel value="#{bindings.SiteType.label}" id="ol3"
+                                                                showRequired="#{bindings.SiteType.hints.mandatory}"/>
                                             </af:gridCell>
                                             <af:gridCell id="gc33" width="20%" halign="stretch" marginStart="5px"
                                                          marginEnd="5px" columnSpan="1">
@@ -360,7 +361,8 @@
                                          icon="#{resource['images:imgUnSuperviseRecord.png']}" iconPosition="top"
                                          action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
                                          partialSubmit="true"
-                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N' || bindings.SupplierSiteCode.inputValue==null || bindings.IsSupervised.inputValue=='N'}">
+                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N' || bindings.SupplierSiteCode.inputValue==null || bindings.IsSupervised.inputValue=='N'}"
+                                         partialTriggers="l1">
                                     <af:setActionListener from="#{'ScmSupplierSitesCRUDIterator'}"
                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                 </af:link>
@@ -368,7 +370,7 @@
                                          iconPosition="top"
                                          action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
                                          disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N' || bindings.SupplierSiteCode.inputValue==null || bindings.IsSupervised.inputValue=='Y'}"
-                                         partialSubmit="true">
+                                         partialSubmit="true" partialTriggers="l1">
                                     <af:setActionListener to="#{pageFlowScope.OracleERPBean.LIteratorName}"
                                                           from="#{'ScmSupplierSitesCRUDIterator'}"/>
                                 </af:link>
