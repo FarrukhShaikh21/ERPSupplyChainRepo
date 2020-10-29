@@ -620,6 +620,12 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeSupSiTeSCM_0010_EDIT_EDIT">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1537,7 +1543,7 @@
       <from-activity-id>SCM_0010_EDIT_EDIT_EDIT</from-activity-id>
       <control-flow-case id="__263">
         <from-outcome>ERPBACKCRUD</from-outcome>
-        <to-activity-id>SCM_0010_EDIT_EDIT</to-activity-id>
+        <to-activity-id>ExeSupSiTeSCM_0010_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__265">
@@ -1559,6 +1565,13 @@
       <control-flow-case id="__272">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0002_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__273">
+      <from-activity-id>ExeSupSiTeSCM_0010_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__274">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0010_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

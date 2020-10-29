@@ -23,19 +23,9 @@
         <Item Value="SiteShortName"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmSupplierSitesCRUDIterator" id="IsDefault">
-      <AttrNames>
-        <Item Value="IsDefault"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ScmSupplierSitesCRUDIterator" id="SiteOpenDate">
       <AttrNames>
         <Item Value="SiteOpenDate"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ScmSupplierSitesCRUDIterator" id="IsActive">
-      <AttrNames>
-        <Item Value="IsActive"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="ScmSupplierSitesCRUDIterator" id="SitePhoneNo">
@@ -73,15 +63,9 @@
         <Item Value="SiteFaxNo"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="ScmSupplierSitesCRUDIterator" StaticList="false" Uses="lovIsDefault" id="IsDefault1"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <list IterBinding="ScmSupplierSitesCRUDIterator" StaticList="false" Uses="lovIsActive" id="IsActive1"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
-    <action IterBinding="ScmSupplierSitesCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
     <action IterBinding="ScmSupplierSitesCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <listOfValues IterBinding="ScmSupplierSitesCRUDIterator" StaticList="false" Uses="lovtxtCountryName"
@@ -105,5 +89,11 @@
         <Item Value="SupplierSitesSno"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="ScmSupplierSitesCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
+    <list IterBinding="ScmSupplierSitesCRUDIterator" StaticList="false" Uses="lovIsDefault" id="IsDefault"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="ScmSupplierSitesCRUDIterator" StaticList="false" Uses="lovIsActive" id="IsActive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

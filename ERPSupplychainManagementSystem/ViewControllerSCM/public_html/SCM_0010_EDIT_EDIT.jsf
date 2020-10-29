@@ -25,7 +25,8 @@
                 <f:facet name="center">
                     <af:decorativeBox id="db2" dimensionsFrom="parent">
                         <f:facet name="center">
-                            <af:panelTabbed position="above" id="pt1">
+                            <af:panelTabbed position="above" id="pt1"
+                                            binding="#{pageFlowScope.OracleERPBean.LErpPanelTabbed}">
                                 <af:showDetailItem id="tab1" text="Supplier">
                                     <af:panelGroupLayout id="pgl1" layout="scroll">
                                         <af:panelBox text="PanelBox1" id="pb2" showDisclosure="false" showHeader="never"
