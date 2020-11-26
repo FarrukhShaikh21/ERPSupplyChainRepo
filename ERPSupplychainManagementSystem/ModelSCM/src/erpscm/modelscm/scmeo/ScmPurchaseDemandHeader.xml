@@ -238,6 +238,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.FkScmPurDemLinHeaderIdAssoc.ScmPurchaseDemandHeader"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GlProjects"
+    Association="erpscm.modelscm.scmeo.GlProjectScmPurDemHeaderTempProjectIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.GlProjectScmPurDemHeaderTempProjectIdAsso.GlProjects"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GlProjectScmPurDemHeaderTempProjectIdAsso.ScmPurchaseDemandHeader"
+    Type="erpfms.modelfms.fmseo.GlProjectsImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPuechaseDemandHeader"
     PrimaryKey="true">
@@ -257,6 +264,17 @@
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.DemandHeaderCode"/>
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.CompanyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseDemandHeader">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_PROJECTS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_DEMAND_HEADER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.TempProjectId"/>
     </AttrArray>
   </Key>
 </Entity>

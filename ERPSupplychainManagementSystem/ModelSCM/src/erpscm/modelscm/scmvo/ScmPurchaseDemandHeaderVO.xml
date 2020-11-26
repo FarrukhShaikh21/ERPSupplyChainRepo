@@ -172,4 +172,10 @@
     ViewLink="erpscm.modelscm.scmvo.FkScmPurDemLinHeaderIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlProjectsVO"
+    ViewLink="erpscm.modelscm.scmvo.GlProjectScmPurDemHeaderTempProjectIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
