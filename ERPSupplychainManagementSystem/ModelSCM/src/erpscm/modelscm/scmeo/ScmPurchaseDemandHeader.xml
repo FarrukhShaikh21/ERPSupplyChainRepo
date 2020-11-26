@@ -9,7 +9,7 @@
   DBObjectType="table"
   DBObjectName="SCM_PURCHASE_DEMAND_HEADER"
   AliasName="ScmPurchaseDemandHeader"
-  BindingStyle="OracleName">
+  BindingStyle="JDBC">
   <Attribute
     Name="DemandHeaderSno"
     IsNotNull="true"
@@ -249,7 +249,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_DEMAND_HEADER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -272,6 +271,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.GlProjectScmPurDemHeaderTempProjectIdAsso.GlProjects"
     AssociationOtherEnd="erpscm.modelscm.scmeo.GlProjectScmPurDemHeaderTempProjectIdAsso.ScmPurchaseDemandHeader"
     Type="erpfms.modelfms.fmseo.GlProjectsImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AdminCompany"
+    Association="erpscm.modelscm.scmeo.AdminCompanyScmPurDemandHeadTempDepIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurDemandHeadTempDepIdAsso.AdminCompany"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurDemandHeadTempDepIdAsso.ScmPurchaseDemandHeader"
+    Type="erpadm.modeladm.admeo.AdminCompanyImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPuechaseDemandHeader"
@@ -303,6 +309,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.TempProjectId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseDemandHeader1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADMIN_COMPANY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_DEMAND_HEADER1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.TempDepartmentId"/>
     </AttrArray>
   </Key>
 </Entity>
