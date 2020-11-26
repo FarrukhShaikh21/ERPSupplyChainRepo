@@ -1198,7 +1198,7 @@
       <property
          name="fromsrcid">__22</property>
       <property
-         name="sdm:polyPoints">L30,109.38524,179.24121,-1272.5,713.0459,R50</property>
+         name="sdm:polyPoints">L26,107.28324,175.74121,-1272.5,713.0459,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall112">
@@ -1911,7 +1911,7 @@
       <property
          name="fromsrcid">__22</property>
       <property
-         name="sdm:polyPoints">L62,116.69326,207.24121,-1442.5,1333.3965,R50</property>
+         name="sdm:polyPoints">L66,116.69836,210.74121,-1442.5,1333.3965,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall174">
@@ -2178,7 +2178,7 @@
       <property
          name="fromsrcid">__22</property>
       <property
-         name="sdm:polyPoints">L70,119.0,214.24121,-1811.5,1677.0977,R50</property>
+         name="sdm:polyPoints">L74,119.0,217.74121,-1811.5,1677.0977,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall199">
@@ -2408,7 +2408,7 @@
       <property
          name="fromsrcid">__22</property>
       <property
-         name="sdm:polyPoints">L54,114.54684,200.24121,-1936.5,1503.3965,T50</property>
+         name="sdm:polyPoints">L50,112.46097,196.74121,-1936.5,1503.3965,T50</property>
    </ControlFlowCase>
    <View
       id="View220">
@@ -2568,7 +2568,7 @@
       <property
          name="fromsrcid">__22</property>
       <property
-         name="sdm:polyPoints">L38,110.89594,186.24121,-1781.5,1183.3447,R50</property>
+         name="sdm:polyPoints">L34,108.80058,182.74121,-1781.5,1183.3447,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall234">
@@ -2770,7 +2770,7 @@
       <property
          name="fromsrcid">__22</property>
       <property
-         name="sdm:polyPoints">L46,112.64459,193.24121,-2120.5,1405.0977,R50</property>
+         name="sdm:polyPoints">L42,110.55417,189.74121,-2120.5,1405.0977,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall252">
@@ -3169,5 +3169,57 @@
          name="fromOutcome">ERPBACKCRUD</property>
       <property
          name="sdm:polyPoints">R50,-2575.5,1105.0977,-2435.0745,1033.9424,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View287">
+      <property
+         name="activityId">SCM_0013</property>
+      <property
+         name="page">/SCM_0013.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SCM_0013&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1972.0977</property>
+      <property
+         name="x">-2616.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase289"
+      from="MethodCall12"
+      to="MethodCall290">
+      <property
+         name="fromOutcome">ERP-ACT-SCM_0013</property>
+      <property
+         name="tosrcid">__277</property>
+      <property
+         name="fromsrcid">__22</property>
+      <property
+         name="sdm:polyPoints">L58,114.506,203.74121,-2497.5,1958.0977,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall290">
+      <property
+         name="activityId">ExeCompSCM_0013</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeCompSCM_0013&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1958.4482</property>
+      <property
+         name="x">-2538.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase291"
+      from="MethodCall290"
+      to="View287">
+      <property
+         name="fromOutcome">ERP-ACT-SCM_0013</property>
+      <property
+         name="sdm:polyPoints">T50,-2538.5,1904.0977,-2616.5,1917.7471,T50</property>
    </ControlFlowCase>
 </SDM>
