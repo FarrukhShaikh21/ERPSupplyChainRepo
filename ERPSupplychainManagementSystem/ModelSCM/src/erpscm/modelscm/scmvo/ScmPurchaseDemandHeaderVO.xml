@@ -211,6 +211,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtTempDepartmentName"
+    PrecisionRule="true"
+    EntityAttrName="txtTempDepartmentName"
+    EntityUsage="ScmPurchaseDemandHeader"
+    AliasName="TXT_TEMP_DEPARTMENT_NAME"/>
   <ViewLinkAccessor
     Name="ScmPurchaseDemandLinesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurDemLinHeaderIdLink"
