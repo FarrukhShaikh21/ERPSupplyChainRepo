@@ -13,6 +13,34 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccGlProjectsQVO"
+    ViewObjectName="erpfms.modelfms.fmsqvo.GlProjectsQVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtProjectName"
+    ListVOName="AccGlProjectsQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtProjectName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TempProjectId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmPurchaseDemandHeader"
     Entity="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader"/>
@@ -174,7 +202,15 @@
     PrecisionRule="true"
     EntityAttrName="txtProjectName"
     EntityUsage="ScmPurchaseDemandHeader"
-    AliasName="TXT_PROJECT_NAME"/>
+    AliasName="TXT_PROJECT_NAME"
+    LOVName="LovtxtProjectName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseDemandLinesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurDemLinHeaderIdLink"
