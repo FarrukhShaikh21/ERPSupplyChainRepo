@@ -17,7 +17,7 @@
     Scale="0"
     ColumnName="DEMAND_HEADER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_HEADER"
     PrimaryKey="true"/>
@@ -29,7 +29,7 @@
     Scale="0"
     ColumnName="DEMAND_HEADER_CODE"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_HEADER"/>
   <Attribute
@@ -39,7 +39,10 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_HEADER"/>
+    TableName="SCM_PURCHASE_DEMAND_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="Remarks"
     Precision="500"
@@ -118,7 +121,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_HEADER"/>
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -134,7 +138,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_HEADER"/>
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="IsSupervised"
     IsNotNull="true"
@@ -143,7 +148,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_DEMAND_HEADER">
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -163,7 +169,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_HEADER"/>
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="IsUnSupervised"
     IsNotNull="true"
@@ -172,7 +179,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_DEMAND_HEADER">
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -192,7 +200,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_HEADER"/>
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="IsCancelled"
     IsNotNull="true"
@@ -221,7 +230,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_HEADER"/>
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="StatusId"
     Precision="5"
@@ -230,7 +240,8 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_DEMAND_HEADER"/>
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    DefaultValue="1"/>
   <AccessorAttribute
     Name="ScmPurchaseDemandLines"
     Association="erpscm.modelscm.scmeo.FkScmPurDemLinHeaderIdAssoc"
