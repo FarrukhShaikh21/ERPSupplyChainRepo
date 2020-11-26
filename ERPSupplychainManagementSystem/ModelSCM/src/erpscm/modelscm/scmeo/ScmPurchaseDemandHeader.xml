@@ -242,6 +242,23 @@
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_HEADER"
     DefaultValue="1"/>
+  <Attribute
+    Name="txtProjectName"
+    Precision="80"
+    ColumnName="TXT_PROJECT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="TempProjectId"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseDemandLines"
     Association="erpscm.modelscm.scmeo.FkScmPurDemLinHeaderIdAssoc"
