@@ -167,6 +167,14 @@
     EntityAttrName="StatusId"
     EntityUsage="ScmPurchaseDemandHeader"
     AliasName="STATUS_ID"/>
+  <ViewAttribute
+    Name="txtProjectName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtProjectName"
+    EntityUsage="ScmPurchaseDemandHeader"
+    AliasName="TXT_PROJECT_NAME"/>
   <ViewLinkAccessor
     Name="ScmPurchaseDemandLinesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurDemLinHeaderIdLink"
