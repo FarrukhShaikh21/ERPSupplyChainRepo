@@ -3189,7 +3189,7 @@
       islink="true"
       id="ControlFlowCase289"
       from="MethodCall12"
-      to="MethodCall290">
+      to="MethodCall295">
       <property
          name="fromOutcome">ERP-ACT-SCM_0013</property>
       <property
@@ -3197,30 +3197,17 @@
       <property
          name="fromsrcid">__22</property>
       <property
-         name="sdm:polyPoints">L58,114.506,203.74121,-2497.5,1958.0977,R50</property>
+         name="sdm:polyPoints">L50,112.56076,196.74121,-2606.5,1858.0977,T50</property>
    </ControlFlowCase>
-   <MethodCall
-      id="MethodCall290">
-      <property
-         name="activityId">ExeCompSCM_0013</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>ExeCompSCM_0013&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">1958.4482</property>
-      <property
-         name="x">-2538.5</property>
-   </MethodCall>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase291"
-      from="MethodCall290"
+      from="MethodCall295"
       to="View287">
       <property
          name="fromOutcome">ERP-ACT-SCM_0013</property>
       <property
-         name="sdm:polyPoints">L50,-2579.5,1958.0977,-2681.5,1956.3447,R50</property>
+         name="sdm:polyPoints">L50,-2647.5,1912.0977,-2681.5,1956.3447,R50</property>
    </ControlFlowCase>
    <View
       id="View292">
@@ -3270,4 +3257,17 @@
       <property
          name="sdm:polyPoints">L50,-2620.6484,2167.9941,-2682.9785,2147.6436,R50</property>
    </ControlFlowCase>
+   <MethodCall
+      id="MethodCall295">
+      <property
+         name="activityId">ExePurchaseDemSCM_0013</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExePurchaseDemSCM_0013&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1912.4482</property>
+      <property
+         name="x">-2606.5</property>
+   </MethodCall>
 </SDM>

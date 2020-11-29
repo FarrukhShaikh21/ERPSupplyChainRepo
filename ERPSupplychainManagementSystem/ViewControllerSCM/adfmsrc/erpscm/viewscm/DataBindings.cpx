@@ -188,11 +188,11 @@
     <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ExeSupSiTeSCM_0010_EDIT_EDIT"
           usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef111111111111111"/>
     <page path="/SCM_0013.jsf" usageId="erpscm_viewscm_SCM_0013PageDef"/>
-    <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ExeCompSCM_0013"
-          usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef1111111111111111"/>
     <page path="/SCM_0013_EDIT.jsf" usageId="erpscm_viewscm_SCM_0013_EDITPageDef"/>
     <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ExeCompByCompSCM_0013_EDIT"
           usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef11111111111111111111111111111111111111111111111"/>
+    <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ExePurchaseDemSCM_0013"
+          usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef11111111111111111"/>
   </pageMap>
   <dataControlUsages>
     <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"
@@ -395,10 +395,10 @@
     <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef111111111111111"
           path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecutePageDef111111111111111"/>
     <page id="erpscm_viewscm_SCM_0013PageDef" path="erpscm.viewscm.pageDefs.SCM_0013PageDef"/>
-    <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef1111111111111111"
-          path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecutePageDef1111111111111111"/>
     <page id="erpscm_viewscm_SCM_0013_EDITPageDef" path="erpscm.viewscm.pageDefs.SCM_0013_EDITPageDef"/>
     <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef11111111111111111111111111111111111111111111111"
           path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecuteWithParamsPageDef11111111111111111111111111111111111111111111111"/>
+    <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef11111111111111111"
+          path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecutePageDef11111111111111111"/>
   </pageDefinitionUsages>
 </Application>
