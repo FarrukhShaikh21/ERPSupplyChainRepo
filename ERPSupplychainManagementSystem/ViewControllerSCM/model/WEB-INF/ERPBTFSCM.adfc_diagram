@@ -3232,7 +3232,7 @@
       <property
          name="fromOutcome">ERP-QRY-ACT-SCM_0013</property>
       <property
-         name="sdm:polyPoints">B50,-2722.5,2010.3447,-2723.9785,2093.6436,T50</property>
+         name="sdm:polyPoints">B44,-2726.0,2010.3447,-2727.4785,2093.5813,T44</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall295">
@@ -3247,4 +3247,14 @@
       <property
          name="x">-2606.5</property>
    </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase294"
+      from="View292"
+      to="View287">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">T56,-2720.4785,2093.6436,-2719.0,2010.4069,B56</property>
+   </ControlFlowCase>
 </SDM>
