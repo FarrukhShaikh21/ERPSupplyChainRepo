@@ -21,6 +21,10 @@
     Name="AccAdminCompany"
     ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAdminCompanyDept"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtProjectName"
     ListVOName="AccGlProjectsQVO"
@@ -58,6 +62,32 @@
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
       <Item Value="LocationId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+      <Item Value="CompanyShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtTempDepartmentName"
+    ListVOName="AccAdminCompanyDept"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtTempDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TempDepartmentId"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="CompanyName"/>
@@ -246,7 +276,15 @@
     PrecisionRule="true"
     EntityAttrName="txtTempDepartmentName"
     EntityUsage="ScmPurchaseDemandHeader"
-    AliasName="TXT_TEMP_DEPARTMENT_NAME"/>
+    AliasName="TXT_TEMP_DEPARTMENT_NAME"
+    LOVName="LovtxtTempDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtLocationName"
     IsQueriable="false"
