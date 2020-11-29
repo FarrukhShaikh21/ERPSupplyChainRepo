@@ -87,8 +87,25 @@
                                                             <f:validator binding="#{bindings.txtProjectName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="17%" id="gc12"/>
-                                                    <af:gridCell marginStart="5px" width="17%" id="gc13"/>
+                                                    <af:gridCell marginStart="5px" width="17%" id="gc12"
+                                                                 halign="center">
+                                                        <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}" id="ol5"/>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" width="17%" id="gc13"
+                                                                 halign="stretch">
+                                                        <af:inputComboboxListOfValues id="txtTempDepartmentNameId"
+                                                                                      popupTitle="Search and Select: #{bindings.txtTempDepartmentName.hints.label}"
+                                                                                      value="#{bindings.txtTempDepartmentName.inputValue}"
+                                                                                      label="#{bindings.txtTempDepartmentName.hints.label}"
+                                                                                      model="#{bindings.txtTempDepartmentName.listOfValuesModel}"
+                                                                                      required="#{bindings.txtTempDepartmentName.hints.mandatory}"
+                                                                                      columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
+                                                                                      shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
+                                                                                      simple="true"
+                                                                                      contentStyle="width:100%">
+                                                            <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
+                                                        </af:inputComboboxListOfValues>
+                                                    </af:gridCell>
                                                     <af:gridCell marginStart="5px" width="16%" id="gc14"/>
                                                     <af:gridCell marginStart="5px" width="16%" marginEnd="5px"
                                                                  id="gc15"/>
