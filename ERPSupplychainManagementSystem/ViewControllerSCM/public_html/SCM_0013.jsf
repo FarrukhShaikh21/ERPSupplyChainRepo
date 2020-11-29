@@ -22,7 +22,7 @@
                         <af:panelGridLayout id="pgl9">
                           <af:gridRow marginTop="5px" height="auto" id="gr6">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
-                                         styleClass="AFStretchWidth ERPHeroBackground">
+                                         styleClass="AFStretchWidth ERPHeroBackground" halign="stretch">
                               <af:panelGroupLayout id="pgl8" layout="horizontal">
                                 <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
                                          styleClass="ERPHeroBannerFont ERPLink" action="ERP-QRY-ACT-SCM_0012"/>
@@ -35,7 +35,7 @@
                             </af:gridCell>
                           </af:gridRow>
                           <af:gridRow marginTop="5px" height="auto" id="gr7">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7" halign="stretch">
                               <af:panelGroupLayout id="pgl5" layout="horizontal">
                                 <af:image source="#{resource['images:imgDocumentDate.png']}" id="i2"/>
                                 <af:outputFormatted value="#{item.bindings.DemandDate.inputValue}" id="of3"
@@ -50,15 +50,19 @@
                             </af:gridCell>
                           </af:gridRow>
                           <af:gridRow marginTop="5px" height="auto" id="gr8">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8">
-                              <af:outputFormatted value="#{item.bindings.LocationId.inputValue}" id="of8">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.ScmPurchaseDemandHeaderRO.hints.LocationId.format}"/>
-                              </af:outputFormatted>
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8" halign="stretch">
+                              <af:panelGroupLayout id="pgl1" layout="horizontal">
+                                <af:image source="#{resource['images:imgLocation.png']}" id="i1"/>
+                                <af:outputFormatted value="#{item.bindings.txtLocationName.inputValue}" id="of8"
+                                                    styleClass="ERPHeroDetailColor">
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.ScmPurchaseDemandHeaderRO.hints.LocationId.format}"/>
+                                </af:outputFormatted>
+                              </af:panelGroupLayout>
                             </af:gridCell>
                           </af:gridRow>
                           <af:gridRow marginTop="5px" height="auto" id="gr9">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9" halign="stretch">
                               <af:outputFormatted value="#{item.bindings.StatusId.inputValue}" id="of9">
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.ScmPurchaseDemandHeaderRO.hints.StatusId.format}"/>
@@ -66,7 +70,7 @@
                             </af:gridCell>
                           </af:gridRow>
                           <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10"/>
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10" halign="stretch"/>
                           </af:gridRow>
                         </af:panelGridLayout>
                       </af:panelBox>

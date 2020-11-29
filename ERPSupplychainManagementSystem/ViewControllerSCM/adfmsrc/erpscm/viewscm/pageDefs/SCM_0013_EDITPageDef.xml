@@ -4,6 +4,21 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="ScmPurchaseDemandHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseDemandHeaderCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="DemandHeaderCode">
+      <AttrNames>
+        <Item Value="DemandHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="DemandDate">
+      <AttrNames>
+        <Item Value="DemandDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+  </bindings>
 </pageDefinition>
