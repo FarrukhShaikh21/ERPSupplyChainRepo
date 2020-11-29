@@ -17,7 +17,7 @@
     Scale="0"
     ColumnName="DEMAND_LINES_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_LINES"
     PrimaryKey="true"/>
@@ -28,7 +28,7 @@
     Scale="0"
     ColumnName="DEMAND_HEADER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <Attribute
@@ -48,7 +48,7 @@
     Scale="0"
     ColumnName="ITEM_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <Attribute
@@ -67,7 +67,9 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_LINES"/>
+    TableName="SCM_PURCHASE_DEMAND_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="DemandQuantity"
     IsNotNull="true"
@@ -77,7 +79,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_DEMAND_LINES"/>
+    TableName="SCM_PURCHASE_DEMAND_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="ApproveQuantity"
     IsNotNull="true"
@@ -87,7 +91,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_DEMAND_LINES"/>
+    TableName="SCM_PURCHASE_DEMAND_LINES"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="RequesterId"
     Precision="10"
@@ -117,7 +123,6 @@
     TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -127,12 +132,12 @@
     TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_LINES"/>
+    TableName="SCM_PURCHASE_DEMAND_LINES"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -148,7 +153,28 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_LINES"/>
+    TableName="SCM_PURCHASE_DEMAND_LINES"
+    RetrievedOnUpdate="true"/>
+  <Attribute
+    Name="txtProjectName"
+    Precision="80"
+    ColumnName="TXT_PROJECT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.txtProjectName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseDemandHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurDemLinHeaderIdAssoc"
@@ -195,4 +221,8 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.ProjectId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </Entity>
