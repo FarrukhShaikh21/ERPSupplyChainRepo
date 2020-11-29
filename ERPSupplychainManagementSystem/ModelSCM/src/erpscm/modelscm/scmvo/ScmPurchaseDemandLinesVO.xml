@@ -115,4 +115,10 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewLinkAccessor
+    Name="GlProjectsVO"
+    ViewLink="erpscm.modelscm.scmvo.GlProjectsScmPurchaseDemandLinesProjectIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
