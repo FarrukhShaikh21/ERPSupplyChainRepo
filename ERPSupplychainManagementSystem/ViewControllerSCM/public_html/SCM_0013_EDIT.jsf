@@ -139,7 +139,69 @@
                                 </af:gridRow>
                             </af:panelGridLayout>
                         </f:facet>
-                        <f:facet name="top"/>
+                        <f:facet name="top">
+<af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                <af:link id="l5" partialSubmit="true"
+                                                     icon="#{resource['images:imgCloseDialog.png']}"
+                                                     text="Close"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
+                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8"
+                                                     rendered="false"/>
+                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                     text="CreateWithParams"
+                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
+                                                     rendered="false"/>
+                                            <af:link text="UnSupervise" id="l20" partialSubmit="true"
+                                                     icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                     partialTriggers="l7">
+                                                <af:setActionListener from="#{'ScmCustomerTypeTaxRateCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>
+                                            <af:link text="Supervise" id="l19" partialSubmit="true"
+                                                     icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                     partialTriggers="l7">
+                                                <af:setActionListener from="#{'ScmCustomerTypeTaxRateCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                            </af:link>
+                                            <af:link text="Delete" id="l9" actionListener="#{bindings.Delete.execute}"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     iconPosition="top" partialSubmit="true"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"/>
+                                            <af:link text="Add" id="l10" icon="#{resource['images:imgAddRecord.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                     partialSubmit="true"
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                     disabled="#{!bindings.Commit.enabled}" id="l6" rendered="false"/>
+                                            <af:link text="Undo" id="l4" icon="#{resource['images:imgUndo.png']}"
+                                                     partialSubmit="true" iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                     immediate="true">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <af:link id="l7" partialSubmit="true"
+                                                     icon="#{resource['images:imgSave.png']}" text="Save"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l3"
+                                                     rendered="false"/>
+                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l2"
+                                                     rendered="false">
+                                                <af:resetActionListener/>
+                                            </af:link>
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s1"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>                        
+                        </f:facet>
                     </af:decorativeBox>
                 </f:facet>
             </af:decorativeBox>

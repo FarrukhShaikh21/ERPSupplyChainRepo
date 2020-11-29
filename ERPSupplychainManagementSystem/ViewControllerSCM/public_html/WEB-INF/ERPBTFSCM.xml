@@ -632,12 +632,6 @@
     <view id="SCM_0013_EDIT">
       <page>/SCM_0013_EDIT.jsf</page>
     </view>
-    <method-call id="ExeCompByCompSCM_0013_EDIT">
-      <method>#{bindings.ExecuteWithParams.execute}</method>
-      <outcome>
-        <fixed-outcome>ERP-QRY-ACT-SCM_0013</fixed-outcome>
-      </outcome>
-    </method-call>
     <method-call id="ExePurchaseDemSCM_0013">
       <method>#{bindings.Execute.execute}</method>
       <outcome>
@@ -1599,13 +1593,6 @@
     <control-flow-rule id="__280">
       <from-activity-id>SCM_0013</from-activity-id>
       <control-flow-case id="__281">
-        <from-outcome>ERP-QRY-ACT-SCM_0013</from-outcome>
-        <to-activity-id>ExeCompByCompSCM_0013_EDIT</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__282">
-      <from-activity-id>ExeCompByCompSCM_0013_EDIT</from-activity-id>
-      <control-flow-case id="__283">
         <from-outcome>ERP-QRY-ACT-SCM_0013</from-outcome>
         <to-activity-id>SCM_0013_EDIT</to-activity-id>
       </control-flow-case>
