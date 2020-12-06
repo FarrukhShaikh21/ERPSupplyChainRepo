@@ -16,6 +16,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class ScmPurchaseDemandHeaderVORowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_SCMPURCHASEDEMANDHEADER = 0;
 
     /**
@@ -56,7 +57,8 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ViewRowImpl {
         AccAdminCompany,
         AccAdminCompanyDept,
         AccGlProjectsVO,
-        AccSysSystemParameterVO;
+        AccSysSystemParameterVO,
+        AccAdminCompanyForCompVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -80,6 +82,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
     public static final int DEMANDHEADERCODE = AttributesEnum.DemandHeaderCode.index();
@@ -116,6 +119,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ViewRowImpl {
     public static final int ACCADMINCOMPANYDEPT = AttributesEnum.AccAdminCompanyDept.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
     public static final int ACCSYSSYSTEMPARAMETERVO = AttributesEnum.AccSysSystemParameterVO.index();
+    public static final int ACCADMINCOMPANYFORCOMPVO = AttributesEnum.AccAdminCompanyForCompVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -630,6 +634,13 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ViewRowImpl {
      */
     public RowSet getAccSysSystemParameterVO() {
         return (RowSet) getAttributeInternal(ACCSYSSYSTEMPARAMETERVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccAdminCompanyForCompVO.
+     */
+    public RowSet getAccAdminCompanyForCompVO() {
+        return (RowSet) getAttributeInternal(ACCADMINCOMPANYFORCOMPVO);
     }
 }
 
