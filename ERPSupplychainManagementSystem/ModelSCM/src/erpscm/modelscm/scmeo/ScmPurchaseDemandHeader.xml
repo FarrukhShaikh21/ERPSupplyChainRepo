@@ -64,7 +64,7 @@
     ColumnType="DATE"
     TableName="SCM_PURCHASE_DEMAND_HEADER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
