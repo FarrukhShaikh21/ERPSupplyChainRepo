@@ -207,10 +207,18 @@
     ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierSitesVO"/>
   <ViewUsage
     Name="ScmPurchaseDemandHeaderRO"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"/>
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandHeaderByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO.ScmPurchaseDemandHeaderByCompanyIDVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="ScmPurchaseDemandHeaderCRUD"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"/>
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandHeaderCRUDVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO.ScmPurchaseDemandHeaderCRUDVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
