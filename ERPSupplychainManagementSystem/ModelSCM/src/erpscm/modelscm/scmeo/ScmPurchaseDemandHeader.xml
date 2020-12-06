@@ -9,10 +9,15 @@
   DBObjectType="table"
   DBObjectName="SCM_PURCHASE_DEMAND_HEADER"
   AliasName="ScmPurchaseDemandHeader"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpscm.modelscm.scmeo.ScmPurchaseDemandHeaderImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+  </DesignTime>
   <Attribute
     Name="DemandHeaderSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="DEMAND_HEADER_SNO"
@@ -92,7 +97,6 @@
   <Attribute
     Name="CompanyId"
     IsUnique="true"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="COMPANY_ID"
@@ -111,7 +115,6 @@
   </Attribute>
   <Attribute
     Name="TempProjectId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="TEMP_PROJECT_ID"
@@ -130,7 +133,6 @@
   </Attribute>
   <Attribute
     Name="TempDepartmentId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="TEMP_DEPARTMENT_ID"
@@ -149,7 +151,6 @@
   </Attribute>
   <Attribute
     Name="LocationId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="LOCATION_ID"
@@ -193,7 +194,8 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_DEMAND_HEADER">
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -228,7 +230,8 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_DEMAND_HEADER">
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
