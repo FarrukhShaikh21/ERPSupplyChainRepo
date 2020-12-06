@@ -38,7 +38,6 @@
   <Attribute
     Name="DemandHeaderCode"
     IsUnique="true"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="DEMAND_HEADER_CODE"
@@ -63,8 +62,7 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_PURCHASE_DEMAND_HEADER">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -169,14 +167,16 @@
   </Attribute>
   <Attribute
     Name="GlobalCompanyId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="GLOBAL_COMPANY_ID"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_DEMAND_HEADER">
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    IsNotNull="true">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -479,9 +479,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_DEMAND_HEADER">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -504,8 +504,9 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[AdminCompany1.CompanyName]]></TransientExpression>
+    <TransientExpression><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Dependencies>
       <Item
         Value="LocationId"/>
@@ -555,6 +556,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.DemandHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmPurchaseDemandHeaderGlobalCompanyIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_PURCHASE_DEMAND_HEADER_GLO"/>
+      <Attr Name="_checkCondition" Value='"GLOBAL_COMPANY_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.GlobalCompanyId"/>
     </AttrArray>
   </Key>
   <Key

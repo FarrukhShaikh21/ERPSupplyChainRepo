@@ -12,7 +12,12 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Variable
     Name="P_ADF_COMPANY_ID"
     Kind="viewcriteria"
@@ -33,9 +38,31 @@
     Name="AccAdminCompanyDept"
     ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccGlProjectsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlProjectsActiveVC"
+      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsActiveVC"/>
+    <ViewCriteriaUsage
+      Name="GlProjectsByCompanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSysSystemParameterVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysSystemParameterVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysSystemParameterByGlobalCompanyVC"
+      FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByGlobalCompanyVC"/>
+    <ViewCriteriaUsage
+      Name="SysSystemParameterByParameterVC"
+      FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByParameterVC"/>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtProjectName"
-    ListVOName="AccGlProjectsQVO"
+    ListVOName="AccGlProjectsVO"
     ListRangeSize="-1"
     ComboRowCountHint="10"
     NullValueFlag="none"
@@ -54,8 +81,10 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ProjectName"/>
       <Item Value="ProjectCode"/>
+      <Item Value="StartDate"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Name="GlProjectsFindVC"/>
   </ListBinding>
   <ListBinding
     Name="LovtxtLocationName"
@@ -285,7 +314,9 @@
     EntityAttrName="txtTempDepartmentName"
     EntityUsage="ScmPurchaseDemandHeader"
     AliasName="TXT_TEMP_DEPARTMENT_NAME"
-    LOVName="LovtxtTempDepartmentName">
+    LOVName="LovtxtTempDepartmentName"
+    IsQueriable="false"
+    IsPersistent="false">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
