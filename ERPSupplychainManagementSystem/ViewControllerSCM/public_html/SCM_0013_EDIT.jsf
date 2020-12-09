@@ -63,7 +63,8 @@
                                                                                       columns="#{bindings.txtLocationName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtLocationName.hints.tooltip}"
                                                                                       simple="true"
-                                                                                      contentStyle="width:80%">
+                                                                                      contentStyle="width:80%"
+                                                                                      autoSubmit="true">
                                                             <f:validator binding="#{bindings.txtLocationName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
