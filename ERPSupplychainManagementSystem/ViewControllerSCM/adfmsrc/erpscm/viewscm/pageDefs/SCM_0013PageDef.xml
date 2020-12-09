@@ -5,23 +5,10 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
-    <iterator Binds="AdminCompanyVORO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="AdminCompanyVOROIterator"/>
     <iterator Binds="ScmPurchaseDemandHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseDemandHeaderROIterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="AdminCompanyVOROIterator" id="AdminCompanyVORO">
-      <nodeDefinition DefName="erpadm.modeladm.admvo.AdminCompanyVO" Name="AdminCompanyVORO0">
-        <AttrNames>
-          <Item Value="CompanyName"/>
-          <Item Value="CompanyShortName"/>
-          <Item Value="CompanyShortCode"/>
-          <Item Value="txtCountryName"/>
-          <Item Value="Email"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <tree IterBinding="ScmPurchaseDemandHeaderROIterator" id="ScmPurchaseDemandHeaderRO">
       <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO" Name="ScmPurchaseDemandHeaderRO0">
         <AttrNames>

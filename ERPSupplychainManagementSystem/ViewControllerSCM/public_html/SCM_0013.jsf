@@ -39,10 +39,7 @@
                               <af:panelGroupLayout id="pgl5" layout="horizontal">
                                 <af:image source="#{resource['images:imgDocumentDate.png']}" id="i2"/>
                                 <af:outputFormatted value="#{item.bindings.DemandDate.inputValue}" id="of3"
-                                                    styleClass="ERPHeroDetailColor">
-                                  <af:convertNumber groupingUsed="false"
-                                                    pattern="#{bindings.AdminCompanyVORO.hints.CompanyShortCode.format}"/>
-                                </af:outputFormatted>
+                                                    styleClass="ERPHeroDetailColor"/>
                                 <f:facet name="separator">
                                   <af:spacer width="10" height="10" id="s2"/>
                                 </f:facet>
@@ -54,10 +51,7 @@
                               <af:panelGroupLayout id="pgl1" layout="horizontal">
                                 <af:image source="#{resource['images:imgLocation.png']}" id="i1"/>
                                 <af:outputFormatted value="#{item.bindings.txtLocationName.inputValue}" id="of8"
-                                                    styleClass="ERPHeroDetailColor">
-                                  <af:convertNumber groupingUsed="false"
-                                                    pattern="#{bindings.ScmPurchaseDemandHeaderRO.hints.LocationId.format}"/>
-                                </af:outputFormatted>
+                                                    styleClass="ERPHeroDetailColor"/>
                               </af:panelGroupLayout>
                             </af:gridCell>
                           </af:gridRow>
