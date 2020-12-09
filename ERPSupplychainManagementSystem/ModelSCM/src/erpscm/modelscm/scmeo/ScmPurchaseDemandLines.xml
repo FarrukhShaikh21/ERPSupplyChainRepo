@@ -100,7 +100,7 @@
     Scale="0"
     ColumnName="REQUESTER_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <Attribute
@@ -109,7 +109,7 @@
     Scale="0"
     ColumnName="DEPARTMENT_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <Attribute
@@ -136,8 +136,7 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_LINES"
-    RetrievedOnInsert="true"/>
+    TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
