@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmvo;
 
+import erpglobals.modelglobals.ERPViewRowImpl;
+
 import erpscm.modelscm.scmeo.ScmPurchaseDemandHeaderImpl;
 
 import java.sql.Timestamp;
@@ -14,7 +16,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ScmPurchaseDemandHeaderVORowImpl extends ViewRowImpl {
+public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
 
 
     public static final int ENTITY_SCMPURCHASEDEMANDHEADER = 0;
@@ -261,6 +263,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ViewRowImpl {
      */
     public void setLocationId(Integer value) {
         setAttributeInternal(LOCATIONID, value);
+        setCompanyId(doGetCompanyIDByLocation(value, getGlobalCompanyId()));
         
     }
 
