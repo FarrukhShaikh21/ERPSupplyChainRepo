@@ -214,6 +214,10 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(COMPANYID, value);
         getAccGlProjectsVO().setNamedWhereClauseParam("P_ADF_COMPANY_ID", value);
         getAccGlProjectsVO().executeQuery();
+        getAccAdminCompanyDept().setNamedWhereClauseParam("P_ADF_COMP_CODE", value);
+        getAccAdminCompanyDept().setNamedWhereClauseParam("P_ADF_USER_ID", erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno());
+        getAccAdminCompanyDept().executeQuery();
+        
     }
 
     /**

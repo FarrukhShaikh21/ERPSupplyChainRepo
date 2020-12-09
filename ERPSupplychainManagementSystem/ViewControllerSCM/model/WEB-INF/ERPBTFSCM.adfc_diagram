@@ -120,11 +120,11 @@
       islink="true"
       id="ControlFlowCase11"
       from="MethodCall8"
-      to="View10">
+      to="MethodCall304">
       <property
          name="fromOutcome">ERP-ACT-SCM_MAIN</property>
       <property
-         name="sdm:polyPoints">B50,764.35156,266.09766,893.6699,337.44824,L50</property>
+         name="sdm:polyPoints">B50,764.35156,266.09766,871.04004,347.09766,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall12">
@@ -3335,5 +3335,41 @@
          name="fromOutcome">ERP-QRY-ACT-SCM_0013</property>
       <property
          name="sdm:polyPoints">B50,-2769.6484,2135.3965,-2730.4785,2182.9424,T44</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall303">
+      <property
+         name="activityId">ERPdoInsertAccessDepartment</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPdoInsertAccessDepartment&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">338.1494</property>
+      <property
+         name="x">569.7031</property>
+   </MethodCall>
+   <MethodCall
+      id="MethodCall304">
+      <property
+         name="activityId">ERPdoInsertAccessDepartmentSCM</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPdoInsertAccessDepartmentSCM&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">401.44824</property>
+      <property
+         name="x">871.04004</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase305"
+      from="MethodCall304"
+      to="View10">
+      <property
+         name="fromOutcome">ERP-ACT-SCM_DEPARTMENT_ACCESS</property>
+      <property
+         name="sdm:polyPoints">B50,871.04004,455.09766,975.6699,455.09766,975.6699,337.44824,R50</property>
    </ControlFlowCase>
 </SDM>
