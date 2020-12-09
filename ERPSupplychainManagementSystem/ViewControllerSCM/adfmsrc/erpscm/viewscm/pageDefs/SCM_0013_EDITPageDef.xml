@@ -24,17 +24,19 @@
                   id="txtLocationName"/>
     <listOfValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovtxtProjectName"
                   id="txtProjectName"/>
-    <listOfValues IterBinding="ScmPurchaseDemandHeaderROIterator" StaticList="false" Uses="LovtxtTempDepartmentName"
-                  id="txtTempDepartmentName"/>
-    <attributeValues IterBinding="ScmPurchaseDemandHeaderROIterator" id="Remarks">
-      <AttrNames>
-        <Item Value="Remarks"/>
-      </AttrNames>
-    </attributeValues>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <action IterBinding="ScmPurchaseDemandHeaderROIterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams"/>
+    <action IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <listOfValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovtxtTempDepartmentName"
+                  id="txtTempDepartmentName"/>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

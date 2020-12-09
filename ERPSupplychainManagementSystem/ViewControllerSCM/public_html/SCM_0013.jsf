@@ -73,7 +73,16 @@
                 </af:listView>
               </af:panelGroupLayout>
             </f:facet>
-            <f:facet name="top"/>
+            <f:facet name="top">
+              <af:panelGridLayout id="pgl4">
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="end">
+                    <af:link id="l2" partialSubmit="true"
+                             icon="#{resource['images:imgNewDocument.png']}" action="ERP-ADD-ACT-SCM_0013"/>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+            </f:facet>
           </af:decorativeBox>
         </f:facet>
         <f:facet name="ERPLeft"/>

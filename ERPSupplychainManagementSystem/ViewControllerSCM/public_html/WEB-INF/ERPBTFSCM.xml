@@ -638,6 +638,12 @@
         <fixed-outcome>ERP-ACT-SCM_0013</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="CRInsertSCM_0013_EDIT">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ADD-ACT-SCM_0013</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1596,6 +1602,10 @@
         <from-outcome>ERP-QRY-ACT-SCM_0013</from-outcome>
         <to-activity-id>SCM_0013_EDIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__282">
+        <from-outcome>ERP-ADD-ACT-SCM_0013</from-outcome>
+        <to-activity-id>CRInsertSCM_0013_EDIT</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__275">
       <from-activity-id>ExePurchaseDemSCM_0013</from-activity-id>
@@ -1609,6 +1619,13 @@
       <control-flow-case id="__279">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0013</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__283">
+      <from-activity-id>CRInsertSCM_0013_EDIT</from-activity-id>
+      <control-flow-case id="__284">
+        <from-outcome>ERP-ADD-ACT-SCM_0013</from-outcome>
+        <to-activity-id>SCM_0013_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

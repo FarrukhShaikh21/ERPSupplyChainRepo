@@ -11,7 +11,7 @@
                             <af:panelGridLayout id="pgl1">
                                 <af:gridRow marginTop="5px" height="auto" id="gr1">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"
-                                                 halign="stretch" valign="stretch">
+                                                 halign="stretch">
                                         <af:panelBox text="Purchase Demand Header" id="pb1" showDisclosure="false">
                                             <f:facet name="toolbar"/>
                                             <af:panelGridLayout id="pgl2">
@@ -89,11 +89,11 @@
                                                             <f:validator binding="#{bindings.txtProjectName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="13%" id="gc12"
+                                                    <af:gridCell marginStart="5px" width="13%" id="gc13"
                                                                  halign="center">
                                                         <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}" id="ol5"/>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="20%" id="gc13"
+                                                    <af:gridCell marginStart="5px" width="20%" id="gc14"
                                                                  halign="stretch">
                                                         <af:inputComboboxListOfValues id="txtTempDepartmentNameId"
                                                                                       popupTitle="Search and Select: #{bindings.txtTempDepartmentName.hints.label}"
@@ -108,8 +108,8 @@
                                                             <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="13%" id="gc14"
-                                                                 halign="center"/>
+                                                    <af:gridCell id="gc12" width="13%" marginStart="5px"
+                                                                 marginEnd="5px"/>
                                                     <af:gridCell marginStart="5px" width="21%" marginEnd="5px"
                                                                  id="gc15"/>
                                                 </af:gridRow>
@@ -150,7 +150,7 @@
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
                                             <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8"
                                                      rendered="false"/>
-                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                <af:link actionListener="#{bindings.CreateWithParams.execute}"
                                                      text="CreateWithParams"
                                                      disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
                                                      rendered="false"/>

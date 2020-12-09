@@ -3232,7 +3232,7 @@
       <property
          name="fromOutcome">ERP-QRY-ACT-SCM_0013</property>
       <property
-         name="sdm:polyPoints">B44,-2726.0,2010.3447,-2727.4785,2093.5813,T44</property>
+         name="sdm:polyPoints">B50,-2722.5,2012.4717,-2727.4785,2093.4287,T44</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall295">
@@ -3255,6 +3255,39 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">T56,-2720.4785,2093.6436,-2719.0,2010.4069,B56</property>
+         name="sdm:polyPoints">T56,-2720.4785,2093.6436,-2715.5,2012.6808,B61</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall296">
+      <property
+         name="activityId">CRInsertSCM_0013_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CRInsertSCM_0013_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">2126.4482</property>
+      <property
+         name="x">-2836.6484</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase297"
+      from="View287"
+      to="MethodCall296">
+      <property
+         name="fromOutcome">ERP-ADD-ACT-SCM_0013</property>
+      <property
+         name="sdm:polyPoints">B39,-2729.5,2010.3447,-2836.6484,2072.0977,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase298"
+      from="MethodCall296"
+      to="View292">
+      <property
+         name="fromOutcome">ERP-ADD-ACT-SCM_0013</property>
+      <property
+         name="sdm:polyPoints">R50,-2795.6484,2126.0977,-2764.9785,2147.6436,L50</property>
    </ControlFlowCase>
 </SDM>
