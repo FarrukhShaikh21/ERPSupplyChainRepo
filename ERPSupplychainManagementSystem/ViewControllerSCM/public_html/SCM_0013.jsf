@@ -24,6 +24,16 @@
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
                                          styleClass="AFStretchWidth ERPHeroBackground" halign="stretch">
                               <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                <af:inputText value="#{bindings.DemandHeaderSno.inputValue}"
+                                              label="#{bindings.DemandHeaderSno.hints.label}"
+                                              required="#{bindings.DemandHeaderSno.hints.mandatory}"
+                                              columns="#{bindings.DemandHeaderSno.hints.displayWidth}"
+                                              maximumLength="#{bindings.DemandHeaderSno.hints.precision}"
+                                              shortDesc="#{bindings.DemandHeaderSno.hints.tooltip}" id="it1"
+                                              rendered="false">
+                                  <f:validator binding="#{bindings.DemandHeaderSno.validator}"/>
+                                  <af:convertNumber groupingUsed="false" pattern="#{bindings.DemandHeaderSno.format}"/>
+                                </af:inputText>
                                 <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
                                          styleClass="ERPHeroBannerFont ERPLink" action="ERP-QRY-ACT-SCM_0013"/>
                                 <af:outputFormatted value="#{item.bindings.DemandHeaderCode.inputValue}" id="of6"

@@ -650,6 +650,12 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeSCMPurcDemSCM_0013_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1606,7 +1612,7 @@
       <from-activity-id>SCM_0013</from-activity-id>
       <control-flow-case id="__281">
         <from-outcome>ERP-QRY-ACT-SCM_0013</from-outcome>
-        <to-activity-id>SCM_0013_EDIT</to-activity-id>
+        <to-activity-id>ExeSCMPurcDemSCM_0013_EDIT</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__282">
         <from-outcome>ERP-ADD-ACT-SCM_0013</from-outcome>
@@ -1639,6 +1645,13 @@
       <control-flow-case id="__286">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0013</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__287">
+      <from-activity-id>ExeSCMPurcDemSCM_0013_EDIT</from-activity-id>
+      <control-flow-case id="__288">
+        <from-outcome>ERP-QRY-ACT-SCM_0013</from-outcome>
+        <to-activity-id>SCM_0013_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
