@@ -181,7 +181,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_DEMAND_LINES">
+    TableName="SCM_PURCHASE_DEMAND_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[InvItem?.Description]]></TransientExpression>
     <Properties>

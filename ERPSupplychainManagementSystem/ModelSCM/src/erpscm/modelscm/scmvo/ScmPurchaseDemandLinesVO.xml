@@ -115,6 +115,14 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="txtItemName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtItemName"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="txt_Item_Name"/>
   <ViewLinkAccessor
     Name="GlProjectsVO"
     ViewLink="erpscm.modelscm.scmvo.GlProjectsScmPurchaseDemandLinesProjectIdVL"
