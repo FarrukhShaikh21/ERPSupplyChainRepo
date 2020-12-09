@@ -644,6 +644,12 @@
         <fixed-outcome>ERP-ADD-ACT-SCM_0013</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeSCMPurcHeadSCM_0013">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1618,7 +1624,7 @@
       <from-activity-id>SCM_0013_EDIT</from-activity-id>
       <control-flow-case id="__279">
         <from-outcome>ERPBACKCRUD</from-outcome>
-        <to-activity-id>SCM_0013</to-activity-id>
+        <to-activity-id>ExeSCMPurcHeadSCM_0013</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__283">
@@ -1626,6 +1632,13 @@
       <control-flow-case id="__284">
         <from-outcome>ERP-ADD-ACT-SCM_0013</from-outcome>
         <to-activity-id>SCM_0013_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__285">
+      <from-activity-id>ExeSCMPurcHeadSCM_0013</from-activity-id>
+      <control-flow-case id="__286">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0013</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

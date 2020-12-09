@@ -3251,11 +3251,11 @@
       islink="true"
       id="ControlFlowCase294"
       from="View292"
-      to="View287">
+      to="MethodCall299">
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">T56,-2720.4785,2093.6436,-2715.5,2012.6808,B61</property>
+         name="sdm:polyPoints">R50,-2682.9785,2147.6436,-2645.5,2108.046,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall296">
@@ -3289,5 +3289,28 @@
          name="fromOutcome">ERP-ADD-ACT-SCM_0013</property>
       <property
          name="sdm:polyPoints">R50,-2795.6484,2126.0977,-2764.9785,2147.6436,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall299">
+      <property
+         name="activityId">ExeSCMPurcHeadSCM_0013</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeSCMPurcHeadSCM_0013&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">2108.3965</property>
+      <property
+         name="x">-2604.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase300"
+      from="MethodCall299"
+      to="View287">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">L46,-2645.5,2104.546,-2715.5,2010.3447,B61</property>
    </ControlFlowCase>
 </SDM>
