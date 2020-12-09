@@ -120,11 +120,11 @@
       islink="true"
       id="ControlFlowCase11"
       from="MethodCall8"
-      to="View10">
+      to="MethodCall596">
       <property
          name="fromOutcome">ERP-ACT-SCM_MAIN</property>
       <property
-         name="sdm:polyPoints">B50,764.35156,266.09766,893.6699,337.44824,L50</property>
+         name="sdm:polyPoints">B50,764.35156,266.09766,878.7031,367.09766,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall12">
@@ -144,19 +144,19 @@
       <property
          name="activityId">*</property>
       <property
-         name="y">197.34473</property>
+         name="y">208.64355</property>
       <property
-         name="x">443.0</property>
+         name="x">510.0</property>
    </WildcardControlFlowRule>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase14"
       from="WildcardControlFlowRule13"
-      to="MethodCall12">
+      to="MethodCall598">
       <property
          name="fromOutcome">doStartERPTaskFlow</property>
       <property
-         name="sdm:polyPoints">L50,407.0,197.49414,201.0,196.74121,R50</property>
+         name="sdm:polyPoints">L50,474.0,208.79297,456.37793,231.39648,R50</property>
    </ControlFlowCase>
    <View
       id="View15">
@@ -3335,5 +3335,51 @@
          name="fromOutcome">ERP-QRY-ACT-SCM_0013</property>
       <property
          name="sdm:polyPoints">B50,-2769.6484,2135.3965,-2730.4785,2182.9424,T44</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall596">
+      <property
+         name="activityId">ERPdoInsertAccessDepartmentSCM</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPdoInsertAccessDepartmentSCM&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">421.44824</property>
+      <property
+         name="x">878.7031</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase597"
+      from="MethodCall596"
+      to="View10">
+      <property
+         name="fromOutcome">ERP-ACT-SCM_DEPARTMENT_ACCESS</property>
+      <property
+         name="sdm:polyPoints">B50,878.7031,475.09766,975.6699,475.09766,975.6699,337.44824,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall598">
+      <property
+         name="activityId">ErpdoInsertAccessableCompanyFMS</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ErpdoInsertAccessableCompanyFMS&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">231.74707</property>
+      <property
+         name="x">415.37793</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase599"
+      from="MethodCall598"
+      to="MethodCall12">
+      <property
+         name="fromOutcome">ErpdoInsertAccessableCompanyFMS</property>
+      <property
+         name="sdm:polyPoints">L50,374.37793,231.39648,201.0,196.74121,R50</property>
    </ControlFlowCase>
 </SDM>

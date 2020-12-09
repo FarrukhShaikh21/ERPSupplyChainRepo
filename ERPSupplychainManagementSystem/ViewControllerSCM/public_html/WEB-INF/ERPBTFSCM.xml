@@ -656,6 +656,18 @@
         <fixed-outcome>ERP-QRY-ACT-SCM_0013</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ERPdoInsertAccessDepartmentSCM">
+      <method>#{bindings.ERPdoInsertAccessDepartment.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM_DEPARTMENT_ACCESS</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ErpdoInsertAccessableCompanyFMS">
+      <method>#{bindings.ErpdoInsertAccessableCompany.execute}</method>
+      <outcome>
+        <fixed-outcome>ErpdoInsertAccessableCompanyFMS</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -681,14 +693,14 @@
       <from-activity-id>ERPSCMReportsExeWitPara</from-activity-id>
       <control-flow-case id="__9">
         <from-outcome>ERP-ACT-SCM_MAIN</from-outcome>
-        <to-activity-id>SCM_MAIN</to-activity-id>
+        <to-activity-id>ERPdoInsertAccessDepartmentSCM</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__14">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__15">
         <from-outcome>doStartERPTaskFlow</from-outcome>
-        <to-activity-id>doSCMGotoErpActivity</to-activity-id>
+        <to-activity-id>ErpdoInsertAccessableCompanyFMS</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__22">
@@ -1652,6 +1664,20 @@
       <control-flow-case id="__288">
         <from-outcome>ERP-QRY-ACT-SCM_0013</from-outcome>
         <to-activity-id>SCM_0013_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__289">
+      <from-activity-id>ERPdoInsertAccessDepartmentSCM</from-activity-id>
+      <control-flow-case id="__290">
+        <from-outcome>ERP-ACT-SCM_DEPARTMENT_ACCESS</from-outcome>
+        <to-activity-id>SCM_MAIN</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__291">
+      <from-activity-id>ErpdoInsertAccessableCompanyFMS</from-activity-id>
+      <control-flow-case id="__292">
+        <from-outcome>ErpdoInsertAccessableCompanyFMS</from-outcome>
+        <to-activity-id>doSCMGotoErpActivity</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
