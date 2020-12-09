@@ -30,10 +30,6 @@
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
   <ViewAccessor
-    Name="AccGlProjectsQVO"
-    ViewObjectName="erpfms.modelfms.fmsqvo.GlProjectsQVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
     Name="AccAdminCompany"
     ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
     RowLevelBinds="true"/>
@@ -51,6 +47,12 @@
     <ViewCriteriaUsage
       Name="GlProjectsByCompanyVC"
       FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
     Name="AccSysSystemParameterVO"

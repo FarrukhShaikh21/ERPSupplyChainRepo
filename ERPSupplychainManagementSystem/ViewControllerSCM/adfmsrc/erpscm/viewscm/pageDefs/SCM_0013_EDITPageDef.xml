@@ -6,8 +6,6 @@
     <variableIterator id="variables"/>
     <iterator Binds="ScmPurchaseDemandHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseDemandHeaderCRUDIterator"/>
-    <iterator Binds="ScmPurchaseDemandHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmPurchaseDemandHeaderROIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="DemandHeaderCode">
@@ -27,8 +25,6 @@
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
-    <action IterBinding="ScmPurchaseDemandHeaderROIterator" id="CreateWithParams" RequiresUpdateModel="true"
-            Action="createWithParams"/>
     <action IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <listOfValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovtxtTempDepartmentName"
@@ -38,5 +34,7 @@
         <Item Value="Remarks"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
   </bindings>
 </pageDefinition>
