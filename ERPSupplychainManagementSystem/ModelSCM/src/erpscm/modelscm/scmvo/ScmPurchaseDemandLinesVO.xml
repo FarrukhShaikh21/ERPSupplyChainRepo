@@ -24,7 +24,14 @@
   <ViewAccessor
     Name="AccGlProjectsQVO"
     ViewObjectName="erpfms.modelfms.fmsqvo.GlProjectsQVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccAdminCompanyVO"
     ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
@@ -35,11 +42,28 @@
     <ParameterMap>
       <PIMap Variable="P_ADF_COMP_CODE">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
       <PIMap Variable="P_ADF_USER_ID">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+          trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlProjectsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlProjectsActiveVC"
+      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsActiveVC"/>
+    <ViewCriteriaUsage
+      Name="GlProjectsByCompanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -97,7 +121,7 @@
   </ListBinding>
   <ListBinding
     Name="LovtxtProjectName"
-    ListVOName="AccGlProjectsQVO"
+    ListVOName="AccGlProjectsVO"
     ListRangeSize="-1"
     ComboRowCountHint="10"
     NullValueFlag="none"
@@ -115,8 +139,11 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ProjectName"/>
+      <Item Value="ProjectShortName"/>
+      <Item Value="ProjectCode"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Name="GlProjectsFindVC"/>
   </ListBinding>
   <ListBinding
     Name="LovtxtDepartmentName"
@@ -310,6 +337,52 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtSumDemandQty"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[getRowSet().sum("DemandQuantity")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.txtSumDemandQty_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSumApproveQty"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[getRowSet().sum("ApproveQuantity")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.txtSumApproveQty_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="GlProjectsVO"
     ViewLink="erpscm.modelscm.scmvo.GlProjectsScmPurchaseDemandLinesProjectIdVL"
@@ -340,4 +413,8 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </ViewObject>

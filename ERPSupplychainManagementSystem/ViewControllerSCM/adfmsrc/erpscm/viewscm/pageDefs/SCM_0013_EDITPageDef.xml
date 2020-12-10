@@ -38,7 +38,8 @@
     </attributeValues>
     <action IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams"/>
-    <tree IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="ScmPurchaseDemandLinesDetCRUD">
+    <tree IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="ScmPurchaseDemandLinesDetCRUD"
+          ChangeEventPolicy="none">
       <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO" Name="ScmPurchaseDemandLinesDetCRUD0">
         <AttrNames>
           <Item Value="LineNo"/>
@@ -56,5 +57,30 @@
             Action="removeCurrentRow"/>
     <action IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
+    <attributeValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="txtSumDemandQty">
+      <AttrNames>
+        <Item Value="txtSumDemandQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="txtSumApproveQty">
+      <AttrNames>
+        <Item Value="txtSumApproveQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="IsUnSupervised">
+      <AttrNames>
+        <Item Value="IsUnSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="IsCancelled">
+      <AttrNames>
+        <Item Value="IsCancelled"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

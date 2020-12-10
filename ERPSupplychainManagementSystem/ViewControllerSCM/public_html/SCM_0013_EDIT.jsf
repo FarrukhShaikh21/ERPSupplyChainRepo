@@ -8,12 +8,11 @@
                 <f:facet name="center">
                     <af:decorativeBox id="db1" dimensionsFrom="parent">
                         <f:facet name="center">
-                            <af:panelGridLayout id="pgl1">
+                            <af:panelGridLayout id="pgl1" partialTriggers="l5 l8 l1 l20 l19 l9 l10 l6 l4 l7 l3 l2">
                                 <af:gridRow marginTop="5px" height="auto" id="gr1">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"
                                                  halign="stretch">
-                                        <af:panelBox text="Purchase Demand Header" id="pb1" showDisclosure="false"
-                                                     partialTriggers="l5 l8 l1 l20 l19 l9 l10 l6 l4 l7 l3 l2">
+                                        <af:panelBox text="Purchase Demand Header" id="pb1" showDisclosure="false">
                                             <f:facet name="toolbar"/>
                                             <af:panelGridLayout id="pgl2">
                                                 <af:gridRow marginTop="5px" height="auto" id="gr4">
@@ -23,6 +22,33 @@
                                                     </af:gridCell>
                                                     <af:gridCell marginStart="5px" width="20%" id="gc5"
                                                                  halign="stretch">
+                                                        <af:inputText value="#{bindings.IsCancelled.inputValue}"
+                                                                      label="#{bindings.IsCancelled.hints.label}"
+                                                                      required="#{bindings.IsCancelled.hints.mandatory}"
+                                                                      columns="#{bindings.IsCancelled.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.IsCancelled.hints.precision}"
+                                                                      shortDesc="#{bindings.IsCancelled.hints.tooltip}"
+                                                                      id="it10" rendered="false">
+                                                            <f:validator binding="#{bindings.IsCancelled.validator}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                                      label="#{bindings.IsSupervised.hints.label}"
+                                                                      required="#{bindings.IsSupervised.hints.mandatory}"
+                                                                      columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                                      shortDesc="#{bindings.IsSupervised.hints.tooltip}"
+                                                                      id="it9" rendered="false">
+                                                            <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.IsUnSupervised.inputValue}"
+                                                                      label="#{bindings.IsUnSupervised.hints.label}"
+                                                                      required="#{bindings.IsUnSupervised.hints.mandatory}"
+                                                                      columns="#{bindings.IsUnSupervised.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.IsUnSupervised.hints.precision}"
+                                                                      shortDesc="#{bindings.IsUnSupervised.hints.tooltip}"
+                                                                      id="it8" rendered="false">
+                                                            <f:validator binding="#{bindings.IsUnSupervised.validator}"/>
+                                                        </af:inputText>
                                                         <af:inputText value="#{bindings.DemandHeaderCode.inputValue}"
                                                                       label="#{bindings.DemandHeaderCode.hints.label}"
                                                                       required="#{bindings.DemandHeaderCode.hints.mandatory}"
@@ -129,6 +155,28 @@
                                                                       id="it2" simple="true" contentStyle="width:100%">
                                                             <f:validator binding="#{bindings.Remarks.validator}"/>
                                                         </af:inputText>
+                                                        <af:inputText value="#{bindings.txtSumDemandQty.inputValue}"
+                                                                      label="#{bindings.txtSumDemandQty.hints.label}"
+                                                                      required="#{bindings.txtSumDemandQty.hints.mandatory}"
+                                                                      columns="#{bindings.txtSumDemandQty.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.txtSumDemandQty.hints.precision}"
+                                                                      shortDesc="#{bindings.txtSumDemandQty.hints.tooltip}"
+                                                                      id="it6" rendered="false">
+                                                            <f:validator binding="#{bindings.txtSumDemandQty.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.txtSumDemandQty.format}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.txtSumApproveQty.inputValue}"
+                                                                      label="#{bindings.txtSumApproveQty.hints.label}"
+                                                                      required="#{bindings.txtSumApproveQty.hints.mandatory}"
+                                                                      columns="#{bindings.txtSumApproveQty.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.txtSumApproveQty.hints.precision}"
+                                                                      shortDesc="#{bindings.txtSumApproveQty.hints.tooltip}"
+                                                                      id="it7" rendered="false">
+                                                            <f:validator binding="#{bindings.txtSumApproveQty.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.txtSumApproveQty.format}"/>
+                                                        </af:inputText>
                                                     </af:gridCell>
                                                 </af:gridRow>
                                             </af:panelGridLayout>
@@ -162,7 +210,8 @@
                                                       selectionListener="#{bindings.ScmPurchaseDemandLinesDetCRUD.collectionModel.makeCurrent}"
                                                       rowSelection="single"
                                                       fetchSize="#{bindings.ScmPurchaseDemandLinesDetCRUD.rangeSize}"
-                                                      id="t1" partialTriggers="::l11 ::l12">
+                                                      id="t1" partialTriggers="::l11 ::l12"
+                                                      columnStretching="column:c2">
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.label}"
                                                            id="c1" width="60">
                                                     <af:inputText value="#{row.bindings.LineNo.inputValue}"
@@ -171,21 +220,22 @@
                                                                   columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.tooltip}"
-                                                                  id="it3">
+                                                                  id="it3" readOnly="true">
                                                         <f:validator binding="#{row.bindings.LineNo.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.format}"/>
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.label}"
-                                                           id="c2" width="200">
+                                                           id="c2" width="170">
                                                     <af:inputComboboxListOfValues id="txtItemNameId"
                                                                                   popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.label}"
                                                                                   value="#{row.bindings.txtItemName.inputValue}"
                                                                                   model="#{row.bindings.txtItemName.listOfValuesModel}"
                                                                                   required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.mandatory}"
                                                                                   columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.displayWidth}"
-                                                                                  shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.tooltip}">
+                                                                                  shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.tooltip}"
+                                                                                  contentStyle="width:80%">
                                                         <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
@@ -229,44 +279,56 @@
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.label}"
-                                                           id="c6" width="120">
+                                                           id="c6" width="130" displayIndex="-1">
                                                     <af:inputDate value="#{row.bindings.RequiredByDate.inputValue}"
                                                                   label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.label}"
                                                                   required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.mandatory}"
                                                                   columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.displayWidth}"
                                                                   shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.tooltip}"
-                                                                  id="id2">
+                                                                  id="id2" contentStyle="width:60%">
                                                         <f:validator binding="#{row.bindings.RequiredByDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.format}"/>
                                                     </af:inputDate>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.label}"
-                                                           id="c7">
+                                                           id="c7" width="80" displayIndex="-1">
                                                     <af:inputText value="#{row.bindings.DemandQuantity.inputValue}"
                                                                   label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.label}"
                                                                   required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.mandatory}"
                                                                   columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.tooltip}"
-                                                                  id="it4">
+                                                                  id="it4" autoSubmit="true">
                                                         <f:validator binding="#{row.bindings.DemandQuantity.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.format}"/>
                                                     </af:inputText>
+                                                    <f:facet name="footer">
+                                                        <af:panelGroupLayout id="pgl3" halign="end" layout="horizontal">
+                                                            <af:outputText value="#{bindings.txtSumDemandQty.inputValue}" id="ot1"
+                                                                           truncateAt="0" partialTriggers="it4"/>
+                                                        </af:panelGroupLayout>
+                                                    </f:facet>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.label}"
-                                                           id="c8">
+                                                           id="c8" width="80" displayIndex="-1">
                                                     <af:inputText value="#{row.bindings.ApproveQuantity.inputValue}"
                                                                   label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.label}"
                                                                   required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.mandatory}"
                                                                   columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.tooltip}"
-                                                                  id="it5">
+                                                                  id="it5" autoSubmit="true">
                                                         <f:validator binding="#{row.bindings.ApproveQuantity.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.format}"/>
                                                     </af:inputText>
+                                                    <f:facet name="footer">
+                                                        <af:panelGroupLayout id="pgl5" halign="end" layout="horizontal">
+                                                            <af:outputText value="#{bindings.txtSumApproveQty.inputValue}" id="ot2"
+                                                                           partialTriggers="it5"/>
+                                                        </af:panelGroupLayout>
+                                                    </f:facet>
                                                 </af:column>
                                             </af:table>
                                         </af:panelCollection>
@@ -292,18 +354,18 @@
                                                      icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.DemandHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
                                                      partialTriggers="l7">
-                                                <af:setActionListener from="#{'ScmCustomerTypeTaxRateCRUDIterator'}"
+                                                <af:setActionListener from="#{'ScmPurchaseDemandHeaderCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
                                             <af:link text="Supervise" id="l19" partialSubmit="true"
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.DemandHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
                                                      partialTriggers="l7">
-                                                <af:setActionListener from="#{'ScmCustomerTypeTaxRateCRUDIterator'}"
+                                                <af:setActionListener from="#{'ScmPurchaseDemandHeaderCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
                                             <af:link text="Delete" id="l9" actionListener="#{bindings.Delete.execute}"

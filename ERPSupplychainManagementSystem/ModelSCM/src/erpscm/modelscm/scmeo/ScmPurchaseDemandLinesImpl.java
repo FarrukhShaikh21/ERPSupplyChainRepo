@@ -519,6 +519,12 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
 
             populateAttributeAsChanged(DEMANDLINESSNO, Integer.parseInt(result));
 
+            result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "LINE_NO",
+                                                              this.getEntityDef().getSource(), "DEMAND_HEADER_SNO", getDemandHeaderSno().toString());
+
+            populateAttributeAsChanged(LINENO, Integer.parseInt(result));
+
 
         }         
         super.doDML(operation, e);

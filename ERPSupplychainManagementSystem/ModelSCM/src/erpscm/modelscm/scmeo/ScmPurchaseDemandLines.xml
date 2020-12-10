@@ -173,6 +173,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_LINES">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[ScmPurchaseDemandHeader?.TempDepartmentId]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -191,6 +193,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_LINES">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[ScmPurchaseDemandHeader?.TempProjectId]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -280,7 +284,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -300,7 +304,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[InvItem?.Description]]></TransientExpression>
+      trustMode="trusted"><![CDATA[InvItem?.Description]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
