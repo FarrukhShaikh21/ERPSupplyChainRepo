@@ -9,10 +9,15 @@
   DBObjectType="table"
   DBObjectName="SCM_PURCHASE_DEMAND_LINES"
   AliasName="ScmPurchaseDemandLines"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpscm.modelscm.scmeo.ScmPurchaseDemandLinesImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="DemandLinesSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="DEMAND_LINES_SNO"
@@ -23,7 +28,6 @@
     PrimaryKey="true"/>
   <Attribute
     Name="DemandHeaderSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="DEMAND_HEADER_SNO"
@@ -33,7 +37,6 @@
     TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <Attribute
     Name="LineNo"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="LINE_NO"
@@ -43,7 +46,6 @@
     TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <Attribute
     Name="ItemId"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="ITEM_ID"
@@ -53,7 +55,6 @@
     TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <Attribute
     Name="UnitTypeSno"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="UNIT_TYPE_SNO"
@@ -67,9 +68,7 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_LINES"
-    RetrievedOnInsert="true"
-    RetrievedOnUpdate="true"/>
+    TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <Attribute
     Name="DemandQuantity"
     IsNotNull="true"
@@ -84,7 +83,6 @@
     RetrievedOnUpdate="true"/>
   <Attribute
     Name="ApproveQuantity"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="APPROVE_QUANTITY"
@@ -136,7 +134,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_DEMAND_LINES"/>
+    TableName="SCM_PURCHASE_DEMAND_LINES"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -221,6 +220,17 @@
       <Item
         Value="UnitTypeSno"/>
     </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtDepartmentName"
+    Precision="80"
+    ColumnName="txt_Department_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_DEMAND_LINES">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseDemandHeader"
