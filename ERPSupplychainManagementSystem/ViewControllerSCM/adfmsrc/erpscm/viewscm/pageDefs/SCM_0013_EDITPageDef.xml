@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="ScmPurchaseDemandHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseDemandHeaderCRUDIterator"/>
+    <iterator Binds="ScmPurchaseDemandLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseDemandLinesDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="DemandHeaderCode">
@@ -36,5 +38,19 @@
     </attributeValues>
     <action IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams"/>
+    <tree IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="ScmPurchaseDemandLinesDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO" Name="ScmPurchaseDemandLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="LineNo"/>
+          <Item Value="txtItemName"/>
+          <Item Value="txtUnitTypeName"/>
+          <Item Value="txtProjectName"/>
+          <Item Value="txtDepartmentName"/>
+          <Item Value="RequiredByDate"/>
+          <Item Value="DemandQuantity"/>
+          <Item Value="ApproveQuantity"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
