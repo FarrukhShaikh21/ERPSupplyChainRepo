@@ -4,6 +4,22 @@
     <af:document title="SCM_0013_EDIT.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                        binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
+                  <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>   
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                        binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
+                  <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>        
             <af:decorativeBox id="db2" dimensionsFrom="parent">
                 <f:facet name="center">
                     <af:decorativeBox id="db1" dimensionsFrom="parent">
@@ -22,6 +38,15 @@
                                                     </af:gridCell>
                                                     <af:gridCell marginStart="5px" width="20%" id="gc5"
                                                                  halign="stretch">
+                                                        <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                                      label="#{bindings.IsUnsupervised.hints.label}"
+                                                                      required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                                      columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                                      shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
+                                                                      id="it8" rendered="false">
+                                                            <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                                        </af:inputText>
                                                         <af:inputText value="#{bindings.IsCancelled.inputValue}"
                                                                       label="#{bindings.IsCancelled.hints.label}"
                                                                       required="#{bindings.IsCancelled.hints.mandatory}"
@@ -39,15 +64,6 @@
                                                                       shortDesc="#{bindings.IsSupervised.hints.tooltip}"
                                                                       id="it9" rendered="false">
                                                             <f:validator binding="#{bindings.IsSupervised.validator}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.IsUnSupervised.inputValue}"
-                                                                      label="#{bindings.IsUnSupervised.hints.label}"
-                                                                      required="#{bindings.IsUnSupervised.hints.mandatory}"
-                                                                      columns="#{bindings.IsUnSupervised.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.IsUnSupervised.hints.precision}"
-                                                                      shortDesc="#{bindings.IsUnSupervised.hints.tooltip}"
-                                                                      id="it8" rendered="false">
-                                                            <f:validator binding="#{bindings.IsUnSupervised.validator}"/>
                                                         </af:inputText>
                                                         <af:inputText value="#{bindings.DemandHeaderCode.inputValue}"
                                                                       label="#{bindings.DemandHeaderCode.hints.label}"

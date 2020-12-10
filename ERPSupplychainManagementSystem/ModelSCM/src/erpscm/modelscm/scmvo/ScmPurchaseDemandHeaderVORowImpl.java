@@ -40,7 +40,6 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
         IsSupervised,
         SupervisedBy,
         SupervisedDate,
-        IsUnSupervised,
         UnSupervisedBy,
         UnSupervisedDate,
         IsCancelled,
@@ -50,6 +49,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
         txtProjectName,
         txtTempDepartmentName,
         txtLocationName,
+        IsUnsupervised,
         ScmPurchaseDemandLinesVO,
         GlProjectsVO,
         AdminCompanyVO,
@@ -100,7 +100,6 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ISSUPERVISED = AttributesEnum.IsSupervised.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int SUPERVISEDDATE = AttributesEnum.SupervisedDate.index();
-    public static final int ISUNSUPERVISED = AttributesEnum.IsUnSupervised.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int ISCANCELLED = AttributesEnum.IsCancelled.index();
@@ -110,6 +109,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
     public static final int TXTPROJECTNAME = AttributesEnum.txtProjectName.index();
     public static final int TXTTEMPDEPARTMENTNAME = AttributesEnum.txtTempDepartmentName.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
+    public static final int ISUNSUPERVISED = AttributesEnum.IsUnsupervised.index();
     public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -398,21 +398,6 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(SUPERVISEDDATE, value);
     }
 
-    /**
-     * Gets the attribute value for IS_UN_SUPERVISED using the alias name IsUnSupervised.
-     * @return the IS_UN_SUPERVISED
-     */
-    public String getIsUnSupervised() {
-        return (String) getAttributeInternal(ISUNSUPERVISED);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for IS_UN_SUPERVISED using the alias name IsUnSupervised.
-     * @param value value to set the IS_UN_SUPERVISED
-     */
-    public void setIsUnSupervised(String value) {
-        setAttributeInternal(ISUNSUPERVISED, value);
-    }
 
     /**
      * Gets the attribute value for UN_SUPERVISED_BY using the alias name UnSupervisedBy.
@@ -556,6 +541,22 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void settxtLocationName(String value) {
         setAttributeInternal(TXTLOCATIONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for IS_UNSUPERVISED using the alias name IsUnsupervised.
+     * @return the IS_UNSUPERVISED
+     */
+    public String getIsUnsupervised() {
+        return (String) getAttributeInternal(ISUNSUPERVISED);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for IS_UNSUPERVISED using the alias name IsUnsupervised.
+     * @param value value to set the IS_UNSUPERVISED
+     */
+    public void setIsUnsupervised(String value) {
+        setAttributeInternal(ISUNSUPERVISED, value);
     }
 
     /**

@@ -280,13 +280,6 @@
     EntityUsage="ScmPurchaseDemandHeader"
     AliasName="SUPERVISED_DATE"/>
   <ViewAttribute
-    Name="IsUnSupervised"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="IsUnSupervised"
-    EntityUsage="ScmPurchaseDemandHeader"
-    AliasName="IS_UN_SUPERVISED"/>
-  <ViewAttribute
     Name="UnSupervisedBy"
     PrecisionRule="true"
     EntityAttrName="UnSupervisedBy"
@@ -371,6 +364,13 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="IsUnsupervised"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IsUnsupervised"
+    EntityUsage="ScmPurchaseDemandHeader"
+    AliasName="IS_UNSUPERVISED"/>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"

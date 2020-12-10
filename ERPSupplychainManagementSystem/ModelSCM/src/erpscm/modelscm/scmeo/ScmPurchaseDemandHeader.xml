@@ -315,28 +315,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="IsUnSupervised"
-    IsNotNull="true"
-    Precision="1"
-    ColumnName="IS_UN_SUPERVISED"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_DEMAND_HEADER"
-    DefaultValue="N">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="1"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.IsUnSupervised_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="UnSupervisedBy"
     Precision="5"
     Scale="0"
@@ -514,6 +492,28 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.txtLocationName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="IsUnsupervised"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_UNSUPERVISED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_DEMAND_HEADER"
+    DefaultValue="N">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.IsUnsupervised_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
