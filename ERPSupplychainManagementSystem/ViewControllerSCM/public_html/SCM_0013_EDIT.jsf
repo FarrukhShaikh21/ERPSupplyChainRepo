@@ -207,11 +207,11 @@
                                             <f:facet name="toolbar">
                                                 <af:toolbar id="t2">
                                                     <af:link actionListener="#{bindings.CreateInsert.execute}"
-                                                             disabled="#{!bindings.CreateInsert.enabled}" id="l12"
+                                                             disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised=='Y'}" id="l12"
                                                              icon="#{resource['images:imgAddRecord.png']}"
                                                              partialSubmit="true"/>
                                                     <af:link actionListener="#{bindings.Delete1.execute}"
-                                                             disabled="#{!bindings.Delete1.enabled}" id="l11"
+                                                             disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised=='Y'}" id="l11"
                                                              partialSubmit="true"
                                                              icon="#{resource['images:imgDeleteRecord.png']}"/>
                                                 </af:toolbar>
