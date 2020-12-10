@@ -197,7 +197,8 @@
                                                                                   model="#{row.bindings.txtUnitTypeName.listOfValuesModel}"
                                                                                   required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
                                                                                   columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
-                                                                                  shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.tooltip}">
+                                                                                  shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
+                                                                                  contentStyle="width:80%">
                                                         <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
@@ -209,7 +210,8 @@
                                                                                   model="#{row.bindings.txtProjectName.listOfValuesModel}"
                                                                                   required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtProjectName.mandatory}"
                                                                                   columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtProjectName.displayWidth}"
-                                                                                  shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtProjectName.tooltip}">
+                                                                                  shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtProjectName.tooltip}"
+                                                                                  contentStyle="width:80%">
                                                         <f:validator binding="#{row.bindings.txtProjectName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
@@ -221,7 +223,8 @@
                                                                                   model="#{row.bindings.txtDepartmentName.listOfValuesModel}"
                                                                                   required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtDepartmentName.mandatory}"
                                                                                   columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtDepartmentName.displayWidth}"
-                                                                                  shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtDepartmentName.tooltip}">
+                                                                                  shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtDepartmentName.tooltip}"
+                                                                                  contentStyle="width:80%">
                                                         <f:validator binding="#{row.bindings.txtDepartmentName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
