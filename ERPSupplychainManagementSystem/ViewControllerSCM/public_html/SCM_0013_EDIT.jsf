@@ -136,7 +136,14 @@
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" id="gr2">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2"/>
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2"
+                                                 halign="stretch">
+                                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar"/>
+                                            <f:facet name="statusbar"/>
+                                        </af:panelCollection>
+                                    </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"/>
