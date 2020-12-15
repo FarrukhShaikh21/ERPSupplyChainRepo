@@ -115,7 +115,7 @@ public class ERPSCMClass {
     }
 
     public void doSetSCMErpApplicationGlobals() {
-
+        
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_SNO",1);
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_CODE","FARRUKH");
         ADFContext.getCurrent().getPageFlowScope().put("G_GLOBAL_DEF_COMPANY",1);
@@ -125,6 +125,7 @@ public class ERPSCMClass {
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_NAME","FARRUKH SHAIKH");
         System.out.println("five erp");
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_PICTURE","PICTURE NAME");
+       
        
          if (1==1) {
             return;

@@ -12,7 +12,12 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccInvItemVO"
     ViewObjectName="erpims.modelims.imsvo.InvItemVO"
@@ -27,8 +32,7 @@
     RowLevelBinds="true">
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -41,12 +45,10 @@
       FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyDepartmentAccessWiseVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COMP_CODE">
-        <TransientExpression
-          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
       <PIMap Variable="P_ADF_USER_ID">
-        <TransientExpression
-          trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -62,8 +64,7 @@
       FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -347,8 +348,7 @@
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[getRowSet().sum("DemandQuantity")]]></TransientExpression>
+    <TransientExpression><![CDATA[getRowSet().sum("DemandQuantity")]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -370,8 +370,7 @@
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[getRowSet().sum("ApproveQuantity")]]></TransientExpression>
+    <TransientExpression><![CDATA[getRowSet().sum("ApproveQuantity")]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>

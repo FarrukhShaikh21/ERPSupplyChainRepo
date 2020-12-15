@@ -24,7 +24,8 @@
                 <f:facet name="center">
                     <af:decorativeBox id="db1" dimensionsFrom="parent">
                         <f:facet name="center">
-                            <af:panelGridLayout id="pgl1" partialTriggers="l5 l8 l1 l20 l19 l9 l10 l6 l4 l7 l3 l2">
+                            <af:panelGridLayout id="pgl1"
+                                                partialTriggers="l5 l1 l8 l20 l19 l9 l10 l6 l4 l7 l3 l2 d3 d4">
                                 <af:gridRow marginTop="5px" height="auto" id="gr1">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"
                                                  halign="stretch">
@@ -37,7 +38,7 @@
                                                         <af:outputLabel value="#{bindings.DemandHeaderCode.hints.label}" id="ol3"/>
                                                     </af:gridCell>
                                                     <af:gridCell marginStart="5px" width="20%" id="gc5"
-                                                                 halign="stretch">
+                                                                 halign="stretch" valign="middle">
                                                         <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
                                                                       label="#{bindings.IsUnsupervised.hints.label}"
                                                                       required="#{bindings.IsUnsupervised.hints.mandatory}"
@@ -81,7 +82,7 @@
                                                     <af:gridCell marginStart="5px" width="13%" id="gc6" halign="center">
                                                         <af:outputLabel value="#{bindings.DemandDate.hints.label}" id="ol1"/>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="20%" id="gc7">
+                                                    <af:gridCell marginStart="5px" width="20%" id="gc7" valign="middle">
                                                         <af:inputDate value="#{bindings.DemandDate.inputValue}"
                                                                       label="#{bindings.DemandDate.hints.label}"
                                                                       required="#{bindings.DemandDate.hints.mandatory}"
@@ -96,7 +97,7 @@
                                                         <af:outputLabel value="#{bindings.txtLocationName.hints.label}" id="ol2"/>
                                                     </af:gridCell>
                                                     <af:gridCell marginStart="5px" width="21%" marginEnd="5px"
-                                                                 id="gc9" halign="stretch">
+                                                                 id="gc9" halign="stretch" valign="middle">
                                                         <af:inputComboboxListOfValues id="txtLocationNameId"
                                                                                       popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
                                                                                       value="#{bindings.txtLocationName.inputValue}"
@@ -118,7 +119,7 @@
                                                         <af:outputLabel value="#{bindings.txtProjectName.hints.label}" id="ol4"/>
                                                     </af:gridCell>
                                                     <af:gridCell marginStart="5px" width="20%" id="gc11"
-                                                                 halign="stretch">
+                                                                 halign="stretch" valign="middle">
                                                         <af:inputComboboxListOfValues id="txtProjectNameId"
                                                                                       popupTitle="Search and Select: #{bindings.txtProjectName.hints.label}"
                                                                                       value="#{bindings.txtProjectName.inputValue}"
@@ -138,7 +139,7 @@
                                                         <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}" id="ol5"/>
                                                     </af:gridCell>
                                                     <af:gridCell marginStart="5px" width="20%" id="gc14"
-                                                                 halign="stretch">
+                                                                 halign="stretch" valign="middle">
                                                         <af:inputComboboxListOfValues id="txtTempDepartmentNameId"
                                                                                       popupTitle="Search and Select: #{bindings.txtTempDepartmentName.hints.label}"
                                                                                       value="#{bindings.txtTempDepartmentName.inputValue}"
@@ -155,13 +156,14 @@
                                                     <af:gridCell id="gc12" width="13%" marginStart="5px"
                                                                  marginEnd="5px"/>
                                                     <af:gridCell marginStart="5px" width="21%" marginEnd="5px"
-                                                                 id="gc15"/>
+                                                                 id="gc15" valign="middle"/>
                                                 </af:gridRow>
                                                 <af:gridRow id="gr6">
                                                     <af:gridCell id="gc16" width="13%" halign="center">
                                                         <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol6"/>
                                                     </af:gridCell>
-                                                    <af:gridCell id="gc17" columnSpan="5" halign="stretch">
+                                                    <af:gridCell id="gc17" columnSpan="5" halign="stretch"
+                                                                 valign="middle">
                                                         <af:inputText value="#{bindings.Remarks.inputValue}"
                                                                       label="#{bindings.Remarks.hints.label}"
                                                                       required="#{bindings.Remarks.hints.mandatory}"
