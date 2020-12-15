@@ -6,7 +6,7 @@
     <af:form id="f1">
       <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
         <f:facet name="ERPMain">
-          <af:decorativeBox id="db1" dimensionsFrom="parent">
+          <af:decorativeBox id="db1" dimensionsFrom="parent" topHeight="100px">
             <f:facet name="center">
               <af:panelGroupLayout id="pgl3" layout="scroll" halign="center">
                 <af:listView value="#{bindings.ScmPurchaseDemandHeaderRO.collectionModel}" var="item"
@@ -92,7 +92,7 @@
                   </af:gridCell>
                 </af:gridRow>
                 <af:gridRow id="gr2">
-                  <af:gridCell id="gc2">
+                  <af:gridCell id="gc2" halign="center">
                     <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
                                    value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
                                    model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"

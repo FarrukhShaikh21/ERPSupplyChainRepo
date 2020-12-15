@@ -190,10 +190,47 @@
     Name="LovIsSupervised"
     ListVOName="AccSysGeneralValueVO"
     ListRangeSize="-1"
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsSupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsCancelled"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="IsSupervised"/>
+      <Item Value="IsCancelled"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsUnsupervised"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsUnsupervised"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -340,7 +377,15 @@
     PrecisionRule="true"
     EntityAttrName="IsCancelled"
     EntityUsage="ScmPurchaseDemandHeader"
-    AliasName="IS_CANCELLED"/>
+    AliasName="IS_CANCELLED"
+    LOVName="LovIsCancelled">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CancelledBy"
     PrecisionRule="true"
@@ -413,7 +458,15 @@
     PrecisionRule="true"
     EntityAttrName="IsUnsupervised"
     EntityUsage="ScmPurchaseDemandHeader"
-    AliasName="IS_UNSUPERVISED"/>
+    AliasName="IS_UNSUPERVISED"
+    LOVName="LovIsUnsupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
@@ -529,7 +582,8 @@
         ViewAttribute="IsSupervised"
         Operator="="
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional"
+        UpperColumns="0"/>
       <ViewCriteriaItem
         Name="IsCancelled"
         ViewAttribute="IsCancelled"
