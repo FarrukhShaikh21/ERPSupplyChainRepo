@@ -58,7 +58,8 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
         AccAdminCompanyDept,
         AccGlProjectsVO,
         AccSysSystemParameterVO,
-        AccAdminCompanyForCompVO;
+        AccAdminCompanyForCompVO,
+        AccSysGeneralValueVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -119,6 +120,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
     public static final int ACCSYSSYSTEMPARAMETERVO = AttributesEnum.AccSysSystemParameterVO.index();
     public static final int ACCADMINCOMPANYFORCOMPVO = AttributesEnum.AccAdminCompanyForCompVO.index();
+    public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -643,6 +645,14 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
     public RowSet getAccAdminCompanyForCompVO() {
         return (RowSet) getAttributeInternal(ACCADMINCOMPANYFORCOMPVO);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSysGeneralValueVO.
+     */
+    public RowSet getAccSysGeneralValueVO() {
+        return (RowSet) getAttributeInternal(ACCSYSGENERALVALUEVO);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method

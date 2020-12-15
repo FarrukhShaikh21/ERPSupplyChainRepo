@@ -7,6 +7,9 @@
     <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="ScmPurchaseDemandHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseDemandHeaderROIterator"/>
+    <searchRegion Criteria="ScmPurchaseDemandHeaderFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ScmPurchaseDemandHeaderROIterator" id="ImplicitViewCriteriaQuery"
+                  InitialQueryOverridden="true"/>
   </executables>
   <bindings>
     <tree IterBinding="ScmPurchaseDemandHeaderROIterator" id="ScmPurchaseDemandHeaderRO">
