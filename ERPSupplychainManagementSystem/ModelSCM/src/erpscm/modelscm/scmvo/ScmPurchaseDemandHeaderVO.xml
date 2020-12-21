@@ -108,6 +108,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmTransactionStatusVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmTransactionStatusVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtProjectName"
     ListVOName="AccGlProjectsVO"
@@ -238,6 +242,25 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovStatusId"
+    ListVOName="AccScmTransactionStatusVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StatusId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StatusSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StatusDescription"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -403,7 +426,15 @@
     PrecisionRule="true"
     EntityAttrName="StatusId"
     EntityUsage="ScmPurchaseDemandHeader"
-    AliasName="STATUS_ID"/>
+    AliasName="STATUS_ID"
+    LOVName="LovStatusId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtProjectName"
     IsQueriable="false"
