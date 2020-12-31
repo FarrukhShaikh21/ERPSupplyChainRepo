@@ -16,6 +16,14 @@
                              partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
                     <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"
                              action="ERPADD-ACT-SCM_0004_EDIT_EDIT"/>
+                    <af:link text="Print Preview" id="l2" partialSubmit="true"
+                             icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"
+                             action="#{pageFlowScope.OracleERPBean.doExecuteSupplyChainReport}">
+                      <af:setActionListener from="#{'RPT_SCM_0003.rptdesign'}"
+                                            to="#{pageFlowScope.OracleERPBean.ERPSupplyChainReportName}"/>
+                      <af:setActionListener from="#{'ScmSalesPersonByCompanyROIterator'}"
+                                            to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                    </af:link>
                     <f:facet name="separator">
                       <af:spacer width="10" height="10" id="s6"/>
                     </f:facet>
