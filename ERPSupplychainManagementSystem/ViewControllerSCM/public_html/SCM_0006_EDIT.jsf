@@ -83,6 +83,14 @@
                                partialSubmit="true"/>
                       <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
                                action="ERPADD-ACT-SCM_0006_EDIT_EDIT"/>
+                    <af:link id="l4" partialSubmit="true"
+                             icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"
+                             action="#{pageFlowScope.OracleERPBean.doExecuteSupplyChainReport}">
+                      <af:setActionListener from="#{'RPT_SCM_0007.rptdesign'}"
+                                            to="#{pageFlowScope.OracleERPBean.ERPSupplyChainReportName}"/>
+                      <af:setActionListener from="#{'ScmCustomerCategoryByCompROIterator'}"
+                                            to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                    </af:link>                               
                     </af:gridCell>
                   </af:gridRow>
                 </af:panelGridLayout>

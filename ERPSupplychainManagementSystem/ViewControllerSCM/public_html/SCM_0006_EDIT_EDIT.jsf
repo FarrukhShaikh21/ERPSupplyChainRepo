@@ -186,6 +186,18 @@
                                                 <af:setActionListener from="#{'GlChartOfAccountsByCOIDCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
+                                            <af:link text="Print Preview" id="l9"
+                                                     icon="#{resource['images:imgPrintPreview.png']}"
+                                                     iconPosition="top"
+                                                     action="#{pageFlowScope.OracleERPBean.doExecuteSupplyChainReport}"
+                                                     partialSubmit="true">
+                                                <af:setActionListener from="#{'RPT_SCM_0009.rptdesign'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.ERPSupplyChainReportName}"/>
+                                                <af:setActionListener from="#{'ScmCustomerCategoryCRUDIterator'}"
+                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                <af:setActionListener from="#{bindings.SalesPersonSno.inputValue}"
+                                                                      to="#{pageFlowScope.OracleERPBean.ERPPKForReport}"/>
+                                            </af:link>                                            
                                             <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
                                                      disabled="#{!bindings.Delete.enabled}" id="l6" rendered="false"/>
                                             <af:link text="Delete" id="l11"
