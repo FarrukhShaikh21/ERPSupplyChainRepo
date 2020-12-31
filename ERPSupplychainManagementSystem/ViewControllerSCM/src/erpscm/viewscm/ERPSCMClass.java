@@ -1,5 +1,6 @@
 package erpscm.viewscm;
 
+import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 import erpglobals.modelglobals.ERPUserAttribute;
 
 import erpglobals.viewglobals.ERPGlobalsClass;
@@ -21,6 +22,8 @@ import oracle.binding.OperationBinding;
 
 import oracle.jbo.Row;
 
+import oracle.jbo.server.DBTransaction;
+
 import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
 import org.apache.myfaces.trinidad.util.Service;
 
@@ -37,10 +40,29 @@ public class ERPSCMClass {
     private RichPopup lerpUnSupervisePopupConfirm;
     private RichPanelTabbed lErpPanelTabbed;
     private RichPanelTabbed lErpPanelDefaultTabbed;
+    private String ERPSupplyChainReportName;
+    private String ERPPKForReport;
             
     
     public ERPSCMClass() {
         super();
+    }
+
+
+    public void setERPPKForReport(String ERPPKForReport) {
+        this.ERPPKForReport = ERPPKForReport;
+    }
+
+    public String getERPPKForReport() {
+        return ERPPKForReport;
+    }
+
+    public void setERPSupplyChainReportName(String ERPSupplyChainReportName) {
+        this.ERPSupplyChainReportName = ERPSupplyChainReportName;
+    }
+
+    public String getERPSupplyChainReportName() {
+        return ERPSupplyChainReportName;
     }
 
     public void setLerpSupervisePopupConfirm(RichPopup lerpSupervisePopupConfirm) {
@@ -304,6 +326,16 @@ public class ERPSCMClass {
        // afContext.addPartialTarget(getRit());  
         //System.out.println(form.getId() +" get form id");
         }
+
+    public String doExecuteSupplyChainReport() {
+        BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+        DCIteratorBinding ib = (DCIteratorBinding) bc.get(lIteratorName);
+        DBTransaction Erpdbt=(DBTransaction)ib.getViewObject().getApplicationModule().getTransaction();
+        String pUrl=ERPGlobalPLSQLClass.doExecuteSQLQueryModel(Erpdbt, "select value_description from sys_general_value v where v.value_set_id=8");
+        ERPGlobalsClass.ErpdoOpenUrl(pUrl.replace("<P_REPORT_NAME>", ""+getERPSupplyChainReportName()).replace("<P_REPORT_RUN_SNO>", ( getERPSupplyChainReportName()==null?"":getERPPKForReport()) )  );
+        return null;   
+    }
+
 
     public void setLErpPanelTabbed(RichPanelTabbed lErpPanelTabbed) {
         this.lErpPanelTabbed = lErpPanelTabbed;
