@@ -50,5 +50,10 @@
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
+    <attributeValues IterBinding="ScmCustomerCategoryCRUDIterator" id="CategorySno">
+      <AttrNames>
+        <Item Value="CategorySno"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

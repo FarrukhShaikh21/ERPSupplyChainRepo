@@ -72,6 +72,17 @@
                                                               readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CategoryShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                                     <f:validator binding="#{bindings.CategoryTypeName.validator}"/>
                                                 </af:inputText>
+                                                <af:inputText value="#{bindings.CategorySno.inputValue}"
+                                                              label="#{bindings.CategorySno.hints.label}"
+                                                              required="#{bindings.CategorySno.hints.mandatory}"
+                                                              columns="#{bindings.CategorySno.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CategorySno.hints.precision}"
+                                                              shortDesc="#{bindings.CategorySno.hints.tooltip}"
+                                                              id="it6" rendered="false">
+                                                    <f:validator binding="#{bindings.CategorySno.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.CategorySno.format}"/>
+                                                </af:inputText>
                                             </af:gridCell>
                                         </af:gridRow>
                                         <af:gridRow id="gr8" marginTop="5px" marginBottom="5px">
