@@ -202,7 +202,7 @@
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doExecuteSupplyChainReport}"
                                                      partialSubmit="true">
-                                                <af:setActionListener from="#{'RPT_SCM_0009.rptdesign'}"
+                                                <af:setActionListener from="#{'RPT_SCM_0008.rptdesign'}"
                                                                       to="#{pageFlowScope.OracleERPBean.ERPSupplyChainReportName}"/>
                                                 <af:setActionListener from="#{'ScmCustomerCategoryCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
