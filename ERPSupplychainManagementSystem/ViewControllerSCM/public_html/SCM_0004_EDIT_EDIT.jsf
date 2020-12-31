@@ -196,7 +196,7 @@
                                                               maximumLength="#{bindings.MobileNo.hints.precision}"
                                                               shortDesc="#{bindings.MobileNo.hints.tooltip}" id="it4"
                                                               simple="true" contentStyle="width:100%"
-                                                              readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
+                                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.SalesPersonShortCode.inputValue!=null) }">
                                                     <f:validator binding="#{bindings.MobileNo.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
@@ -216,7 +216,7 @@
                                                               maximumLength="#{bindings.Email.hints.precision}"
                                                               shortDesc="#{bindings.Email.hints.tooltip}" id="it5"
                                                               simple="true" contentStyle="width:100%"
-                                                              readOnly="#{pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' || bindings.SalesPersonShortCode.inputValue==null}">
+                                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.SalesPersonShortCode.inputValue!=null) }">
                                                     <f:validator binding="#{bindings.Email.validator}"/>
                                                 </af:inputText>
                                             </af:gridCell>
