@@ -206,7 +206,7 @@
                                                                       to="#{pageFlowScope.OracleERPBean.ERPSupplyChainReportName}"/>
                                                 <af:setActionListener from="#{'ScmCustomerCategoryCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                                <af:setActionListener from="#{bindings.SalesPersonSno.inputValue}"
+                                                <af:setActionListener from="#{bindings.CategorySno.inputValue}"
                                                                       to="#{pageFlowScope.OracleERPBean.ERPPKForReport}"/>
                                             </af:link>                                            
                                             <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
