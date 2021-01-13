@@ -72,9 +72,18 @@
                       <af:panelGroupLayout id="pgl12" layout="horizontal" halign="end">
                         <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" partialSubmit="true"
                                  action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
+                                 
                         <af:link id="l9" icon="#{resource['images:imgNewDocument.png']}"
                                  action="ERPADDSCM_0010_EDIT_EDIT"
                                  disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
+                        <af:link id="l2" partialSubmit="true"
+                             icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"
+                             action="#{pageFlowScope.OracleERPBean.doExecuteSupplyChainReport}">
+                      <af:setActionListener from="#{'RPT_SCM_0010.rptdesign'}"
+                                            to="#{pageFlowScope.OracleERPBean.ERPSupplyChainReportName}"/>
+                      <af:setActionListener from="#{'ScmSupplierByCompanyROIterator'}"
+                                            to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                    </af:link>                                 
                         <f:facet name="separator">
                           <af:spacer width="10" height="10" id="s7"/>
                         </f:facet>

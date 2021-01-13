@@ -137,7 +137,7 @@ public class ERPSCMClass {
     }
 
     public void doSetSCMErpApplicationGlobals() {
-        /*
+        
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_SNO",1);
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_CODE","FARRUKH");
         ADFContext.getCurrent().getPageFlowScope().put("G_GLOBAL_DEF_COMPANY",1);
@@ -152,7 +152,7 @@ public class ERPSCMClass {
          if (1==1) {
             return;
          }
-         */
+         
 
         //System.out.println("one erp");
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_SNO",getERPUserAttributes().getUserId());
@@ -333,7 +333,7 @@ public class ERPSCMClass {
         DCIteratorBinding ib = (DCIteratorBinding) bc.get(lIteratorName);
         DBTransaction Erpdbt=(DBTransaction)ib.getViewObject().getApplicationModule().getTransaction();
         String pUrl=ERPGlobalPLSQLClass.doExecuteSQLQueryModel(Erpdbt, "select value_description from sys_general_value v where v.value_set_id=8");
-        ERPGlobalsClass.ErpdoOpenUrl(pUrl.replace("<P_REPORT_NAME>", ""+getERPSupplyChainReportName()).replace("<P_REPORT_RUN_SNO>", ( getERPSupplyChainReportName()==null?"":getERPPKForReport()) )  );
+        ERPGlobalsClass.ErpdoOpenUrl(pUrl.replace("<P_REPORT_NAME>", ""+getERPSupplyChainReportName()).replace("<P_REPORT_RUN_SNO>", ( getERPPKForReport()==null?"":getERPPKForReport()) )  );
         return null;   
     }
 
