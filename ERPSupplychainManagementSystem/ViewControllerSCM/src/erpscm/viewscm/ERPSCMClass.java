@@ -14,14 +14,12 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
-
 import oracle.adf.view.rich.render.ClientEvent;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
 import oracle.jbo.Row;
-
 import oracle.jbo.server.DBTransaction;
 
 import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
@@ -137,7 +135,7 @@ public class ERPSCMClass {
     }
 
     public void doSetSCMErpApplicationGlobals() {
-        
+        /*
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_SNO",1);
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_CODE","FARRUKH");
         ADFContext.getCurrent().getPageFlowScope().put("G_GLOBAL_DEF_COMPANY",1);
@@ -153,7 +151,7 @@ public class ERPSCMClass {
             return;
          }
          
-
+        */
         //System.out.println("one erp");
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_SNO",getERPUserAttributes().getUserId());
         //System.out.println("two erp");

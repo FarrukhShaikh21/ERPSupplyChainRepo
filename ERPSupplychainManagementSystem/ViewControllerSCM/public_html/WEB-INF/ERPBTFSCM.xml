@@ -1135,13 +1135,6 @@
         <to-activity-id>SCM_MAIN</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__127">
-      <from-activity-id>SCM_MAIN</from-activity-id>
-      <control-flow-case id="__128">
-        <from-outcome>ERPACTEXITTASKFLOW</from-outcome>
-        <to-activity-id>ERPSCMRETURN</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
     <control-flow-rule id="__129">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__130">
@@ -1151,6 +1144,10 @@
       <control-flow-case id="__131">
         <from-outcome>ERPLCHANGEPWD</from-outcome>
         <to-activity-id>ERPCHPWDBTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__127">
+        <from-outcome>ERPACTEXITTASKFLOW</from-outcome>
+        <to-activity-id>ERPSCMRETURN</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__135">

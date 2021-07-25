@@ -32,7 +32,7 @@
     RowLevelBinds="true">
     <ViewCriteriaUsage
       Name="SmCityCountryWiseVC"
-      FullName="erpadm.modeladm.admvo.SmCityVO.SmCityCountryWiseVC"/>
+      FullName="SmCityCountryWiseVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COUNTRY_SNO">
         <TransientExpression
@@ -79,7 +79,17 @@
   <ViewAccessor
     Name="AccScmCustomerCategoryVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmCustomerCategoryVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmCustomerCategoryByCompanyVC"
+      FullName="erpscm.modelscm.scmvo.ScmCustomerCategoryVO.ScmCustomerCategoryByCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccSysGeneralValueVO"
     ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
@@ -100,7 +110,17 @@
   <ViewAccessor
     Name="AccScmPaymentTermHeaderVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPaymentTermHeaderByCompanyVC"
+      FullName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO.ScmPaymentTermHeaderByCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccSetCurrencyVO"
     ViewObjectName="erpadm.modeladm.admvo.SetCurrencyVO"

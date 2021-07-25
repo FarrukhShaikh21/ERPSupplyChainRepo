@@ -76,7 +76,7 @@
                         <af:link id="l9" icon="#{resource['images:imgNewDocument.png']}"
                                  action="ERPADDSCM_0010_EDIT_EDIT"
                                  disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"/>
-                        <af:link id="l2" partialSubmit="true"
+                        <af:link id="l8" partialSubmit="true"
                              icon="#{resource['images:imgPrintPreview.png']}" iconPosition="top"
                              action="#{pageFlowScope.OracleERPBean.doExecuteSupplyChainReport}">
                       <af:setActionListener from="#{'RPT_SCM_0010.rptdesign'}"
