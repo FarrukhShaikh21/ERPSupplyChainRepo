@@ -20,6 +20,11 @@
       <value>#{pageFlowScope.OracleERPBean.ERPUserAttributes}</value>
       <class>erpscm.viewscm.ERPSCMClass</class>
     </input-parameter-definition>
+    <return-value-definition id="__128">
+      <name>P_ADF_RETURN_MODULE</name>
+      <value>#{pageFlowScope.ERPMainTempBean.LERPModuleFromGlobalSearch}</value>
+      <class>erptemplate.viewtemp.ERPTEMPClass</class>
+    </return-value-definition>
     <managed-bean id="__12">
       <managed-bean-name>OracleERPBean</managed-bean-name>
       <managed-bean-class>erpscm.viewscm.ERPSCMClass</managed-bean-class>
