@@ -21,7 +21,7 @@
       <class>erpscm.viewscm.ERPSCMClass</class>
     </input-parameter-definition>
     <return-value-definition id="__128">
-      <name>P_ADF_RETURN_MODULE</name>
+      <name>P_ADF_GOTO_MODULE_FROM_GS</name>
       <value>#{pageFlowScope.ERPMainTempBean.LERPModuleFromGlobalSearch}</value>
       <class>erptemplate.viewtemp.ERPTEMPClass</class>
     </return-value-definition>
@@ -673,11 +673,22 @@
         <fixed-outcome>ErpdoInsertAccessableCompanyFMS</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="doSetERPModuleActionRights">
+      <method>#{pageFlowScope.ERPMainTempBean.doERPSetModuleActionForRights}</method>
+      <outcome>
+        <fixed-outcome>ACT-GOTOSCM-MENU</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="ERPEXITTASKFLOWVIAGS">
+      <outcome>
+        <name>ERPEXITTASKFLOWVIAGS</name>
+      </outcome>
+    </task-flow-return>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>ACT-GOTOSCM-MENU</from-outcome>
-        <to-activity-id>ERPSCMSetupExeWithPara</to-activity-id>
+        <to-activity-id>doSetERPModuleActionRights</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__4">
@@ -1153,6 +1164,10 @@
       <control-flow-case id="__127">
         <from-outcome>ERPACTEXITTASKFLOW</from-outcome>
         <to-activity-id>ERPSCMRETURN</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__295">
+        <from-outcome>ERPACTEXITTASKFLOWVIAGS</from-outcome>
+        <to-activity-id>ERPEXITTASKFLOWVIAGS</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__135">
@@ -1680,6 +1695,13 @@
       <control-flow-case id="__292">
         <from-outcome>ErpdoInsertAccessableCompanyFMS</from-outcome>
         <to-activity-id>doSCMGotoErpActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__293">
+      <from-activity-id>doSetERPModuleActionRights</from-activity-id>
+      <control-flow-case id="__294">
+        <from-outcome>ACT-GOTOSCM-MENU</from-outcome>
+        <to-activity-id>ERPSCMSetupExeWithPara</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

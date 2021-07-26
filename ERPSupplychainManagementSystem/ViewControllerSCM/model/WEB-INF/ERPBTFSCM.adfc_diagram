@@ -13,9 +13,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">-32.804688</property>
+         name="y">-84.15527</property>
       <property
-         name="x">410.0</property>
+         name="x">397.0</property>
    </MethodCall>
    <MethodCall
       id="MethodCall3">
@@ -62,11 +62,11 @@
       islink="true"
       id="ControlFlowCase6"
       from="MethodCall2"
-      to="MethodCall3">
+      to="MethodCall307">
       <property
          name="fromOutcome">ACT-GOTOSCM-MENU</property>
       <property
-         name="sdm:polyPoints">B50,410.0,20.844727,443.35156,45.448242,T50</property>
+         name="sdm:polyPoints">R50,438.0,-84.50586,552.0,-84.50586,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -1450,7 +1450,7 @@
       <property
          name="fromOutcome">ERPACTEXITFORM</property>
       <property
-         name="sdm:polyPoints">B50,1049.0,138.94824,938.1699,283.44824,T56</property>
+         name="sdm:polyPoints">B50,1049.0,138.94824,934.6699,283.44824,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -1460,7 +1460,7 @@
       <property
          name="fromOutcome">ERPACTEXITTASKFLOW</property>
       <property
-         name="sdm:polyPoints">T44,931.1699,283.44824,871.0,126.79297,B50</property>
+         name="sdm:polyPoints">L50,1236.0,46.448242,912.0,72.79297,R50</property>
    </ControlFlowCase>
    <TaskFlowReturn
       id="TaskFlowReturn135">
@@ -3381,5 +3381,53 @@
          name="fromOutcome">ErpdoInsertAccessableCompanyFMS</property>
       <property
          name="sdm:polyPoints">L50,374.37793,231.39648,201.0,196.74121,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall307">
+      <property
+         name="activityId">doSetERPModuleActionRights</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doSetERPModuleActionRights&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-84.15527</property>
+      <property
+         name="x">593.0</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase308"
+      from="MethodCall307"
+      to="MethodCall3">
+      <property
+         name="fromOutcome">ACT-GOTOSCM-MENU</property>
+      <property
+         name="sdm:polyPoints">B50,593.0,-30.50586,443.35156,45.448242,T50</property>
+   </ControlFlowCase>
+   <TaskFlowReturn
+      id="TaskFlowReturn309">
+      <property
+         name="activityId">ERPEXITTASKFLOWVIAGS</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPEXITTASKFLOWVIAGS&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  ERPEXITTASKFLOWVIAGS&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-62.103516</property>
+      <property
+         name="x">1374.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase310"
+      from="WildcardControlFlowRule137"
+      to="TaskFlowReturn309">
+      <property
+         name="fromOutcome">ERPACTEXITTASKFLOWVIAGS</property>
+      <property
+         name="sdm:polyPoints">R50,1308.0,46.448242,1374.0,-8.454102,B50</property>
    </ControlFlowCase>
 </SDM>
