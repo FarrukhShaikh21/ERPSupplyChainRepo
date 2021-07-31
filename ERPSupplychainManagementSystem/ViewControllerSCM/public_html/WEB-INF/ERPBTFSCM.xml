@@ -21,8 +21,8 @@
       <class>erpscm.viewscm.ERPSCMClass</class>
     </input-parameter-definition>
     <input-parameter-definition id="__296">
-      <name>P_ADF_MODULE_ACTION</name>
-      <value>#{pageFlowScope.ERPMainTempBean.LERPModuleAction}</value>
+      <name>P_ADF_MODULE_RIGHTS</name>
+      <value>#{pageFlowScope.ERPMainTempBean.LERPModuleActionRights}</value>
       <class>erptemplate.viewtemp.ERPTEMPClass</class>
     </input-parameter-definition>
     <return-value-definition id="__128">
@@ -31,8 +31,8 @@
       <class>erptemplate.viewtemp.ERPTEMPClass</class>
     </return-value-definition>
     <return-value-definition id="__297">
-      <name>P_ADF_MODULE_ACTION_GS</name>
-      <value>#{pageFlowScope.ERPMainTempBean.LERPModuleAction}</value>
+      <name>P_ADF_MODULE_RIGHTS_GS</name>
+      <value>#{pageFlowScope.ERPMainTempBean.LERPModuleActionRights}</value>
       <class>erptemplate.viewtemp.ERPTEMPClass</class>
     </return-value-definition>
     <managed-bean id="__12">
