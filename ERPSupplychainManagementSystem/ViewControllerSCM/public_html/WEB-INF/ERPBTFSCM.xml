@@ -1714,6 +1714,13 @@
         <to-activity-id>ERPSCMSetupExeWithPara</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
+    <control-flow-rule id="__298">
+      <from-activity-id>SCMExceptionHandler</from-activity-id>
+      <control-flow-case id="__299">
+        <from-outcome>ERP-SCM-ACT-RET-FROM-EXCEPTION</from-outcome>
+        <to-activity-id>SCM_MAIN</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <visibility>
       <url-invoke-allowed/>
     </visibility>

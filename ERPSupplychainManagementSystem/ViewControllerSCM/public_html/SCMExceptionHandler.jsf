@@ -3,14 +3,29 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="SCMExceptionHandler.jsf" id="d1">
         <af:form id="f1">
-            <af:panelGroupLayout id="pgl1" layout="scroll">
-                <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.message}" id="ot1"
-                               inlineStyle="font-size:large"/>
-                <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.localizedMessage}"
-                               id="ot2" inlineStyle="font-size:large"/>
-                <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.stackTrace}"
-                               id="ot3" inlineStyle="font-size:large"/>
-            </af:panelGroupLayout>
+            <af:decorativeBox id="db2" dimensionsFrom="parent">
+                <f:facet name="center">
+                    <af:decorativeBox id="db1" dimensionsFrom="parent">
+                        <f:facet name="center">
+                            <af:panelGroupLayout id="pgl1" layout="scroll">
+                                <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.message}"
+                                               id="ot1" inlineStyle="font-size:large;color:red"/>
+                                <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.localizedMessage}"
+                                               id="ot2" inlineStyle="font-size:large;color:red"/>
+                                <af:outputText value="#{controllerContext.currentRootViewPort.exceptionData.cause.cause.stackTrace}"
+                                               id="ot3" inlineStyle="font-size:large;color:red"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelGroupLayout id="pgl2" layout="horizontal" styleClass="AFStretchWidth"
+                                                 halign="end">
+                                <af:link text="link 1" id="l1" action="ERP-SCM-ACT-RET-FROM-EXCEPTION"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="top"/>
+            </af:decorativeBox>
         </af:form>
     </af:document>
 </f:view>
