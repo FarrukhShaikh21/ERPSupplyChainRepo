@@ -8,48 +8,52 @@
                 <f:facet name="center">
                     <af:panelGridLayout id="pgl4">
                         <af:gridRow marginTop="20px" height="auto" id="gr2" marginBottom="20px">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
-                                <af:panelFormLayout id="pfl1" maxColumns="4" rows="1" labelWidth="100">
-                                    <af:inputText value="#{bindings.CompCode.inputValue}"
-                                                  label="#{bindings.CompCode.hints.label}"
-                                                  required="#{bindings.CompCode.hints.mandatory}"
-                                                  columns="#{bindings.CompCode.hints.displayWidth}"
-                                                  maximumLength="#{bindings.CompCode.hints.precision}"
-                                                  shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1"
-                                                  readOnly="true" rendered="false">
-                                        <f:validator binding="#{bindings.CompCode.validator}"/>
-                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CompCode.format}"/>
-                                    </af:inputText>
-                                    <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
-                                                  label="#{bindings.CompanyShortCode.hints.label}"
-                                                  required="#{bindings.CompanyShortCode.hints.mandatory}"
-                                                  columns="#{bindings.CompanyShortCode.hints.displayWidth}"
-                                                  maximumLength="#{bindings.CompanyShortCode.hints.precision}"
-                                                  shortDesc="#{bindings.CompanyShortCode.hints.tooltip}" id="it3"
-                                                  readOnly="true">
-                                        <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.CompanyShortCode.format}"/>
-                                    </af:inputText>
-                                    <af:inputText value="#{bindings.CompanyShortName.inputValue}"
-                                                  label="#{bindings.CompanyShortName.hints.label}"
-                                                  required="#{bindings.CompanyShortName.hints.mandatory}"
-                                                  columns="#{bindings.CompanyShortName.hints.displayWidth}"
-                                                  maximumLength="#{bindings.CompanyShortName.hints.precision}"
-                                                  shortDesc="#{bindings.CompanyShortName.hints.tooltip}" id="it2"
-                                                  readOnly="true">
-                                        <f:validator binding="#{bindings.CompanyShortName.validator}"/>
-                                    </af:inputText>
-                                    <af:inputText value="#{bindings.CompanyName.inputValue}"
-                                                  label="#{bindings.CompanyName.hints.label}"
-                                                  required="#{bindings.CompanyName.hints.mandatory}"
-                                                  columns="#{bindings.CompanyName.hints.displayWidth}"
-                                                  maximumLength="#{bindings.CompanyName.hints.precision}"
-                                                  shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it4"
-                                                  readOnly="true">
-                                        <f:validator binding="#{bindings.CompanyName.validator}"/>
-                                    </af:inputText>
-                                </af:panelFormLayout>
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
+                                         valign="stretch" styleClass="ERPCompanyInfoBackGround">
+                                <af:panelGroupLayout id="pgl5" layout="vertical" halign="center">
+                                    <af:panelFormLayout id="pfl1" maxColumns="4" rows="1" labelWidth="100">
+                                        <af:inputText value="#{bindings.CompCode.inputValue}"
+                                                      label="#{bindings.CompCode.hints.label}"
+                                                      required="#{bindings.CompCode.hints.mandatory}"
+                                                      columns="#{bindings.CompCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompCode.hints.precision}"
+                                                      shortDesc="#{bindings.CompCode.hints.tooltip}" id="it1"
+                                                      readOnly="true" rendered="false">
+                                            <f:validator binding="#{bindings.CompCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.CompCode.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyShortCode.inputValue}"
+                                                      label="#{bindings.CompanyShortCode.hints.label}"
+                                                      required="#{bindings.CompanyShortCode.hints.mandatory}"
+                                                      columns="#{bindings.CompanyShortCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyShortCode.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyShortCode.hints.tooltip}" id="it3"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.CompanyShortCode.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyShortName.inputValue}"
+                                                      label="#{bindings.CompanyShortName.hints.label}"
+                                                      required="#{bindings.CompanyShortName.hints.mandatory}"
+                                                      columns="#{bindings.CompanyShortName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyShortName.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyShortName.hints.tooltip}" id="it2"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.CompanyShortName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.CompanyName.inputValue}"
+                                                      label="#{bindings.CompanyName.hints.label}"
+                                                      required="#{bindings.CompanyName.hints.mandatory}"
+                                                      columns="#{bindings.CompanyName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.CompanyName.hints.precision}"
+                                                      shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it4"
+                                                      readOnly="true">
+                                            <f:validator binding="#{bindings.CompanyName.validator}"/>
+                                        </af:inputText>
+                                    </af:panelFormLayout>
+                                </af:panelGroupLayout>
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
@@ -72,7 +76,8 @@
                                               autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?8:15}"
                                               scrollPolicy="page">
                                         <af:column headerText="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.label}"
-                                                   id="c1" width="200" displayIndex="-1">
+                                                   id="c1" width="200" displayIndex="-1"
+                                                   headerClass="ERPToolBarBackground">
                                             <af:inputText value="#{row.bindings.ParameterId.inputValue}"
                                                           label="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.label}"
                                                           required="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterId.mandatory}"
@@ -84,7 +89,7 @@
                                             </af:inputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterValue.label}"
-                                                   id="c2" width="200">
+                                                   id="c2" width="200" headerClass="ERPToolBarBackground">
                                             <af:inputText value="#{row.bindings.ParameterValue.inputValue}"
                                                           label="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterValue.label}"
                                                           required="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterValue.mandatory}"
@@ -96,7 +101,7 @@
                                             </af:inputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterDescrption.label}"
-                                                   id="c3">
+                                                   id="c3" headerClass="ERPToolBarBackground">
                                             <af:inputText value="#{row.bindings.ParameterDescrption.inputValue}"
                                                           label="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterDescrption.label}"
                                                           required="#{bindings.ScmParameterByCompanyCRUD.hints.ParameterDescrption.mandatory}"
@@ -108,7 +113,7 @@
                                             </af:inputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmParameterByCompanyCRUD.hints.IsActive.label}"
-                                                   id="c4">
+                                                   id="c4" headerClass="ERPToolBarBackground">
                                             <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
                                                                 label="#{row.bindings.IsActive.label}"
                                                                 required="#{bindings.ScmParameterByCompanyCRUD.hints.IsActive.mandatory}"
@@ -125,7 +130,7 @@
                     </af:panelGridLayout>
                 </f:facet>
                 <f:facet name="top">
-                    <af:panelGridLayout id="pgl1">
+                    <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
                             <af:gridCell marginStart="5px" width="50%" id="gc1">
                                 <af:panelGroupLayout id="pgl2" layout="horizontal"/>
@@ -136,7 +141,7 @@
                                              disabled="#{!bindings.Commit.enabled}" id="l5" rendered="false"/>
                                     <af:link text="Close" id="l1" icon="#{resource['images:imgCloseDialog.png']}"
                                              iconPosition="top" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                             partialSubmit="true">
+                                             partialSubmit="true" shortDesc="Close Form">
                                         <af:setActionListener from="#{'ScmParameterByCompanyCRUDIterator'}"
                                                               to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                         <af:setActionListener from="#{'ERPBACKCRUD'}"
@@ -144,10 +149,10 @@
                                     </af:link>
                                     <af:link actionListener="#{bindings.Delete1.execute}" text="Delete" id="l6"
                                              icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
-                                             partialSubmit="true"/>
+                                             partialSubmit="true" shortDesc="Delete Record"/>
                                     <af:link text="Add" id="l3" icon="#{resource['images:imgAddRecord.png']}"
                                              iconPosition="top" actionListener="#{bindings.CreateInsert.execute}"
-                                             partialSubmit="true"/>
+                                             partialSubmit="true" shortDesc="Add New Record"/>
                                     <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
                                              disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l7"
                                              rendered="false">
@@ -156,13 +161,15 @@
                                     <af:link text="Undo" immediate="true" id="l2"
                                              icon="#{resource['images:imgUndo.png']}" iconPosition="top"
                                              partialSubmit="true"
-                                             action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                             action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                             shortDesc="Undo Record">
                                         <af:resetActionListener/>
                                     </af:link>
                                     <af:link text="Save" id="l4"
                                              icon="#{resource['images:imgSave.png']}" iconPosition="top"
                                              partialSubmit="true"
-                                             action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                             action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                             shortDesc="Save Record"/>
                                     <f:facet name="separator">
                                         <af:spacer width="10" height="10" id="s1"/>
                                     </f:facet>
