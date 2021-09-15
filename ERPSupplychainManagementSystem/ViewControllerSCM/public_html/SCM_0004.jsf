@@ -36,7 +36,8 @@
                                          valign="stretch">
                               <af:panelGroupLayout id="pgl4" layout="horizontal" styleClass="ERPHeroBannerFont ERPLink">
                                 <af:link id="l2" icon="#{resource['images:imgView.png']}"
-                                         action="ERP-ACT-SCM_0004_EDIT"/>
+                                         action="ERP-ACT-SCM_0004_EDIT" styleClass="ERPLink"
+                                         shortDesc="Company Short Name, Click To View Record."/>
                                 <af:outputFormatted value="#{item.bindings.CompanyShortName.inputValue}" id="of1"
                                                     styleClass="ERPHeroBannerFont"/>
                                 <af:link text="#{item.bindings.CompanyShortName.inputValue}" id="l7" rendered="false"/>
@@ -46,7 +47,8 @@
                           <af:gridRow marginTop="5px" height="auto" id="gr2">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
                               <af:panelGroupLayout id="pgl5" layout="horizontal">
-                                <af:link id="l3" icon="#{resource['images:imgShortName.png']}"/>
+                                <af:link id="l3" icon="#{resource['images:imgShortName.png']}"
+                                         shortDesc="Company Name"/>
                                 <af:outputFormatted value="#{item.bindings.CompanyName.inputValue}" id="of2"
                                                     styleClass="ERPHeroDetailColor"/>
                               </af:panelGroupLayout>
@@ -55,7 +57,8 @@
                           <af:gridRow marginTop="5px" height="auto" id="gr3">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
                               <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                <af:link id="l6" icon="#{resource['images:imgDocumentNumber.png']}"/>
+                                <af:link id="l6" icon="#{resource['images:imgDocumentNumber.png']}"
+                                         shortDesc="Company Code"/>
                                 <af:outputFormatted value="#{item.bindings.CompanyShortCode.inputValue}" id="of3"
                                                     styleClass="ERPHeroDetailColor">
                                   <af:convertNumber groupingUsed="false"
@@ -67,7 +70,7 @@
                           <af:gridRow marginTop="5px" height="auto" id="gr4">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
                               <af:panelGroupLayout id="pgl7">
-                                <af:link id="l4" icon="#{resource['images:imgCountry.png']}"/>
+                                <af:link id="l4" icon="#{resource['images:imgCountry.png']}" shortDesc="Country"/>
                                 <af:outputFormatted value="#{item.bindings.txtCountryName.inputValue}" id="of4"
                                                     styleClass="ERPHeroDetailColor"/>
                               </af:panelGroupLayout>
@@ -76,7 +79,7 @@
                           <af:gridRow marginTop="5px" height="auto" id="gr5">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
                               <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                <af:link id="l5" icon="#{resource['images:imgEmail.png']}"/>
+                                <af:link id="l5" icon="#{resource['images:imgEmail.png']}" shortDesc="Email"/>
                                 <af:outputFormatted value="#{item.bindings.Email.inputValue}" id="of5"
                                                     styleClass="ERPHeroDetailColor"/>
                               </af:panelGroupLayout>
@@ -94,7 +97,8 @@
         </f:facet>
         <f:facet name="ERPLeft"/>
         <f:facet name="ERPToolbar">
-          <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM" partialSubmit="true"/>
+          <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM" partialSubmit="true"
+                   shortDesc="Exit Form"/>
         </f:facet>
       </af:pageTemplate>
     </af:form>
