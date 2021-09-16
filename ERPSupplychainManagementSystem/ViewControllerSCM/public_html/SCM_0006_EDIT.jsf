@@ -107,7 +107,8 @@
                                                valign="stretch">
                                     <af:panelGroupLayout id="pgl5" layout="horizontal">
                                       <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
-                                               action="ERPEDIT-ACT-SCM_0006_EDIT_EDIT"/>
+                                               action="ERPEDIT-ACT-SCM_0006_EDIT_EDIT"
+                                               shortDesc="Category Short Name, Click To View Record."/>
                                       <af:outputFormatted value="#{item.bindings.CategoryShortName.inputValue}" id="of1"
                                                           styleClass="ERPHeroBannerFont"/>
                                     </af:panelGroupLayout>
@@ -116,7 +117,8 @@
                                 <af:gridRow marginTop="5px" height="auto" id="gr11">
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc12">
                                     <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                      <af:image id="i1" source="#{resource['images:imgDocumentNumber.png']}"/>
+                                      <af:image id="i1" source="#{resource['images:imgDocumentNumber.png']}"
+                                                shortDesc="Category Code"/>
                                       <af:outputFormatted value="#{item.bindings.CategoryShortCode.inputValue}" id="of2"
                                                           styleClass="ERPHeroDetailColor">
                                         <af:convertNumber groupingUsed="false"
@@ -131,7 +133,8 @@
                                 <af:gridRow marginTop="5px" height="auto" id="gr12">
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc13">
                                     <af:panelGroupLayout id="pgl7" layout="horizontal">
-                                      <af:image source="#{resource['images:imgShortName.png']}" id="i2"/>
+                                      <af:image source="#{resource['images:imgShortName.png']}" id="i2"
+                                                shortDesc="Category Type"/>
                                       <af:outputFormatted value="#{item.bindings.CategoryTypeName.inputValue}" id="of3"
                                                           styleClass="ERPHeroDetailColor"/>
                                       <f:facet name="separator">
@@ -143,7 +146,8 @@
                                 <af:gridRow marginTop="5px" height="auto" id="gr13">
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc14">
                                     <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                      <af:image source="#{resource['images:imgDocumentDate.png']}" id="i3"/>
+                                      <af:image source="#{resource['images:imgDocumentDate.png']}" id="i3"
+                                                shortDesc="Open Date"/>
                                       <af:outputFormatted value="#{item.bindings.OpenDate.inputValue}" id="of4"
                                                           styleClass="ERPHeroDetailColor">
                                         <af:convertDateTime pattern="#{bindings.ScmCustomerCategoryByCompRO.hints.OpenDate.format}"/>
@@ -157,7 +161,8 @@
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc15">
                                     <af:panelGroupLayout id="pgl16" layout="horizontal">
-                                      <af:image source="#{resource['images:imgActive.png']}" id="i4"/>
+                                      <af:image source="#{resource['images:imgActive.png']}" id="i4"
+                                                shortDesc="Active"/>
                                       <af:outputFormatted value="#{item.bindings.IsActive.inputValue=='0'?'YES':'NO'}"
                                                           id="of5" styleClass="ERPHeroDetailColor"/>
                                       <f:facet name="separator">

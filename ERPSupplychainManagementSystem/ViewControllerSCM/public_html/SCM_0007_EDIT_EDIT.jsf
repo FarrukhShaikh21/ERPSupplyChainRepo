@@ -32,167 +32,170 @@
                 <f:facet name="center">
                     <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
                         <f:facet name="center">
-                            <af:panelBox text="PanelBox1" id="pb2" showHeader="never" partialTriggers="d3 d4">
-                                <f:facet name="toolbar"/>
-                                <af:panelBox id="pb1" showDisclosure="false" text="Basic Information">
-                                    <f:facet name="toolbar"/>
-                                    <af:panelGridLayout id="pgl2">
-                                        <af:gridRow id="gr9" marginTop="5px" marginBottom="5px">
-                                            <af:gridCell id="gc17" width="15%" halign="center">
-                                                <af:outputLabel value="#{bindings.OrderTypeName.hints.label}" id="ol1"/>
-                                            </af:gridCell>
-                                            <af:gridCell id="gc18" width="85%" halign="stretch">
-                                                <af:inputText value="#{bindings.OrderTypeSno.inputValue}"
-                                                              label="#{bindings.OrderTypeSno.hints.label}"
-                                                              required="#{bindings.OrderTypeSno.hints.mandatory}"
-                                                              columns="#{bindings.OrderTypeSno.hints.displayWidth}"
-                                                              maximumLength="#{bindings.OrderTypeSno.hints.precision}"
-                                                              shortDesc="#{bindings.OrderTypeSno.hints.tooltip}"
-                                                              id="it7" rendered="false">
-                                                    <f:validator binding="#{bindings.OrderTypeSno.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.OrderTypeSno.format}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.OrderTypeCode.inputValue}"
-                                                              label="#{bindings.OrderTypeCode.hints.label}"
-                                                              required="#{bindings.OrderTypeCode.hints.mandatory}"
-                                                              columns="#{bindings.OrderTypeCode.hints.displayWidth}"
-                                                              maximumLength="#{bindings.OrderTypeCode.hints.precision}"
-                                                              shortDesc="#{bindings.OrderTypeCode.hints.tooltip}"
-                                                              id="it4" rendered="false">
-                                                    <f:validator binding="#{bindings.OrderTypeCode.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.OrderTypeCode.format}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
-                                                              label="#{bindings.IsUnsupervised.hints.label}"
-                                                              required="#{bindings.IsUnsupervised.hints.mandatory}"
-                                                              columns="#{bindings.IsUnsupervised.hints.displayWidth}"
-                                                              maximumLength="#{bindings.IsUnsupervised.hints.precision}"
-                                                              shortDesc="#{bindings.IsUnsupervised.hints.tooltip}"
-                                                              id="it3" rendered="false">
-                                                    <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
-                                                              label="#{bindings.IsSupervised.hints.label}"
-                                                              required="#{bindings.IsSupervised.hints.mandatory}"
-                                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
-                                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
-                                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}"
-                                                              id="it2" rendered="false">
-                                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.OrderTypeName.inputValue}" simple="true"
-                                                              required="#{bindings.OrderTypeName.hints.mandatory}"
-                                                              columns="#{bindings.OrderTypeName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.OrderTypeName.hints.precision}"
-                                                              shortDesc="#{bindings.OrderTypeName.hints.tooltip}"
-                                                              id="it1" contentStyle="width:100%" clientComponent="true"
-                                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
-                                                    <f:validator binding="#{bindings.OrderTypeName.validator}"/>
-                                                </af:inputText>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow id="gr8" marginTop="5px" marginBottom="5px">
-                                            <af:gridCell id="gc15" width="15%" halign="center">
-                                                <af:outputLabel value="#{bindings.OrderTypeCode.hints.label}" id="ol6"/>
-                                            </af:gridCell>
-                                            <af:gridCell id="gc16" width="85%" halign="stretch">
-                                                <af:inputText value="#{bindings.OrderTypeCode.inputValue}"
-                                                              label="#{bindings.OrderTypeCode.hints.label}"
-                                                              required="#{bindings.OrderTypeCode.hints.mandatory}"
-                                                              columns="#{bindings.OrderTypeCode.hints.displayWidth}"
-                                                              maximumLength="#{bindings.OrderTypeCode.hints.precision}"
-                                                              shortDesc="#{bindings.OrderTypeCode.hints.tooltip}"
-                                                              id="it5" simple="true" readOnly="true">
-                                                    <f:validator binding="#{bindings.OrderTypeCode.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.OrderTypeCode.format}"/>
-                                                </af:inputText>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr2">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px"
-                                                         halign="center">
-                                                <af:outputLabel value="#{bindings.OrderTypeShortName.hints.label}" id="ol2"/>
-                                            </af:gridCell>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc4" halign="stretch"
-                                                         columnSpan="1" rowSpan="1">
-                                                <af:inputText value="#{bindings.OrderTypeShortName.inputValue}"
-                                                              label="#{bindings.OrderTypeShortName.hints.label}"
-                                                              required="#{bindings.OrderTypeShortName.hints.mandatory}"
-                                                              columns="#{bindings.OrderTypeShortName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.OrderTypeShortName.hints.precision}"
-                                                              shortDesc="#{bindings.OrderTypeShortName.hints.tooltip}"
-                                                              id="it6" simple="true" contentStyle="width:100%"
-                                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
-                                                    <f:validator binding="#{bindings.OrderTypeShortName.validator}"/>
-                                                </af:inputText>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" id="gr3">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px"
-                                                         halign="center" valign="middle">
-                                                <af:outputLabel value="#{bindings.OpenDate.hints.label}" id="ol3"/>
-                                            </af:gridCell>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px"
-                                                         halign="stretch" columnSpan="1" rowSpan="1" valign="middle">
-                                                <af:inputDate value="#{bindings.OpenDate.inputValue}"
-                                                              label="#{bindings.OpenDate.hints.label}"
-                                                              required="#{bindings.OpenDate.hints.mandatory}"
-                                                              columns="#{bindings.OpenDate.hints.displayWidth}"
-                                                              shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id1"
-                                                              simple="true"
-                                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}"
-                                                              contentStyle="width:90%">
-                                                    <f:validator binding="#{bindings.OpenDate.validator}"/>
-                                                    <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
-                                                </af:inputDate>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-                                            <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center"
-                                                         valign="middle">
-                                                <af:outputLabel value="#{bindings.OrderTypeFor.label}" id="ol5"/>
-                                            </af:gridCell>
-                                            <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px"
-                                                         columnSpan="1" halign="stretch" rowSpan="1" valign="middle">
-                                                <af:selectOneChoice value="#{bindings.OrderTypeFor.inputValue}"
-                                                                    label="#{bindings.OrderTypeFor.label}"
-                                                                    required="#{bindings.OrderTypeFor.hints.mandatory}"
-                                                                    shortDesc="#{bindings.OrderTypeFor.hints.tooltip}"
-                                                                    id="soc2" simple="true" contentStyle="width:100%"
-                                                                    readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
-                                                    <f:selectItems value="#{bindings.OrderTypeFor.items}" id="si2"/>
-                                                    <f:validator binding="#{bindings.OrderTypeFor.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                        <af:gridRow id="gr5">
-                                            <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px"
-                                                         halign="center" valign="middle">
-                                                <af:outputLabel value="#{bindings.IsActive.label}" id="ol4"/>
-                                            </af:gridCell>
-                                            <af:gridCell id="gc6" halign="stretch" valign="middle">
-                                                <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
-                                                                    label="#{bindings.IsActive.label}"
-                                                                    required="#{bindings.IsActive.hints.mandatory}"
-                                                                    shortDesc="#{bindings.IsActive.hints.tooltip}"
-                                                                    id="soc1" simple="true" contentStyle="width:100%"
-                                                                    readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
-                                                    <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
-                                                    <f:validator binding="#{bindings.IsActive.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:gridCell>
-                                        </af:gridRow>
-                                    </af:panelGridLayout>
-                                </af:panelBox>
-                            </af:panelBox>
+                            <af:panelGridLayout id="pgl2">
+                                <af:gridRow id="gr6">
+                                    <af:gridCell id="gc9" columnSpan="2" width="100%" halign="stretch"
+                                                 styleClass="ERPEntryAreaHeading">
+                                        <af:outputText value="Basic Information" id="ot2"
+                                                       styleClass="ERPEntryAreaFont"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow id="gr9" marginTop="5px" marginBottom="5px">
+                                    <af:gridCell id="gc17" width="15%" halign="center">
+                                        <af:outputLabel value="#{bindings.OrderTypeName.hints.label}" id="ol1"/>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc18" width="85%" halign="stretch">
+                                        <af:inputText value="#{bindings.OrderTypeSno.inputValue}"
+                                                      label="#{bindings.OrderTypeSno.hints.label}"
+                                                      required="#{bindings.OrderTypeSno.hints.mandatory}"
+                                                      columns="#{bindings.OrderTypeSno.hints.displayWidth}"
+                                                      maximumLength="#{bindings.OrderTypeSno.hints.precision}"
+                                                      shortDesc="#{bindings.OrderTypeSno.hints.tooltip}" id="it7"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.OrderTypeSno.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.OrderTypeSno.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.OrderTypeCode.inputValue}"
+                                                      label="#{bindings.OrderTypeCode.hints.label}"
+                                                      required="#{bindings.OrderTypeCode.hints.mandatory}"
+                                                      columns="#{bindings.OrderTypeCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.OrderTypeCode.hints.precision}"
+                                                      shortDesc="#{bindings.OrderTypeCode.hints.tooltip}" id="it4"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.OrderTypeCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.OrderTypeCode.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                      label="#{bindings.IsUnsupervised.hints.label}"
+                                                      required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                      columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                      maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                      shortDesc="#{bindings.IsUnsupervised.hints.tooltip}" id="it3"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                      label="#{bindings.IsSupervised.hints.label}"
+                                                      required="#{bindings.IsSupervised.hints.mandatory}"
+                                                      columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                      maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                      shortDesc="#{bindings.IsSupervised.hints.tooltip}" id="it2"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.OrderTypeName.inputValue}" simple="true"
+                                                      required="#{bindings.OrderTypeName.hints.mandatory}"
+                                                      columns="#{bindings.OrderTypeName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.OrderTypeName.hints.precision}"
+                                                      shortDesc="#{bindings.OrderTypeName.hints.tooltip}" id="it1"
+                                                      contentStyle="width:100%" clientComponent="true"
+                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
+                                            <f:validator binding="#{bindings.OrderTypeName.validator}"/>
+                                        </af:inputText>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow id="gr8" marginTop="5px" marginBottom="5px">
+                                    <af:gridCell id="gc15" width="15%" halign="center">
+                                        <af:outputLabel value="#{bindings.OrderTypeCode.hints.label}" id="ol6"/>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc16" width="85%" halign="stretch">
+                                        <af:inputText value="#{bindings.OrderTypeCode.inputValue}"
+                                                      label="#{bindings.OrderTypeCode.hints.label}"
+                                                      required="#{bindings.OrderTypeCode.hints.mandatory}"
+                                                      columns="#{bindings.OrderTypeCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.OrderTypeCode.hints.precision}"
+                                                      shortDesc="#{bindings.OrderTypeCode.hints.tooltip}" id="it5"
+                                                      simple="true" readOnly="true">
+                                            <f:validator binding="#{bindings.OrderTypeCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.OrderTypeCode.format}"/>
+                                        </af:inputText>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                    <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px" halign="center">
+                                        <af:outputLabel value="#{bindings.OrderTypeShortName.hints.label}" id="ol2"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="85%" id="gc4" halign="stretch" columnSpan="1"
+                                                 rowSpan="1">
+                                        <af:inputText value="#{bindings.OrderTypeShortName.inputValue}"
+                                                      label="#{bindings.OrderTypeShortName.hints.label}"
+                                                      required="#{bindings.OrderTypeShortName.hints.mandatory}"
+                                                      columns="#{bindings.OrderTypeShortName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.OrderTypeShortName.hints.precision}"
+                                                      shortDesc="#{bindings.OrderTypeShortName.hints.tooltip}" id="it6"
+                                                      simple="true" contentStyle="width:100%"
+                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
+                                            <f:validator binding="#{bindings.OrderTypeShortName.validator}"/>
+                                        </af:inputText>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                    <af:gridCell marginStart="5px" width="15%" id="gc7" marginEnd="5px" halign="center"
+                                                 valign="middle">
+                                        <af:outputLabel value="#{bindings.OpenDate.hints.label}" id="ol3"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px" halign="stretch"
+                                                 columnSpan="1" rowSpan="1" valign="middle">
+                                        <af:inputDate value="#{bindings.OpenDate.inputValue}"
+                                                      label="#{bindings.OpenDate.hints.label}"
+                                                      required="#{bindings.OpenDate.hints.mandatory}"
+                                                      columns="#{bindings.OpenDate.hints.displayWidth}"
+                                                      shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id1"
+                                                      simple="true"
+                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}"
+                                                      contentStyle="width:90%">
+                                            <f:validator binding="#{bindings.OpenDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
+                                        </af:inputDate>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                                    <af:gridCell marginStart="5px" width="15%" id="gc11" halign="center"
+                                                 valign="middle">
+                                        <af:outputLabel value="#{bindings.OrderTypeFor.label}" id="ol5"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px" columnSpan="1"
+                                                 halign="stretch" rowSpan="1" valign="middle">
+                                        <af:selectOneChoice value="#{bindings.OrderTypeFor.inputValue}"
+                                                            label="#{bindings.OrderTypeFor.label}"
+                                                            required="#{bindings.OrderTypeFor.hints.mandatory}"
+                                                            shortDesc="#{bindings.OrderTypeFor.hints.tooltip}" id="soc2"
+                                                            simple="true" contentStyle="width:100%"
+                                                            readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
+                                            <f:selectItems value="#{bindings.OrderTypeFor.items}" id="si2"/>
+                                            <f:validator binding="#{bindings.OrderTypeFor.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow id="gr5">
+                                    <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px" halign="center"
+                                                 valign="middle">
+                                        <af:outputLabel value="#{bindings.IsActive.label}" id="ol4"/>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc6" halign="stretch" valign="middle">
+                                        <af:selectOneChoice value="#{bindings.IsActive.inputValue}"
+                                                            label="#{bindings.IsActive.label}"
+                                                            required="#{bindings.IsActive.hints.mandatory}"
+                                                            shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1"
+                                                            simple="true" contentStyle="width:100%"
+                                                            readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.OrderTypeCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
+                                            <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
+                                            <f:validator binding="#{bindings.IsActive.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
                         </f:facet>
                         <f:facet name="top">
-                            <af:panelGridLayout id="pgl1">
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc1"/>
+                            <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
+                                <af:gridRow height="auto" id="gr1">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
+                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
+                                                       styleClass="ERPActivityNameFormHeading"/>
+                                    </af:gridCell>
                                     <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2"
                                                  halign="stretch">
 <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
@@ -200,7 +203,8 @@
                                                      icon="#{resource['images:imgCloseDialog.png']}"
                                                      text="Close"
                                                      iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"/>
+                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                     shortDesc="Close Form"/>
                                             <af:link actionListener="#{bindings.CreateWithParams.execute}"
                                                      text="CreateWithParams"
                                                      disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
@@ -210,11 +214,12 @@
                                             <af:link text="Delete" id="l9" actionListener="#{bindings.Delete.execute}"
                                                      iconPosition="top"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     partialSubmit="true"/>
+                                                     partialSubmit="true" shortDesc="Delete Record"/>
                                             <af:link text="Add" id="l1" icon="#{resource['images:imgAddRecord.png']}"
                                                      iconPosition="top" partialSubmit="true"
                                                      action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}">
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                     shortDesc="Add New Record">
                                                 <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
@@ -222,7 +227,8 @@
                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                     shortDesc="Supervise Record">
                                                 <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>                                                     
@@ -230,7 +236,8 @@
                                                      icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                      iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}">
+                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                     shortDesc="Un Supervise Record">
                                                 <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                             </af:link>
@@ -241,7 +248,8 @@
                                             <af:link text="Undo" immediate="true" id="l3"
                                                      icon="#{resource['images:imgUndo.png']}" iconPosition="top"
                                                      partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}">
+                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                     shortDesc="Undo Record">
                                                 <af:resetActionListener/>
                                             </af:link>
                                             <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l8"
@@ -249,7 +257,8 @@
                                             <af:link text="Save" id="l2"
                                                      icon="#{resource['images:imgSave.png']}" iconPosition="top"
                                                      partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"/>
+                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                                     shortDesc="Save Record"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s1"/>
                                             </f:facet>
