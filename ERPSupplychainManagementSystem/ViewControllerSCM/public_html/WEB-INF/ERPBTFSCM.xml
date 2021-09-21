@@ -694,6 +694,18 @@
         <name>ERPEXITTASKFLOWVIAGS</name>
       </outcome>
     </task-flow-return>
+    <method-call id="ExeSCMSupplierByComp">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="EXESCMPaymentTermByCompanyExe">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -866,7 +878,7 @@
       <from-activity-id>SCM_0003_EDIT_EDIT</from-activity-id>
       <control-flow-case id="__46">
         <from-outcome>ERPBACKCRUD</from-outcome>
-        <to-activity-id>SCM_0003_EDIT</to-activity-id>
+        <to-activity-id>EXESCMPaymentTermByCompanyExe</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__48">
@@ -1598,7 +1610,7 @@
       </control-flow-case>
       <control-flow-case id="__261">
         <from-outcome>ERPBACKCRUD</from-outcome>
-        <to-activity-id>SCM_0010_EDIT</to-activity-id>
+        <to-activity-id>ExeSCMSupplierByComp</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__268">
         <from-outcome>QRY_SCM_0010_EDIT_EDIT_EDIT</from-outcome>
@@ -1719,6 +1731,20 @@
       <control-flow-case id="__299">
         <from-outcome>ERP-SCM-ACT-RET-FROM-EXCEPTION</from-outcome>
         <to-activity-id>SCM_MAIN</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__300">
+      <from-activity-id>ExeSCMSupplierByComp</from-activity-id>
+      <control-flow-case id="__301">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0010_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__302">
+      <from-activity-id>EXESCMPaymentTermByCompanyExe</from-activity-id>
+      <control-flow-case id="__303">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0003_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

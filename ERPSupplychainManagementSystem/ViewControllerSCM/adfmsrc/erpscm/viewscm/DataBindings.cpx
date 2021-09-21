@@ -202,6 +202,10 @@
     <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ErpdoInsertAccessableCompanyFMS"
           usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ErpdoInsertAccessableCompanyPageDef"/>
     <page path="/SCM_0014.jsf" usageId="erpscm_viewscm_SCM_0014PageDef"/>
+    <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@ExeSCMSupplierByComp"
+          usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef111111111111111111"/>
+    <page path="/WEB-INF/ERPBTFSCM.xml#ERPBTFSCM@EXESCMPaymentTermByCompanyExe"
+          usageId="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef1111111111111111111"/>
   </pageMap>
   <dataControlUsages>
     <BC4JDataControl id="ERPTemModuleDataControl" Package="erptemplate.modeltemp.temam"
@@ -418,5 +422,9 @@
     <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ErpdoInsertAccessableCompanyPageDef"
           path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ErpdoInsertAccessableCompanyPageDef"/>
     <page id="erpscm_viewscm_SCM_0014PageDef" path="erpscm.viewscm.pageDefs.SCM_0014PageDef"/>
+    <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef111111111111111111"
+          path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecutePageDef111111111111111111"/>
+    <page id="erpscm_viewscm_ERPBTFSCM_ERPBTFSCM_ExecutePageDef1111111111111111111"
+          path="erpscm.viewscm.pageDefs.ERPBTFSCM_ERPBTFSCM_ExecutePageDef1111111111111111111"/>
   </pageDefinitionUsages>
 </Application>
