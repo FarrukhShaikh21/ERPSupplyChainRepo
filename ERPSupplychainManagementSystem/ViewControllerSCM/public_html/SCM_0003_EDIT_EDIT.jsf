@@ -200,13 +200,13 @@
                                                                      id="l11" iconPosition="top"
                                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                                      partialSubmit="true"
-                                                                     shortDesc="Delete Payment Term Due"/>
+                                                                     shortDesc="Delete Oayment Term Due Line"/>
                                                             <af:link actionListener="#{bindings.CreateInsert.execute}"
                                                                      disabled="#{bindings.PaymentTermHeaderCode.inputValue==null || bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
                                                                      id="l10" partialSubmit="true"
                                                                      icon="#{resource['images:imgAddRecord.png']}"
                                                                      iconPosition="top"
-                                                                     shortDesc="Add New Oayment Term Due"/>
+                                                                     shortDesc="Add New Oayment Term Due Line"/>
                                                         </af:toolbar>
                                                     </f:facet>
                                                     <f:facet name="statusbar"/>
@@ -367,13 +367,13 @@
                                                                      id="l13"
                                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                                      partialSubmit="true"
-                                                                     shortDesc="Delete Payment Term Discount"/>
+                                                                     shortDesc="Delete Payment Term Discount Line"/>
                                                             <af:link actionListener="#{bindings.CreateInsert1.execute}"
                                                                      disabled="#{bindings.PaymentTermHeaderCode.inputValue==null || bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
                                                                      id="l12"
                                                                      icon="#{resource['images:imgAddRecord.png']}"
                                                                      partialSubmit="true"
-                                                                     shortDesc="Add New Payment Term Discount"/>
+                                                                     shortDesc="Add New Payment Term Discount Line"/>
                                                         </af:toolbar>
                                                     </f:facet>
                                                     <f:facet name="statusbar"/>
