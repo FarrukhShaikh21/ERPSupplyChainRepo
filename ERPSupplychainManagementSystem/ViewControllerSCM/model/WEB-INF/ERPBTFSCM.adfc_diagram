@@ -479,7 +479,7 @@
       <property
          name="fromOutcome">ERP-ACT-SCM_0003EDITQUERY</property>
       <property
-         name="sdm:polyPoints">L50,-42.648438,1117.3965,-177.97461,1124.7471,R50</property>
+         name="sdm:polyPoints">L50,-42.648438,1117.3965,-177.37898,1128.2471,R54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -489,7 +489,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">B56,-215.47461,1178.7471,152.5,1095.0977,B50</property>
+         name="sdm:polyPoints">R46,-177.97461,1121.2471,111.5,1044.5977,L54</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall49">
@@ -512,7 +512,7 @@
       <property
          name="fromOutcome">ERP-ACT-SCM_0003ADD</property>
       <property
-         name="sdm:polyPoints">R50,43.021484,971.0459,23.019531,1269.3965,R50</property>
+         name="sdm:polyPoints">R54,43.021484,974.5459,23.019531,1269.3965,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -568,9 +568,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">103.890625</property>
+         name="y">188.18945</property>
       <property
-         name="x">-639.9746</property>
+         name="x">-670.9746</property>
    </View>
    <MethodCall
       id="MethodCall56">
@@ -593,7 +593,7 @@
       <property
          name="fromOutcome">ERPADDSCM_0002_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">B50,-548.9785,17.779638,-567.48047,285.03418,T56</property>
+         name="sdm:polyPoints">B50,-548.9785,18.360065,-567.48047,285.03418,T56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -603,7 +603,7 @@
       <property
          name="fromOutcome">CreateWithParams</property>
       <property
-         name="sdm:polyPoints">T44,-574.48047,285.03418,-636.4746,157.54004,B56</property>
+         name="sdm:polyPoints">T44,-574.48047,285.03418,-667.4746,241.83887,B56</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall59">
@@ -642,11 +642,11 @@
       islink="true"
       id="ControlFlowCase62"
       from="View55"
-      to="View29">
+      to="MethodCall316">
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">R50,-592.24115,103.54004,-555.9785,16.838867,B39</property>
+         name="sdm:polyPoints">T56,-667.4746,133.83887,-631.5,5.7470703,B50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall63">
@@ -679,7 +679,7 @@
       <property
          name="fromOutcome">ERPEDITSCM_0002_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">L50,-395.64844,299.5918,-598.9746,110.54004,R58</property>
+         name="sdm:polyPoints">L50,-395.64844,299.5918,-629.9746,187.83887,R50</property>
    </ControlFlowCase>
    <View
       id="View66">
@@ -1599,9 +1599,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">1.0458984</property>
+         name="y">-44.655273</property>
       <property
-         name="x">-778.98535</property>
+         name="x">-900.98535</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -1611,7 +1611,7 @@
       <property
          name="fromOutcome">ADD_SCM_0002_EDIT_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">L50,-680.9746,103.54004,-778.98535,54.695312,B50</property>
+         name="sdm:polyPoints">L50,-711.9746,187.83887,-897.48535,8.994141,B56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -1621,7 +1621,7 @@
       <property
          name="fromOutcome">CreateInsertSCM_0002_EDIT_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">L50,-819.98535,0.6953125,-936.9707,57.890625,T50</property>
+         name="sdm:polyPoints">B44,-904.48535,8.994141,-936.9707,57.890625,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall148">
@@ -1632,9 +1632,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">306.44824</property>
+         name="y">364.0459</property>
       <property
-         name="x">-747.64844</property>
+         name="x">-795.64844</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -1644,7 +1644,7 @@
       <property
          name="fromOutcome">QRY_SCM_0002_EDIT_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">B44,-643.4746,157.54004,-747.64844,252.09766,T50</property>
+         name="sdm:polyPoints">B44,-674.4746,241.83887,-792.14844,309.6953,T56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -1654,7 +1654,7 @@
       <property
          name="fromOutcome">QRY_SCM_0002_EDIT_EDIT_EDIT</property>
       <property
-         name="sdm:polyPoints">L50,-788.64844,306.09766,-933.4707,165.89062,B56</property>
+         name="sdm:polyPoints">T44,-799.14844,309.6953,-933.4707,165.89062,B56</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall151">
@@ -1665,9 +1665,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">375.44824</property>
+         name="y">351.74707</property>
       <property
-         name="x">-872.5</property>
+         name="x">-971.5</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -1677,7 +1677,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">B44,-940.4707,168.07169,-876.0,321.09766,T44</property>
+         name="sdm:polyPoints">B44,-940.4707,165.89062,-975.0,295.80447,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -1687,7 +1687,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">T56,-869.0,321.09766,-705.5,5.0976562,L50</property>
+         name="sdm:polyPoints">T56,-968.0,297.39648,-761.0,13.396484,B44</property>
    </ControlFlowCase>
    <View
       id="View154">
@@ -3133,9 +3133,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">5.448242</property>
+         name="y">-40.25293</property>
       <property
-         name="x">-664.5</property>
+         name="x">-757.5</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
@@ -3145,7 +3145,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">R50,-623.5,5.0976562,-598.9746,96.54004,R42</property>
+         name="sdm:polyPoints">B56,-754.0,13.396484,-674.4746,133.83887,T44</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall285">
@@ -3485,5 +3485,28 @@
          name="fromOutcome">ERPBACKCRUD</property>
       <property
          name="sdm:polyPoints">L46,111.5,1037.5977,48.240044,967.5459,R46</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall316">
+      <property
+         name="activityId">ScmCustomerByCompanyExe</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ScmCustomerByCompanyExe&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-47.902344</property>
+      <property
+         name="x">-631.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase317"
+      from="MethodCall316"
+      to="View29">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">R50,-590.5,-48.25293,-589.9785,-37.161133,L50</property>
    </ControlFlowCase>
 </SDM>
