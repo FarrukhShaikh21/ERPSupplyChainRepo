@@ -248,7 +248,7 @@
                                                       id="t1" partialTriggers="::l11 ::l12"
                                                       columnStretching="column:c2">
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.label}"
-                                                           id="c1" width="60">
+                                                           id="c1" width="60" headerClass="ERPToolBarBackground">
                                                     <af:inputText value="#{row.bindings.LineNo.inputValue}"
                                                                   label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.label}"
                                                                   required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.mandatory}"
@@ -262,7 +262,7 @@
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.label}"
-                                                           id="c2" width="170">
+                                                           id="c2" width="170" headerClass="ERPToolBarBackground">
                                                     <af:inputComboboxListOfValues id="txtItemNameId"
                                                                                   popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.label}"
                                                                                   value="#{row.bindings.txtItemName.inputValue}"
@@ -275,7 +275,7 @@
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.label}"
-                                                           id="c3" width="150">
+                                                           id="c3" width="150" headerClass="ERPToolBarBackground">
                                                     <af:inputComboboxListOfValues id="txtUnitTypeNameId"
                                                                                   popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.label}"
                                                                                   value="#{row.bindings.txtUnitTypeName.inputValue}"
@@ -288,7 +288,7 @@
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtProjectName.label}"
-                                                           id="c4" width="200">
+                                                           id="c4" width="200" headerClass="ERPToolBarBackground">
                                                     <af:inputComboboxListOfValues id="iclov1"
                                                                                   popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtProjectName.label}"
                                                                                   value="#{row.bindings.txtProjectName.inputValue}"
@@ -301,7 +301,7 @@
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtDepartmentName.label}"
-                                                           id="c5" width="200">
+                                                           id="c5" width="200" headerClass="ERPToolBarBackground">
                                                     <af:inputComboboxListOfValues id="txtDepartmentNameId"
                                                                                   popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtDepartmentName.label}"
                                                                                   value="#{row.bindings.txtDepartmentName.inputValue}"
@@ -314,7 +314,8 @@
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.label}"
-                                                           id="c6" width="130" displayIndex="-1">
+                                                           id="c6" width="130" displayIndex="-1"
+                                                           headerClass="ERPToolBarBackground">
                                                     <af:inputDate value="#{row.bindings.RequiredByDate.inputValue}"
                                                                   label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.label}"
                                                                   required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.mandatory}"
@@ -326,7 +327,8 @@
                                                     </af:inputDate>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.label}"
-                                                           id="c7" width="80" displayIndex="-1">
+                                                           id="c7" width="80" displayIndex="-1"
+                                                           headerClass="ERPToolBarBackground">
                                                     <af:inputText value="#{row.bindings.DemandQuantity.inputValue}"
                                                                   label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.label}"
                                                                   required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.mandatory}"
@@ -346,7 +348,8 @@
                                                     </f:facet>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.label}"
-                                                           id="c8" width="80" displayIndex="-1">
+                                                           id="c8" width="80" displayIndex="-1"
+                                                           headerClass="ERPToolBarBackground">
                                                     <af:inputText value="#{row.bindings.ApproveQuantity.inputValue}"
                                                                   label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.label}"
                                                                   required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.mandatory}"

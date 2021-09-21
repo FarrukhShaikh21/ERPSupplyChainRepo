@@ -84,7 +84,8 @@
                                                                       styleClass="AFStretchWidth"
                                                                       columnStretching="column:c3">
                                                                 <af:column headerText="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.label}"
-                                                                           id="c1" width="70" displayIndex="-1">
+                                                                           id="c1" width="70" displayIndex="-1"
+                                                                           headerClass="ERPToolBarBackground">
                                                                     <af:inputText value="#{row.bindings.CategoryShortCode.inputValue}"
                                                                                   label="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.label}"
                                                                                   required="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortCode.mandatory}"
@@ -98,7 +99,7 @@
                                                                     </af:inputText>
                                                                 </af:column>
                                                                 <af:column headerText="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortName.label}"
-                                                                           id="c2">
+                                                                           id="c2" headerClass="ERPToolBarBackground">
                                                                     <af:inputText value="#{row.bindings.CategoryShortName.inputValue}"
                                                                                   label="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortName.label}"
                                                                                   required="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryShortName.mandatory}"
@@ -110,7 +111,7 @@
                                                                     </af:inputText>
                                                                 </af:column>
                                                                 <af:column headerText="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryTypeName.label}"
-                                                                           id="c3">
+                                                                           id="c3" headerClass="ERPToolBarBackground">
                                                                     <af:inputText value="#{row.bindings.CategoryTypeName.inputValue}"
                                                                                   label="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryTypeName.label}"
                                                                                   required="#{bindings.ScmCustomerCategoryForTaxCatRO.hints.CategoryTypeName.mandatory}"
@@ -121,7 +122,8 @@
                                                                         <f:validator binding="#{row.bindings.CategoryTypeName.validator}"/>
                                                                     </af:inputText>
                                                                 </af:column>
-                                                                <af:column id="c4" width="70" displayIndex="-1">
+                                                                <af:column id="c4" width="70" displayIndex="-1"
+                                                                           headerClass="ERPToolBarBackground">
                                                                     <af:link actionListener="#{bindings.doErpAssignSingleCustCatToTaxType.execute}"
                                                                              text="Assign This"
                                                                              disabled="#{row.bindings.txtSelected.inputValue=='Y'}"
@@ -178,7 +180,8 @@
                                                                   partialTriggers="::l8 ::l9" autoHeightRows="15"
                                                                   styleClass="AFStretchWidth">
                                                             <af:column headerText="#{bindings.ScmCustomerCategotyTaxCRUD.hints.txtCategoryCode.label}"
-                                                                       id="c5" width="80" displayIndex="-1">
+                                                                       id="c5" width="80" displayIndex="-1"
+                                                                       headerClass="ERPToolBarBackground">
                                                                 <af:inputText value="#{row.bindings.txtCategoryCode.inputValue}"
                                                                               label="#{bindings.ScmCustomerCategotyTaxCRUD.hints.txtCategoryCode.label}"
                                                                               required="#{bindings.ScmCustomerCategotyTaxCRUD.hints.txtCategoryCode.mandatory}"
@@ -190,7 +193,7 @@
                                                                 </af:inputText>
                                                             </af:column>
                                                             <af:column headerText="#{bindings.ScmCustomerCategotyTaxCRUD.hints.txtCategoryName.label}"
-                                                                       id="c6">
+                                                                       id="c6" headerClass="ERPToolBarBackground">
                                                                 <af:inputText value="#{row.bindings.txtCategoryName.inputValue}"
                                                                               label="#{bindings.ScmCustomerCategotyTaxCRUD.hints.txtCategoryName.label}"
                                                                               required="#{bindings.ScmCustomerCategotyTaxCRUD.hints.txtCategoryName.mandatory}"
@@ -202,7 +205,8 @@
                                                                 </af:inputText>
                                                             </af:column>
                                                             <af:column headerText="#{bindings.ScmCustomerCategotyTaxCRUD.hints.OpenDate.label}"
-                                                                       id="c7" width="110" minimumWidth="12">
+                                                                       id="c7" width="110" minimumWidth="12"
+                                                                       headerClass="ERPToolBarBackground">
                                                                 <af:inputDate value="#{row.bindings.OpenDate.inputValue}"
                                                                               label="#{bindings.ScmCustomerCategotyTaxCRUD.hints.OpenDate.label}"
                                                                               required="#{bindings.ScmCustomerCategotyTaxCRUD.hints.OpenDate.mandatory}"
@@ -214,7 +218,7 @@
                                                                 </af:inputDate>
                                                             </af:column>
                                                             <af:column headerText="#{bindings.ScmCustomerCategotyTaxCRUD.hints.IsActive.label}"
-                                                                       id="c8">
+                                                                       id="c8" headerClass="ERPToolBarBackground">
                                                                 <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
                                                                                     label="#{row.bindings.IsActive.label}"
                                                                                     required="#{bindings.ScmCustomerCategotyTaxCRUD.hints.IsActive.mandatory}"

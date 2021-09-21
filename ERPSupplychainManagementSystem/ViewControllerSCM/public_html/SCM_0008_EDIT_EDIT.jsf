@@ -91,7 +91,7 @@
                                                                       id="t1" columnStretching="column:c3"
                                                                       partialTriggers="l11">
                                                                 <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.label}"
-                                                                           id="c1">
+                                                                           id="c1" headerClass="ERPToolBarBackground">
                                                                     <af:inputText value="#{row.bindings.CustomerTypeCode.inputValue}"
                                                                                   label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.label}"
                                                                                   required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeCode.mandatory}"
@@ -106,7 +106,8 @@
                                                                 </af:column>
                                                                 <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
                                                                            id="c2" width="80" displayIndex="-1"
-                                                                           rendered="false">
+                                                                           rendered="false"
+                                                                           headerClass="ERPToolBarBackground">
                                                                     <af:inputText value="#{row.bindings.CustomerTypeShortName.inputValue}"
                                                                                   label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.label}"
                                                                                   required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeShortName.mandatory}"
@@ -118,7 +119,7 @@
                                                                     </af:inputText>
                                                                 </af:column>
                                                                 <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.label}"
-                                                                           id="c3">
+                                                                           id="c3" headerClass="ERPToolBarBackground">
                                                                     <af:inputText value="#{row.bindings.CustomerTypeName.inputValue}"
                                                                                   label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.label}"
                                                                                   required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeName.mandatory}"
@@ -130,7 +131,8 @@
                                                                     </af:inputText>
                                                                 </af:column>
                                                                 <af:column headerText="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.label}"
-                                                                           id="c4" rendered="false">
+                                                                           id="c4" rendered="false"
+                                                                           headerClass="ERPToolBarBackground">
                                                                     <af:inputText value="#{row.bindings.CustomerTypeSno.inputValue}"
                                                                                   label="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.label}"
                                                                                   required="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.mandatory}"
@@ -143,7 +145,8 @@
                                                                                           pattern="#{bindings.CustomerTypeForTaxCatRO.hints.CustomerTypeSno.format}"/>
                                                                     </af:inputText>
                                                                 </af:column>
-                                                                <af:column id="c9" width="80" displayIndex="-1">
+                                                                <af:column id="c9" width="80" displayIndex="-1"
+                                                                           headerClass="ERPToolBarBackground">
                                                                     <af:inputText value="#{row.bindings.txtSelected.inputValue}"
                                                                                   label="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.label}"
                                                                                   required="#{bindings.CustomerTypeForTaxCatRO.hints.txtSelected.mandatory}"
@@ -201,7 +204,8 @@
                                                                   columnStretching="column:c5"
                                                                   styleClass="AFStretchWidth">
                                                             <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.label}"
-                                                                       id="c8" width="60" minimumWidth="12">
+                                                                       id="c8" width="60" minimumWidth="12"
+                                                                       headerClass="ERPToolBarBackground">
                                                                 <af:inputText value="#{row.bindings.txtCustTypeCode.inputValue}"
                                                                               label="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.label}"
                                                                               required="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeCode.mandatory}"
@@ -213,7 +217,7 @@
                                                                 </af:inputText>
                                                             </af:column>
                                                             <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.label}"
-                                                                       id="c5">
+                                                                       id="c5" headerClass="ERPToolBarBackground">
                                                                 <af:inputText value="#{row.bindings.txtCustTypeName.inputValue}"
                                                                               label="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.label}"
                                                                               required="#{bindings.ScmCustTypeTaxCRUD.hints.txtCustTypeName.mandatory}"
@@ -226,7 +230,8 @@
                                                                 </af:inputText>
                                                             </af:column>
                                                             <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.label}"
-                                                                       id="c6" width="120" displayIndex="-1">
+                                                                       id="c6" width="120" displayIndex="-1"
+                                                                       headerClass="ERPToolBarBackground">
                                                                 <af:inputDate value="#{row.bindings.OpenDate.inputValue}"
                                                                               label="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.label}"
                                                                               required="#{bindings.ScmCustTypeTaxCRUD.hints.OpenDate.mandatory}"
@@ -238,7 +243,8 @@
                                                                 </af:inputDate>
                                                             </af:column>
                                                             <af:column headerText="#{bindings.ScmCustTypeTaxCRUD.hints.IsActive.label}"
-                                                                       id="c7" width="70" minimumWidth="12">
+                                                                       id="c7" width="70" minimumWidth="12"
+                                                                       headerClass="ERPToolBarBackground">
                                                                 <af:selectOneChoice value="#{row.bindings.IsActive.inputValue}"
                                                                                     label="#{row.bindings.IsActive.label}"
                                                                                     required="#{bindings.ScmCustTypeTaxCRUD.hints.IsActive.mandatory}"

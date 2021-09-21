@@ -52,15 +52,18 @@
                   </af:gridCell>
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" id="gr9">
-                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8" halign="center" valign="stretch">
-                    <af:quickQuery label=" " searchDesc="Search" id="qryId1"
-                                   value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
-                                   model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
-                                   queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
-                      <f:facet name="end">
-                        <af:commandLink text="Advanced" rendered="false" id="cl1"/>
-                      </f:facet>
-                    </af:quickQuery>
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8" halign="stretch" valign="stretch"
+                               styleClass="ERPToolBarBackground">
+                    <af:panelGroupLayout id="pgl13" halign="center" layout="horizontal">
+                      <af:quickQuery label=" " searchDesc="Search" id="qryId1"
+                                     value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                     model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                     queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                        <f:facet name="end">
+                          <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                        </f:facet>
+                      </af:quickQuery>
+                    </af:panelGroupLayout>
                   </af:gridCell>
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">

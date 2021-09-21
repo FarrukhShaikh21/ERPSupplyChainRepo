@@ -69,7 +69,8 @@
                                                               fetchSize="#{bindings.ScmCustomerTypeByCopmanyRO.rangeSize}"
                                                               id="t1" columnStretching="column:c4">
                                                         <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.label}"
-                                                                   id="c1" rendered="false">
+                                                                   id="c1" rendered="false"
+                                                                   headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.CustomerTypeSno.inputValue}"
                                                                           label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.label}"
                                                                           required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.mandatory}"
@@ -83,7 +84,7 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.label}"
-                                                                   id="c2">
+                                                                   id="c2" headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.CustomerTypeCode.inputValue}"
                                                                           label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.label}"
                                                                           required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.mandatory}"
@@ -97,7 +98,7 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.label}"
-                                                                   id="c3">
+                                                                   id="c3" headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.CustomerTypeShortName.inputValue}"
                                                                           label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.label}"
                                                                           required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.mandatory}"
@@ -109,7 +110,7 @@
                                                             </af:inputText>
                                                         </af:column>
                                                         <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.label}"
-                                                                   id="c4">
+                                                                   id="c4" headerClass="ERPToolBarBackground">
                                                             <af:inputText value="#{row.bindings.CustomerTypeName.inputValue}"
                                                                           label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.label}"
                                                                           required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.mandatory}"
@@ -160,7 +161,8 @@
                                                           id="t2" partialTriggers="::l1 ::l8 ::l9"
                                                           columnStretching="column:c9">
                                                     <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.label}"
-                                                               id="c5" rendered="false">
+                                                               id="c5" rendered="false"
+                                                               headerClass="ERPToolBarBackground">
                                                         <af:inputText value="#{row.bindings.TypeTaxRateSno.inputValue}"
                                                                       label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.label}"
                                                                       required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.mandatory}"
@@ -174,7 +176,7 @@
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.label}"
-                                                               id="c6" width="130">
+                                                               id="c6" width="130" headerClass="ERPToolBarBackground">
                                                         <af:inputDate value="#{row.bindings.FromDate.inputValue}"
                                                                       label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.label}"
                                                                       required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.mandatory}"
@@ -187,7 +189,7 @@
                                                         </af:inputDate>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.label}"
-                                                               id="c7" width="130">
+                                                               id="c7" width="130" headerClass="ERPToolBarBackground">
                                                         <af:inputDate value="#{row.bindings.ToDate.inputValue}"
                                                                       label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.label}"
                                                                       required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.mandatory}"
@@ -200,7 +202,8 @@
                                                         </af:inputDate>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.label}"
-                                                               id="c8" width="80" displayIndex="-1">
+                                                               id="c8" width="80" displayIndex="-1"
+                                                               headerClass="ERPToolBarBackground">
                                                         <af:inputText value="#{row.bindings.FilerRate.inputValue}"
                                                                       label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.label}"
                                                                       required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.mandatory}"
@@ -215,7 +218,8 @@
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.label}"
-                                                               id="c9" width="80" displayIndex="-1">
+                                                               id="c9" width="80" displayIndex="-1"
+                                                               headerClass="ERPToolBarBackground">
                                                         <af:inputText value="#{row.bindings.NonFilerRate.inputValue}"
                                                                       label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.label}"
                                                                       required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.mandatory}"
@@ -230,7 +234,8 @@
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.label}"
-                                                               id="c10" width="80" displayIndex="-1">
+                                                               id="c10" width="80" displayIndex="-1"
+                                                               headerClass="ERPToolBarBackground">
                                                         <af:inputText value="#{row.bindings.IsSupervised.inputValue}"
                                                                       label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.label}"
                                                                       required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.mandatory}"
