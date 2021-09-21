@@ -719,7 +719,8 @@
                                                                      iconPosition="top"
                                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
                                                                      partialSubmit="true"
-                                                                     disabled="#{bindings.IsUnsupervised.inputValue=='Y' || bindings.SupplierShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                                     disabled="#{bindings.IsUnsupervised.inputValue=='Y' || bindings.SupplierShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                                     shortDesc="Un Supervise Record">
                                                                 <af:setActionListener from="#{'ScmSupplierCRUDIterator'}"
                                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                             </af:link>
@@ -727,19 +728,21 @@
                                                                      icon="#{resource['images:imgSuperviseRecord.png']}"
                                                                      iconPosition="top" partialSubmit="true"
                                                                      action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.SupplierShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}">
+                                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.SupplierShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                                     shortDesc="Supervise Record">
                                                                 <af:setActionListener to="#{pageFlowScope.OracleERPBean.LIteratorName}"
                                                                                       from="#{'ScmSupplierCRUDIterator'}"/>
                                                             </af:link>
                                                             <af:link text="Add" id="l6"
                                                                      icon="#{resource['images:imgAddRecord.png']}"
                                                                      iconPosition="top" partialSubmit="true"
-                                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"/>
+                                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                                     shortDesc="Add New Record"/>
                                                             <af:link text="Print Preview" id="l9"
                                                                      icon="#{resource['images:imgPrintPreview.png']}"
                                                                      iconPosition="top"
                                                                      action="#{pageFlowScope.OracleERPBean.doExecuteSupplyChainReport}"
-                                                                     partialSubmit="true">
+                                                                     partialSubmit="true" shortDesc="Print Preview">
                                                                 <af:setActionListener from="#{'RPT_SCM_0008.rptdesign'}"
                                                                                       to="#{pageFlowScope.OracleERPBean.ERPSupplyChainReportName}"/>
                                                                 <af:setActionListener from="#{'ScmCustomerCategoryCRUDIterator'}"
@@ -759,7 +762,8 @@
                                                                      text="Delete"
                                                                      disabled="#{!bindings.Delete.enabled}" id="l4"
                                                                      icon="#{resource['images:imgDeleteRecord.png']}"
-                                                                     iconPosition="top" partialSubmit="true"/>
+                                                                     iconPosition="top" partialSubmit="true"
+                                                                     shortDesc="Delete Record"/>
                                                             <af:link actionListener="#{bindings.Delete.execute}"
                                                                      text="Delete"
                                                                      disabled="#{!bindings.Delete.enabled}" id="l2"
@@ -768,12 +772,12 @@
                                                                      icon="#{resource['images:imgSave.png']}"
                                                                      iconPosition="top"
                                                                      action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
-                                                                     partialSubmit="true"/>
+                                                                     partialSubmit="true" shortDesc="Save Record"/>
                                                             <af:link text="Undo" immediate="true" id="l13"
                                                                      icon="#{resource['images:imgUndo.png']}"
                                                                      iconPosition="top"
                                                                      action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                                     partialSubmit="true">
+                                                                     partialSubmit="true" shortDesc="Undo Record">
                                                                 <af:resetActionListener/>
                                                             </af:link>
                                                             <af:link actionListener="#{bindings.Rollback.execute}"
@@ -837,13 +841,16 @@
                                                                                         id="gr21">
                                                                                 <af:gridCell marginStart="5px"
                                                                                              width="100%"
-                                                                                             marginEnd="5px" id="gc76">
+                                                                                             marginEnd="5px" id="gc76"
+                                                                                             styleClass="ERPHeroBackground">
                                                                                     <af:panelGroupLayout id="pgl20"
                                                                                                          layout="horizontal">
                                                                                         <af:link id="l20"
                                                                                                  action="QRY_SCM_0010_EDIT_EDIT_EDIT"
                                                                                                  icon="#{resource['images:imgView.png']}"
-                                                                                                 iconPosition="top"/>
+                                                                                                 iconPosition="top"
+                                                                                                 styleClass="ERPLink"
+                                                                                                 shortDesc="Site Short Name, Click To View Record."/>
                                                                                         <af:outputFormatted value="#{item.bindings.SiteShortName.inputValue}"
                                                                                                             id="of6"
                                                                                                             styleClass="ERPHeroBannerFont"/>
@@ -862,7 +869,8 @@
                                                                                                          layout="horizontal">
                                                                                         <af:link id="l21"
                                                                                                  icon="#{resource['images:imgDocumentNumber.png']}"
-                                                                                                 iconPosition="top"/>
+                                                                                                 iconPosition="top"
+                                                                                                 shortDesc="Site Code"/>
                                                                                         <af:outputFormatted value="#{item.bindings.SupplierSiteCode.inputValue}"
                                                                                                             id="of7"
                                                                                                             styleClass="ERPHeroDetailColor">
@@ -880,7 +888,8 @@
                                                                                     <af:panelGroupLayout id="pgl22"
                                                                                                          layout="horizontal">
                                                                                         <af:link id="l22"
-                                                                                                 icon="#{resource['images:imgShortName.png']}"/>
+                                                                                                 icon="#{resource['images:imgShortName.png']}"
+                                                                                                 shortDesc="Site Name"/>
                                                                                         <af:outputFormatted value="#{item.bindings.SiteName.inputValue}"
                                                                                                             id="of8"
                                                                                                             styleClass="ERPHeroDetailColor"/>
@@ -895,7 +904,8 @@
                                                                                     <af:panelGroupLayout id="pgl23"
                                                                                                          layout="horizontal">
                                                                                         <af:link id="l23"
-                                                                                                 icon="#{resource['images:imgDocumentDate.png']}"/>
+                                                                                                 icon="#{resource['images:imgDocumentDate.png']}"
+                                                                                                 shortDesc="Site Type"/>
                                                                                         <af:outputFormatted value="#{item.bindings.SiteType.inputValue}"
                                                                                                             id="of9"
                                                                                                             styleClass="ERPHeroDetailColor"/>
@@ -910,7 +920,8 @@
                                                                                     <af:panelGroupLayout id="pgl24"
                                                                                                          layout="horizontal">
                                                                                         <af:link id="l24"
-                                                                                                 icon="#{resource['images:imgCountry.png']}"/>
+                                                                                                 icon="#{resource['images:imgPhone.png']}"
+                                                                                                 shortDesc="Phone No"/>
                                                                                         <af:outputFormatted value="#{item.bindings.SitePhoneNo.inputValue}"
                                                                                                             id="of10"
                                                                                                             styleClass="ERPHeroDetailColor"/>
@@ -934,7 +945,7 @@
                     <af:panelGroupLayout id="pgl12" layout="horizontal" halign="end">
                       <af:link id="l10" icon="#{resource['images:imgNewDocument.png']}"
                                disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
-                               action="ADD_SCM_0010_EDIT_EDIT_EDIT"/>
+                               action="ADD_SCM_0010_EDIT_EDIT_EDIT" shortDesc="Add New Record"/>
                       <f:facet name="separator">
                         <af:spacer width="10" height="10" id="s7"/>
                       </f:facet>
@@ -960,7 +971,7 @@
                                             <af:link text="Close" id="l11"
                                                      icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
                                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                                     partialSubmit="true">
+                                                     partialSubmit="true" shortDesc="Close Form">
                                                 <af:setActionListener from="#{pageFlowScope.OracleERPBean.LErpPanelDefaultTabbed}"
                                                                       to="#{pageFlowScope.OracleERPBean.LErpPanelTabbed}"/>
                                             </af:link>

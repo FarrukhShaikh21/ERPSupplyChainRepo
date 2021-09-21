@@ -4,14 +4,14 @@
   <af:document title="SCM_0007.jsf" id="d1">
     <af:messages id="m1"/>
     <af:form id="f1">
-      <af:decorativeBox id="db2">
+      <af:decorativeBox id="db2" dimensionsFrom="parent">
         <f:facet name="center">
           <af:decorativeBox id="db1">
             <f:facet name="center">
               <af:panelGridLayout id="pgl2">
                 <af:gridRow marginTop="5px" height="auto" id="gr2" marginBottom="5px">
-                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="center"
-                               styleClass="ERPCompanyInfoBackGround">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
+                               styleClass="ERPCompanyInfoBackGround" valign="stretch">
                     <af:panelGroupLayout id="pgl5" layout="vertical" halign="center">
                       <af:panelFormLayout id="pfl1" maxColumns="4" rows="1">
                         <af:inputText value="#{bindings.CompCode.inputValue}" label="#{bindings.CompCode.hints.label}"

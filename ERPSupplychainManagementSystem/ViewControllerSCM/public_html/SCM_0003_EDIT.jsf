@@ -96,19 +96,6 @@
                                     </af:panelGroupLayout>
                                   </af:gridCell>
                                 </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" id="gr6">
-                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
-                                    <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                      <af:image id="i2" source="#{resource['images:imgShortName.png']}"
-                                                shortDesc="Payment Term Name"/>
-                                      <af:outputFormatted value="#{item.bindings.PaymentTermName.inputValue}" id="of3"
-                                                          styleClass="ERPHeroDetailColor"/>
-                                      <f:facet name="separator">
-                                        <af:spacer width="10" height="10" id="s4"/>
-                                      </f:facet>
-                                    </af:panelGroupLayout>
-                                  </af:gridCell>
-                                </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" id="gr5">
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
                                     <af:panelGroupLayout id="pgl7" layout="horizontal">
@@ -121,6 +108,19 @@
                                       </af:outputFormatted>
                                       <f:facet name="separator">
                                         <af:spacer width="10" height="10" id="s3"/>
+                                      </f:facet>
+                                    </af:panelGroupLayout>
+                                  </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" id="gr6">
+                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
+                                    <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                      <af:image id="i2" source="#{resource['images:imgShortName.png']}"
+                                                shortDesc="Payment Term Name"/>
+                                      <af:outputFormatted value="#{item.bindings.PaymentTermName.inputValue}" id="of3"
+                                                          styleClass="ERPHeroDetailColor"/>
+                                      <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s4"/>
                                       </f:facet>
                                     </af:panelGroupLayout>
                                   </af:gridCell>
