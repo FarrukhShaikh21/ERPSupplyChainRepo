@@ -246,7 +246,8 @@
                                                       rowSelection="single"
                                                       fetchSize="#{bindings.ScmPurchaseDemandLinesDetCRUD.rangeSize}"
                                                       id="t1" partialTriggers="::l11 ::l12"
-                                                      columnStretching="column:c2">
+                                                      columnStretching="column:c2" autoHeightRows="10"
+                                                      scrollPolicy="page">
                                                 <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.label}"
                                                            id="c1" width="60" headerClass="ERPToolBarBackground">
                                                     <af:inputText value="#{row.bindings.LineNo.inputValue}"

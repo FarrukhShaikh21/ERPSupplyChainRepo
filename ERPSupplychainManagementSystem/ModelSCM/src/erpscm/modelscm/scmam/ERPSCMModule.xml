@@ -4,7 +4,7 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ERPSCMModule"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
   <ViewUsage
@@ -228,6 +228,16 @@
   <ViewUsage
     Name="ScmPurchaseDemandLinesDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"/>
+  <ViewUsage
+    Name="GlTaxTypeCustCatRO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlTaxTypeVO">
+    <ViewCriteriaUsage
+      Name="GlTaxTypeCustCatVC"
+      FullName="erpfms.modelfms.fmsvo.GlTaxTypeVO.GlTaxTypeCustCatVC"/>
+    <ViewCriteriaUsage
+      Name="GlTaxTypeVOByCompanyIDVC"
+      FullName="erpfms.modelfms.fmsvo.GlTaxTypeVO.GlTaxTypeVOByCompanyIDVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"

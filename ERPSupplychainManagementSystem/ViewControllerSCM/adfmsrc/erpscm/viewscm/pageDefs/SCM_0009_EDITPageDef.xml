@@ -6,7 +6,7 @@
     <variableIterator id="variables"/>
     <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="AdminCompanyVOByCompanyROIterator"/>
-    <iterator Binds="GlTaxTypeCustTypeRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+    <iterator Binds="GlTaxTypeCustCatRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="GlTaxTypeCustTypeROIterator"/>
     <searchRegion Criteria="GlTaxTypeVOFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="GlTaxTypeCustTypeROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>

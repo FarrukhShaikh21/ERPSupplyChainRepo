@@ -92,10 +92,11 @@
                               <af:panelGridLayout id="pgl5">
                                 <af:gridRow marginTop="5px" height="auto" id="gr5">
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc11"
-                                               styleClass="AFStretchWidth ERPHeroBackground">
+                                               styleClass="AFStretchWidth ERPHeroBackground" halign="stretch"
+                                               valign="stretch">
                                     <af:panelGroupLayout id="pgl4" layout="horizontal">
                                       <af:link id="l2" icon="#{resource['images:imgView.png']}" partialSubmit="true"
-                                               action="ERP-QRY-ACT-SCM_0008_EDIT"/>
+                                               action="ERP-QRY-ACT-SCM_0008_EDIT" styleClass="ERPLink"/>
                                       <af:outputFormatted value="#{item.bindings.TaxTypeShortName.inputValue}" id="of2"
                                                           styleClass="ERPHeroBannerFont"/>
                                     </af:panelGroupLayout>
