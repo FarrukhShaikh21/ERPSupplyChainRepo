@@ -27,361 +27,375 @@
                   <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
                   <f:facet name="buttonBar"/>
                         </af:dialog>
-            </af:popup>              
-            <af:decorativeBox id="db1" dimensionsFrom="parent">
+            </af:popup>
+            <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
                 <f:facet name="center">
-                    <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
-                        <f:facet name="center">
-                            <af:panelBox text="PanelBox1" id="pb2" showHeader="never" partialTriggers="d3 d4">
-                                <f:facet name="toolbar"/>
-                                <af:panelGridLayout id="pgl2" partialTriggers="l5 l9 l8 l1 l19 l20 l6 l4 l7 l3 l2">
-                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
-                                        <af:gridCell marginStart="5px" width="40%" id="gc3" halign="stretch"
-                                                     marginEnd="5px">
-                                            <af:panelBox text="Available Customer Type" id="pb1" showDisclosure="false">
-                                                <f:facet name="toolbar"/>
-                                                <af:panelCollection id="pc1" styleClass="AFStretchWidth"
-                                                                    featuresOff="viewMenu detach">
-                                                    <f:facet name="menus"/>
-                                                    <f:facet name="toolbar">
-                                                        <af:toolbar id="t3">
-                                                            <af:quickQuery label=" " searchDesc="Search"
-                                                                           id="qryId1"
-                                                                           value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
-                                                                           model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
-                                                                           queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
-                                                                <f:facet name="end">
-                                                                    <af:commandLink text="Advanced" rendered="false"
-                                                                                    id="cl1"/>
-                                                                </f:facet>
-                                                            </af:quickQuery>
-                                                        </af:toolbar>
-                                                    </f:facet>
-                                                    <f:facet name="statusbar"/>
-                                                    <af:table value="#{bindings.ScmCustomerTypeByCopmanyRO.collectionModel}"
-                                                              var="row"
-                                                              rows="#{bindings.ScmCustomerTypeByCopmanyRO.rangeSize}"
-                                                              emptyText="#{bindings.ScmCustomerTypeByCopmanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                              rowBandingInterval="0"
-                                                              selectedRowKeys="#{bindings.ScmCustomerTypeByCopmanyRO.collectionModel.selectedRow}"
-                                                              selectionListener="#{bindings.ScmCustomerTypeByCopmanyRO.collectionModel.makeCurrent}"
-                                                              rowSelection="single"
-                                                              fetchSize="#{bindings.ScmCustomerTypeByCopmanyRO.rangeSize}"
-                                                              id="t1" columnStretching="column:c4">
-                                                        <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.label}"
-                                                                   id="c1" rendered="false"
-                                                                   headerClass="ERPToolBarBackground">
-                                                            <af:inputText value="#{row.bindings.CustomerTypeSno.inputValue}"
-                                                                          label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.label}"
-                                                                          required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.mandatory}"
-                                                                          columns="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.precision}"
-                                                                          shortDesc="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.tooltip}"
-                                                                          id="it1">
-                                                                <f:validator binding="#{row.bindings.CustomerTypeSno.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.label}"
-                                                                   id="c2" headerClass="ERPToolBarBackground">
-                                                            <af:inputText value="#{row.bindings.CustomerTypeCode.inputValue}"
-                                                                          label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.label}"
-                                                                          required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.mandatory}"
-                                                                          columns="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.precision}"
-                                                                          shortDesc="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.tooltip}"
-                                                                          id="it2" readOnly="true">
-                                                                <f:validator binding="#{row.bindings.CustomerTypeCode.validator}"/>
-                                                                <af:convertNumber groupingUsed="false"
-                                                                                  pattern="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.format}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.label}"
-                                                                   id="c3" headerClass="ERPToolBarBackground">
-                                                            <af:inputText value="#{row.bindings.CustomerTypeShortName.inputValue}"
-                                                                          label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.label}"
-                                                                          required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.mandatory}"
-                                                                          columns="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.precision}"
-                                                                          shortDesc="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.tooltip}"
-                                                                          id="it3" readOnly="true">
-                                                                <f:validator binding="#{row.bindings.CustomerTypeShortName.validator}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                        <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.label}"
-                                                                   id="c4" headerClass="ERPToolBarBackground">
-                                                            <af:inputText value="#{row.bindings.CustomerTypeName.inputValue}"
-                                                                          label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.label}"
-                                                                          required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.mandatory}"
-                                                                          columns="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.displayWidth}"
-                                                                          maximumLength="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.precision}"
-                                                                          shortDesc="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.tooltip}"
-                                                                          id="it4" readOnly="true">
-                                                                <f:validator binding="#{row.bindings.CustomerTypeName.validator}"/>
-                                                            </af:inputText>
-                                                        </af:column>
-                                                    </af:table>
-                                                </af:panelCollection>
-                                            </af:panelBox>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4"
-                                                     halign="stretch">
-                                            <af:panelBox text="Customer Type Tax Rate" id="pb3" showDisclosure="false">
-                                                <f:facet name="toolbar"/>
-                                                <af:inputText value="#{bindings.TypeTaxRateSno.inputValue}"
-                                                              label="#{bindings.TypeTaxRateSno.hints.label}"
-                                                              required="#{bindings.TypeTaxRateSno.hints.mandatory}"
-                                                              columns="#{bindings.TypeTaxRateSno.hints.displayWidth}"
-                                                              maximumLength="#{bindings.TypeTaxRateSno.hints.precision}"
-                                                              shortDesc="#{bindings.TypeTaxRateSno.hints.tooltip}"
-                                                              id="it14" rendered="false">
-                                                    <f:validator binding="#{bindings.TypeTaxRateSno.validator}"/>
+                    <af:panelGridLayout id="pgl2" partialTriggers="l5 l9 l8 l1 l19 l20 l6 l4 l7 l3 l2">
+                        <af:gridRow id="gr3">
+                            <af:gridCell id="gc5" width="100%" halign="stretch" valign="stretch" columnSpan="2"
+                                         rowSpan="1" marginEnd="5px" marginStart="5px">
+                                <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
+                                    <af:gridRow height="auto" id="gr1">
+                                        <af:gridCell width="70%" id="gc1" halign="stretch"
+                                                     valign="middle">
+                                            <af:panelFormLayout id="pfl1" maxColumns="3" rows="1">
+                                                <af:inputText value="#{bindings.TaxTypeSno.inputValue}"
+                                                              label="#{bindings.TaxTypeSno.hints.label}"
+                                                              required="#{bindings.TaxTypeSno.hints.mandatory}"
+                                                              columns="#{bindings.TaxTypeSno.hints.displayWidth}"
+                                                              maximumLength="#{bindings.TaxTypeSno.hints.precision}"
+                                                              shortDesc="#{bindings.TaxTypeSno.hints.tooltip}" id="it8"
+                                                              rendered="false" readOnly="true">
+                                                    <f:validator binding="#{bindings.TaxTypeSno.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.TypeTaxRateSno.format}"/>
+                                                                      pattern="#{bindings.TaxTypeSno.format}"/>
                                                 </af:inputText>
-                                                <af:inputText value="#{bindings.IsSupervised.inputValue}"
-                                                              label="#{bindings.IsSupervised.hints.label}"
-                                                              required="#{bindings.IsSupervised.hints.mandatory}"
-                                                              columns="#{bindings.IsSupervised.hints.displayWidth}"
-                                                              maximumLength="#{bindings.IsSupervised.hints.precision}"
-                                                              shortDesc="#{bindings.IsSupervised.hints.tooltip}"
-                                                              id="it13" rendered="false">
-                                                    <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                                <af:inputText value="#{bindings.TaxTypeName.inputValue}"
+                                                              label="#{bindings.TaxTypeName.hints.label}"
+                                                              required="#{bindings.TaxTypeName.hints.mandatory}"
+                                                              columns="#{bindings.TaxTypeName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.TaxTypeName.hints.precision}"
+                                                              shortDesc="#{bindings.TaxTypeName.hints.tooltip}"
+                                                              id="it10" readOnly="true">
+                                                    <f:validator binding="#{bindings.TaxTypeName.validator}"/>
                                                 </af:inputText>
-                                                <af:table value="#{bindings.ScmCustomerTypeTaxRateCRUD.collectionModel}"
-                                                          var="row"
-                                                          rows="#{bindings.ScmCustomerTypeTaxRateCRUD.rangeSize}"
-                                                          emptyText="#{bindings.ScmCustomerTypeTaxRateCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                          rowBandingInterval="0"
-                                                          selectedRowKeys="#{bindings.ScmCustomerTypeTaxRateCRUD.collectionModel.selectedRow}"
-                                                          selectionListener="#{bindings.ScmCustomerTypeTaxRateCRUD.collectionModel.makeCurrent}"
-                                                          rowSelection="single"
-                                                          fetchSize="#{bindings.ScmCustomerTypeTaxRateCRUD.rangeSize}"
-                                                          id="t2" partialTriggers="::l1 ::l8 ::l9"
-                                                          columnStretching="column:c9">
-                                                    <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.label}"
-                                                               id="c5" rendered="false"
-                                                               headerClass="ERPToolBarBackground">
-                                                        <af:inputText value="#{row.bindings.TypeTaxRateSno.inputValue}"
-                                                                      label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.label}"
-                                                                      required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.mandatory}"
-                                                                      columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.precision}"
-                                                                      shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.tooltip}"
-                                                                      id="it5">
-                                                            <f:validator binding="#{row.bindings.TypeTaxRateSno.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.label}"
-                                                               id="c6" width="130" headerClass="ERPToolBarBackground">
-                                                        <af:inputDate value="#{row.bindings.FromDate.inputValue}"
-                                                                      label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.label}"
-                                                                      required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.mandatory}"
-                                                                      columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.displayWidth}"
-                                                                      shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.tooltip}"
-                                                                      id="id1" contentStyle="width:60%"
-                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{row.bindings.FromDate.validator}"/>
-                                                            <af:convertDateTime pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.format}"/>
-                                                        </af:inputDate>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.label}"
-                                                               id="c7" width="130" headerClass="ERPToolBarBackground">
-                                                        <af:inputDate value="#{row.bindings.ToDate.inputValue}"
-                                                                      label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.label}"
-                                                                      required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.mandatory}"
-                                                                      columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.displayWidth}"
-                                                                      shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.tooltip}"
-                                                                      id="id3" contentStyle="width:60%"
-                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{row.bindings.ToDate.validator}"/>
-                                                            <af:convertDateTime pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.format}"/>
-                                                        </af:inputDate>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.label}"
-                                                               id="c8" width="80" displayIndex="-1"
-                                                               headerClass="ERPToolBarBackground">
-                                                        <af:inputText value="#{row.bindings.FilerRate.inputValue}"
-                                                                      label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.label}"
-                                                                      required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.mandatory}"
-                                                                      columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.precision}"
-                                                                      shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.tooltip}"
-                                                                      id="it6"
-                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{row.bindings.FilerRate.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.label}"
-                                                               id="c9" width="80" displayIndex="-1"
-                                                               headerClass="ERPToolBarBackground">
-                                                        <af:inputText value="#{row.bindings.NonFilerRate.inputValue}"
-                                                                      label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.label}"
-                                                                      required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.mandatory}"
-                                                                      columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.precision}"
-                                                                      shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.tooltip}"
-                                                                      id="it7"
-                                                                      readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
-                                                            <f:validator binding="#{row.bindings.NonFilerRate.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.label}"
-                                                               id="c10" width="80" displayIndex="-1"
-                                                               headerClass="ERPToolBarBackground">
-                                                        <af:inputText value="#{row.bindings.IsSupervised.inputValue}"
-                                                                      label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.label}"
-                                                                      required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.mandatory}"
-                                                                      columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.precision}"
-                                                                      shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.tooltip}"
-                                                                      id="it12" readOnly="true">
-                                                            <f:validator binding="#{row.bindings.IsSupervised.validator}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                </af:table>
-                                            </af:panelBox>
+                                                <af:inputText value="#{bindings.TaxTypeCode.inputValue}"
+                                                              label="#{bindings.TaxTypeCode.hints.label}"
+                                                              required="#{bindings.TaxTypeCode.hints.mandatory}"
+                                                              columns="#{bindings.TaxTypeCode.hints.displayWidth}"
+                                                              maximumLength="#{bindings.TaxTypeCode.hints.precision}"
+                                                              shortDesc="#{bindings.TaxTypeCode.hints.tooltip}" id="it9"
+                                                              readOnly="true" rendered="false">
+                                                    <f:validator binding="#{bindings.TaxTypeCode.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.TaxTypeCode.format}"/>
+                                                </af:inputText>
+                                                <af:inputDate value="#{bindings.OpenDate.inputValue}"
+                                                              label="#{bindings.OpenDate.hints.label}"
+                                                              required="#{bindings.OpenDate.hints.mandatory}"
+                                                              columns="#{bindings.OpenDate.hints.displayWidth}"
+                                                              shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id2"
+                                                              readOnly="true">
+                                                    <f:validator binding="#{bindings.OpenDate.validator}"/>
+                                                    <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
+                                                </af:inputDate>
+                                                <af:inputText value="#{bindings.TaxTypeShortName.inputValue}"
+                                                              label="#{bindings.TaxTypeShortName.hints.label}"
+                                                              required="#{bindings.TaxTypeShortName.hints.mandatory}"
+                                                              columns="#{bindings.TaxTypeShortName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.TaxTypeShortName.hints.precision}"
+                                                              shortDesc="#{bindings.TaxTypeShortName.hints.tooltip}"
+                                                              id="it11" rendered="false" readOnly="true">
+                                                    <f:validator binding="#{bindings.TaxTypeShortName.validator}"/>
+                                                </af:inputText>
+                                            </af:panelFormLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="30%" id="gc2"
+                                                     halign="end">
+                                            <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                                <af:link id="l5" partialSubmit="true"
+                                                         icon="#{resource['images:imgCloseDialog.png']}" text="Close"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                         shortDesc="Close Form"/>
+                                                <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                         id="l8" rendered="false"/>
+                                                <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                         text="CreateWithParams"
+                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
+                                                         rendered="false"/>
+                                                <af:link text="UnSupervise" id="l20" partialSubmit="true"
+                                                         icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                         partialTriggers="l7" shortDesc="Un Supervise Record">
+                                                    <af:setActionListener from="#{'ScmCustomerTypeTaxRateCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                </af:link>
+                                                <af:link text="Supervise" id="l19" partialSubmit="true"
+                                                         icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                         partialTriggers="l7" shortDesc="Supervise Record">
+                                                    <af:setActionListener from="#{'ScmCustomerTypeTaxRateCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                </af:link>
+                                                <af:link text="Delete" id="l9"
+                                                         actionListener="#{bindings.Delete.execute}"
+                                                         icon="#{resource['images:imgDeleteRecord.png']}"
+                                                         iconPosition="top" partialSubmit="true"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
+                                                         shortDesc="Delete Record"/>
+                                                <af:link text="Add" id="l10"
+                                                         icon="#{resource['images:imgAddRecord.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                         partialSubmit="true"
+                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                         shortDesc="Add New Record"/>
+                                                <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                         disabled="#{!bindings.Commit.enabled}" id="l6"
+                                                         rendered="false"/>
+                                                <af:link text="Undo" id="l4" icon="#{resource['images:imgUndo.png']}"
+                                                         partialSubmit="true" iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                         immediate="true" shortDesc="Undo Record">
+                                                    <af:resetActionListener/>
+                                                </af:link>
+                                                <af:link id="l7" partialSubmit="true"
+                                                         icon="#{resource['images:imgSave.png']}" text="Save"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                                         shortDesc="Save Record"/>
+                                                <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                         id="l3" rendered="false"/>
+                                                <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                         immediate="true" id="l2" rendered="false">
+                                                    <af:resetActionListener/>
+                                                </af:link>
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" height="10" id="s1"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
                                         </af:gridCell>
                                     </af:gridRow>
                                 </af:panelGridLayout>
-                            </af:panelBox>
-                        </f:facet>
-                        <f:facet name="top">
-                            <af:panelGridLayout id="pgl1">
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                                    <af:gridCell marginStart="5px" width="70%" id="gc1" halign="stretch"
-                                                 valign="middle">
-                                        <af:panelFormLayout id="pfl1" maxColumns="3" rows="1">
-                                            <af:inputText value="#{bindings.TaxTypeSno.inputValue}"
-                                                          label="#{bindings.TaxTypeSno.hints.label}"
-                                                          required="#{bindings.TaxTypeSno.hints.mandatory}"
-                                                          columns="#{bindings.TaxTypeSno.hints.displayWidth}"
-                                                          maximumLength="#{bindings.TaxTypeSno.hints.precision}"
-                                                          shortDesc="#{bindings.TaxTypeSno.hints.tooltip}" id="it8"
-                                                          rendered="false" readOnly="true">
-                                                <f:validator binding="#{bindings.TaxTypeSno.validator}"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                            <af:gridCell width="40%" id="gc3" halign="stretch">
+                                <af:panelGridLayout id="pgl5">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr6">
+                                        <af:gridCell width="100%" marginEnd="5px" id="gc8"
+                                                     styleClass="ERPEntryAreaHeading" halign="stretch" valign="stretch">
+                                            <af:outputText value="Available Customer Type" id="ot2" styleClass="ERPEntryAreaFont"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                                        <af:gridCell width="100%" marginEnd="5px" id="gc9"
+                                                     valign="stretch" halign="stretch">
+                                            <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                                                featuresOff="viewMenu detach">
+                                                <f:facet name="menus"/>
+                                                <f:facet name="toolbar">
+                                                    <af:toolbar id="t3">
+                                                        <af:quickQuery label=" " searchDesc="Search" id="qryId1"
+                                                                       value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                                                       model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                                       queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                                                            <f:facet name="end">
+                                                                <af:commandLink text="Advanced" rendered="false"
+                                                                                id="cl1"/>
+                                                            </f:facet>
+                                                        </af:quickQuery>
+                                                    </af:toolbar>
+                                                </f:facet>
+                                                <f:facet name="statusbar"/>
+                                                <af:table value="#{bindings.ScmCustomerTypeByCopmanyRO.collectionModel}"
+                                                          var="row"
+                                                          rows="#{bindings.ScmCustomerTypeByCopmanyRO.rangeSize}"
+                                                          emptyText="#{bindings.ScmCustomerTypeByCopmanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.ScmCustomerTypeByCopmanyRO.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.ScmCustomerTypeByCopmanyRO.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.ScmCustomerTypeByCopmanyRO.rangeSize}"
+                                                          id="t1" columnStretching="column:c4">
+                                                    <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.label}"
+                                                               id="c1" rendered="false"
+                                                               headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.CustomerTypeSno.inputValue}"
+                                                                      label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.label}"
+                                                                      required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.tooltip}"
+                                                                      id="it1">
+                                                            <f:validator binding="#{row.bindings.CustomerTypeSno.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeSno.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.label}"
+                                                               id="c2" headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.CustomerTypeCode.inputValue}"
+                                                                      label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.label}"
+                                                                      required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.tooltip}"
+                                                                      id="it2" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.CustomerTypeCode.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeCode.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.label}"
+                                                               id="c3" headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.CustomerTypeShortName.inputValue}"
+                                                                      label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.label}"
+                                                                      required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeShortName.tooltip}"
+                                                                      id="it3" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.CustomerTypeShortName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.label}"
+                                                               id="c4" headerClass="ERPToolBarBackground">
+                                                        <af:inputText value="#{row.bindings.CustomerTypeName.inputValue}"
+                                                                      label="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.label}"
+                                                                      required="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.mandatory}"
+                                                                      columns="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.precision}"
+                                                                      shortDesc="#{bindings.ScmCustomerTypeByCopmanyRO.hints.CustomerTypeName.tooltip}"
+                                                                      id="it4" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.CustomerTypeName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                </af:table>
+                                            </af:panelCollection>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4" halign="stretch"
+                                         valign="stretch">
+                                <af:panelGridLayout id="pgl3">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                        <af:gridCell width="100%" id="gc6"
+                                                     halign="stretch" valign="stretch" styleClass="ERPEntryAreaHeading">
+                                            <af:outputText value="Customer Type Tax Rate" id="ot1"
+                                                           styleClass="ERPEntryAreaFont"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" id="gr5">
+                                        <af:gridCell width="100%" id="gc7">
+                                            <af:inputText value="#{bindings.TypeTaxRateSno.inputValue}"
+                                                          label="#{bindings.TypeTaxRateSno.hints.label}"
+                                                          required="#{bindings.TypeTaxRateSno.hints.mandatory}"
+                                                          columns="#{bindings.TypeTaxRateSno.hints.displayWidth}"
+                                                          maximumLength="#{bindings.TypeTaxRateSno.hints.precision}"
+                                                          shortDesc="#{bindings.TypeTaxRateSno.hints.tooltip}" id="it14"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.TypeTaxRateSno.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.TaxTypeSno.format}"/>
+                                                                  pattern="#{bindings.TypeTaxRateSno.format}"/>
                                             </af:inputText>
-                                            <af:inputText value="#{bindings.TaxTypeName.inputValue}"
-                                                          label="#{bindings.TaxTypeName.hints.label}"
-                                                          required="#{bindings.TaxTypeName.hints.mandatory}"
-                                                          columns="#{bindings.TaxTypeName.hints.displayWidth}"
-                                                          maximumLength="#{bindings.TaxTypeName.hints.precision}"
-                                                          shortDesc="#{bindings.TaxTypeName.hints.tooltip}" id="it10"
-                                                          readOnly="true">
-                                                <f:validator binding="#{bindings.TaxTypeName.validator}"/>
+                                            <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                          label="#{bindings.IsSupervised.hints.label}"
+                                                          required="#{bindings.IsSupervised.hints.mandatory}"
+                                                          columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                          maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                          shortDesc="#{bindings.IsSupervised.hints.tooltip}" id="it13"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.IsSupervised.validator}"/>
                                             </af:inputText>
-                                            <af:inputText value="#{bindings.TaxTypeCode.inputValue}"
-                                                          label="#{bindings.TaxTypeCode.hints.label}"
-                                                          required="#{bindings.TaxTypeCode.hints.mandatory}"
-                                                          columns="#{bindings.TaxTypeCode.hints.displayWidth}"
-                                                          maximumLength="#{bindings.TaxTypeCode.hints.precision}"
-                                                          shortDesc="#{bindings.TaxTypeCode.hints.tooltip}" id="it9"
-                                                          readOnly="true" rendered="false">
-                                                <f:validator binding="#{bindings.TaxTypeCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.TaxTypeCode.format}"/>
-                                            </af:inputText>
-                                            <af:inputDate value="#{bindings.OpenDate.inputValue}"
-                                                          label="#{bindings.OpenDate.hints.label}"
-                                                          required="#{bindings.OpenDate.hints.mandatory}"
-                                                          columns="#{bindings.OpenDate.hints.displayWidth}"
-                                                          shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id2"
-                                                          readOnly="true">
-                                                <f:validator binding="#{bindings.OpenDate.validator}"/>
-                                                <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
-                                            </af:inputDate>
-                                            <af:inputText value="#{bindings.TaxTypeShortName.inputValue}"
-                                                          label="#{bindings.TaxTypeShortName.hints.label}"
-                                                          required="#{bindings.TaxTypeShortName.hints.mandatory}"
-                                                          columns="#{bindings.TaxTypeShortName.hints.displayWidth}"
-                                                          maximumLength="#{bindings.TaxTypeShortName.hints.precision}"
-                                                          shortDesc="#{bindings.TaxTypeShortName.hints.tooltip}"
-                                                          id="it11" rendered="false" readOnly="true">
-                                                <f:validator binding="#{bindings.TaxTypeShortName.validator}"/>
-                                            </af:inputText>
-                                        </af:panelFormLayout>
-                                    </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc2"
-                                                 halign="end">
-<af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
-                                            <af:link id="l5" partialSubmit="true"
-                                                     icon="#{resource['images:imgCloseDialog.png']}"
-                                                     text="Close"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                                     shortDesc="Close Form"/>
-                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8"
-                                                     rendered="false"/>
-                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
-                                                     text="CreateWithParams"
-                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
-                                                     rendered="false"/>
-                                            <af:link text="UnSupervise" id="l20" partialSubmit="true"
-                                                     icon="#{resource['images:imgUnSuperviseRecord.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
-                                                     partialTriggers="l7" shortDesc="Un Supervise Record">
-                                                <af:setActionListener from="#{'ScmCustomerTypeTaxRateCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>
-                                            <af:link text="Supervise" id="l19" partialSubmit="true"
-                                                     icon="#{resource['images:imgSuperviseRecord.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.TypeTaxRateSno.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
-                                                     partialTriggers="l7" shortDesc="Supervise Record">
-                                                <af:setActionListener from="#{'ScmCustomerTypeTaxRateCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>
-                                            <af:link text="Delete" id="l9" actionListener="#{bindings.Delete.execute}"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     iconPosition="top" partialSubmit="true"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
-                                                     shortDesc="Delete Record"/>
-                                            <af:link text="Add" id="l10" icon="#{resource['images:imgAddRecord.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                     partialSubmit="true"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
-                                                     shortDesc="Add New Record"/>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
-                                                     disabled="#{!bindings.Commit.enabled}" id="l6" rendered="false"/>
-                                            <af:link text="Undo" id="l4" icon="#{resource['images:imgUndo.png']}"
-                                                     partialSubmit="true" iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                     immediate="true" shortDesc="Undo Record">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link id="l7" partialSubmit="true"
-                                                     icon="#{resource['images:imgSave.png']}" text="Save"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
-                                                     shortDesc="Save Record"/>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l3"
-                                                     rendered="false"/>
-                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l2"
-                                                     rendered="false">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <f:facet name="separator">
-                                                <af:spacer width="10" height="10" id="s1"/>
-                                            </f:facet>
-                                        </af:panelGroupLayout>                                                 
-                                    </af:gridCell>             
-                                </af:gridRow>
-                            </af:panelGridLayout>
-                        </f:facet>
-                    </af:decorativeBox>
+                                            <af:table value="#{bindings.ScmCustomerTypeTaxRateCRUD.collectionModel}"
+                                                      var="row" rows="#{bindings.ScmCustomerTypeTaxRateCRUD.rangeSize}"
+                                                      emptyText="#{bindings.ScmCustomerTypeTaxRateCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.ScmCustomerTypeTaxRateCRUD.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.ScmCustomerTypeTaxRateCRUD.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.ScmCustomerTypeTaxRateCRUD.rangeSize}"
+                                                      id="t2" partialTriggers="::l1 ::l8 ::l9 ::l6 ::l3 ::l2"
+                                                      columnStretching="column:c9">
+                                                <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.label}"
+                                                           id="c5" rendered="false" headerClass="ERPToolBarBackground">
+                                                    <af:inputText value="#{row.bindings.TypeTaxRateSno.inputValue}"
+                                                                  label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.label}"
+                                                                  required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.mandatory}"
+                                                                  columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.precision}"
+                                                                  shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.tooltip}"
+                                                                  id="it5">
+                                                        <f:validator binding="#{row.bindings.TypeTaxRateSno.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.TypeTaxRateSno.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.label}"
+                                                           id="c6" width="130" headerClass="ERPToolBarBackground">
+                                                    <af:inputDate value="#{row.bindings.FromDate.inputValue}"
+                                                                  label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.label}"
+                                                                  required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.mandatory}"
+                                                                  columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.displayWidth}"
+                                                                  shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.tooltip}"
+                                                                  id="id1" contentStyle="width:60%"
+                                                                  readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{row.bindings.FromDate.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FromDate.format}"/>
+                                                    </af:inputDate>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.label}"
+                                                           id="c7" width="130" headerClass="ERPToolBarBackground">
+                                                    <af:inputDate value="#{row.bindings.ToDate.inputValue}"
+                                                                  label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.label}"
+                                                                  required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.mandatory}"
+                                                                  columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.displayWidth}"
+                                                                  shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.tooltip}"
+                                                                  id="id3" contentStyle="width:60%"
+                                                                  readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{row.bindings.ToDate.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.ToDate.format}"/>
+                                                    </af:inputDate>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.label}"
+                                                           id="c8" width="80" displayIndex="-1"
+                                                           headerClass="ERPToolBarBackground">
+                                                    <af:inputText value="#{row.bindings.FilerRate.inputValue}"
+                                                                  label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.label}"
+                                                                  required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.mandatory}"
+                                                                  columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.precision}"
+                                                                  shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.tooltip}"
+                                                                  id="it6"
+                                                                  readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{row.bindings.FilerRate.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.FilerRate.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.label}"
+                                                           id="c9" width="80" displayIndex="-1"
+                                                           headerClass="ERPToolBarBackground">
+                                                    <af:inputText value="#{row.bindings.NonFilerRate.inputValue}"
+                                                                  label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.label}"
+                                                                  required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.mandatory}"
+                                                                  columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.precision}"
+                                                                  shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.tooltip}"
+                                                                  id="it7"
+                                                                  readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; row.bindings.TypeTaxRateSno.inputValue!=null) || row.bindings.IsSupervised.inputValue=='Y'}">
+                                                        <f:validator binding="#{row.bindings.NonFilerRate.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.NonFilerRate.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.label}"
+                                                           id="c10" width="80" displayIndex="-1"
+                                                           headerClass="ERPToolBarBackground">
+                                                    <af:inputText value="#{row.bindings.IsSupervised.inputValue}"
+                                                                  label="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.label}"
+                                                                  required="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.mandatory}"
+                                                                  columns="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.precision}"
+                                                                  shortDesc="#{bindings.ScmCustomerTypeTaxRateCRUD.hints.IsSupervised.tooltip}"
+                                                                  id="it12" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.IsSupervised.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                            </af:table>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
                 </f:facet>
                 <f:facet name="top"/>
             </af:decorativeBox>

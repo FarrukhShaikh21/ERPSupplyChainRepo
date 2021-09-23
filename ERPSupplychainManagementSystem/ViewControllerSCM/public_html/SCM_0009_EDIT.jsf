@@ -6,10 +6,28 @@
     <af:form id="f1">
       <af:decorativeBox id="db2" dimensionsFrom="parent">
         <f:facet name="center">
-          <af:decorativeBox id="db1" topHeight="40px" dimensionsFrom="parent">
+          <af:decorativeBox id="db1" topHeight="40px">
             <f:facet name="center">
               <af:panelGridLayout id="pgl2">
-                <af:gridRow marginTop="5px" height="auto" id="gr2" marginBottom="5px">
+                <af:gridRow id="gr6">
+                  <af:gridCell id="gc6" halign="stretch" valign="stretch">
+                    <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                        <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle" halign="stretch">
+                          <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
+                                         styleClass="ERPActivityNameFormHeading"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" halign="end"
+                                     valign="stretch">
+                          <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}"
+                                   action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" partialSubmit="true"
+                                   shortDesc="Close Form"/>
+                        </af:gridCell>
+                      </af:gridRow>
+                    </af:panelGridLayout>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="auto" id="gr2" marginBottom="5px" marginTop="5px">
                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
                                styleClass="ERPCompanyInfoBackGround" valign="stretch">
                     <af:panelGroupLayout id="pgl12" layout="vertical" halign="center">
@@ -67,7 +85,7 @@
                   </af:gridCell>
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-                  <af:gridCell marginStart="5px" width="0%" marginEnd="5px" id="gc5" valign="stretch" halign="center">
+                  <af:gridCell marginStart="5px" width="0%" marginEnd="5px" id="gc5" valign="stretch" halign="stretch">
                     <af:panelGroupLayout id="pgl3" halign="center" layout="scroll" partialTriggers="::qryId1">
                       <af:listView value="#{bindings.GlTaxTypeCustTypeRO.collectionModel}" var="item"
                                    emptyText="#{bindings.GlTaxTypeCustTypeRO.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -96,7 +114,8 @@
                                                valign="stretch">
                                     <af:panelGroupLayout id="pgl4" layout="horizontal">
                                       <af:link id="l2" icon="#{resource['images:imgView.png']}" partialSubmit="true"
-                                               action="ERP-QRY-ACT_SCM_0009_EDIT" styleClass="ERPLink"/>
+                                               action="ERP-QRY-ACT_SCM_0009_EDIT" styleClass="ERPLink"
+                                               shortDesc="Tax Type Short Name, Click To View Record."/>
                                       <af:outputFormatted value="#{item.bindings.TaxTypeShortName.inputValue}" id="of2"
                                                           styleClass="ERPHeroBannerFont"/>
                                     </af:panelGroupLayout>
@@ -105,7 +124,8 @@
                                 <af:gridRow marginTop="5px" height="auto" id="gr11">
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc12">
                                     <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                      <af:image id="i1" source="#{resource['images:imgDocumentNumber.png']}"/>
+                                      <af:image id="i1" source="#{resource['images:imgDocumentNumber.png']}"
+                                                shortDesc="Tax Type Code"/>
                                       <af:outputFormatted value="#{item.bindings.TaxTypeCode.inputValue}" id="of3"
                                                           styleClass="ERPHeroDetailColor">
                                         <af:convertNumber groupingUsed="false"
@@ -120,7 +140,8 @@
                                 <af:gridRow marginTop="5px" height="auto" id="gr12">
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc13">
                                     <af:panelGroupLayout id="pgl9" layout="horizontal">
-                                      <af:image id="i2" source="#{resource['images:imgShortName.png']}"/>
+                                      <af:image id="i2" source="#{resource['images:imgShortName.png']}"
+                                                shortDesc="Tax Type Shprt Name"/>
                                       <af:outputFormatted value="#{item.bindings.TaxTypeName.inputValue}" id="of4"
                                                           styleClass="ERPHeroDetailColor"/>
                                       <f:facet name="separator">
@@ -132,7 +153,8 @@
                                 <af:gridRow marginTop="5px" height="auto" id="gr13">
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc14">
                                     <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                      <af:image id="i3" source="#{resource['images:imgDocumentDate.png']}"/>
+                                      <af:image id="i3" source="#{resource['images:imgDocumentDate.png']}"
+                                                shortDesc="Open Date"/>
                                       <af:outputFormatted value="#{item.bindings.OpenDate.inputValue}" id="of5"
                                                           styleClass="ERPHeroDetailColor">
                                         <af:convertDateTime pattern="#{bindings.GlTaxTypeCustTypeRO.hints.OpenDate.format}"/>
@@ -146,7 +168,8 @@
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc15">
                                     <af:panelGroupLayout id="pgl7" layout="horizontal">
-                                      <af:image id="i4" source="#{resource['images:imgActive.png']}"/>
+                                      <af:image id="i4" source="#{resource['images:imgActive.png']}"
+                                                shortDesc="Active"/>
                                       <af:outputFormatted value="#{item.bindings.IsActive.inputValue=='0'?'YES':'NO'}"
                                                           id="of10" styleClass="ERPHeroDetailColor"/>
                                       <f:facet name="separator">
@@ -165,21 +188,7 @@
                 </af:gridRow>
               </af:panelGridLayout>
             </f:facet>
-            <f:facet name="top">
-              <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
-                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                  <af:gridCell marginStart="5px" width="50%" id="gc1" valign="bottom">
-                    <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
-                                   styleClass="ERPActivityNameFormHeading"/>
-                  </af:gridCell>
-                  <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" halign="end">
-                    <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}"
-                             action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" partialSubmit="true"
-                             shortDesc="Close Form"/>
-                  </af:gridCell>
-                </af:gridRow>
-              </af:panelGridLayout>
-            </f:facet>
+            <f:facet name="top"/>
           </af:decorativeBox>
         </f:facet>
         <f:facet name="top"/>

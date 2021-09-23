@@ -9,8 +9,26 @@
           <af:decorativeBox id="db1" topHeight="50px" dimensionsFrom="parent">
             <f:facet name="center">
               <af:panelGridLayout id="pgl2">
+                <af:gridRow id="gr6">
+                  <af:gridCell id="gc6" valign="stretch" halign="stretch">
+                    <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
+                      <af:gridRow height="auto" id="gr1">
+                        <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
+                          <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
+                                         styleClass="ERPActivityNameFormHeading"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="50%" id="gc2" halign="end"
+                                     valign="bottom">
+                          <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}"
+                                   action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" partialSubmit="true"
+                                   shortDesc="Close Form"/>
+                        </af:gridCell>
+                      </af:gridRow>
+                    </af:panelGridLayout>
+                  </af:gridCell>
+                </af:gridRow>
                 <af:gridRow height="auto" id="gr2" marginTop="5px" marginBottom="5px">
-                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch"
+                  <af:gridCell marginStart="5px" width="100%" id="gc3" halign="stretch"
                                styleClass="ERPCompanyInfoBackGround" valign="stretch">
                     <af:panelGroupLayout id="pgl11" layout="vertical" halign="center">
                       <af:panelFormLayout id="pfl1" maxColumns="4" rows="1">
@@ -66,8 +84,8 @@
                     </af:panelGroupLayout>
                   </af:gridCell>
                 </af:gridRow>
-                <af:gridRow height="auto" id="gr4">
-                  <af:gridCell marginStart="5px" width="0%" marginEnd="5px" id="gc5" valign="stretch" halign="center">
+                <af:gridRow height="auto" id="gr4" marginTop="5px" marginBottom="5px">
+                  <af:gridCell marginStart="5px" width="0%" marginEnd="5px" id="gc5" valign="stretch" halign="stretch">
                     <af:panelGroupLayout id="pgl3" halign="center" layout="scroll" partialTriggers="::qryId1">
                       <af:listView value="#{bindings.GlTaxTypeCustTypeRO.collectionModel}" var="item"
                                    emptyText="#{bindings.GlTaxTypeCustTypeRO.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -165,21 +183,7 @@
                 </af:gridRow>
               </af:panelGridLayout>
             </f:facet>
-            <f:facet name="top">
-              <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
-                <af:gridRow height="auto" id="gr1">
-                  <af:gridCell marginStart="5px" width="50%" id="gc1" valign="bottom">
-                    <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
-                                   styleClass="ERPActivityNameFormHeading"/>
-                  </af:gridCell>
-                  <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" halign="end" valign="bottom">
-                    <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}"
-                             action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" partialSubmit="true"
-                             shortDesc="Close Form"/>
-                  </af:gridCell>
-                </af:gridRow>
-              </af:panelGridLayout>
-            </f:facet>
+            <f:facet name="top"/>
           </af:decorativeBox>
         </f:facet>
       </af:decorativeBox>

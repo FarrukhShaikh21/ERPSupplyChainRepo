@@ -33,9 +33,92 @@
                     <af:decorativeBox id="db2" dimensionsFrom="parent" partialTriggers="l2 l1 l3">
                         <f:facet name="center">
                             <af:panelGridLayout id="pgl2">
+                                <af:gridRow id="gr7" marginBottom="5px">
+                                    <af:gridCell id="gc10" halign="stretch" valign="stretch" columnSpan="8" rowSpan="1">
+                                        <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
+                                            <af:gridRow height="auto" id="gr1">
+                                                <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
+                                                    <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}"
+                                                                   id="ot1" styleClass="ERPActivityNameFormHeading"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="50%" id="gc2"
+                                                             halign="stretch">
+                                                    <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                                        <af:link id="l5" partialSubmit="true"
+                                                                 icon="#{resource['images:imgCloseDialog.png']}"
+                                                                 text="Close" iconPosition="top"
+                                                                 action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                                 shortDesc="Close Form"/>
+                                                        <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                                 text="CreateWithParams"
+                                                                 disabled="#{!bindings.CreateWithParams.enabled}"
+                                                                 id="l4" rendered="false"/>
+                                                        <af:link actionListener="#{bindings.Delete.execute}"
+                                                                 text="Delete" disabled="#{!bindings.Delete.enabled}"
+                                                                 id="l6" rendered="false"/>
+                                                        <af:link text="Delete" id="l9"
+                                                                 actionListener="#{bindings.Delete.execute}"
+                                                                 iconPosition="top"
+                                                                 icon="#{resource['images:imgDeleteRecord.png']}"
+                                                                 partialSubmit="true" shortDesc="Delete Record"/>
+                                                        <af:link text="Add" id="l1"
+                                                                 icon="#{resource['images:imgAddRecord.png']}"
+                                                                 iconPosition="top" partialSubmit="true"
+                                                                 action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                                 disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                                 shortDesc="Add New Record">
+                                                            <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
+                                                                                  to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                        </af:link>
+                                                        <af:link text="Supervise" id="l19" partialSubmit="true"
+                                                                 icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                                 iconPosition="top"
+                                                                 action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                                 disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                                 shortDesc="Supervise Record">
+                                                            <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
+                                                                                  to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                        </af:link>
+                                                        <af:link text="UnSupervise" id="l20" partialSubmit="true"
+                                                                 icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                                 iconPosition="top"
+                                                                 action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                                 disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                                 shortDesc="Un Supervise Record">
+                                                            <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
+                                                                                  to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                        </af:link>
+                                                        <af:link actionListener="#{bindings.Rollback.execute}"
+                                                                 text="Rollback" immediate="true" id="l7"
+                                                                 rendered="false">
+                                                            <af:resetActionListener/>
+                                                        </af:link>
+                                                        <af:link text="Undo" immediate="true" id="l3"
+                                                                 icon="#{resource['images:imgUndo.png']}"
+                                                                 iconPosition="top" partialSubmit="true"
+                                                                 action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                                 shortDesc="Undo Record">
+                                                            <af:resetActionListener/>
+                                                        </af:link>
+                                                        <af:link actionListener="#{bindings.Commit.execute}"
+                                                                 text="Commit" id="l8" rendered="false"/>
+                                                        <af:link text="Save" id="l2"
+                                                                 icon="#{resource['images:imgSave.png']}"
+                                                                 iconPosition="top" partialSubmit="true"
+                                                                 action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                                                 shortDesc="Save Record"/>
+                                                        <f:facet name="separator">
+                                                            <af:spacer width="10" height="10" id="s1"/>
+                                                        </f:facet>
+                                                    </af:panelGroupLayout>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
                                 <af:gridRow id="gr6">
                                     <af:gridCell id="gc9" columnSpan="2" width="100%" halign="stretch"
-                                                 styleClass="ERPEntryAreaHeading">
+                                                 styleClass="ERPEntryAreaHeading" valign="stretch">
                                         <af:outputText value="Basic Information" id="ot2"
                                                        styleClass="ERPEntryAreaFont"/>
                                     </af:gridCell>
@@ -137,7 +220,7 @@
                                                  valign="middle">
                                         <af:outputLabel value="#{bindings.OpenDate.hints.label}" id="ol3"/>
                                     </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="85%" id="gc8" marginEnd="5px" halign="stretch"
+                                    <af:gridCell marginStart="5px" width="85%" id="gc8" halign="stretch"
                                                  columnSpan="1" rowSpan="1" valign="middle">
                                         <af:inputDate value="#{bindings.OpenDate.inputValue}"
                                                       label="#{bindings.OpenDate.hints.label}"
@@ -157,7 +240,7 @@
                                                  valign="middle">
                                         <af:outputLabel value="#{bindings.OrderTypeFor.label}" id="ol5"/>
                                     </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="85%" id="gc12" marginEnd="5px" columnSpan="1"
+                                    <af:gridCell marginStart="5px" width="85%" id="gc12" columnSpan="1"
                                                  halign="stretch" rowSpan="1" valign="middle">
                                         <af:selectOneChoice value="#{bindings.OrderTypeFor.inputValue}"
                                                             label="#{bindings.OrderTypeFor.label}"
@@ -189,84 +272,7 @@
                                 </af:gridRow>
                             </af:panelGridLayout>
                         </f:facet>
-                        <f:facet name="top">
-                            <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
-                                <af:gridRow height="auto" id="gr1">
-                                    <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle">
-                                        <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
-                                                       styleClass="ERPActivityNameFormHeading"/>
-                                    </af:gridCell>
-                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2"
-                                                 halign="stretch">
-<af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
-                                            <af:link id="l5" partialSubmit="true"
-                                                     icon="#{resource['images:imgCloseDialog.png']}"
-                                                     text="Close"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                                     shortDesc="Close Form"/>
-                                            <af:link actionListener="#{bindings.CreateWithParams.execute}"
-                                                     text="CreateWithParams"
-                                                     disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
-                                                     rendered="false"/>
-                                            <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                     disabled="#{!bindings.Delete.enabled}" id="l6" rendered="false"/>
-                                            <af:link text="Delete" id="l9" actionListener="#{bindings.Delete.execute}"
-                                                     iconPosition="top"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}"
-                                                     partialSubmit="true" shortDesc="Delete Record"/>
-                                            <af:link text="Add" id="l1" icon="#{resource['images:imgAddRecord.png']}"
-                                                     iconPosition="top" partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
-                                                     shortDesc="Add New Record">
-                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>
-                                            <af:link text="Supervise" id="l19" partialSubmit="true"
-                                                     icon="#{resource['images:imgSuperviseRecord.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
-                                                     shortDesc="Supervise Record">
-                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>                                                     
-                                            <af:link text="UnSupervise" id="l20" partialSubmit="true"
-                                                     icon="#{resource['images:imgUnSuperviseRecord.png']}"
-                                                     iconPosition="top"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                     disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.OrderTypeCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
-                                                     shortDesc="Un Supervise Record">
-                                                <af:setActionListener from="#{'ScmOrderTypeCRUDIterator'}"
-                                                                      to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                            </af:link>
-                                            <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="l7"
-                                                     rendered="false">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link text="Undo" immediate="true" id="l3"
-                                                     icon="#{resource['images:imgUndo.png']}" iconPosition="top"
-                                                     partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                     shortDesc="Undo Record">
-                                                <af:resetActionListener/>
-                                            </af:link>
-                                            <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l8"
-                                                     rendered="false"/>
-                                            <af:link text="Save" id="l2"
-                                                     icon="#{resource['images:imgSave.png']}" iconPosition="top"
-                                                     partialSubmit="true"
-                                                     action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
-                                                     shortDesc="Save Record"/>
-                                            <f:facet name="separator">
-                                                <af:spacer width="10" height="10" id="s1"/>
-                                            </f:facet>
-                                        </af:panelGroupLayout>                                                 
-                                    </af:gridCell>             
-                                </af:gridRow>
-                            </af:panelGridLayout>
-                        </f:facet>
+                        <f:facet name="top"/>
                     </af:decorativeBox>
                 </f:facet>
                 <f:facet name="top"/>
