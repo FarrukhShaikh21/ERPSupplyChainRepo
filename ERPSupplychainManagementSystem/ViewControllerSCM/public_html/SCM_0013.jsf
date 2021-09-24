@@ -35,7 +35,7 @@
                   </af:gridCell>
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" id="gr4" marginBottom="5px">
-                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="center" valign="stretch">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="stretch" valign="stretch">
                     <af:panelGroupLayout id="pgl3" layout="scroll" halign="center">
                       <af:listView value="#{bindings.ScmPurchaseDemandHeaderRO.collectionModel}" var="item"
                                    emptyText="#{bindings.ScmPurchaseDemandHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"

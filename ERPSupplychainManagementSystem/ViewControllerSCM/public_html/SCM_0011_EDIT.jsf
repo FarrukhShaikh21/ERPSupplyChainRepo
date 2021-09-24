@@ -47,13 +47,6 @@
                       <f:validator binding="#{bindings.CompanyShortCode.validator}"/>
                       <af:convertNumber groupingUsed="false" pattern="#{bindings.CompanyShortCode.format}"/>
                     </af:inputText>
-                    <af:inputText value="#{bindings.CompanyName.inputValue}" label="#{bindings.CompanyName.hints.label}"
-                                  required="#{bindings.CompanyName.hints.mandatory}"
-                                  columns="#{bindings.CompanyName.hints.displayWidth}"
-                                  maximumLength="#{bindings.CompanyName.hints.precision}"
-                                  shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it1" readOnly="true">
-                      <f:validator binding="#{bindings.CompanyName.validator}"/>
-                    </af:inputText>
                     <af:inputText value="#{bindings.CompanyShortName.inputValue}"
                                   label="#{bindings.CompanyShortName.hints.label}"
                                   required="#{bindings.CompanyShortName.hints.mandatory}"
@@ -61,6 +54,13 @@
                                   maximumLength="#{bindings.CompanyShortName.hints.precision}"
                                   shortDesc="#{bindings.CompanyShortName.hints.tooltip}" id="it7" readOnly="true">
                       <f:validator binding="#{bindings.CompanyShortName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CompanyName.inputValue}" label="#{bindings.CompanyName.hints.label}"
+                                  required="#{bindings.CompanyName.hints.mandatory}"
+                                  columns="#{bindings.CompanyName.hints.displayWidth}"
+                                  maximumLength="#{bindings.CompanyName.hints.precision}"
+                                  shortDesc="#{bindings.CompanyName.hints.tooltip}" id="it1" readOnly="true">
+                      <f:validator binding="#{bindings.CompanyName.validator}"/>
                     </af:inputText>
                     <af:inputText value="#{bindings.TypeLevel.inputValue}" label="#{bindings.TypeLevel.hints.label}"
                                   required="#{bindings.TypeLevel.hints.mandatory}"
@@ -91,7 +91,7 @@
               </af:gridCell>
             </af:gridRow>
             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-              <af:gridCell marginStart="5px" width="0%" marginEnd="5px" id="gc5" valign="stretch" halign="stretch">
+              <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5" valign="stretch" halign="stretch">
                 <af:panelGroupLayout id="pgl3" halign="center" layout="scroll" partialTriggers="::qryId1">
                   <af:listView value="#{bindings.GlTaxTypeCustTypeRO.collectionModel}" var="item"
                                emptyText="#{bindings.GlTaxTypeCustTypeRO.viewable ? 'No data to display.' : 'Access Denied.'}"
