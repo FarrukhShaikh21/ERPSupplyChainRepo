@@ -119,7 +119,7 @@
                                 <af:panelGroupLayout id="pgl4" layout="horizontal">
                                   <af:link id="l2" icon="#{resource['images:imgView.png']}" partialSubmit="true"
                                            action="ERP-QRY-ACT-SCM_0011_EDIT_EDIT"
-                                           shortDesc="Tax Type Short Name, Click To View Record."/>
+                                           shortDesc="Tax Type Short Name, Click To View Record." styleClass="ERPLink"/>
                                   <af:outputFormatted value="#{item.bindings.TaxTypeShortName.inputValue}" id="of2"
                                                       styleClass="ERPHeroBannerFont"/>
                                 </af:panelGroupLayout>

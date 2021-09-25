@@ -129,7 +129,7 @@
                                 <af:panelGroupLayout id="pgl5" layout="horizontal">
                                   <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
                                            action="ERPEDIT-ACT-SCM_0006_EDIT_EDIT"
-                                           shortDesc="Category Short Name, Click To View Record."/>
+                                           shortDesc="Category Short Name, Click To View Record." styleClass="ERPLink"/>
                                   <af:outputFormatted value="#{item.bindings.CategoryShortName.inputValue}" id="of1"
                                                       styleClass="ERPHeroBannerFont"/>
                                 </af:panelGroupLayout>
