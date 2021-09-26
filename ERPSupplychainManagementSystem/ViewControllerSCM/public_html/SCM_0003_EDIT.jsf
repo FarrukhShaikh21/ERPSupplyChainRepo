@@ -6,12 +6,36 @@
     <af:form id="f1">
       <af:decorativeBox id="db2" dimensionsFrom="parent">
         <f:facet name="center">
-          <af:decorativeBox id="db1" dimensionsFrom="parent">
-            <f:facet name="center">
-              <af:panelGridLayout id="pgl1">
-                <af:gridRow marginTop="5px" height="auto" id="gr1">
-                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch"
-                               valign="stretch" styleClass="ERPCompanyInfoBackGround">
+          <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="100">
+            <f:facet name="first">
+              <af:panelGridLayout id="pgl3">
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                  <af:gridCell marginStart="5px" width="50%" id="gc3" halign="stretch" valign="middle">
+                    <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
+                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                        <af:gridCell id="gc10" width="50%">
+                          <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
+                                         styleClass="ERPActivityNameFormHeading"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
+                          <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
+                            <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
+                                     partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                     shortDesc="Close Form"/>
+                            <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"
+                                     action="ERP-ACT-SCM_0003ADD" shortDesc="Add New Record"/>
+                            <f:facet name="separator">
+                              <af:spacer width="10" height="10" id="s6"/>
+                            </f:facet>
+                          </af:panelGroupLayout>
+                        </af:gridCell>
+                      </af:gridRow>
+                    </af:panelGridLayout>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" id="gr1" marginBottom="5px">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch" valign="stretch"
+                               styleClass="ERPCompanyInfoBackGround" columnSpan="1" rowSpan="1">
                     <af:panelGroupLayout id="pgl11" layout="vertical" halign="center">
                       <af:panelFormLayout id="pfl1" rows="1" maxColumns="4">
                         <af:inputText value="#{bindings.CompCode.inputValue}" label="#{bindings.CompCode.hints.label}"
@@ -52,142 +76,114 @@
                     </af:panelGroupLayout>
                   </af:gridCell>
                 </af:gridRow>
-                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
-                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch"
-                               valign="stretch">
-                    <af:panelGroupLayout id="pgl12" layout="scroll" halign="center">
-                      <af:inputText value="#{bindings.PaymentTermHeaderSno.inputValue}"
-                                    label="#{bindings.PaymentTermHeaderSno.hints.label}"
-                                    required="#{bindings.PaymentTermHeaderSno.hints.mandatory}"
-                                    columns="#{bindings.PaymentTermHeaderSno.hints.displayWidth}"
-                                    maximumLength="#{bindings.PaymentTermHeaderSno.hints.precision}"
-                                    shortDesc="#{bindings.PaymentTermHeaderSno.hints.tooltip}" id="it5"
-                                    rendered="false">
-                        <f:validator binding="#{bindings.PaymentTermHeaderSno.validator}"/>
-                        <af:convertNumber groupingUsed="false" pattern="#{bindings.PaymentTermHeaderSno.format}"/>
-                      </af:inputText>
-                      <af:listView value="#{bindings.ScmPaymentTermHeaderByCompanyRO.collectionModel}" var="item"
-                                   emptyText="#{bindings.ScmPaymentTermHeaderByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                   fetchSize="#{bindings.ScmPaymentTermHeaderByCompanyRO.rangeSize}" id="lv1"
-                                   styleClass="WBDisplayBlockCenter"
-                                   selectionListener="#{bindings.ScmPaymentTermHeaderByCompanyRO.treeModel.makeCurrent}"
-                                   selection="single"
-                                   selectedRowKeys="#{bindings.ScmPaymentTermHeaderByCompanyRO.collectionModel.selectedRow}">
-                        <af:listItem id="li1"
-                                     styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
-                          <af:panelGroupLayout id="pgl5" layout="vertical" styleClass="WBCardSize" halign="center">
-                            <af:panelBox text="PanelBox1" id="pb1" showHeader="never">
-                              <f:facet name="toolbar"/>
-                              <af:panelGridLayout id="pgl4">
-                                <af:gridRow marginTop="5px" height="auto" id="gr4">
-                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
-                                               styleClass="AFStretchWidth ERPHeroBackground" halign="stretch"
-                                               valign="stretch">
-                                    <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                      <af:link id="l2" icon="#{resource['images:imgView.png']}"
-                                               styleClass="ERPLink"
-                                               action="ERP-ACT-SCM_0003EDITQUERY"
-                                               shortDesc="Term Short Name, Click To View Record"/>
-                                      <af:outputFormatted value="#{item.bindings.PaymentTermShortName.inputValue}"
-                                                          id="of1" styleClass="ERPHeroBannerFont"/>
-                                      <f:facet name="separator">
-                                        <af:spacer width="10" height="10" id="s5"/>
-                                      </f:facet>
-                                    </af:panelGroupLayout>
-                                  </af:gridCell>
-                                </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" id="gr5">
-                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
-                                    <af:panelGroupLayout id="pgl7" layout="horizontal">
-                                      <af:image source="#{resource['images:imgDocumentNumber.png']}" id="i1"
-                                                shortDesc="Payment Term Code"/>
-                                      <af:outputFormatted value="#{item.bindings.PaymentTermHeaderCode.inputValue}"
-                                                          id="of2" styleClass="ERPHeroDetailColor">
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.ScmPaymentTermHeaderByCompanyRO.hints.PaymentTermHeaderCode.format}"/>
-                                      </af:outputFormatted>
-                                      <f:facet name="separator">
-                                        <af:spacer width="10" height="10" id="s3"/>
-                                      </f:facet>
-                                    </af:panelGroupLayout>
-                                  </af:gridCell>
-                                </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" id="gr6">
-                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
-                                    <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                      <af:image id="i2" source="#{resource['images:imgShortName.png']}"
-                                                shortDesc="Payment Term Name"/>
-                                      <af:outputFormatted value="#{item.bindings.PaymentTermName.inputValue}" id="of3"
-                                                          styleClass="ERPHeroDetailColor"/>
-                                      <f:facet name="separator">
-                                        <af:spacer width="10" height="10" id="s4"/>
-                                      </f:facet>
-                                    </af:panelGroupLayout>
-                                  </af:gridCell>
-                                </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" id="gr7">
-                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8">
-                                    <af:panelGroupLayout id="pgl9" layout="horizontal">
-                                      <af:image source="#{resource['images:imgDocumentDate.png']}" id="i3"
-                                                shortDesc="Payment Term Date"/>
-                                      <af:outputFormatted value="#{item.bindings.PaymentTermDate.inputValue}" id="of4"
-                                                          styleClass="ERPHeroDetailColor">
-                                        <af:convertDateTime pattern="#{bindings.ScmPaymentTermHeaderByCompanyRO.hints.PaymentTermDate.format}"/>
-                                      </af:outputFormatted>
-                                      <f:facet name="separator">
-                                        <af:spacer width="10" height="10" id="s2"/>
-                                      </f:facet>
-                                    </af:panelGroupLayout>
-                                  </af:gridCell>
-                                </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
-                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
-                                    <af:panelGroupLayout id="pgl10" layout="horizontal">
-                                      <af:image source="#{resource['images:imgStartDate.png']}" id="i4"
-                                                shortDesc="Payment Term Start Date"/>
-                                      <af:outputFormatted value="#{item.bindings.StartDate.inputValue}" id="of5"
-                                                          styleClass="ERPHeroDetailColor">
-                                        <af:convertDateTime pattern="#{bindings.ScmPaymentTermHeaderByCompanyRO.hints.StartDate.format}"/>
-                                      </af:outputFormatted>
-                                      <f:facet name="separator">
-                                        <af:spacer width="10" height="10" id="s1"/>
-                                      </f:facet>
-                                    </af:panelGroupLayout>
-                                  </af:gridCell>
-                                </af:gridRow>
-                              </af:panelGridLayout>
-                            </af:panelBox>
-                          </af:panelGroupLayout>
-                        </af:listItem>
-                      </af:listView>
-                    </af:panelGroupLayout>
-                  </af:gridCell>
-                </af:gridRow>
               </af:panelGridLayout>
             </f:facet>
-            <f:facet name="top">
-              <af:panelGridLayout id="pgl3" styleClass="ERPToolBarBackground">
-                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
-                  <af:gridCell marginStart="5px" width="50%" id="gc3" halign="stretch" valign="middle">
-                    <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
-                                   styleClass="ERPActivityNameFormHeading"/>
-                  </af:gridCell>
-                  <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="end">
-                    <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
-                      <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
-                               partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                               shortDesc="Close Form"/>
-                      <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}" partialSubmit="true"
-                               action="ERP-ACT-SCM_0003ADD" shortDesc="Add New Record"/>
-                      <f:facet name="separator">
-                        <af:spacer width="10" height="10" id="s6"/>
-                      </f:facet>
+            <f:facet name="second">
+              <af:panelGroupLayout id="pgl12" layout="scroll" halign="center">
+                <af:inputText value="#{bindings.PaymentTermHeaderSno.inputValue}"
+                              label="#{bindings.PaymentTermHeaderSno.hints.label}"
+                              required="#{bindings.PaymentTermHeaderSno.hints.mandatory}"
+                              columns="#{bindings.PaymentTermHeaderSno.hints.displayWidth}"
+                              maximumLength="#{bindings.PaymentTermHeaderSno.hints.precision}"
+                              shortDesc="#{bindings.PaymentTermHeaderSno.hints.tooltip}" id="it5" rendered="false">
+                  <f:validator binding="#{bindings.PaymentTermHeaderSno.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.PaymentTermHeaderSno.format}"/>
+                </af:inputText>
+                <af:listView value="#{bindings.ScmPaymentTermHeaderByCompanyRO.collectionModel}" var="item"
+                             emptyText="#{bindings.ScmPaymentTermHeaderByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                             fetchSize="#{bindings.ScmPaymentTermHeaderByCompanyRO.rangeSize}" id="lv1"
+                             styleClass="WBDisplayBlockCenter"
+                             selectionListener="#{bindings.ScmPaymentTermHeaderByCompanyRO.treeModel.makeCurrent}"
+                             selection="single"
+                             selectedRowKeys="#{bindings.ScmPaymentTermHeaderByCompanyRO.collectionModel.selectedRow}">
+                  <af:listItem id="li1" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                    <af:panelGroupLayout id="pgl5" layout="vertical" styleClass="WBCardSize" halign="center">
+                      <af:panelBox text="PanelBox1" id="pb1" showHeader="never">
+                        <f:facet name="toolbar"/>
+                        <af:panelGridLayout id="pgl4">
+                          <af:gridRow marginTop="5px" height="auto" id="gr4">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"
+                                         styleClass="AFStretchWidth ERPHeroBackground" halign="stretch"
+                                         valign="stretch">
+                              <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                <af:link id="l2" icon="#{resource['images:imgView.png']}" styleClass="ERPLink"
+                                         action="ERP-ACT-SCM_0003EDITQUERY"
+                                         shortDesc="Term Short Name, Click To View Record"/>
+                                <af:outputFormatted value="#{item.bindings.PaymentTermShortName.inputValue}" id="of1"
+                                                    styleClass="ERPHeroBannerFont"/>
+                                <f:facet name="separator">
+                                  <af:spacer width="10" height="10" id="s5"/>
+                                </f:facet>
+                              </af:panelGroupLayout>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="5px" height="auto" id="gr5">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
+                              <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                <af:image source="#{resource['images:imgDocumentNumber.png']}" id="i1"
+                                          shortDesc="Payment Term Code"/>
+                                <af:outputFormatted value="#{item.bindings.PaymentTermHeaderCode.inputValue}" id="of2"
+                                                    styleClass="ERPHeroDetailColor">
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.ScmPaymentTermHeaderByCompanyRO.hints.PaymentTermHeaderCode.format}"/>
+                                </af:outputFormatted>
+                                <f:facet name="separator">
+                                  <af:spacer width="10" height="10" id="s3"/>
+                                </f:facet>
+                              </af:panelGroupLayout>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="5px" height="auto" id="gr6">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
+                              <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                <af:image id="i2" source="#{resource['images:imgShortName.png']}"
+                                          shortDesc="Payment Term Name"/>
+                                <af:outputFormatted value="#{item.bindings.PaymentTermName.inputValue}" id="of3"
+                                                    styleClass="ERPHeroDetailColor"/>
+                                <f:facet name="separator">
+                                  <af:spacer width="10" height="10" id="s4"/>
+                                </f:facet>
+                              </af:panelGroupLayout>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="5px" height="auto" id="gr7">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8">
+                              <af:panelGroupLayout id="pgl9" layout="horizontal">
+                                <af:image source="#{resource['images:imgDocumentDate.png']}" id="i3"
+                                          shortDesc="Payment Term Date"/>
+                                <af:outputFormatted value="#{item.bindings.PaymentTermDate.inputValue}" id="of4"
+                                                    styleClass="ERPHeroDetailColor">
+                                  <af:convertDateTime pattern="#{bindings.ScmPaymentTermHeaderByCompanyRO.hints.PaymentTermDate.format}"/>
+                                </af:outputFormatted>
+                                <f:facet name="separator">
+                                  <af:spacer width="10" height="10" id="s2"/>
+                                </f:facet>
+                              </af:panelGroupLayout>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
+                              <af:panelGroupLayout id="pgl10" layout="horizontal">
+                                <af:image source="#{resource['images:imgStartDate.png']}" id="i4"
+                                          shortDesc="Payment Term Start Date"/>
+                                <af:outputFormatted value="#{item.bindings.StartDate.inputValue}" id="of5"
+                                                    styleClass="ERPHeroDetailColor">
+                                  <af:convertDateTime pattern="#{bindings.ScmPaymentTermHeaderByCompanyRO.hints.StartDate.format}"/>
+                                </af:outputFormatted>
+                                <f:facet name="separator">
+                                  <af:spacer width="10" height="10" id="s1"/>
+                                </f:facet>
+                              </af:panelGroupLayout>
+                            </af:gridCell>
+                          </af:gridRow>
+                        </af:panelGridLayout>
+                      </af:panelBox>
                     </af:panelGroupLayout>
-                  </af:gridCell>
-                </af:gridRow>
-              </af:panelGridLayout>
+                  </af:listItem>
+                </af:listView>
+              </af:panelGroupLayout>
             </f:facet>
-          </af:decorativeBox>
+          </af:panelSplitter>
         </f:facet>
         <f:facet name="top"/>
       </af:decorativeBox>
