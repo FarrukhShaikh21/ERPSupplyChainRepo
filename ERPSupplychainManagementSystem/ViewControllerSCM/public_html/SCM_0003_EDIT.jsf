@@ -6,18 +6,19 @@
     <af:form id="f1">
       <af:decorativeBox id="db2" dimensionsFrom="parent">
         <f:facet name="center">
-          <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="100">
+          <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="130">
             <f:facet name="first">
               <af:panelGridLayout id="pgl3">
                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                   <af:gridCell marginStart="5px" width="50%" id="gc3" halign="stretch" valign="middle">
                     <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
-                        <af:gridCell id="gc10" width="50%">
+                        <af:gridCell id="gc10" width="50%" halign="stretch" valign="middle">
                           <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
                                          styleClass="ERPActivityNameFormHeading"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
+                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" halign="stretch"
+                                     valign="stretch">
                           <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
                             <af:link id="l1" icon="#{resource['images:imgCloseDialog.png']}" iconPosition="top"
                                      partialSubmit="true" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
@@ -76,10 +77,24 @@
                     </af:panelGroupLayout>
                   </af:gridCell>
                 </af:gridRow>
+                <af:gridRow id="gr9">
+                  <af:gridCell id="gc4" halign="stretch" valign="stretch" styleClass="ERPToolBarBackground">
+                    <af:panelGroupLayout id="pgl13" layout="horizontal" halign="center">
+                      <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                     value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                     model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                     queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                        <f:facet name="end">
+                          <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                        </f:facet>
+                      </af:quickQuery>
+                    </af:panelGroupLayout>
+                  </af:gridCell>
+                </af:gridRow>
               </af:panelGridLayout>
             </f:facet>
             <f:facet name="second">
-              <af:panelGroupLayout id="pgl12" layout="scroll" halign="center">
+              <af:panelGroupLayout id="pgl12" layout="scroll" halign="center" partialTriggers="qryId1">
                 <af:inputText value="#{bindings.PaymentTermHeaderSno.inputValue}"
                               label="#{bindings.PaymentTermHeaderSno.hints.label}"
                               required="#{bindings.PaymentTermHeaderSno.hints.mandatory}"

@@ -8,6 +8,9 @@
               id="AdminCompanyVOByCompanyROIterator"/>
     <iterator Binds="ScmPaymentTermHeaderByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPaymentTermHeaderByCompanyROIterator"/>
+    <searchRegion Criteria="ScmPaymentTermHeaderFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ScmPaymentTermHeaderByCompanyROIterator" id="ImplicitViewCriteriaQuery"
+                  InitialQueryOverridden="true"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">

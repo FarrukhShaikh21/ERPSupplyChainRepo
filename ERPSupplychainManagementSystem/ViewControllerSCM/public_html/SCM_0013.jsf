@@ -4,6 +4,20 @@
   <af:document title="SCM_0013.jsf" id="d1">
     <af:messages id="m1"/>
     <af:form id="f1">
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+        <af:dialog id="d2" type="ok">
+          <f:facet name="buttonBar"/>
+          <af:panelGroupLayout layout="vertical" id="pgl4">
+            <af:query id="qryId1" headerText="Search"
+                      value="#{bindings.ScmPurchaseDemandHeaderFindVCQuery.queryDescriptor}"
+                      model="#{bindings.ScmPurchaseDemandHeaderFindVCQuery.queryModel}"
+                      queryListener="#{bindings.ScmPurchaseDemandHeaderFindVCQuery.processQuery}"
+                      queryOperationListener="#{bindings.ScmPurchaseDemandHeaderFindVCQuery.processQueryOperation}"
+                      disclosed="true" saveQueryMode="hidden" modeChangeVisible="false"
+                      runQueryAutomatically="allSavedSearches" saveResultsLayout="never"/>
+          </af:panelGroupLayout>
+        </af:dialog>
+      </af:popup>
       <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
         <f:facet name="ERPMain">
           <af:decorativeBox id="db1" dimensionsFrom="parent" topHeight="40px">
@@ -13,24 +27,11 @@
                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch"
                                styleClass="ERPToolBarBackground">
                     <af:panelGroupLayout id="pgl6" halign="end" layout="horizontal">
+                      <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgFind.png']}"/>
                       <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
                                action="ERP-ADD-ACT-SCM_0013" shortDesc="Add New Record"/>
                       <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM"
                                partialSubmit="true" shortDesc="Exit Form"/>
-                    </af:panelGroupLayout>
-                  </af:gridCell>
-                </af:gridRow>
-                <af:gridRow height="auto" id="gr3" marginBottom="5px" marginTop="5px">
-                  <af:gridCell id="gc2" halign="stretch" styleClass="ERPToolBarBackground" valign="stretch">
-                    <af:panelGroupLayout id="pgl10" halign="center" layout="vertical">
-                      <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
-                                     value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
-                                     model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
-                                     queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
-                        <f:facet name="end">
-                          <af:commandLink text="Advanced" rendered="false" id="cl1"/>
-                        </f:facet>
-                      </af:quickQuery>
                     </af:panelGroupLayout>
                   </af:gridCell>
                 </af:gridRow>
@@ -43,7 +44,7 @@
                                    selection="single"
                                    selectionListener="#{bindings.ScmPurchaseDemandHeaderRO.treeModel.makeCurrent}"
                                    selectedRowKeys="#{bindings.ScmPurchaseDemandHeaderRO.collectionModel.selectedRow}"
-                                   styleClass="WBDisplayBlockCenter" partialTriggers="qryId1">
+                                   styleClass="WBDisplayBlockCenter" partialTriggers=":::qryId1">
                         <af:listItem id="li2"
                                      styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                           <af:panelGroupLayout id="pgl2" layout="vertical" styleClass="WBCardSize">

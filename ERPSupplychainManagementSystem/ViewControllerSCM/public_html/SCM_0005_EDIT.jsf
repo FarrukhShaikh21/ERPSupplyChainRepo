@@ -6,7 +6,7 @@
     <af:form id="f1">
       <af:decorativeBox id="db1" topHeight="40px" dimensionsFrom="parent">
         <f:facet name="center">
-          <af:panelSplitter id="ps1" splitterPosition="150" orientation="vertical">
+          <af:panelSplitter id="ps1" splitterPosition="120" orientation="vertical">
             <f:facet name="first">
               <af:panelGridLayout id="pgl2">
                 <af:gridRow id="gr4">
@@ -91,7 +91,7 @@
               </af:panelGridLayout>
             </f:facet>
             <f:facet name="second">
-              <af:panelGroupLayout id="pgl3" halign="center" layout="scroll">
+              <af:panelGroupLayout id="pgl3" halign="center" layout="scroll" partialTriggers="qryId1">
                 <af:listView value="#{bindings.ScmCustomerTypeByCopmanyRO.collectionModel}" var="item"
                              emptyText="#{bindings.ScmCustomerTypeByCopmanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.ScmCustomerTypeByCopmanyRO.rangeSize}" id="lv2" selection="single"
@@ -114,7 +114,8 @@
                         <af:panelGridLayout id="pgl9">
                           <af:gridRow marginTop="5px" height="auto" id="gr6">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6"
-                                         styleClass="AFStretchWidth ERPHeroBackground" halign="stretch">
+                                         styleClass="AFStretchWidth ERPHeroBackground" halign="stretch"
+                                         valign="stretch">
                               <af:panelGroupLayout id="pgl11" layout="horizontal">
                                 <af:link id="l8" partialSubmit="true" icon="#{resource['images:imgView.png']}"
                                          action="ERPEDIT-ACT-SCM_0005_EDIT_EDIT"

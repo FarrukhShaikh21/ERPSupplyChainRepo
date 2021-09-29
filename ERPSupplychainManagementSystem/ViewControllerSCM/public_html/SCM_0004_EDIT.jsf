@@ -102,14 +102,14 @@
               </af:panelGridLayout>
             </f:facet>
             <f:facet name="second">
-              <af:panelGroupLayout id="pgl4" layout="scroll" halign="center">
+              <af:panelGroupLayout id="pgl4" layout="scroll" halign="center" partialTriggers="qryId1">
                 <af:listView value="#{bindings.ScmSalesPersonByCompanyRO.collectionModel}" var="item"
                              emptyText="#{bindings.ScmSalesPersonByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.ScmSalesPersonByCompanyRO.rangeSize}" id="lv2"
                              styleClass="WBDisplayBlockCenter"
                              selectionListener="#{bindings.ScmSalesPersonByCompanyRO.treeModel.makeCurrent}"
                              selectedRowKeys="#{bindings.ScmSalesPersonByCompanyRO.collectionModel.selectedRow}"
-                             selection="single" partialTriggers="qryId1">
+                             selection="single">
                   <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                     <af:panelGroupLayout id="pgl12" layout="vertical" styleClass="WBCardSize">
                       <af:panelBox text="PanelBox2" id="pb2" showDisclosure="false" showHeader="never">
