@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmPurchaseDemandHeaderVO"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -659,6 +659,74 @@
               Operator="="
               Conjunction="AND"
               Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPurchaseDemandHeaderCompanyAccessVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseDemandHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ScmPurchaseDemandHeaderVOCriteria_ScmPurchaseDemandHeaderVOCriteria_row_0_AdminCompanyVO"
+        ViewAttribute="AdminCompanyVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="AdminCompanyVONestedCriteria"
+          ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="AdminCompanyVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="TempAdminCompanyAccessVO"
+              ViewAttribute="TempAdminCompanyAccessVO"
+              Operator="EXISTS"
+              Conjunction="AND"
+              IsNestedCriteria="true"
+              Required="Optional">
+              <ViewCriteria
+                Name="TempAdminCompanyAccessVONestedCriteria"
+                ViewObjectName="erpglobals.modelglobals.globalsvo.TempAdminCompanyAccessVO"
+                Conjunction="AND">
+                <ViewCriteriaRow
+                  Name="TempAdminCompanyAccessVONestedCriteria_row_0"
+                  UpperColumns="1">
+                  <ViewCriteriaItem
+                    Name="TempAdminCompanyAccessVONestedCriteria_TempAdminCompanyAccessVONestedCriteria_row_0_CompanyId"
+                    ViewAttribute="CompanyId"
+                    Operator="ISNOTBLANK"
+                    Conjunction="AND"
+                    Required="Optional"/>
+                </ViewCriteriaRow>
+              </ViewCriteria>
+            </ViewCriteriaItem>
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>

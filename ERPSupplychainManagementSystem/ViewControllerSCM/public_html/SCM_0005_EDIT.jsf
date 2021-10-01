@@ -10,9 +10,10 @@
             <f:facet name="first">
               <af:panelGridLayout id="pgl2">
                 <af:gridRow id="gr4">
-                  <af:gridCell id="gc5" columnSpan="1" rowSpan="1" valign="stretch" halign="stretch" width="100%">
+                  <af:gridCell id="gc5" columnSpan="1" rowSpan="1" valign="stretch" halign="stretch" width="100%"
+                               marginStart="5px" marginEnd="5px">
                     <af:panelGridLayout id="pgl1" styleClass="ERPToolBarBackground">
-                      <af:gridRow height="auto" id="gr1">
+                      <af:gridRow height="auto" id="gr1" marginTop="5px" marginBottom="5px">
                         <af:gridCell marginStart="5px" width="50%" id="gc1" valign="middle" halign="stretch">
                           <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot1"
                                          styleClass="ERPActivityNameFormHeading"/>
@@ -30,7 +31,7 @@
                     </af:panelGridLayout>
                   </af:gridCell>
                 </af:gridRow>
-                <af:gridRow height="auto" id="gr2" marginTop="10px">
+                <af:gridRow height="auto" id="gr2" marginTop="5px" marginBottom="5px">
                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3" halign="stretch" valign="stretch"
                                styleClass="ERPCompanyInfoBackGround">
                     <af:panelGroupLayout id="pgl4" layout="vertical" halign="center">

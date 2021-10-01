@@ -259,3 +259,11 @@ af|panelCollection af|menuBar,af|commandToolbarButton::link {
 {
     font-weight:bold
 }
+
+af|inputText::content:focus, 
+af|inputDate::content:focus,
+af|selectOneChoice::content:focus,
+af|inputComboboxListOfValues::content:focus{
+    color:#309fdb;
+    background-color: #fffdd6;
+}
