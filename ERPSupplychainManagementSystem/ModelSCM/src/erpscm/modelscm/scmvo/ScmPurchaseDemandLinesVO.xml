@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmPurchaseDemandLinesVO"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -382,6 +382,36 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="AproxPrice"
+    PrecisionRule="true"
+    EntityAttrName="AproxPrice"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="APROX_PRICE"/>
+  <ViewAttribute
+    Name="NoteToBuyer"
+    PrecisionRule="true"
+    EntityAttrName="NoteToBuyer"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="NOTE_TO_BUYER"/>
+  <ViewAttribute
+    Name="NoteToSupplier"
+    PrecisionRule="true"
+    EntityAttrName="NoteToSupplier"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="NOTE_TO_SUPPLIER"/>
+  <ViewAttribute
+    Name="SupplierItemName"
+    PrecisionRule="true"
+    EntityAttrName="SupplierItemName"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="SUPPLIER_ITEM_NAME"/>
+  <ViewAttribute
+    Name="SupplierId"
+    PrecisionRule="true"
+    EntityAttrName="SupplierId"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="SUPPLIER_ID"/>
   <ViewLinkAccessor
     Name="GlProjectsVO"
     ViewLink="erpscm.modelscm.scmvo.GlProjectsScmPurchaseDemandLinesProjectIdVL"

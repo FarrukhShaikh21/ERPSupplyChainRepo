@@ -48,11 +48,16 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         txtItemName,
         txtUnitTypeName,
         txtDepartmentName,
+        AproxPrice,
+        NoteToBuyer,
+        NoteToSupplier,
+        SupplierId,
+        SupplierItemName,
         ScmPurchaseDemandHeader,
         GlProjects,
-        AdminCompany,
         InvItem,
-        InvUnitType;
+        InvUnitType,
+        ScmSupplier;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -76,6 +81,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         }
     }
 
+
     public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
     public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
     public static final int LINENO = AttributesEnum.LineNo.index();
@@ -95,11 +101,16 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
     public static final int TXTDEPARTMENTNAME = AttributesEnum.txtDepartmentName.index();
+    public static final int APROXPRICE = AttributesEnum.AproxPrice.index();
+    public static final int NOTETOBUYER = AttributesEnum.NoteToBuyer.index();
+    public static final int NOTETOSUPPLIER = AttributesEnum.NoteToSupplier.index();
+    public static final int SUPPLIERID = AttributesEnum.SupplierId.index();
+    public static final int SUPPLIERITEMNAME = AttributesEnum.SupplierItemName.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
-    public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
+    public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -113,6 +124,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseDemandLines");
     }
+
 
     /**
      * Gets the attribute value for DemandLinesSno, using the alias name DemandLinesSno.
@@ -419,6 +431,86 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for AproxPrice, using the alias name AproxPrice.
+     * @return the value of AproxPrice
+     */
+    public BigDecimal getAproxPrice() {
+        return (BigDecimal) getAttributeInternal(APROXPRICE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for AproxPrice.
+     * @param value value to set the AproxPrice
+     */
+    public void setAproxPrice(BigDecimal value) {
+        setAttributeInternal(APROXPRICE, value);
+    }
+
+    /**
+     * Gets the attribute value for NoteToBuyer, using the alias name NoteToBuyer.
+     * @return the value of NoteToBuyer
+     */
+    public String getNoteToBuyer() {
+        return (String) getAttributeInternal(NOTETOBUYER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for NoteToBuyer.
+     * @param value value to set the NoteToBuyer
+     */
+    public void setNoteToBuyer(String value) {
+        setAttributeInternal(NOTETOBUYER, value);
+    }
+
+    /**
+     * Gets the attribute value for NoteToSupplier, using the alias name NoteToSupplier.
+     * @return the value of NoteToSupplier
+     */
+    public String getNoteToSupplier() {
+        return (String) getAttributeInternal(NOTETOSUPPLIER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for NoteToSupplier.
+     * @param value value to set the NoteToSupplier
+     */
+    public void setNoteToSupplier(String value) {
+        setAttributeInternal(NOTETOSUPPLIER, value);
+    }
+
+    /**
+     * Gets the attribute value for SupplierId, using the alias name SupplierId.
+     * @return the value of SupplierId
+     */
+    public Integer getSupplierId() {
+        return (Integer) getAttributeInternal(SUPPLIERID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SupplierId.
+     * @param value value to set the SupplierId
+     */
+    public void setSupplierId(Integer value) {
+        setAttributeInternal(SUPPLIERID, value);
+    }
+
+    /**
+     * Gets the attribute value for SupplierItemName, using the alias name SupplierItemName.
+     * @return the value of SupplierItemName
+     */
+    public String getSupplierItemName() {
+        return (String) getAttributeInternal(SUPPLIERITEMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SupplierItemName.
+     * @param value value to set the SupplierItemName
+     */
+    public void setSupplierItemName(String value) {
+        setAttributeInternal(SUPPLIERITEMNAME, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseDemandHeaderImpl.
      */
     public ScmPurchaseDemandHeaderImpl getScmPurchaseDemandHeader() {
@@ -486,6 +578,21 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public void setInvUnitType(InvUnitTypeImpl value) {
         setAttributeInternal(INVUNITTYPE, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmSupplierImpl.
+     */
+    public ScmSupplierImpl getScmSupplier() {
+        return (ScmSupplierImpl) getAttributeInternal(SCMSUPPLIER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmSupplierImpl.
+     */
+    public void setScmSupplier(ScmSupplierImpl value) {
+        setAttributeInternal(SCMSUPPLIER, value);
     }
 
 

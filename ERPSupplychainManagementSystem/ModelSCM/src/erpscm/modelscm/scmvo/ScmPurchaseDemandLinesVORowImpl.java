@@ -16,6 +16,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_SCMPURCHASEDEMANDLINES = 0;
 
     /**
@@ -43,17 +45,24 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         txtDepartmentName,
         txtSumDemandQty,
         txtSumApproveQty,
+        AproxPrice,
+        NoteToBuyer,
+        NoteToSupplier,
+        SupplierItemName,
+        SupplierId,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
         InvUnitTypeVO,
         ScmPurchaseDemandHeaderVO,
+        ScmPurchaseDemandLinesVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsQVO,
         AccAdminCompanyVO,
         AccGlProjectsVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -75,6 +84,8 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
     public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
     public static final int LINENO = AttributesEnum.LineNo.index();
@@ -96,11 +107,17 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public static final int TXTDEPARTMENTNAME = AttributesEnum.txtDepartmentName.index();
     public static final int TXTSUMDEMANDQTY = AttributesEnum.txtSumDemandQty.index();
     public static final int TXTSUMAPPROVEQTY = AttributesEnum.txtSumApproveQty.index();
+    public static final int APROXPRICE = AttributesEnum.AproxPrice.index();
+    public static final int NOTETOBUYER = AttributesEnum.NoteToBuyer.index();
+    public static final int NOTETOSUPPLIER = AttributesEnum.NoteToSupplier.index();
+    public static final int SUPPLIERITEMNAME = AttributesEnum.SupplierItemName.index();
+    public static final int SUPPLIERID = AttributesEnum.SupplierId.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
     public static final int SCMPURCHASEDEMANDHEADERVO = AttributesEnum.ScmPurchaseDemandHeaderVO.index();
+    public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSQVO = AttributesEnum.AccGlProjectsQVO.index();
@@ -442,6 +459,86 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for APROX_PRICE using the alias name AproxPrice.
+     * @return the APROX_PRICE
+     */
+    public BigDecimal getAproxPrice() {
+        return (BigDecimal) getAttributeInternal(APROXPRICE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for APROX_PRICE using the alias name AproxPrice.
+     * @param value value to set the APROX_PRICE
+     */
+    public void setAproxPrice(BigDecimal value) {
+        setAttributeInternal(APROXPRICE, value);
+    }
+
+    /**
+     * Gets the attribute value for NOTE_TO_BUYER using the alias name NoteToBuyer.
+     * @return the NOTE_TO_BUYER
+     */
+    public String getNoteToBuyer() {
+        return (String) getAttributeInternal(NOTETOBUYER);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for NOTE_TO_BUYER using the alias name NoteToBuyer.
+     * @param value value to set the NOTE_TO_BUYER
+     */
+    public void setNoteToBuyer(String value) {
+        setAttributeInternal(NOTETOBUYER, value);
+    }
+
+    /**
+     * Gets the attribute value for NOTE_TO_SUPPLIER using the alias name NoteToSupplier.
+     * @return the NOTE_TO_SUPPLIER
+     */
+    public String getNoteToSupplier() {
+        return (String) getAttributeInternal(NOTETOSUPPLIER);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for NOTE_TO_SUPPLIER using the alias name NoteToSupplier.
+     * @param value value to set the NOTE_TO_SUPPLIER
+     */
+    public void setNoteToSupplier(String value) {
+        setAttributeInternal(NOTETOSUPPLIER, value);
+    }
+
+    /**
+     * Gets the attribute value for SUPPLIER_ITEM_NAME using the alias name SupplierItemName.
+     * @return the SUPPLIER_ITEM_NAME
+     */
+    public String getSupplierItemName() {
+        return (String) getAttributeInternal(SUPPLIERITEMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SUPPLIER_ITEM_NAME using the alias name SupplierItemName.
+     * @param value value to set the SUPPLIER_ITEM_NAME
+     */
+    public void setSupplierItemName(String value) {
+        setAttributeInternal(SUPPLIERITEMNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for SUPPLIER_ID using the alias name SupplierId.
+     * @return the SUPPLIER_ID
+     */
+    public Integer getSupplierId() {
+        return (Integer) getAttributeInternal(SUPPLIERID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SUPPLIER_ID using the alias name SupplierId.
+     * @param value value to set the SUPPLIER_ID
+     */
+    public void setSupplierId(Integer value) {
+        setAttributeInternal(SUPPLIERID, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link GlProjectsVO.
      */
     public Row getGlProjectsVO() {
@@ -509,6 +606,20 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
      */
     public void setScmPurchaseDemandHeaderVO(Row value) {
         setAttributeInternal(SCMPURCHASEDEMANDHEADERVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link ScmSupplierVO.
+     */
+    public Row getScmSupplierVO() {
+        return (Row) getAttributeInternal(SCMSUPPLIERVO);
+    }
+
+    /**
+     * Sets the master-detail link ScmSupplierVO between this object and <code>value</code>.
+     */
+    public void setScmSupplierVO(Row value) {
+        setAttributeInternal(SCMSUPPLIERVO, value);
     }
 
     /**
