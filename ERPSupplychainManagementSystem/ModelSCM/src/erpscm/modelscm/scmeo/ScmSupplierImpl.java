@@ -84,14 +84,13 @@ public class ScmSupplierImpl extends ERPEntityImpl {
         txtPaymentTermName,
         txtSupplierType,
         txtSupplierCategory,
-        SmCity,
-        SmCountry,
         GlBank,
         GlBankBranch,
         ScmPaymentTermHeader,
         ScmCustomerType,
         ScmCustomerCategory,
-        ScmSupplierSites;
+        ScmSupplierSites,
+        ScmPurchaseDemandLines;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -171,14 +170,13 @@ public class ScmSupplierImpl extends ERPEntityImpl {
     public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
     public static final int TXTSUPPLIERTYPE = AttributesEnum.txtSupplierType.index();
     public static final int TXTSUPPLIERCATEGORY = AttributesEnum.txtSupplierCategory.index();
-    public static final int SMCITY = AttributesEnum.SmCity.index();
-    public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int GLBANK = AttributesEnum.GlBank.index();
     public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
     public static final int SCMPAYMENTTERMHEADER = AttributesEnum.ScmPaymentTermHeader.index();
     public static final int SCMCUSTOMERTYPE = AttributesEnum.ScmCustomerType.index();
     public static final int SCMCUSTOMERCATEGORY = AttributesEnum.ScmCustomerCategory.index();
     public static final int SCMSUPPLIERSITES = AttributesEnum.ScmSupplierSites.index();
+    public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1185,6 +1183,14 @@ public class ScmSupplierImpl extends ERPEntityImpl {
      */
     public RowIterator getScmSupplierSites() {
         return (RowIterator) getAttributeInternal(SCMSUPPLIERSITES);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseDemandLines() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEDEMANDLINES);
     }
 
 
