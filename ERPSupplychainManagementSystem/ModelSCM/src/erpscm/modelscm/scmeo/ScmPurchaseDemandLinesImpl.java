@@ -5,7 +5,6 @@ import erpadm.modeladm.admeo.AdminCompanyImpl;
 import erpfms.modelfms.fmseo.GlProjectsImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
-
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
 import erpims.modelims.imseo.InvItemImpl;
@@ -51,14 +50,17 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         AproxPrice,
         NoteToBuyer,
         NoteToSupplier,
-        SupplierId,
         SupplierItemName,
+        txtSupplierName,
+        SupplierSno,
         ScmPurchaseDemandHeader,
         GlProjects,
+        AdminCompany,
         InvItem,
         InvUnitType,
         ScmSupplier;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -104,10 +106,12 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int APROXPRICE = AttributesEnum.AproxPrice.index();
     public static final int NOTETOBUYER = AttributesEnum.NoteToBuyer.index();
     public static final int NOTETOSUPPLIER = AttributesEnum.NoteToSupplier.index();
-    public static final int SUPPLIERID = AttributesEnum.SupplierId.index();
     public static final int SUPPLIERITEMNAME = AttributesEnum.SupplierItemName.index();
+    public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
+    public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
@@ -478,21 +482,6 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         setAttributeInternal(NOTETOSUPPLIER, value);
     }
 
-    /**
-     * Gets the attribute value for SupplierId, using the alias name SupplierId.
-     * @return the value of SupplierId
-     */
-    public Integer getSupplierId() {
-        return (Integer) getAttributeInternal(SUPPLIERID);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for SupplierId.
-     * @param value value to set the SupplierId
-     */
-    public void setSupplierId(Integer value) {
-        setAttributeInternal(SUPPLIERID, value);
-    }
 
     /**
      * Gets the attribute value for SupplierItemName, using the alias name SupplierItemName.
@@ -508,6 +497,38 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public void setSupplierItemName(String value) {
         setAttributeInternal(SUPPLIERITEMNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSupplierName, using the alias name txtSupplierName.
+     * @return the value of txtSupplierName
+     */
+    public String gettxtSupplierName() {
+        return (String) getAttributeInternal(TXTSUPPLIERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierName.
+     * @param value value to set the txtSupplierName
+     */
+    public void settxtSupplierName(String value) {
+        setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for SupplierSno, using the alias name SupplierSno.
+     * @return the value of SupplierSno
+     */
+    public Integer getSupplierSno() {
+        return (Integer) getAttributeInternal(SUPPLIERSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SupplierSno.
+     * @param value value to set the SupplierSno
+     */
+    public void setSupplierSno(Integer value) {
+        setAttributeInternal(SUPPLIERSNO, value);
     }
 
     /**
@@ -619,7 +640,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     protected void doDML(int operation, TransactionEvent e) {
         if (operation == DML_INSERT) {
-            
+            populateAttributeAsChanged(DEMANDHEADERSNO, getScmPurchaseDemandHeader().getAttribute("DemandHeaderSno"));
             String result =
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "DEMAND_LINES_SNO",
                                                               this.getEntityDef().getSource(), null, null);

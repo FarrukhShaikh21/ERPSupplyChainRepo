@@ -1,7 +1,6 @@
 package erpscm.modelscm.scmeo;
 
 import erpadm.modeladm.admeo.SmCityImpl;
-
 import erpadm.modeladm.admeo.SmCountryImpl;
 
 import erpfms.modelfms.fmseo.GlBankBranchImpl;
@@ -84,6 +83,8 @@ public class ScmSupplierImpl extends ERPEntityImpl {
         txtPaymentTermName,
         txtSupplierType,
         txtSupplierCategory,
+        SmCity,
+        SmCountry,
         GlBank,
         GlBankBranch,
         ScmPaymentTermHeader,
@@ -170,6 +171,8 @@ public class ScmSupplierImpl extends ERPEntityImpl {
     public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
     public static final int TXTSUPPLIERTYPE = AttributesEnum.txtSupplierType.index();
     public static final int TXTSUPPLIERCATEGORY = AttributesEnum.txtSupplierCategory.index();
+    public static final int SMCITY = AttributesEnum.SmCity.index();
+    public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int GLBANK = AttributesEnum.GlBank.index();
     public static final int GLBANKBRANCH = AttributesEnum.GlBankBranch.index();
     public static final int SCMPAYMENTTERMHEADER = AttributesEnum.ScmPaymentTermHeader.index();

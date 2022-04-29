@@ -419,24 +419,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="SupplierId"
-    Precision="10"
-    Scale="0"
-    ColumnName="SUPPLIER_ID"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_DEMAND_LINES">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.SupplierId_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="SupplierItemName"
     Precision="100"
     ColumnName="SUPPLIER_ITEM_NAME"
@@ -456,6 +438,39 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtSupplierName"
+    Precision="80"
+    ColumnName="TXT_SUPPLIER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.txtSupplierName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="SupplierSno"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="SupplierSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="SUPPLIER_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <AccessorAttribute
     Name="ScmPurchaseDemandHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurDemLinHeaderIdAssoc"
@@ -582,7 +597,7 @@
       <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_DEMAND_LINES5"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.SupplierId"/>
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.SupplierSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

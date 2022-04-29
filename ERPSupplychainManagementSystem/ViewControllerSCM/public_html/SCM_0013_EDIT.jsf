@@ -400,6 +400,20 @@
                                                 <af:convertDateTime pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.format}"/>
                                             </af:inputDate>
                                         </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.label}"
+                                                   id="c12">
+                                            <af:inputText value="#{row.bindings.AproxPrice.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.label}"
+                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.tooltip}"
+                                                          id="it13">
+                                                <f:validator binding="#{row.bindings.AproxPrice.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.format}"/>
+                                            </af:inputText>
+                                        </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.label}"
                                                    id="c7" width="80" displayIndex="-1"
                                                    headerClass="ERPToolBarBackground">
@@ -441,6 +455,42 @@
                                                                    id="ot2" partialTriggers="it5"/>
                                                 </af:panelGroupLayout>
                                             </f:facet>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.label}"
+                                                   id="c9">
+                                            <af:inputComboboxListOfValues id="txtSupplierNameId"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.label}"
+                                                                          value="#{row.bindings.txtSupplierName.inputValue}"
+                                                                          model="#{row.bindings.txtSupplierName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.tooltip}">
+                                                <f:validator binding="#{row.bindings.txtSupplierName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.label}"
+                                                   id="c10">
+                                            <af:inputText value="#{row.bindings.NoteToBuyer.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.label}"
+                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.tooltip}"
+                                                          id="it11">
+                                                <f:validator binding="#{row.bindings.NoteToBuyer.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.label}"
+                                                   id="c11">
+                                            <af:inputText value="#{row.bindings.NoteToSupplier.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.label}"
+                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.tooltip}"
+                                                          id="it12">
+                                                <f:validator binding="#{row.bindings.NoteToSupplier.validator}"/>
+                                            </af:inputText>
                                         </af:column>
                                     </af:table>
                                 </af:panelCollection>

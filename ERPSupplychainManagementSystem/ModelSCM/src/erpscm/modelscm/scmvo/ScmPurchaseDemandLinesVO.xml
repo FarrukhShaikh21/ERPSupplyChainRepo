@@ -68,6 +68,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmSupplierVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -171,6 +175,30 @@
     </AttrArray>
     <DisplayCriteria
       Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSupplierName"
+    ListVOName="AccScmSupplierVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SupplierSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SupplierName"/>
+      <Item Value="SupplierSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SupplierName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmSupplierFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseDemandLines"
@@ -407,11 +435,27 @@
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="SUPPLIER_ITEM_NAME"/>
   <ViewAttribute
-    Name="SupplierId"
+    Name="txtSupplierName"
+    IsQueriable="false"
+    IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="SupplierId"
+    EntityAttrName="txtSupplierName"
     EntityUsage="ScmPurchaseDemandLines"
-    AliasName="SUPPLIER_ID"/>
+    AliasName="TXT_SUPPLIER_NAME"
+    LOVName="LovtxtSupplierName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SupplierSno"
+    PrecisionRule="true"
+    EntityAttrName="SupplierSno"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="SUPPLIER_SNO"/>
   <ViewLinkAccessor
     Name="GlProjectsVO"
     ViewLink="erpscm.modelscm.scmvo.GlProjectsScmPurchaseDemandLinesProjectIdVL"
@@ -439,6 +483,12 @@
   <ViewLinkAccessor
     Name="ScmPurchaseDemandHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurDemLinHeaderIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmSupplierVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurDemandLinesSupplierSnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

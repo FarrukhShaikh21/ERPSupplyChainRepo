@@ -49,18 +49,20 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         NoteToBuyer,
         NoteToSupplier,
         SupplierItemName,
-        SupplierId,
+        txtSupplierName,
+        SupplierSno,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
         InvUnitTypeVO,
         ScmPurchaseDemandHeaderVO,
-        ScmPurchaseDemandLinesVO,
+        ScmSupplierVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsQVO,
         AccAdminCompanyVO,
-        AccGlProjectsVO;
+        AccGlProjectsVO,
+        AccScmSupplierVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -111,18 +113,20 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public static final int NOTETOBUYER = AttributesEnum.NoteToBuyer.index();
     public static final int NOTETOSUPPLIER = AttributesEnum.NoteToSupplier.index();
     public static final int SUPPLIERITEMNAME = AttributesEnum.SupplierItemName.index();
-    public static final int SUPPLIERID = AttributesEnum.SupplierId.index();
+    public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
     public static final int SCMPURCHASEDEMANDHEADERVO = AttributesEnum.ScmPurchaseDemandHeaderVO.index();
-    public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
+    public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSQVO = AttributesEnum.AccGlProjectsQVO.index();
     public static final int ACCADMINCOMPANYVO = AttributesEnum.AccAdminCompanyVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
+    public static final int ACCSCMSUPPLIERVO = AttributesEnum.AccScmSupplierVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -522,20 +526,37 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         setAttributeInternal(SUPPLIERITEMNAME, value);
     }
 
+
     /**
-     * Gets the attribute value for SUPPLIER_ID using the alias name SupplierId.
-     * @return the SUPPLIER_ID
+     * Gets the attribute value for TXT_SUPPLIER_NAME using the alias name txtSupplierName.
+     * @return the TXT_SUPPLIER_NAME
      */
-    public Integer getSupplierId() {
-        return (Integer) getAttributeInternal(SUPPLIERID);
+    public String gettxtSupplierName() {
+        return (String) getAttributeInternal(TXTSUPPLIERNAME);
     }
 
     /**
-     * Sets <code>value</code> as attribute value for SUPPLIER_ID using the alias name SupplierId.
-     * @param value value to set the SUPPLIER_ID
+     * Sets <code>value</code> as attribute value for TXT_SUPPLIER_NAME using the alias name txtSupplierName.
+     * @param value value to set the TXT_SUPPLIER_NAME
      */
-    public void setSupplierId(Integer value) {
-        setAttributeInternal(SUPPLIERID, value);
+    public void settxtSupplierName(String value) {
+        setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for SUPPLIER_SNO using the alias name SupplierSno.
+     * @return the SUPPLIER_SNO
+     */
+    public Integer getSupplierSno() {
+        return (Integer) getAttributeInternal(SUPPLIERSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SUPPLIER_SNO using the alias name SupplierSno.
+     * @param value value to set the SUPPLIER_SNO
+     */
+    public void setSupplierSno(Integer value) {
+        setAttributeInternal(SUPPLIERSNO, value);
     }
 
     /**
@@ -656,6 +677,15 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public RowSet getAccGlProjectsVO() {
         return (RowSet) getAttributeInternal(ACCGLPROJECTSVO);
     }
+
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccScmSupplierVO.
+     */
+    public RowSet getAccScmSupplierVO() {
+        return (RowSet) getAttributeInternal(ACCSCMSUPPLIERVO);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method
