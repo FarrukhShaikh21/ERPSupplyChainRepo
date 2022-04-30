@@ -457,19 +457,20 @@
                                             </f:facet>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.label}"
-                                                   id="c9">
+                                                   id="c9" width="150" minimumWidth="12">
                                             <af:inputComboboxListOfValues id="txtSupplierNameId"
                                                                           popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.label}"
                                                                           value="#{row.bindings.txtSupplierName.inputValue}"
                                                                           model="#{row.bindings.txtSupplierName.listOfValuesModel}"
                                                                           required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.tooltip}">
+                                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.tooltip}"
+                                                                          contentStyle="width:80%">
                                                 <f:validator binding="#{row.bindings.txtSupplierName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.label}"
-                                                   id="c10">
+                                                   id="c10" width="200" displayIndex="-1">
                                             <af:inputText value="#{row.bindings.NoteToBuyer.inputValue}"
                                                           label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.label}"
                                                           required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.mandatory}"
@@ -481,7 +482,7 @@
                                             </af:inputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.label}"
-                                                   id="c11">
+                                                   id="c11" width="200" displayIndex="-1">
                                             <af:inputText value="#{row.bindings.NoteToSupplier.inputValue}"
                                                           label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.label}"
                                                           required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.mandatory}"
