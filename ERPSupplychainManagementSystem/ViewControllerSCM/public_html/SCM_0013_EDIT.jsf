@@ -401,7 +401,7 @@
                                             </af:inputDate>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.label}"
-                                                   id="c12">
+                                                   id="c12" headerClass="ERPToolBarBackground">
                                             <af:inputText value="#{row.bindings.AproxPrice.inputValue}"
                                                           label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.label}"
                                                           required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.mandatory}"
@@ -457,7 +457,8 @@
                                             </f:facet>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.label}"
-                                                   id="c9" width="150" minimumWidth="12">
+                                                   id="c9" headerClass="ERPToolBarBackground" width="150"
+                                                   displayIndex="-1">
                                             <af:inputComboboxListOfValues id="txtSupplierNameId"
                                                                           popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.label}"
                                                                           value="#{row.bindings.txtSupplierName.inputValue}"
@@ -470,7 +471,7 @@
                                             </af:inputComboboxListOfValues>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.label}"
-                                                   id="c10" width="200" displayIndex="-1">
+                                                   id="c10" headerClass="ERPToolBarBackground">
                                             <af:inputText value="#{row.bindings.NoteToBuyer.inputValue}"
                                                           label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.label}"
                                                           required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.mandatory}"
@@ -482,7 +483,7 @@
                                             </af:inputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.label}"
-                                                   id="c11" width="200" displayIndex="-1">
+                                                   id="c11" headerClass="ERPToolBarBackground">
                                             <af:inputText value="#{row.bindings.NoteToSupplier.inputValue}"
                                                           label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.label}"
                                                           required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.mandatory}"
