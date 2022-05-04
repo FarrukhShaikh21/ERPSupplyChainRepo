@@ -208,12 +208,6 @@
     EntityUsage="ScmPurchaseRfqHeader"
     AliasName="FREIGHT_TERM_SNO"/>
   <ViewAttribute
-    Name="Fob"
-    PrecisionRule="true"
-    EntityAttrName="Fob"
-    EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="FOB"/>
-  <ViewAttribute
     Name="NoteToSupplier"
     PrecisionRule="true"
     EntityAttrName="NoteToSupplier"
@@ -226,17 +220,19 @@
     EntityUsage="ScmPurchaseRfqHeader"
     AliasName="COURIER_SNO"/>
   <ViewAttribute
-    Name="ShippingCost"
-    PrecisionRule="true"
-    EntityAttrName="ShippingCost"
-    EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="SHIPPING_COST"/>
-  <ViewAttribute
     Name="txtLocationName"
     PrecisionRule="true"
     EntityAttrName="txtLocationName"
     EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="TXT_LOCATION_NAME"/>
+    AliasName="TXT_LOCATION_NAME"
+    IsQueriable="false"
+    IsPersistent="false"/>
+  <ViewAttribute
+    Name="FobTermSno"
+    PrecisionRule="true"
+    EntityAttrName="FobTermSno"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="FOB_TERM_SNO"/>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"

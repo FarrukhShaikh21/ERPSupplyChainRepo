@@ -89,7 +89,7 @@
     RetrievedOnInsert="true"
     RetrievedOnUpdate="true">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -188,7 +188,6 @@
   </Attribute>
   <Attribute
     Name="GlobalCompanyId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="GLOBAL_COMPANY_ID"
@@ -196,6 +195,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_HEADER">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -555,24 +556,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="Fob"
-    Precision="16"
-    Scale="6"
-    ColumnName="FOB"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_RFQ_HEADER">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.Fob_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="NoteToSupplier"
     Precision="300"
     ColumnName="NOTE_TO_SUPPLIER"
@@ -611,33 +594,17 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="ShippingCost"
-    Precision="16"
-    Scale="6"
-    ColumnName="SHIPPING_COST"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_RFQ_HEADER">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.ShippingCost_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="txtLocationName"
     Precision="80"
     ColumnName="TXT_LOCATION_NAME"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_RFQ_HEADER">
+    TableName="SCM_PURCHASE_RFQ_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -651,6 +618,15 @@
         Value="LocationId"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="FobTermSno"
+    Precision="6"
+    Scale="0"
+    ColumnName="FOB_TERM_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_HEADER"/>
   <AccessorAttribute
     Name="ScmPurchaseRfqLines"
     Association="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc"

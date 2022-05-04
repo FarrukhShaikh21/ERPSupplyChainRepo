@@ -4,6 +4,8 @@ import erpadm.modeladm.admeo.AdminCompanyImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
+import erpglobals.modelglobals.ERPGlobalPLSQLClass;
+
 import java.math.BigDecimal;
 
 import java.sql.Timestamp;
@@ -54,15 +56,15 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         RfqTypeSno,
         PaymentTermSno,
         FreightTermSno,
-        Fob,
         NoteToSupplier,
         CourierSno,
-        ShippingCost,
         txtLocationName,
+        FobTermSno,
         ScmPurchaseRfqLines,
         ScmPurchaseRfqSupplier,
         AdminCompany;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -116,11 +118,10 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int RFQTYPESNO = AttributesEnum.RfqTypeSno.index();
     public static final int PAYMENTTERMSNO = AttributesEnum.PaymentTermSno.index();
     public static final int FREIGHTTERMSNO = AttributesEnum.FreightTermSno.index();
-    public static final int FOB = AttributesEnum.Fob.index();
     public static final int NOTETOSUPPLIER = AttributesEnum.NoteToSupplier.index();
     public static final int COURIERSNO = AttributesEnum.CourierSno.index();
-    public static final int SHIPPINGCOST = AttributesEnum.ShippingCost.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
+    public static final int FOBTERMSNO = AttributesEnum.FobTermSno.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -619,21 +620,6 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         setAttributeInternal(FREIGHTTERMSNO, value);
     }
 
-    /**
-     * Gets the attribute value for Fob, using the alias name Fob.
-     * @return the value of Fob
-     */
-    public BigDecimal getFob() {
-        return (BigDecimal) getAttributeInternal(FOB);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for Fob.
-     * @param value value to set the Fob
-     */
-    public void setFob(BigDecimal value) {
-        setAttributeInternal(FOB, value);
-    }
 
     /**
      * Gets the attribute value for NoteToSupplier, using the alias name NoteToSupplier.
@@ -667,21 +653,6 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         setAttributeInternal(COURIERSNO, value);
     }
 
-    /**
-     * Gets the attribute value for ShippingCost, using the alias name ShippingCost.
-     * @return the value of ShippingCost
-     */
-    public BigDecimal getShippingCost() {
-        return (BigDecimal) getAttributeInternal(SHIPPINGCOST);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for ShippingCost.
-     * @param value value to set the ShippingCost
-     */
-    public void setShippingCost(BigDecimal value) {
-        setAttributeInternal(SHIPPINGCOST, value);
-    }
 
     /**
      * Gets the attribute value for txtLocationName, using the alias name txtLocationName.
@@ -697,6 +668,22 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void settxtLocationName(String value) {
         setAttributeInternal(TXTLOCATIONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for FobTermSno, using the alias name FobTermSno.
+     * @return the value of FobTermSno
+     */
+    public Integer getFobTermSno() {
+        return (Integer) getAttributeInternal(FOBTERMSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FobTermSno.
+     * @param value value to set the FobTermSno
+     */
+    public void setFobTermSno(Integer value) {
+        setAttributeInternal(FOBTERMSNO, value);
     }
 
     /**
@@ -765,6 +752,20 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation == DML_INSERT) {
+
+            String result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "RFQ_HEADER_SNO",
+                                                              this.getEntityDef().getSource(), null, null);
+
+            populateAttributeAsChanged(RFQHEADERSNO, Integer.parseInt(result));
+            result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "RFQ_HEADER_CODE",
+                                                              this.getEntityDef().getSource(), "COMPANY_ID",
+                                                              getCompanyId().toString());
+            populateAttributeAsChanged(RFQHEADERCODE, Integer.parseInt(result));
+
+        }
         super.doDML(operation, e);
     }
 }

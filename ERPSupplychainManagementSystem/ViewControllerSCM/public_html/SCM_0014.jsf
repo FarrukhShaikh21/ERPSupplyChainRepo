@@ -7,15 +7,7 @@
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
         <af:dialog id="d2" type="ok">
           <f:facet name="buttonBar"/>
-          <af:panelGroupLayout layout="vertical" id="pgl4">
-            <af:query id="qryId1" headerText="Search"
-                      value="#{bindings.ScmPurchaseDemandHeaderFindVCQuery.queryDescriptor}"
-                      model="#{bindings.ScmPurchaseDemandHeaderFindVCQuery.queryModel}"
-                      queryListener="#{bindings.ScmPurchaseDemandHeaderFindVCQuery.processQuery}"
-                      queryOperationListener="#{bindings.ScmPurchaseDemandHeaderFindVCQuery.processQueryOperation}"
-                      disclosed="true" saveQueryMode="hidden" modeChangeVisible="false"
-                      runQueryAutomatically="allSavedSearches" saveResultsLayout="never"/>
-          </af:panelGroupLayout>
+          <af:panelGroupLayout layout="vertical" id="pgl4"/>
         </af:dialog>
       </af:popup>
       <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
@@ -29,7 +21,7 @@
                     <af:panelGroupLayout id="pgl6" halign="end" layout="horizontal">
                       <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgFind.png']}"/>
                       <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
-                               action="ERP-ADD-ACT-SCM_0013" shortDesc="Add New Record"/>
+                               action="ERP-ADD-ACT-SCM_0014" shortDesc="Add New Record"/>
                       <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM"
                                partialSubmit="true" shortDesc="Exit Form"/>
                     </af:panelGroupLayout>
@@ -103,36 +95,6 @@
                                                           styleClass="ERPHeroDetailColor"/>
                                     </af:panelGroupLayout>
                                   </af:gridCell>
-                                </af:gridRow>
-                              </af:panelGridLayout>
-                            </af:panelBox>
-                          </af:panelGroupLayout>
-                        </af:listItem>
-                      </af:listView>
-                      <af:listView value="#{bindings.ScmPurchaseDemandHeaderRO.collectionModel}" var="item"
-                                   emptyText="#{bindings.ScmPurchaseDemandHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                   fetchSize="#{bindings.ScmPurchaseDemandHeaderRO.rangeSize}" id="lv2"
-                                   selection="single"
-                                   selectionListener="#{bindings.ScmPurchaseDemandHeaderRO.treeModel.makeCurrent}"
-                                   selectedRowKeys="#{bindings.ScmPurchaseDemandHeaderRO.collectionModel.selectedRow}"
-                                   styleClass="WBDisplayBlockCenter" partialTriggers=":::qryId1" rendered="false">
-                        <af:listItem id="li2"
-                                     styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
-                          <af:panelGroupLayout id="pgl2" layout="vertical" styleClass="WBCardSize">
-                            <af:panelBox text="PanelBox1" id="pb1" showHeader="never" showDisclosure="false">
-                              <f:facet name="toolbar"/>
-                              <af:panelGridLayout id="pgl9">
-                                <af:gridRow marginTop="5px" height="auto" id="gr9">
-                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9" halign="stretch">
-                                    <af:outputFormatted value="#{item.bindings.StatusId.inputValue}" id="of9">
-                                      <af:convertNumber groupingUsed="false"
-                                                        pattern="#{bindings.ScmPurchaseDemandHeaderRO.hints.StatusId.format}"/>
-                                    </af:outputFormatted>
-                                  </af:gridCell>
-                                </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
-                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10"
-                                               halign="stretch"/>
                                 </af:gridRow>
                               </af:panelGridLayout>
                             </af:panelBox>
