@@ -712,6 +712,15 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0014">
+      <page>/SCM_0014.jsf</page>
+    </view>
+    <method-call id="ExePurchaseRFQSCM_0014">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM_0014</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -800,6 +809,10 @@
       <control-flow-case id="__277">
         <from-outcome>ERP-ACT-SCM_0013</from-outcome>
         <to-activity-id>ExePurchaseDemSCM_0013</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__308">
+        <from-outcome>ERP-ACT-SCM_0014</from-outcome>
+        <to-activity-id>ExePurchaseRFQSCM_0014</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -1758,6 +1771,13 @@
       <control-flow-case id="__305">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0002_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__306">
+      <from-activity-id>ExePurchaseRFQSCM_0014</from-activity-id>
+      <control-flow-case id="__307">
+        <from-outcome>ERP-ACT-SCM_0014</from-outcome>
+        <to-activity-id>SCM_0014</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

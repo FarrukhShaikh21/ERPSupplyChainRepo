@@ -227,6 +227,41 @@
     EntityAttrName="ShippingCost"
     EntityUsage="ScmPurchaseRfqHeader"
     AliasName="SHIPPING_COST"/>
+  <ViewCriteria
+    Name="ScmPurchaseRfqHeaderCompanyAccessVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseRfqHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="LocationId"
+        ViewAttribute="LocationId"
+        Operator="="
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmPurchaseRfqLinesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurQuoteLineHeadSnoLink"
@@ -236,5 +271,11 @@
     Name="ScmPurchaseRfqSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurRfqSupplierHeaderLink"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AdminCompanyVO"
+    ViewLink="erpscm.modelscm.scmvo.AdminLocationScmPurchaseRFQHeaderLocationIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>

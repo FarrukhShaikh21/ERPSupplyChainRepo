@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmeo;
 
+import erpadm.modeladm.admeo.AdminCompanyImpl;
+
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import java.math.BigDecimal;
@@ -57,7 +59,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         CourierSno,
         ShippingCost,
         ScmPurchaseRfqLines,
-        ScmPurchaseRfqSupplier;
+        ScmPurchaseRfqSupplier,
+        AdminCompany;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -80,6 +83,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int RFQHEADERSNO = AttributesEnum.RfqHeaderSno.index();
     public static final int RFQHEADERCODE = AttributesEnum.RfqHeaderCode.index();
     public static final int BILLTOSNO = AttributesEnum.BillToSno.index();
@@ -116,12 +121,21 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int SHIPPINGCOST = AttributesEnum.ShippingCost.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
+    public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public ScmPurchaseRfqHeaderImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseRfqHeader");
+    }
+
 
     /**
      * Gets the attribute value for RfqHeaderSno, using the alias name RfqHeaderSno.
@@ -682,19 +696,27 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     }
 
     /**
+     * @return the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
+     */
+    public AdminCompanyImpl getAdminCompany() {
+        return (AdminCompanyImpl) getAttributeInternal(ADMINCOMPANY);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
+     */
+    public void setAdminCompany(AdminCompanyImpl value) {
+        setAttributeInternal(ADMINCOMPANY, value);
+    }
+
+
+    /**
      * @param rfqHeaderSno key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer rfqHeaderSno) {
         return new Key(new Object[] { rfqHeaderSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseRfqHeader");
     }
 
     /**
