@@ -240,7 +240,24 @@
   </ViewUsage>
   <ViewUsage
     Name="ScmPurchaseRfqHeaderRO"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"/>
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseRfqHeaderCompanyAccessVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO.ScmPurchaseRfqHeaderCompanyAccessVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmPurchaseRfqHeaderCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseRfqHeaderCRUDVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO.ScmPurchaseRfqHeaderCRUDVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmPurchaseRfqLinesDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"/>
+  <ViewUsage
+    Name="ScmPurchaseRfqSupplierDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -294,5 +311,17 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurDemLinHeaderIdLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseDemandHeaderCRUD"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseDemandLinesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmPurQuoteLineHeadSnoLink1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurQuoteLineHeadSnoLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseRfqHeaderCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseRfqLinesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmPurRfqSupplierHeaderLink1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurRfqSupplierHeaderLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseRfqHeaderCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseRfqSupplierDetCRUD"
     Reversed="false"/>
 </AppModule>

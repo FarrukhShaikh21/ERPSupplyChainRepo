@@ -58,6 +58,7 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         NoteToSupplier,
         CourierSno,
         ShippingCost,
+        txtLocationName,
         ScmPurchaseRfqLines,
         ScmPurchaseRfqSupplier,
         AdminCompany;
@@ -119,6 +120,7 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int NOTETOSUPPLIER = AttributesEnum.NoteToSupplier.index();
     public static final int COURIERSNO = AttributesEnum.CourierSno.index();
     public static final int SHIPPINGCOST = AttributesEnum.ShippingCost.index();
+    public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -679,6 +681,22 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void setShippingCost(BigDecimal value) {
         setAttributeInternal(SHIPPINGCOST, value);
+    }
+
+    /**
+     * Gets the attribute value for txtLocationName, using the alias name txtLocationName.
+     * @return the value of txtLocationName
+     */
+    public String gettxtLocationName() {
+        return (String) getAttributeInternal(TXTLOCATIONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtLocationName.
+     * @param value value to set the txtLocationName
+     */
+    public void settxtLocationName(String value) {
+        setAttributeInternal(TXTLOCATIONNAME, value);
     }
 
     /**

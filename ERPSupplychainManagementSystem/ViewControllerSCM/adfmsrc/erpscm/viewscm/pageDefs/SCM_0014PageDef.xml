@@ -5,6 +5,23 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="ScmPurchaseRfqHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseRfqHeaderROIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <tree IterBinding="ScmPurchaseRfqHeaderROIterator" id="ScmPurchaseRfqHeaderRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO" Name="ScmPurchaseRfqHeaderRO0">
+        <AttrNames>
+          <Item Value="RfqHeaderCode"/>
+          <Item Value="RfqDate"/>
+          <Item Value="txtLocationName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ScmPurchaseRfqHeaderROIterator" id="RfqHeaderSno">
+      <AttrNames>
+        <Item Value="RfqHeaderSno"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>
