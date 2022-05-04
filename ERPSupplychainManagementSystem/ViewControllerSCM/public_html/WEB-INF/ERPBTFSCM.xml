@@ -727,7 +727,19 @@
     <method-call id="CreateSCM_0014">
       <method>#{bindings.CreateInsert.execute}</method>
       <outcome>
-        <fixed-outcome>CreateInsert</fixed-outcome>
+        <fixed-outcome>ERP-ADD-ACT-SCM_0014</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="EWPSCM_0014_QRY">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0014</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SCM_0014_RFQ_HEADER_QUERY">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">
@@ -1794,6 +1806,38 @@
       <control-flow-case id="__310">
         <from-outcome>ERP-ADD-ACT-SCM_0014</from-outcome>
         <to-activity-id>CreateSCM_0014</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__311">
+        <from-outcome>ERP-QRY-ACT-SCM_0014</from-outcome>
+        <to-activity-id>EWPSCM_0014_QRY</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__312">
+      <from-activity-id>EWPSCM_0014_QRY</from-activity-id>
+      <control-flow-case id="__313">
+        <from-outcome>ERP-QRY-ACT-SCM_0014</from-outcome>
+        <to-activity-id>SCM_0014_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__314">
+      <from-activity-id>CreateSCM_0014</from-activity-id>
+      <control-flow-case id="__315">
+        <from-outcome>ERP-ADD-ACT-SCM_0014</from-outcome>
+        <to-activity-id>SCM_0014_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__316">
+      <from-activity-id>SCM_0014_EDIT</from-activity-id>
+      <control-flow-case id="__317">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0014_RFQ_HEADER_QUERY</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__318">
+      <from-activity-id>SCM_0014_RFQ_HEADER_QUERY</from-activity-id>
+      <control-flow-case id="__319">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0014</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
