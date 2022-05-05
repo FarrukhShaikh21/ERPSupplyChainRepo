@@ -679,7 +679,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_RFQ_HEADER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -692,6 +691,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="PaymentTermHeaderSno"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqLines"

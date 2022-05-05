@@ -57,6 +57,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmPaymentTermHeaderVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtTempProjectName"
     ListVOName="AccGlProjectsVO"
@@ -104,6 +108,30 @@
     </AttrArray>
     <DisplayCriteria
       Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtPaymentTermName"
+    ListVOName="AccScmPaymentTermHeaderVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtPaymentTermName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PaymentTermHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PaymentTermName"/>
+      <Item Value="PaymentTermHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PaymentTermName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmPaymentTermHeaderFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseRfqHeader"
@@ -353,6 +381,22 @@
     EntityAttrName="PaymentTermHeaderSno"
     EntityUsage="ScmPurchaseRfqHeader"
     AliasName="PAYMENT_TERM_HEADER_SNO"/>
+  <ViewAttribute
+    Name="txtPaymentTermName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtPaymentTermName"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="TXT_PAYMENT_TERM_NAME"
+    LOVName="LovtxtPaymentTermName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
