@@ -12,11 +12,99 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+    <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
+  </DesignTime>
   <Variable
     Name="P_ADF_RFQ_HEADER_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
+  <ViewAccessor
+    Name="AccGlProjectsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlProjectsActiveVC"
+      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsActiveVC"/>
+    <ViewCriteriaUsage
+      Name="GlProjectsByCompanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyDepartment"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyDepartmentAccessWiseVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyDepartmentAccessWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMP_CODE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_USER_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LovtxtTempProjectName"
+    ListVOName="AccGlProjectsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtTempProjectName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TempProjectId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjectName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlProjectsFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtTempDepartmentName"
+    ListVOName="AccAdminCompanyDepartment"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtTempDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TempDepartmentId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
   <EntityUsage
     Name="ScmPurchaseRfqHeader"
     Entity="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader"/>
@@ -233,6 +321,38 @@
     EntityAttrName="FobTermSno"
     EntityUsage="ScmPurchaseRfqHeader"
     AliasName="FOB_TERM_SNO"/>
+  <ViewAttribute
+    Name="txtTempDepartmentName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtTempDepartmentName"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="TXT_TEMP_DEPARTMENT_NAME"
+    LOVName="LovtxtTempDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtTempProjectName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtTempProjectName"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="TXT_TEMP_PROJECT_NAME"
+    LOVName="LovtxtTempProjectName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
