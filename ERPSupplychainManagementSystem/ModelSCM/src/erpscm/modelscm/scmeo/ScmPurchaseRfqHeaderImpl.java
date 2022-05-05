@@ -2,6 +2,8 @@ package erpscm.modelscm.scmeo;
 
 import erpadm.modeladm.admeo.AdminCompanyImpl;
 
+import erpfms.modelfms.fmseo.GlProjectsImpl;
+
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
@@ -62,9 +64,10 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         FobTermSno,
         ScmPurchaseRfqLines,
         ScmPurchaseRfqSupplier,
-        AdminCompany;
-        static AttributesEnum[] vals = null;
-        ;
+        AdminCompany,
+        GlProjects,
+        AdminCompany1;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -125,6 +128,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
+    public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
+    public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -712,6 +717,36 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void setAdminCompany(AdminCompanyImpl value) {
         setAttributeInternal(ADMINCOMPANY, value);
+    }
+
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlProjectsImpl.
+     */
+    public GlProjectsImpl getGlProjects() {
+        return (GlProjectsImpl) getAttributeInternal(GLPROJECTS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlProjectsImpl.
+     */
+    public void setGlProjects(GlProjectsImpl value) {
+        setAttributeInternal(GLPROJECTS, value);
+    }
+
+
+    /**
+     * @return the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
+     */
+    public AdminCompanyImpl getAdminCompany1() {
+        return (AdminCompanyImpl) getAttributeInternal(ADMINCOMPANY1);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
+     */
+    public void setAdminCompany1(AdminCompanyImpl value) {
+        setAttributeInternal(ADMINCOMPANY1, value);
     }
 
 
