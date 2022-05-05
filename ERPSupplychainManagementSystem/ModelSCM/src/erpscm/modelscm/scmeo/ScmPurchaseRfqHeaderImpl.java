@@ -62,6 +62,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         CourierSno,
         txtLocationName,
         FobTermSno,
+        txtTempDepartmentName,
+        txtTempProjectName,
         ScmPurchaseRfqLines,
         ScmPurchaseRfqSupplier,
         AdminCompany,
@@ -125,6 +127,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int COURIERSNO = AttributesEnum.CourierSno.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int FOBTERMSNO = AttributesEnum.FobTermSno.index();
+    public static final int TXTTEMPDEPARTMENTNAME = AttributesEnum.txtTempDepartmentName.index();
+    public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -689,6 +693,38 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void setFobTermSno(Integer value) {
         setAttributeInternal(FOBTERMSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtTempDepartmentName, using the alias name txtTempDepartmentName.
+     * @return the value of txtTempDepartmentName
+     */
+    public String gettxtTempDepartmentName() {
+        return (String) getAttributeInternal(TXTTEMPDEPARTMENTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtTempDepartmentName.
+     * @param value value to set the txtTempDepartmentName
+     */
+    public void settxtTempDepartmentName(String value) {
+        setAttributeInternal(TXTTEMPDEPARTMENTNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtTempProjectName, using the alias name txtTempProjectName.
+     * @return the value of txtTempProjectName
+     */
+    public String gettxtTempProjectName() {
+        return (String) getAttributeInternal(TXTTEMPPROJECTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtTempProjectName.
+     * @param value value to set the txtTempProjectName
+     */
+    public void settxtTempProjectName(String value) {
+        setAttributeInternal(TXTTEMPPROJECTNAME, value);
     }
 
     /**
