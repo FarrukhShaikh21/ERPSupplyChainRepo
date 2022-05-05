@@ -2,12 +2,455 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="SCM_0014_EDIT.jsf" id="d1">
+        <af:messages id="m1"/>
         <af:form id="f1">
-            <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
-                <f:facet name="ERPMain"/>
-                <f:facet name="ERPLeft"/>
-                <f:facet name="ERPToolbar"/>
-            </af:pageTemplate>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                        binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
+                  <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>   
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                        binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
+                <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
+                  <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
+                  <f:facet name="buttonBar"/>
+                        </af:dialog>
+            </af:popup>
+            <af:decorativeBox id="db1" dimensionsFrom="parent">
+                <f:facet name="center">
+                    <af:panelGridLayout id="pgl1" partialTriggers="l5 l1 l8 l20 l19 l9 l10 l6 l4 l7 l3 l2 d3 d4"
+                                        dimensionsFrom="parent">
+                        <af:gridRow id="gr8">
+                            <af:gridCell id="gc20" valign="stretch" halign="stretch">
+                                <af:panelGridLayout id="pgl6">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                                        <af:gridCell marginStart="5px" width="50%" id="gc18" valign="middle"
+                                                     columnSpan="1" styleClass="ERPToolBarBackground" halign="stretch">
+                                            <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}"
+                                                           id="ot3" styleClass="ERPActivityNameFormHeading"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="50%" id="gc19"
+                                                     halign="end" columnSpan="1" rowSpan="1"
+                                                     styleClass="ERPToolBarBackground" valign="stretch">
+                                            <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                                <af:link id="l5" partialSubmit="true"
+                                                         icon="#{resource['images:imgCloseDialog.png']}" text="Close"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                                         shortDesc="Close Form"/>
+                                                <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                                         text="CreateWithParams"
+                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
+                                                         rendered="false"/>
+                                                <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                         id="l8" rendered="false"/>
+                                                <af:link text="UnSupervise" id="l20" partialSubmit="true"
+                                                         icon="#{resource['images:imgUnSuperviseRecord.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.DemandHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                         partialTriggers="l7" shortDesc="Un Supervise Record">
+                                                    <af:setActionListener from="#{'ScmPurchaseDemandHeaderCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                </af:link>
+                                                <af:link text="Supervise" id="l19" partialSubmit="true"
+                                                         icon="#{resource['images:imgSuperviseRecord.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.DemandHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                         partialTriggers="l7" shortDesc="Supervise Record">
+                                                    <af:setActionListener from="#{'ScmPurchaseDemandHeaderCRUDIterator'}"
+                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                </af:link>
+                                                <af:link text="Delete" id="l9"
+                                                         actionListener="#{bindings.Delete.execute}"
+                                                         icon="#{resource['images:imgDeleteRecord.png']}"
+                                                         iconPosition="top" partialSubmit="true"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
+                                                         shortDesc="Delete Record"/>
+                                                <af:link text="Add" id="l10"
+                                                         icon="#{resource['images:imgAddRecord.png']}"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                                         partialSubmit="true"
+                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                                         shortDesc="Add New Record"/>
+                                                <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                         disabled="#{!bindings.Commit.enabled}" id="l6"
+                                                         rendered="false"/>
+                                                <af:link text="Undo" id="l4" icon="#{resource['images:imgUndo.png']}"
+                                                         partialSubmit="true" iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
+                                                         immediate="true" shortDesc="Undi Record">
+                                                    <af:resetActionListener/>
+                                                </af:link>
+                                                <af:link id="l7" partialSubmit="true"
+                                                         icon="#{resource['images:imgSave.png']}" text="Save"
+                                                         iconPosition="top"
+                                                         action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                                         shortDesc="Save Record"/>
+                                                <af:spacer width="1" height="10" id="s2"/>
+                                                <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                         id="l3" rendered="false"/>
+                                                <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                         immediate="true" id="l2" rendered="false">
+                                                    <af:resetActionListener/>
+                                                </af:link>
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" height="10" id="s1"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow height="auto" id="gr1">
+                            <af:gridCell marginStart="5px" width="100%" id="gc1" halign="stretch" columnSpan="8"
+                                         rowSpan="1" marginEnd="5px">
+                                <af:panelGridLayout id="pgl2">
+                                    <af:gridRow id="gr3">
+                                        <af:gridCell id="gc3" columnSpan="8" styleClass="ERPEntryAreaHeading"
+                                                     halign="stretch" valign="stretch">
+                                            <af:outputText value="Purchase RFQ Header" id="ot4"
+                                                           styleClass="ERPEntryAreaFont" truncateAt="0"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                        <af:gridCell width="13%" id="gc4" marginEnd="5px" halign="center">
+                                            <af:outputLabel value="#{bindings.RfqHeaderCode.hints.label}" id="ol3"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="20%" id="gc5" halign="stretch"
+                                                     valign="middle">
+                                            <af:inputText value="#{bindings.RfqHeaderSno.inputValue}"
+                                                          label="#{bindings.RfqHeaderSno.hints.label}"
+                                                          required="#{bindings.RfqHeaderSno.hints.mandatory}"
+                                                          columns="#{bindings.RfqHeaderSno.hints.displayWidth}"
+                                                          maximumLength="#{bindings.RfqHeaderSno.hints.precision}"
+                                                          shortDesc="#{bindings.RfqHeaderSno.hints.tooltip}" id="it14"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.RfqHeaderSno.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.RfqHeaderSno.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                          label="#{bindings.IsUnsupervised.hints.label}"
+                                                          required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                          columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                          maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                          shortDesc="#{bindings.IsUnsupervised.hints.tooltip}" id="it8"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.IsCancelled.inputValue}"
+                                                          label="#{bindings.IsCancelled.hints.label}"
+                                                          required="#{bindings.IsCancelled.hints.mandatory}"
+                                                          columns="#{bindings.IsCancelled.hints.displayWidth}"
+                                                          maximumLength="#{bindings.IsCancelled.hints.precision}"
+                                                          shortDesc="#{bindings.IsCancelled.hints.tooltip}" id="it10"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.IsCancelled.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                          label="#{bindings.IsSupervised.hints.label}"
+                                                          required="#{bindings.IsSupervised.hints.mandatory}"
+                                                          columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                          maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                          shortDesc="#{bindings.IsSupervised.hints.tooltip}" id="it9"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.RfqHeaderCode.inputValue}"
+                                                          label="#{bindings.RfqHeaderCode.hints.label}"
+                                                          required="#{bindings.RfqHeaderCode.hints.mandatory}"
+                                                          columns="#{bindings.RfqHeaderCode.hints.displayWidth}"
+                                                          maximumLength="#{bindings.RfqHeaderCode.hints.precision}"
+                                                          shortDesc="#{bindings.RfqHeaderCode.hints.tooltip}" id="it15"
+                                                          simple="true" readOnly="true">
+                                                <f:validator binding="#{bindings.RfqHeaderCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.RfqHeaderCode.format}"/>
+                                            </af:inputText>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="13%" id="gc6" halign="center">
+                                            <af:outputLabel value="#{bindings.RfqDate.hints.label}" id="ol1"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="20%" id="gc7" valign="middle">
+                                            <af:inputDate value="#{bindings.RfqDate.inputValue}"
+                                                          label="#{bindings.RfqDate.hints.label}"
+                                                          required="#{bindings.RfqDate.hints.mandatory}"
+                                                          columns="#{bindings.RfqDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.RfqDate.hints.tooltip}" id="id1"
+                                                          simple="true">
+                                                <f:validator binding="#{bindings.RfqDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.RfqDate.format}"/>
+                                            </af:inputDate>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="13%" id="gc8" halign="center">
+                                            <af:outputLabel value="#{bindings.DueDate.hints.label}" id="ol2"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="21%" marginEnd="5px" id="gc9"
+                                                     halign="stretch" valign="middle">
+                                            <af:inputDate value="#{bindings.DueDate.inputValue}"
+                                                          label="#{bindings.DueDate.hints.label}"
+                                                          required="#{bindings.DueDate.hints.mandatory}"
+                                                          columns="#{bindings.DueDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.DueDate.hints.tooltip}" id="id3"
+                                                          simple="true">
+                                                <f:validator binding="#{bindings.DueDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
+                                            </af:inputDate>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                        <af:gridCell width="13%" id="gc10" halign="center"/>
+                                        <af:gridCell marginStart="5px" width="20%" id="gc11" halign="stretch"
+                                                     valign="middle"/>
+                                        <af:gridCell marginStart="5px" width="13%" id="gc13" halign="center"/>
+                                        <af:gridCell marginStart="5px" width="20%" id="gc14" halign="stretch"
+                                                     valign="middle"/>
+                                        <af:gridCell id="gc12" width="13%" marginStart="5px" marginEnd="5px"
+                                                     halign="center"/>
+                                        <af:gridCell marginStart="5px" width="21%" id="gc15"
+                                                     valign="middle"/>
+                                    </af:gridRow>
+                                    <af:gridRow id="gr6">
+                                        <af:gridCell id="gc16" width="13%" halign="center">
+                                            <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol6"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc17" columnSpan="5" halign="stretch" valign="middle">
+                                            <af:inputText value="#{bindings.Remarks.inputValue}"
+                                                          label="#{bindings.Remarks.hints.label}"
+                                                          required="#{bindings.Remarks.hints.mandatory}"
+                                                          columns="#{bindings.Remarks.hints.displayWidth}"
+                                                          maximumLength="#{bindings.Remarks.hints.precision}"
+                                                          shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2"
+                                                          simple="true" contentStyle="width:100%">
+                                                <f:validator binding="#{bindings.Remarks.validator}"/>
+                                            </af:inputText>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr2">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch">
+                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t2">
+                                            <af:link actionListener="#{bindings.CreateInsert.execute}"
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised=='Y'}"
+                                                     id="l12" icon="#{resource['images:imgAddRecord.png']}"
+                                                     partialSubmit="true"/>
+                                            <af:link actionListener="#{bindings.Delete1.execute}"
+                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised=='Y'}"
+                                                     id="l11" partialSubmit="true"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"/>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.ScmPurchaseDemandLinesDetCRUD.collectionModel}"
+                                              var="row" rows="#{bindings.ScmPurchaseDemandLinesDetCRUD.rangeSize}"
+                                              emptyText="#{bindings.ScmPurchaseDemandLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.ScmPurchaseDemandLinesDetCRUD.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.ScmPurchaseDemandLinesDetCRUD.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.ScmPurchaseDemandLinesDetCRUD.rangeSize}" id="t1"
+                                              partialTriggers="::l11 ::l12" columnStretching="column:c2"
+                                              autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?8:15}"
+                                              scrollPolicy="page">
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.label}"
+                                                   id="c1" width="60" headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.LineNo.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.label}"
+                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.tooltip}"
+                                                          id="it3" readOnly="true">
+                                                <f:validator binding="#{row.bindings.LineNo.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.label}"
+                                                   id="c2" width="170" headerClass="ERPToolBarBackground">
+                                            <af:inputComboboxListOfValues id="txtItemNameId"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.label}"
+                                                                          value="#{row.bindings.txtItemName.inputValue}"
+                                                                          model="#{row.bindings.txtItemName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.tooltip}"
+                                                                          contentStyle="width:80%">
+                                                <f:validator binding="#{row.bindings.txtItemName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.label}"
+                                                   id="c3" width="150" headerClass="ERPToolBarBackground">
+                                            <af:inputComboboxListOfValues id="txtUnitTypeNameId"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.label}"
+                                                                          value="#{row.bindings.txtUnitTypeName.inputValue}"
+                                                                          model="#{row.bindings.txtUnitTypeName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
+                                                                          contentStyle="width:80%">
+                                                <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtProjectName.label}"
+                                                   id="c4" width="200" headerClass="ERPToolBarBackground">
+                                            <af:inputComboboxListOfValues id="iclov1"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtProjectName.label}"
+                                                                          value="#{row.bindings.txtProjectName.inputValue}"
+                                                                          model="#{row.bindings.txtProjectName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtProjectName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtProjectName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtProjectName.tooltip}"
+                                                                          contentStyle="width:80%">
+                                                <f:validator binding="#{row.bindings.txtProjectName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtDepartmentName.label}"
+                                                   id="c5" width="200" headerClass="ERPToolBarBackground">
+                                            <af:inputComboboxListOfValues id="txtDepartmentNameId"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtDepartmentName.label}"
+                                                                          value="#{row.bindings.txtDepartmentName.inputValue}"
+                                                                          model="#{row.bindings.txtDepartmentName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtDepartmentName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtDepartmentName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtDepartmentName.tooltip}"
+                                                                          contentStyle="width:80%">
+                                                <f:validator binding="#{row.bindings.txtDepartmentName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.label}"
+                                                   id="c6" width="130" displayIndex="-1"
+                                                   headerClass="ERPToolBarBackground">
+                                            <af:inputDate value="#{row.bindings.RequiredByDate.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.label}"
+                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.displayWidth}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.tooltip}"
+                                                          id="id2" contentStyle="width:60%">
+                                                <f:validator binding="#{row.bindings.RequiredByDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.RequiredByDate.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.label}"
+                                                   id="c12" headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.AproxPrice.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.label}"
+                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.tooltip}"
+                                                          id="it13">
+                                                <f:validator binding="#{row.bindings.AproxPrice.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.label}"
+                                                   id="c7" width="80" displayIndex="-1"
+                                                   headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.DemandQuantity.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.label}"
+                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.tooltip}"
+                                                          id="it4" autoSubmit="true">
+                                                <f:validator binding="#{row.bindings.DemandQuantity.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.format}"/>
+                                            </af:inputText>
+                                            <f:facet name="footer">
+                                                <af:panelGroupLayout id="pgl3" halign="end" layout="horizontal">
+                                                    <af:outputText value="#{bindings.txtSumDemandQty.inputValue}"
+                                                                   id="ot1" truncateAt="0" partialTriggers="it4"/>
+                                                </af:panelGroupLayout>
+                                            </f:facet>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.label}"
+                                                   id="c8" width="80" displayIndex="-1"
+                                                   headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.ApproveQuantity.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.label}"
+                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.tooltip}"
+                                                          id="it5" autoSubmit="true">
+                                                <f:validator binding="#{row.bindings.ApproveQuantity.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.format}"/>
+                                            </af:inputText>
+                                            <f:facet name="footer">
+                                                <af:panelGroupLayout id="pgl5" halign="end" layout="horizontal">
+                                                    <af:outputText value="#{bindings.txtSumApproveQty.inputValue}"
+                                                                   id="ot2" partialTriggers="it5"/>
+                                                </af:panelGroupLayout>
+                                            </f:facet>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.label}"
+                                                   id="c9" headerClass="ERPToolBarBackground" width="150"
+                                                   displayIndex="-1">
+                                            <af:inputComboboxListOfValues id="txtSupplierNameId"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.label}"
+                                                                          value="#{row.bindings.txtSupplierName.inputValue}"
+                                                                          model="#{row.bindings.txtSupplierName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtSupplierName.tooltip}"
+                                                                          contentStyle="width:80%">
+                                                <f:validator binding="#{row.bindings.txtSupplierName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.label}"
+                                                   id="c10" headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.NoteToBuyer.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.label}"
+                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToBuyer.tooltip}"
+                                                          id="it11">
+                                                <f:validator binding="#{row.bindings.NoteToBuyer.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.label}"
+                                                   id="c11" headerClass="ERPToolBarBackground">
+                                            <af:inputText value="#{row.bindings.NoteToSupplier.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.label}"
+                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.NoteToSupplier.tooltip}"
+                                                          id="it12">
+                                                <f:validator binding="#{row.bindings.NoteToSupplier.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+                <f:facet name="top"/>
+            </af:decorativeBox>
         </af:form>
+        <f:facet name="metaContainer">
+            <af:resource type="javascript" source="/resources/js/ERPSCMJavaScript.js"/>
+            <af:resource type="css" source="/resources/css/ERPSCMStyleSheet.css"/>
+            <af:resource type="javascript" source="http://code.jquery.com/jquery-1.10.2.js"/>
+        </f:facet>
     </af:document>
 </f:view>

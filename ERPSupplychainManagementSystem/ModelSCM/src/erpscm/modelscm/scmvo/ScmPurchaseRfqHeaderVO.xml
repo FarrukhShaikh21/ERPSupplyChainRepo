@@ -284,12 +284,6 @@
     EntityUsage="ScmPurchaseRfqHeader"
     AliasName="RFQ_TYPE_SNO"/>
   <ViewAttribute
-    Name="PaymentTermSno"
-    PrecisionRule="true"
-    EntityAttrName="PaymentTermSno"
-    EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="PAYMENT_TERM_SNO"/>
-  <ViewAttribute
     Name="FreightTermSno"
     PrecisionRule="true"
     EntityAttrName="FreightTermSno"
@@ -353,6 +347,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="PaymentTermHeaderSno"
+    PrecisionRule="true"
+    EntityAttrName="PaymentTermHeaderSno"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="PAYMENT_TERM_HEADER_SNO"/>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
@@ -541,6 +541,12 @@
   <ViewLinkAccessor
     Name="GlProjectsVO"
     ViewLink="erpscm.modelscm.scmvo.GlProjectScmPurRFQHeaderTempProjectIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPaymentTermHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPayTermHeadScmPurRFQHeadPaymentTermHeadSnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
