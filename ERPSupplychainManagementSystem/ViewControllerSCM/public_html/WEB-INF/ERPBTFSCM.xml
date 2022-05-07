@@ -742,6 +742,30 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0015">
+      <page>/SCM_0015.jsf</page>
+    </view>
+    <method-call id="ExeAdminCompanySCM_0015">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM_0008</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCM_0015_EDIT">
+      <page>/SCM_0015_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeScmFreightTermSCM_0015">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0015</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeAdminCompanyByCompanySCM_0015_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0015</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -834,6 +858,10 @@
       <control-flow-case id="__308">
         <from-outcome>ERP-ACT-SCM_0014</from-outcome>
         <to-activity-id>ExePurchaseRFQSCM_0014</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__324">
+        <from-outcome>ERP-ACT-SCM_0008</from-outcome>
+        <to-activity-id>ExeAdminCompanySCM_0015</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -1838,6 +1866,34 @@
       <control-flow-case id="__319">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0014</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__320">
+      <from-activity-id>ExeAdminCompanySCM_0015</from-activity-id>
+      <control-flow-case id="__321">
+        <from-outcome>ERP-ACT-SCM_0008</from-outcome>
+        <to-activity-id>SCM_0015</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__325">
+      <from-activity-id>SCM_0015</from-activity-id>
+      <control-flow-case id="__326">
+        <from-outcome>ERP-QRY-ACT-SCM_0015</from-outcome>
+        <to-activity-id>ExeAdminCompanyByCompanySCM_0015_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__327">
+      <from-activity-id>ExeAdminCompanyByCompanySCM_0015_EDIT</from-activity-id>
+      <control-flow-case id="__328">
+        <from-outcome>ERP-QRY-ACT-SCM_0015</from-outcome>
+        <to-activity-id>ExeScmFreightTermSCM_0015</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__329">
+      <from-activity-id>ExeScmFreightTermSCM_0015</from-activity-id>
+      <control-flow-case id="__330">
+        <from-outcome>ERP-QRY-ACT-SCM_0015</from-outcome>
+        <to-activity-id>SCM_0015_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

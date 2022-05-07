@@ -258,6 +258,13 @@
   <ViewUsage
     Name="ScmPurchaseRfqSupplierDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO"/>
+  <ViewUsage
+    Name="ScmFreightTermRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmFreightTermVO">
+    <ViewCriteriaUsage
+      Name="ScmFreightTermByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmFreightTermVO.ScmFreightTermByCompanyIDVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
