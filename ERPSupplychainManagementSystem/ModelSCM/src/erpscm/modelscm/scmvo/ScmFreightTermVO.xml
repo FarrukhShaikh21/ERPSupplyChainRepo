@@ -21,6 +21,77 @@
     Name="P_ADF_FREIGHT_TERM_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
+  <ViewAccessor
+    Name="AccSysGeneralValueVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[4]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LovIsActive"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsActive"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsUnsupervised"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsUnsupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsSupervised"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsSupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmFreightTerm"
     Entity="erpscm.modelscm.scmeo.ScmFreightTerm"/>
@@ -63,7 +134,15 @@
     PrecisionRule="true"
     EntityAttrName="IsActive"
     EntityUsage="ScmFreightTerm"
-    AliasName="IS_ACTIVE"/>
+    AliasName="IS_ACTIVE"
+    LOVName="LovIsActive">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CompanyId"
     IsUnique="true"
@@ -111,7 +190,15 @@
     PrecisionRule="true"
     EntityAttrName="IsSupervised"
     EntityUsage="ScmFreightTerm"
-    AliasName="IS_SUPERVISED"/>
+    AliasName="IS_SUPERVISED"
+    LOVName="LovIsSupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SupervisedDate"
     PrecisionRule="true"
@@ -124,7 +211,15 @@
     PrecisionRule="true"
     EntityAttrName="IsUnsupervised"
     EntityUsage="ScmFreightTerm"
-    AliasName="IS_UNSUPERVISED"/>
+    AliasName="IS_UNSUPERVISED"
+    LOVName="LovIsUnsupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UnSupervisedDate"
     PrecisionRule="true"
@@ -246,42 +341,36 @@
         ViewAttribute="FreightTermCode"
         Operator="="
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="FreightTermShortName"
         ViewAttribute="FreightTermShortName"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="FreightTermName"
         ViewAttribute="FreightTermName"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="OpenDate"
         ViewAttribute="OpenDate"
         Operator="BETWEEN"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="IsActive"
         ViewAttribute="IsActive"
         Operator="="
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="IsSupervised"
         ViewAttribute="IsSupervised"
         Operator="="
         Conjunction="AND"
-        Value=""
         UpperColumns="0"
         Required="Optional"/>
       <ViewCriteriaItem
@@ -289,7 +378,6 @@
         ViewAttribute="IsUnsupervised"
         Operator="="
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
