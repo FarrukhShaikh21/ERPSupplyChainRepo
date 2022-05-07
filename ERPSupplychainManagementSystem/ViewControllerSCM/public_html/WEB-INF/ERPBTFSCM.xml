@@ -781,6 +781,12 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="CWPSCM_PAY_TERM_SCM_0015">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ADD-ACT-SCM_0015</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -875,7 +881,7 @@
         <to-activity-id>ExePurchaseRFQSCM_0014</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__324">
-        <from-outcome>ERP-ACT-SCM_0008</from-outcome>
+        <from-outcome>ERP-ACT-SCM_0015</from-outcome>
         <to-activity-id>ExeAdminCompanySCM_0015</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
@@ -1917,6 +1923,10 @@
         <from-outcome>ERP-EDIT-EDIT-ACT-SCM_0015</from-outcome>
         <to-activity-id>ExeFreightTermByFreightTermSCM_0015_EDIT_EDIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__322">
+        <from-outcome>ERP-ADD-ACT-SCM_0015</from-outcome>
+        <to-activity-id>CWPSCM_PAY_TERM_SCM_0015</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__333">
       <from-activity-id>ExeFreightTermByFreightTermSCM_0015_EDIT_EDIT</from-activity-id>
@@ -1937,6 +1947,13 @@
       <control-flow-case id="__338">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0015_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__323">
+      <from-activity-id>CWPSCM_PAY_TERM_SCM_0015</from-activity-id>
+      <control-flow-case id="__339">
+        <from-outcome>ERP-ADD-ACT-SCM_0015</from-outcome>
+        <to-activity-id>SCM_0015_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
