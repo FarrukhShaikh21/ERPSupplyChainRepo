@@ -775,6 +775,12 @@
     <view id="SCM_0015_EDIT_EDIT">
       <page>/SCM_0015_EDIT_EDIT.jsf</page>
     </view>
+    <method-call id="ExeSCMPAY_TERM_SCM_0015_BACK">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1917,6 +1923,20 @@
       <control-flow-case id="__334">
         <from-outcome>ERP-EDIT-EDIT-ACT-SCM_0015</from-outcome>
         <to-activity-id>SCM_0015_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__335">
+      <from-activity-id>SCM_0015_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__336">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>ExeSCMPAY_TERM_SCM_0015_BACK</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__337">
+      <from-activity-id>ExeSCMPAY_TERM_SCM_0015_BACK</from-activity-id>
+      <control-flow-case id="__338">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0015_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
