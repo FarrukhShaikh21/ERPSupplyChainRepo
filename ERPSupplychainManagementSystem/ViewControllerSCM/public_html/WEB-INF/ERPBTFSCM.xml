@@ -766,6 +766,15 @@
         <fixed-outcome>ERP-QRY-ACT-SCM_0015</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeFreightTermByFreightTermSCM_0015_EDIT_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-EDIT-EDIT-ACT-SCM_0015</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCM_0015_EDIT_EDIT">
+      <page>/SCM_0015_EDIT_EDIT.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -1894,6 +1903,20 @@
       <control-flow-case id="__330">
         <from-outcome>ERP-QRY-ACT-SCM_0015</from-outcome>
         <to-activity-id>SCM_0015_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__331">
+      <from-activity-id>SCM_0015_EDIT</from-activity-id>
+      <control-flow-case id="__332">
+        <from-outcome>ERP-EDIT-EDIT-ACT-SCM_0015</from-outcome>
+        <to-activity-id>ExeFreightTermByFreightTermSCM_0015_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__333">
+      <from-activity-id>ExeFreightTermByFreightTermSCM_0015_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__334">
+        <from-outcome>ERP-EDIT-EDIT-ACT-SCM_0015</from-outcome>
+        <to-activity-id>SCM_0015_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
