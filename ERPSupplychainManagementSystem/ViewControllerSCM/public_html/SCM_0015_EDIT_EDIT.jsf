@@ -54,7 +54,7 @@
                                                 </af:link>
                                                 <af:link actionListener="#{bindings.CreateWithParams.execute}"
                                                          text="CreateWithParams"
-                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l4"
+                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l10"
                                                          rendered="false"/>
                                                 <af:link text="Add" id="l1"
                                                          icon="#{resource['images:imgAddRecord.png']}"
@@ -74,7 +74,7 @@
                                                                           to="#{pageFlowScope.OracleERPBean.ERPSupplyChainReportName}"/>
                                                     <af:setActionListener from="#{'ScmCustomerCategoryCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                                    <af:setActionListener from="#{bindings.CategorySno.inputValue}"
+                                                    <af:setActionListener from="#{bindings.FreightTermSno.inputValue}"
                                                                           to="#{pageFlowScope.OracleERPBean.ERPPKForReport}"/>
                                                 </af:link>
                                                 <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
@@ -83,7 +83,7 @@
                                                 <af:link text="Delete" id="l11"
                                                          icon="#{resource['images:imgDeleteRecord.png']}"
                                                          iconPosition="top" partialSubmit="true"
-                                                         disabled="#{bindings.ScmSalesPersonCRUDIterator.estimatedRowCount==0 ||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' ||bindings.IsSupervised.inputValue=='Y'}"
+                                                         disabled="#{bindings.ScmFreightTermCRUDIterator.estimatedRowCount==0 ||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' ||bindings.IsSupervised.inputValue=='Y'}"
                                                          partialTriggers="d2 d3"
                                                          actionListener="#{bindings.Delete.execute}"
                                                          shortDesc="Delete Record">
@@ -93,7 +93,7 @@
                                                          icon="#{resource['images:imgSuperviseRecord.png']}"
                                                          iconPosition="top"
                                                          action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.CategoryShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.FreightTermCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
                                                          shortDesc="Supervise Record">
                                                     <af:setActionListener from="#{'ScmCustomerCategoryCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
@@ -102,7 +102,7 @@
                                                          icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                          iconPosition="top"
                                                          action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                         disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.CategoryShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.FreightTermCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
                                                          shortDesc="Un Supervise Record">
                                                     <af:setActionListener from="#{'ScmCustomerCategoryCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
@@ -152,7 +152,8 @@
                                               columns="#{bindings.FreightTermName.hints.displayWidth}"
                                               maximumLength="#{bindings.FreightTermName.hints.precision}"
                                               shortDesc="#{bindings.FreightTermName.hints.tooltip}" id="it1"
-                                              simple="true" contentStyle="width:100%">
+                                              simple="true" contentStyle="width:100%" clientComponent="true"
+                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FreightTermCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                     <f:validator binding="#{bindings.FreightTermName.validator}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.FreightTermSno.inputValue}"
@@ -205,8 +206,8 @@
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" id="gr2">
                             <af:gridCell marginStart="5px" width="15%" id="gc3" marginEnd="5px" halign="center">
-                                <af:outputLabel value="#{bindings.CategoryShortName.hints.label}" id="ol3"
-                                                showRequired="#{bindings.CategoryShortName.hints.mandatory}"/>
+                                <af:outputLabel value="#{bindings.FreightTermShortName.hints.label}" id="ol3"
+                                                showRequired="#{bindings.FreightTermShortName.hints.mandatory}"/>
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="85%" id="gc4" halign="stretch" columnSpan="1"
                                          rowSpan="1">
@@ -216,7 +217,8 @@
                                               columns="#{bindings.FreightTermShortName.hints.displayWidth}"
                                               maximumLength="#{bindings.FreightTermShortName.hints.precision}"
                                               shortDesc="#{bindings.FreightTermShortName.hints.tooltip}" id="it5"
-                                              simple="true" contentStyle="width:100%">
+                                              simple="true" contentStyle="width:100%"
+                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FreightTermCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                     <f:validator binding="#{bindings.FreightTermShortName.validator}"/>
                                 </af:inputText>
                             </af:gridCell>
@@ -234,7 +236,7 @@
                                               columns="#{bindings.OpenDate.hints.displayWidth}"
                                               shortDesc="#{bindings.OpenDate.hints.tooltip}" id="id1" simple="true"
                                               contentStyle="width:90%"
-                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.CategoryShortCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
+                                              readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FreightTermCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                     <f:validator binding="#{bindings.OpenDate.validator}"/>
                                     <af:convertDateTime pattern="#{bindings.OpenDate.format}"/>
                                 </af:inputDate>
@@ -250,15 +252,12 @@
                                                     label="#{bindings.IsActive.label}"
                                                     required="#{bindings.IsActive.hints.mandatory}"
                                                     shortDesc="#{bindings.IsActive.hints.tooltip}" id="soc1"
-                                                    simple="true" contentStyle="width:100%">
+                                                    simple="true" contentStyle="width:100%"
+                                                    readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FreightTermCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                     <f:selectItems value="#{bindings.IsActive.items}" id="si1"/>
                                     <f:validator binding="#{bindings.IsActive.validator}"/>
                                 </af:selectOneChoice>
                             </af:gridCell>
-                        </af:gridRow>
-                        <af:gridRow id="gr5">
-                            <af:gridCell id="gc5" width="15%" marginStart="5px" marginEnd="5px" halign="center"/>
-                            <af:gridCell id="gc6" halign="stretch"/>
                         </af:gridRow>
                     </af:panelGridLayout>
                 </f:facet>

@@ -12,7 +12,14 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpglobals.modelglobals.ERPViewRowImpl"
+  ComponentClass="erpscm.modelscm.scmvo.ScmFreightTermVOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+    <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
+    <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
+  </DesignTime>
   <Variable
     Name="P_ADF_COMPANY_ID"
     Kind="viewcriteria"

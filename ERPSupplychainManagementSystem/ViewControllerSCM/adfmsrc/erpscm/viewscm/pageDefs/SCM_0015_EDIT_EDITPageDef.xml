@@ -45,5 +45,14 @@
     </attributeValues>
     <list IterBinding="ScmFreightTermCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action IterBinding="ScmFreightTermCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0015_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ScmFreightTermCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

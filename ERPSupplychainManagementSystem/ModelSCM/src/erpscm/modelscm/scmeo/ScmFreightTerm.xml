@@ -9,10 +9,15 @@
   DBObjectType="table"
   DBObjectName="SCM_FREIGHT_TERM"
   AliasName="ScmFreightTerm"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpscm.modelscm.scmeo.ScmFreightTermImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="FreightTermSno"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="FREIGHT_TERM_SNO"
@@ -20,7 +25,17 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_FREIGHT_TERM"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    DefaultValue="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.FreightTermSno_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="FreightTermCode"
     IsUnique="true"
@@ -30,7 +45,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.FreightTermCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="FreightTermShortName"
     Precision="20"
@@ -42,6 +66,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.FreightTermShortName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="FreightTermName"
@@ -54,6 +86,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.FreightTermName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="OpenDate"
@@ -62,7 +102,17 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.OpenDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IsActive"
     IsNotNull="true"
@@ -71,22 +121,39 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_FREIGHT_TERM">
+    TableName="SCM_FREIGHT_TERM"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.IsActive_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CompanyId"
     IsUnique="true"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="COMPANY_ID"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.CompanyId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="GlobalCompanyId"
     IsNotNull="true"
@@ -96,25 +163,53 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.GlobalCompanyId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.CreatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM"
+    RetrievedOnInsert="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.CreatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -123,14 +218,33 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.LastUpdatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedDate"
     ColumnName="LAST_UPDATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.LastUpdatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IsSupervised"
     IsNotNull="true"
@@ -139,10 +253,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_FREIGHT_TERM">
+    TableName="SCM_FREIGHT_TERM"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.IsSupervised_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="SupervisedDate"
@@ -150,7 +273,17 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.SupervisedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IsUnsupervised"
     IsNotNull="true"
@@ -159,10 +292,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_FREIGHT_TERM">
+    TableName="SCM_FREIGHT_TERM"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.IsUnsupervised_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="UnSupervisedDate"
@@ -170,7 +312,17 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.UnSupervisedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="SupervisedBy"
     Precision="5"
@@ -179,7 +331,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.SupervisedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="UnSupervisedBy"
     Precision="5"
@@ -188,7 +349,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_FREIGHT_TERM"/>
+    TableName="SCM_FREIGHT_TERM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmFreightTerm.UnSupervisedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Key
     Name="PkScmFreightTerm"
     PrimaryKey="true">
@@ -210,4 +380,8 @@
       <Item Value="erpscm.modelscm.scmeo.ScmFreightTerm.CompanyId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </Entity>
