@@ -10,10 +10,8 @@
               id="GlTaxTypeCustTypeROIterator"/>
     <iterator Binds="ScmFreightTermRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmFreightTermROIterator"/>
-    <iterator Binds="ScmFreightTermCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmFreightTermCRUDIterator"/>
     <searchRegion Criteria="ScmFreightTermFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="ScmFreightTermCRUDIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
+                  Binds="ScmFreightTermROIterator" id="ImplicitViewCriteriaQuery" InitialQueryOverridden="true"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">

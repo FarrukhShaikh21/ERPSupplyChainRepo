@@ -115,14 +115,14 @@
   </Attribute>
   <Attribute
     Name="IsActive"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_ACTIVE"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_FREIGHT_TERM"
-    DefaultValue="N">
+    DefaultValue="N"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -164,8 +164,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_FREIGHT_TERM">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -247,14 +246,14 @@
   </Attribute>
   <Attribute
     Name="IsSupervised"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_SUPERVISED"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_FREIGHT_TERM"
-    DefaultValue="N">
+    DefaultValue="N"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -286,14 +285,14 @@
   </Attribute>
   <Attribute
     Name="IsUnsupervised"
-    IsNotNull="true"
     Precision="1"
     ColumnName="IS_UNSUPERVISED"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_FREIGHT_TERM"
-    DefaultValue="N">
+    DefaultValue="N"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -367,6 +366,42 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmFreightTerm.FreightTermSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmFreightTermIsActiveCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_FREIGHT_TERM_IS_ACTIVE_CHE"/>
+      <Attr Name="_checkCondition" Value='"IS_ACTIVE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmFreightTerm.IsActive"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmFreightTermIsSupervisedCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_FREIGHT_TERM_IS_SUPERVISED"/>
+      <Attr Name="_checkCondition" Value='"IS_SUPERVISED" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmFreightTerm.IsSupervised"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmFreightTermIsUnsupervisedCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_FREIGHT_TERM_IS_UNSUPERVIS"/>
+      <Attr Name="_checkCondition" Value='"IS_UNSUPERVISED" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmFreightTerm.IsUnsupervised"/>
     </AttrArray>
   </Key>
   <Key

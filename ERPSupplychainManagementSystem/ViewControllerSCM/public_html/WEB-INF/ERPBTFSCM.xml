@@ -1931,6 +1931,10 @@
         <from-outcome>ERP-ADD-ACT-SCM_0015</from-outcome>
         <to-activity-id>CWPSCM_PAY_TERM_SCM_0015</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__341">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0015</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__333">
       <from-activity-id>ExeFreightTermByFreightTermSCM_0015_EDIT_EDIT</from-activity-id>

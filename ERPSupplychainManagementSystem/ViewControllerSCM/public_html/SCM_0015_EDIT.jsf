@@ -94,7 +94,9 @@
                 <af:listView value="#{bindings.ScmFreightTermRO.collectionModel}" var="item"
                              emptyText="#{bindings.ScmFreightTermRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.ScmFreightTermRO.rangeSize}" id="lv2"
-                             styleClass="WBDisplayBlockCenter" selection="single">
+                             styleClass="WBDisplayBlockCenter" selection="single"
+                             selectionListener="#{bindings.ScmFreightTermRO.treeModel.makeCurrent}"
+                             selectedRowKeys="#{bindings.ScmFreightTermRO.collectionModel.selectedRow}">
                   <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                     <af:panelGroupLayout id="pgl10" layout="vertical" styleClass="WBCardSize">
                       <af:panelBox text="PanelBox5" id="pb2" showHeader="never" showDisclosure="false">

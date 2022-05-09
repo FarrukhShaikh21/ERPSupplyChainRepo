@@ -3597,7 +3597,7 @@
       <property
          name="fromOutcome">ERP-ADD-ACT-SCM_0014</property>
       <property
-         name="sdm:polyPoints">B44,-2190.0,2412.6436,-2253.6484,2545.293,T50</property>
+         name="sdm:polyPoints">B39,-2193.5,2412.6436,-2253.6484,2545.293,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall325">
@@ -3630,7 +3630,7 @@
       <property
          name="fromOutcome">ERP-QRY-ACT-SCM_0014</property>
       <property
-         name="sdm:polyPoints">B50,-1875.6484,2449.9941,-1861.9785,2550.3447,T50</property>
+         name="sdm:polyPoints">B50,-1875.6484,2449.9941,-1858.4785,2548.1045,T56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -3640,7 +3640,7 @@
       <property
          name="fromOutcome">ERP-ADD-ACT-SCM_0014</property>
       <property
-         name="sdm:polyPoints">R50,-2212.6484,2599.293,-1903.9396,2607.8447,L54</property>
+         name="sdm:polyPoints">R50,-2212.6484,2599.293,-1904.0645,2607.8447,L54</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall329">
@@ -3663,7 +3663,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">L46,-1902.9785,2600.8447,-1992.5,2550.747,B50</property>
+         name="sdm:polyPoints">T44,-1865.4785,2550.3447,-1951.5,2496.747,R50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -3673,7 +3673,7 @@
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">L50,-2033.5,2496.747,-2183.0,2412.6436,B56</property>
+         name="sdm:polyPoints">L50,-2033.5,2496.747,-2179.5,2412.6436,B61</property>
    </ControlFlowCase>
    <View
       id="View332">
@@ -3921,5 +3921,15 @@
          name="fromOutcome">ERPBACKCRUD</property>
       <property
          name="sdm:polyPoints">L46,-1902.9785,2600.8447,-2186.5,2416.5442,B50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase354"
+      from="View337"
+      to="View332">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">L46,-1183.3503,2515.7412,-1486.5,2539.747,R50</property>
    </ControlFlowCase>
 </SDM>

@@ -49,8 +49,9 @@
     Name="LovIsActive"
     ListVOName="AccSysGeneralValueVO"
     ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="IsActive"/>
     </AttrArray>
@@ -67,8 +68,9 @@
     Name="LovIsUnsupervised"
     ListVOName="AccSysGeneralValueVO"
     ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="IsUnsupervised"/>
     </AttrArray>
@@ -85,8 +87,9 @@
     Name="LovIsSupervised"
     ListVOName="AccSysGeneralValueVO"
     ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="IsSupervised"/>
     </AttrArray>
@@ -137,8 +140,7 @@
     AliasName="OPEN_DATE"/>
   <ViewAttribute
     Name="IsActive"
-    IsNotNull="true"
-    PrecisionRule="true"
+    PrecisionRule="false"
     EntityAttrName="IsActive"
     EntityUsage="ScmFreightTerm"
     AliasName="IS_ACTIVE"
@@ -214,8 +216,7 @@
     AliasName="SUPERVISED_DATE"/>
   <ViewAttribute
     Name="IsUnsupervised"
-    IsNotNull="true"
-    PrecisionRule="true"
+    PrecisionRule="false"
     EntityAttrName="IsUnsupervised"
     EntityUsage="ScmFreightTerm"
     AliasName="IS_UNSUPERVISED"
