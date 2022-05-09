@@ -95,7 +95,7 @@
                                                          action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
                                                          disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.FreightTermCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
                                                          shortDesc="Supervise Record">
-                                                    <af:setActionListener from="#{'ScmCustomerCategoryCRUDIterator'}"
+                                                    <af:setActionListener from="#{'ScmFreightTermCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 </af:link>
                                                 <af:link text="UnSupervise" id="l20" partialSubmit="true"
@@ -104,7 +104,7 @@
                                                          action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
                                                          disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.FreightTermCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
                                                          shortDesc="Un Supervise Record">
-                                                    <af:setActionListener from="#{'ScmCustomerCategoryCRUDIterator'}"
+                                                    <af:setActionListener from="#{'ScmFreightTermCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 </af:link>
                                                 <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
@@ -165,6 +165,26 @@
                                               rendered="false">
                                     <f:validator binding="#{bindings.FreightTermSno.validator}"/>
                                     <af:convertNumber groupingUsed="false" pattern="#{bindings.FreightTermSno.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.SupervisedBy.inputValue}"
+                                              label="#{bindings.SupervisedBy.hints.label}"
+                                              required="#{bindings.SupervisedBy.hints.mandatory}"
+                                              columns="#{bindings.SupervisedBy.hints.displayWidth}"
+                                              maximumLength="#{bindings.SupervisedBy.hints.precision}"
+                                              shortDesc="#{bindings.SupervisedBy.hints.tooltip}" id="it6"
+                                              rendered="false">
+                                    <f:validator binding="#{bindings.SupervisedBy.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.SupervisedBy.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.UnSupervisedBy.inputValue}"
+                                              label="#{bindings.UnSupervisedBy.hints.label}"
+                                              required="#{bindings.UnSupervisedBy.hints.mandatory}"
+                                              columns="#{bindings.UnSupervisedBy.hints.displayWidth}"
+                                              maximumLength="#{bindings.UnSupervisedBy.hints.precision}"
+                                              shortDesc="#{bindings.UnSupervisedBy.hints.tooltip}" id="it3"
+                                              rendered="false">
+                                    <f:validator binding="#{bindings.UnSupervisedBy.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.UnSupervisedBy.format}"/>
                                 </af:inputText>
                                 <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
                                               label="#{bindings.IsUnsupervised.hints.label}"

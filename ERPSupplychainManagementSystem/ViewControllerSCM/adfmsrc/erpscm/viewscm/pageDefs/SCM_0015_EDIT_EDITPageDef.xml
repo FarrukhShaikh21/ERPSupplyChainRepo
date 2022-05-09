@@ -54,5 +54,15 @@
                  NDType="java.lang.String"/>
     </action>
     <action IterBinding="ScmFreightTermCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="ScmFreightTermCRUDIterator" id="UnSupervisedBy">
+      <AttrNames>
+        <Item Value="UnSupervisedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmFreightTermCRUDIterator" id="SupervisedBy">
+      <AttrNames>
+        <Item Value="SupervisedBy"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

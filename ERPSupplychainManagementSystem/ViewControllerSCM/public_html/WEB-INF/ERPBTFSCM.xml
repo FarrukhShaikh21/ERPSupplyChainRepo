@@ -45,7 +45,7 @@
       <managed-bean-class>erptemplate.viewtemp.ERPTEMPClass</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
-    <exception-handler>SCMExceptionHandler</exception-handler>
+    <exception-handler>SCMExceptionMethod</exception-handler>
     <method-call id="doSetSCMErpApplicationGlobals">
       <method>#{pageFlowScope.OracleERPBean.doSetSCMErpApplicationGlobals}</method>
       <outcome>
@@ -785,6 +785,12 @@
       <method>#{bindings.CreateWithParams.execute}</method>
       <outcome>
         <fixed-outcome>ERP-ADD-ACT-SCM_0015</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SCMExceptionMethod">
+      <method>#{pageFlowScope.OracleERPBean.ERPSCMhandleExceptionShowMessageInPopupDialog}</method>
+      <outcome>
+        <fixed-outcome>erpdone</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">

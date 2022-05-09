@@ -8,6 +8,7 @@ import erpglobals.viewglobals.ERPGlobalsClass;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import oracle.adf.controller.ControllerContext;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
 import oracle.adf.view.rich.component.rich.RichPopup;
@@ -39,8 +40,7 @@ public class ERPSCMClass {
     private RichPanelTabbed lErpPanelTabbed;
     private RichPanelTabbed lErpPanelDefaultTabbed;
     private String ERPSupplyChainReportName;
-    private String ERPPKForReport;
-            
+    private String ERPPKForReport;    
     
     public ERPSCMClass() {
         super();
@@ -351,4 +351,22 @@ public class ERPSCMClass {
     public RichPanelTabbed getLErpPanelDefaultTabbed() {
         return lErpPanelDefaultTabbed;
     }
+
+    
+    public void ERPSCMhandleExceptionShowMessageInPopupDialog(){
+      ControllerContext cc = ControllerContext.getInstance();
+
+      Exception ex = cc.getCurrentViewPort().getExceptionData();
+      String message = ex.getMessage();
+      
+      
+      FacesContext fc = FacesContext.getCurrentInstance();        
+      FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "BTF: " +message, null);
+      fc.addMessage(null, facesMessage);
+
+      cc.getCurrentRootViewPort().clearException();
+      fc.renderResponse();
+      
+    }
+
 }

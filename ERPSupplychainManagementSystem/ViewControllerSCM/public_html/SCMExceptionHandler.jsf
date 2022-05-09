@@ -11,7 +11,7 @@
                                 <af:gridRow marginTop="5px" height="auto" id="gr1">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"
                                                  halign="stretch">
-                                        <af:inputText value="#{controllerContext.currentRootViewPort.exceptionData.message}"
+                                        <af:inputText value="HELLO #{pageFlowScope.OracleERPBean.lastErrorMessage}"
                                                       id="ot1" inlineStyle="font-size:large;color:red" label="Label 1"
                                                       simple="true" contentStyle="font-size:large;color:red;width:100%"
                                                       rows="5" readOnly="true"/>
