@@ -793,6 +793,39 @@
         <fixed-outcome>erpdone</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeAdminCompanySCM_0016">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM_0016</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCM_0016">
+      <page>/SCM_0016.jsf</page>
+    </view>
+    <view id="SCM_0016_EDIT">
+      <page>/SCM_0016_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeAdminCompanyByCompanySCM_0016_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-ACT-SCM_0016</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SCM_0016_EDIT_EDIT">
+      <page>/SCM_0016_EDIT_EDIT.jsf</page>
+    </view>
+    <method-call id="CWPSCM_PAY_TERM_SCM_0016">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ADD-ACT-SCM_0016</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeSCMPAY_TERM_SCM_0016_BACK">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -889,6 +922,10 @@
       <control-flow-case id="__324">
         <from-outcome>ERP-ACT-SCM_0015</from-outcome>
         <to-activity-id>ExeAdminCompanySCM_0015</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__344">
+        <from-outcome>ERP-ACT-SCM_0016</from-outcome>
+        <to-activity-id>ExeAdminCompanySCM_0016</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -1968,6 +2005,59 @@
       <control-flow-case id="__339">
         <from-outcome>ERP-ADD-ACT-SCM_0015</from-outcome>
         <to-activity-id>SCM_0015_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__345">
+      <from-activity-id>ExeAdminCompanySCM_0016</from-activity-id>
+      <control-flow-case id="__346">
+        <from-outcome>ERP-ACT-SCM_0016</from-outcome>
+        <to-activity-id>SCM_0016</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__347">
+      <from-activity-id>SCM_0016</from-activity-id>
+      <control-flow-case id="__348">
+        <from-outcome>ERP-QRY-ACT-SCM_0016</from-outcome>
+        <to-activity-id>ExeAdminCompanyByCompanySCM_0016_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__349">
+      <from-activity-id>ExeAdminCompanyByCompanySCM_0016_EDIT</from-activity-id>
+      <control-flow-case id="__350">
+        <from-outcome>ERP-QRY-ACT-SCM_0016</from-outcome>
+        <to-activity-id>SCM_0016_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__351">
+      <from-activity-id>SCM_0016_EDIT</from-activity-id>
+      <control-flow-case id="__352">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0016</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__353">
+        <from-outcome>ERP-ADD-ACT-SCM_0016</from-outcome>
+        <to-activity-id>CWPSCM_PAY_TERM_SCM_0016</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__354">
+      <from-activity-id>CWPSCM_PAY_TERM_SCM_0016</from-activity-id>
+      <control-flow-case id="__355">
+        <from-outcome>ERP-ADD-ACT-SCM_0016</from-outcome>
+        <to-activity-id>SCM_0016_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__356">
+      <from-activity-id>SCM_0016_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__357">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>ExeSCMPAY_TERM_SCM_0016_BACK</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__358">
+      <from-activity-id>ExeSCMPAY_TERM_SCM_0016_BACK</from-activity-id>
+      <control-flow-case id="__359">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0016_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
