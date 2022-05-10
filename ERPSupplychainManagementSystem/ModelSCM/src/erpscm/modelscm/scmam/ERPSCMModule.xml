@@ -272,6 +272,20 @@
       Name="ScmFreightTermByFreightTermIdVC"
       FullName="erpscm.modelscm.scmvo.ScmFreightTermVO.ScmFreightTermByFreightTermIdVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ScmFobTermByCompanyRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmFobTermVO">
+    <ViewCriteriaUsage
+      Name="ScmFobTermVOByCompanyIdVC"
+      FullName="erpscm.modelscm.scmvo.ScmFobTermVO.ScmFobTermVOByCompanyIdVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmFobTermCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmFobTermVO">
+    <ViewCriteriaUsage
+      Name="ScmFobTermFOBTermSnoVC"
+      FullName="erpscm.modelscm.scmvo.ScmFobTermVO.ScmFobTermFOBTermSnoVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
