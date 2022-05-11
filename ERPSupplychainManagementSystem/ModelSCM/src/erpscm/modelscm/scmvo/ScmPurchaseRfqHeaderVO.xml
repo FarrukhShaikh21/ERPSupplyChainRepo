@@ -397,6 +397,17 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="SupplierQuoteLevelSno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SupplierQuoteLevelSno"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="SUPPLIER_QUOTE_LEVEL_SNO">
+    <Properties>
+      <SchemaBasedProperties/>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
@@ -594,4 +605,8 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </ViewObject>
