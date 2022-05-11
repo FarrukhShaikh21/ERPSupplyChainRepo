@@ -23,7 +23,7 @@
                                      action="#{pageFlowScope.OracleERPBean.doBackFromEdit}" partialSubmit="true"
                                      shortDesc="Close Form"/>
                             <af:link id="l3" icon="#{resource['images:imgNewDocument.png']}"
-                                     action="ERP-ADD-ACT-SCM_0015" partialSubmit="true"/>
+                                     action="ERP-ADD-ACT-SCM_0016" partialSubmit="true"/>
                           </af:panelGroupLayout>
                         </af:gridCell>
                       </af:gridRow>
@@ -116,7 +116,7 @@
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc11">
                               <af:panelGroupLayout id="pgl4" layout="horizontal">
                                 <af:link id="l2" icon="#{resource['images:imgView.png']}" partialSubmit="true"
-                                         action="ERP-EDIT-EDIT-ACT-SCM_0015" styleClass="ERPLink"/>
+                                         action="ERP-EDIT-EDIT-ACT-SCM_0016" styleClass="ERPLink"/>
                                 <af:outputFormatted value="#{item.bindings.FobTermShortName.inputValue}" id="of1"
                                                     styleClass="ERPHeroBannerFont"/>
                               </af:panelGroupLayout>

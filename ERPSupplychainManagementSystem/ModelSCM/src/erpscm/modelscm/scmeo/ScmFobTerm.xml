@@ -9,10 +9,15 @@
   DBObjectType="table"
   DBObjectName="SCM_FOB_TERM"
   AliasName="ScmFobTerm"
-  BindingStyle="OracleName">
+  BindingStyle="JDBC"
+  RowClass="erpscm.modelscm.scmeo.ScmFobTermImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="FobTermSno"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="FOB_TERM_SNO"
@@ -56,7 +61,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_FOB_TERM">
+    TableName="SCM_FOB_TERM"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -76,7 +82,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_FOB_TERM">
+    TableName="SCM_FOB_TERM"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -96,7 +103,11 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_FOB_TERM">
+    TableName="SCM_FOB_TERM"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -115,7 +126,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_FOB_TERM"
-    DefaultValue="N">
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -169,7 +180,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -188,12 +198,12 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_FOB_TERM">
+    TableName="SCM_FOB_TERM"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -227,7 +237,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_FOB_TERM">
+    TableName="SCM_FOB_TERM"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -245,7 +256,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_FOB_TERM">
+    TableName="SCM_FOB_TERM"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -264,7 +276,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_FOB_TERM">
+    TableName="SCM_FOB_TERM"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -282,7 +295,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_FOB_TERM">
+    TableName="SCM_FOB_TERM"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -301,7 +315,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_FOB_TERM">
+    TableName="SCM_FOB_TERM"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -355,6 +370,30 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmFobTerm.FobTermSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmFobTermFobTermNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_FOB_TERM_FOB_TERM_NAME_CHE"/>
+      <Attr Name="_checkCondition" Value='"FOB_TERM_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmFobTerm.FobTermName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmFobTermFobTermShortNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_FOB_TERM_FOB_TERM_SHORT_NA"/>
+      <Attr Name="_checkCondition" Value='"FOB_TERM_SHORT_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmFobTerm.FobTermShortName"/>
     </AttrArray>
   </Key>
   <Key

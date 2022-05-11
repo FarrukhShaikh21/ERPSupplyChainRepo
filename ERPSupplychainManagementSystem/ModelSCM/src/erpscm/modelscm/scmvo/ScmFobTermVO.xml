@@ -9,7 +9,7 @@
   SelectListFlags="1"
   FromListFlags="1"
   WhereFlags="1"
-  BindingStyle="OracleName"
+  BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
@@ -45,6 +45,60 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ListBinding
+    Name="LovIsActive"
+    ListVOName="AccSysGeneralValueActiveVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsActive"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsSupervised"
+    ListVOName="AccSysGeneralValueActiveVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsSupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsUnsupervised"
+    ListVOName="AccSysGeneralValueActiveVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsUnsupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmFobTerm"
     Entity="erpscm.modelscm.scmeo.ScmFobTerm"/>
@@ -87,7 +141,15 @@
     PrecisionRule="true"
     EntityAttrName="IsActive"
     EntityUsage="ScmFobTerm"
-    AliasName="IS_ACTIVE"/>
+    AliasName="IS_ACTIVE"
+    LOVName="LovIsActive">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CompanyId"
     IsUnique="true"
@@ -135,7 +197,15 @@
     PrecisionRule="true"
     EntityAttrName="IsSupervised"
     EntityUsage="ScmFobTerm"
-    AliasName="IS_SUPERVISED"/>
+    AliasName="IS_SUPERVISED"
+    LOVName="LovIsSupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SupervisedDate"
     PrecisionRule="true"
@@ -148,7 +218,15 @@
     PrecisionRule="true"
     EntityAttrName="IsUnsupervised"
     EntityUsage="ScmFobTerm"
-    AliasName="IS_UNSUPERVISED"/>
+    AliasName="IS_UNSUPERVISED"
+    LOVName="LovIsUnsupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UnSupervisedDate"
     PrecisionRule="true"

@@ -152,7 +152,7 @@
                                               columns="#{bindings.FreightTermName.hints.displayWidth}"
                                               maximumLength="#{bindings.FreightTermName.hints.precision}"
                                               shortDesc="#{bindings.FreightTermName.hints.tooltip}" id="it1"
-                                              simple="true" contentStyle="width:100%" clientComponent="true"
+                                              simple="true" contentStyle="width:100%;text-transform:uppercase" clientComponent="true"
                                               readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FreightTermCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                     <f:validator binding="#{bindings.FreightTermName.validator}"/>
                                 </af:inputText>
@@ -237,7 +237,7 @@
                                               columns="#{bindings.FreightTermShortName.hints.displayWidth}"
                                               maximumLength="#{bindings.FreightTermShortName.hints.precision}"
                                               shortDesc="#{bindings.FreightTermShortName.hints.tooltip}" id="it5"
-                                              simple="true" contentStyle="width:100%"
+                                              simple="true" contentStyle="width:100%;text-transform:uppercase"
                                               readOnly="#{(pageFlowScope.ERPMainTempBean.LERPAllowEdit=='N' &amp;&amp; bindings.FreightTermCode.inputValue!=null) || bindings.IsSupervised.inputValue=='Y'}">
                                     <f:validator binding="#{bindings.FreightTermShortName.validator}"/>
                                 </af:inputText>
