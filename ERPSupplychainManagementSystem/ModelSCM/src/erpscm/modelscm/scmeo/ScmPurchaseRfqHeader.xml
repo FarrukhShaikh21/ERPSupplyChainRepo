@@ -764,6 +764,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcRfqHeadFreightTermSnoAsso.ScmPurchaseRfqHeader"
     Type="erpscm.modelscm.scmeo.ScmFreightTermImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmFobTerm"
+    Association="erpscm.modelscm.scmeo.ScmFobTermScmPurcRfqHeadFobTermSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmFobTermScmPurcRfqHeadFobTermSnoAsso.ScmFobTerm"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFobTermScmPurcRfqHeadFobTermSnoAsso.ScmPurchaseRfqHeader"
+    Type="erpscm.modelscm.scmeo.ScmFobTermImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseQuotationHead"
     PrimaryKey="true">
@@ -827,6 +834,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.FreightTermSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqHeader5">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_FOB_TERM"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_HEADER5"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.FobTermSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

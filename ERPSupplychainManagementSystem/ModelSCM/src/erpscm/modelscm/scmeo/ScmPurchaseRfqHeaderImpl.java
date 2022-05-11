@@ -72,7 +72,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         GlProjects,
         AdminCompany1,
         ScmPaymentTermHeader,
-        ScmFreightTerm;
+        ScmFreightTerm,
+        ScmFobTerm;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -142,6 +143,7 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
     public static final int SCMPAYMENTTERMHEADER = AttributesEnum.ScmPaymentTermHeader.index();
     public static final int SCMFREIGHTTERM = AttributesEnum.ScmFreightTerm.index();
+    public static final int SCMFOBTERM = AttributesEnum.ScmFobTerm.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -854,6 +856,21 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void setScmFreightTerm(ScmFreightTermImpl value) {
         setAttributeInternal(SCMFREIGHTTERM, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmFobTermImpl.
+     */
+    public ScmFobTermImpl getScmFobTerm() {
+        return (ScmFobTermImpl) getAttributeInternal(SCMFOBTERM);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmFobTermImpl.
+     */
+    public void setScmFobTerm(ScmFobTermImpl value) {
+        setAttributeInternal(SCMFOBTERM, value);
     }
 
 

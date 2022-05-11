@@ -387,4 +387,9 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewLinkAccessor
+    Name="ScmPurchaseRfqHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmFobTermScmPurcRfqHeadFobTermSnoVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

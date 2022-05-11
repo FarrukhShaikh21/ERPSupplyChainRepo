@@ -362,6 +362,13 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <AccessorAttribute
+    Name="ScmPurchaseRfqHeader"
+    Association="erpscm.modelscm.scmeo.ScmFobTermScmPurcRfqHeadFobTermSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmFobTermScmPurcRfqHeadFobTermSnoAsso.ScmPurchaseRfqHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFobTermScmPurcRfqHeadFobTermSnoAsso.ScmFobTerm"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmFobTerm"
     PrimaryKey="true">
