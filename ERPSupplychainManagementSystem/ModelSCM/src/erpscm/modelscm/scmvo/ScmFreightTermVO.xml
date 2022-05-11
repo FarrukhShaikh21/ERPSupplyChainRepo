@@ -140,7 +140,6 @@
     AliasName="OPEN_DATE"/>
   <ViewAttribute
     Name="IsActive"
-    PrecisionRule="false"
     EntityAttrName="IsActive"
     EntityUsage="ScmFreightTerm"
     AliasName="IS_ACTIVE"
@@ -216,7 +215,6 @@
     AliasName="SUPERVISED_DATE"/>
   <ViewAttribute
     Name="IsUnsupervised"
-    PrecisionRule="false"
     EntityAttrName="IsUnsupervised"
     EntityUsage="ScmFreightTerm"
     AliasName="IS_UNSUPERVISED"
@@ -389,4 +387,9 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewLinkAccessor
+    Name="ScmPurchaseRfqHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmFreightTermScmPurcRfqHeadFreightTermSnoVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

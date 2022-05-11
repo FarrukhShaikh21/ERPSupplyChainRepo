@@ -403,11 +403,7 @@
     PrecisionRule="true"
     EntityAttrName="SupplierQuoteLevelSno"
     EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="SUPPLIER_QUOTE_LEVEL_SNO">
-    <Properties>
-      <SchemaBasedProperties/>
-    </Properties>
-  </ViewAttribute>
+    AliasName="SUPPLIER_QUOTE_LEVEL_SNO"/>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
@@ -602,6 +598,12 @@
   <ViewLinkAccessor
     Name="ScmPaymentTermHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPayTermHeadScmPurRFQHeadPaymentTermHeadSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmFreightTermVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmFreightTermScmPurcRfqHeadFreightTermSnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
