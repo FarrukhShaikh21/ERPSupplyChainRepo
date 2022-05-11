@@ -61,6 +61,14 @@
     Name="AccScmPaymentTermHeaderVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmFreightTermVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmFreightTermVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmFreightTermActiveVC"
+      FullName="erpscm.modelscm.scmvo.ScmFreightTermVO.ScmFreightTermActiveVC"/>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtTempProjectName"
     ListVOName="AccGlProjectsVO"
@@ -132,6 +140,29 @@
     </AttrArray>
     <DisplayCriteria
       Name="ScmPaymentTermHeaderFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtFreightTermName"
+    ListVOName="AccScmFreightTermVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtFreightTermName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="FreightTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FreightTermName"/>
+      <Item Value="FreightTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FreightTermName"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseRfqHeader"
@@ -404,6 +435,30 @@
     EntityAttrName="SupplierQuoteLevelSno"
     EntityUsage="ScmPurchaseRfqHeader"
     AliasName="SUPPLIER_QUOTE_LEVEL_SNO"/>
+  <ViewAttribute
+    Name="txtFreightTermName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtFreightTermName"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="TXT_FREIGHT_TERM_NAME"
+    LOVName="LovtxtFreightTermName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtFobTermName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtFobTermName"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="TXT_FOB_TERM_NAME"/>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"

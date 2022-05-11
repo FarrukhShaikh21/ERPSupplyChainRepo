@@ -66,6 +66,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         PaymentTermHeaderSno,
         txtPaymentTermName,
         SupplierQuoteLevelSno,
+        txtFobTermName,
+        txtFreightTermName,
         ScmPurchaseRfqLines,
         ScmPurchaseRfqSupplier,
         AdminCompany,
@@ -136,6 +138,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int PAYMENTTERMHEADERSNO = AttributesEnum.PaymentTermHeaderSno.index();
     public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
     public static final int SUPPLIERQUOTELEVELSNO = AttributesEnum.SupplierQuoteLevelSno.index();
+    public static final int TXTFOBTERMNAME = AttributesEnum.txtFobTermName.index();
+    public static final int TXTFREIGHTTERMNAME = AttributesEnum.txtFreightTermName.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -768,6 +772,38 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void setSupplierQuoteLevelSno(Integer value) {
         setAttributeInternal(SUPPLIERQUOTELEVELSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtFobTermName, using the alias name txtFobTermName.
+     * @return the value of txtFobTermName
+     */
+    public String gettxtFobTermName() {
+        return (String) getAttributeInternal(TXTFOBTERMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtFobTermName.
+     * @param value value to set the txtFobTermName
+     */
+    public void settxtFobTermName(String value) {
+        setAttributeInternal(TXTFOBTERMNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtFreightTermName, using the alias name txtFreightTermName.
+     * @return the value of txtFreightTermName
+     */
+    public String gettxtFreightTermName() {
+        return (String) getAttributeInternal(TXTFREIGHTTERMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtFreightTermName.
+     * @param value value to set the txtFreightTermName
+     */
+    public void settxtFreightTermName(String value) {
+        setAttributeInternal(TXTFREIGHTTERMNAME, value);
     }
 
     /**
