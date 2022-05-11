@@ -826,6 +826,12 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeFOBTermByFOBTermSCM_0016_EDIT_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-EDIT-EDIT-ACT-SCM_0016</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -2038,6 +2044,10 @@
         <from-outcome>ERP-ADD-ACT-SCM_0016</from-outcome>
         <to-activity-id>CWPSCM_PAY_TERM_SCM_0016</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__343">
+        <from-outcome>ERP-EDIT-EDIT-ACT-SCM_0016</from-outcome>
+        <to-activity-id>ExeFOBTermByFOBTermSCM_0016_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__354">
       <from-activity-id>CWPSCM_PAY_TERM_SCM_0016</from-activity-id>
@@ -2058,6 +2068,13 @@
       <control-flow-case id="__359">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0016_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__360">
+      <from-activity-id>ExeFOBTermByFOBTermSCM_0016_EDIT_EDIT</from-activity-id>
+      <control-flow-case id="__361">
+        <from-outcome>ERP-EDIT-EDIT-ACT-SCM_0016</from-outcome>
+        <to-activity-id>SCM_0016_EDIT_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
