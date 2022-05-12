@@ -190,11 +190,16 @@
                                                 <af:convertDateTime pattern="#{bindings.RfqDate.format}"/>
                                             </af:inputDate>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="13%" id="gc8" halign="center">
+                                        <af:gridCell marginStart="5px" width="13%" id="gc8" halign="center"/>
+                                        <af:gridCell marginStart="5px" width="21%" marginEnd="5px" id="gc9"
+                                                     halign="stretch" valign="middle"/>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                        <af:gridCell width="13%" id="gc10" halign="center">
                                             <af:outputLabel value="#{bindings.DueDate.hints.label}" id="ol2"/>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="21%" marginEnd="5px" id="gc9"
-                                                     halign="stretch" valign="middle">
+                                        <af:gridCell marginStart="5px" width="20%" id="gc11" halign="stretch"
+                                                     valign="middle">
                                             <af:inputDate value="#{bindings.DueDate.inputValue}"
                                                           label="#{bindings.DueDate.hints.label}"
                                                           required="#{bindings.DueDate.hints.mandatory}"
@@ -205,11 +210,6 @@
                                                 <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
                                             </af:inputDate>
                                         </af:gridCell>
-                                    </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
-                                        <af:gridCell width="13%" id="gc10" halign="center"/>
-                                        <af:gridCell marginStart="5px" width="20%" id="gc11" halign="stretch"
-                                                     valign="middle"/>
                                         <af:gridCell marginStart="5px" width="13%" id="gc13" halign="center"/>
                                         <af:gridCell marginStart="5px" width="20%" id="gc14" halign="stretch"
                                                      valign="middle"/>

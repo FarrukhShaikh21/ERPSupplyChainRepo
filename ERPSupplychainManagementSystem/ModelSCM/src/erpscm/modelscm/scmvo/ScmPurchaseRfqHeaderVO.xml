@@ -68,7 +68,25 @@
     <ViewCriteriaUsage
       Name="ScmFreightTermActiveVC"
       FullName="erpscm.modelscm.scmvo.ScmFreightTermVO.ScmFreightTermActiveVC"/>
+    <ViewCriteriaUsage
+      Name="ScmFreightTermByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmFreightTermVO.ScmFreightTermByCompanyIDVC"/>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmFobTermVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmFobTermVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmFobTermVOActiveVC"
+      FullName="erpscm.modelscm.scmvo.ScmFobTermVO.ScmFobTermVOActiveVC"/>
+    <ViewCriteriaUsage
+      Name="ScmFobTermVOByCompanyIdVC"
+      FullName="erpscm.modelscm.scmvo.ScmFobTermVO.ScmFobTermVOByCompanyIdVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSysGeneralValueRFQTypeVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtTempProjectName"
     ListVOName="AccGlProjectsVO"
@@ -161,6 +179,49 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="FreightTermName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtFobTermName"
+    ListVOName="AccScmFobTermVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtFobTermName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="FobTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FobTermName"/>
+      <Item Value="FobTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FobTermName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmFobTermVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovRfqTypeSno"
+    ListVOName="AccSysGeneralValueRFQTypeVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RfqTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -341,7 +402,15 @@
     PrecisionRule="true"
     EntityAttrName="RfqTypeSno"
     EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="RFQ_TYPE_SNO"/>
+    AliasName="RFQ_TYPE_SNO"
+    LOVName="LovRfqTypeSno">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FreightTermSno"
     PrecisionRule="true"
@@ -458,7 +527,15 @@
     PrecisionRule="true"
     EntityAttrName="txtFobTermName"
     EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="TXT_FOB_TERM_NAME"/>
+    AliasName="TXT_FOB_TERM_NAME"
+    LOVName="LovtxtFobTermName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
