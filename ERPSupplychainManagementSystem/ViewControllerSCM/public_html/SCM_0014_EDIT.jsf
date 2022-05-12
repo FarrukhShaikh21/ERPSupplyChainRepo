@@ -254,6 +254,25 @@
                                             </af:inputDate>
                                         </af:gridCell>
                                     </af:gridRow>
+                                    <af:gridRow id="gr10">
+                                        <af:gridCell id="gc22" width="13%" halign="center">
+                                            <af:outputLabel value="#{bindings.RfqTypeSno.label}" id="ol9"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc23">
+                                            <af:selectOneChoice value="#{bindings.RfqTypeSno.inputValue}"
+                                                                label="#{bindings.RfqTypeSno.label}"
+                                                                required="#{bindings.RfqTypeSno.hints.mandatory}"
+                                                                shortDesc="#{bindings.RfqTypeSno.hints.tooltip}"
+                                                                id="soc1" simple="true">
+                                                <f:selectItems value="#{bindings.RfqTypeSno.items}" id="si1"/>
+                                                <f:validator binding="#{bindings.RfqTypeSno.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc24"/>
+                                        <af:gridCell id="gc25"/>
+                                        <af:gridCell id="gc27"/>
+                                        <af:gridCell id="gc28"/>
+                                    </af:gridRow>
                                     <af:gridRow id="gr9">
                                         <af:gridCell id="gc21" width="13%" rowSpan="1" halign="center">
                                             <af:outputLabel value="#{bindings.NoteToSupplier.hints.label}" id="ol4"/>
