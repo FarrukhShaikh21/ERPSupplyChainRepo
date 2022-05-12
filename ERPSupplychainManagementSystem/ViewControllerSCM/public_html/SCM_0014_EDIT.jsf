@@ -190,33 +190,69 @@
                                                 <af:convertDateTime pattern="#{bindings.RfqDate.format}"/>
                                             </af:inputDate>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="13%" id="gc8" halign="center"/>
-                                        <af:gridCell marginStart="5px" width="21%" marginEnd="5px" id="gc9"
-                                                     halign="stretch" valign="middle"/>
-                                    </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
-                                        <af:gridCell width="13%" id="gc10" halign="center">
+                                        <af:gridCell marginStart="5px" width="13%" id="gc8" halign="center">
                                             <af:outputLabel value="#{bindings.DueDate.hints.label}" id="ol2"/>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="20%" id="gc11" halign="stretch"
-                                                     valign="middle">
+                                        <af:gridCell marginStart="5px" width="21%" marginEnd="5px" id="gc9"
+                                                     halign="stretch" valign="middle">
                                             <af:inputDate value="#{bindings.DueDate.inputValue}"
                                                           label="#{bindings.DueDate.hints.label}"
                                                           required="#{bindings.DueDate.hints.mandatory}"
                                                           columns="#{bindings.DueDate.hints.displayWidth}"
                                                           shortDesc="#{bindings.DueDate.hints.tooltip}" id="id3"
-                                                          simple="true">
+                                                          simple="true" contentStyle="width:80%">
                                                 <f:validator binding="#{bindings.DueDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
                                             </af:inputDate>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="13%" id="gc13" halign="center"/>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                        <af:gridCell width="13%" id="gc10" halign="center">
+                                            <af:outputLabel value="#{bindings.CloseDate.hints.label}" id="ol5"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="20%" id="gc11" halign="stretch"
+                                                     valign="middle">
+                                            <af:inputDate value="#{bindings.CloseDate.inputValue}"
+                                                          label="#{bindings.CloseDate.hints.label}"
+                                                          required="#{bindings.CloseDate.hints.mandatory}"
+                                                          columns="#{bindings.CloseDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.CloseDate.hints.tooltip}" id="id4"
+                                                          simple="true">
+                                                <f:validator binding="#{bindings.CloseDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
+                                            </af:inputDate>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="13%" id="gc13" halign="center">
+                                            <af:outputLabel value="#{bindings.ValidFromDate.hints.label}" id="ol7"/>
+                                        </af:gridCell>
                                         <af:gridCell marginStart="5px" width="20%" id="gc14" halign="stretch"
-                                                     valign="middle"/>
+                                                     valign="middle">
+                                            <af:inputDate value="#{bindings.ValidFromDate.inputValue}"
+                                                          label="#{bindings.ValidFromDate.hints.label}"
+                                                          required="#{bindings.ValidFromDate.hints.mandatory}"
+                                                          columns="#{bindings.ValidFromDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.ValidFromDate.hints.tooltip}" id="id5"
+                                                          simple="true">
+                                                <f:validator binding="#{bindings.ValidFromDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.ValidFromDate.format}"/>
+                                            </af:inputDate>
+                                        </af:gridCell>
                                         <af:gridCell id="gc12" width="13%" marginStart="5px" marginEnd="5px"
-                                                     halign="center"/>
+                                                     halign="center">
+                                            <af:outputLabel value="#{bindings.ValidToDate.hints.label}" id="ol8"/>
+                                        </af:gridCell>
                                         <af:gridCell marginStart="5px" width="21%" id="gc15"
-                                                     valign="middle"/>
+                                                     valign="middle" halign="stretch">
+                                            <af:inputDate value="#{bindings.ValidToDate.inputValue}"
+                                                          label="#{bindings.ValidToDate.hints.label}"
+                                                          required="#{bindings.ValidToDate.hints.mandatory}"
+                                                          columns="#{bindings.ValidToDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.ValidToDate.hints.tooltip}" id="id6"
+                                                          simple="true" contentStyle="width:80%">
+                                                <f:validator binding="#{bindings.ValidToDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.ValidToDate.format}"/>
+                                            </af:inputDate>
+                                        </af:gridCell>
                                     </af:gridRow>
                                     <af:gridRow id="gr9">
                                         <af:gridCell id="gc21" width="13%" rowSpan="1" halign="center">

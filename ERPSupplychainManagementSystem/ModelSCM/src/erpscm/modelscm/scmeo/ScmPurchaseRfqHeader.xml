@@ -510,7 +510,7 @@
     Scale="0"
     ColumnName="RFQ_TYPE_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Integer"
+    Type="java.lang.String"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_HEADER">
     <Properties>
@@ -726,7 +726,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_RFQ_HEADER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -747,7 +746,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_RFQ_HEADER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -756,6 +754,38 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.txtFreightTermName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ValidFromDate"
+    ColumnName="VALID_FROM_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SCM_PURCHASE_RFQ_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.ValidFromDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ValidToDate"
+    ColumnName="VALID_TO_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SCM_PURCHASE_RFQ_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.ValidToDate_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

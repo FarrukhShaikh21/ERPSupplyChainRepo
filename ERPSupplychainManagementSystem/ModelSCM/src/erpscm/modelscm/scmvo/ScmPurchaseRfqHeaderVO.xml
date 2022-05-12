@@ -536,6 +536,18 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ValidFromDate"
+    PrecisionRule="true"
+    EntityAttrName="ValidFromDate"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="VALID_FROM_DATE"/>
+  <ViewAttribute
+    Name="ValidToDate"
+    PrecisionRule="true"
+    EntityAttrName="ValidToDate"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="VALID_TO_DATE"/>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"

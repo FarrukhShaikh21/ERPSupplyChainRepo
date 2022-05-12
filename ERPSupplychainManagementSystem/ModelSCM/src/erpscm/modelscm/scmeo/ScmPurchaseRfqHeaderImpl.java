@@ -68,6 +68,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         SupplierQuoteLevelSno,
         txtFobTermName,
         txtFreightTermName,
+        ValidFromDate,
+        ValidToDate,
         ScmPurchaseRfqLines,
         ScmPurchaseRfqSupplier,
         AdminCompany,
@@ -140,6 +142,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int SUPPLIERQUOTELEVELSNO = AttributesEnum.SupplierQuoteLevelSno.index();
     public static final int TXTFOBTERMNAME = AttributesEnum.txtFobTermName.index();
     public static final int TXTFREIGHTTERMNAME = AttributesEnum.txtFreightTermName.index();
+    public static final int VALIDFROMDATE = AttributesEnum.ValidFromDate.index();
+    public static final int VALIDTODATE = AttributesEnum.ValidToDate.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -599,15 +603,15 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      * Gets the attribute value for RfqTypeSno, using the alias name RfqTypeSno.
      * @return the value of RfqTypeSno
      */
-    public Integer getRfqTypeSno() {
-        return (Integer) getAttributeInternal(RFQTYPESNO);
+    public String getRfqTypeSno() {
+        return (String) getAttributeInternal(RFQTYPESNO);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RfqTypeSno.
      * @param value value to set the RfqTypeSno
      */
-    public void setRfqTypeSno(Integer value) {
+    public void setRfqTypeSno(String value) {
         setAttributeInternal(RFQTYPESNO, value);
     }
 
@@ -804,6 +808,38 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void settxtFreightTermName(String value) {
         setAttributeInternal(TXTFREIGHTTERMNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for ValidFromDate, using the alias name ValidFromDate.
+     * @return the value of ValidFromDate
+     */
+    public Timestamp getValidFromDate() {
+        return (Timestamp) getAttributeInternal(VALIDFROMDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ValidFromDate.
+     * @param value value to set the ValidFromDate
+     */
+    public void setValidFromDate(Timestamp value) {
+        setAttributeInternal(VALIDFROMDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for ValidToDate, using the alias name ValidToDate.
+     * @return the value of ValidToDate
+     */
+    public Timestamp getValidToDate() {
+        return (Timestamp) getAttributeInternal(VALIDTODATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ValidToDate.
+     * @param value value to set the ValidToDate
+     */
+    public void setValidToDate(Timestamp value) {
+        setAttributeInternal(VALIDTODATE, value);
     }
 
     /**
