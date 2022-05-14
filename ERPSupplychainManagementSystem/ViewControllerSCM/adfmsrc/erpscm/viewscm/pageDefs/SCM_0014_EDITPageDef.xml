@@ -56,5 +56,51 @@
     </attributeValues>
     <list IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovRfqTypeSno" id="RfqTypeSno"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtFobTermName"
+                  id="txtFobTermName"/>
+    <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtFreightTermName"
+                  id="txtFreightTermName"/>
+    <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtPaymentTermName"
+                  id="txtPaymentTermName"/>
+    <action IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <action IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
+    <attributeValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="UnSupervisedBy">
+      <AttrNames>
+        <Item Value="UnSupervisedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="SupervisedBy">
+      <AttrNames>
+        <Item Value="SupervisedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="IsCancelled">
+      <AttrNames>
+        <Item Value="IsCancelled"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtTempDepartmentName"
+                  id="txtTempDepartmentName"/>
+    <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtTempProjectName"
+                  id="txtTempProjectName"/>
+    <list IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovSupplierQuoteLevelSno"
+          id="SupplierQuoteLevelSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

@@ -13,10 +13,13 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVOImpl">
+  ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVOImpl"
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVORowImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
   </DesignTime>
   <Variable
     Name="P_ADF_RFQ_HEADER_SNO"
@@ -86,7 +89,45 @@
   <ViewAccessor
     Name="AccSysGeneralValueRFQTypeVO"
     ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[31]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompany"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyCompanyAccessWiseVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyCompanyAccessWiseVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSysGeneralValueVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[32]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtTempProjectName"
     ListVOName="AccGlProjectsVO"
@@ -215,6 +256,49 @@
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="RfqTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLocationName"
+    ListVOName="AccAdminCompany"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="LocationId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovSupplierQuoteLevelSno"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SupplierQuoteLevelSno"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -436,7 +520,15 @@
     EntityUsage="ScmPurchaseRfqHeader"
     AliasName="TXT_LOCATION_NAME"
     IsQueriable="false"
-    IsPersistent="false"/>
+    IsPersistent="false"
+    LOVName="LovtxtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FobTermSno"
     PrecisionRule="true"
@@ -503,7 +595,15 @@
     PrecisionRule="true"
     EntityAttrName="SupplierQuoteLevelSno"
     EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="SUPPLIER_QUOTE_LEVEL_SNO"/>
+    AliasName="SUPPLIER_QUOTE_LEVEL_SNO"
+    LOVName="LovSupplierQuoteLevelSno">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtFreightTermName"
     IsQueriable="false"
