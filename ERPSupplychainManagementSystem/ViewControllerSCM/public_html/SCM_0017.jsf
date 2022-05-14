@@ -1,25 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="SCM_0014_EDIT.jsf" id="d1">
+    <af:document title="SCM_0017_EDIT.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
-                        binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
-                <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
-                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmSuperviseDialog}">
-                  <af:outputText value="Do you want to Supervise this transaction?" id="ot8" inlineStyle="font-size:large;"/>
-                  <f:facet name="buttonBar"/>
-                        </af:dialog>
-            </af:popup>   
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
-                        binding="#{pageFlowScope.OracleERPBean.lerpUnSupervisePopupConfirm}" contentDelivery="lazyUncached">
-                <af:dialog id="d4" type="yesNo" closeIconVisible="false" title="UnSupervise"
-                           dialogListener="#{pageFlowScope.OracleERPBean.doERPConfirmUnSuperviseDialog}">
-                  <af:outputText value="Do you want to UnSupervise this transaction?" id="ot9" inlineStyle="font-size:large;"/>
-                  <f:facet name="buttonBar"/>
-                        </af:dialog>
-            </af:popup>
             <af:decorativeBox id="db1" dimensionsFrom="parent">
                 <f:facet name="center">
                     <af:panelGridLayout id="pgl1" partialTriggers="l5 l1 l8 l20 l19 l9 l10 l6 l4 l7 l3 l2 d3 d4"
@@ -35,76 +19,7 @@
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="50%" id="gc19"
                                                      halign="end" columnSpan="1" rowSpan="1"
-                                                     styleClass="ERPToolBarBackground" valign="stretch">
-                                            <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
-                                                <af:link id="l5" partialSubmit="true"
-                                                         icon="#{resource['images:imgCloseDialog.png']}" text="Close"
-                                                         iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                                         shortDesc="Close Form"/>
-                                                <af:link actionListener="#{bindings.CreateWithParams.execute}"
-                                                         text="CreateWithParams"
-                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
-                                                         rendered="false"/>
-                                                <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                         id="l8" rendered="false"/>
-                                                <af:link text="UnSupervise" id="l20" partialSubmit="true"
-                                                         icon="#{resource['images:imgUnSuperviseRecord.png']}"
-                                                         iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                         disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.DemandHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
-                                                         partialTriggers="l7" shortDesc="Un Supervise Record">
-                                                    <af:setActionListener from="#{'ScmPurchaseRfqHeaderCRUDIterator'}"
-                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                                </af:link>
-                                                <af:link text="Supervise" id="l19" partialSubmit="true"
-                                                         icon="#{resource['images:imgSuperviseRecord.png']}"
-                                                         iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.RfqHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
-                                                         partialTriggers="l7" shortDesc="Supervise Record">
-                                                    <af:setActionListener from="#{'ScmPurchaseRfqHeaderCRUDIterator'}"
-                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                                </af:link>
-                                                <af:link text="Delete" id="l9"
-                                                         actionListener="#{bindings.Delete.execute}"
-                                                         icon="#{resource['images:imgDeleteRecord.png']}"
-                                                         iconPosition="top" partialSubmit="true"
-                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
-                                                         shortDesc="Delete Record"/>
-                                                <af:link text="Add" id="l10"
-                                                         icon="#{resource['images:imgAddRecord.png']}"
-                                                         iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                         partialSubmit="true"
-                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
-                                                         shortDesc="Add New Record"/>
-                                                <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
-                                                         disabled="#{!bindings.Commit.enabled}" id="l6"
-                                                         rendered="false"/>
-                                                <af:link text="Undo" id="l4" icon="#{resource['images:imgUndo.png']}"
-                                                         partialSubmit="true" iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                         immediate="true" shortDesc="Undi Record">
-                                                    <af:resetActionListener/>
-                                                </af:link>
-                                                <af:link id="l7" partialSubmit="true"
-                                                         icon="#{resource['images:imgSave.png']}" text="Save"
-                                                         iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
-                                                         shortDesc="Save Record"/>
-                                                <af:spacer width="1" height="10" id="s2"/>
-                                                <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
-                                                         id="l3" rendered="false"/>
-                                                <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                                         immediate="true" id="l2" rendered="false">
-                                                    <af:resetActionListener/>
-                                                </af:link>
-                                                <f:facet name="separator">
-                                                    <af:spacer width="10" height="10" id="s1"/>
-                                                </f:facet>
-                                            </af:panelGroupLayout>
-                                        </af:gridCell>
+                                                     styleClass="ERPToolBarBackground" valign="stretch"/>
                                     </af:gridRow>
                                 </af:panelGridLayout>
                             </af:gridCell>
@@ -127,7 +42,7 @@
                                                     <af:outputLabel value="#{bindings.RfqHeaderCode.hints.label}"
                                                                     id="ol3"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="20%" id="gc5"
+                                                <af:gridCell marginStart="5px" width="20%" id="gc5" halign="stretch"
                                                              valign="middle">
                                                     <af:inputText value="#{bindings.UnSupervisedBy.inputValue}"
                                                                   label="#{bindings.UnSupervisedBy.hints.label}"
@@ -204,13 +119,14 @@
                                                 <af:gridCell marginStart="5px" width="13%" id="gc6" halign="center">
                                                     <af:outputLabel value="#{bindings.RfqDate.hints.label}" id="ol1"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="20%" id="gc7" valign="middle">
+                                                <af:gridCell marginStart="5px" width="20%" id="gc7" valign="middle"
+                                                             halign="stretch">
                                                     <af:inputDate value="#{bindings.RfqDate.inputValue}"
                                                                   label="#{bindings.RfqDate.hints.label}"
                                                                   required="#{bindings.RfqDate.hints.mandatory}"
                                                                   columns="#{bindings.RfqDate.hints.displayWidth}"
                                                                   shortDesc="#{bindings.RfqDate.hints.tooltip}" id="id1"
-                                                                  simple="true" contentStyle="width:150px">
+                                                                  simple="true" contentStyle="width:40%">
                                                         <f:validator binding="#{bindings.RfqDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.RfqDate.format}"/>
                                                     </af:inputDate>
@@ -218,13 +134,14 @@
                                                 <af:gridCell marginStart="5px" width="13%" id="gc8" halign="center">
                                                     <af:outputLabel value="#{bindings.RfqTypeSno.label}" id="ol9"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="21%" marginEnd="5px" id="gc9" valign="middle">
+                                                <af:gridCell marginStart="5px" width="21%" marginEnd="5px" id="gc9"
+                                                             halign="stretch" valign="middle">
                                                     <af:selectOneChoice value="#{bindings.RfqTypeSno.inputValue}"
                                                                         label="#{bindings.RfqTypeSno.label}"
                                                                         required="#{bindings.RfqTypeSno.hints.mandatory}"
                                                                         shortDesc="#{bindings.RfqTypeSno.hints.tooltip}"
                                                                         id="soc1" simple="true"
-                                                                        contentStyle="width:180px">
+                                                                        contentStyle="width:80%">
                                                         <f:selectItems value="#{bindings.RfqTypeSno.items}" id="si1"/>
                                                         <f:validator binding="#{bindings.RfqTypeSno.validator}"/>
                                                     </af:selectOneChoice>
@@ -235,7 +152,7 @@
                                                     <af:outputLabel value="#{bindings.txtLocationName.hints.label}"
                                                                     id="ol13"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc36" width="20%">
+                                                <af:gridCell id="gc36" width="20%" halign="stretch">
                                                     <af:inputComboboxListOfValues id="txtLocationNameId"
                                                                                   popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
                                                                                   value="#{bindings.txtLocationName.inputValue}"
@@ -245,7 +162,7 @@
                                                                                   columns="#{bindings.txtLocationName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtLocationName.hints.tooltip}"
                                                                                   simple="true"
-                                                                                  contentStyle="width:153px">
+                                                                                  contentStyle="width:80%">
                                                         <f:validator binding="#{bindings.txtLocationName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
@@ -253,7 +170,7 @@
                                                     <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}"
                                                                     id="ol14"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc38" width="20%">
+                                                <af:gridCell id="gc38" width="20%" halign="stretch">
                                                     <af:inputComboboxListOfValues id="txtTempDepartmentNameId"
                                                                                   popupTitle="Search and Select: #{bindings.txtTempDepartmentName.hints.label}"
                                                                                   value="#{bindings.txtTempDepartmentName.inputValue}"
@@ -263,7 +180,7 @@
                                                                                   columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
                                                                                   simple="true"
-                                                                                  contentStyle="width:153px">
+                                                                                  contentStyle="width:80%">
                                                         <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
@@ -271,7 +188,7 @@
                                                     <af:outputLabel value="#{bindings.txtTempProjectName.hints.label}"
                                                                     id="ol15"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc40" width="21%">
+                                                <af:gridCell id="gc40" width="21%" halign="stretch">
                                                     <af:inputComboboxListOfValues id="txtTempProjectNameId"
                                                                                   popupTitle="Search and Select: #{bindings.txtTempProjectName.hints.label}"
                                                                                   value="#{bindings.txtTempProjectName.inputValue}"
@@ -281,7 +198,7 @@
                                                                                   columns="#{bindings.txtTempProjectName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
                                                                                   simple="true"
-                                                                                  contentStyle="width:154px">
+                                                                                  contentStyle="width:80%">
                                                         <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
@@ -290,13 +207,14 @@
                                                 <af:gridCell width="13%" id="gc10" halign="center">
                                                     <af:outputLabel value="#{bindings.CloseDate.hints.label}" id="ol5"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="20%" id="gc11" valign="middle">
+                                                <af:gridCell marginStart="5px" width="20%" id="gc11" valign="middle"
+                                                             halign="stretch">
                                                     <af:inputDate value="#{bindings.CloseDate.inputValue}"
                                                                   label="#{bindings.CloseDate.hints.label}"
                                                                   required="#{bindings.CloseDate.hints.mandatory}"
                                                                   columns="#{bindings.CloseDate.hints.displayWidth}"
                                                                   shortDesc="#{bindings.CloseDate.hints.tooltip}"
-                                                                  id="id4" simple="true" contentStyle="width:150px">
+                                                                  id="id4" simple="true" contentStyle="width:40%">
                                                         <f:validator binding="#{bindings.CloseDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
                                                     </af:inputDate>
@@ -305,13 +223,14 @@
                                                     <af:outputLabel value="#{bindings.ValidFromDate.hints.label}"
                                                                     id="ol7"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="20%" id="gc14" valign="middle">
+                                                <af:gridCell marginStart="5px" width="20%" id="gc14" valign="middle"
+                                                             halign="stretch">
                                                     <af:inputDate value="#{bindings.ValidFromDate.inputValue}"
                                                                   label="#{bindings.ValidFromDate.hints.label}"
                                                                   required="#{bindings.ValidFromDate.hints.mandatory}"
                                                                   columns="#{bindings.ValidFromDate.hints.displayWidth}"
                                                                   shortDesc="#{bindings.ValidFromDate.hints.tooltip}"
-                                                                  id="id5" simple="true" contentStyle="width:150px">
+                                                                  id="id5" simple="true" contentStyle="width:40%">
                                                         <f:validator binding="#{bindings.ValidFromDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.ValidFromDate.format}"/>
                                                     </af:inputDate>
@@ -321,13 +240,14 @@
                                                     <af:outputLabel value="#{bindings.ValidToDate.hints.label}"
                                                                     id="ol8"/>
                                                 </af:gridCell>
-                                                <af:gridCell marginStart="5px" width="21%" id="gc15" valign="middle">
+                                                <af:gridCell marginStart="5px" width="21%" id="gc15" valign="middle"
+                                                             halign="stretch">
                                                     <af:inputDate value="#{bindings.ValidToDate.inputValue}"
                                                                   label="#{bindings.ValidToDate.hints.label}"
                                                                   required="#{bindings.ValidToDate.hints.mandatory}"
                                                                   columns="#{bindings.ValidToDate.hints.displayWidth}"
                                                                   shortDesc="#{bindings.ValidToDate.hints.tooltip}"
-                                                                  id="id6" simple="true" contentStyle="width:150px">
+                                                                  id="id6" simple="true" contentStyle="width:40%">
                                                         <f:validator binding="#{bindings.ValidToDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.ValidToDate.format}"/>
                                                     </af:inputDate>
@@ -337,13 +257,13 @@
                                                 <af:gridCell id="gc22" width="13%" halign="center">
                                                     <af:outputLabel value="#{bindings.DueDate.hints.label}" id="ol2"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc23" valign="middle" width="20%">
+                                                <af:gridCell id="gc23" valign="middle" halign="stretch" width="20%">
                                                     <af:inputDate value="#{bindings.DueDate.inputValue}"
                                                                   label="#{bindings.DueDate.hints.label}"
                                                                   required="#{bindings.DueDate.hints.mandatory}"
                                                                   columns="#{bindings.DueDate.hints.displayWidth}"
                                                                   shortDesc="#{bindings.DueDate.hints.tooltip}" id="id3"
-                                                                  simple="true" contentStyle="width:150px">
+                                                                  simple="true" contentStyle="width:40%">
                                                         <f:validator binding="#{bindings.DueDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
                                                     </af:inputDate>
@@ -352,13 +272,13 @@
                                                     <af:outputLabel value="#{bindings.SupplierQuoteLevelSno.label}"
                                                                     id="ol16"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc25" width="20%">
+                                                <af:gridCell id="gc25" halign="stretch" width="20%">
                                                     <af:selectOneChoice value="#{bindings.SupplierQuoteLevelSno.inputValue}"
                                                                         label="#{bindings.SupplierQuoteLevelSno.label}"
                                                                         required="#{bindings.SupplierQuoteLevelSno.hints.mandatory}"
                                                                         shortDesc="#{bindings.SupplierQuoteLevelSno.hints.tooltip}"
                                                                         id="soc2" simple="true"
-                                                                        contentStyle="width:183px">
+                                                                        contentStyle="width:50%">
                                                         <f:selectItems value="#{bindings.SupplierQuoteLevelSno.items}"
                                                                        id="si2"/>
                                                         <f:validator binding="#{bindings.SupplierQuoteLevelSno.validator}"/>
@@ -372,7 +292,7 @@
                                                     <af:outputLabel value="#{bindings.txtFobTermName.hints.label}"
                                                                     id="ol10"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc30" width="20%" valign="middle">
+                                                <af:gridCell id="gc30" width="20%" valign="middle" halign="stretch">
                                                     <af:inputComboboxListOfValues id="txtFobTermNameId"
                                                                                   popupTitle="Search and Select: #{bindings.txtFobTermName.hints.label}"
                                                                                   value="#{bindings.txtFobTermName.inputValue}"
@@ -382,7 +302,7 @@
                                                                                   columns="#{bindings.txtFobTermName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtFobTermName.hints.tooltip}"
                                                                                   simple="true"
-                                                                                  contentStyle="width:153px">
+                                                                                  contentStyle="width:80%">
                                                         <f:validator binding="#{bindings.txtFobTermName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
@@ -390,7 +310,7 @@
                                                     <af:outputLabel value="#{bindings.txtFreightTermName.hints.label}"
                                                                     id="ol11"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc32" width="20%" valign="middle">
+                                                <af:gridCell id="gc32" width="20%" valign="middle" halign="stretch">
                                                     <af:inputComboboxListOfValues id="txtFreightTermNameId"
                                                                                   popupTitle="Search and Select: #{bindings.txtFreightTermName.hints.label}"
                                                                                   value="#{bindings.txtFreightTermName.inputValue}"
@@ -400,7 +320,7 @@
                                                                                   columns="#{bindings.txtFreightTermName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtFreightTermName.hints.tooltip}"
                                                                                   simple="true"
-                                                                                  contentStyle="width:153px">
+                                                                                  contentStyle="width:80%">
                                                         <f:validator binding="#{bindings.txtFreightTermName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
@@ -408,7 +328,7 @@
                                                     <af:outputLabel value="#{bindings.txtPaymentTermName.hints.label}"
                                                                     id="ol12"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc34" valign="middle" width="21%">
+                                                <af:gridCell id="gc34" valign="middle" width="21%" halign="stretch">
                                                     <af:inputComboboxListOfValues id="txtPaymentTermNameId"
                                                                                   popupTitle="Search and Select: #{bindings.txtPaymentTermName.hints.label}"
                                                                                   value="#{bindings.txtPaymentTermName.inputValue}"
@@ -418,7 +338,7 @@
                                                                                   columns="#{bindings.txtPaymentTermName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtPaymentTermName.hints.tooltip}"
                                                                                   simple="true"
-                                                                                  contentStyle="width:154px">
+                                                                                  contentStyle="width:80%">
                                                         <f:validator binding="#{bindings.txtPaymentTermName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>

@@ -315,15 +315,15 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      * Gets the attribute value for LocationId, using the alias name LocationId.
      * @return the value of LocationId
      */
-    public Integer getLocationId() {
-        return (Integer) getAttributeInternal(LOCATIONID);
+    public BigDecimal getLocationId() {
+        return (BigDecimal) getAttributeInternal(LOCATIONID);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for LocationId.
      * @param value value to set the LocationId
      */
-    public void setLocationId(Integer value) {
+    public void setLocationId(BigDecimal value) {
         setAttributeInternal(LOCATIONID, value);
     }
 
@@ -766,15 +766,15 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      * Gets the attribute value for SupplierQuoteLevelSno, using the alias name SupplierQuoteLevelSno.
      * @return the value of SupplierQuoteLevelSno
      */
-    public Integer getSupplierQuoteLevelSno() {
-        return (Integer) getAttributeInternal(SUPPLIERQUOTELEVELSNO);
+    public String getSupplierQuoteLevelSno() {
+        return (String) getAttributeInternal(SUPPLIERQUOTELEVELSNO);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for SupplierQuoteLevelSno.
      * @param value value to set the SupplierQuoteLevelSno
      */
-    public void setSupplierQuoteLevelSno(Integer value) {
+    public void setSupplierQuoteLevelSno(String value) {
         setAttributeInternal(SUPPLIERQUOTELEVELSNO, value);
     }
 

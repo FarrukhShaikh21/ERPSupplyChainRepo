@@ -113,5 +113,9 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="ScmPurchaseRfqSupplierDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ScmPurchaseRfqSupplierDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

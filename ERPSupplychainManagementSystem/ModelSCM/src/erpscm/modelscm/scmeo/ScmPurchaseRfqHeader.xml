@@ -9,7 +9,7 @@
   DBObjectType="table"
   DBObjectName="SCM_PURCHASE_RFQ_HEADER"
   AliasName="ScmPurchaseRfqHeader"
-  BindingStyle="OracleName"
+  BindingStyle="JDBC"
   RowClass="erpscm.modelscm.scmeo.ScmPurchaseRfqHeaderImpl">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
@@ -178,7 +178,7 @@
     Scale="0"
     ColumnName="LOCATION_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Integer"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_HEADER">
     <Properties>
@@ -618,8 +618,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
+    <TransientExpression><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
     <Dependencies>
       <Item
         Value="TempDepartmentId"/>
@@ -642,8 +641,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+    <TransientExpression><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
     <Dependencies>
       <Item
         Value="TempProjectId"/>
@@ -684,8 +682,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPaymentTermHeader?.PaymentTermName]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmPaymentTermHeader?.PaymentTermName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -705,7 +702,7 @@
     Scale="0"
     ColumnName="SUPPLIER_QUOTE_LEVEL_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Integer"
+    Type="java.lang.String"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_HEADER">
     <Properties>
@@ -726,8 +723,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmFobTerm?.FobTermName]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmFobTerm?.FobTermName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -746,8 +742,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmFreightTerm?.FreightTermName]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmFreightTerm?.FreightTermName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
