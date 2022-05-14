@@ -91,7 +91,8 @@ public class ScmSupplierImpl extends ERPEntityImpl {
         ScmCustomerType,
         ScmCustomerCategory,
         ScmSupplierSites,
-        ScmPurchaseDemandLines;
+        ScmPurchaseDemandLines,
+        ScmPurchaseRfqSupplier;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -180,6 +181,7 @@ public class ScmSupplierImpl extends ERPEntityImpl {
     public static final int SCMCUSTOMERCATEGORY = AttributesEnum.ScmCustomerCategory.index();
     public static final int SCMSUPPLIERSITES = AttributesEnum.ScmSupplierSites.index();
     public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
+    public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1194,6 +1196,14 @@ public class ScmSupplierImpl extends ERPEntityImpl {
      */
     public RowIterator getScmPurchaseDemandLines() {
         return (RowIterator) getAttributeInternal(SCMPURCHASEDEMANDLINES);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseRfqSupplier() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASERFQSUPPLIER);
     }
 
 

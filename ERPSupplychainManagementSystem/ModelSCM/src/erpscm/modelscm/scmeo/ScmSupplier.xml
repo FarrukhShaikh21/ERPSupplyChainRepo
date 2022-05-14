@@ -1143,6 +1143,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmSupplierScmPurDemandLinesSupplierSnoAsso.ScmSupplier"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmPurchaseRfqSupplier"
+    Association="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseRFQSupplierSupplierSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseRFQSupplierSupplierSnoAsso.ScmPurchaseRfqSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseRFQSupplierSupplierSnoAsso.ScmSupplier"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmSupplier"
     PrimaryKey="true">

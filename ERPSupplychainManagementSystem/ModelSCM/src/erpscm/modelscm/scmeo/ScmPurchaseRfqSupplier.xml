@@ -31,7 +31,6 @@
   </Attribute>
   <Attribute
     Name="RfqHeaderSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="RFQ_HEADER_SNO"
@@ -110,7 +109,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -179,12 +177,38 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtSupplierName"
+    Precision="80"
+    ColumnName="TXT_SUPPLIER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_RFQ_SUPPLIER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier.txtSupplierName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurRfqSupplierHeaderAssoc"
     AssociationEnd="erpscm.modelscm.scmeo.FkScmPurRfqSupplierHeaderAssoc.ScmPurchaseRfqHeader"
     AssociationOtherEnd="erpscm.modelscm.scmeo.FkScmPurRfqSupplierHeaderAssoc.ScmPurchaseRfqSupplier"
     Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmSupplier"
+    Association="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseRFQSupplierSupplierSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseRFQSupplierSupplierSnoAsso.ScmSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseRFQSupplierSupplierSnoAsso.ScmPurchaseRfqSupplier"
+    Type="erpscm.modelscm.scmeo.ScmSupplierImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseRfqSupplier"
@@ -205,6 +229,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier.RfqHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqSupplier">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_SUPPLIER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_SUPPLIER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier.SupplierSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
