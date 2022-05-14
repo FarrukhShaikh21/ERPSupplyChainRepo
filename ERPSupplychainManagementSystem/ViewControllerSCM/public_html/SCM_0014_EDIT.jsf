@@ -457,7 +457,60 @@
                                             </af:gridRow>
                                         </af:panelGridLayout>
                                     </af:showDetailItem>
-                                    <af:showDetailItem id="tab2" text="Supplier"/>
+                                    <af:showDetailItem id="tab2" text="Supplier">
+                                        <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar"/>
+                                            <f:facet name="statusbar"/>
+                                            <af:table value="#{bindings.ScmPurchaseRfqSupplierDetCRUD.collectionModel}"
+                                                      var="row"
+                                                      rows="#{bindings.ScmPurchaseRfqSupplierDetCRUD.rangeSize}"
+                                                      emptyText="#{bindings.ScmPurchaseRfqSupplierDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rowBandingInterval="0"
+                                                      selectedRowKeys="#{bindings.ScmPurchaseRfqSupplierDetCRUD.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.ScmPurchaseRfqSupplierDetCRUD.collectionModel.makeCurrent}"
+                                                      rowSelection="single"
+                                                      fetchSize="#{bindings.ScmPurchaseRfqSupplierDetCRUD.rangeSize}"
+                                                      id="t1">
+                                                <af:column headerText="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.txtSupplierName.label}"
+                                                           id="c1" width="200">
+                                                    <af:inputComboboxListOfValues id="txtSupplierNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.txtSupplierName.label}"
+                                                                                  value="#{row.bindings.txtSupplierName.inputValue}"
+                                                                                  model="#{row.bindings.txtSupplierName.listOfValuesModel}"
+                                                                                  required="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.txtSupplierName.mandatory}"
+                                                                                  columns="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.txtSupplierName.displayWidth}"
+                                                                                  shortDesc="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.txtSupplierName.tooltip}">
+                                                        <f:validator binding="#{row.bindings.txtSupplierName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.ContactNo.label}"
+                                                           id="c2" width="150">
+                                                    <af:inputText value="#{row.bindings.ContactNo.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.ContactNo.label}"
+                                                                  required="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.ContactNo.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.ContactNo.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.ContactNo.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.ContactNo.tooltip}"
+                                                                  id="it5">
+                                                        <f:validator binding="#{row.bindings.ContactNo.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.BidReceived.label}"
+                                                           id="c3">
+                                                    <af:inputText value="#{row.bindings.BidReceived.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.BidReceived.label}"
+                                                                  required="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.BidReceived.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.BidReceived.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.BidReceived.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseRfqSupplierDetCRUD.hints.BidReceived.tooltip}"
+                                                                  id="it6" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.BidReceived.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                            </af:table>
+                                        </af:panelCollection>
+                                    </af:showDetailItem>
                                 </af:panelTabbed>
                             </af:gridCell>
                         </af:gridRow>

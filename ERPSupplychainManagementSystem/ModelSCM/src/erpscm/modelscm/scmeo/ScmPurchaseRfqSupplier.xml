@@ -184,7 +184,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_RFQ_SUPPLIER">
+    TableName="SCM_PURCHASE_RFQ_SUPPLIER"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
     <Properties>

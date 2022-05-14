@@ -7,6 +7,8 @@
     <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="ScmPurchaseRfqHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseRfqHeaderCRUDIterator"/>
+    <iterator Binds="ScmPurchaseRfqSupplierDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseRfqSupplierDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="RfqHeaderSno">
@@ -102,5 +104,14 @@
                   id="txtTempProjectName"/>
     <list IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovSupplierQuoteLevelSno"
           id="SupplierQuoteLevelSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="ScmPurchaseRfqSupplierDetCRUDIterator" id="ScmPurchaseRfqSupplierDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO" Name="ScmPurchaseRfqSupplierDetCRUD0">
+        <AttrNames>
+          <Item Value="txtSupplierName"/>
+          <Item Value="ContactNo"/>
+          <Item Value="BidReceived"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
