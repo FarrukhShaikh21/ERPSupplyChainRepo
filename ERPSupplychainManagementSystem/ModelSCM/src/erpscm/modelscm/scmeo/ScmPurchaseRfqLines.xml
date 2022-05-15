@@ -414,7 +414,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_RFQ_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -452,6 +451,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.InvUnitTypeScmPurchRfqLineUnitTypeSnoAsso.InvUnitType"
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvUnitTypeScmPurchRfqLineUnitTypeSnoAsso.ScmPurchaseRfqLines"
     Type="erpims.modelims.imseo.InvUnitTypeImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlProjects"
+    Association="erpscm.modelscm.scmeo.GLProjectScmPurchaseRfqLinesProjectSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.GLProjectScmPurchaseRfqLinesProjectSnoAsso.GlProjects"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GLProjectScmPurchaseRfqLinesProjectSnoAsso.ScmPurchaseRfqLines"
+    Type="erpfms.modelfms.fmseo.GlProjectsImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseQuotationLine"
@@ -494,6 +500,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.UnitTypeSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqLines2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_PROJECTS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_LINES2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.ProjectId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
