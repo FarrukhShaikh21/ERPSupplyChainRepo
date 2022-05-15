@@ -402,6 +402,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="ItemId"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtUnitTypeName"
@@ -410,7 +414,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_RFQ_LINES">
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[InvUnitType?.UnitTypeName]]></TransientExpression>
     <Properties>
@@ -421,6 +427,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="UnitTypeSno"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
