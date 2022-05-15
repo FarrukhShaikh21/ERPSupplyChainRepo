@@ -73,13 +73,6 @@
     EntityUsage="ScmPurchaseRfqLines"
     AliasName="REQUESTER_ID"/>
   <ViewAttribute
-    Name="ItemSno"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="ItemSno"
-    EntityUsage="ScmPurchaseRfqLines"
-    AliasName="ITEM_SNO"/>
-  <ViewAttribute
     Name="UnitTypeSno"
     IsNotNull="true"
     PrecisionRule="true"
@@ -145,4 +138,11 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmPurchaseRfqLines"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="ItemId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ItemId"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="ITEM_ID"/>
 </ViewObject>
