@@ -613,7 +613,7 @@
                                             </af:inputDate>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.AproxPrice.label}"
-                                                   id="c9">
+                                                   id="c9" width="80" displayIndex="-1">
                                             <af:inputText value="#{row.bindings.AproxPrice.inputValue}"
                                                           label="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.AproxPrice.label}"
                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.AproxPrice.mandatory}"
@@ -627,7 +627,7 @@
                                             </af:inputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Quantity.label}"
-                                                   id="c10">
+                                                   id="c10" width="80" displayIndex="-1">
                                             <af:inputText value="#{row.bindings.Quantity.inputValue}"
                                                           label="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Quantity.label}"
                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Quantity.mandatory}"
