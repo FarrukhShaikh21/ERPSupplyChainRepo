@@ -397,6 +397,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvItemsScmPurchaseRfqLinesItemIdAsso.ScmPurchaseRfqLines"
     Type="erpims.modelims.imseo.InvItemImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InvUnitType"
+    Association="erpscm.modelscm.scmeo.InvUnitTypeScmPurchRfqLineUnitTypeSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.InvUnitTypeScmPurchRfqLineUnitTypeSnoAsso.InvUnitType"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.InvUnitTypeScmPurchRfqLineUnitTypeSnoAsso.ScmPurchaseRfqLines"
+    Type="erpims.modelims.imseo.InvUnitTypeImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseQuotationLine"
     PrimaryKey="true">
@@ -427,6 +434,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.ItemId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqLines1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_INV_UNIT_TYPE"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_LINES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.UnitTypeSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
