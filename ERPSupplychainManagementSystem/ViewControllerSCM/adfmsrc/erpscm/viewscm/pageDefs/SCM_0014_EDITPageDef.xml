@@ -9,6 +9,8 @@
               id="ScmPurchaseRfqHeaderCRUDIterator"/>
     <iterator Binds="ScmPurchaseRfqSupplierDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseRfqSupplierDetCRUDIterator"/>
+    <iterator Binds="ScmPurchaseRfqLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseRfqLinesDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="RfqHeaderSno">
@@ -117,5 +119,22 @@
             Action="createInsertRow"/>
     <action IterBinding="ScmPurchaseRfqSupplierDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <tree IterBinding="ScmPurchaseRfqLinesDetCRUDIterator" id="ScmPurchaseRfqLinesDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO" Name="ScmPurchaseRfqLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="txtUnitTypeName"/>
+          <Item Value="txtDepartmentName"/>
+          <Item Value="txtProjectName"/>
+          <Item Value="RequiredBy"/>
+          <Item Value="AproxPrice"/>
+          <Item Value="Quantity"/>
+          <Item Value="NoteToBuyer"/>
+          <Item Value="NoteToSupplier"/>
+          <Item Value="SupplierItemName"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
