@@ -533,14 +533,13 @@
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t2">
-                                            <af:link actionListener="#{bindings.CreateInsert.execute}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised=='Y'}"
+                                            <af:link actionListener="#{bindings.CreateInsert1.execute}" disabled="#{!bindings.CreateInsert1.enabled}"
                                                      id="l12" icon="#{resource['images:imgAddRecord.png']}"
-                                                     partialSubmit="true"/>
-                                            <af:link actionListener="#{bindings.Delete1.execute}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised=='Y'}"
-                                                     id="l11" partialSubmit="true"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}"/>
+                                                     partialSubmit="true" shortDesc="Add RFQ Line"/>
+                                            <af:link actionListener="#{bindings.Delete2.execute}"
+                                                     disabled="#{!bindings.Delete2.enabled}" id="l11"
+                                                     icon="#{resource['images:imgDeleteRecord.png']}"
+                                                     partialSubmit="true" shortDesc="Delete RFQ Line"/>
                                         </af:toolbar>
                                     </f:facet>
                                     <f:facet name="statusbar"/>
@@ -551,40 +550,45 @@
                                               selectedRowKeys="#{bindings.ScmPurchaseRfqLinesDetCRUD.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.ScmPurchaseRfqLinesDetCRUD.collectionModel.makeCurrent}"
                                               rowSelection="single"
-                                              fetchSize="#{bindings.ScmPurchaseRfqLinesDetCRUD.rangeSize}" id="t4">
+                                              fetchSize="#{bindings.ScmPurchaseRfqLinesDetCRUD.rangeSize}" id="t4"
+                                              partialTriggers="::l12 ::l11" autoHeightRows="5"
+                                              styleClass="AFStretchWidth">
                                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.label}"
-                                                   id="c4" width="150">
+                                                   id="c4" width="200">
                                             <af:inputComboboxListOfValues id="txtItemNameId"
                                                                           popupTitle="Search and Select: #{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.label}"
                                                                           value="#{row.bindings.txtItemName.inputValue}"
                                                                           model="#{row.bindings.txtItemName.listOfValuesModel}"
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.tooltip}">
+                                                                          shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.tooltip}"
+                                                                          contentStyle="width:90%">
                                                 <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.label}"
-                                                   id="c5" width="150" displayIndex="-1">
+                                                   id="c5" width="200" displayIndex="-1">
                                             <af:inputComboboxListOfValues id="txtUnitTypeNameId"
                                                                           popupTitle="Search and Select: #{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.label}"
                                                                           value="#{row.bindings.txtUnitTypeName.inputValue}"
                                                                           model="#{row.bindings.txtUnitTypeName.listOfValuesModel}"
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.tooltip}">
+                                                                          shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
+                                                                          contentStyle="width:90%">
                                                 <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.label}"
-                                                   id="c6" width="150" displayIndex="-1">
+                                                   id="c6" width="200" displayIndex="-1">
                                             <af:inputComboboxListOfValues id="txtDepartmentNameId"
                                                                           popupTitle="Search and Select: #{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.label}"
                                                                           value="#{row.bindings.txtDepartmentName.inputValue}"
                                                                           model="#{row.bindings.txtDepartmentName.listOfValuesModel}"
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.tooltip}">
+                                                                          shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.tooltip}"
+                                                                          contentStyle="width:90%">
                                                 <f:validator binding="#{row.bindings.txtDepartmentName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
@@ -596,7 +600,8 @@
                                                                           model="#{row.bindings.txtProjectName.listOfValuesModel}"
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.tooltip}">
+                                                                          shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.tooltip}"
+                                                                          contentStyle="width:90%">
                                                 <f:validator binding="#{row.bindings.txtProjectName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
@@ -607,7 +612,7 @@
                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.RequiredBy.mandatory}"
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.RequiredBy.displayWidth}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.RequiredBy.tooltip}"
-                                                          id="id2">
+                                                          id="id2" contentStyle="width:60%">
                                                 <f:validator binding="#{row.bindings.RequiredBy.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.RequiredBy.format}"/>
                                             </af:inputDate>
@@ -689,6 +694,7 @@
                                             </af:inputText>
                                         </af:column>
                                     </af:table>
+                                    <f:facet name="viewMenu"/>
                                 </af:panelCollection>
                             </af:gridCell>
                         </af:gridRow>

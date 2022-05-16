@@ -136,5 +136,9 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="ScmPurchaseRfqLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ScmPurchaseRfqLinesDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>
