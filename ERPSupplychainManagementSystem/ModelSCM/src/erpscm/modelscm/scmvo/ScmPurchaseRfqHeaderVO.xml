@@ -38,7 +38,7 @@
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+          trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -63,7 +63,17 @@
   <ViewAccessor
     Name="AccScmPaymentTermHeaderVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPaymentTermHeaderByCompanyVC"
+      FullName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO.ScmPaymentTermHeaderByCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccScmFreightTermVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmFreightTermVO"
@@ -74,6 +84,12 @@
     <ViewCriteriaUsage
       Name="ScmFreightTermByCompanyIDVC"
       FullName="erpscm.modelscm.scmvo.ScmFreightTermVO.ScmFreightTermByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
     Name="AccScmFobTermVO"
@@ -85,6 +101,12 @@
     <ViewCriteriaUsage
       Name="ScmFobTermVOByCompanyIdVC"
       FullName="erpscm.modelscm.scmvo.ScmFobTermVO.ScmFobTermVOByCompanyIdVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
     Name="AccSysGeneralValueRFQTypeVO"

@@ -18,6 +18,7 @@ import oracle.jbo.RowSet;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
+
     public static final int ENTITY_SCMPURCHASERFQHEADER = 0;
 
     /**
@@ -84,7 +85,8 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         AccSysGeneralValueVO,
         AccAdminCompanyForCompVO,
         AccSysSystemParameterVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -106,6 +108,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
             return vals;
         }
     }
+
     public static final int RFQHEADERSNO = AttributesEnum.RfqHeaderSno.index();
     public static final int RFQHEADERCODE = AttributesEnum.RfqHeaderCode.index();
     public static final int BILLTOSNO = AttributesEnum.BillToSno.index();
