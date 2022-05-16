@@ -1,6 +1,7 @@
 package erpscm.modelscm.scmeo;
 
 import erpglobals.modelglobals.ERPEntityImpl;
+import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
 import java.sql.Timestamp;
 
@@ -304,6 +305,16 @@ public class ScmPurchaseRfqSupplierImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation == DML_INSERT) {
+            populateAttributeAsChanged(RFQHEADERSNO, getScmPurchaseRfqHeader().getAttribute("RfqHeaderSno"));
+            String result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "RFQ_SUPPLIER_SNO",
+                                                              this.getEntityDef().getSource(), null, null);
+
+            populateAttributeAsChanged(RFQSUPPLIERSNO, Integer.parseInt(result));
+
+
+        }
         super.doDML(operation, e);
     }
 }
