@@ -18,14 +18,42 @@
     <Attr Name="_codeGenFlag2" Value="Access"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="P_ADF_DEMAND_HEADER_CODE"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_COMPANY_ID"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <ViewAccessor
     Name="AccInvItemVO"
     ViewObjectName="erpims.modelims.imsvo.InvItemVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvItemByCompanyByIDVC"
+      FullName="erpims.modelims.imsvo.InvItemVO.InvItemByCompanyByIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccInvUnitTypeVO"
     ViewObjectName="erpims.modelims.imsvo.InvUnitTypeVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvUnitTypeByCompanyIDVC"
+      FullName="erpims.modelims.imsvo.InvUnitTypeVO.InvUnitTypeByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccGlProjectsQVO"
     ViewObjectName="erpfms.modelfms.fmsqvo.GlProjectsQVO"
@@ -456,6 +484,75 @@
     EntityAttrName="SupplierSno"
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="SUPPLIER_SNO"/>
+  <ViewAttribute
+    Name="StatusSno"
+    PrecisionRule="true"
+    EntityAttrName="StatusSno"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="STATUS_SNO"/>
+  <ViewCriteria
+    Name="ScmPurchaseDemandHeaderCodeVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseDemandLinesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ScmPurchaseDemandHeaderVO"
+        ViewAttribute="ScmPurchaseDemandHeaderVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseDemandHeaderVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseDemandHeaderVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="DemandHeaderCode"
+              ViewAttribute="DemandHeaderCode"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_DEMAND_HEADER_CODE"
+              IsBindVarValue="true"
+              Required="Required"
+              ValidateBindVars="true"/>
+            <ViewCriteriaItem
+              Name="CompanyId"
+              ViewAttribute="CompanyId"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_COMPANY_ID"
+              IsBindVarValue="true"
+              Required="Required"
+              ValidateBindVars="true"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="GlProjectsVO"
     ViewLink="erpscm.modelscm.scmvo.GlProjectsScmPurchaseDemandLinesProjectIdVL"

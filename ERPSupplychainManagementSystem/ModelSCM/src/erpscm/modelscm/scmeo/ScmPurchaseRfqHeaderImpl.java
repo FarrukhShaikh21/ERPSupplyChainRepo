@@ -65,11 +65,11 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         txtTempProjectName,
         PaymentTermHeaderSno,
         txtPaymentTermName,
-        SupplierQuoteLevelSno,
         txtFobTermName,
         txtFreightTermName,
         ValidFromDate,
         ValidToDate,
+        DemandHeaderSno,
         ScmPurchaseRfqLines,
         ScmPurchaseRfqSupplier,
         AdminCompany,
@@ -139,11 +139,11 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
     public static final int PAYMENTTERMHEADERSNO = AttributesEnum.PaymentTermHeaderSno.index();
     public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
-    public static final int SUPPLIERQUOTELEVELSNO = AttributesEnum.SupplierQuoteLevelSno.index();
     public static final int TXTFOBTERMNAME = AttributesEnum.txtFobTermName.index();
     public static final int TXTFREIGHTTERMNAME = AttributesEnum.txtFreightTermName.index();
     public static final int VALIDFROMDATE = AttributesEnum.ValidFromDate.index();
     public static final int VALIDTODATE = AttributesEnum.ValidToDate.index();
+    public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -762,21 +762,6 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         setAttributeInternal(TXTPAYMENTTERMNAME, value);
     }
 
-    /**
-     * Gets the attribute value for SupplierQuoteLevelSno, using the alias name SupplierQuoteLevelSno.
-     * @return the value of SupplierQuoteLevelSno
-     */
-    public String getSupplierQuoteLevelSno() {
-        return (String) getAttributeInternal(SUPPLIERQUOTELEVELSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for SupplierQuoteLevelSno.
-     * @param value value to set the SupplierQuoteLevelSno
-     */
-    public void setSupplierQuoteLevelSno(String value) {
-        setAttributeInternal(SUPPLIERQUOTELEVELSNO, value);
-    }
 
     /**
      * Gets the attribute value for txtFobTermName, using the alias name txtFobTermName.
@@ -840,6 +825,22 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void setValidToDate(Timestamp value) {
         setAttributeInternal(VALIDTODATE, value);
+    }
+
+    /**
+     * Gets the attribute value for DemandHeaderSno, using the alias name DemandHeaderSno.
+     * @return the value of DemandHeaderSno
+     */
+    public Integer getDemandHeaderSno() {
+        return (Integer) getAttributeInternal(DEMANDHEADERSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DemandHeaderSno.
+     * @param value value to set the DemandHeaderSno
+     */
+    public void setDemandHeaderSno(Integer value) {
+        setAttributeInternal(DEMANDHEADERSNO, value);
     }
 
     /**

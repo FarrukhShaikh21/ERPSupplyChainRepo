@@ -19,6 +19,7 @@ import oracle.jbo.RowSet;
 // ---------------------------------------------------------------------
 public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
 
+
     public static final int ENTITY_SCMPURCHASERFQHEADER = 0;
 
     /**
@@ -62,11 +63,11 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         txtTempProjectName,
         PaymentTermHeaderSno,
         txtPaymentTermName,
-        SupplierQuoteLevelSno,
         txtFreightTermName,
         txtFobTermName,
         ValidFromDate,
         ValidToDate,
+        DemandHeaderSno,
         ScmPurchaseRfqLinesVO,
         ScmPurchaseRfqSupplierVO,
         AdminCompanyVO,
@@ -82,7 +83,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         AccScmFobTermVO,
         AccSysGeneralValueRFQTypeVO,
         AccAdminCompany,
-        AccSysGeneralValueVO,
         AccAdminCompanyForCompVO,
         AccSysSystemParameterVO;
         static AttributesEnum[] vals = null;
@@ -108,6 +108,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int RFQHEADERSNO = AttributesEnum.RfqHeaderSno.index();
     public static final int RFQHEADERCODE = AttributesEnum.RfqHeaderCode.index();
@@ -146,11 +147,11 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
     public static final int PAYMENTTERMHEADERSNO = AttributesEnum.PaymentTermHeaderSno.index();
     public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
-    public static final int SUPPLIERQUOTELEVELSNO = AttributesEnum.SupplierQuoteLevelSno.index();
     public static final int TXTFREIGHTTERMNAME = AttributesEnum.txtFreightTermName.index();
     public static final int TXTFOBTERMNAME = AttributesEnum.txtFobTermName.index();
     public static final int VALIDFROMDATE = AttributesEnum.ValidFromDate.index();
     public static final int VALIDTODATE = AttributesEnum.ValidToDate.index();
+    public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
     public static final int SCMPURCHASERFQSUPPLIERVO = AttributesEnum.ScmPurchaseRfqSupplierVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -166,7 +167,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCSCMFOBTERMVO = AttributesEnum.AccScmFobTermVO.index();
     public static final int ACCSYSGENERALVALUERFQTYPEVO = AttributesEnum.AccSysGeneralValueRFQTypeVO.index();
     public static final int ACCADMINCOMPANY = AttributesEnum.AccAdminCompany.index();
-    public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
     public static final int ACCADMINCOMPANYFORCOMPVO = AttributesEnum.AccAdminCompanyForCompVO.index();
     public static final int ACCSYSSYSTEMPARAMETERVO = AttributesEnum.AccSysSystemParameterVO.index();
 
@@ -782,21 +782,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(TXTPAYMENTTERMNAME, value);
     }
 
-    /**
-     * Gets the attribute value for SUPPLIER_QUOTE_LEVEL_SNO using the alias name SupplierQuoteLevelSno.
-     * @return the SUPPLIER_QUOTE_LEVEL_SNO
-     */
-    public String getSupplierQuoteLevelSno() {
-        return (String) getAttributeInternal(SUPPLIERQUOTELEVELSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for SUPPLIER_QUOTE_LEVEL_SNO using the alias name SupplierQuoteLevelSno.
-     * @param value value to set the SUPPLIER_QUOTE_LEVEL_SNO
-     */
-    public void setSupplierQuoteLevelSno(String value) {
-        setAttributeInternal(SUPPLIERQUOTELEVELSNO, value);
-    }
 
     /**
      * Gets the attribute value for TXT_FREIGHT_TERM_NAME using the alias name txtFreightTermName.
@@ -860,6 +845,22 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setValidToDate(Timestamp value) {
         setAttributeInternal(VALIDTODATE, value);
+    }
+
+    /**
+     * Gets the attribute value for DEMAND_HEADER_SNO using the alias name DemandHeaderSno.
+     * @return the DEMAND_HEADER_SNO
+     */
+    public Integer getDemandHeaderSno() {
+        return (Integer) getAttributeInternal(DEMANDHEADERSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DEMAND_HEADER_SNO using the alias name DemandHeaderSno.
+     * @param value value to set the DEMAND_HEADER_SNO
+     */
+    public void setDemandHeaderSno(Integer value) {
+        setAttributeInternal(DEMANDHEADERSNO, value);
     }
 
     /**
@@ -1009,12 +1010,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         return (RowSet) getAttributeInternal(ACCADMINCOMPANY);
     }
 
-    /**
-     * Gets the view accessor <code>RowSet</code> AccSysGeneralValueVO.
-     */
-    public RowSet getAccSysGeneralValueVO() {
-        return (RowSet) getAttributeInternal(ACCSYSGENERALVALUEVO);
-    }
 
     /**
      * Gets the view accessor <code>RowSet</code> AccAdminCompanyForCompVO.

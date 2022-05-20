@@ -469,6 +469,15 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="StatusSno"
+    Precision="5"
+    Scale="0"
+    ColumnName="STATUS_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES"/>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc"

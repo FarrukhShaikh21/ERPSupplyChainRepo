@@ -59,5 +59,7 @@ public class ScmPurchaseDemandHeaderVOImpl extends ERPViewObjectImpl {
         
         super.afterRollback(transactionEvent);
     }
+
+
 }
 

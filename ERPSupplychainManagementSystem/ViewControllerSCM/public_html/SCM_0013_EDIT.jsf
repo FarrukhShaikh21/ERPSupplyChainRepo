@@ -237,20 +237,9 @@
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
                                         <af:gridCell id="gc12" width="13%" marginStart="5px" marginEnd="5px"
-                                                     halign="center">
-                                            <af:outputLabel value="#{bindings.StatusId.label}" id="ol7"/>
-                                        </af:gridCell>
+                                                     halign="center"/>
                                         <af:gridCell marginStart="5px" width="21%" id="gc15"
-                                                     valign="middle">
-                                            <af:selectOneChoice value="#{bindings.StatusId.inputValue}"
-                                                                label="#{bindings.StatusId.label}"
-                                                                required="#{bindings.StatusId.hints.mandatory}"
-                                                                shortDesc="#{bindings.StatusId.hints.tooltip}" id="soc1"
-                                                                readOnly="true" simple="true">
-                                                <f:selectItems value="#{bindings.StatusId.items}" id="si1"/>
-                                                <f:validator binding="#{bindings.StatusId.validator}"/>
-                                            </af:selectOneChoice>
-                                        </af:gridCell>
+                                                     valign="middle"/>
                                     </af:gridRow>
                                     <af:gridRow id="gr6">
                                         <af:gridCell id="gc16" width="13%" halign="center">

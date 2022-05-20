@@ -489,6 +489,15 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_LINES"/>
+  <Attribute
+    Name="StatusSno"
+    Precision="5"
+    Scale="0"
+    ColumnName="STATUS_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_DEMAND_LINES"/>
   <AccessorAttribute
     Name="ScmPurchaseDemandHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurDemLinHeaderIdAssoc"

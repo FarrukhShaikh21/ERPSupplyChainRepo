@@ -51,6 +51,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         SupplierItemName,
         txtSupplierName,
         SupplierSno,
+        StatusSno,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
@@ -115,6 +116,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public static final int SUPPLIERITEMNAME = AttributesEnum.SupplierItemName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
+    public static final int STATUSSNO = AttributesEnum.StatusSno.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -557,6 +559,22 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
      */
     public void setSupplierSno(Integer value) {
         setAttributeInternal(SUPPLIERSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for STATUS_SNO using the alias name StatusSno.
+     * @return the STATUS_SNO
+     */
+    public Integer getStatusSno() {
+        return (Integer) getAttributeInternal(STATUSSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for STATUS_SNO using the alias name StatusSno.
+     * @param value value to set the STATUS_SNO
+     */
+    public void setStatusSno(Integer value) {
+        setAttributeInternal(STATUSSNO, value);
     }
 
     /**

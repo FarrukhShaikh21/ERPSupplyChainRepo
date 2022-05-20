@@ -53,14 +53,14 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         SupplierItemName,
         txtSupplierName,
         SupplierSno,
+        StatusSno,
         ScmPurchaseDemandHeader,
         GlProjects,
         AdminCompany,
         InvItem,
         InvUnitType,
         ScmSupplier;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -109,6 +109,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int SUPPLIERITEMNAME = AttributesEnum.SupplierItemName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
+    public static final int STATUSSNO = AttributesEnum.StatusSno.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -529,6 +530,22 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public void setSupplierSno(Integer value) {
         setAttributeInternal(SUPPLIERSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for StatusSno, using the alias name StatusSno.
+     * @return the value of StatusSno
+     */
+    public Integer getStatusSno() {
+        return (Integer) getAttributeInternal(STATUSSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for StatusSno.
+     * @param value value to set the StatusSno
+     */
+    public void setStatusSno(Integer value) {
+        setAttributeInternal(STATUSSNO, value);
     }
 
     /**

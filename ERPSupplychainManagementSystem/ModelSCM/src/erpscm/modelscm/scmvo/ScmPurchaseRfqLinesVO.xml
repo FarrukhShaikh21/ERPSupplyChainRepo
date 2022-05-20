@@ -361,6 +361,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="StatusSno"
+    PrecisionRule="true"
+    EntityAttrName="StatusSno"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="STATUS_SNO"/>
   <ViewLinkAccessor
     Name="InvItemVO"
     ViewLink="erpscm.modelscm.scmvo.InvItemsScmPurchaseRfqLinesItemIdVL"

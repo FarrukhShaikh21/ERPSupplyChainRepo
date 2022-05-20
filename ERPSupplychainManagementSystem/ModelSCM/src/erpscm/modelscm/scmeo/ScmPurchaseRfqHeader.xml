@@ -697,24 +697,6 @@
     </Dependencies>
   </Attribute>
   <Attribute
-    Name="SupplierQuoteLevelSno"
-    Precision="2"
-    Scale="0"
-    ColumnName="SUPPLIER_QUOTE_LEVEL_SNO"
-    SQLType="NUMERIC"
-    Type="java.lang.String"
-    ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_RFQ_HEADER">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.SupplierQuoteLevelSno_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="txtFobTermName"
     Precision="80"
     ColumnName="TXT_FOB_TERM_NAME"
@@ -784,6 +766,15 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="DemandHeaderSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="DEMAND_HEADER_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_HEADER"/>
   <AccessorAttribute
     Name="ScmPurchaseRfqLines"
     Association="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc"

@@ -134,23 +134,6 @@
       FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyCompanyAccessWiseVC"/>
   </ViewAccessor>
   <ViewAccessor
-    Name="AccSysGeneralValueVO"
-    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
-    RowLevelBinds="true">
-    <ViewCriteriaUsage
-      Name="SysGeneralValueActiveVC"
-      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
-    <ViewCriteriaUsage
-      Name="SysGeneralValueByValueSetIDVC"
-      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
-    <ParameterMap>
-      <PIMap Variable="P_ADF_VALUE_SET_ID">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA[32]]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
-  </ViewAccessor>
-  <ViewAccessor
     Name="AccAdminCompanyForCompVO"
     ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
     RowLevelBinds="true">
@@ -331,24 +314,6 @@
     </AttrArray>
     <DisplayCriteria
       Name="AdminCompanyFindVC"/>
-  </ListBinding>
-  <ListBinding
-    Name="LovSupplierQuoteLevelSno"
-    ListVOName="AccSysGeneralValueVO"
-    ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="SupplierQuoteLevelSno"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="ValueCode"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="ValueDescription"/>
-    </AttrArray>
-    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseRfqHeader"
@@ -631,21 +596,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="SupplierQuoteLevelSno"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SupplierQuoteLevelSno"
-    EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="SUPPLIER_QUOTE_LEVEL_SNO"
-    LOVName="LovSupplierQuoteLevelSno">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="txtFreightTermName"
     IsQueriable="false"
     IsPersistent="false"
@@ -689,6 +639,12 @@
     EntityAttrName="ValidToDate"
     EntityUsage="ScmPurchaseRfqHeader"
     AliasName="VALID_TO_DATE"/>
+  <ViewAttribute
+    Name="DemandHeaderSno"
+    PrecisionRule="true"
+    EntityAttrName="DemandHeaderSno"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="DEMAND_HEADER_SNO"/>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
