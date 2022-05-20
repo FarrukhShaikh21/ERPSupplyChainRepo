@@ -166,6 +166,20 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmPurchaseDemandLinesForRFQ"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandHeaderSnoVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.ScmPurchaseDemandHeaderSnoVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_DEMAND_HEADER_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[DemandHeaderSno==nul?0:DemandHeaderSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtTempProjectName"
     ListVOName="AccGlProjectsVO"

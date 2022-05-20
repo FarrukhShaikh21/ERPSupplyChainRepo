@@ -19,11 +19,7 @@
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Variable
-    Name="P_ADF_DEMAND_HEADER_CODE"
-    Kind="viewcriteria"
-    Type="java.lang.Integer"/>
-  <Variable
-    Name="P_ADF_COMPANY_ID"
+    Name="P_ADF_DEMAND_HEADER_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
   <ViewAccessor
@@ -491,7 +487,7 @@
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="STATUS_SNO"/>
   <ViewCriteria
-    Name="ScmPurchaseDemandHeaderCodeVC"
+    Name="ScmPurchaseDemandHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"
     Conjunction="AND">
     <Properties>
@@ -531,20 +527,11 @@
             Name="ScmPurchaseDemandHeaderVONestedCriteria_row_0"
             UpperColumns="1">
             <ViewCriteriaItem
-              Name="DemandHeaderCode"
-              ViewAttribute="DemandHeaderCode"
+              Name="DemandHeaderSno"
+              ViewAttribute="DemandHeaderSno"
               Operator="="
               Conjunction="AND"
-              Value=":P_ADF_DEMAND_HEADER_CODE"
-              IsBindVarValue="true"
-              Required="Required"
-              ValidateBindVars="true"/>
-            <ViewCriteriaItem
-              Name="CompanyId"
-              ViewAttribute="CompanyId"
-              Operator="="
-              Conjunction="AND"
-              Value=":P_ADF_COMPANY_ID"
+              Value=":P_ADF_DEMAND_HEADER_SNO"
               IsBindVarValue="true"
               Required="Required"
               ValidateBindVars="true"/>

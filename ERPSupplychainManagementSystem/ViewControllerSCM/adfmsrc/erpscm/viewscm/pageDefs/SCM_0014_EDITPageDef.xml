@@ -11,8 +11,6 @@
               id="ScmPurchaseRfqSupplierDetCRUDIterator"/>
     <iterator Binds="ScmPurchaseRfqLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseRfqLinesDetCRUDIterator"/>
-    <iterator Binds="ScmPurchaseDemandLinesForRFQ" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmPurchaseDemandLinesForRFQIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="RfqHeaderSno">
@@ -140,18 +138,6 @@
             Action="createInsertRow"/>
     <action IterBinding="ScmPurchaseRfqLinesDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <tree IterBinding="ScmPurchaseDemandLinesForRFQIterator" id="ScmPurchaseDemandLinesForRFQ">
-      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO" Name="ScmPurchaseDemandLinesForRFQ0">
-        <AttrNames>
-          <Item Value="txtItemName"/>
-          <Item Value="txtUnitTypeName"/>
-          <Item Value="DemandQuantity"/>
-          <Item Value="ApproveQuantity"/>
-          <Item Value="txtDepartmentName"/>
-          <Item Value="txtProjectName"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtDemandHeaderCode"
                   id="txtDemandHeaderCode"/>
   </bindings>

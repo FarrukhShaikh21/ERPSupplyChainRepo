@@ -87,7 +87,8 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         AccAdminCompany,
         AccAdminCompanyForCompVO,
         AccSysSystemParameterVO,
-        AccScmPurchaseDemandHeaderVO;
+        AccScmPurchaseDemandHeaderVO,
+        AccScmPurchaseDemandLinesForRFQ;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -175,6 +176,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCADMINCOMPANYFORCOMPVO = AttributesEnum.AccAdminCompanyForCompVO.index();
     public static final int ACCSYSSYSTEMPARAMETERVO = AttributesEnum.AccSysSystemParameterVO.index();
     public static final int ACCSCMPURCHASEDEMANDHEADERVO = AttributesEnum.AccScmPurchaseDemandHeaderVO.index();
+    public static final int ACCSCMPURCHASEDEMANDLINESFORRFQ = AttributesEnum.AccScmPurchaseDemandLinesForRFQ.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1066,6 +1068,13 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
      */
     public RowSet getAccScmPurchaseDemandHeaderVO() {
         return (RowSet) getAttributeInternal(ACCSCMPURCHASEDEMANDHEADERVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccScmPurchaseDemandLinesForRFQ.
+     */
+    public RowSet getAccScmPurchaseDemandLinesForRFQ() {
+        return (RowSet) getAttributeInternal(ACCSCMPURCHASEDEMANDLINESFORRFQ);
     }
 }
 
