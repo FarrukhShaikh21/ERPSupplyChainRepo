@@ -76,6 +76,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         ScmPaymentTermHeaderVO,
         ScmFreightTermVO,
         ScmFobTermVO,
+        ScmPurchaseDemandHeaderVO,
         AccGlProjectsVO,
         AccAdminCompanyDepartment,
         AccScmPaymentTermHeaderVO,
@@ -160,6 +161,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int SCMPAYMENTTERMHEADERVO = AttributesEnum.ScmPaymentTermHeaderVO.index();
     public static final int SCMFREIGHTTERMVO = AttributesEnum.ScmFreightTermVO.index();
     public static final int SCMFOBTERMVO = AttributesEnum.ScmFobTermVO.index();
+    public static final int SCMPURCHASEDEMANDHEADERVO = AttributesEnum.ScmPurchaseDemandHeaderVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
     public static final int ACCADMINCOMPANYDEPARTMENT = AttributesEnum.AccAdminCompanyDepartment.index();
     public static final int ACCSCMPAYMENTTERMHEADERVO = AttributesEnum.AccScmPaymentTermHeaderVO.index();
@@ -959,6 +961,20 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setScmFobTermVO(Row value) {
         setAttributeInternal(SCMFOBTERMVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link ScmPurchaseDemandHeaderVO.
+     */
+    public Row getScmPurchaseDemandHeaderVO() {
+        return (Row) getAttributeInternal(SCMPURCHASEDEMANDHEADERVO);
+    }
+
+    /**
+     * Sets the master-detail link ScmPurchaseDemandHeaderVO between this object and <code>value</code>.
+     */
+    public void setScmPurchaseDemandHeaderVO(Row value) {
+        setAttributeInternal(SCMPURCHASEDEMANDHEADERVO, value);
     }
 
     /**

@@ -54,6 +54,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
         GlProjectsVO,
         AdminCompanyVO,
         AdminCompanyVO1,
+        ScmPurchaseRfqHeaderVO,
         AccAdminCompany,
         AccAdminCompanyDept,
         AccGlProjectsVO,
@@ -116,6 +117,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int ADMINCOMPANYVO1 = AttributesEnum.AdminCompanyVO1.index();
+    public static final int SCMPURCHASERFQHEADERVO = AttributesEnum.ScmPurchaseRfqHeaderVO.index();
     public static final int ACCADMINCOMPANY = AttributesEnum.AccAdminCompany.index();
     public static final int ACCADMINCOMPANYDEPT = AttributesEnum.AccAdminCompanyDept.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
@@ -612,6 +614,13 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(ADMINCOMPANYVO1, value);
     }
 
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseRfqHeaderVO.
+     */
+    public RowIterator getScmPurchaseRfqHeaderVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASERFQHEADERVO);
+    }
 
     /**
      * Gets the view accessor <code>RowSet</code> AccAdminCompany.
