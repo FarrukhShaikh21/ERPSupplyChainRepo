@@ -348,9 +348,26 @@
                                                         <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
                                                     </af:inputDate>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc24" halign="center"/>
-                                                <af:gridCell id="gc27"/>
-                                                <af:gridCell id="gc28"/>
+                                                <af:gridCell id="gc24" halign="center" width="13%">
+                                                    <af:outputLabel value="#{bindings.txtPaymentTermName.hints.label}"
+                                                                    id="ol12"/>
+                                                </af:gridCell>
+                                                <af:gridCell id="gc27" width="20%">
+                                                    <af:inputComboboxListOfValues id="txtPaymentTermNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtPaymentTermName.hints.label}"
+                                                                                  value="#{bindings.txtPaymentTermName.inputValue}"
+                                                                                  label="#{bindings.txtPaymentTermName.hints.label}"
+                                                                                  model="#{bindings.txtPaymentTermName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtPaymentTermName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtPaymentTermName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtPaymentTermName.hints.tooltip}"
+                                                                                  simple="true"
+                                                                                  contentStyle="width:154px">
+                                                        <f:validator binding="#{bindings.txtPaymentTermName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:gridCell>
+                                                <af:gridCell id="gc28" width="13%"/>
+                                                <af:gridCell id="gc25" width="21%"/>
                                             </af:gridRow>
                                             <af:gridRow id="gr11" marginTop="5px">
                                                 <af:gridCell id="gc29" width="13%" halign="center">
@@ -389,22 +406,20 @@
                                                         <f:validator binding="#{bindings.txtFreightTermName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc33" halign="center" width="13%">
-                                                    <af:outputLabel value="#{bindings.txtPaymentTermName.hints.label}"
-                                                                    id="ol12"/>
-                                                </af:gridCell>
+                                                <af:gridCell id="gc33" halign="center" width="13%"/>
                                                 <af:gridCell id="gc34" valign="middle" width="21%">
-                                                    <af:inputComboboxListOfValues id="txtPaymentTermNameId"
-                                                                                  popupTitle="Search and Select: #{bindings.txtPaymentTermName.hints.label}"
-                                                                                  value="#{bindings.txtPaymentTermName.inputValue}"
-                                                                                  label="#{bindings.txtPaymentTermName.hints.label}"
-                                                                                  model="#{bindings.txtPaymentTermName.listOfValuesModel}"
-                                                                                  required="#{bindings.txtPaymentTermName.hints.mandatory}"
-                                                                                  columns="#{bindings.txtPaymentTermName.hints.displayWidth}"
-                                                                                  shortDesc="#{bindings.txtPaymentTermName.hints.tooltip}"
-                                                                                  simple="true"
-                                                                                  contentStyle="width:154px">
-                                                        <f:validator binding="#{bindings.txtPaymentTermName.validator}"/>
+                                                    <af:inputComboboxListOfValues id="txtDemandHeaderCodeId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtDemandHeaderCode.hints.label}"
+                                                                                  value="#{bindings.txtDemandHeaderCode.inputValue}"
+                                                                                  label="#{bindings.txtDemandHeaderCode.hints.label}"
+                                                                                  model="#{bindings.txtDemandHeaderCode.listOfValuesModel}"
+                                                                                  required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
+                                                                                  columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
+                                                                                  simple="true">
+                                                        <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.txtDemandHeaderCode.format}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
                                             </af:gridRow>

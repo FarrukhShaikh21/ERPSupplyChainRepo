@@ -68,6 +68,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         ValidFromDate,
         ValidToDate,
         DemandHeaderSno,
+        txtDemandHeaderCode,
         ScmPurchaseRfqLinesVO,
         ScmPurchaseRfqSupplierVO,
         AdminCompanyVO,
@@ -85,7 +86,8 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         AccSysGeneralValueRFQTypeVO,
         AccAdminCompany,
         AccAdminCompanyForCompVO,
-        AccSysSystemParameterVO;
+        AccSysSystemParameterVO,
+        AccScmPurchaseDemandHeaderVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -153,6 +155,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int VALIDFROMDATE = AttributesEnum.ValidFromDate.index();
     public static final int VALIDTODATE = AttributesEnum.ValidToDate.index();
     public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
+    public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
     public static final int SCMPURCHASERFQSUPPLIERVO = AttributesEnum.ScmPurchaseRfqSupplierVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -171,6 +174,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCADMINCOMPANY = AttributesEnum.AccAdminCompany.index();
     public static final int ACCADMINCOMPANYFORCOMPVO = AttributesEnum.AccAdminCompanyForCompVO.index();
     public static final int ACCSYSSYSTEMPARAMETERVO = AttributesEnum.AccSysSystemParameterVO.index();
+    public static final int ACCSCMPURCHASEDEMANDHEADERVO = AttributesEnum.AccScmPurchaseDemandHeaderVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -866,6 +870,22 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for TXT_DEMAND_HEADER_CODE using the alias name txtDemandHeaderCode.
+     * @return the TXT_DEMAND_HEADER_CODE
+     */
+    public Integer gettxtDemandHeaderCode() {
+        return (Integer) getAttributeInternal(TXTDEMANDHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_DEMAND_HEADER_CODE using the alias name txtDemandHeaderCode.
+     * @param value value to set the TXT_DEMAND_HEADER_CODE
+     */
+    public void settxtDemandHeaderCode(Integer value) {
+        setAttributeInternal(TXTDEMANDHEADERCODE, value);
+    }
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseRfqLinesVO.
      */
     public RowIterator getScmPurchaseRfqLinesVO() {
@@ -1039,6 +1059,13 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
      */
     public RowSet getAccSysSystemParameterVO() {
         return (RowSet) getAttributeInternal(ACCSYSSYSTEMPARAMETERVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccScmPurchaseDemandHeaderVO.
+     */
+    public RowSet getAccScmPurchaseDemandHeaderVO() {
+        return (RowSet) getAttributeInternal(ACCSCMPURCHASEDEMANDHEADERVO);
     }
 }
 

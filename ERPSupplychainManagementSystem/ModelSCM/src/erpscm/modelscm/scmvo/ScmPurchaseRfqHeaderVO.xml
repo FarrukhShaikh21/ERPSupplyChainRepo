@@ -152,6 +152,20 @@
       Name="SysSystemParameterByParameterVC"
       FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByParameterVC"/>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmPurchaseDemandHeaderVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandHeaderByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO.ScmPurchaseDemandHeaderByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtTempProjectName"
     ListVOName="AccGlProjectsVO"
@@ -314,6 +328,31 @@
     </AttrArray>
     <DisplayCriteria
       Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtDemandHeaderCode"
+    ListVOName="AccScmPurchaseDemandHeaderVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtDemandHeaderCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DemandHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DemandHeaderCode"/>
+      <Item Value="DemandHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DemandHeaderCode"/>
+      <Item Value="DemandDate"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmPurchaseDemandHeaderFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseRfqHeader"
@@ -645,6 +684,22 @@
     EntityAttrName="DemandHeaderSno"
     EntityUsage="ScmPurchaseRfqHeader"
     AliasName="DEMAND_HEADER_SNO"/>
+  <ViewAttribute
+    Name="txtDemandHeaderCode"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtDemandHeaderCode"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="TXT_DEMAND_HEADER_CODE"
+    LOVName="LovtxtDemandHeaderCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"

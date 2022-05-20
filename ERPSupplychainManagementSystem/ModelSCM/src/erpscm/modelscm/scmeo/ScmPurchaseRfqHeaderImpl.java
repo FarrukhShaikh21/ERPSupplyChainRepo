@@ -70,6 +70,7 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         ValidFromDate,
         ValidToDate,
         DemandHeaderSno,
+        txtDemandHeaderCode,
         ScmPurchaseRfqLines,
         ScmPurchaseRfqSupplier,
         AdminCompany,
@@ -145,6 +146,7 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int VALIDFROMDATE = AttributesEnum.ValidFromDate.index();
     public static final int VALIDTODATE = AttributesEnum.ValidToDate.index();
     public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
+    public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -843,6 +845,22 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void setDemandHeaderSno(Integer value) {
         setAttributeInternal(DEMANDHEADERSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtDemandHeaderCode, using the alias name txtDemandHeaderCode.
+     * @return the value of txtDemandHeaderCode
+     */
+    public Integer gettxtDemandHeaderCode() {
+        return (Integer) getAttributeInternal(TXTDEMANDHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDemandHeaderCode.
+     * @param value value to set the txtDemandHeaderCode
+     */
+    public void settxtDemandHeaderCode(Integer value) {
+        setAttributeInternal(TXTDEMANDHEADERCODE, value);
     }
 
     /**
