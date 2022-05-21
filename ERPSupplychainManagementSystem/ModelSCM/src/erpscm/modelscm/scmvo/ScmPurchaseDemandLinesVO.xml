@@ -540,6 +540,58 @@
       </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPurchaseDemandLinesRfqCheckVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseDemandLinesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ScmPurchaseRfqLinesVO"
+        ViewAttribute="ScmPurchaseRfqLinesVO"
+        Operator="NOT EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        UpperColumns="0"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseRfqLinesVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseRfqLinesVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="DemandLinesSno"
+              ViewAttribute="DemandLinesSno"
+              Operator="ISNOTBLANK"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="GlProjectsVO"
     ViewLink="erpscm.modelscm.scmvo.GlProjectsScmPurchaseDemandLinesProjectIdVL"
