@@ -224,7 +224,9 @@
                                                                         required="#{bindings.RfqTypeSno.hints.mandatory}"
                                                                         shortDesc="#{bindings.RfqTypeSno.hints.tooltip}"
                                                                         id="soc1" simple="true"
-                                                                        contentStyle="width:180px" autoSubmit="true">
+                                                                        contentStyle="width:180px" autoSubmit="true"
+                                                                        disabled="#{bindings.txtDemandHeaderCode.inputValue!=null}"
+                                                                        partialTriggers="txtDemandHeaderCodeId">
                                                         <f:selectItems value="#{bindings.RfqTypeSno.items}" id="si1"/>
                                                         <f:validator binding="#{bindings.RfqTypeSno.validator}"/>
                                                     </af:selectOneChoice>
@@ -419,7 +421,8 @@
                                                                                   required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
                                                                                   columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
-                                                                                  simple="true" autoSubmit="true">
+                                                                                  simple="true" autoSubmit="true"
+                                                                                  disabled="#{bindings.RfqTypeSno.inputValue==1}">
                                                         <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.txtDemandHeaderCode.format}"/>
@@ -532,7 +535,8 @@
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" id="gr2">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch">
-                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                                                    partialTriggers=":::txtDemandHeaderCodeId">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t2">
@@ -556,8 +560,8 @@
                                               selectionListener="#{bindings.ScmPurchaseRfqLinesDetCRUD.collectionModel.makeCurrent}"
                                               rowSelection="single"
                                               fetchSize="#{bindings.ScmPurchaseRfqLinesDetCRUD.rangeSize}" id="t4"
-                                              partialTriggers="::l12 ::l11" autoHeightRows="5"
-                                              styleClass="AFStretchWidth" columnStretching="last">
+                                              partialTriggers="::l12 ::l11 :::txtDemandHeaderCodeId" autoHeightRows="5"
+                                              styleClass="AFStretchWidth" columnStretching="last" scrollPolicy="page">
                                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.label}"
                                                    id="c4" width="200">
                                             <af:inputComboboxListOfValues id="txtItemNameId"
@@ -567,7 +571,8 @@
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.tooltip}"
-                                                                          contentStyle="width:90%">
+                                                                          contentStyle="width:90%"
+                                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                 <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
@@ -580,7 +585,8 @@
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
-                                                                          contentStyle="width:90%">
+                                                                          contentStyle="width:90%"
+                                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                 <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
@@ -593,7 +599,8 @@
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.tooltip}"
-                                                                          contentStyle="width:90%">
+                                                                          contentStyle="width:90%"
+                                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                 <f:validator binding="#{row.bindings.txtDepartmentName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
@@ -606,7 +613,8 @@
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.tooltip}"
-                                                                          contentStyle="width:90%">
+                                                                          contentStyle="width:90%"
+                                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                 <f:validator binding="#{row.bindings.txtProjectName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
@@ -617,7 +625,8 @@
                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.RequiredBy.mandatory}"
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.RequiredBy.displayWidth}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.RequiredBy.tooltip}"
-                                                          id="id2" contentStyle="width:60%">
+                                                          id="id2" contentStyle="width:60%"
+                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                 <f:validator binding="#{row.bindings.RequiredBy.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.RequiredBy.format}"/>
                                             </af:inputDate>
@@ -630,7 +639,7 @@
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.AproxPrice.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.AproxPrice.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.AproxPrice.tooltip}"
-                                                          id="it7">
+                                                          id="it7" disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                 <f:validator binding="#{row.bindings.AproxPrice.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.AproxPrice.format}"/>
@@ -644,7 +653,7 @@
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Quantity.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Quantity.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Quantity.tooltip}"
-                                                          id="it11">
+                                                          id="it11" disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                 <f:validator binding="#{row.bindings.Quantity.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Quantity.format}"/>
@@ -694,7 +703,7 @@
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Remarks.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Remarks.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Remarks.tooltip}"
-                                                          id="it17">
+                                                          id="it17" contentStyle="width:100%">
                                                 <f:validator binding="#{row.bindings.Remarks.validator}"/>
                                             </af:inputText>
                                         </af:column>

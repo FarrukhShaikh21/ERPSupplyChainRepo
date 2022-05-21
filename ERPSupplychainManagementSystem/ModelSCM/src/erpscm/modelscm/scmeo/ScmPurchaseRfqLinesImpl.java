@@ -32,7 +32,6 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
         RfqLinesSno,
         RfqHeaderSno,
         DemandLinesSno,
-        DemandHeaderSno,
         RequiredBy,
         NoteToBuyer,
         NoteToSupplier,
@@ -58,7 +57,8 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
         InvItem,
         InvUnitType,
         GlProjects,
-        AdminCompany;
+        AdminCompany,
+        ScmPurchaseDemandLines;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -86,7 +86,6 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
     public static final int RFQHEADERSNO = AttributesEnum.RfqHeaderSno.index();
     public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
-    public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
     public static final int REQUIREDBY = AttributesEnum.RequiredBy.index();
     public static final int NOTETOBUYER = AttributesEnum.NoteToBuyer.index();
     public static final int NOTETOSUPPLIER = AttributesEnum.NoteToSupplier.index();
@@ -113,6 +112,7 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
+    public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -176,21 +176,6 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
         setAttributeInternal(DEMANDLINESSNO, value);
     }
 
-    /**
-     * Gets the attribute value for DemandHeaderSno, using the alias name DemandHeaderSno.
-     * @return the value of DemandHeaderSno
-     */
-    public Integer getDemandHeaderSno() {
-        return (Integer) getAttributeInternal(DEMANDHEADERSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for DemandHeaderSno.
-     * @param value value to set the DemandHeaderSno
-     */
-    public void setDemandHeaderSno(Integer value) {
-        setAttributeInternal(DEMANDHEADERSNO, value);
-    }
 
     /**
      * Gets the attribute value for RequiredBy, using the alias name RequiredBy.
@@ -596,6 +581,21 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
      */
     public void setAdminCompany(AdminCompanyImpl value) {
         setAttributeInternal(ADMINCOMPANY, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmPurchaseDemandLinesImpl.
+     */
+    public ScmPurchaseDemandLinesImpl getScmPurchaseDemandLines() {
+        return (ScmPurchaseDemandLinesImpl) getAttributeInternal(SCMPURCHASEDEMANDLINES);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmPurchaseDemandLinesImpl.
+     */
+    public void setScmPurchaseDemandLines(ScmPurchaseDemandLinesImpl value) {
+        setAttributeInternal(SCMPURCHASEDEMANDLINES, value);
     }
 
 

@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -59,7 +60,8 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         AdminCompany,
         InvItem,
         InvUnitType,
-        ScmSupplier;
+        ScmSupplier,
+        ScmPurchaseRfqLines;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -116,6 +118,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
+    public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -631,6 +634,14 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public void setScmSupplier(ScmSupplierImpl value) {
         setAttributeInternal(SCMSUPPLIER, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseRfqLines() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASERFQLINES);
     }
 
 

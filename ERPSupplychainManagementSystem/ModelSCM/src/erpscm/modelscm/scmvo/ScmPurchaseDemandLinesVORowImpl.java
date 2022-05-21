@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -58,6 +59,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         InvUnitTypeVO,
         ScmPurchaseDemandHeaderVO,
         ScmSupplierVO,
+        ScmPurchaseRfqLinesVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsQVO,
@@ -123,6 +125,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
     public static final int SCMPURCHASEDEMANDHEADERVO = AttributesEnum.ScmPurchaseDemandHeaderVO.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
+    public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSQVO = AttributesEnum.AccGlProjectsQVO.index();
@@ -659,6 +662,13 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
      */
     public void setScmSupplierVO(Row value) {
         setAttributeInternal(SCMSUPPLIERVO, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseRfqLinesVO.
+     */
+    public RowIterator getScmPurchaseRfqLinesVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASERFQLINESVO);
     }
 
     /**

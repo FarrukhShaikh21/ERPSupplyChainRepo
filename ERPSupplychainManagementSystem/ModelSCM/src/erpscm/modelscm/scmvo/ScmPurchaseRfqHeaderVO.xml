@@ -176,7 +176,7 @@
     <ParameterMap>
       <PIMap Variable="P_ADF_DEMAND_HEADER_SNO">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[DemandHeaderSno==nul?0:DemandHeaderSno]]></TransientExpression>
+          trustMode="untrusted"><![CDATA[DemandHeaderSno==null?0:DemandHeaderSno]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>

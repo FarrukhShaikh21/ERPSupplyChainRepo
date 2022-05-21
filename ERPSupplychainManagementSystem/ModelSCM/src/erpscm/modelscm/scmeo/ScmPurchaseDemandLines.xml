@@ -540,6 +540,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmSupplierScmPurDemandLinesSupplierSnoAsso.ScmPurchaseDemandLines"
     Type="erpscm.modelscm.scmeo.ScmSupplierImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseRfqLines"
+    Association="erpscm.modelscm.scmeo.ScmPurDemandLinScmPurRfqLinesDemandLinesSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurDemandLinScmPurRfqLinesDemandLinesSnoAsso.ScmPurchaseRfqLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurDemandLinScmPurRfqLinesDemandLinesSnoAsso.ScmPurchaseDemandLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmPurchaseDemandLines"
     PrimaryKey="true">

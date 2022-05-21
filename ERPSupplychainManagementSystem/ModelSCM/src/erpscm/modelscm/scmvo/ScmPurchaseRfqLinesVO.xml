@@ -189,12 +189,6 @@
     EntityUsage="ScmPurchaseRfqLines"
     AliasName="DEMAND_LINES_SNO"/>
   <ViewAttribute
-    Name="DemandHeaderSno"
-    PrecisionRule="true"
-    EntityAttrName="DemandHeaderSno"
-    EntityUsage="ScmPurchaseRfqLines"
-    AliasName="DEMAND_HEADER_SNO"/>
-  <ViewAttribute
     Name="RequiredBy"
     PrecisionRule="true"
     EntityAttrName="RequiredBy"
@@ -394,6 +388,12 @@
   <ViewLinkAccessor
     Name="ScmPurchaseRfqHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurQuoteLineHeadSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseDemandLinesVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurDemandLinScmPurRfqLinesDemandLinesSnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
