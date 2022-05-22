@@ -681,9 +681,14 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
 
             populateAttributeAsChanged(LINENO, Integer.parseInt(result));
 
-
         }         
+        System.out.println("this is purchase demand lines impl");
         super.doDML(operation, e);
+    }
+    @Override
+    protected void populateAttributeAsChanged(int i, Object object) {
+        // TODO Implement this method
+        super.populateAttributeAsChanged(i, object);
     }
 }
 

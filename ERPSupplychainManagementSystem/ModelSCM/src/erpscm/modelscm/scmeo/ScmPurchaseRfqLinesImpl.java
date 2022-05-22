@@ -644,7 +644,14 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
 
             populateAttributeAsChanged(RFQLINESSNO, Integer.parseInt(result));
 
+            if (getDemandLinesSno() != null) {
+                getScmPurchaseDemandLines().setAttribute("StatusSno", 2);
+//                getScmPurchaseDemandLines().populateAttributeAsChanged(getScmPurchaseDemandLines().STATUSSNO, 2);
+            }
 
+        }
+        if (operation == DML_DELETE && getDemandLinesSno() != null) {
+            getScmPurchaseDemandLines().setAttribute("StatusSno", 1);
         }
         super.doDML(operation, e);
     }

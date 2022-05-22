@@ -159,10 +159,17 @@
     <ViewCriteriaUsage
       Name="ScmPurchaseDemandHeaderByCompanyIDVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO.ScmPurchaseDemandHeaderByCompanyIDVC"/>
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandHeaderLineForRFQExistsQVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO.ScmPurchaseDemandHeaderLineForRFQExistsQVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
         <TransientExpression
           trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_STATUS_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[1]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -174,12 +181,19 @@
       Name="ScmPurchaseDemandHeaderSnoVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.ScmPurchaseDemandHeaderSnoVC"/>
     <ViewCriteriaUsage
+      Name="ScmPurchaseDemandLinesByStatusVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.ScmPurchaseDemandLinesByStatusVC"/>
+    <ViewCriteriaUsage
       Name="ScmPurchaseDemandLinesRfqCheckVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.ScmPurchaseDemandLinesRfqCheckVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_DEMAND_HEADER_SNO">
         <TransientExpression
           trustMode="untrusted"><![CDATA[DemandHeaderSno==null?0:DemandHeaderSno]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_STATUS_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[1]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>

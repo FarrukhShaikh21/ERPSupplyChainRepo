@@ -61,5 +61,20 @@ public class ScmPurchaseDemandHeaderVOImpl extends ERPViewObjectImpl {
     }
 
 
+    /**
+     * Returns the variable value for P_ADF_STATUS_SNO.
+     * @return variable value for P_ADF_STATUS_SNO
+     */
+    public Integer getP_ADF_STATUS_SNO() {
+        return (Integer) ensureVariableManager().getVariableValue("P_ADF_STATUS_SNO");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_STATUS_SNO.
+     * @param value value to bind as P_ADF_STATUS_SNO
+     */
+    public void setP_ADF_STATUS_SNO(Integer value) {
+        ensureVariableManager().setVariableValue("P_ADF_STATUS_SNO", value);
+    }
 }
 
