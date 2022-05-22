@@ -539,7 +539,7 @@
                                                     partialTriggers=":::txtDemandHeaderCodeId">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
-                                        <af:toolbar id="t2">
+                                        <af:toolbar id="t2" flex="75">
                                             <af:link actionListener="#{bindings.CreateInsert1.execute}"
                                                      disabled="#{!bindings.CreateInsert1.enabled || bindings.RfqTypeSno.inputValue==2}"
                                                      id="l12" icon="#{resource['images:imgAddRecord.png']}"
@@ -709,6 +709,12 @@
                                         </af:column>
                                     </af:table>
                                     <f:facet name="viewMenu"/>
+                                    <f:facet name="secondaryToolbar">
+                                        <af:toolbar id="t5" flex="25" styleClass="AFStretchWidth">
+                                            <af:button text="Distribution" id="b1"/>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <f:facet name="afterToolbar"/>
                                 </af:panelCollection>
                             </af:gridCell>
                         </af:gridRow>
