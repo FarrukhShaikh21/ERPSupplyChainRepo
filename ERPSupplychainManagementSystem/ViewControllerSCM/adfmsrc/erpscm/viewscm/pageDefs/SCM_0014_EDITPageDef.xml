@@ -140,5 +140,10 @@
             Action="removeCurrentRow"/>
     <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtDemandHeaderCode"
                   id="txtDemandHeaderCode"/>
+    <attributeValues IterBinding="ScmPurchaseRfqLinesDetCRUDIterator" id="txtTotalRecord">
+      <AttrNames>
+        <Item Value="txtTotalRecord"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -551,7 +551,21 @@
                                                      partialSubmit="true" shortDesc="Delete RFQ Line"/>
                                         </af:toolbar>
                                     </f:facet>
-                                    <f:facet name="statusbar"/>
+                                    <f:facet name="statusbar">
+                                        <af:toolbar id="t6">
+                                            <af:inputText value="#{bindings.txtTotalRecord.inputValue}"
+                                                          label="#{bindings.txtTotalRecord.hints.label}"
+                                                          required="#{bindings.txtTotalRecord.hints.mandatory}"
+                                                          columns="#{bindings.txtTotalRecord.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtTotalRecord.hints.precision}"
+                                                          shortDesc="#{bindings.txtTotalRecord.hints.tooltip}"
+                                                          id="it18" readOnly="true">
+                                                <f:validator binding="#{bindings.txtTotalRecord.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.txtTotalRecord.format}"/>
+                                            </af:inputText>
+                                        </af:toolbar>
+                                    </f:facet>
                                     <af:table value="#{bindings.ScmPurchaseRfqLinesDetCRUD.collectionModel}" var="row"
                                               rows="#{bindings.ScmPurchaseRfqLinesDetCRUD.rangeSize}"
                                               emptyText="#{bindings.ScmPurchaseRfqLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -710,9 +724,7 @@
                                     </af:table>
                                     <f:facet name="viewMenu"/>
                                     <f:facet name="secondaryToolbar">
-                                        <af:toolbar id="t5" flex="25" styleClass="AFStretchWidth">
-                                            <af:button text="Distribution" id="b1"/>
-                                        </af:toolbar>
+                                        <af:toolbar id="t5" flex="25" styleClass="AFStretchWidth"/>
                                     </f:facet>
                                     <f:facet name="afterToolbar"/>
                                 </af:panelCollection>
