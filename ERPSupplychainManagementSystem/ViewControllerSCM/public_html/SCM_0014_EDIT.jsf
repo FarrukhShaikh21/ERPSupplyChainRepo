@@ -535,6 +535,16 @@
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" id="gr2">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch">
+                                <af:inputText value="#{bindings.txtSumQuantity.inputValue}"
+                                              label="#{bindings.txtSumQuantity.hints.label}"
+                                              required="#{bindings.txtSumQuantity.hints.mandatory}"
+                                              columns="#{bindings.txtSumQuantity.hints.displayWidth}"
+                                              maximumLength="#{bindings.txtSumQuantity.hints.precision}"
+                                              shortDesc="#{bindings.txtSumQuantity.hints.tooltip}" id="it19"
+                                              rendered="false">
+                                    <f:validator binding="#{bindings.txtSumQuantity.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumQuantity.format}"/>
+                                </af:inputText>
                                 <af:panelCollection id="pc1" styleClass="AFStretchWidth"
                                                     partialTriggers=":::txtDemandHeaderCodeId">
                                     <f:facet name="menus"/>
@@ -667,11 +677,18 @@
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Quantity.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Quantity.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Quantity.tooltip}"
-                                                          id="it11" disabled="#{bindings.RfqTypeSno.inputValue==2}">
+                                                          id="it11" disabled="#{bindings.RfqTypeSno.inputValue==2}"
+                                                          autoSubmit="true">
                                                 <f:validator binding="#{row.bindings.Quantity.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Quantity.format}"/>
                                             </af:inputText>
+                                            <f:facet name="footer">
+                                                <af:panelGroupLayout id="pgl3" halign="end" layout="horizontal">
+                                                    <af:activeOutputText value="#{bindings.txtSumQuantity.inputValue}"
+                                                                         id="aot1" partialTriggers="it11"/>
+                                                </af:panelGroupLayout>
+                                            </f:facet>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.NoteToBuyer.label}"
                                                    id="c11">

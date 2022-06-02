@@ -23,7 +23,7 @@
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
+          trustMode="trusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -37,7 +37,7 @@
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId==null?0:ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
+          trustMode="trusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId==null?0:ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -54,7 +54,7 @@
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId==null?0:ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
+          trustMode="trusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId==null?0:ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -372,9 +372,9 @@
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[getRowSet().sum("Quantity")]]></TransientExpression>
+      trustMode="trusted"><![CDATA[getRowSet().sum("Quantity")]]></TransientExpression>
     <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -395,9 +395,9 @@
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[getRowSet().count("RfqHeaderSno")]]></TransientExpression>
+      trustMode="trusted"><![CDATA[getRowSet().count("RfqHeaderSno")]]></TransientExpression>
     <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
