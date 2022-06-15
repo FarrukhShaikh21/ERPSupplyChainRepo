@@ -4,8 +4,13 @@ import erpglobals.modelglobals.ERPEntityImpl;
 
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
+import java.sql.CallableStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 
+import java.sql.Types;
+
+import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
@@ -414,6 +419,40 @@ public class ScmOrderTypeImpl extends ERPEntityImpl {
         super.lock();
     }
 
+    public void doERPSetPrimaryKeyValue() {
+        System.out.println("call proc_get_sequence_no('"+this.getEntityDef().getSource()+"',?)");
+        CallableStatement cs=getDBTransaction().createCallableStatement("call proc_get_sequence_no('"+this.getEntityDef().getSource()+"',?)", 1);
+        try {
+            cs.registerOutParameter(1, Types.INTEGER);
+            cs.executeUpdate();
+            for (int i = 0; i < this.getEntityDef().getAttributeCount(); i++) {
+                if (this.getEntityDef().getAttributeDefs()[i].isPrimaryKey()) {
+                setAttribute(this.getEntityDef().getAttributeDefs()[i].getIndex(), cs.getInt(1));
+                }
+            }
+
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        }
+        finally{
+            try {
+                cs.close();
+            } catch (SQLException e) {
+            }
+        }
+        
+        
+    }
+    @Override
+    protected void create(AttributeList attributeList) {
+        // TODO Implement this method
+        
+        doERPSetPrimaryKeyValue();
+        
+        super.create(attributeList);
+    }
+
     /**
      * Custom DML update/insert/delete logic here.
      * @param operation the operation type
@@ -422,12 +461,12 @@ public class ScmOrderTypeImpl extends ERPEntityImpl {
     protected void doDML(int operation, TransactionEvent e) {
         if (operation == DML_INSERT) {
             
-            String result =
+            /* =
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "ORDER_TYPE_SNO",
                                                               this.getEntityDef().getSource(), null, null);
 
-            populateAttributeAsChanged(ORDERTYPESNO, Integer.parseInt(result));
-            result =
+            populateAttributeAsChanged(ORDERTYPESNO, Integer.parseInt(result));*/
+            String result =
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "ORDER_TYPE_CODE",
                                                               this.getEntityDef().getSource(), "COMPANY_ID",
                                                               getCompanyId().toString());
