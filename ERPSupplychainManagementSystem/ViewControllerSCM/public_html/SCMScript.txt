@@ -9,3 +9,38 @@ CREATED_DATE DATE NOT NULL,
 LAST_UPDATED_BY NUMBER(10), 
 LAST_UPDATED_DATE DATE
 )
+
+
+USE `erporacle`;
+DROP procedure IF EXISTS `proc_get_sequence_no`;
+
+DELIMITER //
+CREATE PROCEDURE `proc_get_sequence_no` (IN p_table_name varchar(30),out p_sequence_no int)
+BEGIN
+
+insert into scm_order_type_seq (created_date) VALUES (SYSDATE()) ;
+SELECT LAST_INSERT_ID() INTO p_sequence_no;
+END //
+DELIMITER ;
+select * from scm_order_type order by 1 desc
+select sysdate()
+create table scm_order_type_seq(
+sequence_no int ,
+created_date datetime, constraint pk_scm_order_type_seq primary key(sequence_no))
+
+create table scm_order_type_seq(
+sequence_no int ,
+created_date datetime, constraint pk_scm_order_type_seq primary key(sequence_no))
+
+SELECT * from scm_order_type_seq
+DELETE FROM scm_order_type_seq WHERE sequence_no >0
+insert into scm_order_type_seq (created_date) values(sysdate() );
+
+insert into scm_order_type_seq (created_date) VALUES (SYSDATE()) 
+
+CALL proc_get_sequence_no('scm_order_type_seq',@MYSEQ);
+SELECT @MYSEQ
+
+SELECT LAST_INSERT_ID()
+
+#{item.bindings.EmpBranch.inputValue}
