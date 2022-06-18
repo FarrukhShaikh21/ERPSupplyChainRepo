@@ -4,7 +4,6 @@ import erpadm.modeladm.admeo.SmCityImpl;
 import erpadm.modeladm.admeo.SmCountryImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
-
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
 import java.sql.Timestamp;
@@ -721,9 +720,9 @@ public class ScmCustomerSitesImpl extends ERPEntityImpl {
     protected void doDML(int operation, TransactionEvent e) {
 
         if (operation==DML_INSERT ) {
-           String result = ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_SITES_SNO",this.getEntityDef().getSource(), null, null);
-           populateAttributeAsChanged(CUSTOMERSITESSNO,  Integer.parseInt(result));
-           result = ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_SITE_CODE",this.getEntityDef().getSource(), null, null);
+//           String result = ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_SITES_SNO",this.getEntityDef().getSource(), null, null);
+//           populateAttributeAsChanged(CUSTOMERSITESSNO,  Integer.parseInt(result));
+           String result = ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_SITE_CODE",this.getEntityDef().getSource(), null, null);
            populateAttributeAsChanged(CUSTOMERSITECODE,  Integer.parseInt(result));
 
         }
