@@ -420,9 +420,6 @@ public class ScmOrderTypeImpl extends ERPEntityImpl {
        super.create(attributeList);
     }
 
-
-  
-
     /**
      * Custom DML update/insert/delete logic here.
      * @param operation the operation type
