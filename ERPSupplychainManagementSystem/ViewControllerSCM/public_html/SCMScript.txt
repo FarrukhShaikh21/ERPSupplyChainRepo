@@ -14,14 +14,31 @@ LAST_UPDATED_DATE DATE
 USE `erporacle`;
 DROP procedure IF EXISTS `proc_get_sequence_no`;
 
-DELIMITER //
-CREATE PROCEDURE `proc_get_sequence_no` (IN p_table_name varchar(30),out p_sequence_no int)
+DELIMITER $$
+USE `erporacle`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_get_sequence_no`(IN p_table_name varchar(30),out p_sequence_no int)
 BEGIN
 
-insert into scm_order_type_seq (created_date) VALUES (SYSDATE()) ;
-SELECT LAST_INSERT_ID() INTO p_sequence_no;
-END //
+/* in oracle p_sequence_name
+ in mysql it will be table name*/
+	start transaction;
+
+	SET @sqlstmt = CONCAT('INSERT INTO  ',p_table_name,' (created_date) values (sysdate())');
+    PREPARE erpstmt FROM @sqlstmt;
+    EXECUTE erpstmt;
+    DEALLOCATE PREPARE erpstmt;
+	COMMIT;
+	SELECT LAST_INSERT_ID() INTO p_sequence_no;
+	if upper(p_table_name)='SCM_ORDER_TYPE-' then
+	insert into scm_order_type_seq (created_date) VALUES (SYSDATE()) ;
+	SELECT LAST_INSERT_ID() INTO p_sequence_no;
+	end if;
+END$$
+
 DELIMITER ;
+
+
+
 select * from scm_order_type order by 1 desc
 select sysdate()
 create table scm_order_type_seq(
