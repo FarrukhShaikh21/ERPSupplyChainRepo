@@ -65,15 +65,15 @@
                                                          id="l4" icon="#{resource['images:imgDeleteRecord.png']}"
                                                          iconPosition="top" partialSubmit="true"
                                                          shortDesc="Delete Record"/>
-                                                <af:link text="Add" disabled="#{!bindings.CreateInsert.enabled}" id="l5"
+                                                <af:link text="Add" disabled="#{!bindings.CreateWithParams.enabled}" id="l5"
                                                          iconPosition="top"
                                                          icon="#{resource['images:imgAddRecord.png']}"
                                                          partialSubmit="true"
                                                          action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
                                                          shortDesc="Add New Record"/>
-                                                <af:link actionListener="#{bindings.CreateInsert.execute}"
+                                                <af:link actionListener="#{bindings.CreateWithParams.execute}"
                                                          text="CreateInsert"
-                                                         disabled="#{!bindings.CreateInsert.enabled}" id="l1"
+                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
                                                          rendered="false"/>
                                                 <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
                                                          disabled="#{!bindings.Delete.enabled}" id="l2"

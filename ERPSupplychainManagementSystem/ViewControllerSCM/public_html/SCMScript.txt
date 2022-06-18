@@ -44,3 +44,23 @@ SELECT @MYSEQ
 SELECT LAST_INSERT_ID()
 
 #{item.bindings.EmpBranch.inputValue}
+
+
+create or replace PROCEDURE proc_get_sequence_no(p_sequence_name IN  varchar,p_sequence_no out int) as
+
+BEGIN
+-- in oracle p_sequence_name
+-- in mysql it will be table name
+	execute immediate 'SELECT '||p_sequence_name||'.nextval from dual ' into p_sequence_no;
+END;
+
+
+
+CREATE TABLE scm_category_tax_rate_seq(sequence_no INT, 
+                                        CREATED_DATE DATETIME, 
+                                        constraint PK_scm_category_tax_rate_seq primary key(sequence_no)
+                                        );
+
+ALTER TABLE `erporacle`.`scm_category_tax_rate_seq` 
+CHANGE COLUMN `sequence_no` `sequence_no` INT(11) NOT NULL AUTO_INCREMENT ;
+                                        

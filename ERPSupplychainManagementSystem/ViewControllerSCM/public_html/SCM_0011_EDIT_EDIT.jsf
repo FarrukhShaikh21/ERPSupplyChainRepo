@@ -314,7 +314,8 @@
                                                       rowSelection="single"
                                                       fetchSize="#{bindings.ScmCategoryTaxRateCRUD.rangeSize}" id="t2"
                                                       partialTriggers="::l8 ::l1 ::l9 ::l6 ::l3 ::l2"
-                                                      columnStretching="last">
+                                                      columnStretching="last" displayRow="selected" autoHeightRows="10"
+                                                      styleClass="AFStretchWidth" scrollPolicy="page">
                                                 <af:column headerText="#{bindings.ScmCategoryTaxRateCRUD.hints.CategoryTaxRateSno.label}"
                                                            id="c11" rendered="false" headerClass="ERPToolBarBackground">
                                                     <af:inputText value="#{row.bindings.CategoryTaxRateSno.inputValue}"
