@@ -64,3 +64,15 @@ CREATE TABLE scm_category_tax_rate_seq(sequence_no INT,
 ALTER TABLE `erporacle`.`scm_category_tax_rate_seq` 
 CHANGE COLUMN `sequence_no` `sequence_no` INT(11) NOT NULL AUTO_INCREMENT ;
                                         
+CREATE TABLE scm_customer_sites_seq(sequence_no INT, 
+                                        CREATED_DATE DATETIME, 
+                                        constraint PK_scm_customer_sites primary key(sequence_no)
+                                        );
+
+ALTER TABLE `erporacle`.`scm_customer_sites_seq` 
+CHANGE COLUMN `sequence_no` `sequence_no` INT(11) NOT NULL AUTO_INCREMENT ;
+
+create sequence scm_ordeR_type_seq start with 1;
+
+                                        
+                                        
