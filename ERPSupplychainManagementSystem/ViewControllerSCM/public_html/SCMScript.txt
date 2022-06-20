@@ -153,6 +153,9 @@ create sequence scm_supplier_sites_seq start with 1;
 create sequence scm_purchase_demand_header_seq start with 1;
 create sequence scm_purchase_demand_lines_seq start with 1;
 
+ALTER TABLE INV_INVENTORY_ORG ADD ORGANIZATION_TYPE_SNO INT
+
+
 
 INSERT INTO sys_general_value_set
 (value_set_id,
