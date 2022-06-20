@@ -7,7 +7,6 @@ import erpfms.modelfms.fmseo.GlBankBranchImpl;
 import erpfms.modelfms.fmseo.GlBankImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
-
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
 import java.math.BigDecimal;
@@ -1247,9 +1246,9 @@ public class ScmCustomerImpl extends ERPEntityImpl {
     protected void doDML(int operation, TransactionEvent e) {
 
         if (operation==DML_INSERT ) {
-           String result = ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_SNO",this.getEntityDef().getSource(), null, null);
-           populateAttributeAsChanged(CUSTOMERSNO,  Integer.parseInt(result));
-           result = ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_SHORT_CODE",this.getEntityDef().getSource(), "COMPANY_ID", getCompanyId().toString());
+//           String result = ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_SNO",this.getEntityDef().getSource(), null, null);
+//           populateAttributeAsChanged(CUSTOMERSNO,  Integer.parseInt(result));
+           String result = ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_SHORT_CODE",this.getEntityDef().getSource(), "COMPANY_ID", getCompanyId().toString());
            populateAttributeAsChanged(CUSTOMERSHORTCODE,  Integer.parseInt(result));
 
         }
