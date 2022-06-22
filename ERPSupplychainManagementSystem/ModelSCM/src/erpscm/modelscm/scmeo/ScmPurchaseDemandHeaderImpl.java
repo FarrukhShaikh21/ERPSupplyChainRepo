@@ -5,7 +5,6 @@ import erpadm.modeladm.admeo.AdminCompanyImpl;
 import erpfms.modelfms.fmseo.GlProjectsImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
-
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
 import java.sql.Timestamp;
@@ -625,12 +624,12 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
     protected void doDML(int operation, TransactionEvent e) {
         if (operation == DML_INSERT) {
             
-            String result =
+            /* String result =
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "DEMAND_HEADER_SNO",
                                                               this.getEntityDef().getSource(), null, null);
 
-            populateAttributeAsChanged(DEMANDHEADERSNO, Integer.parseInt(result));
-            result =
+            populateAttributeAsChanged(DEMANDHEADERSNO, Integer.parseInt(result)); */
+            String result =
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "DEMAND_HEADER_CODE",
                                                               this.getEntityDef().getSource(), "COMPANY_ID",
                                                               getCompanyId().toString());

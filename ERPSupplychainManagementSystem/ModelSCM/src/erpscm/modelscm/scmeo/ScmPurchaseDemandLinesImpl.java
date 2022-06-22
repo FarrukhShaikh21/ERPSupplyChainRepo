@@ -668,14 +668,14 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     protected void doDML(int operation, TransactionEvent e) {
         if (operation == DML_INSERT) {
-            populateAttributeAsChanged(DEMANDHEADERSNO, getScmPurchaseDemandHeader().getAttribute("DemandHeaderSno"));
+            /* populateAttributeAsChanged(DEMANDHEADERSNO, getScmPurchaseDemandHeader().getAttribute("DemandHeaderSno"));
             String result =
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "DEMAND_LINES_SNO",
                                                               this.getEntityDef().getSource(), null, null);
 
-            populateAttributeAsChanged(DEMANDLINESSNO, Integer.parseInt(result));
+            populateAttributeAsChanged(DEMANDLINESSNO, Integer.parseInt(result)); */
 
-            result =
+            String result =
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "LINE_NO",
                                                               this.getEntityDef().getSource(), "DEMAND_HEADER_SNO", getDemandHeaderSno().toString());
 

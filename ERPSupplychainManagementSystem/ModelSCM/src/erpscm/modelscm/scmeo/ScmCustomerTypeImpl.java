@@ -1,11 +1,11 @@
 package erpscm.modelscm.scmeo;
 
 import erpglobals.modelglobals.ERPEntityImpl;
-
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
 import java.sql.Timestamp;
 
+import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
@@ -458,6 +458,11 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
         super.lock();
     }
 
+@Override
+    protected void create(AttributeList attributeList) {
+        // TODO Implement this method
+        super.create(attributeList);
+    }
     /**
      * Custom DML update/insert/delete logic here.
      * @param operation the operation type
@@ -466,12 +471,12 @@ public class ScmCustomerTypeImpl extends ERPEntityImpl {
     protected void doDML(int operation, TransactionEvent e) {
         if (operation == DML_INSERT) {
             
-            String result =
+            /*   String result =
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_TYPE_SNO",
                                                               this.getEntityDef().getSource(), null, null);
 
-            populateAttributeAsChanged(CUSTOMERTYPESNO, Integer.parseInt(result));
-            result =
+            populateAttributeAsChanged(CUSTOMERTYPESNO, Integer.parseInt(result)); */
+           String result =
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "CUSTOMER_TYPE_CODE",
                                                               this.getEntityDef().getSource(), "COMPANY_ID",
                                                               getCompanyId().toString());
