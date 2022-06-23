@@ -153,7 +153,7 @@ create sequence scm_supplier_sites_seq start with 1;
 create sequence scm_purchase_demand_header_seq start with 1;
 create sequence scm_purchase_demand_lines_seq start with 1;
 
-ALTER TABLE INV_INVENTORY_ORG ADD ORGANIZATION_TYPE_SNO INT
+ALTER TABLE INV_INVENTORY_ORG ADD subinventory_type_sno INT
 
 
 
@@ -166,10 +166,10 @@ remarks,
 is_active)
 VALUES
 (32,
-'Inventory Org Type',
+'Sub Inventory Type',
 1,
 sysdate,
-'Inventory Org Type',
+'Sub Inventory Type',
 'Y'
 );
 
@@ -186,7 +186,7 @@ is_active,
 value_code)
 VALUES
 (68,
-'Inventory Org',
+'Storate',
 32,
 1,
 SYSDATE,
@@ -204,7 +204,7 @@ is_active,
 value_code)
 VALUES
 (69,
-'Sub Inventory',
+'Receiving',
 32,
 1,
 SYSDATE,
