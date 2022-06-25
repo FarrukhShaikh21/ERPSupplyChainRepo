@@ -160,6 +160,33 @@ create sequence scm_purchase_demand_lines_seq start with 1;
 
 ALTER TABLE INV_INVENTORY_ORG ADD subinventory_type_sno INT
 
+create table inv_subinventory_org
+(
+subinventory_org_sno int,
+subinventory_org_code int not null,
+subinventory_org_short_code varchar(30) not null,
+subinventory_type_sno int(3),
+open_date date not null,
+start_date date DEFAULT NULL,
+end_date date DEFAULT NULL,
+inventory_org_sno int not null,
+phone_no varchar(20) DEFAULT NULL,
+fax_no varchar(20) DEFAULT NULL,
+mobile_no varchar(20) DEFAULT NULL,
+contact_person varchar(30) DEFAULT NULL,
+address varchar(300) DEFAULT NULL,
+created_by int(5) NOT NULL,
+created_date datetime NOT NULL,
+last_updated_by int(5) DEFAULT NULL,
+last_updated_date datetime DEFAULT NULL,
+is_supervised varchar(1) NOT NULL,
+supervised_date datetime DEFAULT NULL,
+is_unsupervised varchar(1) NOT NULL,
+un_supervised_date datetime DEFAULT NULL,
+supervised_by int(5) DEFAULT NULL,
+un_supervised_by int(5) DEFAULT NULL, 
+constraint pk_inv_subinventory_org primary key(subinventory_org_sno)
+);
 
 
 INSERT INTO sys_general_value_set
