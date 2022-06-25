@@ -141,6 +141,11 @@ CREATE TABLE `scm_purchase_demand_lines_seq` (
   constraint pk_scm_purchase_demand_lines_seq primary KEY (`sequence_no`)
 ) ;
 
+CREATE TABLE `inv_inventory_org_seq` (
+  `sequence_no` int(11) NOT NULL AUTO_INCREMENT,
+  `created_date` datetime DEFAULT NULL,
+  constraint pk_inv_inventory_org_seq primary KEY (`sequence_no`)
+) ;
 
 
 create sequence SCM_ORDER_TYPE_SEQ start with 1;
