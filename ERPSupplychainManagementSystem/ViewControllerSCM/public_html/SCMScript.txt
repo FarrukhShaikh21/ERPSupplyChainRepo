@@ -104,6 +104,7 @@ fax_no varchar(20) DEFAULT NULL,
 mobile_no varchar(20) DEFAULT NULL,
 contact_person varchar(30) DEFAULT NULL,
 address varchar(300) DEFAULT NULL,
+is_active varchar(1) not null,
 created_by int(5) NOT NULL,
 created_date datetime NOT NULL,
 last_updated_by int(5) DEFAULT NULL,
@@ -124,13 +125,7 @@ ALTER TABLE INV_INVENTORY_ORG DROP COLUMN SUBINVENTORY_TYPE_SNO;
 ------------------sequences-----------------------------------
 
 
-SELECT * from scm_order_type_seq
-DELETE FROM scm_order_type_seq WHERE sequence_no >0
-insert into scm_order_type_seq (created_date) values(sysdate() );
 
-insert into scm_order_type_seq (created_date) VALUES (SYSDATE()) 
-
-CALL proc_get_sequence_no('scm_order_type_seq',@MYSEQ);
 SELECT @MYSEQ
 
 SELECT LAST_INSERT_ID()
