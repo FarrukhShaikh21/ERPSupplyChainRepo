@@ -1,84 +1,12 @@
-CREATE TABLE SCM_PURCHASE_DEMAND_ACCOUNT
-(
-DEMAND_ACCOUNT_SNO NUMBER(10) CONSTRAINT PK_SCM_PURCHASE_DEMAND_ACCOUNT PRIMARY KEY,
-demand_lines_sno NUMBER(10) NOT NULL,
-QUANTITY NUMBER(16,6) NOT NULL,
-CHART_OF_ACCOUNT_ID NUMBER(10) NOT NULL,
-created_by NUMBER(10) NOT NULL, 
-CREATED_DATE DATE NOT NULL, 
-LAST_UPDATED_BY NUMBER(10), 
-LAST_UPDATED_DATE DATE
-)
-
 
 USE `erporacle`;
 DROP procedure IF EXISTS `proc_get_sequence_no`;
 
-DELIMITER $$
-USE `erporacle`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_get_sequence_no`(IN p_table_name varchar(30),out p_sequence_no int)
-BEGIN
 
-/* in oracle p_sequence_name
- in mysql it will be table name*/
-	start transaction;
-
-	SET @sqlstmt = CONCAT('INSERT INTO  ',p_table_name,' (created_date) values (sysdate())');
-    PREPARE erpstmt FROM @sqlstmt;
-    EXECUTE erpstmt;
-    DEALLOCATE PREPARE erpstmt;
-	COMMIT;
-	SELECT LAST_INSERT_ID() INTO p_sequence_no;
-	if upper(p_table_name)='SCM_ORDER_TYPE-' then
-	insert into scm_order_type_seq (created_date) VALUES (SYSDATE()) ;
-	SELECT LAST_INSERT_ID() INTO p_sequence_no;
-	end if;
-END$$
-
-DELIMITER ;
 
 
 scm_customer_type_seq
 
-
-CREATE TABLE SCM_PURCHASE_DEMAND_ACCOUNT
-(
-DEMAND_ACCOUNT_SNO NUMBER(10) CONSTRAINT PK_SCM_PURCHASE_DEMAND_ACCOUNT PRIMARY KEY,
-demand_lines_sno NUMBER(10) NOT NULL,
-QUANTITY NUMBER(16,6) NOT NULL,
-CHART_OF_ACCOUNT_ID NUMBER(10) NOT NULL,
-created_by NUMBER(10) NOT NULL, 
-CREATED_DATE DATE NOT NULL, 
-LAST_UPDATED_BY NUMBER(10), 
-LAST_UPDATED_DATE DATE
-)
-
-
-USE `erporacle`;
-DROP procedure IF EXISTS `proc_get_sequence_no`;
-
-DELIMITER $$
-USE `erporacle`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_get_sequence_no`(IN p_table_name varchar(30),out p_sequence_no int)
-BEGIN
-
-/* in oracle p_sequence_name
- in mysql it will be table name*/
-	start transaction;
-
-	SET @sqlstmt = CONCAT('INSERT INTO  ',p_table_name,' (created_date) values (sysdate())');
-    PREPARE erpstmt FROM @sqlstmt;
-    EXECUTE erpstmt;
-    DEALLOCATE PREPARE erpstmt;
-	COMMIT;
-	SELECT LAST_INSERT_ID() INTO p_sequence_no;
-	if upper(p_table_name)='SCM_ORDER_TYPE-' then
-	insert into scm_order_type_seq (created_date) VALUES (SYSDATE()) ;
-	SELECT LAST_INSERT_ID() INTO p_sequence_no;
-	end if;
-END$$
-
-DELIMITER ;
 
 
 scm_customer_type_seq
@@ -190,60 +118,6 @@ constraint pk_inv_subinventory_org primary key(subinventory_org_sno)
 );
 
 
-INSERT INTO sys_general_value_set
-(value_set_id,
-value_set_description,
-created_by,
-created_date,
-remarks,
-is_active)
-VALUES
-(32,
-'Sub Inventory Type',
-1,
-sysdate,
-'Sub Inventory Type',
-'Y'
-);
-
-
-
-
-INSERT INTO sys_general_value
-(value_id,
-value_description,
-value_set_id,
-created_by,
-created_date,
-is_active,
-value_code)
-VALUES
-(68,
-'Storate',
-32,
-1,
-SYSDATE,
-'Y',
-1);
-
-
-INSERT INTO sys_general_value
-(value_id,
-value_description,
-value_set_id,
-created_by,
-created_date,
-is_active,
-value_code)
-VALUES
-(69,
-'Receiving',
-32,
-1,
-SYSDATE,
-'Y',
-2);
-
 
 ALTER TABLE INV_INVENTORY_ORG DROP COLUMN SUBINVENTORY_TYPE_SNO;
 
@@ -260,19 +134,6 @@ CALL proc_get_sequence_no('scm_order_type_seq',@MYSEQ);
 SELECT @MYSEQ
 
 SELECT LAST_INSERT_ID()
-
-#{item.bindings.EmpBranch.inputValue}
-
-
-create or replace PROCEDURE proc_get_sequence_no(p_sequence_name IN  varchar,p_sequence_no out int) as
-
-BEGIN
--- in oracle p_sequence_name
--- in mysql it will be table name
-	execute immediate 'SELECT '||p_sequence_name||'.nextval from dual ' into p_sequence_no;
-END;
-
-
 
 
 
