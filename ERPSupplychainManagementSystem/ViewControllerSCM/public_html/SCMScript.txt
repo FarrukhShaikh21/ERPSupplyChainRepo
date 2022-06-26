@@ -164,7 +164,8 @@ create table inv_subinventory_org
 (
 subinventory_org_sno int,
 subinventory_org_code int not null,
-subinventory_org_short_code varchar(30) not null,
+subinventory_org_short_name varchar(30) not null,
+subinventory_description varchar(100) not null,
 subinventory_type_sno int(3),
 open_date date not null,
 start_date date DEFAULT NULL,
