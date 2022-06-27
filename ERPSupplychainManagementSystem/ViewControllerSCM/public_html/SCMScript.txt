@@ -146,6 +146,11 @@ CREATE TABLE `inv_inventory_org_seq` (
   constraint pk_inv_inventory_org_seq primary KEY (`sequence_no`)
 ) ;
 
+CREATE TABLE Inv_Subinventory_Org_seq (
+  `sequence_no` int(11) NOT NULL AUTO_INCREMENT,
+  `created_date` datetime DEFAULT NULL,
+  constraint pk_Inv_Subinventory_Org_seq primary KEY (`sequence_no`)
+) ;
 
 create sequence SCM_ORDER_TYPE_SEQ start with 1;
 create sequence scm_customer_sites_seq start with 1;
@@ -156,64 +161,6 @@ create sequence scm_supplier_seq start with 1;
 create sequence scm_supplier_sites_seq start with 1;
 create sequence scm_purchase_demand_header_seq start with 1;
 create sequence scm_purchase_demand_lines_seq start with 1;
-
-ALTER TABLE INV_INVENTORY_ORG ADD subinventory_type_sno INT
-
-
-
-INSERT INTO sys_general_value_set
-(value_set_id,
-value_set_description,
-created_by,
-created_date,
-remarks,
-is_active)
-VALUES
-(32,
-'Sub Inventory Type',
-1,
-sysdate,
-'Sub Inventory Type',
-'Y'
-);
-
-
-
-
-INSERT INTO sys_general_value
-(value_id,
-value_description,
-value_set_id,
-created_by,
-created_date,
-is_active,
-value_code)
-VALUES
-(68,
-'Storate',
-32,
-1,
-SYSDATE,
-'Y',
-1);
-
-
-INSERT INTO sys_general_value
-(value_id,
-value_description,
-value_set_id,
-created_by,
-created_date,
-is_active,
-value_code)
-VALUES
-(69,
-'Receiving',
-32,
-1,
-SYSDATE,
-'Y',
-2);
 
 
 ------------------sequences-----------------------------------
