@@ -100,6 +100,10 @@
     Name="AccScmSupplierVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccInvInventoryOrgVO"
+    ViewObjectName="erpims.modelims.imsvo.InvInventoryOrgVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -227,6 +231,30 @@
     </AttrArray>
     <DisplayCriteria
       Name="ScmSupplierFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtInvOrgDescription"
+    ListVOName="AccInvInventoryOrgVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtInvOrgDescription"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="InventoryOrgSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgDescription"/>
+      <Item Value="InventoryOrgSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrgDescription"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InvInventoryOrgVOFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseDemandLines"
@@ -502,6 +530,20 @@
     EntityAttrName="InventoryOrgSno"
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="INVENTORY_ORG_SNO"/>
+  <ViewAttribute
+    Name="txtInvOrgDescription"
+    PrecisionRule="true"
+    EntityAttrName="txtInvOrgDescription"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="txt_Inv_Org_Description"
+    LOVName="LovtxtInvOrgDescription">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"

@@ -55,6 +55,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         StatusSno,
         SubinventoryOrgSno,
         InventoryOrgSno,
+        txtInvOrgDescription,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
@@ -68,7 +69,8 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         AccGlProjectsQVO,
         AccAdminCompanyVO,
         AccGlProjectsVO,
-        AccScmSupplierVO;
+        AccScmSupplierVO,
+        AccInvInventoryOrgVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -124,6 +126,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public static final int STATUSSNO = AttributesEnum.StatusSno.index();
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
+    public static final int TXTINVORGDESCRIPTION = AttributesEnum.txtInvOrgDescription.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -138,6 +141,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public static final int ACCADMINCOMPANYVO = AttributesEnum.AccAdminCompanyVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
     public static final int ACCSCMSUPPLIERVO = AttributesEnum.AccScmSupplierVO.index();
+    public static final int ACCINVINVENTORYORGVO = AttributesEnum.AccInvInventoryOrgVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -619,6 +623,22 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for txt_Inv_Org_Description using the alias name txtInvOrgDescription.
+     * @return the txt_Inv_Org_Description
+     */
+    public String gettxtInvOrgDescription() {
+        return (String) getAttributeInternal(TXTINVORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Inv_Org_Description using the alias name txtInvOrgDescription.
+     * @param value value to set the txt_Inv_Org_Description
+     */
+    public void settxtInvOrgDescription(String value) {
+        setAttributeInternal(TXTINVORGDESCRIPTION, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link GlProjectsVO.
      */
     public Row getGlProjectsVO() {
@@ -764,6 +784,13 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
      */
     public RowSet getAccScmSupplierVO() {
         return (RowSet) getAttributeInternal(ACCSCMSUPPLIERVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccInvInventoryOrgVO.
+     */
+    public RowSet getAccInvInventoryOrgVO() {
+        return (RowSet) getAttributeInternal(ACCINVINVENTORYORGVO);
     }
 
     @Override

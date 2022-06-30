@@ -58,6 +58,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         StatusSno,
         InventoryOrgSno,
         SubinventoryOrgSno,
+        txtInvOrgDescription,
         ScmPurchaseDemandHeader,
         GlProjects,
         AdminCompany,
@@ -118,6 +119,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int STATUSSNO = AttributesEnum.StatusSno.index();
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
+    public static final int TXTINVORGDESCRIPTION = AttributesEnum.txtInvOrgDescription.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -588,6 +590,22 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public void setSubinventoryOrgSno(Integer value) {
         setAttributeInternal(SUBINVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtInvOrgDescription, using the alias name txtInvOrgDescription.
+     * @return the value of txtInvOrgDescription
+     */
+    public String gettxtInvOrgDescription() {
+        return (String) getAttributeInternal(TXTINVORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtInvOrgDescription.
+     * @param value value to set the txtInvOrgDescription
+     */
+    public void settxtInvOrgDescription(String value) {
+        setAttributeInternal(TXTINVORGDESCRIPTION, value);
     }
 
     /**
