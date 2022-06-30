@@ -53,6 +53,8 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         txtSupplierName,
         SupplierSno,
         StatusSno,
+        SubinventoryOrgSno,
+        InventoryOrgSno,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
@@ -60,6 +62,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         ScmPurchaseDemandHeaderVO,
         ScmSupplierVO,
         ScmPurchaseRfqLinesVO,
+        InvInventoryOrgVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsQVO,
@@ -119,6 +122,8 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
     public static final int STATUSSNO = AttributesEnum.StatusSno.index();
+    public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
+    public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -126,6 +131,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public static final int SCMPURCHASEDEMANDHEADERVO = AttributesEnum.ScmPurchaseDemandHeaderVO.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
+    public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSQVO = AttributesEnum.AccGlProjectsQVO.index();
@@ -581,6 +587,38 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for SUBINVENTORY_ORG_SNO using the alias name SubinventoryOrgSno.
+     * @return the SUBINVENTORY_ORG_SNO
+     */
+    public Integer getSubinventoryOrgSno() {
+        return (Integer) getAttributeInternal(SUBINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SUBINVENTORY_ORG_SNO using the alias name SubinventoryOrgSno.
+     * @param value value to set the SUBINVENTORY_ORG_SNO
+     */
+    public void setSubinventoryOrgSno(Integer value) {
+        setAttributeInternal(SUBINVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for INVENTORY_ORG_SNO using the alias name InventoryOrgSno.
+     * @return the INVENTORY_ORG_SNO
+     */
+    public Integer getInventoryOrgSno() {
+        return (Integer) getAttributeInternal(INVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for INVENTORY_ORG_SNO using the alias name InventoryOrgSno.
+     * @param value value to set the INVENTORY_ORG_SNO
+     */
+    public void setInventoryOrgSno(Integer value) {
+        setAttributeInternal(INVENTORYORGSNO, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link GlProjectsVO.
      */
     public Row getGlProjectsVO() {
@@ -669,6 +707,20 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
      */
     public RowIterator getScmPurchaseRfqLinesVO() {
         return (RowIterator) getAttributeInternal(SCMPURCHASERFQLINESVO);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link InvInventoryOrgVO.
+     */
+    public Row getInvInventoryOrgVO() {
+        return (Row) getAttributeInternal(INVINVENTORYORGVO);
+    }
+
+    /**
+     * Sets the master-detail link InvInventoryOrgVO between this object and <code>value</code>.
+     */
+    public void setInvInventoryOrgVO(Row value) {
+        setAttributeInternal(INVINVENTORYORGVO, value);
     }
 
     /**

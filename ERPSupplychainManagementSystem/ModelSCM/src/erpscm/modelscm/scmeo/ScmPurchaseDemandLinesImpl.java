@@ -7,6 +7,7 @@ import erpfms.modelfms.fmseo.GlProjectsImpl;
 import erpglobals.modelglobals.ERPEntityImpl;
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
+import erpims.modelims.imseo.InvInventoryOrgImpl;
 import erpims.modelims.imseo.InvItemImpl;
 import erpims.modelims.imseo.InvUnitTypeImpl;
 
@@ -55,13 +56,16 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         txtSupplierName,
         SupplierSno,
         StatusSno,
+        InventoryOrgSno,
+        SubinventoryOrgSno,
         ScmPurchaseDemandHeader,
         GlProjects,
         AdminCompany,
         InvItem,
         InvUnitType,
         ScmSupplier,
-        ScmPurchaseRfqLines;
+        ScmPurchaseRfqLines,
+        InvInventoryOrg;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -112,6 +116,8 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
     public static final int STATUSSNO = AttributesEnum.StatusSno.index();
+    public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
+    public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -119,6 +125,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
+    public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -552,6 +559,38 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for InventoryOrgSno, using the alias name InventoryOrgSno.
+     * @return the value of InventoryOrgSno
+     */
+    public Integer getInventoryOrgSno() {
+        return (Integer) getAttributeInternal(INVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for InventoryOrgSno.
+     * @param value value to set the InventoryOrgSno
+     */
+    public void setInventoryOrgSno(Integer value) {
+        setAttributeInternal(INVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for SubinventoryOrgSno, using the alias name SubinventoryOrgSno.
+     * @return the value of SubinventoryOrgSno
+     */
+    public Integer getSubinventoryOrgSno() {
+        return (Integer) getAttributeInternal(SUBINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SubinventoryOrgSno.
+     * @param value value to set the SubinventoryOrgSno
+     */
+    public void setSubinventoryOrgSno(Integer value) {
+        setAttributeInternal(SUBINVENTORYORGSNO, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseDemandHeaderImpl.
      */
     public ScmPurchaseDemandHeaderImpl getScmPurchaseDemandHeader() {
@@ -642,6 +681,21 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public RowIterator getScmPurchaseRfqLines() {
         return (RowIterator) getAttributeInternal(SCMPURCHASERFQLINES);
+    }
+
+
+    /**
+     * @return the associated entity erpims.modelims.imseo.InvInventoryOrgImpl.
+     */
+    public InvInventoryOrgImpl getInvInventoryOrg() {
+        return (InvInventoryOrgImpl) getAttributeInternal(INVINVENTORYORG);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpims.modelims.imseo.InvInventoryOrgImpl.
+     */
+    public void setInvInventoryOrg(InvInventoryOrgImpl value) {
+        setAttributeInternal(INVINVENTORYORG, value);
     }
 
 

@@ -490,6 +490,18 @@
     EntityAttrName="StatusSno"
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="STATUS_SNO"/>
+  <ViewAttribute
+    Name="SubinventoryOrgSno"
+    PrecisionRule="true"
+    EntityAttrName="SubinventoryOrgSno"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="SUBINVENTORY_ORG_SNO"/>
+  <ViewAttribute
+    Name="InventoryOrgSno"
+    PrecisionRule="true"
+    EntityAttrName="InventoryOrgSno"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="INVENTORY_ORG_SNO"/>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"
@@ -672,6 +684,12 @@
     Name="ScmPurchaseRfqLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurDemandLinScmPurRfqLinesDemandLinesSnoVL"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InvInventoryOrgVO"
+    ViewLink="erpscm.modelscm.scmvo.InvInventoryOrgScmPurcDemandLinInventoryOrgSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
