@@ -56,6 +56,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         SubinventoryOrgSno,
         InventoryOrgSno,
         txtInvOrgDescription,
+        txtLineCount,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
@@ -127,6 +128,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int TXTINVORGDESCRIPTION = AttributesEnum.txtInvOrgDescription.index();
+    public static final int TXTLINECOUNT = AttributesEnum.txtLineCount.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -636,6 +638,14 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
      */
     public void settxtInvOrgDescription(String value) {
         setAttributeInternal(TXTINVORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtLineCount.
+     * @return the txtLineCount
+     */
+    public BigDecimal gettxtLineCount() {
+        return (BigDecimal) getAttributeInternal(TXTLINECOUNT);
     }
 
     /**

@@ -36,7 +36,7 @@
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -50,7 +50,7 @@
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -110,7 +110,7 @@
     <ParameterMap>
       <PIMap Variable="P_ADF_LOCATION_ID">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.LocationId==null?0:ScmPurchaseDemandHeaderVO?.LocationId]]></TransientExpression>
+          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.LocationId==null?0:ScmPurchaseDemandHeaderVO?.LocationId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -546,11 +546,36 @@
     EntityAttrName="txtInvOrgDescription"
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="txt_Inv_Org_Description"
-    LOVName="LovtxtInvOrgDescription">
+    LOVName="LovtxtInvOrgDescription"
+    IsQueriable="false"
+    IsPersistent="false">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLineCount"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[getRowSet().getRowCount()]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.txtLineCount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
