@@ -286,6 +286,9 @@
       Name="ScmFobTermFOBTermSnoVC"
       FullName="erpscm.modelscm.scmvo.ScmFobTermVO.ScmFobTermFOBTermSnoVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ScmPurchaseDemandAccountDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandAccountVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -351,5 +354,11 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurRfqSupplierHeaderLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseRfqHeaderCRUD"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseRfqSupplierDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ScmPurDemLineScmPurDemAcctDemandLineSnoVL1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.ScmPurDemLineScmPurDemAcctDemandLineSnoVL"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseDemandLinesDetCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseDemandAccountDetCRUD"
     Reversed="false"/>
 </AppModule>
