@@ -35,8 +35,7 @@
       FullName="erpims.modelims.imsvo.InvItemVO.InvItemByCompanyByIDVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -49,8 +48,7 @@
       FullName="erpims.modelims.imsvo.InvUnitTypeVO.InvUnitTypeByCompanyIDVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -109,8 +107,7 @@
       FullName="erpims.modelims.imsvo.InvInventoryOrgVO.InvInventoryOrgByLocationWiseVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_LOCATION_ID">
-        <TransientExpression
-          trustMode="trusted"><![CDATA[ScmPurchaseDemandHeaderVO?.LocationId==null?0:ScmPurchaseDemandHeaderVO?.LocationId]]></TransientExpression>
+        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.LocationId==null?0:ScmPurchaseDemandHeaderVO?.LocationId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -566,8 +563,7 @@
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[getRowSet().getRowCount()]]></TransientExpression>
+    <TransientExpression><![CDATA[getRowSet().getRowCount()]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -767,6 +763,11 @@
     ViewLink="erpscm.modelscm.scmvo.InvInventoryOrgScmPurcDemandLinInventoryOrgSnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseDemandAccountVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurDemLineScmPurDemAcctDemandLineSnoVL"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle

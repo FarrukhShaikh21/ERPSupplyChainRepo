@@ -726,6 +726,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         return (RowIterator) getAttributeInternal(SCMPURCHASEDEMANDACCOUNT);
     }
 
+
     /**
      * @param demandLinesSno key constituent
 
