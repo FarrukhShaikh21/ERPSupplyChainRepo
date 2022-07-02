@@ -4,6 +4,46 @@
     <af:document title="SCM_0013_EDIT.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                <af:dialog id="d2" type="ok">
+                    <f:facet name="buttonBar"/>
+                    <af:table value="#{bindings.ScmPurchaseDemandAccountDetCRUD.collectionModel}" var="row"
+                              rows="#{bindings.ScmPurchaseDemandAccountDetCRUD.rangeSize}"
+                              emptyText="#{bindings.ScmPurchaseDemandAccountDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.ScmPurchaseDemandAccountDetCRUD.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.ScmPurchaseDemandAccountDetCRUD.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.ScmPurchaseDemandAccountDetCRUD.rangeSize}"
+                              id="t2">
+                        <af:column headerText="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.label}"
+                                   id="c4" width="300">
+                            <af:inputComboboxListOfValues id="txtChartOfAccountNameId"
+                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.label}"
+                                                          value="#{row.bindings.txtChartOfAccountName.inputValue}"
+                                                          model="#{row.bindings.txtChartOfAccountName.listOfValuesModel}"
+                                                          required="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.displayWidth}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.tooltip}">
+                                <f:validator binding="#{row.bindings.txtChartOfAccountName.validator}"/>
+                            </af:inputComboboxListOfValues>
+                        </af:column>
+                        <af:column headerText="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.label}"
+                                   id="c5">
+                            <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                                          label="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.label}"
+                                          required="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.mandatory}"
+                                          columns="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.displayWidth}"
+                                          maximumLength="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.precision}"
+                                          shortDesc="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.tooltip}"
+                                          id="it16">
+                                <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.format}"/>
+                            </af:inputText>
+                        </af:column>
+                    </af:table>
+                </af:dialog>
+            </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
                         binding="#{pageFlowScope.OracleERPBean.lerpSupervisePopupConfirm}" contentDelivery="lazyUncached">
                 <af:dialog id="d3" type="yesNo" closeIconVisible="false" title="Supervise"
@@ -311,8 +351,7 @@
                                               selectedRowKeys="#{bindings.ScmPurchaseDemandLinesDetCRUD.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.ScmPurchaseDemandLinesDetCRUD.collectionModel.makeCurrent}"
                                               rowSelection="single"
-                                              fetchSize="#{bindings.ScmPurchaseDemandLinesDetCRUD.rangeSize}" id="t1"
-                                              partialTriggers="::l11 ::l12" columnStretching="column:c2"
+                                              fetchSize="#{bindings.ScmPurchaseDemandLinesDetCRUD.rangeSize}" id="t1" columnStretching="column:c2"
                                               autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?8:15}"
                                               scrollPolicy="page">
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.label}"
@@ -516,7 +555,9 @@
                                                                       shortDesc="#{bindings.txtSupplierName.hints.tooltip}">
                                             <f:validator binding="#{bindings.txtSupplierName.validator}"/>
                                         </af:inputComboboxListOfValues>
-                                        <af:button text="Accounting Impact" id="b1"/>
+                                        <af:button text="Accounting Impact" id="b1">
+                                            <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                                        </af:button>
                                     </af:panelFormLayout>
                                 </af:panelBox>
                             </af:gridCell>

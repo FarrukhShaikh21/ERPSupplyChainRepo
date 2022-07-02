@@ -13,6 +13,34 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccGlChartOfAccountsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtChartOfAccountName"
+    ListVOName="AccGlChartOfAccountsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtChartOfAccountName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ChartOfAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlChartOfAccountsVOFindVC"/>
+  </ListBinding>
   <EntityUsage
     Name="ScmPurchaseDemandAccount"
     Entity="erpscm.modelscm.scmeo.ScmPurchaseDemandAccount"/>
@@ -70,6 +98,22 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmPurchaseDemandAccount"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="txtChartOfAccountName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtChartOfAccountName"
+    EntityUsage="ScmPurchaseDemandAccount"
+    AliasName="txt_Chart_Of_Account_Name"
+    LOVName="LovtxtChartOfAccountName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseDemandLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurDemLineScmPurDemAcctDemandLineSnoVL"

@@ -8,6 +8,8 @@
               id="ScmPurchaseDemandHeaderCRUDIterator"/>
     <iterator Binds="ScmPurchaseDemandLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseDemandLinesDetCRUDIterator"/>
+    <iterator Binds="ScmPurchaseDemandAccountDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseDemandAccountDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="DemandHeaderCode">
@@ -96,5 +98,14 @@
                   id="txtDepartmentName"/>
     <listOfValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
                   id="txtSupplierName"/>
+    <tree IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="ScmPurchaseDemandAccountDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseDemandAccountVO"
+                      Name="ScmPurchaseDemandAccountDetCRUD0">
+        <AttrNames>
+          <Item Value="txtChartOfAccountName"/>
+          <Item Value="Quantity"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
