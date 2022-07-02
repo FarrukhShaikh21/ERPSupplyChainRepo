@@ -9,7 +9,7 @@
   DBObjectType="table"
   DBObjectName="SCM_PURCHASE_DEMAND_ACCOUNT"
   AliasName="ScmPurchaseDemandAccount"
-  BindingStyle="OracleName">
+  BindingStyle="JDBC">
   <Attribute
     Name="DemandAccountSno"
     IsNotNull="true"
@@ -87,6 +87,13 @@
     ColumnType="DATE"
     TableName="SCM_PURCHASE_DEMAND_ACCOUNT"
     RetrievedOnUpdate="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseDemandLines"
+    Association="erpscm.modelscm.scmeo.ScmPurDemLineScmPurDemAcctDemandLineSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurDemLineScmPurDemAcctDemandLineSnoAssoc.ScmPurchaseDemandLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurDemLineScmPurDemAcctDemandLineSnoAssoc.ScmPurchaseDemandAccount"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseDemandLinesImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseDemandAccount"
     PrimaryKey="true">
@@ -95,6 +102,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandAccount.DemandAccountSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseDemandAccount">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_DEMAND_LINES"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Demand_Account"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandAccount.DemandLinesSno"/>
     </AttrArray>
   </Key>
 </Entity>

@@ -58,10 +58,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
-            Action="removeCurrentRow"/>
-    <action IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
     <attributeValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="txtSumDemandQty">
       <AttrNames>
         <Item Value="txtSumDemandQty"/>

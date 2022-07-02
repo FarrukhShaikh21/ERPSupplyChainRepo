@@ -525,7 +525,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_DEMAND_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -599,6 +598,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvInventoryOrgScmPurcDemandLinInventoryOrgSnoAsso.ScmPurchaseDemandLines"
     Type="erpims.modelims.imseo.InvInventoryOrgImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseDemandAccount"
+    Association="erpscm.modelscm.scmeo.ScmPurDemLineScmPurDemAcctDemandLineSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurDemLineScmPurDemAcctDemandLineSnoAssoc.ScmPurchaseDemandAccount"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurDemLineScmPurDemAcctDemandLineSnoAssoc.ScmPurchaseDemandLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmPurchaseDemandLines"
     PrimaryKey="true">

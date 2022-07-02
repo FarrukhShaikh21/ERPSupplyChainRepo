@@ -296,18 +296,7 @@
                                 </af:inputText>
                                 <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                     <f:facet name="menus"/>
-                                    <f:facet name="toolbar">
-                                        <af:toolbar id="t2">
-                                            <af:link actionListener="#{bindings.CreateInsert.execute}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised=='Y'}"
-                                                     id="l12" icon="#{resource['images:imgAddRecord.png']}"
-                                                     partialSubmit="true"/>
-                                            <af:link actionListener="#{bindings.Delete1.execute}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised=='Y'}"
-                                                     id="l11" partialSubmit="true"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}"/>
-                                        </af:toolbar>
-                                    </f:facet>
+                                    <f:facet name="toolbar"/>
                                     <f:facet name="statusbar">
                                         <af:toolbar id="t3">
                                             <af:inputText label="#{bindings.txtLineCount.hints.label}" id="it15" contentStyle="font-weight:bold"
@@ -382,32 +371,39 @@
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.label}"
                                                    id="c12" headerClass="ERPToolBarBackground">
-                                            <af:inputText value="#{row.bindings.AproxPrice.inputValue}"
-                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.label}"
-                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.tooltip}"
-                                                          id="it13">
-                                                <f:validator binding="#{row.bindings.AproxPrice.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.format}"/>
-                                            </af:inputText>
+                                            <af:panelGroupLayout id="pgl9" layout="horizontal"
+                                                                 halign="#{row.bindings.AproxPrice.updateable?'start':'end'}">
+                                                <af:inputText value="#{row.bindings.AproxPrice.inputValue}"
+                                                              label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.label}"
+                                                              required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.mandatory}"
+                                                              columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.displayWidth}"
+                                                              maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.precision}"
+                                                              shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.tooltip}"
+                                                              id="it13" contentStyle="width:100%">
+                                                    <f:validator binding="#{row.bindings.AproxPrice.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.label}"
                                                    id="c7" width="100" displayIndex="-1"
                                                    headerClass="ERPToolBarBackground">
-                                            <af:inputText value="#{row.bindings.DemandQuantity.inputValue}"
-                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.label}"
-                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.tooltip}"
-                                                          id="it4" autoSubmit="true">
-                                                <f:validator binding="#{row.bindings.DemandQuantity.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.format}"/>
-                                            </af:inputText>
+                                            <af:panelGroupLayout id="pgl8"
+                                                                 halign="#{row.bindings.DemandQuantity.updateable?'start':'end'}"
+                                                                 layout="horizontal">
+                                                <af:inputText value="#{row.bindings.DemandQuantity.inputValue}"
+                                                              label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.label}"
+                                                              required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.mandatory}"
+                                                              columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.displayWidth}"
+                                                              maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.precision}"
+                                                              shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.tooltip}"
+                                                              id="it4" autoSubmit="true" contentStyle="width:100%">
+                                                    <f:validator binding="#{row.bindings.DemandQuantity.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.DemandQuantity.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
                                             <f:facet name="footer">
                                                 <af:panelGroupLayout id="pgl3" halign="end" layout="horizontal">
                                                     <af:outputText value="#{bindings.txtSumDemandQty.inputValue}"
@@ -418,18 +414,22 @@
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.label}"
                                                    id="c8" width="100" displayIndex="-1"
                                                    headerClass="ERPToolBarBackground">
-                                            <af:inputText value="#{row.bindings.ApproveQuantity.inputValue}"
-                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.label}"
-                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.tooltip}"
-                                                          id="it5" autoSubmit="true"
-                                                          styleClass="AFFieldNumberDisabled">
-                                                <f:validator binding="#{row.bindings.ApproveQuantity.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.format}"/>
-                                            </af:inputText>
+                                            <af:panelGroupLayout id="pgl7" layout="horizontal"
+                                                                 styleClass="AFStretchWidth"
+                                                                 halign="#{row.bindings.ApproveQuantity.updateable?'start':'end'}">
+                                                <af:inputText value="#{row.bindings.ApproveQuantity.inputValue}"
+                                                              label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.label}"
+                                                              required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.mandatory}"
+                                                              columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.displayWidth}"
+                                                              maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.precision}"
+                                                              shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.tooltip}"
+                                                              id="it5" autoSubmit="true"
+                                                              contentStyle="width:100%">
+                                                    <f:validator binding="#{row.bindings.ApproveQuantity.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.ApproveQuantity.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
                                             <f:facet name="footer">
                                                 <af:panelGroupLayout id="pgl5" halign="end" layout="horizontal">
                                                     <af:outputText value="#{bindings.txtSumApproveQty.inputValue}"
@@ -463,6 +463,11 @@
                                             </af:inputText>
                                         </af:column>
                                     </af:table>
+                                    <f:facet name="secondaryToolbar"/>
+                                    <f:facet name="afterToolbar">
+                                        <af:toolbar id="t4"/>
+                                    </f:facet>
+                                    <f:facet name="viewMenu"/>
                                 </af:panelCollection>
                             </af:gridCell>
                         </af:gridRow>
@@ -511,6 +516,7 @@
                                                                       shortDesc="#{bindings.txtSupplierName.hints.tooltip}">
                                             <f:validator binding="#{bindings.txtSupplierName.validator}"/>
                                         </af:inputComboboxListOfValues>
+                                        <af:button text="Accounting Impact" id="b1"/>
                                     </af:panelFormLayout>
                                 </af:panelBox>
                             </af:gridCell>
