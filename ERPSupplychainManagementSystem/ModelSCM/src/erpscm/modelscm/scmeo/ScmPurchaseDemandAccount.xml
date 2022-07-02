@@ -63,7 +63,6 @@
     TableName="SCM_PURCHASE_DEMAND_ACCOUNT"/>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
@@ -87,6 +86,31 @@
     ColumnType="DATE"
     TableName="SCM_PURCHASE_DEMAND_ACCOUNT"
     RetrievedOnUpdate="true"/>
+  <Attribute
+    Name="txtChartOfAccountName"
+    Precision="80"
+    ColumnName="txt_Chart_Of_Account_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_DEMAND_ACCOUNT"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandAccount.txtChartOfAccountName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="ChartOfAccountId"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseDemandLines"
     Association="erpscm.modelscm.scmeo.ScmPurDemLineScmPurDemAcctDemandLineSnoAssoc"
@@ -133,4 +157,8 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandAccount.ChartOfAccountId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </Entity>
