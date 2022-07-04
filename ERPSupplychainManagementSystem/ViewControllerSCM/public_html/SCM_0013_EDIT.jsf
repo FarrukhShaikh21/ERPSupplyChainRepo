@@ -7,41 +7,6 @@
             <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
                 <af:dialog id="d2" type="ok">
                     <f:facet name="buttonBar"/>
-                    <af:table value="#{bindings.ScmPurchaseDemandAccountDetCRUD.collectionModel}" var="row"
-                              rows="#{bindings.ScmPurchaseDemandAccountDetCRUD.rangeSize}"
-                              emptyText="#{bindings.ScmPurchaseDemandAccountDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                              rowBandingInterval="0"
-                              selectedRowKeys="#{bindings.ScmPurchaseDemandAccountDetCRUD.collectionModel.selectedRow}"
-                              selectionListener="#{bindings.ScmPurchaseDemandAccountDetCRUD.collectionModel.makeCurrent}"
-                              rowSelection="single" fetchSize="#{bindings.ScmPurchaseDemandAccountDetCRUD.rangeSize}"
-                              id="t2">
-                        <af:column headerText="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.label}"
-                                   id="c4" width="300">
-                            <af:inputComboboxListOfValues id="txtChartOfAccountNameId"
-                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.label}"
-                                                          value="#{row.bindings.txtChartOfAccountName.inputValue}"
-                                                          model="#{row.bindings.txtChartOfAccountName.listOfValuesModel}"
-                                                          required="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.displayWidth}"
-                                                          shortDesc="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.tooltip}">
-                                <f:validator binding="#{row.bindings.txtChartOfAccountName.validator}"/>
-                            </af:inputComboboxListOfValues>
-                        </af:column>
-                        <af:column headerText="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.label}"
-                                   id="c5">
-                            <af:inputText value="#{row.bindings.Quantity.inputValue}"
-                                          label="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.label}"
-                                          required="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.mandatory}"
-                                          columns="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.displayWidth}"
-                                          maximumLength="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.precision}"
-                                          shortDesc="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.tooltip}"
-                                          id="it16">
-                                <f:validator binding="#{row.bindings.Quantity.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.format}"/>
-                            </af:inputText>
-                        </af:column>
-                    </af:table>
                 </af:dialog>
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
@@ -514,7 +479,7 @@
                             <af:gridCell id="gc21">
                                 <af:panelBox text="Line Detail" id="pb1" showDisclosure="false">
                                     <f:facet name="toolbar"/>
-                                    <af:panelFormLayout id="pfl1">
+                                    <af:panelFormLayout id="pfl1" maxColumns="4" rows="1" labelAlignment="top">
                                         <af:inputComboboxListOfValues id="iclov2"
                                                                       popupTitle="Search and Select: #{bindings.txtInvOrgDescription.hints.label}"
                                                                       value="#{bindings.txtInvOrgDescription.inputValue}"
@@ -555,16 +520,54 @@
                                                                       shortDesc="#{bindings.txtSupplierName.hints.tooltip}">
                                             <f:validator binding="#{bindings.txtSupplierName.validator}"/>
                                         </af:inputComboboxListOfValues>
-                                        <af:button text="Accounting Impact" id="b1">
-                                            <af:showPopupBehavior popupId="p1" triggerType="action"/>
-                                        </af:button>
                                     </af:panelFormLayout>
+                                </af:panelBox>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow id="gr10">
+                            <af:gridCell id="gc22" halign="stretch" valign="stretch">
+                                <af:panelBox text="Line Accounting Impact" id="pb2" showDisclosure="false">
+                                    <f:facet name="toolbar"/>
+                                    <af:table value="#{bindings.ScmPurchaseDemandAccountDetCRUD.collectionModel}"
+                                              var="row" rows="#{bindings.ScmPurchaseDemandAccountDetCRUD.rangeSize}"
+                                              emptyText="#{bindings.ScmPurchaseDemandAccountDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.ScmPurchaseDemandAccountDetCRUD.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.ScmPurchaseDemandAccountDetCRUD.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.ScmPurchaseDemandAccountDetCRUD.rangeSize}" id="t2">
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.label}"
+                                                   id="c4" width="200">
+                                            <af:inputComboboxListOfValues id="txtChartOfAccountNameId"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.label}"
+                                                                          value="#{row.bindings.txtChartOfAccountName.inputValue}"
+                                                                          model="#{row.bindings.txtChartOfAccountName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.tooltip}">
+                                                <f:validator binding="#{row.bindings.txtChartOfAccountName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.label}"
+                                                   id="c5" width="100">
+                                            <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.label}"
+                                                          required="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.tooltip}"
+                                                          id="it16">
+                                                <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                    </af:table>
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>
                 </f:facet>
-                <f:facet name="top"/>
             </af:decorativeBox>
         </af:form>
         <f:facet name="metaContainer">
