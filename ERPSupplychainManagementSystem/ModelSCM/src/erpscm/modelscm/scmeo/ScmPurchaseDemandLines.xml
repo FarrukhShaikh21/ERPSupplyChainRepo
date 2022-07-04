@@ -343,9 +343,9 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[InvUnitType?.UnitTypeName]]></TransientExpression>
+    IsQueriable="false"
+    IsNotNull="true">
+    <TransientExpression><![CDATA[InvUnitType?.UnitTypeName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -368,8 +368,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+    <TransientExpression><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -468,8 +467,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -528,8 +526,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[InvInventoryOrg?.OrgDescription]]></TransientExpression>
+    <TransientExpression><![CDATA[InvInventoryOrg?.OrgDescription]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -614,6 +611,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.DemandLinesSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmPurchaseDemandLinesTxtUnitTypeNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Scm_Purchase_Demand_Lines_Txt_"/>
+      <Attr Name="_checkCondition" Value='"txt_Unit_Type_Name" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.txtUnitTypeName"/>
     </AttrArray>
   </Key>
   <Key
@@ -714,10 +723,11 @@
     CompareType="EQUALTO"
     CompareValue="DemandQuantity"
     Operation="sum">
-    <validation:OnAttributes>
-      <validation:Item
-        Value="DemandQuantity"/>
-    </validation:OnAttributes>
+    <validation:ResExpressions
+      Name="ScmPurchaseDemandAccountQtyBR_ResExprList">
+      <validation:Expression
+        Name="0"><![CDATA[txtItemName+"-"+txtUnitTypeName]]></validation:Expression>
+    </validation:ResExpressions>
   </validation:CollectionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
