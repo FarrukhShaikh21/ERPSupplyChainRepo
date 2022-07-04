@@ -14,7 +14,8 @@
     Cardinality="1"
     Source="true"
     Owner="erpscm.modelscm.scmeo.ScmPurchaseDemandLines"
-    LockLevel="NONE">
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseDemandLines"/>
@@ -29,7 +30,8 @@
   <AssociationEnd
     Name="ScmPurchaseDemandAccount"
     Cardinality="-1"
-    Owner="erpscm.modelscm.scmeo.ScmPurchaseDemandAccount">
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseDemandAccount"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseDemandAccount"/>

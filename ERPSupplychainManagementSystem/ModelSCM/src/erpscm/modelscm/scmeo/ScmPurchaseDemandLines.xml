@@ -10,7 +10,8 @@
   DBObjectName="SCM_PURCHASE_DEMAND_LINES"
   AliasName="ScmPurchaseDemandLines"
   BindingStyle="JDBC"
-  RowClass="erpscm.modelscm.scmeo.ScmPurchaseDemandLinesImpl">
+  RowClass="erpscm.modelscm.scmeo.ScmPurchaseDemandLinesImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|DML"/>
     <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
@@ -703,6 +704,21 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.InventoryOrgSno"/>
     </AttrArray>
   </Key>
+  <validation:CollectionValidationBean
+    Name="ScmPurchaseDemandAccountQtyBR"
+    Accessor="ScmPurchaseDemandAccount"
+    CollAttribute="Quantity"
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines_Rule_0"
+    OperandType="ATTR"
+    Inverse="false"
+    CompareType="EQUALTO"
+    CompareValue="DemandQuantity"
+    Operation="sum">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="DemandQuantity"/>
+    </validation:OnAttributes>
+  </validation:CollectionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>

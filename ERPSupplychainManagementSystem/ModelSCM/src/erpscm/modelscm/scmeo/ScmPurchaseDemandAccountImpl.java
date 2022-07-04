@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmeo;
 
+import erpfms.modelfms.fmseo.GlChartOfAccountsImpl;
+
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import java.math.BigDecimal;
@@ -54,6 +56,8 @@ public class ScmPurchaseDemandAccountImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int DEMANDACCOUNTSNO = AttributesEnum.DemandAccountSno.index();
     public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
     public static final int QUANTITY = AttributesEnum.Quantity.index();
@@ -71,6 +75,14 @@ public class ScmPurchaseDemandAccountImpl extends ERPEntityImpl {
      */
     public ScmPurchaseDemandAccountImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseDemandAccount");
+    }
+
 
     /**
      * Gets the attribute value for DemandAccountSno, using the alias name DemandAccountSno.
@@ -217,19 +229,41 @@ public class ScmPurchaseDemandAccountImpl extends ERPEntityImpl {
     }
 
     /**
+     * @return the associated entity ScmPurchaseDemandLinesImpl.
+     */
+    public ScmPurchaseDemandLinesImpl getScmPurchaseDemandLines() {
+        return (ScmPurchaseDemandLinesImpl) getAttributeInternal(SCMPURCHASEDEMANDLINES);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmPurchaseDemandLinesImpl.
+     */
+    public void setScmPurchaseDemandLines(ScmPurchaseDemandLinesImpl value) {
+        setAttributeInternal(SCMPURCHASEDEMANDLINES, value);
+    }
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlChartOfAccountsImpl.
+     */
+    public GlChartOfAccountsImpl getGlChartOfAccounts() {
+        return (GlChartOfAccountsImpl) getAttributeInternal(GLCHARTOFACCOUNTS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlChartOfAccountsImpl.
+     */
+    public void setGlChartOfAccounts(GlChartOfAccountsImpl value) {
+        setAttributeInternal(GLCHARTOFACCOUNTS, value);
+    }
+
+
+    /**
      * @param demandAccountSno key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer demandAccountSno) {
         return new Key(new Object[] { demandAccountSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseDemandAccount");
     }
 
     /**

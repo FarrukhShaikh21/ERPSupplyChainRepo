@@ -98,6 +98,10 @@
                   id="txtDepartmentName"/>
     <listOfValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
                   id="txtSupplierName"/>
+    <action IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
     <tree IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="ScmPurchaseDemandAccountDetCRUD">
       <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseDemandAccountVO"
                       Name="ScmPurchaseDemandAccountDetCRUD0">
@@ -107,5 +111,9 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>
