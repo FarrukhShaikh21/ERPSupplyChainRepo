@@ -762,9 +762,12 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
                                                               this.getEntityDef().getSource(), "DEMAND_HEADER_SNO", getDemandHeaderSno().toString());
 
             populateAttributeAsChanged(LINENO, Integer.parseInt(result));
-            populateAttributeAsChanged(APPROVEQUANTITY, getDemandQuantity());
+            
 
-        }         
+        }  
+        if (operation!=DML_DELETE) {
+           populateAttributeAsChanged(APPROVEQUANTITY, getDemandQuantity());
+       }
         System.out.println("this is purchase demand lines impl");
         super.doDML(operation, e);
     }

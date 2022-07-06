@@ -128,7 +128,6 @@
   </Attribute>
   <Attribute
     Name="DemandQuantity"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="DEMAND_QUANTITY"
@@ -343,8 +342,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false"
-    IsNotNull="true">
+    IsQueriable="false">
     <TransientExpression><![CDATA[InvUnitType?.UnitTypeName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
@@ -611,18 +609,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.DemandLinesSno"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="ScmPurchaseDemandLinesTxtUnitTypeNameCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_DBObjectName" Value="Scm_Purchase_Demand_Lines_Txt_"/>
-      <Attr Name="_checkCondition" Value='"txt_Unit_Type_Name" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.txtUnitTypeName"/>
     </AttrArray>
   </Key>
   <Key

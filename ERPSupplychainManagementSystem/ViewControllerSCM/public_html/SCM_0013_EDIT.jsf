@@ -353,7 +353,8 @@
                                                                           required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.tooltip}"
-                                                                          contentStyle="width:100%">
+                                                                          contentStyle="width:100%"
+                                                                          partialTriggers="txtUnitTypeNameId">
                                                 <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
@@ -367,7 +368,7 @@
                                                                           required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
-                                                                          contentStyle="width:100%">
+                                                                          contentStyle="width:100%" autoSubmit="true">
                                                 <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>

@@ -826,6 +826,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     }
 
     public void doCheckItemUnitType(Integer pItemId, Integer pUnitTypeSno) {
+        
         RowSetIterator rs = this.getViewObject().createRowSetIterator(null);
         rs.reset();
         Integer count = 0;
@@ -837,9 +838,10 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
                     count++;
                 }
                 if (count > 1) {
-                    String strMessage
+                    String strMessage="This Item And Unit Type Is Already Entered In This Transaction.("+gettxtItemName()+"-"+gettxtUnitTypeName()+")";
                     setItemId(null);
-                    throw new JboException("This Item And Unit Type Is Already Entered In This Transaction.");
+                    settxtItemName(null);
+                    throw new JboException(strMessage);
                 }
             }
         } catch (NullPointerException nfe) {
