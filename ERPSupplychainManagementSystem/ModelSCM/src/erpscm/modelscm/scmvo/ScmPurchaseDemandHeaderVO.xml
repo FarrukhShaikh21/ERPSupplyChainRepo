@@ -623,19 +623,40 @@
               ViewAttribute="CompanyName"
               Operator="CONTAINS"
               Conjunction="AND"
-              Required="Optional"/>
+              Required="Optional">
+              <Properties>
+                <SchemaBasedProperties>
+                  <DISPLAYWIDTH
+                    Value="20"/>
+                </SchemaBasedProperties>
+              </Properties>
+            </ViewCriteriaItem>
             <ViewCriteriaItem
               Name="CompanyShortName"
               ViewAttribute="CompanyShortName"
               Operator="CONTAINS"
               Conjunction="AND"
-              Required="Optional"/>
+              Required="Optional">
+              <Properties>
+                <SchemaBasedProperties>
+                  <DISPLAYWIDTH
+                    Value="20"/>
+                </SchemaBasedProperties>
+              </Properties>
+            </ViewCriteriaItem>
             <ViewCriteriaItem
               Name="CompanyShortCode"
               ViewAttribute="CompanyShortCode"
               Operator="="
               Conjunction="AND"
-              Required="Optional"/>
+              Required="Optional">
+              <Properties>
+                <SchemaBasedProperties>
+                  <DISPLAYWIDTH
+                    Value="20"/>
+                </SchemaBasedProperties>
+              </Properties>
+            </ViewCriteriaItem>
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>

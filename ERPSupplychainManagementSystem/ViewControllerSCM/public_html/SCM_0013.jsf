@@ -27,7 +27,9 @@
                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch"
                                styleClass="ERPToolBarBackground">
                     <af:panelGroupLayout id="pgl6" halign="end" layout="horizontal">
-                      <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgFind.png']}"/>
+                      <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgFind.png']}">
+                        <af:showPopupBehavior popupId="::p1"/>
+                      </af:link>
                       <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
                                action="ERP-ADD-ACT-SCM_0013" shortDesc="Add New Record"/>
                       <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM"
