@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 
 import java.sql.Timestamp;
 
-import oracle.jbo.JboException;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
@@ -59,6 +58,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         InventoryOrgSno,
         txtInvOrgDescription,
         txtLineCount,
+        txtIsDuplicateItem,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
@@ -132,6 +132,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int TXTINVORGDESCRIPTION = AttributesEnum.txtInvOrgDescription.index();
     public static final int TXTLINECOUNT = AttributesEnum.txtLineCount.index();
+    public static final int TXTISDUPLICATEITEM = AttributesEnum.txtIsDuplicateItem.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -655,6 +656,22 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for txt_Is_Duplicate_Item using the alias name txtIsDuplicateItem.
+     * @return the txt_Is_Duplicate_Item
+     */
+    public String gettxtIsDuplicateItem() {
+        return (String) getAttributeInternal(TXTISDUPLICATEITEM);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Is_Duplicate_Item using the alias name txtIsDuplicateItem.
+     * @param value value to set the txt_Is_Duplicate_Item
+     */
+    public void settxtIsDuplicateItem(String value) {
+        setAttributeInternal(TXTISDUPLICATEITEM, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link GlProjectsVO.
      */
     public Row getGlProjectsVO() {
@@ -826,7 +843,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     }
 
     public void doCheckItemUnitType(Integer pItemId, Integer pUnitTypeSno) {
-        
+        settxtIsDuplicateItem("ERPNO");
         RowSetIterator rs = this.getViewObject().createRowSetIterator(null);
         rs.reset();
         Integer count = 0;
@@ -839,9 +856,10 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
                 }
                 if (count > 1) {
                     String strMessage="This Item And Unit Type Is Already Entered In This Transaction.("+gettxtItemName()+"-"+gettxtUnitTypeName()+")";
-                    setItemId(null);
-                    settxtItemName(null);
-                    throw new JboException(strMessage);
+//                    setItemId(null);
+//                    settxtItemName(null);
+                    settxtIsDuplicateItem("ERPYES");
+//                    throw new JboException(strMessage);
                 }
             }
         } catch (NullPointerException nfe) {

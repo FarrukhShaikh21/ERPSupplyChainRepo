@@ -575,6 +575,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtIsDuplicateItem"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtIsDuplicateItem"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="txt_Is_Duplicate_Item"/>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"

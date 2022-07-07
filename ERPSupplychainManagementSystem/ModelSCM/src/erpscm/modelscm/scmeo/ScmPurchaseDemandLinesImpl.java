@@ -59,6 +59,8 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         InventoryOrgSno,
         SubinventoryOrgSno,
         txtInvOrgDescription,
+        txtCoaInventory,
+        txtIsDuplicateItem,
         ScmPurchaseDemandHeader,
         GlProjects,
         AdminCompany,
@@ -121,6 +123,8 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int TXTINVORGDESCRIPTION = AttributesEnum.txtInvOrgDescription.index();
+    public static final int TXTCOAINVENTORY = AttributesEnum.txtCoaInventory.index();
+    public static final int TXTISDUPLICATEITEM = AttributesEnum.txtIsDuplicateItem.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -611,6 +615,38 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtCoaInventory, using the alias name txtCoaInventory.
+     * @return the value of txtCoaInventory
+     */
+    public Integer gettxtCoaInventory() {
+        return (Integer) getAttributeInternal(TXTCOAINVENTORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCoaInventory.
+     * @param value value to set the txtCoaInventory
+     */
+    public void settxtCoaInventory(Integer value) {
+        setAttributeInternal(TXTCOAINVENTORY, value);
+    }
+
+    /**
+     * Gets the attribute value for txtIsDuplicateItem, using the alias name txtIsDuplicateItem.
+     * @return the value of txtIsDuplicateItem
+     */
+    public String gettxtIsDuplicateItem() {
+        return (String) getAttributeInternal(TXTISDUPLICATEITEM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtIsDuplicateItem.
+     * @param value value to set the txtIsDuplicateItem
+     */
+    public void settxtIsDuplicateItem(String value) {
+        setAttributeInternal(TXTISDUPLICATEITEM, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseDemandHeaderImpl.
      */
     public ScmPurchaseDemandHeaderImpl getScmPurchaseDemandHeader() {
@@ -767,6 +803,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         }  
         if (operation!=DML_DELETE) {
            populateAttributeAsChanged(APPROVEQUANTITY, getDemandQuantity());
+           populateAttributeAsChanged(TXTISDUPLICATEITEM, "ERPNO");
        }
         System.out.println("this is purchase demand lines impl");
         super.doDML(operation, e);

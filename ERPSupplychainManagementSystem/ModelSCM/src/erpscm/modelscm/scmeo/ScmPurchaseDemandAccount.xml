@@ -37,7 +37,6 @@
     TableName="SCM_PURCHASE_DEMAND_ACCOUNT"/>
   <Attribute
     Name="Quantity"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="QUANTITY"
@@ -46,7 +45,18 @@
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_DEMAND_ACCOUNT"
     RetrievedOnUpdate="true"
-    RetrievedOnInsert="true"/>
+    RetrievedOnInsert="true">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(ScmPurchaseDemandLines?.DemandQuantity==null?0:ScmPurchaseDemandLines?.DemandQuantity)-(ScmPurchaseDemandLines?.ScmPurchaseDemandAccount?.sum("Quantity")==null?0:ScmPurchaseDemandLines?.ScmPurchaseDemandAccount?.sum("Quantity"))]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandAccount.Quantity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ChartOfAccountId"
     Precision="10"
@@ -55,7 +65,10 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_DEMAND_ACCOUNT"/>
+    TableName="SCM_PURCHASE_DEMAND_ACCOUNT">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseDemandLines?.txtCoaInventory]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
     Precision="10"

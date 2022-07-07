@@ -538,6 +538,45 @@
         Value="InventoryOrgSno"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtCoaInventory"
+    ColumnName="txt_Coa_Inventory"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InvItem?.CoaInventory]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.txtCoaInventory_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtIsDuplicateItem"
+    Precision="80"
+    ColumnName="txt_Is_Duplicate_Item"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.txtIsDuplicateItem_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseDemandHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurDemLinHeaderIdAssoc"
@@ -712,9 +751,52 @@
     <validation:ResExpressions
       Name="ScmPurchaseDemandAccountQtyBR_ResExprList">
       <validation:Expression
-        Name="0"><![CDATA[txtItemName+"-"+txtUnitTypeName]]></validation:Expression>
+        Name="0"
+        trustMode="untrusted"><![CDATA[txtItemName+"-"+txtUnitTypeName]]></validation:Expression>
     </validation:ResExpressions>
   </validation:CollectionValidationBean>
+  <validation:ExpressionValidationBean
+    Name="ScmPurchaseDemandLinesRequiredBR"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:MsgIds>
+      <validation:Item
+        Value="ERR_REQ_DUPLICATE_ITEM"/>
+      <validation:Item
+        Value="ERR_REQ_UNIT_TYPE"/>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_QUANTITY"/>
+      <validation:Item
+        Value="ERR_REQ_REQUIRED_DATE"/>
+    </validation:MsgIds>
+    <validation:TransientExpression
+      trustMode="untrusted"><![CDATA[if(RequiredByDate==null)
+{
+adf.error.raise("ERR_REQ_REQUIRED_DATE");
+return false;
+}
+
+if(DemandQuantity==null)
+{
+adf.error.raise("ERR_REQ_DEMAND_QUANTITY");
+return false;
+}
+
+if(UnitTypeSno==null)
+{
+adf.error.raise("ERR_REQ_UNIT_TYPE");
+return false;
+}
+
+
+if(txtIsDuplicateItem.equals("ERPYES"))
+{
+adf.error.raise("ERR_REQ_DUPLICATE_ITEM");
+return false;
+}
+
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>

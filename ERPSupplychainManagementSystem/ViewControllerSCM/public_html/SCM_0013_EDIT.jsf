@@ -27,8 +27,7 @@
             </af:popup>
             <af:decorativeBox id="db1" dimensionsFrom="parent">
                 <f:facet name="center">
-                    <af:panelGridLayout id="pgl1" partialTriggers="l5 l1 l8 l20 l19 l9 l10 l6 l4 l7 l3 l2 d3 d4"
-                                        dimensionsFrom="parent">
+                    <af:panelGridLayout id="pgl1" partialTriggers="l5 l1 l8 l20 l19 l9 l10 l6 l4 l7 l3 l2 d3 d4">
                         <af:gridRow id="gr8">
                             <af:gridCell id="gc20" valign="stretch" halign="stretch">
                                 <af:panelGridLayout id="pgl6">
@@ -289,6 +288,15 @@
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" id="gr2">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch">
+                                <af:inputText value="#{bindings.txtItemName.inputValue}"
+                                              label="#{bindings.txtItemName.hints.label}"
+                                              required="#{bindings.txtItemName.hints.mandatory}"
+                                              columns="#{bindings.txtItemName.hints.displayWidth}"
+                                              maximumLength="#{bindings.txtItemName.hints.precision}"
+                                              shortDesc="#{bindings.txtItemName.hints.tooltip}" id="it5"
+                                              rendered="false">
+                                    <f:validator binding="#{bindings.txtItemName.validator}"/>
+                                </af:inputText>
                                 <af:inputText value="#{bindings.txtLineCount.inputValue}"
                                               label="#{bindings.txtLineCount.hints.label}"
                                               required="#{bindings.txtLineCount.hints.mandatory}"
@@ -329,7 +337,20 @@
                                               rowSelection="single"
                                               fetchSize="#{bindings.ScmPurchaseDemandLinesDetCRUD.rangeSize}" id="t1" columnStretching="column:c2"
                                               autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?8:15}"
-                                              scrollPolicy="page" partialTriggers="::l12 ::l11">
+                                              scrollPolicy="page" partialTriggers="::l12 ::l11"
+                                              blockRowNavigationOnError="always">
+                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.label}"
+                                                   id="c8" rendered="false">
+                                            <af:inputText value="#{row.bindings.txtIsDuplicateItem.inputValue}"
+                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.label}"
+                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.tooltip}"
+                                                          id="it18">
+                                                <f:validator binding="#{row.bindings.txtIsDuplicateItem.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.label}"
                                                    id="c1" width="60" headerClass="ERPToolBarBackground">
                                             <af:inputText value="#{row.bindings.LineNo.inputValue}"
@@ -512,22 +533,33 @@
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
-                        <af:gridRow id="gr10" marginTop="50px">
-                            <af:gridCell id="gc22" halign="stretch" valign="stretch">
-                                <af:panelBox text="Line Accounting Impact" id="pb2" showDisclosure="false">
+                        <af:gridRow id="gr10" marginTop="10px" height="500px">
+                            <af:gridCell id="gc22">
+                                <af:panelBox text="Line Account (#{bindings.txtItemName.inputValue})" id="pb2" showDisclosure="false">
                                     <f:facet name="toolbar"/>
+                                    <af:inputText value="#{bindings.txtSumQuantity.inputValue}"
+                                                  label="#{bindings.txtSumQuantity.hints.label}"
+                                                  required="#{bindings.txtSumQuantity.hints.mandatory}"
+                                                  columns="#{bindings.txtSumQuantity.hints.displayWidth}"
+                                                  maximumLength="#{bindings.txtSumQuantity.hints.precision}"
+                                                  shortDesc="#{bindings.txtSumQuantity.hints.tooltip}" id="it17"
+                                                  rendered="false">
+                                        <f:validator binding="#{bindings.txtSumQuantity.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.txtSumQuantity.format}"/>
+                                    </af:inputText>
                                     <af:panelCollection id="pc2">
                                         <f:facet name="menus"/>
                                         <f:facet name="toolbar">
                                             <af:toolbar id="t5">
                                                 <af:link actionListener="#{bindings.CreateInsert1.execute}"
-                                                         disabled="#{!bindings.CreateInsert1.enabled}" id="l13"
+                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised=='Y'}" id="l13"
                                                          icon="#{resource['images:imgAddRecord.png']}"
-                                                         partialSubmit="true"/>
+                                                         partialSubmit="true" immediate="true"/>
                                                 <af:link actionListener="#{bindings.Delete2.execute}"
-                                                         disabled="#{!bindings.Delete2.enabled}" id="l14"
+                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised=='Y'}" id="l14"
                                                          icon="#{resource['images:imgDeleteRecord.png']}"
-                                                         partialSubmit="true"/>
+                                                         partialSubmit="true" immediate="true"/>
                                             </af:toolbar>
                                         </f:facet>
                                         <f:facet name="statusbar"/>
@@ -539,8 +571,8 @@
                                                   selectionListener="#{bindings.ScmPurchaseDemandAccountDetCRUD.collectionModel.makeCurrent}"
                                                   rowSelection="single"
                                                   fetchSize="#{bindings.ScmPurchaseDemandAccountDetCRUD.rangeSize}"
-                                                  id="t4" partialTriggers="::l13 ::l14" autoHeightRows="5"
-                                                  displayRow="selected" scrollPolicy="page">
+                                                  id="t4" partialTriggers="::l13 ::l14" autoHeightRows="3"
+                                                  scrollPolicy="page" columnStretching="column:c4" immediate="true">
                                             <af:column headerText="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.label}"
                                                        id="c4" width="300" displayIndex="-1">
                                                 <af:inputComboboxListOfValues id="txtChartOfAccountNameId"
@@ -550,23 +582,36 @@
                                                                               required="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.mandatory}"
                                                                               columns="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.displayWidth}"
                                                                               shortDesc="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.txtChartOfAccountName.tooltip}"
-                                                                              contentStyle="width:100%">
+                                                                              contentStyle="width:100%"
+                                                                              autoSubmit="true"
+                                                                              readOnly="#{bindings.IsSupervised=='Y'}">
                                                     <f:validator binding="#{row.bindings.txtChartOfAccountName.validator}"/>
                                                 </af:inputComboboxListOfValues>
                                             </af:column>
                                             <af:column headerText="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.label}"
                                                        id="c5">
-                                                <af:inputText value="#{row.bindings.Quantity.inputValue}"
-                                                              label="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.label}"
-                                                              required="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.mandatory}"
-                                                              columns="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.displayWidth}"
-                                                              maximumLength="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.precision}"
-                                                              shortDesc="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.tooltip}"
-                                                              id="it16">
-                                                    <f:validator binding="#{row.bindings.Quantity.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.format}"/>
-                                                </af:inputText>
+                                                <af:panelGroupLayout id="pgl7" layout="horizontal"
+                                                                     halign="#{bindings.IsSupervised.inputValue=='N'?'start':'end'}">
+                                                    <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.label}"
+                                                                  required="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.tooltip}"
+                                                                  id="it16" autoSubmit="true"
+                                                                  readOnly="#{bindings.IsSupervised=='Y'}"
+                                                                  contentStyle="width:100%">
+                                                        <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ScmPurchaseDemandAccountDetCRUD.hints.Quantity.format}"/>
+                                                    </af:inputText>
+                                                </af:panelGroupLayout>
+                                                <f:facet name="footer">
+                                                    <af:panelGroupLayout id="pgl5" layout="horizontal" halign="end">
+                                                        <af:outputText value="#{bindings.txtSumQuantity.inputValue}" id="ot2"
+                                                                       partialTriggers="it16"/>
+                                                    </af:panelGroupLayout>
+                                                </f:facet>
                                             </af:column>
                                         </af:table>
                                     </af:panelCollection>
