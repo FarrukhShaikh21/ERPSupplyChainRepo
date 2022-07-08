@@ -4,6 +4,8 @@ import erpglobals.modelglobals.ERPViewRowImpl;
 
 import erpscm.modelscm.scmeo.ScmPurchaseDemandHeaderImpl;
 
+import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.Row;
@@ -50,6 +52,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
         txtTempDepartmentName,
         txtLocationName,
         IsUnsupervised,
+        txtSumDemandQuantity,
         ScmPurchaseDemandLinesVO,
         GlProjectsVO,
         AdminCompanyVO,
@@ -113,6 +116,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
     public static final int TXTTEMPDEPARTMENTNAME = AttributesEnum.txtTempDepartmentName.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int ISUNSUPERVISED = AttributesEnum.IsUnsupervised.index();
+    public static final int TXTSUMDEMANDQUANTITY = AttributesEnum.txtSumDemandQuantity.index();
     public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -563,6 +567,14 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setIsUnsupervised(String value) {
         setAttributeInternal(ISUNSUPERVISED, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtSumDemandQuantity.
+     * @return the txtSumDemandQuantity
+     */
+    public BigDecimal gettxtSumDemandQuantity() {
+        return (BigDecimal) getAttributeInternal(TXTSUMDEMANDQUANTITY);
     }
 
     /**
