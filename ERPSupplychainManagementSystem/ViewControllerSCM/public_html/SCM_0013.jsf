@@ -116,7 +116,8 @@
                                       <af:image id="i3"
                                                 shortDesc="Location Name"
                                                 source="#{resource['images:imgTotalQuantity.png']}"/>
-                                      <af:outputFormatted value="#{item.bindings.txtLocationName.inputValue}" id="of1"
+                                      <af:spacer width="10" height="10" id="s1"/>
+                                      <af:outputFormatted value="#{item.bindings.txtSumDemandQuantity.inputValue}" id="of1"
                                                           styleClass="ERPHeroDetailColor"/>
                                     </af:panelGroupLayout>
                                   </af:gridCell>
