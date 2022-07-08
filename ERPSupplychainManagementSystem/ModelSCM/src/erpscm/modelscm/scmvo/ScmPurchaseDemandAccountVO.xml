@@ -16,7 +16,24 @@
   <ViewAccessor
     Name="AccGlChartOfAccountsVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlChartOfAccountsByComnanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO.GlChartOfAccountsByComnanyVC"/>
+    <ViewCriteriaUsage
+      Name="GlChartOfAccountsLevelWiseVC"
+      FullName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO.GlChartOfAccountsLevelWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseDemandLinesVO?.ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtChartOfAccountName"
     ListVOName="AccGlChartOfAccountsVO"
@@ -124,10 +141,8 @@
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[getRowSet().sum("Quantity")]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[getRowSet().sum("Quantity")]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
   </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseDemandLinesVO"

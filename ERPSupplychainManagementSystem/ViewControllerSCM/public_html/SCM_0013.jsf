@@ -20,7 +20,7 @@
       </af:popup>
       <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
         <f:facet name="ERPMain">
-          <af:decorativeBox id="db1" dimensionsFrom="parent" topHeight="40px">
+          <af:decorativeBox id="db1" topHeight="40px">
             <f:facet name="center">
               <af:panelGridLayout id="pgl7">
                 <af:gridRow height="auto" id="gr1" marginBottom="5px" marginTop="5px">
@@ -110,9 +110,16 @@
                                     </af:outputFormatted>
                                   </af:gridCell>
                                 </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
-                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10"
-                                               halign="stretch"/>
+                                <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch">
+                                    <af:panelGroupLayout id="pgl10" layout="horizontal">
+                                      <af:image id="i3"
+                                                shortDesc="Location Name"
+                                                source="#{resource['images:imgTotalQuantity.png']}"/>
+                                      <af:outputFormatted value="#{item.bindings.txtLocationName.inputValue}" id="of1"
+                                                          styleClass="ERPHeroDetailColor"/>
+                                    </af:panelGroupLayout>
+                                  </af:gridCell>
                                 </af:gridRow>
                               </af:panelGridLayout>
                             </af:panelBox>

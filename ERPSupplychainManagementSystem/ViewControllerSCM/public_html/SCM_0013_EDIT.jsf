@@ -25,7 +25,7 @@
                   <f:facet name="buttonBar"/>
                         </af:dialog>
             </af:popup>
-            <af:decorativeBox id="db1" dimensionsFrom="parent">
+            <af:decorativeBox id="db1">
                 <f:facet name="center">
                     <af:panelGridLayout id="pgl1" partialTriggers="l5 l1 l8 l20 l19 l9 l10 l6 l4 l7 l3 l2 d3 d4">
                         <af:gridRow id="gr8">
@@ -533,7 +533,7 @@
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
-                        <af:gridRow id="gr10" marginTop="10px" height="500px">
+                        <af:gridRow id="gr10" marginTop="10px">
                             <af:gridCell id="gc22">
                                 <af:panelBox text="Line Account (#{bindings.txtItemName.inputValue})" id="pb2" showDisclosure="false">
                                     <f:facet name="toolbar"/>
