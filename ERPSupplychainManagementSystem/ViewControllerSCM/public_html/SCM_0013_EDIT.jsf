@@ -366,16 +366,18 @@
                                             </af:inputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.label}"
-                                                   id="c2" width="150" headerClass="ERPToolBarBackground">
+                                                   id="c2" width="200" headerClass="ERPToolBarBackground"
+                                                   displayIndex="-1">
                                             <af:inputComboboxListOfValues id="txtItemNameId"
                                                                           popupTitle="Search and Select: #{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.label}"
                                                                           value="#{row.bindings.txtItemName.inputValue}"
                                                                           model="#{row.bindings.txtItemName.listOfValuesModel}"
                                                                           required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtItemName.tooltip}"
+                                                                          shortDesc="#{row.bindings.txtItemName.inputValue}"
                                                                           contentStyle="width:100%"
-                                                                          partialTriggers="txtUnitTypeNameId">
+                                                                          partialTriggers="txtUnitTypeNameId"
+                                                                          autoSubmit="true">
                                                 <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>

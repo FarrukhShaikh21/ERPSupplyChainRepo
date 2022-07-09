@@ -773,6 +773,8 @@
       <validation:Item
         Value="ERR_REQ_DUPLICATE_ITEM"/>
       <validation:Item
+        Value="ERR_REQ_FUTURE_DATE"/>
+      <validation:Item
         Value="ERR_REQ_UNIT_TYPE"/>
       <validation:Item
         Value="ERR_REQ_DEMAND_QUANTITY"/>
@@ -796,6 +798,12 @@ return false;
 if(RequiredByDate==null)
 {
 adf.error.raise("ERR_REQ_REQUIRED_DATE");
+return false;
+}
+
+if(RequiredByDate<=adf.currentDate)
+{
+adf.error.raise("ERR_REQ_FUTURE_DATE");
 return false;
 }
 

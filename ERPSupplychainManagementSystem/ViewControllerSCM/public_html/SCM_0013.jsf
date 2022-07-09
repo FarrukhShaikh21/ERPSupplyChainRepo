@@ -114,7 +114,7 @@
                                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch">
                                     <af:panelGroupLayout id="pgl10" layout="horizontal">
                                       <af:image id="i3"
-                                                shortDesc="Location Name"
+                                                shortDesc="Demand Quantity"
                                                 source="#{resource['images:imgTotalQuantity.png']}"/>
                                       <af:spacer width="10" height="10" id="s1"/>
                                       <af:outputFormatted value="#{item.bindings.txtSumDemandQuantity.inputValue}" id="of1"
@@ -132,7 +132,6 @@
                 </af:gridRow>
               </af:panelGridLayout>
             </f:facet>
-            <f:facet name="top"/>
           </af:decorativeBox>
         </f:facet>
         <f:facet name="ERPLeft"/>
