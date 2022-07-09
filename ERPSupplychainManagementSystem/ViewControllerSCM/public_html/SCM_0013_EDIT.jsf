@@ -391,7 +391,8 @@
                                                                           required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
-                                                                          contentStyle="width:100%" autoSubmit="true">
+                                                                          contentStyle="width:100%" autoSubmit="true"
+                                                                          partialTriggers="txtItemNameId">
                                                 <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>

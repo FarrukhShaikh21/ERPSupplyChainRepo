@@ -226,7 +226,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
      */
     public void setItemId(Integer value) {
         setAttributeInternal(ITEMID, value);
-        doCheckDuplicateItem(value);
+        setUnitTypeSno((Integer)getInvItemVO().getAttribute("PurchaseUnitTypeSno"));
     }
 
     /**
