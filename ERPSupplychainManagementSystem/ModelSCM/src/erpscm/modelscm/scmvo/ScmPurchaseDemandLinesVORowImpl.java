@@ -226,7 +226,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
      */
     public void setItemId(Integer value) {
         setAttributeInternal(ITEMID, value);
-        doCheckItemUnitType(value,getUnitTypeSno());
+        doCheckDuplicateItem(value);
     }
 
     /**
@@ -243,7 +243,6 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
      */
     public void setUnitTypeSno(Integer value) {
         setAttributeInternal(UNITTYPESNO, value);
-        doCheckItemUnitType(getItemId(),value);
     }
 
     /**
@@ -842,16 +841,20 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         return super.isAttributeUpdateable(i);
     }
 
-    public void doCheckItemUnitType(Integer pItemId, Integer pUnitTypeSno) {
+    public void doCheckDuplicateItem(Integer pItemId) {
+        if (1==1) {
+            return;
+       }
         settxtIsDuplicateItem("ERPNO");
         RowSetIterator rs = this.getViewObject().createRowSetIterator(null);
         rs.reset();
+        rs.setRangeSize(-1);
         Integer count = 0;
         try {
-            while (rs.hasNext()) {
-                Row r = rs.next();
-                if (Integer.parseInt(r.getAttribute("ItemId").toString()) == pItemId &&
-                    Integer.parseInt(r.getAttribute("UnitTypeSno").toString()) == pUnitTypeSno) {
+            for (int i=0;i<rs.getRowCount();i++) {
+                Row r = rs.getRowAtRangeIndex(i);
+                if (Integer.parseInt(r.getAttribute("ItemId").toString()) == pItemId /*&&
+                    Integer.parseInt(r.getAttribute("UnitTypeSno").toString()) == pUnitTypeSno*/) {
                     count++;
                 }
                 if (count > 1) {

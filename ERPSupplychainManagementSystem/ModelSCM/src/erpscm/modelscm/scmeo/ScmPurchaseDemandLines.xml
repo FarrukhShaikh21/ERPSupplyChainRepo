@@ -641,6 +641,18 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
+    Name="AltKeyScmPurchaseDemandLine"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_PURCHASE_DEMAND_LINES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.ItemId"/>
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.DemandHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="PkScmPurchaseDemandLines"
     PrimaryKey="true">
     <DesignTime>
@@ -738,6 +750,83 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.InventoryOrgSno"/>
     </AttrArray>
   </Key>
+  <validation:UniqueKeyValidationBean
+    Name="ScmPurchaseDemLinItemUniqueBR"
+    ResId="ERR_REQ_DUPLICATE_ITEM"
+    KeyName="AltKeyScmPurchaseDemandLine">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="ItemId"/>
+      <validation:Item
+        Value="DemandHeaderSno"/>
+    </validation:OnAttributes>
+  </validation:UniqueKeyValidationBean>
+  <validation:ExpressionValidationBean
+    Name="ScmPurchaseDemandLinesRequiredBR"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:MsgIds>
+      <validation:Item
+        Value="ERR_REQ_INVENTORY_ORG"/>
+      <validation:Item
+        Value="ERR_REQ_ITEM_ID"/>
+      <validation:Item
+        Value="ERR_REQ_DUPLICATE_ITEM"/>
+      <validation:Item
+        Value="ERR_REQ_UNIT_TYPE"/>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_QUANTITY"/>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_ACCOUNT"/>
+      <validation:Item
+        Value="ERR_REQ_REQUIRED_DATE"/>
+    </validation:MsgIds>
+    <validation:TransientExpression
+      trustMode="untrusted"><![CDATA[if(ItemId==null)
+{
+adf.error.raise("ERR_REQ_ITEM_ID");
+return false;
+}
+if(UnitTypeSno==null)
+{
+adf.error.raise("ERR_REQ_UNIT_TYPE");
+return false;
+}
+
+if(RequiredByDate==null)
+{
+adf.error.raise("ERR_REQ_REQUIRED_DATE");
+return false;
+}
+
+if(DemandQuantity==null)
+{
+adf.error.raise("ERR_REQ_DEMAND_QUANTITY");
+return false;
+}
+
+
+
+if(txtIsDuplicateItem.equals("ERPYES") && 2==1)
+{
+adf.error.raise("ERR_REQ_DUPLICATE_ITEM");
+return false;
+}
+
+if(InventoryOrgSno==null)
+{
+adf.error.raise("ERR_REQ_INVENTORY_ORG");
+return false;
+}
+
+if(ScmPurchaseDemandAccount.count("DemandLinesSno")==0)
+{
+adf.error.raise("ERR_REQ_DEMAND_ACCOUNT");
+return false;
+}
+
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
   <validation:CollectionValidationBean
     Name="ScmPurchaseDemandAccountQtyBR"
     Accessor="ScmPurchaseDemandAccount"
@@ -755,48 +844,6 @@
         trustMode="untrusted"><![CDATA[txtItemName+"-"+txtUnitTypeName]]></validation:Expression>
     </validation:ResExpressions>
   </validation:CollectionValidationBean>
-  <validation:ExpressionValidationBean
-    Name="ScmPurchaseDemandLinesRequiredBR"
-    OperandType="EXPR"
-    Inverse="false">
-    <validation:MsgIds>
-      <validation:Item
-        Value="ERR_REQ_DUPLICATE_ITEM"/>
-      <validation:Item
-        Value="ERR_REQ_UNIT_TYPE"/>
-      <validation:Item
-        Value="ERR_REQ_DEMAND_QUANTITY"/>
-      <validation:Item
-        Value="ERR_REQ_REQUIRED_DATE"/>
-    </validation:MsgIds>
-    <validation:TransientExpression
-      trustMode="untrusted"><![CDATA[if(RequiredByDate==null)
-{
-adf.error.raise("ERR_REQ_REQUIRED_DATE");
-return false;
-}
-
-if(DemandQuantity==null)
-{
-adf.error.raise("ERR_REQ_DEMAND_QUANTITY");
-return false;
-}
-
-if(UnitTypeSno==null)
-{
-adf.error.raise("ERR_REQ_UNIT_TYPE");
-return false;
-}
-
-
-if(txtIsDuplicateItem.equals("ERPYES"))
-{
-adf.error.raise("ERR_REQ_DUPLICATE_ITEM");
-return false;
-}
-
-return true;]]></validation:TransientExpression>
-  </validation:ExpressionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
