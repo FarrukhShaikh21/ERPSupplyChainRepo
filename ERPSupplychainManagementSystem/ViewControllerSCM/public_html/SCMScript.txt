@@ -1,50 +1,19 @@
-ALTER TABLE SCM_PURCHASE_DEMAND_LINES ADD INVENTORY_ORG_SNO INT(10);
-
-ALTER TABLE SCM_PURCHASE_DEMAND_LINES ADD SUBINVENTORY_ORG_SNO INT(10);
-scm_customer_type_seq
 
 
-CREATE TABLE SCM_PURCHASE_DEMAND_ACCOUNT
-(
-DEMAND_ACCOUNT_SNO NUMBER(10) CONSTRAINT PK_SCM_PURCHASE_DEMAND_ACCOUNT PRIMARY KEY,
-demand_lines_sno NUMBER(10) NOT NULL,
-QUANTITY NUMBER(16,6) NOT NULL,
-CHART_OF_ACCOUNT_ID NUMBER(10) NOT NULL,
-created_by NUMBER(10) NOT NULL, 
-CREATED_DATE DATE NOT NULL, 
-LAST_UPDATED_BY NUMBER(10), 
-LAST_UPDATED_DATE DATE
-)
+CREATE TABLE `sys_approval_status` (
+  `approval_status_sno` int(6) NOT NULL,
+  `status_short_code` int(5) NOT NULL,
+  `status_short_name` varchar(20) NOT NULL,
+  `status_description` varchar(50) NOT NULL,
+  `is_active` varchar(1) NOT NULL,
+  `created_by` int(5) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `last_updated_by` int(5) DEFAULT NULL,
+  `last_updated_date` datetime DEFAULT NULL,
+  `is_finish` varchar(1) NOT NULL,
+  constraint pk_sys_approval_status PRIMARY KEY (`approval_status_sno`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
-
-USE `erporacle`;
-DROP procedure IF EXISTS `proc_get_sequence_no`;
-
-DELIMITER $$
-USE `erporacle`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_get_sequence_no`(IN p_table_name varchar(30),out p_sequence_no int)
-BEGIN
-
-/* in oracle p_sequence_name
- in mysql it will be table name*/
-	start transaction;
-
-	SET @sqlstmt = CONCAT('INSERT INTO  ',p_table_name,' (created_date) values (sysdate())');
-    PREPARE erpstmt FROM @sqlstmt;
-    EXECUTE erpstmt;
-    DEALLOCATE PREPARE erpstmt;
-	COMMIT;
-	SELECT LAST_INSERT_ID() INTO p_sequence_no;
-	if upper(p_table_name)='SCM_ORDER_TYPE-' then
-	insert into scm_order_type_seq (created_date) VALUES (SYSDATE()) ;
-	SELECT LAST_INSERT_ID() INTO p_sequence_no;
-	end if;
-END$$
-
-DELIMITER ;
-
-
-scm_customer_type_seq
 
 ------------------sequences-----------------------------------
 
@@ -130,18 +99,6 @@ create sequence scm_purchase_demand_lines_seq start with 1;
 ------------------sequences-----------------------------------
 
 
-SELECT * from scm_order_type_seq
-DELETE FROM scm_order_type_seq WHERE sequence_no >0
-insert into scm_order_type_seq (created_date) values(sysdate() );
-
-insert into scm_order_type_seq (created_date) VALUES (SYSDATE()) 
-
-CALL proc_get_sequence_no('scm_order_type_seq',@MYSEQ);
-SELECT @MYSEQ
-
-SELECT LAST_INSERT_ID()
-
-#{item.bindings.EmpBranch.inputValue}
 
 
 create or replace PROCEDURE proc_get_sequence_no(p_sequence_name IN  varchar,p_sequence_no out int) as
