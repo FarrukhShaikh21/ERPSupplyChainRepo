@@ -4,7 +4,7 @@
 <Association
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="FkScmPurDemLinHeaderIdAssoc"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
@@ -13,7 +13,10 @@
     Name="ScmPurchaseDemandHeader"
     Cardinality="1"
     Source="true"
-    Owner="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader">
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader"
+    LockLevel="NONE"
+    CascadeDelete="true"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseDemandHeader"/>
@@ -28,7 +31,8 @@
   <AssociationEnd
     Name="ScmPurchaseDemandLines"
     Cardinality="-1"
-    Owner="erpscm.modelscm.scmeo.ScmPurchaseDemandLines">
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseDemandLines"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseDemandLines"/>

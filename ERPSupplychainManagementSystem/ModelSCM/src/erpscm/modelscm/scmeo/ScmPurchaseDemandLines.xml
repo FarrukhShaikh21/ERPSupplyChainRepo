@@ -668,6 +668,7 @@
       <Attr Name="_referencedKey" Value="PK_SCM_PUECHASE_DEMAND_HEADER"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="FK_SCM_PUR_DEM_LIN_HEADER_ID"/>
+      <Attr Name="_isCascadeDelete" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.DemandHeaderSno"/>
@@ -779,9 +780,9 @@
       <validation:Item
         Value="ERR_REQ_DEMAND_QUANTITY"/>
       <validation:Item
-        Value="ERR_REQ_DEMAND_ACCOUNT"/>
-      <validation:Item
         Value="ERR_REQ_REQUIRED_DATE"/>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_ACCOUNT"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(ItemId==null)
