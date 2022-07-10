@@ -53,6 +53,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
         txtLocationName,
         IsUnsupervised,
         txtSumDemandQuantity,
+        ApprovalStatusSno,
         ScmPurchaseDemandLinesVO,
         GlProjectsVO,
         AdminCompanyVO,
@@ -117,6 +118,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int ISUNSUPERVISED = AttributesEnum.IsUnsupervised.index();
     public static final int TXTSUMDEMANDQUANTITY = AttributesEnum.txtSumDemandQuantity.index();
+    public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -589,6 +591,22 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
      */
     public BigDecimal gettxtSumDemandQuantity() {
         return (BigDecimal) getAttributeInternal(TXTSUMDEMANDQUANTITY);
+    }
+
+    /**
+     * Gets the attribute value for APPROVAL_STATUS_SNO using the alias name ApprovalStatusSno.
+     * @return the APPROVAL_STATUS_SNO
+     */
+    public Integer getApprovalStatusSno() {
+        return (Integer) getAttributeInternal(APPROVALSTATUSSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for APPROVAL_STATUS_SNO using the alias name ApprovalStatusSno.
+     * @param value value to set the APPROVAL_STATUS_SNO
+     */
+    public void setApprovalStatusSno(Integer value) {
+        setAttributeInternal(APPROVALSTATUSSNO, value);
     }
 
     /**

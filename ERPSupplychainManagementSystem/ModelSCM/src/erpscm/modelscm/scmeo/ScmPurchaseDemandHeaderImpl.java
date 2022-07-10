@@ -50,6 +50,7 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
         txtTempDepartmentName,
         txtLocationName,
         IsUnsupervised,
+        ApprovalStatusSno,
         ScmPurchaseDemandLines,
         GlProjects,
         AdminCompany,
@@ -105,6 +106,7 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
     public static final int TXTTEMPDEPARTMENTNAME = AttributesEnum.txtTempDepartmentName.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int ISUNSUPERVISED = AttributesEnum.IsUnsupervised.index();
+    public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -540,6 +542,22 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
      */
     public void setIsUnsupervised(String value) {
         setAttributeInternal(ISUNSUPERVISED, value);
+    }
+
+    /**
+     * Gets the attribute value for ApprovalStatusSno, using the alias name ApprovalStatusSno.
+     * @return the value of ApprovalStatusSno
+     */
+    public Integer getApprovalStatusSno() {
+        return (Integer) getAttributeInternal(APPROVALSTATUSSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ApprovalStatusSno.
+     * @param value value to set the ApprovalStatusSno
+     */
+    public void setApprovalStatusSno(Integer value) {
+        setAttributeInternal(APPROVALSTATUSSNO, value);
     }
 
     /**
