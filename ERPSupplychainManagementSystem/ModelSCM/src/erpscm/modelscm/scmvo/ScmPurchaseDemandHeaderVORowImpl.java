@@ -65,7 +65,8 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
         AccSysSystemParameterVO,
         AccAdminCompanyForCompVO,
         AccSysGeneralValueVO,
-        AccScmTransactionStatusVO;
+        AccScmTransactionStatusVO,
+        AccSysApprovalStatusVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -131,6 +132,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCADMINCOMPANYFORCOMPVO = AttributesEnum.AccAdminCompanyForCompVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
     public static final int ACCSCMTRANSACTIONSTATUSVO = AttributesEnum.AccScmTransactionStatusVO.index();
+    public static final int ACCSYSAPPROVALSTATUSVO = AttributesEnum.AccSysApprovalStatusVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -713,6 +715,13 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
      */
     public RowSet getAccScmTransactionStatusVO() {
         return (RowSet) getAttributeInternal(ACCSCMTRANSACTIONSTATUSVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSysApprovalStatusVO.
+     */
+    public RowSet getAccSysApprovalStatusVO() {
+        return (RowSet) getAttributeInternal(ACCSYSAPPROVALSTATUSVO);
     }
 
     @Override

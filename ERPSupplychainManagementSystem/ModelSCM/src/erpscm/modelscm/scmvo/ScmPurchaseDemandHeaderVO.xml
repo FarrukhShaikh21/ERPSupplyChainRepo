@@ -112,6 +112,10 @@
     Name="AccScmTransactionStatusVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmTransactionStatusVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSysApprovalStatusVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysApprovalStatusVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtProjectName"
     ListVOName="AccGlProjectsVO"
@@ -242,6 +246,25 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovApprovalStatusSno"
+    ListVOName="AccSysApprovalStatusVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ApprovalStatusSno"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ApprovalStatusSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StatusDescription"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -489,7 +512,15 @@
     PrecisionRule="true"
     EntityAttrName="ApprovalStatusSno"
     EntityUsage="ScmPurchaseDemandHeader"
-    AliasName="APPROVAL_STATUS_SNO"/>
+    AliasName="APPROVAL_STATUS_SNO"
+    LOVName="LovApprovalStatusSno">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"

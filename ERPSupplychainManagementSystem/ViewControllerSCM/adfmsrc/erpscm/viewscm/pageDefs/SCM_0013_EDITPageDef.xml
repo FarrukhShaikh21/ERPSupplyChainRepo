@@ -134,5 +134,7 @@
         <Item Value="txtSumQuantity"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovApprovalStatusSno"
+          id="ApprovalStatusSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
