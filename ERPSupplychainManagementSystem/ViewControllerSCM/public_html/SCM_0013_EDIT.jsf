@@ -262,7 +262,9 @@
                                                                     value="#{bindings.ApprovalStatusSno.inputValue}"
                                                                     id="soc2"
                                                                     visible="#{bindings.ApprovalStatusSno.inputValue==1 || bindings.ApprovalStatusSno.inputValue==2}"
-                                                                    simple="true" contentStyle="width:100%">
+                                                                    simple="true" contentStyle="width:100%"
+                                                                    autoSubmit="true"
+                                                                    inlineStyle="voice-volume:medium;">
                                                     <af:selectItem label="Prepared" value="1" id="si2"/>
                                                     <af:selectItem label="Forward" value="2" id="si3"/>
                                                 </af:selectOneChoice>

@@ -43,7 +43,9 @@
       </AttrNames>
     </attributeValues>
     <action IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
-            Action="createWithParams"/>
+            Action="createWithParams">
+      <NamedData NDName="Remarks" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
     <tree IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="ScmPurchaseDemandLinesDetCRUD"
           ChangeEventPolicy="none">
       <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO" Name="ScmPurchaseDemandLinesDetCRUD0">

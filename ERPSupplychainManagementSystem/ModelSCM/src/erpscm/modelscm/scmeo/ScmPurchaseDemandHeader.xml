@@ -10,7 +10,8 @@
   DBObjectName="SCM_PURCHASE_DEMAND_HEADER"
   AliasName="ScmPurchaseDemandHeader"
   BindingStyle="JDBC"
-  RowClass="erpscm.modelscm.scmeo.ScmPurchaseDemandHeaderImpl">
+  RowClass="erpscm.modelscm.scmeo.ScmPurchaseDemandHeaderImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|DML"/>
     <Attr Name="_isCodegen" Value="true"/>
@@ -639,6 +640,24 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.LocationId"/>
     </AttrArray>
   </Key>
+  <validation:CollectionValidationBean
+    Name="ScmPurchaseDemandHeaderRule0"
+    Accessor="ScmPurchaseDemandLines"
+    CollAttribute="DemandHeaderSno"
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader_Rule_0"
+    OperandType="LITERAL"
+    Inverse="false"
+    CompareType="GREATERTHAN"
+    CompareValue="0"
+    Operation="count">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="ApprovalStatusSno"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="trusted"
+      Name="OnConditionExpr"><![CDATA[ApprovalStatusSno==2]]></validation:OnCondition>
+  </validation:CollectionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
