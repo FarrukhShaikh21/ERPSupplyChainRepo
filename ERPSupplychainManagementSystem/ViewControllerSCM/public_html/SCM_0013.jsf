@@ -96,6 +96,17 @@
                                   </af:panelGroupLayout>
                                 </af:gridCell>
                               </af:gridRow>
+                              <af:gridRow id="gr3" marginTop="5px">
+                                <af:gridCell id="gc3">
+                                  <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                    <af:image id="i4" shortDesc="Approval Status"
+                                              source="#{resource['images:imgStatus.png']}"/>
+                                    <af:spacer width="10" height="10" id="s3"/>
+                                    <af:outputFormatted value="#{item.bindings.ApprovalStatusSno.inputValue==1?'PREPARED':item.bindings.ApprovalStatusSno.inputValue==2?'FORWARD':item.bindings.ApprovalStatusSno.inputValue==3?'REVERT':item.bindings.ApprovalStatusSno.inputValue==4?'DECLINED':item.bindings.ApprovalStatusSno.inputValue==5?'HOLD':'APPROVED'}"
+                                                        id="of2" styleClass="ERPHeroDetailColor"/>
+                                  </af:panelGroupLayout>
+                                </af:gridCell>
+                              </af:gridRow>
                             </af:panelGridLayout>
                           </af:panelBox>
                         </af:panelGroupLayout>
