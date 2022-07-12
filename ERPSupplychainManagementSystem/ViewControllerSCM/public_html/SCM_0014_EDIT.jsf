@@ -267,7 +267,8 @@
                                                                                   shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
                                                                                   simple="true" autoSubmit="true"
                                                                                   disabled="#{bindings.RfqTypeSno.inputValue==1}"
-                                                                                  contentStyle="width:153px">
+                                                                                  contentStyle="width:153px"
+                                                                                  partialTriggers="soc1">
                                                         <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.txtDemandHeaderCode.format}"/>
@@ -432,7 +433,9 @@
                                                                                   columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
                                                                                   simple="true"
-                                                                                  contentStyle="width:153px">
+                                                                                  contentStyle="width:153px"
+                                                                                  disabled="#{bindings.RfqTypeSno.inputValue==2}"
+                                                                                  partialTriggers="soc1">
                                                         <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
@@ -450,7 +453,9 @@
                                                                                   columns="#{bindings.txtTempProjectName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
                                                                                   simple="true"
-                                                                                  contentStyle="width:154px">
+                                                                                  contentStyle="width:154px"
+                                                                                  disabled="#{bindings.RfqTypeSno.inputValue==2}"
+                                                                                  partialTriggers="soc1">
                                                         <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
