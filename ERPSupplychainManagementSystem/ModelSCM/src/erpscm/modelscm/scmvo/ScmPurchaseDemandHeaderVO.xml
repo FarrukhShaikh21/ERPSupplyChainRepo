@@ -601,16 +601,16 @@
       <CustomProperties>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="Never"/>
         <Property
           Name="autoExecute"
           Value="false"/>
         <Property
           Name="allowConjunctionOverride"
-          Value="true"/>
+          Value="false"/>
         <Property
           Name="showInList"
-          Value="true"/>
+          Value="false"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -624,32 +624,92 @@
         ViewAttribute="DemandHeaderCode"
         Operator="="
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Basic"/>
+          </CustomProperties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="20"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="DemandDate"
         ViewAttribute="DemandDate"
         Operator="="
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Basic"/>
+          </CustomProperties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="20"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="IsSupervised"
         ViewAttribute="IsSupervised"
         Operator="="
         Conjunction="AND"
         Required="Optional"
-        UpperColumns="0"/>
+        UpperColumns="0">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Basic"/>
+          </CustomProperties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="20"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="IsCancelled"
         ViewAttribute="IsCancelled"
         Operator="="
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Basic"/>
+          </CustomProperties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="20"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="IsUnsupervised"
         ViewAttribute="IsUnsupervised"
         Operator="="
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Basic"/>
+          </CustomProperties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="20"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="AdminCompanyVO1"
         ViewAttribute="AdminCompanyVO1"
@@ -671,6 +731,11 @@
               Conjunction="AND"
               Required="Optional">
               <Properties>
+                <CustomProperties>
+                  <Property
+                    Name="renderedMode"
+                    Value="Basic"/>
+                </CustomProperties>
                 <SchemaBasedProperties>
                   <DISPLAYWIDTH
                     Value="20"/>
@@ -684,6 +749,11 @@
               Conjunction="AND"
               Required="Optional">
               <Properties>
+                <CustomProperties>
+                  <Property
+                    Name="renderedMode"
+                    Value="Basic"/>
+                </CustomProperties>
                 <SchemaBasedProperties>
                   <DISPLAYWIDTH
                     Value="20"/>
@@ -697,6 +767,11 @@
               Conjunction="AND"
               Required="Optional">
               <Properties>
+                <CustomProperties>
+                  <Property
+                    Name="renderedMode"
+                    Value="Basic"/>
+                </CustomProperties>
                 <SchemaBasedProperties>
                   <DISPLAYWIDTH
                     Value="20"/>
@@ -827,6 +902,46 @@
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPurchaseDemandHeaderForRFQVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseDemandHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="DemandHeaderCode"
+        ViewAttribute="DemandHeaderCode"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DemandDate"
+        ViewAttribute="DemandDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

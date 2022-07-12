@@ -621,7 +621,7 @@
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtItemName.tooltip}"
-                                                                          contentStyle="width:90%"
+                                                                          contentStyle="width:100%"
                                                                           disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                 <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                                             </af:inputComboboxListOfValues>
@@ -635,7 +635,7 @@
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
-                                                                          contentStyle="width:90%"
+                                                                          contentStyle="width:100%"
                                                                           disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                 <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                             </af:inputComboboxListOfValues>
@@ -649,7 +649,7 @@
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.tooltip}"
-                                                                          contentStyle="width:90%"
+                                                                          contentStyle="width:100%"
                                                                           disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                 <f:validator binding="#{row.bindings.txtDepartmentName.validator}"/>
                                             </af:inputComboboxListOfValues>
@@ -663,7 +663,7 @@
                                                                           required="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.mandatory}"
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.tooltip}"
-                                                                          contentStyle="width:90%"
+                                                                          contentStyle="width:100%"
                                                                           disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                 <f:validator binding="#{row.bindings.txtProjectName.validator}"/>
                                             </af:inputComboboxListOfValues>

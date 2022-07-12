@@ -637,12 +637,12 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
      */
     protected void doDML(int operation, TransactionEvent e) {
         if (operation == DML_INSERT) {
-            populateAttributeAsChanged(RFQHEADERSNO, getScmPurchaseRfqHeader().getAttribute("RfqHeaderSno"));
-            String result =
-                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "RFQ_LINES_SNO",
-                                                              this.getEntityDef().getSource(), null, null);
-
-            populateAttributeAsChanged(RFQLINESSNO, Integer.parseInt(result));
+//            populateAttributeAsChanged(RFQHEADERSNO, getScmPurchaseRfqHeader().getAttribute("RfqHeaderSno"));
+//            String result =
+//                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "RFQ_LINES_SNO",
+//                                                              this.getEntityDef().getSource(), null, null);
+//
+//            populateAttributeAsChanged(RFQLINESSNO, Integer.parseInt(result));
 
             if (getDemandLinesSno() != null) {
                 getScmPurchaseDemandLines().setAttribute("StatusSno", 2);

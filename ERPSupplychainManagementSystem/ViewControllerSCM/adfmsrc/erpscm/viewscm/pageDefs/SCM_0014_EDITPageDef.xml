@@ -11,6 +11,8 @@
               id="ScmPurchaseRfqSupplierDetCRUDIterator"/>
     <iterator Binds="ScmPurchaseRfqLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseRfqLinesDetCRUDIterator"/>
+    <iterator Binds="ScmPurchaseDemandHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseDemandHeaderCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="RfqHeaderSno">
@@ -150,5 +152,7 @@
         <Item Value="txtSumQuantity"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovApprovalStatusSno"
+          id="ApprovalStatusSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

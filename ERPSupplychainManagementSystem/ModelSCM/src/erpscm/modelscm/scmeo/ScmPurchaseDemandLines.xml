@@ -763,10 +763,39 @@
         Value="DemandHeaderSno"/>
     </validation:OnAttributes>
   </validation:UniqueKeyValidationBean>
+  <validation:CollectionValidationBean
+    Name="ScmPurchaseDemandAccountQtyBR"
+    Accessor="ScmPurchaseDemandAccount"
+    CollAttribute="Quantity"
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines_Rule_0"
+    OperandType="ATTR"
+    Inverse="false"
+    CompareType="EQUALTO"
+    CompareValue="DemandQuantity"
+    Operation="sum">
+    <validation:ResExpressions
+      Name="ScmPurchaseDemandAccountQtyBR_ResExprList">
+      <validation:Expression
+        Name="0"
+        trustMode="untrusted"><![CDATA[txtItemName+"-"+txtUnitTypeName]]></validation:Expression>
+    </validation:ResExpressions>
+  </validation:CollectionValidationBean>
   <validation:ExpressionValidationBean
     Name="ScmPurchaseDemandLinesRequiredBR"
     OperandType="EXPR"
     Inverse="false">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="DemandQuantity"/>
+      <validation:Item
+        Value="RequiredByDate"/>
+      <validation:Item
+        Value="InventoryOrgSno"/>
+      <validation:Item
+        Value="ItemId"/>
+      <validation:Item
+        Value="UnitTypeSno"/>
+    </validation:OnAttributes>
     <validation:MsgIds>
       <validation:Item
         Value="ERR_REQ_INVENTORY_ORG"/>
@@ -837,23 +866,6 @@ return false;
 
 return true;]]></validation:TransientExpression>
   </validation:ExpressionValidationBean>
-  <validation:CollectionValidationBean
-    Name="ScmPurchaseDemandAccountQtyBR"
-    Accessor="ScmPurchaseDemandAccount"
-    CollAttribute="Quantity"
-    ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines_Rule_0"
-    OperandType="ATTR"
-    Inverse="false"
-    CompareType="EQUALTO"
-    CompareValue="DemandQuantity"
-    Operation="sum">
-    <validation:ResExpressions
-      Name="ScmPurchaseDemandAccountQtyBR_ResExprList">
-      <validation:Expression
-        Name="0"
-        trustMode="untrusted"><![CDATA[txtItemName+"-"+txtUnitTypeName]]></validation:Expression>
-    </validation:ResExpressions>
-  </validation:CollectionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>

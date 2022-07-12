@@ -158,7 +158,19 @@ af|inputListOfValues{
 af|inputComboboxListOfValues{
              -tr-stretch-search-dialog: true;
            } 
-           
+
+af|inputListOfValues::dialog af|dialog::content-center,
+af|inputComboboxListOfValues::dialog af|dialog::content-center
+{
+min-width:700px;
+min-height:500px;
+}
+af|inputComboboxListOfValues::dialog af|query  div[id$='_mode']
+{
+display: none;
+}
+
+   
            
 af|inputText::content{
   color: Black;

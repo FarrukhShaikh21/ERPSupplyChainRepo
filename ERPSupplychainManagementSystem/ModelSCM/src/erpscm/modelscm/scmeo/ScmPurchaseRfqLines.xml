@@ -77,7 +77,9 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_RFQ_LINES">
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -191,7 +193,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_RFQ_LINES">
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -209,7 +213,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_RFQ_LINES">
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -248,6 +254,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_LINES">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.TempProjectId]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -266,6 +274,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_LINES">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.TempDepartmentId]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -460,7 +470,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_LINES"
-    DefaultValue="1"/>
+    DefaultValue="2"/>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc"
