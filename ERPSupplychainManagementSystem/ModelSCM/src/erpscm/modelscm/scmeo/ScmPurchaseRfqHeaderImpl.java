@@ -71,6 +71,7 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         ValidToDate,
         DemandHeaderSno,
         txtDemandHeaderCode,
+        ApprovalStatusSno,
         ScmPurchaseRfqLines,
         ScmPurchaseRfqSupplier,
         AdminCompany,
@@ -147,6 +148,7 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int VALIDTODATE = AttributesEnum.ValidToDate.index();
     public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
+    public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -861,6 +863,22 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void settxtDemandHeaderCode(Integer value) {
         setAttributeInternal(TXTDEMANDHEADERCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for ApprovalStatusSno, using the alias name ApprovalStatusSno.
+     * @return the value of ApprovalStatusSno
+     */
+    public Integer getApprovalStatusSno() {
+        return (Integer) getAttributeInternal(APPROVALSTATUSSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ApprovalStatusSno.
+     * @param value value to set the ApprovalStatusSno
+     */
+    public void setApprovalStatusSno(Integer value) {
+        setAttributeInternal(APPROVALSTATUSSNO, value);
     }
 
     /**

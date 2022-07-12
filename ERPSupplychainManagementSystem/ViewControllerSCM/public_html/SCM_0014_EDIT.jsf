@@ -253,40 +253,51 @@
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
                                                 <af:gridCell id="gc37" width="13%" halign="center">
-                                                    <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}"
-                                                                    id="ol14"/>
+                                                    <af:outputLabel value="#{bindings.txtDemandHeaderCode.hints.label}"
+                                                                    id="ol16"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc38" width="20%">
-                                                    <af:inputComboboxListOfValues id="txtTempDepartmentNameId"
-                                                                                  popupTitle="Search and Select: #{bindings.txtTempDepartmentName.hints.label}"
-                                                                                  value="#{bindings.txtTempDepartmentName.inputValue}"
-                                                                                  label="#{bindings.txtTempDepartmentName.hints.label}"
-                                                                                  model="#{bindings.txtTempDepartmentName.listOfValuesModel}"
-                                                                                  required="#{bindings.txtTempDepartmentName.hints.mandatory}"
-                                                                                  columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
-                                                                                  shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
-                                                                                  simple="true"
+                                                <af:gridCell id="gc38" width="20%" halign="stretch">
+                                                    <af:inputComboboxListOfValues id="txtDemandHeaderCodeId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtDemandHeaderCode.hints.label}"
+                                                                                  value="#{bindings.txtDemandHeaderCode.inputValue}"
+                                                                                  label="#{bindings.txtDemandHeaderCode.hints.label}"
+                                                                                  model="#{bindings.txtDemandHeaderCode.listOfValuesModel}"
+                                                                                  required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
+                                                                                  columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
+                                                                                  simple="true" autoSubmit="true"
+                                                                                  disabled="#{bindings.RfqTypeSno.inputValue==1}"
                                                                                   contentStyle="width:153px">
-                                                        <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
+                                                        <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.txtDemandHeaderCode.format}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
                                                 <af:gridCell id="gc39" width="13%" halign="center">
-                                                    <af:outputLabel value="#{bindings.txtTempProjectName.hints.label}"
-                                                                    id="ol15"/>
+                                                    <af:outputLabel value="#{bindings.ApprovalStatusSno.label}" id="ol17"/>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc40" width="21%">
-                                                    <af:inputComboboxListOfValues id="txtTempProjectNameId"
-                                                                                  popupTitle="Search and Select: #{bindings.txtTempProjectName.hints.label}"
-                                                                                  value="#{bindings.txtTempProjectName.inputValue}"
-                                                                                  label="#{bindings.txtTempProjectName.hints.label}"
-                                                                                  model="#{bindings.txtTempProjectName.listOfValuesModel}"
-                                                                                  required="#{bindings.txtTempProjectName.hints.mandatory}"
-                                                                                  columns="#{bindings.txtTempProjectName.hints.displayWidth}"
-                                                                                  shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
-                                                                                  simple="true"
-                                                                                  contentStyle="width:154px">
-                                                        <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
-                                                    </af:inputComboboxListOfValues>
+                                                <af:gridCell id="gc40" width="21%" halign="stretch" valign="middle">
+                                                    <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                                        <af:selectOneChoice value="#{bindings.ApprovalStatusSno.inputValue}"
+                                                                            label="#{bindings.ApprovalStatusSno.label}"
+                                                                            required="#{bindings.ApprovalStatusSno.hints.mandatory}"
+                                                                            shortDesc="#{bindings.ApprovalStatusSno.hints.tooltip}"
+                                                                            id="soc2" simple="true"
+                                                                            visible="#{bindings.ApprovalStatusSno.inputValue!=1 &amp;&amp; bindings.ApprovalStatusSno.inputValue!=2}"
+                                                                            contentStyle="width:100%">
+                                                            <f:selectItems value="#{bindings.ApprovalStatusSno.items}"
+                                                                           id="si2"/>
+                                                            <f:validator binding="#{bindings.ApprovalStatusSno.validator}"/>
+                                                        </af:selectOneChoice>
+                                                        <af:selectOneChoice label="Label 1"
+                                                                            value="#{bindings.ApprovalStatusSno.inputValue}"
+                                                                            id="soc3" simple="true"
+                                                                            contentStyle="width:100%"
+                                                                            visible="#{bindings.ApprovalStatusSno.inputValue==1 || bindings.ApprovalStatusSno.inputValue==2}">
+                                                            <af:selectItem label="PREPARED" value="1" id="si3"/>
+                                                            <af:selectItem label="FORWARD" value="2" id="si4"/>
+                                                        </af:selectOneChoice>
+                                                    </af:panelGroupLayout>
                                                 </af:gridCell>
                                             </af:gridRow>
                                             <af:gridRow marginTop="5px" height="auto" id="gr5">
@@ -369,8 +380,24 @@
                                                         <f:validator binding="#{bindings.txtPaymentTermName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
-                                                <af:gridCell id="gc28" width="13%"/>
-                                                <af:gridCell id="gc25" width="21%"/>
+                                                <af:gridCell id="gc28" width="13%" halign="center">
+                                                    <af:outputLabel value="#{bindings.txtFreightTermName.hints.label}"
+                                                                    id="ol11"/>
+                                                </af:gridCell>
+                                                <af:gridCell id="gc25" width="21%">
+                                                    <af:inputComboboxListOfValues id="txtFreightTermNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtFreightTermName.hints.label}"
+                                                                                  value="#{bindings.txtFreightTermName.inputValue}"
+                                                                                  label="#{bindings.txtFreightTermName.hints.label}"
+                                                                                  model="#{bindings.txtFreightTermName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtFreightTermName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtFreightTermName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtFreightTermName.hints.tooltip}"
+                                                                                  simple="true"
+                                                                                  contentStyle="width:153px">
+                                                        <f:validator binding="#{bindings.txtFreightTermName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:gridCell>
                                             </af:gridRow>
                                             <af:gridRow id="gr11" marginTop="5px">
                                                 <af:gridCell id="gc29" width="13%" halign="center">
@@ -392,40 +419,39 @@
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
                                                 <af:gridCell id="gc31" width="13%" halign="center">
-                                                    <af:outputLabel value="#{bindings.txtFreightTermName.hints.label}"
-                                                                    id="ol11"/>
+                                                    <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}"
+                                                                    id="ol14"/>
                                                 </af:gridCell>
                                                 <af:gridCell id="gc32" width="20%" valign="middle">
-                                                    <af:inputComboboxListOfValues id="txtFreightTermNameId"
-                                                                                  popupTitle="Search and Select: #{bindings.txtFreightTermName.hints.label}"
-                                                                                  value="#{bindings.txtFreightTermName.inputValue}"
-                                                                                  label="#{bindings.txtFreightTermName.hints.label}"
-                                                                                  model="#{bindings.txtFreightTermName.listOfValuesModel}"
-                                                                                  required="#{bindings.txtFreightTermName.hints.mandatory}"
-                                                                                  columns="#{bindings.txtFreightTermName.hints.displayWidth}"
-                                                                                  shortDesc="#{bindings.txtFreightTermName.hints.tooltip}"
+                                                    <af:inputComboboxListOfValues id="txtTempDepartmentNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtTempDepartmentName.hints.label}"
+                                                                                  value="#{bindings.txtTempDepartmentName.inputValue}"
+                                                                                  label="#{bindings.txtTempDepartmentName.hints.label}"
+                                                                                  model="#{bindings.txtTempDepartmentName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtTempDepartmentName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
                                                                                   simple="true"
                                                                                   contentStyle="width:153px">
-                                                        <f:validator binding="#{bindings.txtFreightTermName.validator}"/>
+                                                        <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
                                                 <af:gridCell id="gc33" halign="center" width="13%">
-                                                    <af:outputLabel value="#{bindings.txtDemandHeaderCode.hints.label}" id="ol16"/>
+                                                    <af:outputLabel value="#{bindings.txtTempProjectName.hints.label}"
+                                                                    id="ol15"/>
                                                 </af:gridCell>
                                                 <af:gridCell id="gc34" valign="middle" width="21%">
-                                                    <af:inputComboboxListOfValues id="txtDemandHeaderCodeId"
-                                                                                  popupTitle="Search and Select: #{bindings.txtDemandHeaderCode.hints.label}"
-                                                                                  value="#{bindings.txtDemandHeaderCode.inputValue}"
-                                                                                  label="#{bindings.txtDemandHeaderCode.hints.label}"
-                                                                                  model="#{bindings.txtDemandHeaderCode.listOfValuesModel}"
-                                                                                  required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
-                                                                                  columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
-                                                                                  shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
-                                                                                  simple="true" autoSubmit="true"
-                                                                                  disabled="#{bindings.RfqTypeSno.inputValue==1}">
-                                                        <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.txtDemandHeaderCode.format}"/>
+                                                    <af:inputComboboxListOfValues id="txtTempProjectNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtTempProjectName.hints.label}"
+                                                                                  value="#{bindings.txtTempProjectName.inputValue}"
+                                                                                  label="#{bindings.txtTempProjectName.hints.label}"
+                                                                                  model="#{bindings.txtTempProjectName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtTempProjectName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtTempProjectName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
+                                                                                  simple="true"
+                                                                                  contentStyle="width:154px">
+                                                        <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:gridCell>
                                             </af:gridRow>

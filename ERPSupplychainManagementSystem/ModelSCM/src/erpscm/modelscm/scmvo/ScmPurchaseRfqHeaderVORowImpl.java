@@ -70,6 +70,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         ValidToDate,
         DemandHeaderSno,
         txtDemandHeaderCode,
+        ApprovalStatusSno,
         ScmPurchaseRfqLinesVO,
         ScmPurchaseRfqSupplierVO,
         AdminCompanyVO,
@@ -89,7 +90,8 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         AccAdminCompanyForCompVO,
         AccSysSystemParameterVO,
         AccScmPurchaseDemandHeaderVO,
-        AccScmPurchaseDemandLinesForRFQ;
+        AccScmPurchaseDemandLinesForRFQ,
+        AccSysApprovalStatusVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -158,6 +160,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int VALIDTODATE = AttributesEnum.ValidToDate.index();
     public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
+    public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
     public static final int SCMPURCHASERFQSUPPLIERVO = AttributesEnum.ScmPurchaseRfqSupplierVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -178,6 +181,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCSYSSYSTEMPARAMETERVO = AttributesEnum.AccSysSystemParameterVO.index();
     public static final int ACCSCMPURCHASEDEMANDHEADERVO = AttributesEnum.AccScmPurchaseDemandHeaderVO.index();
     public static final int ACCSCMPURCHASEDEMANDLINESFORRFQ = AttributesEnum.AccScmPurchaseDemandLinesForRFQ.index();
+    public static final int ACCSYSAPPROVALSTATUSVO = AttributesEnum.AccSysApprovalStatusVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -920,6 +924,22 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for APPROVAL_STATUS_SNO using the alias name ApprovalStatusSno.
+     * @return the APPROVAL_STATUS_SNO
+     */
+    public Integer getApprovalStatusSno() {
+        return (Integer) getAttributeInternal(APPROVALSTATUSSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for APPROVAL_STATUS_SNO using the alias name ApprovalStatusSno.
+     * @param value value to set the APPROVAL_STATUS_SNO
+     */
+    public void setApprovalStatusSno(Integer value) {
+        setAttributeInternal(APPROVALSTATUSSNO, value);
+    }
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseRfqLinesVO.
      */
     public RowIterator getScmPurchaseRfqLinesVO() {
@@ -1107,6 +1127,13 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
      */
     public RowSet getAccScmPurchaseDemandLinesForRFQ() {
         return (RowSet) getAttributeInternal(ACCSCMPURCHASEDEMANDLINESFORRFQ);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSysApprovalStatusVO.
+     */
+    public RowSet getAccSysApprovalStatusVO() {
+        return (RowSet) getAttributeInternal(ACCSYSAPPROVALSTATUSVO);
     }
 }
 
