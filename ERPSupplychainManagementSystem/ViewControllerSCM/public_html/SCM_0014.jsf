@@ -15,18 +15,6 @@
           <af:decorativeBox id="db1" dimensionsFrom="parent" topHeight="40px">
             <f:facet name="center">
               <af:panelGridLayout id="pgl7">
-                <af:gridRow height="auto" id="gr1" marginBottom="5px" marginTop="5px">
-                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch"
-                               styleClass="ERPToolBarBackground">
-                    <af:panelGroupLayout id="pgl6" halign="end" layout="horizontal">
-                      <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgFind.png']}"/>
-                      <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
-                               action="ERP-ADD-ACT-SCM_0014" shortDesc="Add New Record"/>
-                      <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM"
-                               partialSubmit="true" shortDesc="Exit Form"/>
-                    </af:panelGroupLayout>
-                  </af:gridCell>
-                </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" id="gr4" marginBottom="5px">
                   <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="stretch" valign="stretch">
                     <af:panelGroupLayout id="pgl3" layout="scroll" halign="center">
@@ -106,11 +94,18 @@
                 </af:gridRow>
               </af:panelGridLayout>
             </f:facet>
-            <f:facet name="top"/>
           </af:decorativeBox>
         </f:facet>
         <f:facet name="ERPLeft"/>
-        <f:facet name="ERPToolbar"/>
+        <f:facet name="ERPToolbar">
+          <af:panelGroupLayout id="pgl6" halign="end" layout="horizontal">
+            <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgFind.png']}"/>
+            <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
+                     action="ERP-ADD-ACT-SCM_0014" shortDesc="Add New Record"/>
+            <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM" partialSubmit="true"
+                     shortDesc="Exit Form"/>
+          </af:panelGroupLayout>
+        </f:facet>
       </af:pageTemplate>
     </af:form>
   </af:document>
