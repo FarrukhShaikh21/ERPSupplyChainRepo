@@ -355,7 +355,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setLocationId(BigDecimal value) {
         setAttributeInternal(LOCATIONID, value);
-        setCompanyId(doGetCompanyIDByLocation(value.intValue(), getGlobalCompanyId()));
+        setCompanyId(doGetCompanyIDByLocation(value==null?0:value.intValue(), getGlobalCompanyId()));
     }
 
     /**

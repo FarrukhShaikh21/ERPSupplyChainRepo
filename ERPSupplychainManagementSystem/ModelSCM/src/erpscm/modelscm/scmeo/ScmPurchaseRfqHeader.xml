@@ -967,24 +967,72 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.DemandHeaderSno"/>
     </AttrArray>
   </Key>
+  <validation:CollectionValidationBean
+    Name="ScmPurchaseRfqHeaderSuperviseBR"
+    Accessor="ScmPurchaseRfqLines"
+    CollAttribute="RfqHeaderSno"
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader_Rule_1"
+    OperandType="LITERAL"
+    Inverse="false"
+    CompareType="GREATERTHAN"
+    CompareValue="0"
+    Operation="count">
+    <validation:OnCondition
+      trustMode="untrusted"
+      Name="OnConditionExpr"><![CDATA[IsSupervised=='Y']]></validation:OnCondition>
+  </validation:CollectionValidationBean>
   <validation:ExpressionValidationBean
     Name="ScmPurchaseRfqHeaderBR"
     OperandType="EXPR"
     Inverse="false">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="DueDate"/>
+      <validation:Item
+        Value="CloseDate"/>
+      <validation:Item
+        Value="ValidFromDate"/>
+      <validation:Item
+        Value="ValidToDate"/>
+      <validation:Item
+        Value="LocationId"/>
+      <validation:Item
+        Value="ApprovalStatusSno"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="untrusted"
+      Name="OnConditionExpr"><![CDATA[IsSupervised=='N']]></validation:OnCondition>
     <validation:MsgIds>
+      <validation:Item
+        Value="ERR_LOCATIONID"/>
       <validation:Item
         Value="ERR_VALID_DATES"/>
       <validation:Item
         Value="ERR_DUE_DATE_FUTURE"/>
+      <validation:Item
+        Value="ERR_CLOSE_DATE"/>
     </validation:MsgIds>
     <validation:TransientExpression
-      trustMode="untrusted"><![CDATA[if(DueDate==adf.currentDate)
+      trustMode="untrusted"><![CDATA[if(LocationId==null)
+{
+adf.error.raise("ERR_LOCATIONID");
+return false;
+}
+
+if(DueDate==adf.currentDate)
 {
 adf.error.raise("ERR_DUE_DATE_FUTURE");
 return false;
 }
 
-if(ValidFromDate<ValidToDate)
+if(CloseDate<DueDate)
+{
+adf.error.raise("ERR_CLOSE_DATE");
+return false;
+}
+
+
+if(ValidFromDate>ValidToDate)
 {
 adf.error.raise("ERR_VALID_DATES");
 return false;
