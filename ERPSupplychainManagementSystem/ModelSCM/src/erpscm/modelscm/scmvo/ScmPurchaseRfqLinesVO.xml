@@ -12,7 +12,12 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccInvItemVO"
     ViewObjectName="erpims.modelims.imsvo.InvItemVO"
@@ -22,8 +27,7 @@
       FullName="erpims.modelims.imsvo.InvItemVO.InvItemByCompanyByIDVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="trusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
+        <TransientExpression><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -36,8 +40,7 @@
       FullName="erpims.modelims.imsvo.InvUnitTypeVO.InvUnitTypeByCompanyIDVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="trusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId==null?0:ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
+        <TransientExpression><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId==null?0:ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -53,8 +56,7 @@
       FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="trusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId==null?0:ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
+        <TransientExpression><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId==null?0:ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -371,10 +373,8 @@
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[getRowSet().sum("Quantity")]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[getRowSet().sum("Quantity")]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -394,10 +394,8 @@
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[getRowSet().count("RfqHeaderSno")]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[getRowSet().count("RfqHeaderSno")]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

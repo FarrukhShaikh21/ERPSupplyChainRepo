@@ -1135,5 +1135,13 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public RowSet getAccSysApprovalStatusVO() {
         return (RowSet) getAttributeInternal(ACCSYSAPPROVALSTATUSVO);
     }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        // TODO Implement this method
+        if (getIsSupervised().equals("Y")|| getApprovalStatusSno()>2) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
+    }
 }
 

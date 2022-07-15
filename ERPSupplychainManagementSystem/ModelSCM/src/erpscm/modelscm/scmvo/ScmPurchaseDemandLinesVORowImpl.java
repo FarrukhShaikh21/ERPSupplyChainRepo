@@ -835,7 +835,8 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method
-        if (getScmPurchaseDemandHeaderVO().getAttribute("IsSupervised").equals("Y")) {
+        if (getScmPurchaseDemandHeaderVO().getAttribute("IsSupervised").equals("Y")||
+        (Integer)getScmPurchaseDemandHeaderVO().getAttribute("ApprovalStatusSno") >2) {
             return false;
        }
         return super.isAttributeUpdateable(i);

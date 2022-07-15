@@ -483,8 +483,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
-    <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Dependencies>
       <Item
         Value="LocationId"/>
@@ -655,9 +654,37 @@
         Value="ApprovalStatusSno"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      trustMode="trusted"
       Name="OnConditionExpr"><![CDATA[ApprovalStatusSno==2]]></validation:OnCondition>
   </validation:CollectionValidationBean>
+  <validation:ExpressionValidationBean
+    Name="ScmPurchaseDemandHeaderRequiredBR"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="LocationId"/>
+      <validation:Item
+        Value="TempDepartmentId"/>
+      <validation:Item
+        Value="TempProjectId"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="untrusted"
+      Name="OnConditionExpr"><![CDATA[IsSupervised=='N']]></validation:OnCondition>
+    <validation:MsgIds>
+      <validation:Item
+        Value="ERR_LOCATIONID"/>
+    </validation:MsgIds>
+    <validation:TransientExpression
+      trustMode="untrusted"><![CDATA[if(LocationId==null)
+{
+adf.error.raise("ERR_LOCATIONID");
+return false;
+}
+
+
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
