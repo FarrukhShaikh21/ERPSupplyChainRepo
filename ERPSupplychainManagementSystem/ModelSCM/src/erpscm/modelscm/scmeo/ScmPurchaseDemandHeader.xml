@@ -674,6 +674,10 @@
     <validation:MsgIds>
       <validation:Item
         Value="ERR_LOCATIONID"/>
+      <validation:Item
+        Value="ERR_DEPARTMENT"/>
+      <validation:Item
+        Value="ERR_PROJECT"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(LocationId==null)
@@ -682,6 +686,17 @@ adf.error.raise("ERR_LOCATIONID");
 return false;
 }
 
+if(TempDepartmentId==null)
+{
+adf.error.raise("ERR_DEPARTMENT");
+return false;
+}
+
+if(TempProjectId==null)
+{
+adf.error.raise("ERR_PROJECT");
+return false;
+}
 
 return true;]]></validation:TransientExpression>
   </validation:ExpressionValidationBean>

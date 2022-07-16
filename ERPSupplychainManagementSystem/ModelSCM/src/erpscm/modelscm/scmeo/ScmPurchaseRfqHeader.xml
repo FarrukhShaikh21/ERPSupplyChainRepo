@@ -968,20 +968,6 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.DemandHeaderSno"/>
     </AttrArray>
   </Key>
-  <validation:CollectionValidationBean
-    Name="ScmPurchaseRfqHeaderSuperviseBR"
-    Accessor="ScmPurchaseRfqLines"
-    CollAttribute="RfqHeaderSno"
-    ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader_Rule_1"
-    OperandType="LITERAL"
-    Inverse="false"
-    CompareType="GREATERTHAN"
-    CompareValue="0"
-    Operation="count">
-    <validation:OnCondition
-      trustMode="untrusted"
-      Name="OnConditionExpr"><![CDATA[IsSupervised=='Y']]></validation:OnCondition>
-  </validation:CollectionValidationBean>
   <validation:ExpressionValidationBean
     Name="ScmPurchaseRfqHeaderBR"
     OperandType="EXPR"
@@ -1007,6 +993,10 @@
       <validation:Item
         Value="ERR_LOCATIONID"/>
       <validation:Item
+        Value="ERR_DEPARTMENT"/>
+      <validation:Item
+        Value="ERR_PROJECT"/>
+      <validation:Item
         Value="ERR_VALID_DATES"/>
       <validation:Item
         Value="ERR_DUE_DATE_FUTURE"/>
@@ -1017,6 +1007,18 @@
       trustMode="untrusted"><![CDATA[if(LocationId==null)
 {
 adf.error.raise("ERR_LOCATIONID");
+return false;
+}
+
+if(TempDepartmentId==null)
+{
+adf.error.raise("ERR_DEPARTMENT");
+return false;
+}
+
+if(TempProjectId==null)
+{
+adf.error.raise("ERR_PROJECT");
 return false;
 }
 
@@ -1042,6 +1044,20 @@ return false;
 
 return true;]]></validation:TransientExpression>
   </validation:ExpressionValidationBean>
+  <validation:CollectionValidationBean
+    Name="ScmPurchaseRfqHeaderSuperviseBR"
+    Accessor="ScmPurchaseRfqLines"
+    CollAttribute="RfqHeaderSno"
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader_Rule_1"
+    OperandType="LITERAL"
+    Inverse="false"
+    CompareType="GREATERTHAN"
+    CompareValue="0"
+    Operation="count">
+    <validation:OnCondition
+      trustMode="untrusted"
+      Name="OnConditionExpr"><![CDATA[ApprovalStatusSno==2]]></validation:OnCondition>
+  </validation:CollectionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
