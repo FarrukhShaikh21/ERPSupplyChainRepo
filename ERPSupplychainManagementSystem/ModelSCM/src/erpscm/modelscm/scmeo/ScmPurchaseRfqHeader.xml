@@ -991,17 +991,17 @@
       Name="OnConditionExpr"><![CDATA[IsSupervised=='N']]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
-        Value="ERR_LOCATIONID"/>
+        Value="ERR_VALID_DATES"/>
       <validation:Item
         Value="ERR_DEPARTMENT"/>
       <validation:Item
         Value="ERR_PROJECT"/>
       <validation:Item
-        Value="ERR_VALID_DATES"/>
-      <validation:Item
         Value="ERR_DUE_DATE_FUTURE"/>
       <validation:Item
         Value="ERR_CLOSE_DATE"/>
+      <validation:Item
+        Value="ERR_LOCATIONID"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(LocationId==null)

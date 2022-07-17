@@ -12,7 +12,12 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccScmSupplierVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
@@ -126,6 +131,12 @@
   <ViewLinkAccessor
     Name="ScmSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurchaseRFQSupplierSupplierSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseRfqHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.FkScmPurRfqSupplierHeaderLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

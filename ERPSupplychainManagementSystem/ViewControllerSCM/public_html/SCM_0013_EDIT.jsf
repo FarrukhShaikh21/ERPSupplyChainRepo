@@ -179,7 +179,7 @@
                                                           required="#{bindings.DemandDate.hints.mandatory}"
                                                           columns="#{bindings.DemandDate.hints.displayWidth}"
                                                           shortDesc="#{bindings.DemandDate.hints.tooltip}" id="id1"
-                                                          simple="true">
+                                                          simple="true" contentStyle="width:100%">
                                                 <f:validator binding="#{bindings.DemandDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.DemandDate.format}"/>
                                             </af:inputDate>
@@ -266,7 +266,7 @@
                                                                     autoSubmit="true"
                                                                     inlineStyle="voice-volume:medium;">
                                                     <af:selectItem label="Prepared" value="1" id="si2"/>
-                                                    <af:selectItem label="Forward" value="2" id="si3"/>
+                                                    <af:selectItem label="Reviewed" value="2" id="si3"/>
                                                 </af:selectOneChoice>
                                             </af:panelGroupLayout>
                                         </af:gridCell>

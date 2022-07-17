@@ -639,23 +639,6 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.LocationId"/>
     </AttrArray>
   </Key>
-  <validation:CollectionValidationBean
-    Name="ScmPurchaseDemandHeaderRule0"
-    Accessor="ScmPurchaseDemandLines"
-    CollAttribute="DemandHeaderSno"
-    ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader_Rule_0"
-    OperandType="LITERAL"
-    Inverse="false"
-    CompareType="GREATERTHAN"
-    CompareValue="0"
-    Operation="count">
-    <validation:OnAttributes>
-      <validation:Item
-        Value="ApprovalStatusSno"/>
-    </validation:OnAttributes>
-    <validation:OnCondition
-      Name="OnConditionExpr"><![CDATA[ApprovalStatusSno==2]]></validation:OnCondition>
-  </validation:CollectionValidationBean>
   <validation:ExpressionValidationBean
     Name="ScmPurchaseDemandHeaderRequiredBR"
     OperandType="EXPR"
@@ -673,11 +656,11 @@
       Name="OnConditionExpr"><![CDATA[IsSupervised=='N']]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
-        Value="ERR_LOCATIONID"/>
+        Value="ERR_PROJECT"/>
       <validation:Item
         Value="ERR_DEPARTMENT"/>
       <validation:Item
-        Value="ERR_PROJECT"/>
+        Value="ERR_LOCATIONID"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(LocationId==null)
@@ -700,6 +683,20 @@ return false;
 
 return true;]]></validation:TransientExpression>
   </validation:ExpressionValidationBean>
+  <validation:CollectionValidationBean
+    Name="ScmPurchaseDemandHeaderRule0"
+    Accessor="ScmPurchaseDemandLines"
+    CollAttribute="DemandHeaderSno"
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader_Rule_0"
+    OperandType="LITERAL"
+    Inverse="false"
+    CompareType="GREATERTHAN"
+    CompareValue="0"
+    Operation="count">
+    <validation:OnCondition
+      Name="OnConditionExpr"
+      trustMode="untrusted"><![CDATA[ApprovalStatusSno==2]]></validation:OnCondition>
+  </validation:CollectionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
