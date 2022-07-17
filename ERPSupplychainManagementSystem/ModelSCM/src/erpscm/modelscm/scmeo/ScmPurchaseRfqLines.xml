@@ -10,7 +10,8 @@
   DBObjectName="SCM_PURCHASE_RFQ_LINES"
   AliasName="ScmPurchaseRfqLines"
   BindingStyle="JDBC"
-  RowClass="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesImpl">
+  RowClass="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_isCodegen" Value="true"/>
@@ -589,6 +590,43 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.DemandLinesSno"/>
     </AttrArray>
   </Key>
+  <validation:ExpressionValidationBean
+    Name="ScmPurchaseRfqLinesrRequiredBR"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="ItemId"/>
+      <validation:Item
+        Value="Quantity"/>
+      <validation:Item
+        Value="ProjectId"/>
+      <validation:Item
+        Value="UnitTypeSno"/>
+      <validation:Item
+        Value="DepartmentId"/>
+    </validation:OnAttributes>
+    <validation:MsgIds>
+      <validation:Item
+        Value="ERR_REQ_ITEM_ID"/>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_QUANTITY"/>
+    </validation:MsgIds>
+    <validation:TransientExpression
+      trustMode="untrusted"><![CDATA[if(ItemId==null)
+{
+adf.error.raise("ERR_REQ_ITEM_ID");
+return false;
+}
+
+if(Quantity==null)
+{
+adf.error.raise("ERR_REQ_DEMAND_QUANTITY");
+return false;
+}
+
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
