@@ -106,7 +106,10 @@
     <listOfValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
                   id="txtSupplierName"/>
     <action IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+            Action="createWithParams" InstanceName="ERPSCMModuleDataControl.ScmPurchaseDemandLinesDetCRUD"
+            DataControl="ERPSCMModuleDataControl">
+      <NamedData NDName="DemandQuantity" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
     <action IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <tree IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="ScmPurchaseDemandAccountDetCRUD">

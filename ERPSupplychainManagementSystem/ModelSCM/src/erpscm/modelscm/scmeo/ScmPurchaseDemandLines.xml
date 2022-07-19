@@ -763,23 +763,23 @@
         Value="DemandHeaderSno"/>
     </validation:OnAttributes>
   </validation:UniqueKeyValidationBean>
-  <validation:CollectionValidationBean
-    Name="ScmPurchaseDemandAccountQtyBR"
-    Accessor="ScmPurchaseDemandAccount"
-    CollAttribute="Quantity"
-    ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines_Rule_0"
-    OperandType="ATTR"
-    Inverse="false"
-    CompareType="EQUALTO"
-    CompareValue="DemandQuantity"
-    Operation="sum">
-    <validation:ResExpressions
-      Name="ScmPurchaseDemandAccountQtyBR_ResExprList">
-      <validation:Expression
-        Name="0"
-        trustMode="untrusted"><![CDATA[txtItemName+"-"+txtUnitTypeName]]></validation:Expression>
-    </validation:ResExpressions>
-  </validation:CollectionValidationBean>
+  <validation:ExpressionValidationBean
+    Name="ScmPurchaseDemandLinesAccountBR"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:MsgIds>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_ACCOUNT"/>
+    </validation:MsgIds>
+    <validation:TransientExpression
+      trustMode="untrusted"><![CDATA[if(ScmPurchaseDemandAccount.count("DemandLinesSno")==0)
+{
+adf.error.raise("ERR_REQ_DEMAND_ACCOUNT");
+return false;
+}
+else
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
   <validation:ExpressionValidationBean
     Name="ScmPurchaseDemandLinesRequiredBR"
     OperandType="EXPR"
@@ -858,14 +858,25 @@ adf.error.raise("ERR_REQ_INVENTORY_ORG");
 return false;
 }
 
-if(ScmPurchaseDemandAccount.count("DemandLinesSno")==0)
-{
-adf.error.raise("ERR_REQ_DEMAND_ACCOUNT");
-return false;
-}
-
 return true;]]></validation:TransientExpression>
   </validation:ExpressionValidationBean>
+  <validation:CollectionValidationBean
+    Name="ScmPurchaseDemandAccountQtyBR"
+    Accessor="ScmPurchaseDemandAccount"
+    CollAttribute="Quantity"
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines_Rule_0"
+    OperandType="ATTR"
+    Inverse="false"
+    CompareType="EQUALTO"
+    CompareValue="DemandQuantity"
+    Operation="sum">
+    <validation:ResExpressions
+      Name="ScmPurchaseDemandAccountQtyBR_ResExprList">
+      <validation:Expression
+        Name="0"
+        trustMode="untrusted"><![CDATA[txtItemName+"-"+txtUnitTypeName]]></validation:Expression>
+    </validation:ResExpressions>
+  </validation:CollectionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
