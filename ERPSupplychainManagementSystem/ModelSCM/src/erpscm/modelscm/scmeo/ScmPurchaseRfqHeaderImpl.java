@@ -1039,12 +1039,12 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     protected void doDML(int operation, TransactionEvent e) {
         if (operation == DML_INSERT) {
 
-            String result =
-                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "RFQ_HEADER_SNO",
-                                                              this.getEntityDef().getSource(), null, null);
+//            String result =
+//                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "RFQ_HEADER_SNO",
+//                                                              this.getEntityDef().getSource(), null, null);
 
-            populateAttributeAsChanged(RFQHEADERSNO, Integer.parseInt(result));
-            result =
+//            populateAttributeAsChanged(RFQHEADERSNO, Integer.parseInt(result));
+            String result =
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "RFQ_HEADER_CODE",
                                                               this.getEntityDef().getSource(), "COMPANY_ID",
                                                               getCompanyId().toString());

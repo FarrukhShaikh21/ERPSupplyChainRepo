@@ -135,7 +135,10 @@
       </nodeDefinition>
     </tree>
     <action IterBinding="ScmPurchaseRfqLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+            Action="createWithParams" InstanceName="ERPSCMModuleDataControl.ScmPurchaseRfqLinesDetCRUD"
+            DataControl="ERPSCMModuleDataControl">
+      <NamedData NDName="Remarks" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
     <action IterBinding="ScmPurchaseRfqLinesDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtDemandHeaderCode"

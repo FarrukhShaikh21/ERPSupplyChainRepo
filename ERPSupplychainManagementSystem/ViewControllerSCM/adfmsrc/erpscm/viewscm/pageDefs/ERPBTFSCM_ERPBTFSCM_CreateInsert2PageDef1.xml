@@ -8,6 +8,9 @@
   </executables>
   <bindings>
     <action IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+            Action="createWithParams" InstanceName="ERPSCMModuleDataControl.ScmPurchaseRfqHeaderCRUD"
+            DataControl="ERPSCMModuleDataControl">
+      <NamedData NDName="Remarks" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>
