@@ -783,7 +783,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
+      trustMode="trusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
     <Dependencies>
       <Item
         Value="DemandHeaderSno"/>
@@ -811,6 +811,26 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.ApprovalStatusSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtSumQuantity"
+    ColumnName="txt_Sum_Quantity"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[ScmPurchaseRfqLines?.Quantity]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.txtSumQuantity_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
@@ -989,24 +1009,24 @@
         Value="TempProjectId"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      trustMode="untrusted"
+      trustMode="trusted"
       Name="OnConditionExpr"><![CDATA[IsSupervised=='N']]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
+        Value="ERR_VALID_DATES"/>
+      <validation:Item
         Value="ERR_PROJECT"/>
       <validation:Item
-        Value="ERR_DEPARTMENT"/>
-      <validation:Item
-        Value="ERR_VALID_DATES"/>
+        Value="ERR_LOCATIONID"/>
       <validation:Item
         Value="ERR_DUE_DATE_FUTURE"/>
       <validation:Item
         Value="ERR_CLOSE_DATE"/>
       <validation:Item
-        Value="ERR_LOCATIONID"/>
+        Value="ERR_DEPARTMENT"/>
     </validation:MsgIds>
     <validation:TransientExpression
-      trustMode="untrusted"><![CDATA[if(LocationId==null)
+      trustMode="trusted"><![CDATA[if(LocationId==null)
 {
 adf.error.raise("ERR_LOCATIONID");
 return false;
@@ -1057,7 +1077,7 @@ return true;]]></validation:TransientExpression>
     CompareValue="0"
     Operation="count">
     <validation:OnCondition
-      trustMode="untrusted"
+      trustMode="trusted"
       Name="OnConditionExpr"><![CDATA[ApprovalStatusSno==2 || IsSupervised=='Y']]></validation:OnCondition>
   </validation:CollectionValidationBean>
   <ResourceBundle>

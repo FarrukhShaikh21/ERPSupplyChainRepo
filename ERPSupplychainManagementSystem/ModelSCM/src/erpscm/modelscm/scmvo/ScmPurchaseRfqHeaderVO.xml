@@ -772,6 +772,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtSumQuantity"
+    PrecisionRule="true"
+    EntityAttrName="txtSumQuantity"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="txt_Sum_Quantity"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
