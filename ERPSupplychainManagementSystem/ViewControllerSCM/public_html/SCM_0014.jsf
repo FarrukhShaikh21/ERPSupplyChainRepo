@@ -85,8 +85,27 @@
                                   </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow id="gr1">
-                                  <af:gridCell id="gc1"/>
+                                  <af:gridCell id="gc1">
+                                    <af:panelGroupLayout id="pgl12" layout="horizontal">
+                                    <af:image id="i3" shortDesc="Demand Quantity"
+                                              source="#{resource['images:imgTotalQuantity.png']}"/>
+                                    <af:spacer width="10" height="10" id="s4"/>
+                                    <af:outputFormatted value="#{item.bindings.txtSumQuantity.inputValue}"
+                                                        id="of5" styleClass="ERPHeroDetailColor"/>
+                                  </af:panelGroupLayout> 
+                                  </af:gridCell>
                                 </af:gridRow>
+                              <af:gridRow id="gr3" marginTop="5px">
+                                <af:gridCell id="gc3">
+                                  <af:panelGroupLayout id="pgl9" layout="horizontal">
+                                    <af:image id="i4" shortDesc="Approval Status"
+                                              source="#{resource['images:imgStatus.png']}"/>
+                                    <af:spacer width="10" height="10" id="s6"/>
+                                    <af:outputFormatted value="#{item.bindings.ApprovalStatusSno.inputValue==1?'PREPARED':item.bindings.ApprovalStatusSno.inputValue==2?'FORWARD':item.bindings.ApprovalStatusSno.inputValue==3?'REVERT':item.bindings.ApprovalStatusSno.inputValue==4?'DECLINED':item.bindings.ApprovalStatusSno.inputValue==5?'HOLD':'APPROVED'}"
+                                                        id="of4" styleClass="ERPHeroDetailColor"/>
+                                  </af:panelGroupLayout>
+                                </af:gridCell>
+                              </af:gridRow>                                
                               </af:panelGridLayout>
                             </af:panelBox>
                           </af:panelGroupLayout>
