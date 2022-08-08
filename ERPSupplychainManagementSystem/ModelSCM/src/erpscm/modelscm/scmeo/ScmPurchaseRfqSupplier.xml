@@ -10,7 +10,8 @@
   DBObjectName="SCM_PURCHASE_RFQ_SUPPLIER"
   AliasName="ScmPurchaseRfqSupplier"
   BindingStyle="JDBC"
-  RowClass="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplierImpl">
+  RowClass="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplierImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
@@ -191,7 +192,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false">
+    IsQueriable="false"
+    IsNotNull="true">
     <TransientExpression
       trustMode="untrusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
     <Properties>
@@ -218,6 +220,18 @@
     Type="erpscm.modelscm.scmeo.ScmSupplierImpl"
     IsUpdateable="true"/>
   <Key
+    Name="AltKeySupplier"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_PURCHASE_RFQ_SUPPLIER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier.RfqHeaderSno"/>
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier.SupplierSno"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="PkScmPurchaseRfqSupplier"
     PrimaryKey="true">
     <DesignTime>
@@ -225,6 +239,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier.RfqSupplierSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmPurchaseRfqSupplierTxtSupplierNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Scm_Purchase_Rfq_Supplier_Txt_"/>
+      <Attr Name="_checkCondition" Value='"TXT_SUPPLIER_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier.txtSupplierName"/>
     </AttrArray>
   </Key>
   <Key
@@ -249,6 +275,17 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier.SupplierSno"/>
     </AttrArray>
   </Key>
+  <validation:UniqueKeyValidationBean
+    Name="UniqueScmPurchaseRfqSupplierBR"
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier_Rule_0"
+    KeyName="AltKeySupplier">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="RfqHeaderSno"/>
+      <validation:Item
+        Value="SupplierSno"/>
+    </validation:OnAttributes>
+  </validation:UniqueKeyValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>

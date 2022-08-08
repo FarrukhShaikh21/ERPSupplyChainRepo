@@ -501,11 +501,11 @@
                                             <f:facet name="toolbar">
                                                 <af:toolbar id="t3">
                                                     <af:link actionListener="#{bindings.CreateInsert.execute}"
-                                                             disabled="#{!bindings.CreateInsert.enabled}" id="l13"
+                                                             disabled="#{!bindings.CreateInsert.enabled || bindings.RfqTypeSno.inputValue==2||bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}" id="l13"
                                                              icon="#{resource['images:imgAddRecord.png']}"
                                                              partialSubmit="true"/>
                                                     <af:link actionListener="#{bindings.Delete1.execute}"
-                                                             disabled="#{!bindings.Delete1.enabled}" id="l14"
+                                                             disabled="#{!bindings.Delete1.enabled || bindings.RfqTypeSno.inputValue==2||bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}" id="l14"
                                                              icon="#{resource['images:imgDeleteRecord.png']}"
                                                              partialSubmit="true"/>
                                                 </af:toolbar>
@@ -582,12 +582,12 @@
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t2" flex="75">
                                             <af:link actionListener="#{bindings.CreateInsert1.execute}"
-                                                     disabled="#{!bindings.CreateInsert1.enabled || bindings.RfqTypeSno.inputValue==2}"
+                                                     disabled="#{!bindings.CreateInsert1.enabled || bindings.RfqTypeSno.inputValue==2||bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
                                                      id="l12" icon="#{resource['images:imgAddRecord.png']}"
                                                      partialSubmit="true" shortDesc="Add RFQ Line"
                                                      partialTriggers="::soc1" immediate="true"/>
                                             <af:link actionListener="#{bindings.Delete2.execute}"
-                                                     disabled="#{!bindings.Delete2.enabled}" id="l11"
+                                                     disabled="#{!bindings.Delete2.enabled || bindings.RfqTypeSno.inputValue==2||bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}" id="l11"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
                                                      partialSubmit="true" shortDesc="Delete RFQ Line"/>
                                         </af:toolbar>
