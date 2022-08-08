@@ -413,6 +413,13 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setTempProjectId(Integer value) {
         setAttributeInternal(TEMPPROJECTID, value);
+        RowIterator ScmPurchaseRFQLinesVO = getScmPurchaseRfqLinesVO();
+        //DepartmentId
+        while (ScmPurchaseRFQLinesVO.hasNext()) {
+           ScmPurchaseRFQLinesVO.next().setAttribute("ProjectId", value);
+        } 
+        getDBTransaction().getRootApplicationModule().findViewObject("ScmPurchaseRfqLinesDetCRUD").executeQuery();
+
     }
 
     /**
@@ -429,6 +436,14 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setTempDepartmentId(Integer value) {
         setAttributeInternal(TEMPDEPARTMENTID, value);
+
+        RowIterator ScmPurchaseRFQLinesVO = getScmPurchaseRfqLinesVO();
+        //DepartmentId
+        while (ScmPurchaseRFQLinesVO.hasNext()) {
+           ScmPurchaseRFQLinesVO.next().setAttribute("DepartmentId", value);
+        } 
+        getDBTransaction().getRootApplicationModule().findViewObject("ScmPurchaseRfqLinesDetCRUD").executeQuery();
+  
     }
 
     /**
