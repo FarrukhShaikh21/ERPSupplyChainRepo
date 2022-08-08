@@ -256,7 +256,7 @@
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_LINES">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.TempProjectId]]></TransientExpression>
+      trustMode="trusted"><![CDATA[ScmPurchaseRfqHeader?.TempProjectId]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -276,7 +276,7 @@
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_LINES">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.TempDepartmentId]]></TransientExpression>
+      trustMode="trusted"><![CDATA[ScmPurchaseRfqHeader?.TempDepartmentId]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -384,7 +384,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[InvItem?.Description]]></TransientExpression>
+      trustMode="trusted"><![CDATA[InvItem?.Description]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -408,7 +408,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[InvUnitType?.UnitTypeName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[InvUnitType?.UnitTypeName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -432,7 +432,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -452,7 +452,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -610,12 +610,36 @@
       <validation:Item
         Value="ERR_REQ_ITEM_ID"/>
       <validation:Item
+        Value="ERR_DEPARTMENT"/>
+      <validation:Item
+        Value="ERR_PROJECT"/>
+      <validation:Item
+        Value="ERR_REQ_UNIT_TYPE"/>
+      <validation:Item
         Value="ERR_REQ_DEMAND_QUANTITY"/>
     </validation:MsgIds>
     <validation:TransientExpression
-      trustMode="untrusted"><![CDATA[if(ItemId==null)
+      trustMode="trusted"><![CDATA[if(ItemId==null)
 {
 adf.error.raise("ERR_REQ_ITEM_ID");
+return false;
+}
+
+if(UnitTypeSno==null)
+{
+adf.error.raise("ERR_REQ_UNIT_TYPE");
+return false;
+}
+
+if(DepartmentId==null)
+{
+adf.error.raise("ERR_DEPARTMENT");
+return false;
+}
+
+if(ProjectId==null)
+{
+adf.error.raise("ERR_PROJECT");
 return false;
 }
 
