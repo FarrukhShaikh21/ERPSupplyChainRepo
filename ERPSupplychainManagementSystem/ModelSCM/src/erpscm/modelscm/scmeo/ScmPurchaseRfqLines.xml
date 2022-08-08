@@ -255,8 +255,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_LINES">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[ScmPurchaseRfqHeader?.TempProjectId]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmPurchaseRfqHeader?.TempProjectId]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -275,8 +274,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_LINES">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[ScmPurchaseRfqHeader?.TempDepartmentId]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmPurchaseRfqHeader?.TempDepartmentId]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -383,8 +381,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[InvItem?.Description]]></TransientExpression>
+    <TransientExpression><![CDATA[InvItem?.Description]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -407,8 +404,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[InvUnitType?.UnitTypeName]]></TransientExpression>
+    <TransientExpression><![CDATA[InvUnitType?.UnitTypeName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -431,8 +427,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+    <TransientExpression><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -451,8 +446,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+    <TransientExpression><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -514,6 +508,18 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurDemandLinScmPurRfqLinesDemandLinesSnoAsso.ScmPurchaseRfqLines"
     Type="erpscm.modelscm.scmeo.ScmPurchaseDemandLinesImpl"
     IsUpdateable="true"/>
+  <Key
+    Name="AltKeyScmPurchaseRfqLines"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_PURCHASE_RFQ_LINES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.ItemId"/>
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.RfqHeaderSno"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="PkScmPurchaseQuotationLine"
     PrimaryKey="true">
@@ -590,6 +596,17 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.DemandLinesSno"/>
     </AttrArray>
   </Key>
+  <validation:UniqueKeyValidationBean
+    Name="UniqueScmPurchaseRfqLinesRule"
+    ResId="ERR_REQ_DUPLICATE_ITEM"
+    KeyName="AltKeyScmPurchaseRfqLines">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="ItemId"/>
+      <validation:Item
+        Value="RfqHeaderSno"/>
+    </validation:OnAttributes>
+  </validation:UniqueKeyValidationBean>
   <validation:ExpressionValidationBean
     Name="ScmPurchaseRfqLinesrRequiredBR"
     OperandType="EXPR"
@@ -605,21 +622,27 @@
         Value="UnitTypeSno"/>
       <validation:Item
         Value="DepartmentId"/>
+      <validation:Item
+        Value="RequiredBy"/>
     </validation:OnAttributes>
     <validation:MsgIds>
       <validation:Item
         Value="ERR_REQ_ITEM_ID"/>
       <validation:Item
-        Value="ERR_DEPARTMENT"/>
+        Value="ERR_REQ_FUTURE_DATE"/>
       <validation:Item
-        Value="ERR_PROJECT"/>
+        Value="ERR_DEPARTMENT"/>
       <validation:Item
         Value="ERR_REQ_UNIT_TYPE"/>
       <validation:Item
+        Value="ERR_PROJECT"/>
+      <validation:Item
         Value="ERR_REQ_DEMAND_QUANTITY"/>
+      <validation:Item
+        Value="ERR_REQ_REQUIRED_DATE"/>
     </validation:MsgIds>
     <validation:TransientExpression
-      trustMode="trusted"><![CDATA[if(ItemId==null)
+      trustMode="untrusted"><![CDATA[if(ItemId==null)
 {
 adf.error.raise("ERR_REQ_ITEM_ID");
 return false;
@@ -643,9 +666,21 @@ adf.error.raise("ERR_PROJECT");
 return false;
 }
 
-if(Quantity==null)
+if(Quantity==null || Quantity<=0)
 {
 adf.error.raise("ERR_REQ_DEMAND_QUANTITY");
+return false;
+}
+
+if(RequiredBy==null)
+{
+adf.error.raise("ERR_REQ_REQUIRED_DATE");
+return false;
+}
+
+if(RequiredBy<=adf.currentDate)
+{
+adf.error.raise("ERR_REQ_FUTURE_DATE");
 return false;
 }
 

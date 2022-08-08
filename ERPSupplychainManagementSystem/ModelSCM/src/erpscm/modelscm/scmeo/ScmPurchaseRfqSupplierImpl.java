@@ -54,6 +54,8 @@ public class ScmPurchaseRfqSupplierImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int RFQSUPPLIERSNO = AttributesEnum.RfqSupplierSno.index();
     public static final int RFQHEADERSNO = AttributesEnum.RfqHeaderSno.index();
     public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
@@ -72,6 +74,14 @@ public class ScmPurchaseRfqSupplierImpl extends ERPEntityImpl {
      */
     public ScmPurchaseRfqSupplierImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier");
+    }
+
 
     /**
      * Gets the attribute value for RfqSupplierSno, using the alias name RfqSupplierSno.
@@ -261,6 +271,7 @@ public class ScmPurchaseRfqSupplierImpl extends ERPEntityImpl {
         setAttributeInternal(SCMSUPPLIER, value);
     }
 
+
     /**
      * @param rfqSupplierSno key constituent
 
@@ -268,13 +279,6 @@ public class ScmPurchaseRfqSupplierImpl extends ERPEntityImpl {
      */
     public static Key createPrimaryKey(Integer rfqSupplierSno) {
         return new Key(new Object[] { rfqSupplierSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier");
     }
 
     /**

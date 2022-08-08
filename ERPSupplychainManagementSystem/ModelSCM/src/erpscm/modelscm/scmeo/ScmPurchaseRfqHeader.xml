@@ -1011,17 +1011,17 @@
       Name="OnConditionExpr"><![CDATA[IsSupervised=='N']]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
-        Value="ERR_PROJECT"/>
-      <validation:Item
         Value="ERR_VALID_DATES"/>
+      <validation:Item
+        Value="ERR_PROJECT"/>
       <validation:Item
         Value="ERR_LOCATIONID"/>
       <validation:Item
         Value="ERR_DUE_DATE_FUTURE"/>
       <validation:Item
-        Value="ERR_DEPARTMENT"/>
-      <validation:Item
         Value="ERR_CLOSE_DATE"/>
+      <validation:Item
+        Value="ERR_DEPARTMENT"/>
     </validation:MsgIds>
     <validation:TransientExpression><![CDATA[if(LocationId==null)
 {
@@ -1074,6 +1074,26 @@ return true;]]></validation:TransientExpression>
     CompareValue="0"
     Operation="count">
     <validation:OnCondition
+      Name="OnConditionExpr"><![CDATA[ApprovalStatusSno==2 || IsSupervised=='Y']]></validation:OnCondition>
+  </validation:CollectionValidationBean>
+  <validation:CollectionValidationBean
+    Name="ScmPurchaseRfqHeaderCheckSupplierBR"
+    Accessor="ScmPurchaseRfqSupplier"
+    CollAttribute="RfqHeaderSno"
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader_Rule_2"
+    OperandType="LITERAL"
+    Inverse="false"
+    CompareType="GREATERTHAN"
+    CompareValue="0"
+    Operation="count">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="IsSupervised"/>
+      <validation:Item
+        Value="ApprovalStatusSno"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="untrusted"
       Name="OnConditionExpr"><![CDATA[ApprovalStatusSno==2 || IsSupervised=='Y']]></validation:OnCondition>
   </validation:CollectionValidationBean>
   <ResourceBundle>

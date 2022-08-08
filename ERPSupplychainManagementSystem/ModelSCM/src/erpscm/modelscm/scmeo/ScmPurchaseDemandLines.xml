@@ -838,7 +838,7 @@ adf.error.raise("ERR_REQ_FUTURE_DATE");
 return false;
 }
 
-if(DemandQuantity==null)
+if(DemandQuantity==null ||DemandQuantity<=0)
 {
 adf.error.raise("ERR_REQ_DEMAND_QUANTITY");
 return false;
