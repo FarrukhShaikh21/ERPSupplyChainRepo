@@ -201,6 +201,23 @@
     Name="AccSysApprovalStatusVO"
     ViewObjectName="erpadm.modeladm.admvo.SysApprovalStatusVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSysGeneralValueVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[4]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtTempProjectName"
     ListVOName="AccGlProjectsVO"
@@ -412,6 +429,63 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LovIsSupervised"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsSupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsCancelled"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsCancelled"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsUnsupervised"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsUnsupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmPurchaseRfqHeader"
     Entity="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader"/>
@@ -535,7 +609,15 @@
     PrecisionRule="true"
     EntityAttrName="IsSupervised"
     EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="IS_SUPERVISED"/>
+    AliasName="IS_SUPERVISED"
+    LOVName="LovIsSupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SupervisedBy"
     PrecisionRule="true"
@@ -553,7 +635,15 @@
     PrecisionRule="true"
     EntityAttrName="IsUnsupervised"
     EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="IS_UNSUPERVISED"/>
+    AliasName="IS_UNSUPERVISED"
+    LOVName="LovIsUnsupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UnSupervisedBy"
     PrecisionRule="true"
@@ -571,7 +661,15 @@
     PrecisionRule="true"
     EntityAttrName="IsCancelled"
     EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="IS_CANCELLED"/>
+    AliasName="IS_CANCELLED"
+    LOVName="LovIsCancelled">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CancelledBy"
     PrecisionRule="true"
@@ -874,7 +972,7 @@
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
-      Name="ScmPurchaseRfqHeaderVOCriteria_row_0"
+      Name="ScmPurchaseRfqHeaderFindVC_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
         Name="RfqHeaderCode"
@@ -889,22 +987,18 @@
         Conjunction="AND"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="DueDate"
-        ViewAttribute="DueDate"
-        Operator="BETWEEN"
-        Conjunction="AND"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="CloseDate"
-        ViewAttribute="CloseDate"
-        Operator="BETWEEN"
-        Conjunction="AND"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="IsSupervised"
         ViewAttribute="IsSupervised"
         Operator="="
         Conjunction="AND"
+        UpperColumns="0"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="IsUnsupervised"
+        ViewAttribute="IsUnsupervised"
+        Operator="="
+        Conjunction="AND"
+        UpperColumns="0"
         Required="Optional"/>
       <ViewCriteriaItem
         Name="IsCancelled"
@@ -913,8 +1007,26 @@
         Conjunction="AND"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="ScmPurchaseRfqHeaderVOCriteria_ScmPurchaseRfqHeaderVOCriteria_row_0_AdminCompanyVO"
-        ViewAttribute="AdminCompanyVO"
+        Name="ValidFromDate"
+        ViewAttribute="ValidFromDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ValidToDate"
+        ViewAttribute="ValidToDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ApprovalStatusSno"
+        ViewAttribute="ApprovalStatusSno"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="AdminCompanyVO1"
+        ViewAttribute="AdminCompanyVO1"
         Operator="EXISTS"
         Conjunction="AND"
         IsNestedCriteria="true"
@@ -927,14 +1039,14 @@
             Name="AdminCompanyVONestedCriteria_row_0"
             UpperColumns="1">
             <ViewCriteriaItem
-              Name="CompanyName"
-              ViewAttribute="CompanyName"
+              Name="LocationName"
+              ViewAttribute="LocationName"
               Operator="CONTAINS"
               Conjunction="AND"
               Required="Optional"/>
             <ViewCriteriaItem
-              Name="CompanyShortCode"
-              ViewAttribute="CompanyShortCode"
+              Name="LocationShortCode"
+              ViewAttribute="LocationShortCode"
               Operator="="
               Conjunction="AND"
               Required="Optional"/>

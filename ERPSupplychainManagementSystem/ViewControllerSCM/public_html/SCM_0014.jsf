@@ -7,7 +7,17 @@
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
         <af:dialog id="d2" type="ok">
           <f:facet name="buttonBar"/>
-          <af:panelGroupLayout layout="vertical" id="pgl4"/>
+          <af:panelGroupLayout layout="vertical" id="pgl2">
+            <af:panelHeader text="Search RFQ" id="ph1">
+              <af:query id="qryId1" headerText="Search" disclosed="true"
+                        value="#{bindings.ScmPurchaseRfqHeaderFindVCQuery.queryDescriptor}"
+                        model="#{bindings.ScmPurchaseRfqHeaderFindVCQuery.queryModel}"
+                        queryListener="#{bindings.ScmPurchaseRfqHeaderFindVCQuery.processQuery}"
+                        queryOperationListener="#{bindings.ScmPurchaseRfqHeaderFindVCQuery.processQueryOperation}"
+                        runQueryAutomatically="allSavedSearches" saveResultsLayout="never" saveQueryMode="hidden"
+                        modeChangeVisible="false"/>
+            </af:panelHeader>
+          </af:panelGroupLayout>
         </af:dialog>
       </af:popup>
       <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
@@ -24,7 +34,7 @@
                                    styleClass="WBDisplayBlockCenter"
                                    selectionListener="#{bindings.ScmPurchaseRfqHeaderRO.treeModel.makeCurrent}"
                                    selectedRowKeys="#{bindings.ScmPurchaseRfqHeaderRO.collectionModel.selectedRow}"
-                                   selection="single">
+                                   selection="single" partialTriggers=":::qryId1">
                         <af:listItem id="li1"
                                      styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                           <af:panelGroupLayout id="pgl11" styleClass="WBCardSize" layout="vertical">
@@ -121,7 +131,9 @@
         <f:facet name="ERPLeft"/>
         <f:facet name="ERPToolbar">
           <af:panelGroupLayout id="pgl6" halign="end" layout="horizontal">
-            <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgFind.png']}"/>
+            <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgFind.png']}">
+              <af:showPopupBehavior popupId="::p1"/>
+            </af:link>
             <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
                      action="ERP-ADD-ACT-SCM_0014" shortDesc="Add New Record"/>
             <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM" partialSubmit="true"

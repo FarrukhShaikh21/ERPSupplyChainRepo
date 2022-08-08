@@ -585,7 +585,7 @@
                                                      disabled="#{!bindings.CreateInsert1.enabled || bindings.RfqTypeSno.inputValue==2}"
                                                      id="l12" icon="#{resource['images:imgAddRecord.png']}"
                                                      partialSubmit="true" shortDesc="Add RFQ Line"
-                                                     partialTriggers="::soc1"/>
+                                                     partialTriggers="::soc1" immediate="true"/>
                                             <af:link actionListener="#{bindings.Delete2.execute}"
                                                      disabled="#{!bindings.Delete2.enabled}" id="l11"
                                                      icon="#{resource['images:imgDeleteRecord.png']}"
@@ -641,7 +641,8 @@
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
                                                                           contentStyle="width:100%"
-                                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}">
+                                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}"
+                                                                          partialTriggers="txtItemNameId">
                                                 <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>

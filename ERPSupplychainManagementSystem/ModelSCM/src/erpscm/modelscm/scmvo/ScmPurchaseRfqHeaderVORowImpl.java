@@ -92,7 +92,8 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         AccSysSystemParameterVO,
         AccScmPurchaseDemandHeaderVO,
         AccScmPurchaseDemandLinesForRFQ,
-        AccSysApprovalStatusVO;
+        AccSysApprovalStatusVO,
+        AccSysGeneralValueVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -184,6 +185,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCSCMPURCHASEDEMANDHEADERVO = AttributesEnum.AccScmPurchaseDemandHeaderVO.index();
     public static final int ACCSCMPURCHASEDEMANDLINESFORRFQ = AttributesEnum.AccScmPurchaseDemandLinesForRFQ.index();
     public static final int ACCSYSAPPROVALSTATUSVO = AttributesEnum.AccSysApprovalStatusVO.index();
+    public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1153,6 +1155,14 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public RowSet getAccSysApprovalStatusVO() {
         return (RowSet) getAttributeInternal(ACCSYSAPPROVALSTATUSVO);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSysGeneralValueVO.
+     */
+    public RowSet getAccSysGeneralValueVO() {
+        return (RowSet) getAttributeInternal(ACCSYSGENERALVALUEVO);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method

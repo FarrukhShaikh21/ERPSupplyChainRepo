@@ -433,6 +433,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
      */
     public void setItemId(Integer value) {
         setAttributeInternal(ITEMID, value);
+        setUnitTypeSno((Integer)getInvItemVO().getAttribute("PurchaseUnitTypeSno"));
     }
 
     /**
