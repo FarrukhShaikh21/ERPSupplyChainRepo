@@ -1,11 +1,11 @@
 
 CREATE TABLE scm_purchase_bid_header (
-   bid_header_sno int(10) NOT NULL,
-   bid_header_code int(10) NOT NULL,
+  bid_header_sno int(10) NOT NULL,
+  bid_header_code int(10) NOT NULL,
    rfq_header_sno	int(10) not null,
-   bill_to_sno int(10) DEFAULT NULL,
-   ship_to_sno int(10) DEFAULT NULL,
-   bid_date date DEFAULT NULL,
+  bill_to_sno int(10) DEFAULT NULL,
+  ship_to_sno int(10) DEFAULT NULL,
+  bid_date date DEFAULT NULL,
    response_date	date,
    supplier_quote_no varchar(50),
    effective_from date,
@@ -34,7 +34,31 @@ CREATE TABLE scm_purchase_bid_header (
    APPROVAL_STATUS_SNO int(6) DEFAULT NULL,
    PRIMARY KEY (bid_header_sno),
    UNIQUE KEY unq_scm_purchase_bid_header (bid_header_code,company_id)
-)  ;
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE scm_purchase_bid_lines (
+  bid_lines_sno int(10) NOT NULL,
+  bid_header_sno int(10) NOT NULL,
+  rfq_lines_sno	int(10) not null,
+  demand_lines_sno int(10) DEFAULT NULL,
+  supplier_item_name varchar(100) DEFAULT NULL,
+  item_id int(10) NOT NULL,
+  unit_type_sno int(6) NOT NULL,
+  quantity decimal(16,6) NOT NULL,
+  bid_price decimal(16,6) DEFAULT NULL,
+  remarks varchar(300) DEFAULT NULL,
+  project_id int(5) NOT NULL,
+  department_id int(5) NOT NULL,
+  created_by int(8) NOT NULL,
+  created_date date NOT NULL,
+  last_updated_by int(8) DEFAULT NULL,
+  last_updated_date date DEFAULT NULL,
+  status_sno int(5) DEFAULT NULL,
+  PRIMARY KEY (bid_lines_sno),
+  KEY FK_SCM_PUR_BID_LINE_HEAD_SNO (bid_header_sno),
+  CONSTRAINT FK_SCM_PUR_BID_LINE_HEAD_SNO FOREIGN KEY (bid_header_sno) REFERENCES scm_purchase_bid_header (BID_header_sno)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
 
 CREATE TABLE `sys_approval_status` (
   `approval_status_sno` int(6) NOT NULL,
