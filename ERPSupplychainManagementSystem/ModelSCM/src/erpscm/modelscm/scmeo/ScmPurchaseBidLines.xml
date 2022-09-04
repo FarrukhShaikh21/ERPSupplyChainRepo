@@ -12,7 +12,6 @@
   BindingStyle="OracleName">
   <Attribute
     Name="BidLinesSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="BID_LINES_SNO"
@@ -32,7 +31,6 @@
   </Attribute>
   <Attribute
     Name="BidHeaderSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="BID_HEADER_SNO"
@@ -51,7 +49,6 @@
   </Attribute>
   <Attribute
     Name="RfqLinesSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="RFQ_LINES_SNO"
@@ -108,7 +105,6 @@
   </Attribute>
   <Attribute
     Name="ItemId"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="ITEM_ID"
@@ -127,7 +123,6 @@
   </Attribute>
   <Attribute
     Name="UnitTypeSno"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="UNIT_TYPE_SNO"
@@ -203,7 +198,6 @@
   </Attribute>
   <Attribute
     Name="ProjectId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="PROJECT_ID"
@@ -222,7 +216,6 @@
   </Attribute>
   <Attribute
     Name="DepartmentId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="DEPARTMENT_ID"
@@ -241,7 +234,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="8"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -260,12 +252,12 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_LINES">
+    TableName="SCM_PURCHASE_BID_LINES"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -299,7 +291,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_LINES">
+    TableName="SCM_PURCHASE_BID_LINES"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
