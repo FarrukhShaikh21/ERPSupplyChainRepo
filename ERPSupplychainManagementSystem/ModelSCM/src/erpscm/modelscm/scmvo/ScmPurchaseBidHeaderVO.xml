@@ -223,4 +223,10 @@
     ViewLink="erpscm.modelscm.scmvo.FkScmPurBidLineHeadSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseRfqHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurRfqHeaderScmPurBidHeaderRfqHeaderSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

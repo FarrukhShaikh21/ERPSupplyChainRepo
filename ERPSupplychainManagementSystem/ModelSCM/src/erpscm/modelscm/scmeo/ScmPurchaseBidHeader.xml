@@ -602,6 +602,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.FkScmPurBidLineHeadSnoAssoc.ScmPurchaseBidHeader"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmPurchaseRfqHeader"
+    Association="erpscm.modelscm.scmeo.ScmPurRfqHeaderScmPurBidHeaderRfqHeaderSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurRfqHeaderScmPurBidHeaderRfqHeaderSnoAsso.ScmPurchaseRfqHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurRfqHeaderScmPurBidHeaderRfqHeaderSnoAsso.ScmPurchaseBidHeader"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseRfqHeaderImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidHeader"
     PrimaryKey="true">
@@ -621,6 +628,17 @@
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.BidHeaderCode"/>
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.CompanyId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidHeader">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_QUOTATION_HEAD"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_BID_HEADER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.RfqHeaderSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
