@@ -12,68 +12,128 @@
   BindingStyle="OracleName">
   <Attribute
     Name="BidHeaderSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="BID_HEADER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_BID_HEADER"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.BidHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="BidHeaderCode"
     IsUnique="true"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="BID_HEADER_CODE"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.BidHeaderCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="RfqHeaderSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="RFQ_HEADER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.RfqHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="BillToSno"
     Precision="10"
     Scale="0"
     ColumnName="BILL_TO_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.BillToSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ShipToSno"
     Precision="10"
     Scale="0"
     ColumnName="SHIP_TO_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.ShipToSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="BidDate"
     ColumnName="BID_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.BidDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ResponseDate"
     ColumnName="RESPONSE_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.ResponseDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="SupplierQuoteNo"
     Precision="50"
@@ -85,6 +145,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.SupplierQuoteNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="EffectiveFrom"
@@ -92,14 +160,32 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.EffectiveFrom_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="EffectiveTo"
     ColumnName="EFFECTIVE_TO"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.EffectiveTo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="StatusId"
     IsNotNull="true"
@@ -107,9 +193,18 @@
     Scale="0"
     ColumnName="STATUS_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.StatusId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Remarks"
     Precision="300"
@@ -121,6 +216,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="300"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.Remarks_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="LocationId"
@@ -130,7 +233,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.LocationId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="GlobalCompanyId"
     IsNotNull="true"
@@ -140,7 +252,18 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.GlobalCompanyId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CompanyId"
     IsUnique="true"
@@ -151,7 +274,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.CompanyId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="TempProjectId"
     IsNotNull="true"
@@ -161,7 +293,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.TempProjectId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="TempDepartmentId"
     IsNotNull="true"
@@ -171,7 +312,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.TempDepartmentId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
     Precision="5"
@@ -180,14 +330,33 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.CreatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER"
+    RetrievedOnInsert="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.CreatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -196,14 +365,33 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.LastUpdatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedDate"
     ColumnName="LAST_UPDATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.LastUpdatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IsSupervised"
     Precision="1"
@@ -215,6 +403,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.IsSupervised_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="SupervisedBy"
@@ -224,14 +420,33 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.SupervisedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="SupervisedDate"
     ColumnName="SUPERVISED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.SupervisedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IsUnsupervised"
     Precision="1"
@@ -239,10 +454,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_BID_HEADER">
+    TableName="SCM_PURCHASE_BID_HEADER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.IsUnsupervised_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="UnSupervisedBy"
@@ -252,14 +476,33 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.UnSupervisedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="UnSupervisedDate"
     ColumnName="UN_SUPERVISED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.UnSupervisedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IsCancelled"
     Precision="1"
@@ -267,10 +510,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_BID_HEADER">
+    TableName="SCM_PURCHASE_BID_HEADER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.IsCancelled_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CancelledBy"
@@ -280,23 +532,51 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.CancelledBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CancelledDate"
     ColumnName="CANCELLED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.CancelledDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DemandHeaderSno"
     Precision="10"
     Scale="0"
     ColumnName="DEMAND_HEADER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.DemandHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ApprovalStatusSno"
     Precision="6"
@@ -305,7 +585,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.ApprovalStatusSno_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidLines"
     Association="erpscm.modelscm.scmeo.FkScmPurBidLineHeadSnoAssoc"
@@ -334,4 +623,8 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.CompanyId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </Entity>
