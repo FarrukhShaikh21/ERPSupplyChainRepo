@@ -334,6 +334,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoAsso.ScmPurchaseBidLines"
     Type="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseDemandLines"
+    Association="erpscm.modelscm.scmeo.ScmPurchaseDmdLinesScmPurchBidLinesDemandLineSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchaseDmdLinesScmPurchBidLinesDemandLineSnoAsso.ScmPurchaseDemandLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchaseDmdLinesScmPurchBidLinesDemandLineSnoAsso.ScmPurchaseBidLines"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseDemandLinesImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidLines"
     PrimaryKey="true">
@@ -364,6 +371,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.RfqLinesSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidLines1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_DEMAND_LINES"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Lines1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.DemandLinesSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

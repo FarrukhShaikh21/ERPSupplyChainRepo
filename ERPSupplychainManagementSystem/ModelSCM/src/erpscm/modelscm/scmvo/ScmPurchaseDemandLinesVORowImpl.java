@@ -68,6 +68,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
         ScmPurchaseRfqLinesVO,
         InvInventoryOrgVO,
         ScmPurchaseDemandAccountVO,
+        ScmPurchaseBidLinesVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsQVO,
@@ -142,6 +143,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
     public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int SCMPURCHASEDEMANDACCOUNTVO = AttributesEnum.ScmPurchaseDemandAccountVO.index();
+    public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSQVO = AttributesEnum.AccGlProjectsQVO.index();
@@ -780,6 +782,13 @@ public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
      */
     public RowIterator getScmPurchaseDemandAccountVO() {
         return (RowIterator) getAttributeInternal(SCMPURCHASEDEMANDACCOUNTVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseBidLinesVO.
+     */
+    public RowIterator getScmPurchaseBidLinesVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDLINESVO);
     }
 
     /**

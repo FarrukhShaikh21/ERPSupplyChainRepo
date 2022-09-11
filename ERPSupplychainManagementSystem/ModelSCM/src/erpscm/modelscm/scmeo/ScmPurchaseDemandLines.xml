@@ -641,6 +641,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurDemLineScmPurDemAcctDemandLineSnoAssoc.ScmPurchaseDemandLines"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmPurchaseBidLines"
+    Association="erpscm.modelscm.scmeo.ScmPurchaseDmdLinesScmPurchBidLinesDemandLineSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchaseDmdLinesScmPurchBidLinesDemandLineSnoAsso.ScmPurchaseBidLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchaseDmdLinesScmPurchBidLinesDemandLineSnoAsso.ScmPurchaseDemandLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="AltKeyScmPurchaseDemandLine"
     AltKey="true">
@@ -810,9 +817,9 @@ return true;]]></validation:TransientExpression>
       <validation:Item
         Value="ERR_REQ_DEMAND_QUANTITY"/>
       <validation:Item
-        Value="ERR_REQ_REQUIRED_DATE"/>
-      <validation:Item
         Value="ERR_REQ_DEMAND_ACCOUNT"/>
+      <validation:Item
+        Value="ERR_REQ_REQUIRED_DATE"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(ItemId==null)
