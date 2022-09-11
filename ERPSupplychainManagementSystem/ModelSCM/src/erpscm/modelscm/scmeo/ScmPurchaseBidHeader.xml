@@ -609,6 +609,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurRfqHeaderScmPurBidHeaderRfqHeaderSnoAsso.ScmPurchaseBidHeader"
     Type="erpscm.modelscm.scmeo.ScmPurchaseRfqHeaderImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AdminCompany"
+    Association="erpscm.modelscm.scmeo.AdminLocationScmPurchaseBIDHeaderLocationIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.AdminLocationScmPurchaseBIDHeaderLocationIdAsso.AdminCompany"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.AdminLocationScmPurchaseBIDHeaderLocationIdAsso.ScmPurchaseBidHeader"
+    Type="erpadm.modeladm.admeo.AdminCompanyImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidHeader"
     PrimaryKey="true">
@@ -639,6 +646,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.RfqHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidHeader1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADMIN_COMPANY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Header1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.LocationId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
