@@ -128,4 +128,10 @@
     EntityAttrName="StatusSno"
     EntityUsage="ScmPurchaseBidLines"
     AliasName="STATUS_SNO"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseRfqLinesVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

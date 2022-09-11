@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -16,6 +17,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_SCMPURCHASERFQLINES = 0;
 
     /**
@@ -54,11 +56,13 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         AdminCompanyVO,
         ScmPurchaseRfqHeaderVO,
         ScmPurchaseDemandLinesVO,
+        ScmPurchaseBidLinesVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsVO,
         AccAdminCompanyVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -80,6 +84,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
     public static final int RFQHEADERSNO = AttributesEnum.RfqHeaderSno.index();
     public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
@@ -112,6 +117,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int SCMPURCHASERFQHEADERVO = AttributesEnum.ScmPurchaseRfqHeaderVO.index();
     public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
+    public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
@@ -614,6 +620,13 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
      */
     public void setScmPurchaseDemandLinesVO(Row value) {
         setAttributeInternal(SCMPURCHASEDEMANDLINESVO, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseBidLinesVO.
+     */
+    public RowIterator getScmPurchaseBidLinesVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDLINESVO);
     }
 
     /**

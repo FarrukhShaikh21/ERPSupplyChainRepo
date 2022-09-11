@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -58,7 +59,8 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
         InvUnitType,
         GlProjects,
         AdminCompany,
-        ScmPurchaseDemandLines;
+        ScmPurchaseDemandLines,
+        ScmPurchaseBidLines;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -113,6 +115,7 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
+    public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -596,6 +599,14 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
      */
     public void setScmPurchaseDemandLines(ScmPurchaseDemandLinesImpl value) {
         setAttributeInternal(SCMPURCHASEDEMANDLINES, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseBidLines() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDLINES);
     }
 
 
