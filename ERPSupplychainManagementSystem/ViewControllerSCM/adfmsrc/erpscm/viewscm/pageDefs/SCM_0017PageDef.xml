@@ -7,6 +7,10 @@
     <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="AdminCompanyVORO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="AdminCompanyVOROIterator"/>
+    <iterator Binds="ScmPurchaseBidHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidHeaderROIterator"/>
+    <iterator Binds="ScmPurchaseBidHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidHeaderCRUDIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="AdminCompanyVOROIterator" id="AdminCompanyVORO">
@@ -23,6 +27,22 @@
     <attributeValues IterBinding="AdminCompanyVOROIterator" id="CompCode">
       <AttrNames>
         <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ScmPurchaseBidHeaderROIterator" id="ScmPurchaseBidHeaderRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO" Name="ScmPurchaseBidHeaderRO0">
+        <AttrNames>
+          <Item Value="BidHeaderCode"/>
+          <Item Value="BidDate"/>
+          <Item Value="txtLocationName"/>
+          <Item Value="ResponseDate"/>
+          <Item Value="ApprovalStatusSno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" id="BidHeaderSno">
+      <AttrNames>
+        <Item Value="BidHeaderSno"/>
       </AttrNames>
     </attributeValues>
   </bindings>
