@@ -106,7 +106,7 @@
     Name="BidDate"
     ColumnName="BID_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SCM_PURCHASE_BID_HEADER">
     <Properties>
@@ -122,7 +122,7 @@
     Name="ResponseDate"
     ColumnName="RESPONSE_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SCM_PURCHASE_BID_HEADER">
     <Properties>
@@ -158,7 +158,7 @@
     Name="EffectiveFrom"
     ColumnName="EFFECTIVE_FROM"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SCM_PURCHASE_BID_HEADER">
     <Properties>
@@ -174,7 +174,7 @@
     Name="EffectiveTo"
     ColumnName="EFFECTIVE_TO"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SCM_PURCHASE_BID_HEADER">
     <Properties>
@@ -616,6 +616,20 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.AdminLocationScmPurchaseBIDHeaderLocationIdAsso.ScmPurchaseBidHeader"
     Type="erpadm.modeladm.admeo.AdminCompanyImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AdminCompany1"
+    Association="erpscm.modelscm.scmeo.AdminCompanySCMPurBIDHeaderTempDepartmentIDAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.AdminCompanySCMPurBIDHeaderTempDepartmentIDAsso.AdminCompany1"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.AdminCompanySCMPurBIDHeaderTempDepartmentIDAsso.ScmPurchaseBidHeader"
+    Type="erpadm.modeladm.admeo.AdminCompanyImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlProjects"
+    Association="erpscm.modelscm.scmeo.GlProjectScmPurBIDHeaderTempProjectIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.GlProjectScmPurBIDHeaderTempProjectIdAsso.GlProjects"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GlProjectScmPurBIDHeaderTempProjectIdAsso.ScmPurchaseBidHeader"
+    Type="erpfms.modelfms.fmseo.GlProjectsImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidHeader"
     PrimaryKey="true">
@@ -657,6 +671,28 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.LocationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidHeader2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADMIN_COMPANY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Header2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.TempDepartmentId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidHeader3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_PROJECTS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Header3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.TempProjectId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
