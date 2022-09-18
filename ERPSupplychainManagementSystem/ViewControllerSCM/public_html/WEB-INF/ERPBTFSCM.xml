@@ -832,6 +832,12 @@
         <fixed-outcome>ERP-EDIT-EDIT-ACT-SCM_0016</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0017">
+      <page>/SCM_0017.jsf</page>
+    </view>
+    <view id="SCM_0017_EDIT">
+      <page>/SCM_0017_EDIT.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -932,6 +938,10 @@
       <control-flow-case id="__344">
         <from-outcome>ERP-ACT-SCM_0016</from-outcome>
         <to-activity-id>ExeAdminCompanySCM_0016</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__363">
+        <from-outcome>ERP-ACT-SCM_0017</from-outcome>
+        <to-activity-id>SCM_0017</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -2075,6 +2085,13 @@
       <control-flow-case id="__361">
         <from-outcome>ERP-EDIT-EDIT-ACT-SCM_0016</from-outcome>
         <to-activity-id>SCM_0016_EDIT_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__366">
+      <from-activity-id>SCM_0017</from-activity-id>
+      <control-flow-case id="__367">
+        <from-outcome>ERP-ACT-SCM-0017</from-outcome>
+        <to-activity-id>SCM_0017_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
