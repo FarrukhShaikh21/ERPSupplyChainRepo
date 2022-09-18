@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ScmPurDemandHeadScmPurBIDHeadDemandHeaderSnoVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpscm.modelscm.scmeo.ScmPurDemandHeadScmPurBIDHeadDemandHeaderSnoAsso">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpscm.modelscm.scmvo.ScmPurDemandHeadScmPurBIDHeadDemandHeaderSnoVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="ScmPurchaseDemandHeaderVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="ScmPurchaseDemandHeaderVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO.DemandHeaderSno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ScmPurchaseBidHeaderVO"
+    Cardinality="-1"
+    Owner="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ScmPurchaseBidHeaderVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO.DemandHeaderSno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
+</ViewLink>

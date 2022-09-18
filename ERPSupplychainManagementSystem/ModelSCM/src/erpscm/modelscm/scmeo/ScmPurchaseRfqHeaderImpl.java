@@ -293,15 +293,15 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      * Gets the attribute value for StatusId, using the alias name StatusId.
      * @return the value of StatusId
      */
-    public BigDecimal getStatusId() {
-        return (BigDecimal) getAttributeInternal(STATUSID);
+    public Integer getStatusId() {
+        return (Integer) getAttributeInternal(STATUSID);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for StatusId.
      * @param value value to set the StatusId
      */
-    public void setStatusId(BigDecimal value) {
+    public void setStatusId(Integer value) {
         setAttributeInternal(STATUSID, value);
     }
 

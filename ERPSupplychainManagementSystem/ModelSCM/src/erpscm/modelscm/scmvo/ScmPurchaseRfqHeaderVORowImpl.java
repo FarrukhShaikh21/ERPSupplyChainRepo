@@ -319,15 +319,15 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
      * Gets the attribute value for STATUS_ID using the alias name StatusId.
      * @return the STATUS_ID
      */
-    public BigDecimal getStatusId() {
-        return (BigDecimal) getAttributeInternal(STATUSID);
+    public Integer getStatusId() {
+        return (Integer) getAttributeInternal(STATUSID);
     }
 
     /**
      * Sets <code>value</code> as attribute value for STATUS_ID using the alias name StatusId.
      * @param value value to set the STATUS_ID
      */
-    public void setStatusId(BigDecimal value) {
+    public void setStatusId(Integer value) {
         setAttributeInternal(STATUSID, value);
     }
 
