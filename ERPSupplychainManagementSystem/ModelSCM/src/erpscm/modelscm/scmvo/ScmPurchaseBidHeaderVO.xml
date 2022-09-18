@@ -218,6 +218,30 @@
     EntityAttrName="ApprovalStatusSno"
     EntityUsage="ScmPurchaseBidHeader"
     AliasName="APPROVAL_STATUS_SNO"/>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtLocationName"
+    EntityUsage="ScmPurchaseBidHeader"
+    AliasName="txt_Location_Name"/>
+  <ViewAttribute
+    Name="txtTempDepartmentName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtTempDepartmentName"
+    EntityUsage="ScmPurchaseBidHeader"
+    AliasName="txt_Temp_Department_Name"/>
+  <ViewAttribute
+    Name="txtTempProjectName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtTempProjectName"
+    EntityUsage="ScmPurchaseBidHeader"
+    AliasName="txt_Temp_Project_Name"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidLinesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurBidLineHeadSnoLink"
