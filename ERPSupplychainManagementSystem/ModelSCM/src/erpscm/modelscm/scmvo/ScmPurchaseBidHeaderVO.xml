@@ -25,6 +25,31 @@
       Name="AdminCompanyCompanyAccessWiseVC"
       FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyCompanyAccessWiseVC"/>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlProjectsQVO"
+    ViewObjectName="erpfms.modelfms.fmsqvo.GlProjectsQVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAdminCompanyDepartmentVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSysGeneralValueYesNoVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[4]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovApprovalStatusSno"
     ListVOName="AccSysApprovalStatusVO"
@@ -69,6 +94,96 @@
     </AttrArray>
     <DisplayCriteria
       Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovTempProjectName"
+    ListVOName="AccGlProjectsQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtTempProjectName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TempProjectId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectCode"/>
+      <Item Value="ProjectShortName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_txtTempDepartmentName"
+    ListVOName="AccAdminCompanyDepartmentVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtTempDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TempDepartmentId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortName"/>
+      <Item Value="CompCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsSupervised"
+    ListVOName="AccSysGeneralValueYesNoVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsSupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsCancelled"
+    ListVOName="AccSysGeneralValueYesNoVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsCancelled"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseBidHeader"
@@ -214,7 +329,15 @@
     PrecisionRule="true"
     EntityAttrName="IsSupervised"
     EntityUsage="ScmPurchaseBidHeader"
-    AliasName="IS_SUPERVISED"/>
+    AliasName="IS_SUPERVISED"
+    LOVName="LovIsSupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SupervisedBy"
     PrecisionRule="true"
@@ -250,7 +373,15 @@
     PrecisionRule="true"
     EntityAttrName="IsCancelled"
     EntityUsage="ScmPurchaseBidHeader"
-    AliasName="IS_CANCELLED"/>
+    AliasName="IS_CANCELLED"
+    LOVName="LovIsCancelled">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CancelledBy"
     PrecisionRule="true"
@@ -306,7 +437,15 @@
     PrecisionRule="true"
     EntityAttrName="txtTempDepartmentName"
     EntityUsage="ScmPurchaseBidHeader"
-    AliasName="txt_Temp_Department_Name"/>
+    AliasName="txt_Temp_Department_Name"
+    LOVName="LOV_txtTempDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtTempProjectName"
     IsQueriable="false"
@@ -314,7 +453,15 @@
     PrecisionRule="true"
     EntityAttrName="txtTempProjectName"
     EntityUsage="ScmPurchaseBidHeader"
-    AliasName="txt_Temp_Project_Name"/>
+    AliasName="txt_Temp_Project_Name"
+    LOVName="LovTempProjectName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseBidLinesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurBidLineHeadSnoLink"

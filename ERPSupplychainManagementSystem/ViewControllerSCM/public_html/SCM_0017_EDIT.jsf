@@ -208,13 +208,13 @@
                                         <af:gridCell marginStart="5px" width="20%" id="gc11" halign="stretch"
                                                      valign="middle">
                                             <af:inputComboboxListOfValues id="txtProjectNameId"
-                                                                          popupTitle="Search and Select: #{bindings.txtProjectName.hints.label}"
-                                                                          value="#{bindings.txtProjectName.inputValue}"
-                                                                          label="#{bindings.txtProjectName.hints.label}"
-                                                                          model="#{bindings.txtProjectName.listOfValuesModel}"
-                                                                          required="#{bindings.txtProjectName.hints.mandatory}"
-                                                                          columns="#{bindings.txtProjectName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtProjectName.hints.tooltip}"
+                                                                          popupTitle="Search and Select: #{bindings.txtTempProjectName.hints.label}"
+                                                                          value="#{bindings.txtTempProjectName.inputValue}"
+                                                                          label="#{bindings.txtTempProjectName.hints.label}"
+                                                                          model="#{bindings.txtTempProjectName.listOfValuesModel}"
+                                                                          required="#{bindings.txtTempProjectName.hints.mandatory}"
+                                                                          columns="#{bindings.txtTempProjectName.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
                                                                           simple="true" contentStyle="width:100%"
                                                                           partialTriggers="txtLocationNameId">
                                                 <f:validator binding="#{bindings.txtProjectName.validator}"/>
