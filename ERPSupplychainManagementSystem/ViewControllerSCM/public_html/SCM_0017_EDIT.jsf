@@ -274,6 +274,17 @@
                                             <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol6"/>
                                         </af:gridCell>
                                         <af:gridCell id="gc17" columnSpan="5" halign="stretch" valign="middle">
+                                            <af:inputText value="#{bindings.txtSumBidQuantity.inputValue}"
+                                                          label="#{bindings.txtSumBidQuantity.hints.label}"
+                                                          required="#{bindings.txtSumBidQuantity.hints.mandatory}"
+                                                          columns="#{bindings.txtSumBidQuantity.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtSumBidQuantity.hints.precision}"
+                                                          shortDesc="#{bindings.txtSumBidQuantity.hints.tooltip}"
+                                                          id="it1" simple="true">
+                                                <f:validator binding="#{bindings.txtSumBidQuantity.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.txtSumBidQuantity.format}"/>
+                                            </af:inputText>
                                             <af:inputText value="#{bindings.Remarks.inputValue}"
                                                           label="#{bindings.Remarks.hints.label}"
                                                           required="#{bindings.Remarks.hints.mandatory}"
@@ -282,28 +293,6 @@
                                                           shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2"
                                                           simple="true" contentStyle="width:100%">
                                                 <f:validator binding="#{bindings.Remarks.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.txtSumDemandQty.inputValue}"
-                                                          label="#{bindings.txtSumDemandQty.hints.label}"
-                                                          required="#{bindings.txtSumDemandQty.hints.mandatory}"
-                                                          columns="#{bindings.txtSumDemandQty.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtSumDemandQty.hints.precision}"
-                                                          shortDesc="#{bindings.txtSumDemandQty.hints.tooltip}" id="it6"
-                                                          rendered="false">
-                                                <f:validator binding="#{bindings.txtSumDemandQty.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.txtSumDemandQty.format}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.txtSumApproveQty.inputValue}"
-                                                          label="#{bindings.txtSumApproveQty.hints.label}"
-                                                          required="#{bindings.txtSumApproveQty.hints.mandatory}"
-                                                          columns="#{bindings.txtSumApproveQty.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtSumApproveQty.hints.precision}"
-                                                          shortDesc="#{bindings.txtSumApproveQty.hints.tooltip}"
-                                                          id="it7" rendered="false">
-                                                <f:validator binding="#{bindings.txtSumApproveQty.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.txtSumApproveQty.format}"/>
                                             </af:inputText>
                                         </af:gridCell>
                                     </af:gridRow>
@@ -321,15 +310,15 @@
                                               rendered="false">
                                     <f:validator binding="#{bindings.txtItemName.validator}"/>
                                 </af:inputText>
-                                <af:inputText value="#{bindings.txtLineCount.inputValue}"
-                                              label="#{bindings.txtLineCount.hints.label}"
-                                              required="#{bindings.txtLineCount.hints.mandatory}"
-                                              columns="#{bindings.txtLineCount.hints.displayWidth}"
-                                              maximumLength="#{bindings.txtLineCount.hints.precision}"
-                                              shortDesc="#{bindings.txtLineCount.hints.tooltip}" id="it14"
+                                <af:inputText value="#{bindings.txtTotalRecord.inputValue}"
+                                              label="#{bindings.txtTotalRecord.hints.label}"
+                                              required="#{bindings.txtTotalRecord.hints.mandatory}"
+                                              columns="#{bindings.txtTotalRecord.hints.displayWidth}"
+                                              maximumLength="#{bindings.txtTotalRecord.hints.precision}"
+                                              shortDesc="#{bindings.txtTotalRecord.hints.tooltip}" id="it4"
                                               rendered="false">
-                                    <f:validator binding="#{bindings.txtLineCount.validator}"/>
-                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtLineCount.format}"/>
+                                    <f:validator binding="#{bindings.txtTotalRecord.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalRecord.format}"/>
                                 </af:inputText>
                                 <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                     <f:facet name="menus"/>
@@ -347,68 +336,15 @@
                                     </f:facet>
                                     <f:facet name="statusbar">
                                         <af:toolbar id="t3">
-                                            <af:inputText label="#{bindings.txtLineCount.hints.label}" id="it15" contentStyle="font-weight:bold"
+                                            <af:inputText label="#{bindings.txtTotalRecord.hints.label}" id="it15" contentStyle="font-weight:bold"
                                                           labelStyle="font-weight:bold"
-                                                          value="#{bindings.txtLineCount.inputValue}"/>
+                                                          value="#{bindings.txtTotalRecord.inputValue}"/>
                                         </af:toolbar>
                                     </f:facet>
                                     <f:facet name="secondaryToolbar"/>
                                     <f:facet name="afterToolbar"/>
                                     <f:facet name="viewMenu"/>
                                 </af:panelCollection>
-                            </af:gridCell>
-                        </af:gridRow>
-                        <af:gridRow id="gr9" marginTop="5px">
-                            <af:gridCell id="gc21">
-                                <af:panelBox text="Line Detail" id="pb1" showDisclosure="false">
-                                    <f:facet name="toolbar"/>
-                                    <af:panelFormLayout id="pfl1" maxColumns="4" rows="1" labelAlignment="top">
-                                        <af:inputComboboxListOfValues id="iclov2"
-                                                                      popupTitle="Search and Select: #{bindings.txtInvOrgDescription.hints.label}"
-                                                                      value="#{bindings.txtInvOrgDescription.inputValue}"
-                                                                      label="#{bindings.txtInvOrgDescription.hints.label}"
-                                                                      model="#{bindings.txtInvOrgDescription.listOfValuesModel}"
-                                                                      required="#{bindings.txtInvOrgDescription.hints.mandatory}"
-                                                                      columns="#{bindings.txtInvOrgDescription.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.txtInvOrgDescription.hints.tooltip}"
-                                                                      labelStyle="text-align:center">
-                                            <f:validator binding="#{bindings.txtInvOrgDescription.validator}"/>
-                                        </af:inputComboboxListOfValues>
-                                        <af:inputComboboxListOfValues id="txtProjectName1Id"
-                                                                      popupTitle="Search and Select: #{bindings.txtProjectName1.hints.label}"
-                                                                      value="#{bindings.txtProjectName1.inputValue}"
-                                                                      label="#{bindings.txtProjectName1.hints.label}"
-                                                                      model="#{bindings.txtProjectName1.listOfValuesModel}"
-                                                                      required="#{bindings.txtProjectName1.hints.mandatory}"
-                                                                      columns="#{bindings.txtProjectName1.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.txtProjectName1.hints.tooltip}"
-                                                                      labelStyle="text-align:center">
-                                            <f:validator binding="#{bindings.txtProjectName1.validator}"/>
-                                        </af:inputComboboxListOfValues>
-                                        <af:inputComboboxListOfValues id="iclov3"
-                                                                      popupTitle="Search and Select: #{bindings.txtDepartmentName.hints.label}"
-                                                                      value="#{bindings.txtDepartmentName.inputValue}"
-                                                                      label="#{bindings.txtDepartmentName.hints.label}"
-                                                                      model="#{bindings.txtDepartmentName.listOfValuesModel}"
-                                                                      required="#{bindings.txtDepartmentName.hints.mandatory}"
-                                                                      columns="#{bindings.txtDepartmentName.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.txtDepartmentName.hints.tooltip}"
-                                                                      labelStyle="text-align:center">
-                                            <f:validator binding="#{bindings.txtDepartmentName.validator}"/>
-                                        </af:inputComboboxListOfValues>
-                                        <af:inputComboboxListOfValues id="iclov4"
-                                                                      popupTitle="Search and Select: #{bindings.txtSupplierName.hints.label}"
-                                                                      value="#{bindings.txtSupplierName.inputValue}"
-                                                                      label="#{bindings.txtSupplierName.hints.label}"
-                                                                      model="#{bindings.txtSupplierName.listOfValuesModel}"
-                                                                      required="#{bindings.txtSupplierName.hints.mandatory}"
-                                                                      columns="#{bindings.txtSupplierName.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
-                                                                      labelStyle="text-align:center">
-                                            <f:validator binding="#{bindings.txtSupplierName.validator}"/>
-                                        </af:inputComboboxListOfValues>
-                                    </af:panelFormLayout>
-                                </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>

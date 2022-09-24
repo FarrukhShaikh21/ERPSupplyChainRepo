@@ -295,6 +295,9 @@
   <ViewUsage
     Name="ScmPurchaseBidHeaderCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO"/>
+  <ViewUsage
+    Name="ScmPurchaseBidLinesDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -366,5 +369,11 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.ScmPurDemLineScmPurDemAcctDemandLineSnoVL"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseDemandLinesDetCRUD"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseDemandAccountDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmPurBidLineHeadSnoLink1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurBidLineHeadSnoLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseBidHeaderCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseBidLinesDetCRUD"
     Reversed="false"/>
 </AppModule>

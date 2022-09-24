@@ -6,8 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="ScmPurchaseBidHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidHeaderCRUDIterator"/>
-    <iterator Binds="ScmPurchaseBidHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmPurchaseBidHeaderROIterator"/>
+    <iterator Binds="ScmPurchaseBidLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidLinesDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" id="BidHeaderCode">
@@ -24,36 +24,50 @@
                   id="txtLocationName"/>
     <listOfValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LovTempProjectName"
                   id="txtTempProjectName"/>
-    <attributeValues IterBinding="ScmPurchaseBidHeaderROIterator" id="Remarks">
+    <attributeValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" id="Remarks">
       <AttrNames>
         <Item Value="Remarks"/>
       </AttrNames>
     </attributeValues>
-    <listOfValues IterBinding="ScmPurchaseBidHeaderROIterator" StaticList="false" Uses="LOV_txtTempDepartmentName"
+    <listOfValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LOV_txtTempDepartmentName"
                   id="txtTempDepartmentName"/>
-    <list IterBinding="ScmPurchaseBidHeaderROIterator" StaticList="false" Uses="LovApprovalStatusSno"
+    <list IterBinding="ScmPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LovApprovalStatusSno"
           id="ApprovalStatusSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
-    <action IterBinding="ScmPurchaseBidHeaderROIterator" id="CreateWithParams" RequiresUpdateModel="true"
+    <action IterBinding="ScmPurchaseBidHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams"/>
-    <action IterBinding="ScmPurchaseBidHeaderROIterator" id="Delete" RequiresUpdateModel="false"
+    <action IterBinding="ScmPurchaseBidHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <attributeValues IterBinding="ScmPurchaseBidHeaderROIterator" id="IsUnsupervised">
+    <attributeValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" id="IsUnsupervised">
       <AttrNames>
         <Item Value="IsUnsupervised"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmPurchaseBidHeaderROIterator" id="IsSupervised">
+    <attributeValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" id="IsSupervised">
       <AttrNames>
         <Item Value="IsSupervised"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ScmPurchaseBidHeaderROIterator" id="IsCancelled">
+    <attributeValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" id="IsCancelled">
       <AttrNames>
         <Item Value="IsCancelled"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" id="txtSumBidQuantity">
+      <AttrNames>
+        <Item Value="txtSumBidQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseBidLinesDetCRUDIterator" id="txtTotalRecord">
+      <AttrNames>
+        <Item Value="txtTotalRecord"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ScmPurchaseBidLinesDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ScmPurchaseBidLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>
