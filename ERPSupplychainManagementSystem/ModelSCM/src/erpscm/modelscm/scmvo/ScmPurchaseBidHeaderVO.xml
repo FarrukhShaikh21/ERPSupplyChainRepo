@@ -462,6 +462,21 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtSumBidQuantity"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseBidLinesVO?.sum("Quantity")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseBidLinesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurBidLineHeadSnoLink"
