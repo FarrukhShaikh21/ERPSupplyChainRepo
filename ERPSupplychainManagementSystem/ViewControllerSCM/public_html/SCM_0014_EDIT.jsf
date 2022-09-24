@@ -501,11 +501,11 @@
                                             <f:facet name="toolbar">
                                                 <af:toolbar id="t3">
                                                     <af:link actionListener="#{bindings.CreateInsert.execute}"
-                                                             disabled="#{!bindings.CreateInsert.enabled || bindings.RfqTypeSno.inputValue==2||bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}" id="l13"
+                                                             disabled="#{!bindings.CreateInsert.enabled ||bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}" id="l13"
                                                              icon="#{resource['images:imgAddRecord.png']}"
                                                              partialSubmit="true"/>
                                                     <af:link actionListener="#{bindings.Delete1.execute}"
-                                                             disabled="#{!bindings.Delete1.enabled || bindings.RfqTypeSno.inputValue==2||bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}" id="l14"
+                                                             disabled="#{!bindings.Delete1.enabled ||bindings.IsSupervised.inputValue=='Y'||pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}" id="l14"
                                                              icon="#{resource['images:imgDeleteRecord.png']}"
                                                              partialSubmit="true"/>
                                                 </af:toolbar>
