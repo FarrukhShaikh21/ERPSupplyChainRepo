@@ -137,7 +137,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
-    SQLType="NUMERIC">
+    SQLType="INTEGER">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -156,6 +156,12 @@
   <ViewLinkAccessor
     Name="ScmPurchaseDemandLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchaseDmdLinesScmPurchBidLinesDemandLineSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InvItemVO"
+    ViewLink="erpscm.modelscm.scmvo.InvItemScmPurchaseBidLinesItemIdVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

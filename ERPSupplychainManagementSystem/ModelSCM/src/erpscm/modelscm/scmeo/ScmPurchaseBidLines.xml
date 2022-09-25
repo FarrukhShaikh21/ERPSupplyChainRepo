@@ -341,6 +341,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchaseDmdLinesScmPurchBidLinesDemandLineSnoAsso.ScmPurchaseBidLines"
     Type="erpscm.modelscm.scmeo.ScmPurchaseDemandLinesImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InvItem"
+    Association="erpscm.modelscm.scmeo.InvItemScmPurchaseBidLinesItemIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.InvItemScmPurchaseBidLinesItemIdAsso.InvItem"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.InvItemScmPurchaseBidLinesItemIdAsso.ScmPurchaseBidLines"
+    Type="erpims.modelims.imseo.InvItemImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidLines"
     PrimaryKey="true">
@@ -382,6 +389,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.DemandLinesSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidLines2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_INV_ITEM"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Lines2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.ItemId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
