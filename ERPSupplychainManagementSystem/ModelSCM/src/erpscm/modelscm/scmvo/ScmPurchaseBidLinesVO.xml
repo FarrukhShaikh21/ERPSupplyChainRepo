@@ -41,6 +41,28 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlProjectsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlProjectsByCompanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyDepartmentAccessWiseVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyDepartmentAccessWiseVC"/>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -89,6 +111,56 @@
     </AttrArray>
     <DisplayCriteria
       Name="InvUnitTypeFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtProjectName"
+    ListVOName="AccGlProjectsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtProjectName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ProjectId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlProjectsFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtDepartmentName"
+    ListVOName="AccAdminCompanyVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DepartmentId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseBidLines"
@@ -263,7 +335,15 @@
     PrecisionRule="true"
     EntityAttrName="txtProjectName"
     EntityUsage="ScmPurchaseBidLines"
-    AliasName="txt_Project_Name"/>
+    AliasName="txt_Project_Name"
+    LOVName="LovtxtProjectName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtDepartmentName"
     IsQueriable="false"
@@ -271,7 +351,15 @@
     PrecisionRule="true"
     EntityAttrName="txtDepartmentName"
     EntityUsage="ScmPurchaseBidLines"
-    AliasName="txt_Department_Name"/>
+    AliasName="txt_Department_Name"
+    LOVName="LovtxtDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseRfqLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoVL"

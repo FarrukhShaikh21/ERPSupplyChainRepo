@@ -69,5 +69,18 @@
             Action="createInsertRow"/>
     <action IterBinding="ScmPurchaseBidLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <tree IterBinding="ScmPurchaseBidLinesDetCRUDIterator" id="ScmPurchaseBidLinesDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO" Name="ScmPurchaseBidLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="txtUnitTypeName"/>
+          <Item Value="Quantity"/>
+          <Item Value="BidPrice"/>
+          <Item Value="txtProjectName"/>
+          <Item Value="txtDepartmentName"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
