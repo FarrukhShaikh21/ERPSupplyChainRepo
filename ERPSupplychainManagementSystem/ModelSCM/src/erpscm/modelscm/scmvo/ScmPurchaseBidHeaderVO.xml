@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpglobals.modelglobals.ERPViewRowImpl"
+  ComponentClass="erpglobals.modelglobals.ERPViewObjectImpl">
+  <DesignTime>
+    <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
+    <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccSysApprovalStatusVO"
     ViewObjectName="erpadm.modeladm.admvo.SysApprovalStatusVO"

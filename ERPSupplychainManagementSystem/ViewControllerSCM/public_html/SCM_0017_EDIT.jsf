@@ -280,7 +280,7 @@
                                                           columns="#{bindings.txtSumBidQuantity.hints.displayWidth}"
                                                           maximumLength="#{bindings.txtSumBidQuantity.hints.precision}"
                                                           shortDesc="#{bindings.txtSumBidQuantity.hints.tooltip}"
-                                                          id="it1" simple="true">
+                                                          id="it1" simple="true" rendered="false">
                                                 <f:validator binding="#{bindings.txtSumBidQuantity.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.txtSumBidQuantity.format}"/>
