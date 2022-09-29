@@ -13,11 +13,13 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  RowClass="erpglobals.modelglobals.ERPViewRowImpl"
-  ComponentClass="erpglobals.modelglobals.ERPViewObjectImpl">
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVORowImpl"
+  ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVOImpl">
   <DesignTime>
     <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
     <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
     Name="AccSysApprovalStatusVO"

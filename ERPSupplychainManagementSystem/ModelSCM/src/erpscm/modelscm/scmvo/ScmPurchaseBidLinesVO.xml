@@ -256,6 +256,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtProjectName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtProjectName"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="txt_Project_Name"/>
+  <ViewAttribute
+    Name="txtDepartmentName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtDepartmentName"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="txt_Department_Name"/>
   <ViewLinkAccessor
     Name="ScmPurchaseRfqLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoVL"
@@ -277,6 +293,24 @@
   <ViewLinkAccessor
     Name="InvUnitTypeVO"
     ViewLink="erpscm.modelscm.scmvo.InvUnitTypeScmPurchBidLineUnitTypeSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseBidHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.FkScmPurBidLineHeadSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AdminCompanyVO"
+    ViewLink="erpscm.modelscm.scmvo.AdminCompanyScmPurcBidLinDepartmentIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlProjectsVO"
+    ViewLink="erpscm.modelscm.scmvo.GLProjectScmPurchaseBidLinesProjectSnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
