@@ -2,6 +2,10 @@ ALTER TABLE `erporacle`.`scm_purchase_rfq_lines`
 CHANGE COLUMN `created_date` `created_date` DATETIME NOT NULL ,
 CHANGE COLUMN `last_updated_date` `last_updated_date` DATETIME NULL DEFAULT NULL ;
 
+alter table scm_purchase_bid_header add supplier_sno int(5);
+
+alter table scm_purchase_bid_header add supplier_sno number(5)
+
 
 CREATE TABLE scm_purchase_bid_header (
   bid_header_sno int(10) NOT NULL,

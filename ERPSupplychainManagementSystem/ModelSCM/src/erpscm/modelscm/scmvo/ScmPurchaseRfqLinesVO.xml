@@ -415,6 +415,75 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="ScmPurchaseRfqLinesVOCriteria"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseRfqLinesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ScmPurchaseBidLinesVO"
+        ViewAttribute="ScmPurchaseBidLinesVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseBidLinesVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseBidLinesVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="ScmPurchaseBidHeaderVO"
+              ViewAttribute="ScmPurchaseBidHeaderVO"
+              Operator="EXISTS"
+              Conjunction="AND"
+              IsNestedCriteria="true"
+              Required="Optional">
+              <ViewCriteria
+                Name="ScmPurchaseBidHeaderVONestedCriteria"
+                ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO"
+                Conjunction="AND">
+                <ViewCriteriaRow
+                  Name="ScmPurchaseBidHeaderVONestedCriteria_row_0"
+                  UpperColumns="1">
+                  <ViewCriteriaItem
+                    Name="ScmPurchaseBidHeaderVONestedCriteria_ScmPurchaseBidHeaderVONestedCriteria_row_0_BidHeaderSno"
+                    ViewAttribute="BidHeaderSno"
+                    Operator="="
+                    Conjunction="AND"
+                    Value="1"
+                    Required="Optional"/>
+                </ViewCriteriaRow>
+              </ViewCriteria>
+            </ViewCriteriaItem>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="InvItemVO"
     ViewLink="erpscm.modelscm.scmvo.InvItemsScmPurchaseRfqLinesItemIdVL"
