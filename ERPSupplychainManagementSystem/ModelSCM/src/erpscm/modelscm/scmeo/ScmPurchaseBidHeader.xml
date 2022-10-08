@@ -700,13 +700,6 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurDemandHeadScmPurBIDHeadDemandHeaderSnoAsso.ScmPurchaseBidHeader"
     Type="erpscm.modelscm.scmeo.ScmPurchaseDemandHeaderImpl"
     IsUpdateable="true"/>
-  <AccessorAttribute
-    Name="ScmPurchaseRfqHeader1"
-    Association="erpscm.modelscm.scmeo.ScmPurRfqHeadScmPurBidHeadRFQHeaderSnoAsso"
-    AssociationEnd="erpscm.modelscm.scmeo.ScmPurRfqHeadScmPurBidHeadRFQHeaderSnoAsso.ScmPurchaseRfqHeader1"
-    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurRfqHeadScmPurBidHeadRFQHeaderSnoAsso.ScmPurchaseBidHeader1"
-    Type="erpscm.modelscm.scmeo.ScmPurchaseRfqHeaderImpl"
-    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidHeader"
     PrimaryKey="true">

@@ -82,9 +82,9 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         ScmFreightTerm,
         ScmFobTerm,
         ScmPurchaseDemandHeader,
-        ScmPurchaseBidHeader,
-        ScmPurchaseBidHeader1;
-        private static AttributesEnum[] vals = null;
+        ScmPurchaseBidHeader;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -163,7 +163,6 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int SCMFOBTERM = AttributesEnum.ScmFobTerm.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int SCMPURCHASEBIDHEADER = AttributesEnum.ScmPurchaseBidHeader.index();
-    public static final int SCMPURCHASEBIDHEADER1 = AttributesEnum.ScmPurchaseBidHeader1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1027,14 +1026,6 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public RowIterator getScmPurchaseBidHeader() {
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDHEADER);
-    }
-
-
-    /**
-     * @return the associated entity oracle.jbo.RowIterator.
-     */
-    public RowIterator getScmPurchaseBidHeader1() {
-        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDHEADER1);
     }
 
 
