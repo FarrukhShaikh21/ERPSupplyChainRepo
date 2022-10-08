@@ -664,7 +664,6 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_BID_HEADER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -674,6 +673,15 @@
         Value="RfqHeaderSno"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="SupplierSno"
+    Precision="5"
+    Scale="0"
+    ColumnName="SUPPLIER_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_BID_HEADER"/>
   <AccessorAttribute
     Name="ScmPurchaseBidLines"
     Association="erpscm.modelscm.scmeo.FkScmPurBidLineHeadSnoAssoc"

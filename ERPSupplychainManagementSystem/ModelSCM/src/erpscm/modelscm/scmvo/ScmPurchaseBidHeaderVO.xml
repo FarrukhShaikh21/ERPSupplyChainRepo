@@ -485,6 +485,12 @@
     EntityAttrName="txtRfqHeaderCode"
     EntityUsage="ScmPurchaseBidHeader"
     AliasName="txt_Rfq_Header_Code"/>
+  <ViewAttribute
+    Name="SupplierSno"
+    PrecisionRule="true"
+    EntityAttrName="SupplierSno"
+    EntityUsage="ScmPurchaseBidHeader"
+    AliasName="SUPPLIER_SNO"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidLinesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurBidLineHeadSnoLink"
