@@ -466,6 +466,20 @@
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_RFQ_LINES"
     DefaultValue="2"/>
+  <Attribute
+    Name="txtTotalBids"
+    ColumnName="txt_Total_Bids"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseBidLines?.max("txtSupplierSno")]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="RfqLinesSno"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc"

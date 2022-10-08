@@ -360,6 +360,18 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtSupplierSno"
+    ColumnName="txt_Supplier_Sno"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    TableName="SCM_PURCHASE_BID_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseBidHeader?.SupplierSno]]></TransientExpression>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurBidLineHeadSnoAssoc"

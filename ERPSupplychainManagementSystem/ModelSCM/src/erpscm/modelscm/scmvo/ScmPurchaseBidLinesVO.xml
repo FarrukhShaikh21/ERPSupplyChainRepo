@@ -236,6 +236,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtSupplierSno"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierSno"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="txt_Supplier_Sno"/>
   <ViewLinkAccessor
     Name="ScmPurchaseRfqLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoVL"
@@ -269,6 +277,12 @@
   <ViewLinkAccessor
     Name="GlProjectsVO"
     ViewLink="erpscm.modelscm.scmvo.GLProjectScmPurchaseBidLinesProjectSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseBidHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.FkScmPurBidLineHeadSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

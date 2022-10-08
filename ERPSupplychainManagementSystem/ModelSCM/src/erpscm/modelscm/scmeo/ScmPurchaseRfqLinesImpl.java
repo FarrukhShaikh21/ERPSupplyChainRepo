@@ -54,6 +54,7 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
         txtDepartmentName,
         txtProjectName,
         StatusSno,
+        txtTotalBids,
         ScmPurchaseRfqHeader,
         InvItem,
         InvUnitType,
@@ -61,8 +62,7 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
         AdminCompany,
         ScmPurchaseDemandLines,
         ScmPurchaseBidLines;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -110,6 +110,7 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
     public static final int TXTDEPARTMENTNAME = AttributesEnum.txtDepartmentName.index();
     public static final int TXTPROJECTNAME = AttributesEnum.txtProjectName.index();
     public static final int STATUSSNO = AttributesEnum.StatusSno.index();
+    public static final int TXTTOTALBIDS = AttributesEnum.txtTotalBids.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
@@ -515,6 +516,22 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
      */
     public void setStatusSno(Integer value) {
         setAttributeInternal(STATUSSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtTotalBids, using the alias name txtTotalBids.
+     * @return the value of txtTotalBids
+     */
+    public Integer gettxtTotalBids() {
+        return (Integer) getAttributeInternal(TXTTOTALBIDS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtTotalBids.
+     * @param value value to set the txtTotalBids
+     */
+    public void settxtTotalBids(Integer value) {
+        setAttributeInternal(TXTTOTALBIDS, value);
     }
 
     /**
