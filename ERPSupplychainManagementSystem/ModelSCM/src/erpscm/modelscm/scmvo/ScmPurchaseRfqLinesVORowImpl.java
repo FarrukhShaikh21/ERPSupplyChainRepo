@@ -58,7 +58,6 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         ScmPurchaseRfqHeaderVO,
         ScmPurchaseDemandLinesVO,
         ScmPurchaseBidLinesVO,
-        ScmPurchaseBidLinesVO1,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsVO,
@@ -121,7 +120,6 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     public static final int SCMPURCHASERFQHEADERVO = AttributesEnum.ScmPurchaseRfqHeaderVO.index();
     public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
     public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
-    public static final int SCMPURCHASEBIDLINESVO1 = AttributesEnum.ScmPurchaseBidLinesVO1.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
@@ -633,12 +631,6 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDLINESVO);
     }
 
-    /**
-     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseBidLinesVO1.
-     */
-    public RowIterator getScmPurchaseBidLinesVO1() {
-        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDLINESVO1);
-    }
 
     /**
      * Gets the view accessor <code>RowSet</code> AccInvItemVO.

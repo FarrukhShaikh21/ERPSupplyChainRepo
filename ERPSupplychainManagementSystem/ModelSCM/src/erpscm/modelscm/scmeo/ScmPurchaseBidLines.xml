@@ -396,13 +396,6 @@
     Type="erpims.modelims.imseo.InvUnitTypeImpl"
     IsUpdateable="true"/>
   <AccessorAttribute
-    Name="ScmPurchaseRfqLines1"
-    Association="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurBidLinesRfqLinesSnoAsso"
-    AssociationEnd="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurBidLinesRfqLinesSnoAsso.ScmPurchaseRfqLines1"
-    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurBidLinesRfqLinesSnoAsso.ScmPurchaseBidLines1"
-    Type="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesImpl"
-    IsUpdateable="true"/>
-  <AccessorAttribute
     Name="GlProjects"
     Association="erpscm.modelscm.scmeo.GLProjectScmPurchaseBidLinesProjectSnoAsso"
     AssociationEnd="erpscm.modelscm.scmeo.GLProjectScmPurchaseBidLinesProjectSnoAsso.GlProjects"
