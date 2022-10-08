@@ -12,15 +12,7 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full"
-  RowClass="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVORowImpl"
-  ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVOImpl">
-  <DesignTime>
-    <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
-    <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
-    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
-    <Attr Name="_isCodegen" Value="true"/>
-  </DesignTime>
+  PageIterMode="Full">
   <ViewAccessor
     Name="AccSysApprovalStatusVO"
     ViewObjectName="erpadm.modeladm.admvo.SysApprovalStatusVO"
@@ -517,6 +509,12 @@
   <ViewLinkAccessor
     Name="ScmPurchaseDemandHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurDemandHeadScmPurBIDHeadDemandHeaderSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseRfqHeaderVO1"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurRfqHeadScmPurBidHeadRFQHeaderSnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

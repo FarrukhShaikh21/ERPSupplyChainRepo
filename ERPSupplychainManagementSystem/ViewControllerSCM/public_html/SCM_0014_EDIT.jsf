@@ -560,7 +560,7 @@
                                                 </af:column>
                                                 <af:column id="c15">
                                                     <af:link text="Bid Receive" id="l15"
-                                                             disabled="#{row.bindings.BidReceived.inputValue=='Y'}"
+                                                             disabled="#{row.bindings.BidReceived.inputValue=='Y'|| bindings.IsSupervised.inputValue=='N'}"
                                                              partialSubmit="true"/>
                                                 </af:column>
                                             </af:table>
