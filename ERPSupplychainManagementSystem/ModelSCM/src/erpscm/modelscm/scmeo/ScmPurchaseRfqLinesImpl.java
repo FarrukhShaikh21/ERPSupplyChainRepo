@@ -60,7 +60,8 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
         GlProjects,
         AdminCompany,
         ScmPurchaseDemandLines,
-        ScmPurchaseBidLines;
+        ScmPurchaseBidLines,
+        ScmPurchaseBidLines1;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -116,6 +117,7 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
     public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
+    public static final int SCMPURCHASEBIDLINES1 = AttributesEnum.ScmPurchaseBidLines1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -607,6 +609,14 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
      */
     public RowIterator getScmPurchaseBidLines() {
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDLINES);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseBidLines1() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDLINES1);
     }
 
 

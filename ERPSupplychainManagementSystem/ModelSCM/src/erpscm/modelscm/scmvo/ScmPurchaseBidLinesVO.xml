@@ -16,53 +16,11 @@
   <ViewAccessor
     Name="AccInvItemVO"
     ViewObjectName="erpims.modelims.imsvo.InvItemVO"
-    RowLevelBinds="true">
-    <ViewCriteriaUsage
-      Name="InvItemByCompanyByIDVC"
-      FullName="erpims.modelims.imsvo.InvItemVO.InvItemByCompanyByIDVC"/>
-    <ParameterMap>
-      <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
-  </ViewAccessor>
+    RowLevelBinds="true"/>
   <ViewAccessor
     Name="AccInvUnitTypeVO"
     ViewObjectName="erpims.modelims.imsvo.InvUnitTypeVO"
-    RowLevelBinds="true">
-    <ViewCriteriaUsage
-      Name="InvUnitTypeByCompanyIDVC"
-      FullName="erpims.modelims.imsvo.InvUnitTypeVO.InvUnitTypeByCompanyIDVC"/>
-    <ParameterMap>
-      <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
-  </ViewAccessor>
-  <ViewAccessor
-    Name="AccGlProjectsVO"
-    ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
-    RowLevelBinds="true">
-    <ViewCriteriaUsage
-      Name="GlProjectsByCompanyVC"
-      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
-    <ParameterMap>
-      <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
-  </ViewAccessor>
-  <ViewAccessor
-    Name="AccAdminCompanyVO"
-    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
-    RowLevelBinds="true">
-    <ViewCriteriaUsage
-      Name="AdminCompanyDepartmentAccessWiseVC"
-      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyDepartmentAccessWiseVC"/>
-  </ViewAccessor>
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -111,56 +69,6 @@
     </AttrArray>
     <DisplayCriteria
       Name="InvUnitTypeFindVC"/>
-  </ListBinding>
-  <ListBinding
-    Name="LovtxtProjectName"
-    ListVOName="AccGlProjectsVO"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="txtProjectName"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="ProjectId"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="ProjectName"/>
-      <Item Value="ProjectSno"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="ProjectName"/>
-      <Item Value="ProjectCode"/>
-    </AttrArray>
-    <DisplayCriteria
-      Name="GlProjectsFindVC"/>
-  </ListBinding>
-  <ListBinding
-    Name="LovtxtDepartmentName"
-    ListVOName="AccAdminCompanyVO"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="txtDepartmentName"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="DepartmentId"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="CompanyName"/>
-      <Item Value="CompCode"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="CompanyName"/>
-      <Item Value="CompanyShortCode"/>
-    </AttrArray>
-    <DisplayCriteria
-      Name="AdminCompanyFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseBidLines"
@@ -328,38 +236,6 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
-  <ViewAttribute
-    Name="txtProjectName"
-    IsQueriable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    EntityAttrName="txtProjectName"
-    EntityUsage="ScmPurchaseBidLines"
-    AliasName="txt_Project_Name"
-    LOVName="LovtxtProjectName">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="txtDepartmentName"
-    IsQueriable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    EntityAttrName="txtDepartmentName"
-    EntityUsage="ScmPurchaseBidLines"
-    AliasName="txt_Department_Name"
-    LOVName="LovtxtDepartmentName">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseRfqLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoVL"
@@ -385,12 +261,6 @@
     Reversed="true"
     IsUpdateable="false"/>
   <ViewLinkAccessor
-    Name="ScmPurchaseBidHeaderVO"
-    ViewLink="erpscm.modelscm.scmvo.FkScmPurBidLineHeadSnoLink"
-    Type="oracle.jbo.Row"
-    Reversed="true"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
     Name="AdminCompanyVO"
     ViewLink="erpscm.modelscm.scmvo.AdminCompanyScmPurcBidLinDepartmentIdVL"
     Type="oracle.jbo.Row"
@@ -399,6 +269,12 @@
   <ViewLinkAccessor
     Name="GlProjectsVO"
     ViewLink="erpscm.modelscm.scmvo.GLProjectScmPurchaseBidLinesProjectSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseRfqLinesVO1"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurRfqLinesScmPurBidLinesRfqLinesSnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

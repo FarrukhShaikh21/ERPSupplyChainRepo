@@ -515,6 +515,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoAsso.ScmPurchaseRfqLines"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmPurchaseBidLines1"
+    Association="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurBidLinesRfqLinesSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurBidLinesRfqLinesSnoAsso.ScmPurchaseBidLines1"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurBidLinesRfqLinesSnoAsso.ScmPurchaseRfqLines1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="AltKeyScmPurchaseRfqLines"
     AltKey="true">

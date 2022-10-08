@@ -360,46 +360,6 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
-  <Attribute
-    Name="txtDepartmentName"
-    Precision="80"
-    ColumnName="txt_Department_Name"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    IsPersistent="false"
-    IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidLines.txtDepartmentName_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="txtProjectName"
-    Precision="80"
-    ColumnName="txt_Project_Name"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    IsPersistent="false"
-    IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidLines.txtProjectName_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurBidLineHeadSnoAssoc"
@@ -436,11 +396,11 @@
     Type="erpims.modelims.imseo.InvUnitTypeImpl"
     IsUpdateable="true"/>
   <AccessorAttribute
-    Name="AdminCompany"
-    Association="erpscm.modelscm.scmeo.AdminCompanyScmPurcBidLinDepartmentIdAsso"
-    AssociationEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurcBidLinDepartmentIdAsso.AdminCompany"
-    AssociationOtherEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurcBidLinDepartmentIdAsso.ScmPurchaseBidLines"
-    Type="erpadm.modeladm.admeo.AdminCompanyImpl"
+    Name="ScmPurchaseRfqLines1"
+    Association="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurBidLinesRfqLinesSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurBidLinesRfqLinesSnoAsso.ScmPurchaseRfqLines1"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurBidLinesRfqLinesSnoAsso.ScmPurchaseBidLines1"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesImpl"
     IsUpdateable="true"/>
   <AccessorAttribute
     Name="GlProjects"
@@ -448,6 +408,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.GLProjectScmPurchaseBidLinesProjectSnoAsso.GlProjects"
     AssociationOtherEnd="erpscm.modelscm.scmeo.GLProjectScmPurchaseBidLinesProjectSnoAsso.ScmPurchaseBidLines"
     Type="erpfms.modelfms.fmseo.GlProjectsImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AdminCompany"
+    Association="erpscm.modelscm.scmeo.AdminCompanyScmPurcBidLinDepartmentIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurcBidLinDepartmentIdAsso.AdminCompany"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurcBidLinDepartmentIdAsso.ScmPurchaseBidLines"
+    Type="erpadm.modeladm.admeo.AdminCompanyImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidLines"
@@ -517,23 +484,12 @@
   <Key
     Name="fk_ScmPurchaseBidLines4">
     <DesignTime>
-      <Attr Name="_referencedKey" Value="ADMIN_COMPANY_PK"/>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_QUOTATION_LINE"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Lines4"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.DepartmentId"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="fk_ScmPurchaseBidLines5">
-    <DesignTime>
-      <Attr Name="_referencedKey" Value="PK_PROJECTS"/>
-      <Attr Name="_isForeign" Value="true"/>
-      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Lines5"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.ProjectId"/>
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.RfqLinesSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
