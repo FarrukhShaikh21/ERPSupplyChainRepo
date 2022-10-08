@@ -11,6 +11,8 @@
               id="ScmPurchaseRfqSupplierDetCRUDIterator"/>
     <iterator Binds="ScmPurchaseRfqLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseRfqLinesDetCRUDIterator"/>
+    <iterator Binds="ScmPurchaseRfqLinesForBIDRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseRfqLinesForBIDROIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="RfqHeaderSno">
@@ -155,5 +157,22 @@
     </attributeValues>
     <list IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovApprovalStatusSno"
           id="ApprovalStatusSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="ScmPurchaseRfqLinesForBIDROIterator" id="ScmPurchaseRfqLinesForBIDRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO" Name="ScmPurchaseRfqLinesForBIDRO0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="txtUnitTypeName"/>
+          <Item Value="txtDepartmentName"/>
+          <Item Value="txtProjectName"/>
+          <Item Value="AproxPrice"/>
+          <Item Value="Quantity"/>
+          <Item Value="SupplierItemName"/>
+          <Item Value="RequiredBy"/>
+          <Item Value="NoteToBuyer"/>
+          <Item Value="NoteToSupplier"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
