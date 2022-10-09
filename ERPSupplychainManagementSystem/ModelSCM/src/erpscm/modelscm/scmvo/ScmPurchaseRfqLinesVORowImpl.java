@@ -51,6 +51,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         StatusSno,
         txtSumQuantity,
         txtTotalRecord,
+        txtGenerateBID,
         InvItemVO,
         InvUnitTypeVO,
         GlProjectsVO,
@@ -113,6 +114,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     public static final int STATUSSNO = AttributesEnum.StatusSno.index();
     public static final int TXTSUMQUANTITY = AttributesEnum.txtSumQuantity.index();
     public static final int TXTTOTALRECORD = AttributesEnum.txtTotalRecord.index();
+    public static final int TXTGENERATEBID = AttributesEnum.txtGenerateBID.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
@@ -540,6 +542,23 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         return (Integer) getAttributeInternal(TXTTOTALRECORD);
     }
 
+
+    /**
+     * Gets the attribute value for the calculated attribute txtGenerateBID.
+     * @return the txtGenerateBID
+     */
+    public String gettxtGenerateBID() {
+        return (String) getAttributeInternal(TXTGENERATEBID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtGenerateBID.
+     * @param value value to set the  txtGenerateBID
+     */
+    public void settxtGenerateBID(String value) {
+        setAttributeInternal(TXTGENERATEBID, value);
+    }
+
     /**
      * Gets the associated <code>Row</code> using master-detail link InvItemVO.
      */
@@ -662,8 +681,9 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method
-        if (getScmPurchaseRfqHeaderVO().getAttribute("IsSupervised").equals("Y")||
-        (Integer)getScmPurchaseRfqHeaderVO().getAttribute("ApprovalStatusSno") >2) {
+        if ( (getScmPurchaseRfqHeaderVO().getAttribute("IsSupervised").equals("Y")||
+        (Integer)getScmPurchaseRfqHeaderVO().getAttribute("ApprovalStatusSno") >2
+        ) && i!=TXTGENERATEBID ){
             return false;
        }
         return super.isAttributeUpdateable(i);

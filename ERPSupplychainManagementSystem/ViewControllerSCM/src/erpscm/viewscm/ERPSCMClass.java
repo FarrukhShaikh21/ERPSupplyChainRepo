@@ -40,7 +40,9 @@ public class ERPSCMClass {
     private RichPanelTabbed lErpPanelTabbed;
     private RichPanelTabbed lErpPanelDefaultTabbed;
     private String ERPSupplyChainReportName;
-    private String ERPPKForReport;    
+    private String ERPPKForReport;
+    private Integer lerpSupplierSno;
+    private RichPopup lerpRFQForBidsPopupShow;
     
     public ERPSCMClass() {
         super();
@@ -359,14 +361,35 @@ public class ERPSCMClass {
       Exception ex = cc.getCurrentViewPort().getExceptionData();
       String message = ex.getMessage();
       
-      
       FacesContext fc = FacesContext.getCurrentInstance();        
       FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "BTF: " +message, null);
       fc.addMessage(null, facesMessage);
 
       cc.getCurrentRootViewPort().clearException();
       fc.renderResponse();
-      
     }
 
+
+    public void setLerpSupplierSno(Integer lerpSupplierSno) {
+        this.lerpSupplierSno = lerpSupplierSno;
+    }
+
+    public Integer getLerpSupplierSno() {
+        return lerpSupplierSno;
+    }
+
+    public void setLerpRFQForBidsPopupShow(RichPopup lerpRFQForBidsPopupShow) {
+        this.lerpRFQForBidsPopupShow = lerpRFQForBidsPopupShow;
+    }
+
+    public RichPopup getLerpRFQForBidsPopupShow() {
+        return lerpRFQForBidsPopupShow;
+    }
+
+    public String doShowPurchaseRFQForBids() {
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.lerpRFQForBidsPopupShow.show(hints); 
+        
+        return null;
+    }
 }

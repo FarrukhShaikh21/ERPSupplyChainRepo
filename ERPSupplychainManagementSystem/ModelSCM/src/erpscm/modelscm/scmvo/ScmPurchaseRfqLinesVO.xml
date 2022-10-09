@@ -13,9 +13,12 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  RowClass="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVORowImpl">
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVORowImpl"
+  ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVOImpl"
+  ComponentInterface="erpscm.modelscm.scmvo.common.ScmPurchaseRfqLinesVO"
+  ClientProxyName="erpscm.modelscm.scmvo.client.ScmPurchaseRfqLinesVOClient">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Variable
@@ -419,6 +422,25 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtGenerateBID"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO.txtGenerateBID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqLinesForBIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
@@ -448,7 +470,7 @@
       <ViewCriteriaItem
         Name="ScmPurchaseBidLinesVO"
         ViewAttribute="ScmPurchaseBidLinesVO"
-        Operator="EXISTS"
+        Operator="NOT EXISTS"
         Conjunction="AND"
         IsNestedCriteria="true"
         Required="Optional">
@@ -464,8 +486,8 @@
               ViewAttribute="ScmPurchaseBidHeaderVO"
               Operator="EXISTS"
               Conjunction="AND"
-              IsNestedCriteria="true"
-              Required="Optional">
+              Required="Optional"
+              IsNestedCriteria="true">
               <ViewCriteria
                 Name="ScmPurchaseBidHeaderVONestedCriteria"
                 ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO"
@@ -530,6 +552,16 @@
     ViewLink="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doERPGenerateBidFromRFQ"
+      MethodName="doERPGenerateBidFromRFQ">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>

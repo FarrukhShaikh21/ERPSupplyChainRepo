@@ -112,6 +112,7 @@
           <Item Value="txtSupplierName"/>
           <Item Value="ContactNo"/>
           <Item Value="BidReceived"/>
+          <Item Value="SupplierSno"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -171,8 +172,18 @@
           <Item Value="NoteToBuyer"/>
           <Item Value="NoteToSupplier"/>
           <Item Value="Remarks"/>
+          <Item Value="txtGenerateBID"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="ScmPurchaseRfqLinesForBIDROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_SUPPLIER_SNO" NDValue="#{pageFlowScope.OracleERPBean.lerpSupplierSno}"
+                 NDType="java.lang.Integer"/>
+    </action>
+    <methodAction id="doERPGenerateBidFromRFQ" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doERPGenerateBidFromRFQ" IsViewObjectMethod="true" DataControl="ERPSCMModuleDataControl"
+                  InstanceName="data.ERPSCMModuleDataControl.ScmPurchaseRfqLinesForBIDRO"
+                  ReturnName="data.ERPSCMModuleDataControl.methodResults.doERPGenerateBidFromRFQ_ERPSCMModuleDataControl_ScmPurchaseRfqLinesForBIDRO_doERPGenerateBidFromRFQ_result"/>
   </bindings>
 </pageDefinition>

@@ -472,9 +472,11 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_RFQ_LINES">
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseBidLines?.max("txtSupplierSno")]]></TransientExpression>
+      trustMode="trusted"><![CDATA[ScmPurchaseBidLines?.max("txtSupplierSno")]]></TransientExpression>
     <Dependencies>
       <Item
         Value="RfqLinesSno"/>
