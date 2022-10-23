@@ -41,17 +41,39 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         Row rfqRow=rfqvo.getCurrentRow();
 
         ViewObject bidvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidHeaderRO");
-        
+        ViewObject bidvoForSupplier=this.getApplicationModule().findViewObject("ScmPurchaseRfqSupplierDetCRUD");
+        Integer erpSupplierSno =(Integer)bidvoForSupplier.getCurrentRow().getAttribute("SupplierSno");
+        System.out.println("erpSupplierSno"+erpSupplierSno);
         Row newRow=bidvoForInsert.createRow();
+        System.out.println("one");
         newRow.setAttribute("RfqHeaderSno",rfqRow.getAttribute("RfqHeaderSno"));
-        newRow.setAttribute("SupplierSno",rfqRow.getAttribute("SupplierSno"));
+        newRow.setAttribute("BidHeaderSno",rfqRow.getAttribute("RfqHeaderSno"));
+        newRow.setAttribute("BidHeaderCode",rfqRow.getAttribute("RfqHeaderSno"));
+        System.out.println("two");
+        newRow.setAttribute("SupplierSno",erpSupplierSno);
+        System.out.println("three");
         newRow.setAttribute("DemandHeaderSno",rfqRow.getAttribute("DemandHeaderSno"));
+        System.out.println("four");
         newRow.setAttribute("CompanyId",rfqRow.getAttribute("CompanyId"));
+        System.out.println("five");
         newRow.setAttribute("TempProjectId",rfqRow.getAttribute("TempProjectId"));
+        System.out.println("six");
         newRow.setAttribute("TempDepartmentId",rfqRow.getAttribute("TempDepartmentId"));
-        newRow.setAttribute("ApprovalStatusSno",2);
-        bidvoForInsert.insertRow(newRow);
-        
+        System.out.println("seven");
+//        newRow.setAttribute("ApprovalStatusSno",2);
+        newRow.setAttribute("StatusId",2);
+        System.out.println("eight");
+        try {
+            bidvoForInsert.insertRow(newRow);
+
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }System.out.println("before commit");
+        getDBTransaction().commit();
+        if (1==1) {
+            return;
+       }
         for (int i = 0; i < this.getRowCount(); i++) {
             Row nextRow=this.getRowAtRangeIndex(i);
             if (nextRow.getAttribute("txtGenerateBID")!=null && nextRow.getAttribute("txtGenerateBID").toString().equals("Y") ) {
