@@ -47,8 +47,8 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         Row newRow=bidvoForInsert.createRow();
         System.out.println("one");
         newRow.setAttribute("RfqHeaderSno",rfqRow.getAttribute("RfqHeaderSno"));
-        newRow.setAttribute("BidHeaderSno",rfqRow.getAttribute("RfqHeaderSno"));
-        newRow.setAttribute("BidHeaderCode",rfqRow.getAttribute("RfqHeaderSno"));
+//        newRow.setAttribute("BidHeaderSno",rfqRow.getAttribute("RfqHeaderSno"));
+//        newRow.setAttribute("BidHeaderCode",rfqRow.getAttribute("RfqHeaderSno"));
         System.out.println("two");
         newRow.setAttribute("SupplierSno",erpSupplierSno);
         System.out.println("three");
@@ -60,8 +60,8 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         System.out.println("six");
         newRow.setAttribute("TempDepartmentId",rfqRow.getAttribute("TempDepartmentId"));
         System.out.println("seven");
-//        newRow.setAttribute("ApprovalStatusSno",2);
-        newRow.setAttribute("StatusId",2);
+        newRow.setAttribute("ApprovalStatusSno",1);
+        newRow.setAttribute("StatusId",1);
         System.out.println("eight");
         try {
             bidvoForInsert.insertRow(newRow);
@@ -70,6 +70,9 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
             // TODO: Add catch code
             e.printStackTrace();
         }System.out.println("before commit");
+        bidvoForInsert.setCurrentRow(newRow);
+        System.out.println(bidvoForInsert.getCurrentRow().getAttribute("BidHeaderSno")+ "current row");
+        
         getDBTransaction().commit();
         if (1==1) {
             return;

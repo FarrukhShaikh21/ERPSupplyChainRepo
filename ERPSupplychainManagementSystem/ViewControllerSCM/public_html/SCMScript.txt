@@ -6,6 +6,12 @@ alter table scm_purchase_bid_header add supplier_sno int(5);
 
 alter table scm_purchase_bid_header add supplier_sno number(5)
 
+CREATE TABLE `scm_purchase_bid_header_seq` (
+  `sequence_no` int(11) NOT NULL AUTO_INCREMENT,
+  `created_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`sequence_no`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE scm_purchase_bid_header (
   bid_header_sno int(10) NOT NULL,
