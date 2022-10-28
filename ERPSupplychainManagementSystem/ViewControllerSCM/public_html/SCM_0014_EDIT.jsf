@@ -40,7 +40,8 @@
                                   selectedRowKeys="#{bindings.ScmPurchaseRfqLinesForBIDRO.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.ScmPurchaseRfqLinesForBIDRO.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.ScmPurchaseRfqLinesForBIDRO.rangeSize}"
-                                  id="t7" styleClass="AFStretchWidth" partialTriggers=":::pc2:t1:l15">
+                                  id="t7" styleClass="AFStretchWidth" partialTriggers=":::pc2:t1:l15"
+                                  columnStretching="last">
                             <af:column headerText="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtGenerateBID.label}"
                                        id="c28" width="70" displayIndex="-1">
                                 <af:selectOneChoice label="Label 2" value="#{row.bindings.txtGenerateBID.inputValue}"

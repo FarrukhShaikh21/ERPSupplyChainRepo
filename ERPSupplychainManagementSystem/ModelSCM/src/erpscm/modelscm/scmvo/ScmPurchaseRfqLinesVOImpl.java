@@ -37,54 +37,62 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
     public void doERPGenerateBidFromRFQ() {
         
         this.setRangeSize(-1);
-        ViewObject rfqvo=this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD");
-        Row rfqRow=rfqvo.getCurrentRow();
+        ViewObject rfqvo=null;
+        ViewObject bidDetvoForInsert=null;
 
-        ViewObject bidvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidHeaderRO");
-        ViewObject bidvoForSupplier=this.getApplicationModule().findViewObject("ScmPurchaseRfqSupplierDetCRUD");
-        Integer erpSupplierSno =(Integer)bidvoForSupplier.getCurrentRow().getAttribute("SupplierSno");
-        System.out.println("erpSupplierSno"+erpSupplierSno);
-        Row newRow=bidvoForInsert.createRow();
-        System.out.println("one");
-        newRow.setAttribute("RfqHeaderSno",rfqRow.getAttribute("RfqHeaderSno"));
-//        newRow.setAttribute("BidHeaderSno",rfqRow.getAttribute("RfqHeaderSno"));
-//        newRow.setAttribute("BidHeaderCode",rfqRow.getAttribute("RfqHeaderSno"));
-        System.out.println("two");
-        newRow.setAttribute("SupplierSno",erpSupplierSno);
-        System.out.println("three");
-        newRow.setAttribute("DemandHeaderSno",rfqRow.getAttribute("DemandHeaderSno"));
-        System.out.println("four");
-        newRow.setAttribute("CompanyId",rfqRow.getAttribute("CompanyId"));
-        System.out.println("five");
-        newRow.setAttribute("TempProjectId",rfqRow.getAttribute("TempProjectId"));
-        System.out.println("six");
-        newRow.setAttribute("TempDepartmentId",rfqRow.getAttribute("TempDepartmentId"));
-        System.out.println("seven");
-        newRow.setAttribute("ApprovalStatusSno",1);
-        newRow.setAttribute("StatusId",1);
-        System.out.println("eight");
-        try {
-            bidvoForInsert.insertRow(newRow);
-
-        } catch (Exception e) {
-            // TODO: Add catch code
-            e.printStackTrace();
-        }System.out.println("before commit");
-        bidvoForInsert.setCurrentRow(newRow);
-        System.out.println(bidvoForInsert.getCurrentRow().getAttribute("BidHeaderSno")+ "current row");
-        
-        getDBTransaction().commit();
-        if (1==1) {
-            return;
-       }
         for (int i = 0; i < this.getRowCount(); i++) {
             Row nextRow=this.getRowAtRangeIndex(i);
             if (nextRow.getAttribute("txtGenerateBID")!=null && nextRow.getAttribute("txtGenerateBID").toString().equals("Y") ) {
-                System.out.println(nextRow.getAttribute("txtUnitTypeName"));
+                //////////////
+                if(rfqvo==null){
+                    
+                rfqvo=this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD");
+                Row rfqRow=rfqvo.getCurrentRow();
+                ViewObject bidvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidHeaderCRUD");
+                bidDetvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidLinesDetCRUD");
+                ViewObject bidvoForSupplier=this.getApplicationModule().findViewObject("ScmPurchaseRfqSupplierDetCRUD");
+                Integer erpSupplierSno =(Integer)bidvoForSupplier.getCurrentRow().getAttribute("SupplierSno");
+                System.out.println("erpSupplierSno"+erpSupplierSno);
+                Row newRow=bidvoForInsert.createRow();
+                System.out.println("one");
+                newRow.setAttribute("RfqHeaderSno",rfqRow.getAttribute("RfqHeaderSno"));
+                System.out.println("two");
+                newRow.setAttribute("SupplierSno",erpSupplierSno);
+                System.out.println("three");
+                newRow.setAttribute("DemandHeaderSno",rfqRow.getAttribute("DemandHeaderSno"));
+                System.out.println("four");
+                newRow.setAttribute("CompanyId",rfqRow.getAttribute("CompanyId"));
+                System.out.println("five");
+                newRow.setAttribute("TempProjectId",rfqRow.getAttribute("TempProjectId"));
+                System.out.println("six");
+                newRow.setAttribute("TempDepartmentId",rfqRow.getAttribute("TempDepartmentId"));
+                System.out.println("seven");
+                newRow.setAttribute("ApprovalStatusSno",1);
+                newRow.setAttribute("StatusId",1);
+                System.out.println("eight");
+                bidvoForInsert.insertRow(newRow);
+                System.out.println("before commit");
+                bidvoForInsert.setCurrentRow(newRow);
+                System.out.println(bidvoForInsert.getCurrentRow().getAttribute("BidHeaderSno")+ "current row");
+                }
+                Row DetnewRow=bidDetvoForInsert.createRow();
+                DetnewRow.setAttribute("RfqLinesSno", nextRow.getAttribute("RfqLinesSno"));
+                DetnewRow.setAttribute("DemandLinesSno", nextRow.getAttribute("DemandLinesSno"));
+                DetnewRow.setAttribute("ItemId", nextRow.getAttribute("ItemId"));
+                DetnewRow.setAttribute("UnitTypeSno", nextRow.getAttribute("UnitTypeSno"));
+                DetnewRow.setAttribute("Quantity", nextRow.getAttribute("Quantity"));
+                DetnewRow.setAttribute("BidPrice", nextRow.getAttribute("AproxPrice"));
+                DetnewRow.setAttribute("ProjectId", nextRow.getAttribute("ProjectId"));
+                DetnewRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
+                DetnewRow.setAttribute("StatusSno", nextRow.getAttribute("StatusSno"));
+                DetnewRow.setAttribute("DemandLinesSno", nextRow.getAttribute("DemandLinesSno"));
+               
+               bidDetvoForInsert.insertRow(DetnewRow);
+               
+                
            }
         }
         getDBTransaction().commit();
+        this.executeQuery();
     }
-
 }
-
