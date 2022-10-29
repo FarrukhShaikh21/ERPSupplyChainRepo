@@ -72,6 +72,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         txtDemandHeaderCode,
         ApprovalStatusSno,
         txtSumQuantity,
+        txtBidHeaderCode,
         ScmPurchaseRfqLinesVO,
         ScmPurchaseRfqSupplierVO,
         AdminCompanyVO,
@@ -165,6 +166,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int TXTSUMQUANTITY = AttributesEnum.txtSumQuantity.index();
+    public static final int TXTBIDHEADERCODE = AttributesEnum.txtBidHeaderCode.index();
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
     public static final int SCMPURCHASERFQSUPPLIERVO = AttributesEnum.ScmPurchaseRfqSupplierVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -974,6 +976,22 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void settxtSumQuantity(BigDecimal value) {
         setAttributeInternal(TXTSUMQUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Bid_Header_Code using the alias name txtBidHeaderCode.
+     * @return the txt_Bid_Header_Code
+     */
+    public Integer gettxtBidHeaderCode() {
+        return (Integer) getAttributeInternal(TXTBIDHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Bid_Header_Code using the alias name txtBidHeaderCode.
+     * @param value value to set the txt_Bid_Header_Code
+     */
+    public void settxtBidHeaderCode(Integer value) {
+        setAttributeInternal(TXTBIDHEADERCODE, value);
     }
 
     /**

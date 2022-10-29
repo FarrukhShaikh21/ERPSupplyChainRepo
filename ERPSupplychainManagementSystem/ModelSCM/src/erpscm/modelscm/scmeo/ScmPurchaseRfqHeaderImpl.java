@@ -73,6 +73,7 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         txtDemandHeaderCode,
         ApprovalStatusSno,
         txtSumQuantity,
+        txtBidHeaderCode,
         ScmPurchaseRfqLines,
         ScmPurchaseRfqSupplier,
         AdminCompany,
@@ -83,8 +84,7 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         ScmFobTerm,
         ScmPurchaseDemandHeader,
         ScmPurchaseBidHeader;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -153,6 +153,7 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int TXTSUMQUANTITY = AttributesEnum.txtSumQuantity.index();
+    public static final int TXTBIDHEADERCODE = AttributesEnum.txtBidHeaderCode.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -900,6 +901,22 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void settxtSumQuantity(BigDecimal value) {
         setAttributeInternal(TXTSUMQUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for txtBidHeaderCode, using the alias name txtBidHeaderCode.
+     * @return the value of txtBidHeaderCode
+     */
+    public Integer gettxtBidHeaderCode() {
+        return (Integer) getAttributeInternal(TXTBIDHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtBidHeaderCode.
+     * @param value value to set the txtBidHeaderCode
+     */
+    public void settxtBidHeaderCode(Integer value) {
+        setAttributeInternal(TXTBIDHEADERCODE, value);
     }
 
     /**

@@ -836,6 +836,24 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtBidHeaderCode"
+    ColumnName="txt_Bid_Header_Code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    TableName="SCM_PURCHASE_RFQ_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.txtBidHeaderCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqLines"
     Association="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc"
@@ -1019,17 +1037,17 @@
       Name="OnConditionExpr"><![CDATA[IsSupervised=='N']]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
-        Value="ERR_VALID_DATES"/>
-      <validation:Item
         Value="ERR_PROJECT"/>
+      <validation:Item
+        Value="ERR_VALID_DATES"/>
       <validation:Item
         Value="ERR_LOCATIONID"/>
       <validation:Item
         Value="ERR_DUE_DATE_FUTURE"/>
       <validation:Item
-        Value="ERR_CLOSE_DATE"/>
-      <validation:Item
         Value="ERR_DEPARTMENT"/>
+      <validation:Item
+        Value="ERR_CLOSE_DATE"/>
     </validation:MsgIds>
     <validation:TransientExpression><![CDATA[if(LocationId==null)
 {

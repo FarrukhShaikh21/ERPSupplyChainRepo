@@ -39,7 +39,8 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         this.setRangeSize(-1);
         ViewObject rfqvo=null;
         ViewObject bidDetvoForInsert=null;
-
+        ViewObject bidvoForInsert=null;
+        Row rfqRow=null;
         for (int i = 0; i < this.getRowCount(); i++) {
             Row nextRow=this.getRowAtRangeIndex(i);
             if (nextRow.getAttribute("txtGenerateBID")!=null && nextRow.getAttribute("txtGenerateBID").toString().equals("Y") ) {
@@ -47,8 +48,9 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                 if(rfqvo==null){
                     
                 rfqvo=this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD");
-                Row rfqRow=rfqvo.getCurrentRow();
-                ViewObject bidvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidHeaderCRUD");
+                rfqRow=rfqvo.getCurrentRow();
+                rfqRow.setAttribute("txtBidHeaderCode",null);
+                bidvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidHeaderCRUD");
                 bidDetvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidLinesDetCRUD");
                 ViewObject bidvoForSupplier=this.getApplicationModule().findViewObject("ScmPurchaseRfqSupplierDetCRUD");
                 Integer erpSupplierSno =(Integer)bidvoForSupplier.getCurrentRow().getAttribute("SupplierSno");
@@ -60,6 +62,8 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                 newRow.setAttribute("SupplierSno",erpSupplierSno);
                 System.out.println("three");
                 newRow.setAttribute("DemandHeaderSno",rfqRow.getAttribute("DemandHeaderSno"));
+                    
+                newRow.setAttribute("LocationId",rfqRow.getAttribute("LocationId"));        
                 System.out.println("four");
                 newRow.setAttribute("CompanyId",rfqRow.getAttribute("CompanyId"));
                 System.out.println("five");
@@ -92,6 +96,12 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                 
            }
         }
+        
+//        this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode", bidvoForInsert.getCurrentRow().getAttribute("BidHeaderCode"));
+        getDBTransaction().commit();
+        System.out.println("boforinsert" + bidvoForInsert.getCurrentRow().getAttribute("BidHeaderCode"));
+        this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",
+                                                                                                            bidvoForInsert.getCurrentRow().getAttribute("BidHeaderCode"));
         getDBTransaction().commit();
         this.executeQuery();
     }

@@ -24,12 +24,24 @@
                       binding="#{pageFlowScope.OracleERPBean.lerpRFQForBidsPopupShow}">
                 <af:dialog id="d2" title="Purchase RFQ Items For BID Price">
                     <f:facet name="buttonBar"/>
+                    <af:inputText value="BID Generated Successfully. Bid No (#{bindings.txtBidHeaderCode.inputValue})"
+                                  label="#{bindings.txtBidHeaderCode.hints.label}"
+                                  required="#{bindings.txtBidHeaderCode.hints.mandatory}"
+                                  columns="#{bindings.txtBidHeaderCode.hints.displayWidth}"
+                                  maximumLength="#{bindings.txtBidHeaderCode.hints.precision}"
+                                  shortDesc="#{bindings.txtBidHeaderCode.hints.tooltip}" id="it27" simple="true"
+                                  visible="#{bindings.txtBidHeaderCode.inputValue!=null}" partialTriggers="pc3:l16">
+                        <f:validator binding="#{bindings.txtBidHeaderCode.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBidHeaderCode.format}"/>
+                    </af:inputText>
                     <af:panelCollection id="pc3" styleClass="AFStretchWidth">
                         <f:facet name="menus"/>
                         <f:facet name="toolbar">
-                            <af:toolbar id="t8">
-                                <af:link text="Generate BID" id="l16" partialSubmit="true"
-                                         actionListener="#{bindings.doERPGenerateBidFromRFQ.execute}"/>
+                            <af:toolbar id="t8" flex="100">
+                                <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                    <af:link text="Generate BID" id="l16" partialSubmit="true"
+                                             actionListener="#{bindings.doERPGenerateBidFromRFQ.execute}"/>
+                                </af:panelGroupLayout>
                             </af:toolbar>
                         </f:facet>
                         <f:facet name="statusbar"/>
@@ -754,6 +766,8 @@
                                                              actionListener="#{bindings.ExecuteWithParams.execute}">
                                                         <af:setActionListener from="#{row.bindings.SupplierSno.inputValue}"
                                                                               to="#{pageFlowScope.OracleERPBean.lerpSupplierSno}"/>
+                                                        <af:setActionListener from="#{''}"
+                                                                              to="#{bindings.txtBidHeaderCode.inputValue}"/>
                                                     </af:link>
                                                 </af:column>
                                             </af:table>
