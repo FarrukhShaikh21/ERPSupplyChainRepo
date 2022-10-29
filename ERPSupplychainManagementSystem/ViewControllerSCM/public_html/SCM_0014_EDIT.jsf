@@ -40,7 +40,9 @@
                             <af:toolbar id="t8" flex="100">
                                 <af:panelGroupLayout id="pgl7" layout="horizontal">
                                     <af:link text="Generate BID" id="l16" partialSubmit="true"
-                                             actionListener="#{bindings.doERPGenerateBidFromRFQ.execute}"/>
+                                             actionListener="#{bindings.doERPGenerateBidFromRFQ.execute}"
+                                             visible="#{bindings.ScmPurchaseRfqLinesForBIDROIterator.estimatedRowCount>0}"
+                                             partialTriggers="l16"/>
                                 </af:panelGroupLayout>
                             </af:toolbar>
                         </f:facet>
@@ -766,8 +768,6 @@
                                                              actionListener="#{bindings.ExecuteWithParams.execute}">
                                                         <af:setActionListener from="#{row.bindings.SupplierSno.inputValue}"
                                                                               to="#{pageFlowScope.OracleERPBean.lerpSupplierSno}"/>
-                                                        <af:setActionListener from="#{''}"
-                                                                              to="#{bindings.txtBidHeaderCode.inputValue}"/>
                                                     </af:link>
                                                 </af:column>
                                             </af:table>
