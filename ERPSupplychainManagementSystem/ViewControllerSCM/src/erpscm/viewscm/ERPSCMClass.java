@@ -15,6 +15,7 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
+import oracle.adf.view.rich.event.PopupCanceledEvent;
 import oracle.adf.view.rich.render.ClientEvent;
 
 import oracle.binding.BindingContainer;
@@ -391,5 +392,11 @@ public class ERPSCMClass {
         this.lerpRFQForBidsPopupShow.show(hints); 
         
         return null;
+    }
+    public void doPopupHandleEventSCM_0014(PopupCanceledEvent dce) {
+        BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+        DCIteratorBinding ib = (DCIteratorBinding) bc.get(lIteratorName);
+        ib.getCurrentRow().refresh(Row.REFRESH_UNDO_CHANGES);
+        
     }
 }

@@ -90,19 +90,19 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                 DetnewRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
                 DetnewRow.setAttribute("StatusSno", nextRow.getAttribute("StatusSno"));
                 DetnewRow.setAttribute("DemandLinesSno", nextRow.getAttribute("DemandLinesSno"));
-               
+//               nextRow.setAttribute("txtGenerateBID", "G");
                bidDetvoForInsert.insertRow(DetnewRow);
                
                 
            }
         }
         
-//        this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode", bidvoForInsert.getCurrentRow().getAttribute("BidHeaderCode"));
-        getDBTransaction().commit();
-        System.out.println("boforinsert" + bidvoForInsert.getCurrentRow().getAttribute("BidHeaderCode"));
-        this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",
-                                                                                                            bidvoForInsert.getCurrentRow().getAttribute("BidHeaderCode"));
-        getDBTransaction().commit();
+        if (bidvoForInsert!=null) {
+            getDBTransaction().commit();
+            this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",
+                                                                                                                bidvoForInsert.getCurrentRow().getAttribute("BidHeaderCode"));
+            getDBTransaction().commit();
+        }
         this.executeQuery();
     }
 }
