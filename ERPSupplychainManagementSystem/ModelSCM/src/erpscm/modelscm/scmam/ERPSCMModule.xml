@@ -305,6 +305,16 @@
       Name="ScmPurchaseRfqLinesForBIDVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO.ScmPurchaseRfqLinesForBIDVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ScmPurchaseBidHeaderForRFQMergeRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseBidHeaderBySupplierRFQVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO.ScmPurchaseBidHeaderBySupplierRFQVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmPurchaseBidLinesDetForRFQMergeRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -388,5 +398,11 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurQuoteLineHeadSnoLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseRfqHeaderCRUD"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseRfqLinesForBIDRO"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmPurBidLineHeadSnoLink2"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurBidLineHeadSnoLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseBidHeaderForRFQMergeRO"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseBidLinesDetForRFQMergeRO"
     Reversed="false"/>
 </AppModule>

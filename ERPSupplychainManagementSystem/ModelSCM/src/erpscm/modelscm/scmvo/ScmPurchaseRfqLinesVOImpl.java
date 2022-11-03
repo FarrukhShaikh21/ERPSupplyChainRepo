@@ -40,6 +40,7 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         ViewObject rfqvo=null;
         ViewObject bidDetvoForInsert=null;
         ViewObject bidvoForInsert=null;
+        this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",null);
         Row rfqRow=null;
         for (int i = 0; i < this.getRowCount(); i++) {
             Row nextRow=this.getRowAtRangeIndex(i);

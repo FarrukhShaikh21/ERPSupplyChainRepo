@@ -23,12 +23,14 @@
             <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
                       binding="#{pageFlowScope.OracleERPBean.lerpRFQForBidsPopupShow}"
                       popupCanceledListener="#{pageFlowScope.OracleERPBean.doPopupHandleEventSCM_0014}" animate="false">
-                <af:dialog id="d2" title="Purchase RFQ Items For BID Price" type="ok" closeIconVisible="false">
+                <af:dialog id="d2" title="Purchase RFQ Items For BID Price" type="ok" closeIconVisible="false"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doDialogEventEventSCM_0014}">
                     <f:facet name="buttonBar"/>
                     <af:panelGroupLayout id="pgl7" layout="horizontal">
                         <af:link text="Generate BID" id="l16" partialSubmit="true"
                                  actionListener="#{bindings.doERPGenerateBidFromRFQ.execute}"
-                                 visible="#{bindings.ScmPurchaseRfqLinesForBIDROIterator.estimatedRowCount>0}"/>
+                                 visible="#{bindings.ScmPurchaseRfqLinesForBIDROIterator.estimatedRowCount>0}"
+                                 partialTriggers="l16"/>
                         <af:spacer width="10" height="10" id="s3"/>
                         <af:inputText value="BID Generated Successfully. Bid No (#{bindings.txtBidHeaderCode.inputValue})"
                                       label="#{bindings.txtBidHeaderCode.hints.label}"
@@ -768,6 +770,8 @@
                                                                               to="#{pageFlowScope.OracleERPBean.lerpSupplierSno}"/>
                                                         <af:setActionListener from="#{'ScmPurchaseRfqHeaderCRUDIterator'}"
                                                                               to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                                        <af:setActionListener from="#{'ScmPurchaseRfqLinesForBIDROIterator'}"
+                                                                              to="#{pageFlowScope.OracleERPBean.LIteratorDetailName}"/>
                                                     </af:link>
                                                 </af:column>
                                             </af:table>

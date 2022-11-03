@@ -394,9 +394,19 @@ public class ERPSCMClass {
         return null;
     }
     public void doPopupHandleEventSCM_0014(PopupCanceledEvent dce) {
+        doResetViewObect();
+    }
+    
+    public void doDialogEventEventSCM_0014(DialogEvent dce) {
+        doResetViewObect();
+    }
+    
+    public void doResetViewObect() {
         BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
         DCIteratorBinding ib = (DCIteratorBinding) bc.get(lIteratorName);
         ib.getCurrentRow().refresh(Row.REFRESH_UNDO_CHANGES);
-        
+        ib = (DCIteratorBinding) bc.get(lIteratorDetailName);
+        System.out.println("lIteratorDetailName"+lIteratorDetailName);
+        ib.getViewObject().getApplicationModule().getTransaction().commit();
     }
 }

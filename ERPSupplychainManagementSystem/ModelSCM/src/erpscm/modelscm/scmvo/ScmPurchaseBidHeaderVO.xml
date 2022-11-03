@@ -13,6 +13,14 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_SUPPLIER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_RFQ_HEADER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <ViewAccessor
     Name="AccSysApprovalStatusVO"
     ViewObjectName="erpadm.modeladm.admvo.SysApprovalStatusVO"
@@ -491,6 +499,50 @@
     EntityAttrName="SupplierSno"
     EntityUsage="ScmPurchaseBidHeader"
     AliasName="SUPPLIER_SNO"/>
+  <ViewCriteria
+    Name="ScmPurchaseBidHeaderBySupplierRFQVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseBidHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="RfqHeaderSno"
+        ViewAttribute="RfqHeaderSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_RFQ_HEADER_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SupplierSno"
+        ViewAttribute="SupplierSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_SUPPLIER_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmPurchaseBidLinesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurBidLineHeadSnoLink"
