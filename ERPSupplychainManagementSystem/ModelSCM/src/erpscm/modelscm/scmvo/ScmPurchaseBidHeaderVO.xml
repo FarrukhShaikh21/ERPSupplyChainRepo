@@ -499,6 +499,25 @@
     EntityAttrName="SupplierSno"
     EntityUsage="ScmPurchaseBidHeader"
     AliasName="SUPPLIER_SNO"/>
+  <ViewAttribute
+    Name="txtIsSelected"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO.txtIsSelected_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseBidHeaderBySupplierRFQVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO"

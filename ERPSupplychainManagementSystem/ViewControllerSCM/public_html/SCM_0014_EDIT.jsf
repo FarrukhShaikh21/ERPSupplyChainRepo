@@ -42,6 +42,7 @@
                             <f:validator binding="#{bindings.txtBidHeaderCode.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBidHeaderCode.format}"/>
                         </af:inputText>
+                        <af:link text="Merge Into BID" id="l17" partialSubmit="true"/>
                     </af:panelGroupLayout>
                     <af:table value="#{bindings.ScmPurchaseRfqLinesForBIDRO.collectionModel}" var="row"
                               rows="#{bindings.ScmPurchaseRfqLinesForBIDRO.rangeSize}"
@@ -205,6 +206,139 @@
                         </f:facet>
                         <f:facet name="statusbar"/>
                     </af:panelCollection>
+                </af:dialog>
+            </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
+                <af:dialog id="d5" type="ok">
+                    <f:facet name="buttonBar"/>
+                    <af:panelHeader text="Purchase BID" id="ph1">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:table value="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.collectionModel}" var="row"
+                                  rows="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.rangeSize}"
+                                  emptyText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.collectionModel.makeCurrent}"
+                                  rowSelection="single"
+                                  fetchSize="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.rangeSize}" id="t9">
+                            <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.label}"
+                                       id="c29">
+                                <af:inputText value="#{row.bindings.txtIsSelected.inputValue}"
+                                              label="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.label}"
+                                              required="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.mandatory}"
+                                              columns="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.displayWidth}"
+                                              maximumLength="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.precision}"
+                                              shortDesc="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.tooltip}"
+                                              id="it28">
+                                    <f:validator binding="#{row.bindings.txtIsSelected.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderSno.label}"
+                                       id="c30" rendered="false">
+                                <af:inputText value="#{row.bindings.BidHeaderSno.inputValue}"
+                                              label="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderSno.label}"
+                                              required="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderSno.mandatory}"
+                                              columns="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderSno.displayWidth}"
+                                              maximumLength="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderSno.precision}"
+                                              shortDesc="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderSno.tooltip}"
+                                              id="it29">
+                                    <f:validator binding="#{row.bindings.BidHeaderSno.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderSno.format}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderCode.label}"
+                                       id="c31">
+                                <af:inputText value="#{row.bindings.BidHeaderCode.inputValue}"
+                                              label="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderCode.label}"
+                                              required="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderCode.mandatory}"
+                                              columns="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderCode.displayWidth}"
+                                              maximumLength="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderCode.precision}"
+                                              shortDesc="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderCode.tooltip}"
+                                              id="it30">
+                                    <f:validator binding="#{row.bindings.BidHeaderCode.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderCode.format}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidDate.label}"
+                                       id="c32">
+                                <af:inputDate value="#{row.bindings.BidDate.inputValue}"
+                                              label="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidDate.label}"
+                                              required="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidDate.mandatory}"
+                                              columns="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidDate.displayWidth}"
+                                              shortDesc="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidDate.tooltip}"
+                                              id="id8">
+                                    <f:validator binding="#{row.bindings.BidDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtLocationName.label}"
+                                       id="c33">
+                                <af:inputComboboxListOfValues id="iclov5"
+                                                              popupTitle="Search and Select: #{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtLocationName.label}"
+                                                              value="#{row.bindings.txtLocationName.inputValue}"
+                                                              model="#{row.bindings.txtLocationName.listOfValuesModel}"
+                                                              required="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtLocationName.mandatory}"
+                                                              columns="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtLocationName.displayWidth}"
+                                                              shortDesc="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtLocationName.tooltip}">
+                                    <f:validator binding="#{row.bindings.txtLocationName.validator}"/>
+                                </af:inputComboboxListOfValues>
+                            </af:column>
+                            <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.ResponseDate.label}"
+                                       id="c34">
+                                <af:inputDate value="#{row.bindings.ResponseDate.inputValue}"
+                                              label="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.ResponseDate.label}"
+                                              required="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.ResponseDate.mandatory}"
+                                              columns="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.ResponseDate.displayWidth}"
+                                              shortDesc="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.ResponseDate.tooltip}"
+                                              id="id9">
+                                    <f:validator binding="#{row.bindings.ResponseDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.ResponseDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveFrom.label}"
+                                       id="c35">
+                                <af:inputDate value="#{row.bindings.EffectiveFrom.inputValue}"
+                                              label="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveFrom.label}"
+                                              required="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveFrom.mandatory}"
+                                              columns="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveFrom.displayWidth}"
+                                              shortDesc="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveFrom.tooltip}"
+                                              id="id10">
+                                    <f:validator binding="#{row.bindings.EffectiveFrom.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveFrom.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveTo.label}"
+                                       id="c36">
+                                <af:inputDate value="#{row.bindings.EffectiveTo.inputValue}"
+                                              label="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveTo.label}"
+                                              required="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveTo.mandatory}"
+                                              columns="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveTo.displayWidth}"
+                                              shortDesc="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveTo.tooltip}"
+                                              id="id11">
+                                    <f:validator binding="#{row.bindings.EffectiveTo.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.EffectiveTo.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.Remarks.label}"
+                                       id="c37">
+                                <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                              label="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.Remarks.label}"
+                                              required="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.Remarks.mandatory}"
+                                              columns="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.Remarks.displayWidth}"
+                                              maximumLength="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.Remarks.precision}"
+                                              shortDesc="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.Remarks.tooltip}"
+                                              id="it31">
+                                    <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelHeader>
                 </af:dialog>
             </af:popup>
             <af:decorativeBox id="db1" dimensionsFrom="parent">
