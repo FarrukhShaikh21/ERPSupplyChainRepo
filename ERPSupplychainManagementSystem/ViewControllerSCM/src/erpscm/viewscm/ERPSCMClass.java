@@ -43,6 +43,7 @@ public class ERPSCMClass {
     private String ERPSupplyChainReportName;
     private String ERPPKForReport;
     private Integer lerpSupplierSno;
+    private Integer lerpRFQHeaderSno;
     private RichPopup lerpRFQForBidsPopupShow;
     private RichPopup lerpBIDForRFQMergePopupShow;
     
@@ -404,6 +405,15 @@ public class ERPSCMClass {
         return lerpBIDForRFQMergePopupShow;
     }
 
+
+    public void setLerpRFQHeaderSno(Integer lerpRFQHeaderSno) {
+        this.lerpRFQHeaderSno = lerpRFQHeaderSno;
+    }
+
+    public Integer getLerpRFQHeaderSno() {
+        return lerpRFQHeaderSno;
+    }
+
     public void doPopupHandleEventSCM_0014(PopupCanceledEvent dce) {
         doResetViewObect();
     }
@@ -421,6 +431,12 @@ public class ERPSCMClass {
         ib.getViewObject().getApplicationModule().getTransaction().commit();
     }
     public String doShowBIDForRFQMerge() {
+        BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+        DCIteratorBinding ib = (DCIteratorBinding) bc.get("ScmPurchaseBidHeaderForRFQMergeROIterator");
+        ib.getViewObject().setNamedWhereClauseParam("P_ADF_APPROVAL_STATUS_SNO", 1);
+        ib.getViewObject().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", lerpRFQHeaderSno);
+        ib.getViewObject().setNamedWhereClauseParam("P_SUPPLIER_SNO", lerpSupplierSno);
+        ib.getViewObject().executeQuery();
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         this.lerpBIDForRFQMergePopupShow.show(hints); 
         return null;

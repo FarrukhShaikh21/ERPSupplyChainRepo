@@ -42,8 +42,12 @@
                             <f:validator binding="#{bindings.txtBidHeaderCode.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBidHeaderCode.format}"/>
                         </af:inputText>
+                        <af:spacer width="10" height="10" id="s4"/>
                         <af:link text="Merge Into BID" id="l17" partialSubmit="true"
-                                 action="#{pageFlowScope.OracleERPBean.doShowBIDForRFQMerge}"/>
+                                 action="#{pageFlowScope.OracleERPBean.doShowBIDForRFQMerge}">
+                            <af:setActionListener from="#{bindings.RfqHeaderSno.inputValue}"
+                                                  to="#{pageFlowScope.OracleERPBean.lerpRFQHeaderSno}"/>
+                        </af:link>
                     </af:panelGroupLayout>
                     <af:table value="#{bindings.ScmPurchaseRfqLinesForBIDRO.collectionModel}" var="row"
                               rows="#{bindings.ScmPurchaseRfqLinesForBIDRO.rangeSize}"
@@ -211,7 +215,8 @@
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p4"
                       binding="#{pageFlowScope.OracleERPBean.lerpBIDForRFQMergePopupShow}">
-                <af:dialog id="d5" type="okCancel" inlineStyle="height:500px" cancelTextAndAccessKey="Okey"
+                <af:dialog id="d5"
+                           type="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.estimatedRowCount==0?'none':'okCancel'}" inlineStyle="height:500px" cancelTextAndAccessKey="Okey"
                            affirmativeTextAndAccessKey="Merge Into Selected ID">
                     <f:facet name="buttonBar"/>
                     <af:panelHeader text="Purchase BID" id="ph1">
