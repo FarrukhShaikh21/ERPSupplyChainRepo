@@ -44,6 +44,7 @@ public class ERPSCMClass {
     private String ERPPKForReport;
     private Integer lerpSupplierSno;
     private RichPopup lerpRFQForBidsPopupShow;
+    private RichPopup lerpBIDForRFQMergePopupShow;
     
     public ERPSCMClass() {
         super();
@@ -393,6 +394,16 @@ public class ERPSCMClass {
         
         return null;
     }
+
+
+    public void setLerpBIDForRFQMergePopupShow(RichPopup lerpBIDForRFQMergePopupShow) {
+        this.lerpBIDForRFQMergePopupShow = lerpBIDForRFQMergePopupShow;
+    }
+
+    public RichPopup getLerpBIDForRFQMergePopupShow() {
+        return lerpBIDForRFQMergePopupShow;
+    }
+
     public void doPopupHandleEventSCM_0014(PopupCanceledEvent dce) {
         doResetViewObect();
     }
@@ -409,4 +420,9 @@ public class ERPSCMClass {
         System.out.println("lIteratorDetailName"+lIteratorDetailName);
         ib.getViewObject().getApplicationModule().getTransaction().commit();
     }
+    public String doShowBIDForRFQMerge() {
+        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+        this.lerpBIDForRFQMergePopupShow.show(hints); 
+        return null;
+    }    
 }

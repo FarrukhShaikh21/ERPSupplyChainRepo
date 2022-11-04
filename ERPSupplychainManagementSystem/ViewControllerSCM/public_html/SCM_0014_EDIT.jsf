@@ -42,9 +42,8 @@
                             <f:validator binding="#{bindings.txtBidHeaderCode.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBidHeaderCode.format}"/>
                         </af:inputText>
-                        <af:link text="Merge Into BID" id="l17" partialSubmit="true">
-                            <af:showPopupBehavior popupId="p4" triggerType="action"/>
-                        </af:link>
+                        <af:link text="Merge Into BID" id="l17" partialSubmit="true"
+                                 action="#{pageFlowScope.OracleERPBean.doShowBIDForRFQMerge}"/>
                     </af:panelGroupLayout>
                     <af:table value="#{bindings.ScmPurchaseRfqLinesForBIDRO.collectionModel}" var="row"
                               rows="#{bindings.ScmPurchaseRfqLinesForBIDRO.rangeSize}"
@@ -210,8 +209,10 @@
                     </af:panelCollection>
                 </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
-                <af:dialog id="d5" type="ok" inlineStyle="height:500px">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p4"
+                      binding="#{pageFlowScope.OracleERPBean.lerpBIDForRFQMergePopupShow}">
+                <af:dialog id="d5" type="okCancel" inlineStyle="height:500px" cancelTextAndAccessKey="Okey"
+                           affirmativeTextAndAccessKey="Merge Into Selected ID">
                     <f:facet name="buttonBar"/>
                     <af:panelHeader text="Purchase BID" id="ph1">
                         <f:facet name="context"/>
@@ -226,19 +227,8 @@
                                   selectedRowKeys="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.collectionModel.makeCurrent}"
                                   rowSelection="single"
-                                  fetchSize="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.rangeSize}" id="t9">
-                            <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.label}"
-                                       id="c29">
-                                <af:inputText value="#{row.bindings.txtIsSelected.inputValue}"
-                                              label="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.label}"
-                                              required="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.mandatory}"
-                                              columns="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.displayWidth}"
-                                              maximumLength="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.precision}"
-                                              shortDesc="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtIsSelected.tooltip}"
-                                              id="it28" readOnly="true">
-                                    <f:validator binding="#{row.bindings.txtIsSelected.validator}"/>
-                                </af:inputText>
-                            </af:column>
+                                  fetchSize="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.rangeSize}" id="t9"
+                                  columnStretching="last">
                             <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidHeaderSno.label}"
                                        id="c30" rendered="false">
                                 <af:inputText value="#{row.bindings.BidHeaderSno.inputValue}"
@@ -268,7 +258,7 @@
                                 </af:inputText>
                             </af:column>
                             <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidDate.label}"
-                                       id="c32">
+                                       id="c32" width="80">
                                 <af:inputDate value="#{row.bindings.BidDate.inputValue}"
                                               label="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidDate.label}"
                                               required="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.BidDate.mandatory}"
@@ -280,7 +270,7 @@
                                 </af:inputDate>
                             </af:column>
                             <af:column headerText="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtLocationName.label}"
-                                       id="c33">
+                                       id="c33" width="120">
                                 <af:inputComboboxListOfValues id="iclov5"
                                                               popupTitle="Search and Select: #{bindings.ScmPurchaseBidHeaderForRFQMergeRO.hints.txtLocationName.label}"
                                                               value="#{row.bindings.txtLocationName.inputValue}"
