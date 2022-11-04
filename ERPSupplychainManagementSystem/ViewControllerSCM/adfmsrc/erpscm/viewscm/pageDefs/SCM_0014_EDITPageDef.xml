@@ -15,6 +15,8 @@
               id="ScmPurchaseRfqLinesForBIDROIterator"/>
     <iterator Binds="ScmPurchaseBidHeaderForRFQMergeRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidHeaderForRFQMergeROIterator"/>
+    <iterator Binds="ScmPurchaseBidLinesDetForRFQMergeRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidLinesDetForRFQMergeROIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="RfqHeaderSno">
@@ -203,6 +205,17 @@
           <Item Value="ResponseDate"/>
           <Item Value="EffectiveFrom"/>
           <Item Value="EffectiveTo"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ScmPurchaseBidLinesDetForRFQMergeROIterator" id="ScmPurchaseBidLinesDetForRFQMergeRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO" Name="ScmPurchaseBidLinesDetForRFQMergeRO0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="txtUnitTypeName"/>
+          <Item Value="Quantity"/>
+          <Item Value="BidPrice"/>
           <Item Value="Remarks"/>
         </AttrNames>
       </nodeDefinition>

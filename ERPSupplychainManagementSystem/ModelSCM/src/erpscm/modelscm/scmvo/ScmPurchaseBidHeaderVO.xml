@@ -21,6 +21,10 @@
     Name="P_RFQ_HEADER_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_APPROVAL_STATUS_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <ViewAccessor
     Name="AccSysApprovalStatusVO"
     ViewObjectName="erpadm.modeladm.admvo.SysApprovalStatusVO"
@@ -550,6 +554,14 @@
         Operator="="
         Conjunction="AND"
         Value=":P_RFQ_HEADER_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ApprovalStatusSno"
+        ViewAttribute="ApprovalStatusSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_APPROVAL_STATUS_SNO"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
   <af:document title="SCM_0014.jsf" id="d1">
     <af:messages id="m1"/>
     <af:form id="f1">
@@ -113,6 +114,7 @@
                                   </af:panelGroupLayout>
                                 </af:gridCell>
                               </af:gridRow>
+                              <ui:include src="/SCM_0015_EDIT.jsf"/>
                             </af:panelGridLayout>
                           </af:panelBox>
                         </af:panelGroupLayout>
