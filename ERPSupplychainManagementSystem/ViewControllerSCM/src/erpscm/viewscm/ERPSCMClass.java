@@ -449,6 +449,7 @@ public class ERPSCMClass {
         
         ib.getViewObject().getCurrentRow().setAttribute("txtBidHeaderSno", erpbiditer.getViewObject().getCurrentRow().getAttribute("BidHeaderSno"));
         ib.getViewObject().getCurrentRow().setAttribute("txtBidHeaderCode", erpbiditer.getViewObject().getCurrentRow().getAttribute("BidHeaderCode"));
+        ib.getViewObject().getCurrentRow().setAttribute("txtIsMerge", "Y");
         
     }
 }

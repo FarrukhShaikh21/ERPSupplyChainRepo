@@ -44,13 +44,13 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         //in case we want to merge into existing bid then it will merge in it
         Integer erpMergeBidHeaderSno=(Integer)rfqvo.getCurrentRow().getAttribute("txtBidHeaderSno");
         ViewObject bidvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidHeaderForRFQMergeRO");
-        this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",null);
+//        this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",null);
         Row rfqRow=null;
         for (int i = 0; i < this.getRowCount(); i++) {
             Row nextRow=this.getRowAtRangeIndex(i);
             if (nextRow.getAttribute("txtGenerateBID")!=null && nextRow.getAttribute("txtGenerateBID").toString().equals("Y") ) {
                 //////////////
-                if(isMasterGenerated==0 && erpMergeBidHeaderSno==null){//checking if going to merge or header is already been generated
+                if(isMasterGenerated==0 &&(rfqvo.getCurrentRow().getAttribute("txtIsMerge")==null)){//checking if going to merge or header is already been generated
                     isMasterGenerated=1;    
                 rfqRow=rfqvo.getCurrentRow();
                 rfqRow.setAttribute("txtBidHeaderCode",null);

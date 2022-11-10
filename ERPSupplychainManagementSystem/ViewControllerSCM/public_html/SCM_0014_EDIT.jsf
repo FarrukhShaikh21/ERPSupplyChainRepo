@@ -27,6 +27,14 @@
                            dialogListener="#{pageFlowScope.OracleERPBean.doDialogEventEventSCM_0014}">
                     <f:facet name="buttonBar"/>
                     <af:panelGroupLayout id="pgl7" layout="horizontal">
+                        <af:inputText value="#{bindings.txtIsMerge.inputValue}"
+                                      label="#{bindings.txtIsMerge.hints.label}"
+                                      required="#{bindings.txtIsMerge.hints.mandatory}"
+                                      columns="#{bindings.txtIsMerge.hints.displayWidth}"
+                                      maximumLength="#{bindings.txtIsMerge.hints.precision}"
+                                      shortDesc="#{bindings.txtIsMerge.hints.tooltip}" id="it37" rendered="false">
+                            <f:validator binding="#{bindings.txtIsMerge.validator}"/>
+                        </af:inputText>
                         <af:link text="Generate BID" id="l16" partialSubmit="true"
                                  actionListener="#{bindings.doERPGenerateBidFromRFQ.execute}"
                                  visible="#{bindings.ScmPurchaseRfqLinesForBIDROIterator.estimatedRowCount>0}"
@@ -38,10 +46,13 @@
                                       columns="#{bindings.txtBidHeaderCode.hints.displayWidth}"
                                       maximumLength="#{bindings.txtBidHeaderCode.hints.precision}"
                                       shortDesc="#{bindings.txtBidHeaderCode.hints.tooltip}" id="it27" simple="true"
-                                      visible="#{bindings.txtBidHeaderCode.inputValue!=null &amp;&amp; bindings.txtBidHeaderSno.inputValue==null}">
+                                      visible="#{bindings.txtBidHeaderCode.inputValue!=null &amp;&amp; bindings.txtIsMerge.inputValue==null}">
                             <f:validator binding="#{bindings.txtBidHeaderCode.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBidHeaderCode.format}"/>
                         </af:inputText>
+                        <af:inputText label="Label 1" id="it38" simple="true"
+                                      value="Successfully Merged In Bid No (#{bindings.txtBidHeaderCode.inputValue})"
+                                      visible="#{bindings.txtIsMerge.inputValue=='Y'}"/>
                         <af:spacer width="10" height="10" id="s4"/>
                         <af:inputText value="#{bindings.txtBidHeaderSno.inputValue}"
                                       label="#{bindings.txtBidHeaderSno.hints.label}"
@@ -65,7 +76,7 @@
                                       columns="10"
                                       maximumLength="#{bindings.txtBidHeaderCode.hints.precision}"
                                       shortDesc="#{bindings.txtBidHeaderCode.hints.tooltip}" id="it36" simple="true"
-                                      autoSubmit="true" visible="#{bindings.txtBidHeaderSno.inputValue!=null}"
+                                      autoSubmit="true" visible="#{bindings.txtIsMerge.inputValue=='Y'}"
                                       partialTriggers="l18" readOnly="true">
                             <f:validator binding="#{bindings.txtBidHeaderCode.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBidHeaderCode.format}"/>
@@ -83,6 +94,8 @@
                         <af:link text="Clear" id="l18" partialSubmit="true"
                                  visible="#{bindings.txtBidHeaderCode.inputValue!=null}">
                             <af:setActionListener from="#{null}" to="#{bindings.txtBidHeaderCode.inputValue}"/>
+                            <af:setActionListener from="#{null}" to="#{bindings.txtBidHeaderSno.inputValue}"/>
+                            <af:setActionListener from="#{null}" to="#{bindings.txtIsMerge.inputValue}"/>
                         </af:link>
                     </af:panelGroupLayout>
                     <af:table value="#{bindings.ScmPurchaseRfqLinesForBIDRO.collectionModel}" var="row"

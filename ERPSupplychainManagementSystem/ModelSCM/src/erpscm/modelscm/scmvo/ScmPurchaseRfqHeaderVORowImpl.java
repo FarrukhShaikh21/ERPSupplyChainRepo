@@ -1248,7 +1248,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method
-        if (i!=TXTBIDHEADERCODE && (getIsSupervised().equals("Y")|| getApprovalStatusSno()>2)) {
+        if ((getIsSupervised().equals("Y")|| getApprovalStatusSno()>2)) {
             return false;
        }
         return super.isAttributeUpdateable(i);
