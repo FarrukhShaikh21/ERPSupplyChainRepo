@@ -38,15 +38,51 @@
                                       columns="#{bindings.txtBidHeaderCode.hints.displayWidth}"
                                       maximumLength="#{bindings.txtBidHeaderCode.hints.precision}"
                                       shortDesc="#{bindings.txtBidHeaderCode.hints.tooltip}" id="it27" simple="true"
-                                      visible="#{bindings.txtBidHeaderCode.inputValue!=null}">
+                                      visible="#{bindings.txtBidHeaderCode.inputValue!=null &amp;&amp; bindings.txtBidHeaderSno.inputValue==null}">
                             <f:validator binding="#{bindings.txtBidHeaderCode.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBidHeaderCode.format}"/>
                         </af:inputText>
                         <af:spacer width="10" height="10" id="s4"/>
+                        <af:inputText value="#{bindings.txtBidHeaderSno.inputValue}"
+                                      label="#{bindings.txtBidHeaderSno.hints.label}"
+                                      required="#{bindings.txtBidHeaderSno.hints.mandatory}"
+                                      columns="#{bindings.txtBidHeaderSno.hints.displayWidth}"
+                                      maximumLength="#{bindings.txtBidHeaderSno.hints.precision}"
+                                      shortDesc="#{bindings.txtBidHeaderSno.hints.tooltip}" id="it35" rendered="false">
+                            <f:validator binding="#{bindings.txtBidHeaderSno.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBidHeaderSno.format}"/>
+                        </af:inputText>
                         <af:link text="Merge Into BID" id="l17" partialSubmit="true"
-                                 action="#{pageFlowScope.OracleERPBean.doShowBIDForRFQMerge}">
+                                 action="#{pageFlowScope.OracleERPBean.doShowBIDForRFQMerge}"
+                                 visible="#{bindings.ScmPurchaseRfqLinesForBIDROIterator.estimatedRowCount>0}">
                             <af:setActionListener from="#{bindings.RfqHeaderSno.inputValue}"
                                                   to="#{pageFlowScope.OracleERPBean.lerpRFQHeaderSno}"/>
+                        </af:link>
+                        <af:spacer width="10" height="10" id="s7"/>
+                        <af:inputText value="#{bindings.txtBidHeaderCode.inputValue}"
+                                      label="#{bindings.txtBidHeaderCode.hints.label}"
+                                      required="#{bindings.txtBidHeaderCode.hints.mandatory}"
+                                      columns="10"
+                                      maximumLength="#{bindings.txtBidHeaderCode.hints.precision}"
+                                      shortDesc="#{bindings.txtBidHeaderCode.hints.tooltip}" id="it36" simple="true"
+                                      autoSubmit="true" visible="#{bindings.txtBidHeaderSno.inputValue!=null}"
+                                      partialTriggers="l18" readOnly="true">
+                            <f:validator binding="#{bindings.txtBidHeaderCode.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBidHeaderCode.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.txtBidHeaderCode.inputValue}"
+                                      label="#{bindings.txtBidHeaderCode.hints.label}"
+                                      required="#{bindings.txtBidHeaderCode.hints.mandatory}"
+                                      columns="#{bindings.txtBidHeaderCode.hints.displayWidth}"
+                                      maximumLength="#{bindings.txtBidHeaderCode.hints.precision}"
+                                      shortDesc="#{bindings.txtBidHeaderCode.hints.tooltip}" id="it28" rendered="false">
+                            <f:validator binding="#{bindings.txtBidHeaderCode.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBidHeaderCode.format}"/>
+                        </af:inputText>
+                        <af:spacer width="10" height="10" id="s6"/>
+                        <af:link text="Clear" id="l18" partialSubmit="true"
+                                 visible="#{bindings.txtBidHeaderCode.inputValue!=null}">
+                            <af:setActionListener from="#{null}" to="#{bindings.txtBidHeaderCode.inputValue}"/>
                         </af:link>
                     </af:panelGroupLayout>
                     <af:table value="#{bindings.ScmPurchaseRfqLinesForBIDRO.collectionModel}" var="row"
@@ -217,7 +253,8 @@
                       binding="#{pageFlowScope.OracleERPBean.lerpBIDForRFQMergePopupShow}">
                 <af:dialog id="d5"
                            type="#{bindings.ScmPurchaseBidHeaderForRFQMergeRO.estimatedRowCount==0?'none':'okCancel'}" inlineStyle="height:500px" cancelTextAndAccessKey="Okey"
-                           affirmativeTextAndAccessKey="Select For Merge">
+                           affirmativeTextAndAccessKey="Select For Merge"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doConfirmBidNoForMerge}">
                     <f:facet name="buttonBar"/>
                     <af:panelHeader text="Purchase BID" id="ph1">
                         <f:facet name="context"/>

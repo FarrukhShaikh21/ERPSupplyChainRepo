@@ -37,22 +37,23 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
     public void doERPGenerateBidFromRFQ() {
         
         this.setRangeSize(-1);
-        ViewObject rfqvo=null;
-        ViewObject bidDetvoForInsert=null;
-        ViewObject bidvoForInsert=null;
+        ViewObject rfqvo=this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD");
+        Integer isMasterGenerated=0;
+        System.out.println(rfqvo.getCurrentRow().getAttribute("txtBidHeaderSno")+ "bid header sno");
+        ViewObject bidDetvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidLinesDetForRFQMergeRO");
+        //in case we want to merge into existing bid then it will merge in it
+        Integer erpMergeBidHeaderSno=(Integer)rfqvo.getCurrentRow().getAttribute("txtBidHeaderSno");
+        ViewObject bidvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidHeaderForRFQMergeRO");
         this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",null);
         Row rfqRow=null;
         for (int i = 0; i < this.getRowCount(); i++) {
             Row nextRow=this.getRowAtRangeIndex(i);
             if (nextRow.getAttribute("txtGenerateBID")!=null && nextRow.getAttribute("txtGenerateBID").toString().equals("Y") ) {
                 //////////////
-                if(rfqvo==null){
-                    
-                rfqvo=this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD");
+                if(isMasterGenerated==0 && erpMergeBidHeaderSno==null){//checking if going to merge or header is already been generated
+                    isMasterGenerated=1;    
                 rfqRow=rfqvo.getCurrentRow();
                 rfqRow.setAttribute("txtBidHeaderCode",null);
-                bidvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidHeaderCRUD");
-                bidDetvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidLinesDetCRUD");
                 ViewObject bidvoForSupplier=this.getApplicationModule().findViewObject("ScmPurchaseRfqSupplierDetCRUD");
                 Integer erpSupplierSno =(Integer)bidvoForSupplier.getCurrentRow().getAttribute("SupplierSno");
                 System.out.println("erpSupplierSno"+erpSupplierSno);
@@ -78,9 +79,10 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                 bidvoForInsert.insertRow(newRow);
                 System.out.println("before commit");
                 bidvoForInsert.setCurrentRow(newRow);
-                System.out.println(bidvoForInsert.getCurrentRow().getAttribute("BidHeaderSno")+ "current row");
+                erpMergeBidHeaderSno=(Integer)bidvoForInsert.getCurrentRow().getAttribute("BidHeaderSno");
                 }
                 Row DetnewRow=bidDetvoForInsert.createRow();
+                DetnewRow.setAttribute("BidHeaderSno", erpMergeBidHeaderSno);
                 DetnewRow.setAttribute("RfqLinesSno", nextRow.getAttribute("RfqLinesSno"));
                 DetnewRow.setAttribute("DemandLinesSno", nextRow.getAttribute("DemandLinesSno"));
                 DetnewRow.setAttribute("ItemId", nextRow.getAttribute("ItemId"));
@@ -98,10 +100,11 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
            }
         }
         
-        if (bidvoForInsert!=null) {
+        if (isMasterGenerated==1 || erpMergeBidHeaderSno!=null) {
             getDBTransaction().commit();
-            this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",
-                                                                                                                bidvoForInsert.getCurrentRow().getAttribute("BidHeaderCode"));
+            this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",bidvoForInsert.getCurrentRow().getAttribute("BidHeaderCode"));
+            this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderSno",erpMergeBidHeaderSno);
+            
             getDBTransaction().commit();
         }
         this.executeQuery();

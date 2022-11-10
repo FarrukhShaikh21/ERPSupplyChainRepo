@@ -73,6 +73,8 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         ApprovalStatusSno,
         txtSumQuantity,
         txtBidHeaderCode,
+        txtBidHeaderSno,
+        txtIsMerge,
         ScmPurchaseRfqLinesVO,
         ScmPurchaseRfqSupplierVO,
         AdminCompanyVO,
@@ -167,6 +169,8 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int TXTSUMQUANTITY = AttributesEnum.txtSumQuantity.index();
     public static final int TXTBIDHEADERCODE = AttributesEnum.txtBidHeaderCode.index();
+    public static final int TXTBIDHEADERSNO = AttributesEnum.txtBidHeaderSno.index();
+    public static final int TXTISMERGE = AttributesEnum.txtIsMerge.index();
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
     public static final int SCMPURCHASERFQSUPPLIERVO = AttributesEnum.ScmPurchaseRfqSupplierVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -992,6 +996,41 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void settxtBidHeaderCode(Integer value) {
         setAttributeInternal(TXTBIDHEADERCODE, value);
+        if (value==null) {
+            settxtBidHeaderSno(null);
+       }
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtBidHeaderSno.
+     * @return the txtBidHeaderSno
+     */
+    public Integer gettxtBidHeaderSno() {
+        return (Integer) getAttributeInternal(TXTBIDHEADERSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtBidHeaderSno.
+     * @param value value to set the  txtBidHeaderSno
+     */
+    public void settxtBidHeaderSno(Integer value) {
+        setAttributeInternal(TXTBIDHEADERSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtIsMerge.
+     * @return the txtIsMerge
+     */
+    public String gettxtIsMerge() {
+        return (String) getAttributeInternal(TXTISMERGE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtIsMerge.
+     * @param value value to set the  txtIsMerge
+     */
+    public void settxtIsMerge(String value) {
+        setAttributeInternal(TXTISMERGE, value);
     }
 
     /**
@@ -1209,7 +1248,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method
-        if (getIsSupervised().equals("Y")|| getApprovalStatusSno()>2) {
+        if (i!=TXTBIDHEADERCODE && (getIsSupervised().equals("Y")|| getApprovalStatusSno()>2)) {
             return false;
        }
         return super.isAttributeUpdateable(i);

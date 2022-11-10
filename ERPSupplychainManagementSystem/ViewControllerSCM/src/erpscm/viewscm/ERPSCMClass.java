@@ -440,5 +440,15 @@ public class ERPSCMClass {
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         this.lerpBIDForRFQMergePopupShow.show(hints); 
         return null;
-    }    
+    } 
+    
+    public void doConfirmBidNoForMerge(DialogEvent erpde) {
+        BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+        DCIteratorBinding ib = (DCIteratorBinding) bc.get(lIteratorName);
+        DCIteratorBinding erpbiditer = (DCIteratorBinding) bc.get("ScmPurchaseBidHeaderForRFQMergeROIterator");
+        
+        ib.getViewObject().getCurrentRow().setAttribute("txtBidHeaderSno", erpbiditer.getViewObject().getCurrentRow().getAttribute("BidHeaderSno"));
+        ib.getViewObject().getCurrentRow().setAttribute("txtBidHeaderCode", erpbiditer.getViewObject().getCurrentRow().getAttribute("BidHeaderCode"));
+        
+    }
 }
