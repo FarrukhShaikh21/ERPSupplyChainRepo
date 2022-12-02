@@ -42,13 +42,13 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         System.out.println(rfqvo.getCurrentRow().getAttribute("txtBidHeaderSno")+ "bid header sno");
         ViewObject bidDetvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidLinesDetForRFQMergeRO");
         //in case we want to merge into existing bid then it will merge in it
-        Integer erpMergeBidHeaderSno=(Integer)rfqvo.getCurrentRow().getAttribute("txtBidHeaderSno");
+        Integer erpMergeBidHeaderSno=(Integer)rfqvo.getCurrentRow().getAttribute("txtMergeBidHeaderSno");
         ViewObject bidvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidHeaderForRFQMergeRO");
 //        this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",null);
         Row rfqRow=null;
         for (int i = 0; i < this.getRowCount(); i++) {
             Row nextRow=this.getRowAtRangeIndex(i);
-            if (nextRow.getAttribute("txtGenerateBID")!=null && nextRow.getAttribute("txtGenerateBID").toString().equals("Y") ) {
+            if (nextRow.getAttribute("txtGenerateBID")!=null && nextRow.getAttribute("txtGenerateBID").toString().equals("Y") && erpMergeBidHeaderSno ==null ) {
                 //////////////
                 if(isMasterGenerated==0 &&(rfqvo.getCurrentRow().getAttribute("txtIsMerge")==null)){//checking if going to merge or header is already been generated
                     isMasterGenerated=1;    

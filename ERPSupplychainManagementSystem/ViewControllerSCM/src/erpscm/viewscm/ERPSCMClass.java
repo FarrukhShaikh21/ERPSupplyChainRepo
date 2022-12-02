@@ -447,8 +447,8 @@ public class ERPSCMClass {
         DCIteratorBinding ib = (DCIteratorBinding) bc.get(lIteratorName);
         DCIteratorBinding erpbiditer = (DCIteratorBinding) bc.get("ScmPurchaseBidHeaderForRFQMergeROIterator");
         
-        ib.getViewObject().getCurrentRow().setAttribute("txtBidHeaderSno", erpbiditer.getViewObject().getCurrentRow().getAttribute("BidHeaderSno"));
-        ib.getViewObject().getCurrentRow().setAttribute("txtBidHeaderCode", erpbiditer.getViewObject().getCurrentRow().getAttribute("BidHeaderCode"));
+        ib.getViewObject().getCurrentRow().setAttribute("txtMergeBidHeaderSno", erpbiditer.getViewObject().getCurrentRow().getAttribute("BidHeaderSno"));
+        ib.getViewObject().getCurrentRow().setAttribute("txtMergeBidHeaderCode", erpbiditer.getViewObject().getCurrentRow().getAttribute("BidHeaderCode"));
         ib.getViewObject().getCurrentRow().setAttribute("txtIsMerge", "Y");
         
     }
