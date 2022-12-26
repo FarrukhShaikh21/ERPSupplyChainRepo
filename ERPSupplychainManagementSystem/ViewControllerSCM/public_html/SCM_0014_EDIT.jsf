@@ -38,7 +38,7 @@
                         <af:link text="Generate BID" id="l16" partialSubmit="true"
                                  actionListener="#{bindings.doERPGenerateBidFromRFQ.execute}"
                                  visible="#{bindings.ScmPurchaseRfqLinesForBIDROIterator.estimatedRowCount>0}"
-                                 partialTriggers="l16"/>
+                                 partialTriggers="l16 l17"/>
                         <af:spacer width="10" height="10" id="s3"/>
                         <af:inputText value="BID Generated Successfully. Bid No (#{bindings.txtBidHeaderCode.inputValue})"
                                       label="#{bindings.txtBidHeaderCode.hints.label}"
@@ -46,13 +46,23 @@
                                       columns="#{bindings.txtBidHeaderCode.hints.displayWidth}"
                                       maximumLength="#{bindings.txtBidHeaderCode.hints.precision}"
                                       shortDesc="#{bindings.txtBidHeaderCode.hints.tooltip}" id="it27" simple="true"
-                                      visible="#{bindings.txtBidHeaderCode.inputValue!=null &amp;&amp; bindings.txtIsMerge.inputValue==null}">
+                                      visible="#{bindings.txtBidHeaderCode.inputValue!=null &amp;&amp; bindings.txtIsMerge.inputValue=='N'}">
                             <f:validator binding="#{bindings.txtBidHeaderCode.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtBidHeaderCode.format}"/>
                         </af:inputText>
+                        <af:inputText value="#{bindings.txtMergeBidHeaderCode.inputValue}"
+                                      label="#{bindings.txtMergeBidHeaderCode.hints.label}"
+                                      required="#{bindings.txtMergeBidHeaderCode.hints.mandatory}"
+                                      columns="#{bindings.txtMergeBidHeaderCode.hints.displayWidth}"
+                                      maximumLength="#{bindings.txtMergeBidHeaderCode.hints.precision}"
+                                      shortDesc="#{bindings.txtMergeBidHeaderCode.hints.tooltip}" id="it39"
+                                      rendered="false">
+                            <f:validator binding="#{bindings.txtMergeBidHeaderCode.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtMergeBidHeaderCode.format}"/>
+                        </af:inputText>
                         <af:inputText label="Label 1" id="it38" simple="true"
-                                      value="Successfully Merged In Bid No (#{bindings.txtBidHeaderCode.inputValue})"
-                                      visible="#{bindings.txtIsMerge.inputValue=='Y'}"/>
+                                      value="Successfully Merged In Bid No (#{bindings.txtMergeBidHeaderCode.inputValue})"
+                                      visible="#{bindings.txtMergeBidHeaderCode.inputValue!=null &amp;&amp; bindings.txtIsMerge.inputValue=='N'}"/>
                         <af:spacer width="10" height="10" id="s4"/>
                         <af:inputText value="#{bindings.txtBidHeaderSno.inputValue}"
                                       label="#{bindings.txtBidHeaderSno.hints.label}"
@@ -65,16 +75,17 @@
                         </af:inputText>
                         <af:link text="Merge Into BID" id="l17" partialSubmit="true"
                                  action="#{pageFlowScope.OracleERPBean.doShowBIDForRFQMerge}"
-                                 visible="#{bindings.ScmPurchaseRfqLinesForBIDROIterator.estimatedRowCount>0}">
+                                 visible="#{bindings.ScmPurchaseRfqLinesForBIDROIterator.estimatedRowCount>0}"
+                                 partialTriggers="l16 l17">
                             <af:setActionListener from="#{bindings.RfqHeaderSno.inputValue}"
                                                   to="#{pageFlowScope.OracleERPBean.lerpRFQHeaderSno}"/>
                         </af:link>
                         <af:spacer width="10" height="10" id="s7"/>
-                        <af:inputText value="#{bindings.txtBidHeaderCode.inputValue}"
-                                      label="#{bindings.txtBidHeaderCode.hints.label}"
-                                      required="#{bindings.txtBidHeaderCode.hints.mandatory}"
+                        <af:inputText value="#{bindings.txtMergeBidHeaderCode.inputValue}"
+                                      label="#{bindings.txtMergeBidHeaderCode.hints.label}"
+                                      required="#{bindings.txtMergeBidHeaderCode.hints.mandatory}"
                                       columns="10"
-                                      maximumLength="#{bindings.txtBidHeaderCode.hints.precision}"
+                                      maximumLength="#{bindings.txtMergeBidHeaderCode.hints.precision}"
                                       shortDesc="#{bindings.txtBidHeaderCode.hints.tooltip}" id="it36" simple="true"
                                       autoSubmit="true" visible="#{bindings.txtIsMerge.inputValue=='Y'}"
                                       partialTriggers="l18" readOnly="true">
@@ -106,7 +117,8 @@
                               selectionListener="#{bindings.ScmPurchaseRfqLinesForBIDRO.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.ScmPurchaseRfqLinesForBIDRO.rangeSize}"
                               id="t7" scrollPolicy="page" autoHeightRows="10" styleClass="AFStretchWidth"
-                              partialTriggers="::pc2:t1:l15">
+                              partialTriggers="::pc2:t1:l15"
+                              visible="#{bindings.ScmPurchaseRfqLinesForBIDRO.estimatedRowCount>0}">
                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtGenerateBID.label}"
                                    id="c28" width="75" displayIndex="-1">
                             <af:selectOneChoice label="Label 2" value="#{row.bindings.txtGenerateBID.inputValue}"

@@ -45,12 +45,16 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         Integer erpMergeBidHeaderSno=(Integer)rfqvo.getCurrentRow().getAttribute("txtMergeBidHeaderSno");
         ViewObject bidvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidHeaderForRFQMergeRO");
 //        this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",null);
+        if (rfqvo.getCurrentRow().getAttribute("txtIsMerge")==null) {
+           rfqvo.getCurrentRow().setAttribute("txtIsMerge","N");
+       }
+        
         Row rfqRow=null;
         for (int i = 0; i < this.getRowCount(); i++) {
             Row nextRow=this.getRowAtRangeIndex(i);
-            if (nextRow.getAttribute("txtGenerateBID")!=null && nextRow.getAttribute("txtGenerateBID").toString().equals("Y") && erpMergeBidHeaderSno ==null ) {
+            if (nextRow.getAttribute("txtGenerateBID")!=null && nextRow.getAttribute("txtGenerateBID").toString().equals("Y") ) {
                 //////////////
-                if(isMasterGenerated==0 &&(rfqvo.getCurrentRow().getAttribute("txtIsMerge")==null)){//checking if going to merge or header is already been generated
+                if(isMasterGenerated==0 &&(rfqvo.getCurrentRow().getAttribute("txtIsMerge").equals("N"))){//checking if going to merge or header is already been generated
                     isMasterGenerated=1;    
                 rfqRow=rfqvo.getCurrentRow();
                 rfqRow.setAttribute("txtBidHeaderCode",null);
@@ -81,6 +85,7 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                 bidvoForInsert.setCurrentRow(newRow);
                 erpMergeBidHeaderSno=(Integer)bidvoForInsert.getCurrentRow().getAttribute("BidHeaderSno");
                 }
+                
                 Row DetnewRow=bidDetvoForInsert.createRow();
                 DetnewRow.setAttribute("BidHeaderSno", erpMergeBidHeaderSno);
                 DetnewRow.setAttribute("RfqLinesSno", nextRow.getAttribute("RfqLinesSno"));
@@ -100,13 +105,25 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
            }
         }
         
-        if (isMasterGenerated==1 || erpMergeBidHeaderSno!=null) {
+        if (isMasterGenerated==1 && rfqvo.getCurrentRow().getAttribute("txtIsMerge").equals("N")) {
             getDBTransaction().commit();
             this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",bidvoForInsert.getCurrentRow().getAttribute("BidHeaderCode"));
             this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderSno",erpMergeBidHeaderSno);
-            
+            this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtMergeBidHeaderCode",null);
+            this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtMergeBidHeaderSno",null);
+                        
             getDBTransaction().commit();
         }
+        else if(rfqvo.getCurrentRow().getAttribute("txtIsMerge").equals("Y")) {
+            rfqvo.getCurrentRow().setAttribute("txtIsMerge","N");
+            this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtMergeBidHeaderCode",bidvoForInsert.getCurrentRow().getAttribute("BidHeaderCode"));
+            this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtMergeBidHeaderSno",erpMergeBidHeaderSno);
+            this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderCode",null);
+            this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().setAttribute("txtBidHeaderSno",null);
+
+            getDBTransaction().commit();
+        }
+        
         this.executeQuery();
     }
 }
