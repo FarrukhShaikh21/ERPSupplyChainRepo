@@ -52,6 +52,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         txtSumQuantity,
         txtTotalRecord,
         txtGenerateBID,
+        txtBidPrice,
         InvItemVO,
         InvUnitTypeVO,
         GlProjectsVO,
@@ -115,6 +116,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     public static final int TXTSUMQUANTITY = AttributesEnum.txtSumQuantity.index();
     public static final int TXTTOTALRECORD = AttributesEnum.txtTotalRecord.index();
     public static final int TXTGENERATEBID = AttributesEnum.txtGenerateBID.index();
+    public static final int TXTBIDPRICE = AttributesEnum.txtBidPrice.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
@@ -557,6 +559,14 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
      */
     public void settxtGenerateBID(String value) {
         setAttributeInternal(TXTGENERATEBID, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtBidPrice.
+     * @return the txtBidPrice
+     */
+    public BigDecimal gettxtBidPrice() {
+        return (BigDecimal) getAttributeInternal(TXTBIDPRICE);
     }
 
     /**

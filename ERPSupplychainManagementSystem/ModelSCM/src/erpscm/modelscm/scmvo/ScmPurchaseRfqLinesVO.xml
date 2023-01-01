@@ -441,6 +441,25 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtBidPrice"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO.txtBidPrice_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqLinesForBIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
