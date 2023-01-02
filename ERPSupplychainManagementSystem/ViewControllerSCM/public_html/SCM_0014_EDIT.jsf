@@ -131,11 +131,13 @@
                               rowSelection="single" fetchSize="#{bindings.ScmPurchaseRfqLinesForBIDRO.rangeSize}"
                               id="t7" scrollPolicy="page" autoHeightRows="10" styleClass="AFStretchWidth"
                               partialTriggers="::pc2:t1:l15"
-                              visible="#{bindings.ScmPurchaseRfqLinesForBIDRO.estimatedRowCount>0}">
+                              visible="#{bindings.ScmPurchaseRfqLinesForBIDRO.estimatedRowCount>0}"
+                              blockRowNavigationOnError="never">
                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtGenerateBID.label}"
                                    id="c28" width="75" displayIndex="-1">
                             <af:selectOneChoice label="Label 2" value="#{row.bindings.txtGenerateBID.inputValue}"
-                                                id="soc4" disabled="#{row.bindings.txtGenerateBID.inputValue=='G'}">
+                                                id="soc4" disabled="#{row.bindings.txtGenerateBID.inputValue=='G'}"
+                                                autoSubmit="true">
                                 <af:selectItem label="Yes" value="Y" id="si5"/>
                                 <af:selectItem label="No" value="N" id="si6"/>
                             </af:selectOneChoice>
@@ -167,7 +169,7 @@
                             </af:inputComboboxListOfValues>
                         </af:column>
                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtDepartmentName.label}"
-                                   id="c18">
+                                   id="c18" rendered="false">
                             <af:inputComboboxListOfValues id="iclov3"
                                                           popupTitle="Search and Select: #{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtDepartmentName.label}"
                                                           value="#{row.bindings.txtDepartmentName.inputValue}"
@@ -180,7 +182,7 @@
                             </af:inputComboboxListOfValues>
                         </af:column>
                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtProjectName.label}"
-                                   id="c19">
+                                   id="c19" rendered="false">
                             <af:inputComboboxListOfValues id="iclov4"
                                                           popupTitle="Search and Select: #{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtProjectName.label}"
                                                           value="#{row.bindings.txtProjectName.inputValue}"
@@ -203,6 +205,21 @@
                                 <f:validator binding="#{row.bindings.AproxPrice.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.AproxPrice.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtBidPrice.label}"
+                                   id="c29" width="80">
+                            <af:inputText value="#{row.bindings.txtBidPrice.inputValue}"
+                                          label="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtBidPrice.label}"
+                                          columns="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtBidPrice.displayWidth}"
+                                          maximumLength="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtBidPrice.precision}"
+                                          shortDesc="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtBidPrice.tooltip}"
+                                          id="it41" partialTriggers="soc4"
+                                          readOnly="#{row.bindings.txtGenerateBID.inputValue=='N' || row.bindings.txtGenerateBID.inputValue==null}"
+                                          required="#{row.bindings.txtGenerateBID.inputValue=='Y'}">
+                                <f:validator binding="#{row.bindings.txtBidPrice.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtBidPrice.format}"/>
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.Quantity.label}" id="c21"

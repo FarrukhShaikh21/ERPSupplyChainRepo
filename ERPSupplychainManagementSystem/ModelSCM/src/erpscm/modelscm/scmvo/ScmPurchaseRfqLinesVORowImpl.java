@@ -570,6 +570,14 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtBidPrice.
+     * @param value value to set the  txtBidPrice
+     */
+    public void settxtBidPrice(BigDecimal value) {
+        setAttributeInternal(TXTBIDPRICE, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link InvItemVO.
      */
     public Row getInvItemVO() {
@@ -693,7 +701,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         // TODO Implement this method
         if ( (getScmPurchaseRfqHeaderVO().getAttribute("IsSupervised").equals("Y")||
         (Integer)getScmPurchaseRfqHeaderVO().getAttribute("ApprovalStatusSno") >2
-        ) && i!=TXTGENERATEBID ){
+        ) && i!=TXTGENERATEBID && i!=TXTBIDPRICE){
             return false;
        }
         return super.isAttributeUpdateable(i);

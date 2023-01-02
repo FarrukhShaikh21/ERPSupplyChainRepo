@@ -443,7 +443,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="txtBidPrice"
-    IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -459,6 +458,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="AproxPrice"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqLinesForBIDVC"
