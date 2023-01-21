@@ -472,15 +472,46 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_RFQ_LINES"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[ScmPurchaseBidLines?.max("txtSupplierSno")]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmPurchaseBidLines?.max("txtSupplierSno")]]></TransientExpression>
     <Dependencies>
       <Item
         Value="RfqLinesSno"/>
     </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtBidPrice"
+    ColumnName="txt_Bid_Price"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.txtBidPrice_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtGenerateBID"
+    Precision="80"
+    ColumnName="txt_Generate_BID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.txtGenerateBID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
@@ -665,7 +696,7 @@
         Value="ERR_REQ_REQUIRED_DATE"/>
     </validation:MsgIds>
     <validation:TransientExpression
-      trustMode="untrusted"><![CDATA[if(ItemId==null)
+      trustMode="trusted"><![CDATA[if(ItemId==null)
 {
 adf.error.raise("ERR_REQ_ITEM_ID");
 return false;
@@ -707,6 +738,31 @@ adf.error.raise("ERR_REQ_FUTURE_DATE");
 return false;
 }
 
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
+  <validation:ExpressionValidationBean
+    Name="ScmPurchaseRfqLinesBidPriceBR"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="txtBidPrice"/>
+      <validation:Item
+        Value="txtGenerateBID"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="trusted"
+      Name="OnConditionExpr"><![CDATA[txtGenerateBID=='Y']]></validation:OnCondition>
+    <validation:MsgIds>
+      <validation:Item
+        Value="errBidPrice"/>
+    </validation:MsgIds>
+    <validation:TransientExpression
+      trustMode="untrusted"><![CDATA[if(txtGenerateBID=='Y' && (txtBidPrice<=0||txtBidPrice==null))
+{
+return false;
+}
+else
 return true;]]></validation:TransientExpression>
   </validation:ExpressionValidationBean>
   <ResourceBundle>

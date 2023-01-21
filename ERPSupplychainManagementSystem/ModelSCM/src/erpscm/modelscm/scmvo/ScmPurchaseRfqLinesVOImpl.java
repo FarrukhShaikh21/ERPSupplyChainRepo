@@ -93,7 +93,7 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                 DetnewRow.setAttribute("ItemId", nextRow.getAttribute("ItemId"));
                 DetnewRow.setAttribute("UnitTypeSno", nextRow.getAttribute("UnitTypeSno"));
                 DetnewRow.setAttribute("Quantity", nextRow.getAttribute("Quantity"));
-                DetnewRow.setAttribute("BidPrice", nextRow.getAttribute("AproxPrice"));
+                DetnewRow.setAttribute("BidPrice", nextRow.getAttribute("txtBidPrice"));
                 DetnewRow.setAttribute("ProjectId", nextRow.getAttribute("ProjectId"));
                 DetnewRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
                 DetnewRow.setAttribute("StatusSno", nextRow.getAttribute("StatusSno"));

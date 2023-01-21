@@ -363,10 +363,11 @@
     IsQueriable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="txtProjectName"
-    EntityUsage="ScmPurchaseRfqLines"
     AliasName="TXT_PROJECT_NAME"
-    LOVName="LovtxtProjectName">
+    LOVName="LovtxtProjectName"
+    Type="java.lang.String"
+    ColumnType="$none$"
+    SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -377,9 +378,12 @@
   <ViewAttribute
     Name="StatusSno"
     PrecisionRule="true"
+    AliasName="STATUS_SNO"
     EntityAttrName="StatusSno"
     EntityUsage="ScmPurchaseRfqLines"
-    AliasName="STATUS_SNO"/>
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="txtSumQuantity"
     IsUpdateable="false"
@@ -428,9 +432,11 @@
     IsPersistent="false"
     PrecisionRule="true"
     Precision="255"
+    EntityAttrName="txtGenerateBID"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="txt_Generate_BID"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
     SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
@@ -446,9 +452,11 @@
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
+    EntityAttrName="txtBidPrice"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="txt_Bid_Price"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    AliasName="VIEW_ATTR"
     SQLType="NUMERIC">
     <Properties>
       <SchemaBasedProperties>

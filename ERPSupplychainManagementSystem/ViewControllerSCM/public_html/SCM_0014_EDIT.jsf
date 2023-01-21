@@ -215,8 +215,7 @@
                                           maximumLength="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtBidPrice.precision}"
                                           shortDesc="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtBidPrice.tooltip}"
                                           id="it41" partialTriggers="soc4"
-                                          readOnly="#{row.bindings.txtGenerateBID.inputValue=='N' || row.bindings.txtGenerateBID.inputValue==null}"
-                                          required="#{row.bindings.txtGenerateBID.inputValue=='Y'}">
+                                          readOnly="#{row.bindings.txtGenerateBID.inputValue=='N' || row.bindings.txtGenerateBID.inputValue==null}">
                                 <f:validator binding="#{row.bindings.txtBidPrice.validator}"/>
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.ScmPurchaseRfqLinesForBIDRO.hints.txtBidPrice.format}"/>

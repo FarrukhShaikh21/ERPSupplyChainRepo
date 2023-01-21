@@ -55,6 +55,8 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
         txtProjectName,
         StatusSno,
         txtTotalBids,
+        txtBidPrice,
+        txtGenerateBID,
         ScmPurchaseRfqHeader,
         InvItem,
         InvUnitType,
@@ -111,6 +113,8 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
     public static final int TXTPROJECTNAME = AttributesEnum.txtProjectName.index();
     public static final int STATUSSNO = AttributesEnum.StatusSno.index();
     public static final int TXTTOTALBIDS = AttributesEnum.txtTotalBids.index();
+    public static final int TXTBIDPRICE = AttributesEnum.txtBidPrice.index();
+    public static final int TXTGENERATEBID = AttributesEnum.txtGenerateBID.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
@@ -532,6 +536,41 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
      */
     public void settxtTotalBids(Integer value) {
         setAttributeInternal(TXTTOTALBIDS, value);
+    }
+
+    /**
+     * Gets the attribute value for txtBidPrice, using the alias name txtBidPrice.
+     * @return the value of txtBidPrice
+     */
+    public BigDecimal gettxtBidPrice() {
+        if (getAttributeInternal(TXTBIDPRICE)==null) {
+           return (BigDecimal) getAttributeInternal(APROXPRICE);
+       }
+        return (BigDecimal) getAttributeInternal(TXTBIDPRICE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtBidPrice.
+     * @param value value to set the txtBidPrice
+     */
+    public void settxtBidPrice(BigDecimal value) {
+        setAttributeInternal(TXTBIDPRICE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtGenerateBID, using the alias name txtGenerateBID.
+     * @return the value of txtGenerateBID
+     */
+    public String gettxtGenerateBID() {
+        return (String) getAttributeInternal(TXTGENERATEBID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtGenerateBID.
+     * @param value value to set the txtGenerateBID
+     */
+    public void settxtGenerateBID(String value) {
+        setAttributeInternal(TXTGENERATEBID, value);
     }
 
     /**
