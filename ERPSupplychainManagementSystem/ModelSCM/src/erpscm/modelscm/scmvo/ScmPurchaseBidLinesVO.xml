@@ -244,6 +244,18 @@
     EntityAttrName="txtSupplierSno"
     EntityUsage="ScmPurchaseBidLines"
     AliasName="txt_Supplier_Sno"/>
+  <ViewAttribute
+    Name="txtDepartmentName"
+    PrecisionRule="true"
+    EntityAttrName="txtDepartmentName"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="txt_Department_Name"/>
+  <ViewAttribute
+    Name="txtProjectName"
+    PrecisionRule="true"
+    EntityAttrName="txtProjectName"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="txt_Project_Name"/>
   <ViewLinkAccessor
     Name="ScmPurchaseRfqLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoVL"
