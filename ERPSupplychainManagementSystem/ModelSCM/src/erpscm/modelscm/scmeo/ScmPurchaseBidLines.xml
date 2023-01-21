@@ -377,6 +377,40 @@
     <TransientExpression
       trustMode="untrusted"><![CDATA[ScmPurchaseBidHeader?.SupplierSno]]></TransientExpression>
   </Attribute>
+  <Attribute
+    Name="txtDepartmentName"
+    Precision="80"
+    ColumnName="txt_Department_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_BID_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidLines.txtDepartmentName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtProjectName"
+    Precision="80"
+    ColumnName="txt_Project_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_BID_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidLines.txtProjectName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurBidLineHeadSnoAssoc"

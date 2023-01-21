@@ -51,7 +51,7 @@
                                       <af:convertNumber groupingUsed="false" pattern="#{bindings.BidHeaderSno.format}"/>
                                     </af:inputText>
                                     <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
-                                             styleClass="ERPLink" action="ERP-QRY-ACT-SCM_0014"
+                                             styleClass="ERPLink" action="ERP-ACT-SCM-0017_EDIT"
                                              shortDesc="BID Code, Click To View Record"/>
                                     <af:spacer width="10" height="10" id="s3"/>
                                     <af:outputFormatted value="#{item.bindings.BidHeaderCode.inputValue}" id="of3"

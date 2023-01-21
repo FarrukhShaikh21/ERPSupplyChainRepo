@@ -294,7 +294,11 @@
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO"/>
   <ViewUsage
     Name="ScmPurchaseBidHeaderCRUD"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO"/>
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseBidHeaderByBidHeaderVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO.ScmPurchaseBidHeaderByBidHeaderVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="ScmPurchaseBidLinesDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO"/>

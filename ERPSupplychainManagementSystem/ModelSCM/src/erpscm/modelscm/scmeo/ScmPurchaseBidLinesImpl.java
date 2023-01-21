@@ -48,6 +48,8 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
         txtItemName,
         txtUnitTypeName,
         txtSupplierSno,
+        txtDepartmentName,
+        txtProjectName,
         ScmPurchaseBidHeader,
         ScmPurchaseRfqLines,
         ScmPurchaseDemandLines,
@@ -77,6 +79,8 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int BIDLINESSNO = AttributesEnum.BidLinesSno.index();
     public static final int BIDHEADERSNO = AttributesEnum.BidHeaderSno.index();
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
@@ -97,6 +101,8 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
     public static final int TXTSUPPLIERSNO = AttributesEnum.txtSupplierSno.index();
+    public static final int TXTDEPARTMENTNAME = AttributesEnum.txtDepartmentName.index();
+    public static final int TXTPROJECTNAME = AttributesEnum.txtProjectName.index();
     public static final int SCMPURCHASEBIDHEADER = AttributesEnum.ScmPurchaseBidHeader.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
@@ -110,6 +116,14 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
      */
     public ScmPurchaseBidLinesImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseBidLines");
+    }
+
 
     /**
      * Gets the attribute value for BidLinesSno, using the alias name BidLinesSno.
@@ -432,6 +446,38 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtDepartmentName, using the alias name txtDepartmentName.
+     * @return the value of txtDepartmentName
+     */
+    public String gettxtDepartmentName() {
+        return (String) getAttributeInternal(TXTDEPARTMENTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDepartmentName.
+     * @param value value to set the txtDepartmentName
+     */
+    public void settxtDepartmentName(String value) {
+        setAttributeInternal(TXTDEPARTMENTNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtProjectName, using the alias name txtProjectName.
+     * @return the value of txtProjectName
+     */
+    public String gettxtProjectName() {
+        return (String) getAttributeInternal(TXTPROJECTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtProjectName.
+     * @param value value to set the txtProjectName
+     */
+    public void settxtProjectName(String value) {
+        setAttributeInternal(TXTPROJECTNAME, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseBidHeaderImpl.
      */
     public ScmPurchaseBidHeaderImpl getScmPurchaseBidHeader() {
@@ -529,6 +575,7 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
         setAttributeInternal(ADMINCOMPANY, value);
     }
 
+
     /**
      * @param bidLinesSno key constituent
 
@@ -536,13 +583,6 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
      */
     public static Key createPrimaryKey(Integer bidLinesSno) {
         return new Key(new Object[] { bidLinesSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseBidLines");
     }
 
     /**

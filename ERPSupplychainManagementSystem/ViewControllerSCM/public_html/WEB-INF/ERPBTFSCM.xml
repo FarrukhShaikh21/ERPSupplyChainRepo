@@ -838,6 +838,12 @@
     <view id="SCM_0017_EDIT">
       <page>/SCM_0017_EDIT.jsf</page>
     </view>
+    <method-call id="ExeWithParaSCM_0017_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM-0017_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -2090,7 +2096,14 @@
     <control-flow-rule id="__366">
       <from-activity-id>SCM_0017</from-activity-id>
       <control-flow-case id="__367">
-        <from-outcome>ERP-ACT-SCM-0017</from-outcome>
+        <from-outcome>ERP-ACT-SCM-0017_EDIT</from-outcome>
+        <to-activity-id>ExeWithParaSCM_0017_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__342">
+      <from-activity-id>ExeWithParaSCM_0017_EDIT</from-activity-id>
+      <control-flow-case id="__362">
+        <from-outcome>ERP-ACT-SCM-0017_EDIT</from-outcome>
         <to-activity-id>SCM_0017_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
