@@ -385,6 +385,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_PURCHASE_BID_LINES">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -393,6 +395,10 @@
           ResId="erpscm.modelscm.scmeo.ScmPurchaseBidLines.txtDepartmentName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="DepartmentId"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtProjectName"
@@ -402,6 +408,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_PURCHASE_BID_LINES">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -410,6 +418,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="ProjectId"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidHeader"
