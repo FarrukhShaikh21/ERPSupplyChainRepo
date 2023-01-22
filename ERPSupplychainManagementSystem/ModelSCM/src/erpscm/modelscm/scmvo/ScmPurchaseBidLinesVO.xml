@@ -249,13 +249,17 @@
     PrecisionRule="true"
     EntityAttrName="txtDepartmentName"
     EntityUsage="ScmPurchaseBidLines"
-    AliasName="txt_Department_Name"/>
+    AliasName="txt_Department_Name"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <ViewAttribute
     Name="txtProjectName"
     PrecisionRule="true"
     EntityAttrName="txtProjectName"
     EntityUsage="ScmPurchaseBidLines"
-    AliasName="txt_Project_Name"/>
+    AliasName="txt_Project_Name"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <ViewLinkAccessor
     Name="ScmPurchaseRfqLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoVL"

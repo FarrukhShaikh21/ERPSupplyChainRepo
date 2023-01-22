@@ -384,7 +384,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_BID_LINES">
+    TableName="SCM_PURCHASE_BID_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
     <Properties>
@@ -407,7 +409,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_BID_LINES">
+    TableName="SCM_PURCHASE_BID_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
     <Properties>
