@@ -69,7 +69,8 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
         AdminCompany,
         AdminCompany1,
         GlProjects,
-        ScmPurchaseDemandHeader;
+        ScmPurchaseDemandHeader,
+        ScmSupplier;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -92,6 +93,8 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int BIDHEADERSNO = AttributesEnum.BidHeaderSno.index();
     public static final int BIDHEADERCODE = AttributesEnum.BidHeaderCode.index();
     public static final int RFQHEADERSNO = AttributesEnum.RfqHeaderSno.index();
@@ -136,12 +139,21 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
     public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
+    public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public ScmPurchaseBidHeaderImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseBidHeader");
+    }
+
 
     /**
      * Gets the attribute value for BidHeaderSno, using the alias name BidHeaderSno.
@@ -829,19 +841,27 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
     }
 
     /**
+     * @return the associated entity ScmSupplierImpl.
+     */
+    public ScmSupplierImpl getScmSupplier() {
+        return (ScmSupplierImpl) getAttributeInternal(SCMSUPPLIER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmSupplierImpl.
+     */
+    public void setScmSupplier(ScmSupplierImpl value) {
+        setAttributeInternal(SCMSUPPLIER, value);
+    }
+
+
+    /**
      * @param bidHeaderSno key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer bidHeaderSno) {
         return new Key(new Object[] { bidHeaderSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseBidHeader");
     }
 
     /**

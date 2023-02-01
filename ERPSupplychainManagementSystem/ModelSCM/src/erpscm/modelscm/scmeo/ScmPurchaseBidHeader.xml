@@ -733,6 +733,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurDemandHeadScmPurBIDHeadDemandHeaderSnoAsso.ScmPurchaseBidHeader"
     Type="erpscm.modelscm.scmeo.ScmPurchaseDemandHeaderImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmSupplier"
+    Association="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseBidHeaderSupplierSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseBidHeaderSupplierSnoAsso.ScmSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseBidHeaderSupplierSnoAsso.ScmPurchaseBidHeader"
+    Type="erpscm.modelscm.scmeo.ScmSupplierImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidHeader"
     PrimaryKey="true">
@@ -818,6 +825,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.RfqHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidHeader6">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_SUPPLIER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Header6"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.SupplierSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

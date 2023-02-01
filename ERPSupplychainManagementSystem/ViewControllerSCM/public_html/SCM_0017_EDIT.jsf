@@ -387,7 +387,7 @@
                                                           columns="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Quantity.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Quantity.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Quantity.tooltip}"
-                                                          id="it6">
+                                                          id="it6" readOnly="true">
                                                 <f:validator binding="#{row.bindings.Quantity.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Quantity.format}"/>
@@ -401,7 +401,7 @@
                                                           columns="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.tooltip}"
-                                                          id="it7">
+                                                          id="it7" readOnly="true">
                                                 <f:validator binding="#{row.bindings.BidPrice.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.format}"/>
