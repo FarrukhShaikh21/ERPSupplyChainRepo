@@ -666,7 +666,6 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_BID_HEADER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -700,6 +699,23 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_BID_HEADER"/>
+  <Attribute
+    Name="txtSupplierName"
+    Precision="80"
+    ColumnName="txt_Supplier_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_BID_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="SupplierSno"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidLines"
     Association="erpscm.modelscm.scmeo.FkScmPurBidLineHeadSnoAssoc"

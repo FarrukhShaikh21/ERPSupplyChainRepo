@@ -66,6 +66,20 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmSupplierVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmSupplierByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmSupplierVO.ScmSupplierByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovApprovalStatusSno"
     ListVOName="AccSysApprovalStatusVO"
@@ -200,6 +214,31 @@
       <Item Value="ValueDescription"/>
     </AttrArray>
     <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSupplierName"
+    ListVOName="AccScmSupplierVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SupplierSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SupplierName"/>
+      <Item Value="SupplierSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SupplierName"/>
+      <Item Value="SupplierShortCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmSupplierFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseBidHeader"
@@ -534,6 +573,22 @@
     EntityAttrName="txtDemandHeaderCode"
     EntityUsage="ScmPurchaseBidHeader"
     AliasName="txt_Demand_Header_Code"/>
+  <ViewAttribute
+    Name="txtSupplierName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierName"
+    EntityUsage="ScmPurchaseBidHeader"
+    AliasName="txt_Supplier_Name"
+    LOVName="LovtxtSupplierName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseBidHeaderBySupplierRFQVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO"

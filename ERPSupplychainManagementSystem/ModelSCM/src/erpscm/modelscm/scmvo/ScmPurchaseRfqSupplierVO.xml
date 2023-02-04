@@ -25,6 +25,12 @@
     <ViewCriteriaUsage
       Name="ScmSupplierByCompanyIDVC"
       FullName="erpscm.modelscm.scmvo.ScmSupplierVO.ScmSupplierByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId==null?-1:ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
   </ViewAccessor>
   <ListBinding
     Name="LovtxtSupplierName"

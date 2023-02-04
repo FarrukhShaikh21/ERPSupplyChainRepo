@@ -64,6 +64,7 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
         txtDemandHeaderCode,
         txtRfqHeaderCode,
         SupplierSno,
+        txtSupplierName,
         ScmPurchaseBidLines,
         ScmPurchaseRfqHeader,
         AdminCompany,
@@ -133,6 +134,7 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
+    public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -761,6 +763,22 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
      */
     public void setSupplierSno(Integer value) {
         setAttributeInternal(SUPPLIERSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSupplierName, using the alias name txtSupplierName.
+     * @return the value of txtSupplierName
+     */
+    public String gettxtSupplierName() {
+        return (String) getAttributeInternal(TXTSUPPLIERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierName.
+     * @param value value to set the txtSupplierName
+     */
+    public void settxtSupplierName(String value) {
+        setAttributeInternal(TXTSUPPLIERNAME, value);
     }
 
     /**
