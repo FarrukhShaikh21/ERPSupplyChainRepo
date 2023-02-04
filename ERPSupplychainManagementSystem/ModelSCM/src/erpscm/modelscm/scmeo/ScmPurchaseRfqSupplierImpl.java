@@ -30,6 +30,8 @@ public class ScmPurchaseRfqSupplierImpl extends ERPEntityImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         txtSupplierName,
+        txtDemandHeaderCode,
+        txtRfqHeaderCode,
         ScmPurchaseRfqHeader,
         ScmSupplier;
         private static AttributesEnum[] vals = null;
@@ -66,6 +68,8 @@ public class ScmPurchaseRfqSupplierImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
+    public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
 
@@ -241,6 +245,38 @@ public class ScmPurchaseRfqSupplierImpl extends ERPEntityImpl {
      */
     public void settxtSupplierName(String value) {
         setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtDemandHeaderCode, using the alias name txtDemandHeaderCode.
+     * @return the value of txtDemandHeaderCode
+     */
+    public Integer gettxtDemandHeaderCode() {
+        return (Integer) getAttributeInternal(TXTDEMANDHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDemandHeaderCode.
+     * @param value value to set the txtDemandHeaderCode
+     */
+    public void settxtDemandHeaderCode(Integer value) {
+        setAttributeInternal(TXTDEMANDHEADERCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtRfqHeaderCode, using the alias name txtRfqHeaderCode.
+     * @return the value of txtRfqHeaderCode
+     */
+    public Integer gettxtRfqHeaderCode() {
+        return (Integer) getAttributeInternal(TXTRFQHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtRfqHeaderCode.
+     * @param value value to set the txtRfqHeaderCode
+     */
+    public void settxtRfqHeaderCode(Integer value) {
+        setAttributeInternal(TXTRFQHEADERCODE, value);
     }
 
     /**

@@ -202,6 +202,32 @@
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
                                     </af:gridRow>
+                                    <af:gridRow id="gr10">
+                                        <af:gridCell id="gc22" width="13%">
+                                            <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol8"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc23" width="21%" halign="stretch" valign="middle">
+                                            <af:inputComboboxListOfValues id="txtSupplierNameId"
+                                                                          popupTitle="Search and Select: #{bindings.txtSupplierName.hints.label}"
+                                                                          value="#{bindings.txtSupplierName.inputValue}"
+                                                                          label="#{bindings.txtSupplierName.hints.label}"
+                                                                          model="#{bindings.txtSupplierName.listOfValuesModel}"
+                                                                          required="#{bindings.txtSupplierName.hints.mandatory}"
+                                                                          columns="#{bindings.txtSupplierName.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
+                                                                          simple="true"
+                                                                          partialTriggers="txtLocationNameId"
+                                                                          contentStyle="width:100%">
+                                                <f:validator binding="#{bindings.txtSupplierName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc24" width="13%">
+                                            <af:outputLabel id="ol9"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc25" width="21%"/>
+                                        <af:gridCell id="gc26" width="13%"/>
+                                        <af:gridCell id="gc27" width="21%"/>
+                                    </af:gridRow>
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
                                         <af:gridCell width="13%" id="gc10" halign="center">
                                             <af:outputLabel value="#{bindings.txtTempProjectName.hints.label}" id="ol4"/>

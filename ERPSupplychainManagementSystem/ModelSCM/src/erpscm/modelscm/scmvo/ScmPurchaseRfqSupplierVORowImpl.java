@@ -15,6 +15,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_SCMPURCHASERFQSUPPLIER = 0;
 
     /**
@@ -31,6 +32,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         txtSupplierName,
+        txtRfqHeaderCode,
+        txtDemandHeaderCode,
         ScmSupplierVO,
         ScmPurchaseRfqHeaderVO,
         AccScmSupplierVO;
@@ -58,6 +61,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int RFQSUPPLIERSNO = AttributesEnum.RfqSupplierSno.index();
     public static final int RFQHEADERSNO = AttributesEnum.RfqHeaderSno.index();
     public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
@@ -68,6 +72,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
+    public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMPURCHASERFQHEADERVO = AttributesEnum.ScmPurchaseRfqHeaderVO.index();
     public static final int ACCSCMSUPPLIERVO = AttributesEnum.AccScmSupplierVO.index();
@@ -244,6 +250,38 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtSupplierName(String value) {
         setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Rfq_Header_Code using the alias name txtRfqHeaderCode.
+     * @return the txt_Rfq_Header_Code
+     */
+    public Integer gettxtRfqHeaderCode() {
+        return (Integer) getAttributeInternal(TXTRFQHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Rfq_Header_Code using the alias name txtRfqHeaderCode.
+     * @param value value to set the txt_Rfq_Header_Code
+     */
+    public void settxtRfqHeaderCode(Integer value) {
+        setAttributeInternal(TXTRFQHEADERCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Demand_Header_Code using the alias name txtDemandHeaderCode.
+     * @return the txt_Demand_Header_Code
+     */
+    public Integer gettxtDemandHeaderCode() {
+        return (Integer) getAttributeInternal(TXTDEMANDHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Demand_Header_Code using the alias name txtDemandHeaderCode.
+     * @param value value to set the txt_Demand_Header_Code
+     */
+    public void settxtDemandHeaderCode(Integer value) {
+        setAttributeInternal(TXTDEMANDHEADERCODE, value);
     }
 
     /**

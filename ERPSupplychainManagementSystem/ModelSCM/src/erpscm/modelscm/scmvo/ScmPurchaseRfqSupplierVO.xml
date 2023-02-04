@@ -134,6 +134,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtRfqHeaderCode"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtRfqHeaderCode"
+    EntityUsage="ScmPurchaseRfqSupplier"
+    AliasName="txt_Rfq_Header_Code"/>
+  <ViewAttribute
+    Name="txtDemandHeaderCode"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtDemandHeaderCode"
+    EntityUsage="ScmPurchaseRfqSupplier"
+    AliasName="txt_Demand_Header_Code"/>
   <ViewLinkAccessor
     Name="ScmSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurchaseRFQSupplierSupplierSnoVL"
