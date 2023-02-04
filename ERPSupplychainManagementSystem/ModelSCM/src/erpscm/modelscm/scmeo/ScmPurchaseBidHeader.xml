@@ -666,7 +666,16 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_BID_HEADER"/>
+    TableName="SCM_PURCHASE_BID_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="RfqHeaderSno"/>
+    </Dependencies>
+  </Attribute>
   <Attribute
     Name="txtRfqHeaderCode"
     ColumnName="txt_Rfq_Header_Code"
