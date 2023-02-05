@@ -34,6 +34,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
         txtSupplierName,
         txtRfqHeaderCode,
         txtDemandHeaderCode,
+        txtDemandHeaderSno,
         ScmSupplierVO,
         ScmPurchaseRfqHeaderVO,
         AccScmSupplierVO;
@@ -74,6 +75,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
+    public static final int TXTDEMANDHEADERSNO = AttributesEnum.txtDemandHeaderSno.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMPURCHASERFQHEADERVO = AttributesEnum.ScmPurchaseRfqHeaderVO.index();
     public static final int ACCSCMSUPPLIERVO = AttributesEnum.AccScmSupplierVO.index();
@@ -282,6 +284,22 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtDemandHeaderCode(Integer value) {
         setAttributeInternal(TXTDEMANDHEADERCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Demand_Header_Sno using the alias name txtDemandHeaderSno.
+     * @return the txt_Demand_Header_Sno
+     */
+    public Integer gettxtDemandHeaderSno() {
+        return (Integer) getAttributeInternal(TXTDEMANDHEADERSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Demand_Header_Sno using the alias name txtDemandHeaderSno.
+     * @param value value to set the txt_Demand_Header_Sno
+     */
+    public void settxtDemandHeaderSno(Integer value) {
+        setAttributeInternal(TXTDEMANDHEADERSNO, value);
     }
 
     /**

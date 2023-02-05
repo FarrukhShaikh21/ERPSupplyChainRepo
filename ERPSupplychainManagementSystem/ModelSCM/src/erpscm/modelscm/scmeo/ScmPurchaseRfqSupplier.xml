@@ -253,7 +253,12 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_RFQ_SUPPLIER"/>
+    TableName="SCM_PURCHASE_RFQ_SUPPLIER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderSno]]></TransientExpression>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurRfqSupplierHeaderAssoc"
