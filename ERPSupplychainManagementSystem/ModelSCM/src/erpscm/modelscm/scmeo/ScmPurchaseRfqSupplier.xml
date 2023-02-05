@@ -232,7 +232,6 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_RFQ_SUPPLIER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -248,6 +247,13 @@
         Value="SupplierSno"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtDemandHeaderSno"
+    ColumnName="txt_Demand_Header_Sno"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    TableName="SCM_PURCHASE_RFQ_SUPPLIER"/>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurRfqSupplierHeaderAssoc"
