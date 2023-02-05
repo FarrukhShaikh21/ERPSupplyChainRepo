@@ -203,7 +203,7 @@
                                         </af:gridCell>
                                     </af:gridRow>
                                     <af:gridRow id="gr10">
-                                        <af:gridCell id="gc22" width="13%">
+                                        <af:gridCell id="gc22" width="13%" halign="center">
                                             <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol8"/>
                                         </af:gridCell>
                                         <af:gridCell id="gc23" width="21%" halign="stretch" valign="middle">
@@ -222,11 +222,42 @@
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
                                         <af:gridCell id="gc24" width="13%">
-                                            <af:outputLabel id="ol9"/>
+                                            <af:outputLabel id="ol9"
+                                                            value="#{bindings.txtDemandHeaderCode.hints.label}"/>
                                         </af:gridCell>
-                                        <af:gridCell id="gc25" width="21%"/>
-                                        <af:gridCell id="gc26" width="13%"/>
-                                        <af:gridCell id="gc27" width="21%"/>
+                                        <af:gridCell id="gc25" width="21%">
+                                            <af:inputComboboxListOfValues id="txtDemandHeaderCodeId"
+                                                                          popupTitle="Search and Select: #{bindings.txtDemandHeaderCode.hints.label}"
+                                                                          value="#{bindings.txtDemandHeaderCode.inputValue}"
+                                                                          label="#{bindings.txtDemandHeaderCode.hints.label}"
+                                                                          model="#{bindings.txtDemandHeaderCode.listOfValuesModel}"
+                                                                          required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
+                                                                          columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
+                                                                          simple="true" contentStyle="width:100%">
+                                                <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.txtDemandHeaderCode.format}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc26" width="13%" halign="center">
+                                            <af:outputLabel value="#{bindings.txtDemandHeaderCode.hints.label}" id="ol10"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc27" width="21%">
+                                            <af:inputComboboxListOfValues id="iclov2"
+                                                                          popupTitle="Search and Select: #{bindings.txtDemandHeaderCode.hints.label}"
+                                                                          value="#{bindings.txtDemandHeaderCode.inputValue}"
+                                                                          label="#{bindings.txtDemandHeaderCode.hints.label}"
+                                                                          model="#{bindings.txtDemandHeaderCode.listOfValuesModel}"
+                                                                          required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
+                                                                          columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
+                                                                          simple="true" contentStyle="width:100%">
+                                                <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.txtDemandHeaderCode.format}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:gridCell>
                                     </af:gridRow>
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
                                         <af:gridCell width="13%" id="gc10" halign="center">
@@ -261,7 +292,7 @@
                                                                           required="#{bindings.txtTempDepartmentName.hints.mandatory}"
                                                                           columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
-                                                                          simple="true">
+                                                                          simple="true" contentStyle="width:100%">
                                                 <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
