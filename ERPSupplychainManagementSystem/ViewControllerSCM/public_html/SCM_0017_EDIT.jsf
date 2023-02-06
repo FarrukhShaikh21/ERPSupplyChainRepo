@@ -221,7 +221,7 @@
                                                 <f:validator binding="#{bindings.txtSupplierName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
-                                        <af:gridCell id="gc24" width="13%">
+                                        <af:gridCell id="gc24" width="13%" halign="center">
                                             <af:outputLabel id="ol9"
                                                             value="#{bindings.txtDemandHeaderCode.hints.label}"/>
                                         </af:gridCell>
@@ -241,21 +241,21 @@
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
                                         <af:gridCell id="gc26" width="13%" halign="center">
-                                            <af:outputLabel value="#{bindings.txtDemandHeaderCode.hints.label}" id="ol10"/>
+                                            <af:outputLabel value="#{bindings.txtRfqHeaderCode.hints.label}" id="ol10"/>
                                         </af:gridCell>
                                         <af:gridCell id="gc27" width="21%">
-                                            <af:inputComboboxListOfValues id="iclov2"
-                                                                          popupTitle="Search and Select: #{bindings.txtDemandHeaderCode.hints.label}"
-                                                                          value="#{bindings.txtDemandHeaderCode.inputValue}"
-                                                                          label="#{bindings.txtDemandHeaderCode.hints.label}"
-                                                                          model="#{bindings.txtDemandHeaderCode.listOfValuesModel}"
-                                                                          required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
-                                                                          columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:100%">
-                                                <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
+                                            <af:inputComboboxListOfValues id="txtRfqHeaderCodeId"
+                                                                          popupTitle="Search and Select: #{bindings.txtRfqHeaderCode.hints.label}"
+                                                                          value="#{bindings.txtRfqHeaderCode.inputValue}"
+                                                                          label="#{bindings.txtRfqHeaderCode.hints.label}"
+                                                                          model="#{bindings.txtRfqHeaderCode.listOfValuesModel}"
+                                                                          required="#{bindings.txtRfqHeaderCode.hints.mandatory}"
+                                                                          columns="#{bindings.txtRfqHeaderCode.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtRfqHeaderCode.hints.tooltip}"
+                                                                          simple="true">
+                                                <f:validator binding="#{bindings.txtRfqHeaderCode.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.txtDemandHeaderCode.format}"/>
+                                                                  pattern="#{bindings.txtRfqHeaderCode.format}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
                                     </af:gridRow>
