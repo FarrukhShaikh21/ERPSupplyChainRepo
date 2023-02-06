@@ -76,14 +76,24 @@
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+          trustMode="untrusted"><![CDATA[7]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
     Name="AccScmPurchaseRfqSupplierVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseRfqSupplierForBidVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO.ScmPurchaseRfqSupplierForBidVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_SUPPLIER_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SupplierSno==null?-1:SupplierSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovApprovalStatusSno"
     ListVOName="AccSysApprovalStatusVO"

@@ -214,7 +214,9 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.txtDemandHeaderCode]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -235,7 +237,9 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeader?.RfqHeaderCode]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -253,11 +257,12 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_RFQ_SUPPLIER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderSno]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.DemandHeaderSno]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"

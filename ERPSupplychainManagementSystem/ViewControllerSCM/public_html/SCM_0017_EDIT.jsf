@@ -217,7 +217,7 @@
                                                                           shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
                                                                           simple="true"
                                                                           partialTriggers="txtLocationNameId"
-                                                                          contentStyle="width:100%">
+                                                                          contentStyle="width:100%" autoSubmit="true">
                                                 <f:validator binding="#{bindings.txtSupplierName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
@@ -234,7 +234,9 @@
                                                                           required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
                                                                           columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:100%">
+                                                                          simple="true" contentStyle="width:100%"
+                                                                          autoSubmit="true"
+                                                                          partialTriggers="txtSupplierNameId">
                                                 <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.txtDemandHeaderCode.format}"/>
@@ -252,7 +254,9 @@
                                                                           required="#{bindings.txtRfqHeaderCode.hints.mandatory}"
                                                                           columns="#{bindings.txtRfqHeaderCode.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtRfqHeaderCode.hints.tooltip}"
-                                                                          simple="true">
+                                                                          simple="true" autoSubmit="true"
+                                                                          partialTriggers="txtSupplierNameId txtDemandHeaderCodeId"
+                                                                          contentStyle="width:100%">
                                                 <f:validator binding="#{bindings.txtRfqHeaderCode.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.txtRfqHeaderCode.format}"/>
