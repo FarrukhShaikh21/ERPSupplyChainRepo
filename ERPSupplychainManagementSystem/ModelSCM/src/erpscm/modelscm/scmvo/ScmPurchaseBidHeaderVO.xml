@@ -94,6 +94,25 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmPurchaseRfqForBidSupplierWiseQVO"
+    ViewObjectName="erpscm.modelscm.scmqvo.ScmPurchaseRfqForBidSupplierWiseQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_LOCATION_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[LocationId==null?0:LocationId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_SUPPLIER_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SupplierSno==null?0:SupplierSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovApprovalStatusSno"
     ListVOName="AccSysApprovalStatusVO"
@@ -256,7 +275,7 @@
   </ListBinding>
   <ListBinding
     Name="LovtxtRfqHeaderCode"
-    ListVOName="AccScmPurchaseRfqSupplierVO"
+    ListVOName="AccScmPurchaseRfqForBidSupplierWiseQVO"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
@@ -270,18 +289,19 @@
       <Item Value="DemandHeaderSno"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="txtRfqHeaderCode"/>
+      <Item Value="RfqHeaderCode"/>
       <Item Value="RfqHeaderSno"/>
-      <Item Value="txtDemandHeaderCode"/>
-      <Item Value="txtDemandHeaderSno"/>
+      <Item Value="DemandHeaderCode"/>
+      <Item Value="DemandHeaderSno"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="txtRfqHeaderCode"/>
-      <Item Value="txtDemandHeaderCode"/>
-      <Item Value="txtSupplierName"/>
+      <Item Value="RfqHeaderCode"/>
+      <Item Value="DemandHeaderCode"/>
+      <Item Value="RfqDate"/>
+      <Item Value="DemandDate"/>
     </AttrArray>
     <DisplayCriteria
-      Name="ScmPurchaseRfqSupplierForBidVC"/>
+      Hint="showAndExecute"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseBidHeader"

@@ -21,15 +21,27 @@
   <Variable
     Name="P_ADF_COMPANY_ID"
     Kind="where"
-    Type="java.lang.Integer"/>
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="0"/>
+    </AttrArray>
+  </Variable>
   <Variable
     Name="P_ADF_LOCATION_ID"
     Kind="where"
-    Type="java.lang.Integer"/>
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="1"/>
+    </AttrArray>
+  </Variable>
   <Variable
     Name="P_ADF_SUPPLIER_SNO"
     Kind="where"
-    Type="java.lang.Integer"/>
+    Type="java.lang.Integer">
+    <AttrArray Name="ExtendedDataInts">
+      <Item Value="2"/>
+    </AttrArray>
+  </Variable>
   <SQLQuery><![CDATA[SELECT  distinct rfqh.rfq_header_sno, 
     rfqh.rfq_header_code, 
       rfqs.contact_no, 
