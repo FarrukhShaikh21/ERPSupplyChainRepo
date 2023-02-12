@@ -72,6 +72,14 @@ order by rfq_header_code]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmPurchaseRfqForBidSupplierWiseQVO.RfqHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="RfqHeaderCode"
@@ -86,6 +94,14 @@ order by rfq_header_code]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmPurchaseRfqForBidSupplierWiseQVO.RfqHeaderCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="ContactNo"
@@ -101,6 +117,14 @@ order by rfq_header_code]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmPurchaseRfqForBidSupplierWiseQVO.ContactNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="SupplierSno"
@@ -115,6 +139,14 @@ order by rfq_header_code]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmPurchaseRfqForBidSupplierWiseQVO.SupplierSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="DemandHeaderCode"
@@ -129,6 +161,14 @@ order by rfq_header_code]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmPurchaseRfqForBidSupplierWiseQVO.DemandHeaderCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="DemandHeaderSno"
@@ -143,6 +183,14 @@ order by rfq_header_code]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmPurchaseRfqForBidSupplierWiseQVO.DemandHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="DemandDate"
@@ -153,7 +201,16 @@ order by rfq_header_code]]></SQLQuery>
     ColumnType="DATE"
     AliasName="demand_date"
     Expression="demand_date"
-    SQLType="DATE"/>
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmPurchaseRfqForBidSupplierWiseQVO.DemandDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RfqDate"
     IsUpdateable="false"
@@ -163,7 +220,16 @@ order by rfq_header_code]]></SQLQuery>
     ColumnType="DATE"
     AliasName="rfq_date"
     Expression="rfq_date"
-    SQLType="DATE"/>
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmqvo.ScmPurchaseRfqForBidSupplierWiseQVO.RfqDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="RfqHeaderSno"/>
   </AttrArray>
