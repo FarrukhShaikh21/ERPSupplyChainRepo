@@ -222,30 +222,9 @@
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
                                         <af:gridCell id="gc24" width="13%" halign="center">
-                                            <af:outputLabel id="ol9"
-                                                            value="#{bindings.txtDemandHeaderCode.hints.label}"/>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc25" width="21%">
-                                            <af:inputComboboxListOfValues id="txtDemandHeaderCodeId"
-                                                                          popupTitle="Search and Select: #{bindings.txtDemandHeaderCode.hints.label}"
-                                                                          value="#{bindings.txtDemandHeaderCode.inputValue}"
-                                                                          label="#{bindings.txtDemandHeaderCode.hints.label}"
-                                                                          model="#{bindings.txtDemandHeaderCode.listOfValuesModel}"
-                                                                          required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
-                                                                          columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:100%"
-                                                                          autoSubmit="true"
-                                                                          partialTriggers="txtSupplierNameId">
-                                                <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.txtDemandHeaderCode.format}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc26" width="13%" halign="center">
                                             <af:outputLabel value="#{bindings.txtRfqHeaderCode.hints.label}" id="ol10"/>
                                         </af:gridCell>
-                                        <af:gridCell id="gc27" width="21%">
+                                        <af:gridCell id="gc25" width="21%">
                                             <af:inputComboboxListOfValues id="txtRfqHeaderCodeId"
                                                                           popupTitle="Search and Select: #{bindings.txtRfqHeaderCode.hints.label}"
                                                                           value="#{bindings.txtRfqHeaderCode.inputValue}"
@@ -255,12 +234,29 @@
                                                                           columns="#{bindings.txtRfqHeaderCode.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtRfqHeaderCode.hints.tooltip}"
                                                                           simple="true" autoSubmit="true"
-                                                                          partialTriggers="txtSupplierNameId txtDemandHeaderCodeId"
+                                                                          partialTriggers="txtSupplierNameId"
                                                                           contentStyle="width:100%">
                                                 <f:validator binding="#{bindings.txtRfqHeaderCode.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.txtRfqHeaderCode.format}"/>
                                             </af:inputComboboxListOfValues>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc26" width="13%" halign="center">
+                                            <af:outputLabel value="#{bindings.txtDemandHeaderCode.hints.label}" id="ol11"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc27" width="21%">
+                                            <af:inputText value="#{bindings.txtDemandHeaderCode.inputValue}"
+                                                          label="#{bindings.txtDemandHeaderCode.hints.label}"
+                                                          required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
+                                                          columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtDemandHeaderCode.hints.precision}"
+                                                          shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
+                                                          id="it14" simple="true" readOnly="true"
+                                                          partialTriggers="txtRfqHeaderCodeId">
+                                                <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.txtDemandHeaderCode.format}"/>
+                                            </af:inputText>
                                         </af:gridCell>
                                     </af:gridRow>
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">

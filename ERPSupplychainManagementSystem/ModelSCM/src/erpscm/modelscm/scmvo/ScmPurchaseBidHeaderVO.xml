@@ -258,7 +258,6 @@
     Name="LovtxtRfqHeaderCode"
     ListVOName="AccScmPurchaseRfqSupplierVO"
     ListRangeSize="-1"
-    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -277,38 +276,9 @@
       <Item Value="txtDemandHeaderSno"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="txtRfqHeaderCode"/>
+      <Item Value="txtDemandHeaderCode"/>
       <Item Value="txtSupplierName"/>
-      <Item Value="txtDemandHeaderCode"/>
-      <Item Value="txtRfqHeaderCode"/>
-    </AttrArray>
-    <DisplayCriteria
-      Name="ScmPurchaseRfqSupplierForBidVC"/>
-  </ListBinding>
-  <ListBinding
-    Name="LovtxtDemandHeaderCode"
-    ListVOName="AccScmPurchaseRfqSupplierVO"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="txtDemandHeaderCode"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="DemandHeaderSno"/>
-      <Item Value="RfqHeaderSno"/>
-      <Item Value="txtRfqHeaderCode"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="txtDemandHeaderCode"/>
-      <Item Value="txtDemandHeaderSno"/>
-      <Item Value="RfqHeaderSno"/>
-      <Item Value="txtRfqHeaderCode"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="txtDemandHeaderCode"/>
-      <Item Value="txtRfqHeaderCode"/>
     </AttrArray>
     <DisplayCriteria
       Name="ScmPurchaseRfqSupplierForBidVC"/>
@@ -653,15 +623,7 @@
     PrecisionRule="true"
     EntityAttrName="txtDemandHeaderCode"
     EntityUsage="ScmPurchaseBidHeader"
-    AliasName="txt_Demand_Header_Code"
-    LOVName="LovtxtDemandHeaderCode">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="txt_Demand_Header_Code"/>
   <ViewAttribute
     Name="txtSupplierName"
     IsQueriable="false"

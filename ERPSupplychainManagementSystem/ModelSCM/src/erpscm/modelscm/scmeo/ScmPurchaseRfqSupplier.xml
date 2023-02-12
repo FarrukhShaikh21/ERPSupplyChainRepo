@@ -192,10 +192,11 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false"
-    IsNotNull="true">
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -298,18 +299,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier.RfqSupplierSno"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="ScmPurchaseRfqSupplierTxtSupplierNameCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_DBObjectName" Value="Scm_Purchase_Rfq_Supplier_Txt_"/>
-      <Attr Name="_checkCondition" Value='"TXT_SUPPLIER_NAME" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplier.txtSupplierName"/>
     </AttrArray>
   </Key>
   <Key

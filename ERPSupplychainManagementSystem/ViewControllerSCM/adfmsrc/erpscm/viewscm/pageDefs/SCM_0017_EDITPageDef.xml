@@ -94,9 +94,12 @@
     </attributeValues>
     <listOfValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
                   id="txtSupplierName"/>
-    <listOfValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LovtxtDemandHeaderCode"
-                  id="txtDemandHeaderCode"/>
     <listOfValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" StaticList="false" Uses="LovtxtRfqHeaderCode"
                   id="txtRfqHeaderCode"/>
+    <attributeValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" id="txtDemandHeaderCode">
+      <AttrNames>
+        <Item Value="txtDemandHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
