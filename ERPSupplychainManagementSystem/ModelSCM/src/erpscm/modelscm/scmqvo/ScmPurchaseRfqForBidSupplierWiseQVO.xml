@@ -25,6 +25,12 @@
     <AttrArray Name="ExtendedDataInts">
       <Item Value="0"/>
     </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Variable>
   <Variable
     Name="P_ADF_LOCATION_ID"
@@ -33,6 +39,12 @@
     <AttrArray Name="ExtendedDataInts">
       <Item Value="1"/>
     </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Variable>
   <Variable
     Name="P_ADF_SUPPLIER_SNO"
@@ -41,6 +53,12 @@
     <AttrArray Name="ExtendedDataInts">
       <Item Value="2"/>
     </AttrArray>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Variable>
   <SQLQuery><![CDATA[SELECT  distinct rfqh.rfq_header_sno, 
     rfqh.rfq_header_code, 

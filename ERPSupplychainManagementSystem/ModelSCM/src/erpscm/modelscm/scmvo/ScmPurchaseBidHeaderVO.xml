@@ -12,7 +12,15 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpglobals.modelglobals.ERPViewObjectImpl"
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVORowImpl">
+  <DesignTime>
+    <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
+    <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Variable
     Name="P_SUPPLIER_SNO"
     Kind="viewcriteria"
@@ -99,10 +107,6 @@
     ViewObjectName="erpscm.modelscm.scmqvo.ScmPurchaseRfqForBidSupplierWiseQVO"
     RowLevelBinds="true">
     <ParameterMap>
-      <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
-      </PIMap>
       <PIMap Variable="P_ADF_LOCATION_ID">
         <TransientExpression
           trustMode="untrusted"><![CDATA[LocationId==null?0:LocationId]]></TransientExpression>
@@ -111,7 +115,30 @@
         <TransientExpression
           trustMode="untrusted"><![CDATA[SupplierSno==null?0:SupplierSno]]></TransientExpression>
       </PIMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId]]></TransientExpression>
+      </PIMap>
     </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyForCompVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompCodeVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompCodeVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSysSystemParameterVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysSystemParameterVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysSystemParameterByGlobalCompanyVC"
+      FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByGlobalCompanyVC"/>
+    <ViewCriteriaUsage
+      Name="SysSystemParameterByParameterVC"
+      FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByParameterVC"/>
   </ViewAccessor>
   <ListBinding
     Name="LovApprovalStatusSno"
@@ -285,20 +312,17 @@
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
       <Item Value="RfqHeaderSno"/>
-      <Item Value="txtDemandHeaderCode"/>
       <Item Value="DemandHeaderSno"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="RfqHeaderCode"/>
       <Item Value="RfqHeaderSno"/>
-      <Item Value="DemandHeaderCode"/>
       <Item Value="DemandHeaderSno"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="RfqHeaderCode"/>
-      <Item Value="DemandHeaderCode"/>
       <Item Value="RfqDate"/>
-      <Item Value="DemandDate"/>
+      <Item Value="DemandHeaderCode"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
