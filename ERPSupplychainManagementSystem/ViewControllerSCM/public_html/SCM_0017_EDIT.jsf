@@ -292,7 +292,8 @@
                                                                           required="#{bindings.txtTempDepartmentName.hints.mandatory}"
                                                                           columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:100%">
+                                                                          simple="true" contentStyle="width:100%"
+                                                                          partialTriggers="txtLocationNameId">
                                                 <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>

@@ -77,14 +77,14 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
         ScmSupplierVO,
         AccSysApprovalStatusVO,
         AccAdminCompanyVO,
-        AccAdminCompanyDepartmentVO,
         AccSysGeneralValueYesNoVO,
         AccScmSupplierVO,
         AccScmPurchaseRfqSupplierVO,
         AccScmPurchaseRfqForBidSupplierWiseQVO,
         AccAdminCompanyForCompVO,
         AccSysSystemParameterVO,
-        AccGlProjectsVO;
+        AccGlProjectsVO,
+        AccAdminCompanyDept;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -160,7 +160,6 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int ACCSYSAPPROVALSTATUSVO = AttributesEnum.AccSysApprovalStatusVO.index();
     public static final int ACCADMINCOMPANYVO = AttributesEnum.AccAdminCompanyVO.index();
-    public static final int ACCADMINCOMPANYDEPARTMENTVO = AttributesEnum.AccAdminCompanyDepartmentVO.index();
     public static final int ACCSYSGENERALVALUEYESNOVO = AttributesEnum.AccSysGeneralValueYesNoVO.index();
     public static final int ACCSCMSUPPLIERVO = AttributesEnum.AccScmSupplierVO.index();
     public static final int ACCSCMPURCHASERFQSUPPLIERVO = AttributesEnum.AccScmPurchaseRfqSupplierVO.index();
@@ -169,6 +168,7 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCADMINCOMPANYFORCOMPVO = AttributesEnum.AccAdminCompanyForCompVO.index();
     public static final int ACCSYSSYSTEMPARAMETERVO = AttributesEnum.AccSysSystemParameterVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
+    public static final int ACCADMINCOMPANYDEPT = AttributesEnum.AccAdminCompanyDept.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -423,11 +423,11 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setCompanyId(Integer value) {
         setAttributeInternal(COMPANYID, value);
-//        getAccGlProjectsVO().setNamedWhereClauseParam("P_ADF_COMPANY_ID", value);
-//        getAccGlProjectsVO().executeQuery();
-//        getAccAdminCompanyDept().setNamedWhereClauseParam("P_ADF_COMP_CODE", value);
-//        getAccAdminCompanyDept().setNamedWhereClauseParam("P_ADF_USER_ID", erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno());
-//        getAccAdminCompanyDept().executeQuery();
+        getAccGlProjectsVO().setNamedWhereClauseParam("P_ADF_COMPANY_ID", value);
+        getAccGlProjectsVO().executeQuery();
+        getAccAdminCompanyDept().setNamedWhereClauseParam("P_ADF_COMP_CODE", value);
+        getAccAdminCompanyDept().setNamedWhereClauseParam("P_ADF_USER_ID", erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno());
+        getAccAdminCompanyDept().executeQuery();
 //       
     }
 
@@ -946,13 +946,6 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
 
 
     /**
-     * Gets the view accessor <code>RowSet</code> AccAdminCompanyDepartmentVO.
-     */
-    public RowSet getAccAdminCompanyDepartmentVO() {
-        return (RowSet) getAttributeInternal(ACCADMINCOMPANYDEPARTMENTVO);
-    }
-
-    /**
      * Gets the view accessor <code>RowSet</code> AccSysGeneralValueYesNoVO.
      */
     public RowSet getAccSysGeneralValueYesNoVO() {
@@ -999,6 +992,13 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
      */
     public RowSet getAccGlProjectsVO() {
         return (RowSet) getAttributeInternal(ACCGLPROJECTSVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccAdminCompanyDept.
+     */
+    public RowSet getAccAdminCompanyDept() {
+        return (RowSet) getAttributeInternal(ACCADMINCOMPANYDEPT);
     }
 }
 

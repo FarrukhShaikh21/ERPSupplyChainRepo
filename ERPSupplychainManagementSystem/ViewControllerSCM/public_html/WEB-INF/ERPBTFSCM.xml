@@ -2107,6 +2107,13 @@
         <to-activity-id>SCM_0017_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
+    <control-flow-rule id="__364">
+      <from-activity-id>SCM_0017_EDIT</from-activity-id>
+      <control-flow-case id="__365">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0017</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <visibility>
       <url-invoke-allowed/>
     </visibility>
