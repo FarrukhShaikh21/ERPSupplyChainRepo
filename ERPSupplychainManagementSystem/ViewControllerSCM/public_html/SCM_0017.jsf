@@ -42,6 +42,7 @@
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
                                   <af:panelGroupLayout id="pgl8" layout="horizontal">
                                     <af:inputText value="#{bindings.BidHeaderSno.inputValue}"
+                                                  label="#{bindings.BidHeaderSno.hints.label}"
                                                   required="#{bindings.BidHeaderSno.hints.mandatory}"
                                                   columns="#{bindings.BidHeaderSno.hints.displayWidth}"
                                                   maximumLength="#{bindings.BidHeaderSno.hints.precision}"

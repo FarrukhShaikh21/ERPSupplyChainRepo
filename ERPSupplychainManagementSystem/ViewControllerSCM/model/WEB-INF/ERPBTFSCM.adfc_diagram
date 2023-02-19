@@ -4244,16 +4244,39 @@
       <property
          name="fromOutcome">ERP-ACT-SCM-0017_EDIT</property>
       <property
-         name="sdm:polyPoints">R50,415.35156,2429.046,449.02148,2357.747,L50</property>
+         name="sdm:polyPoints">R50,415.35156,2429.046,449.02148,2361.247,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase383"
       from="View377"
+      to="MethodCall384">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">L46,449.02148,2354.247,416.5,2279.0977,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall384">
+      <property
+         name="activityId">ExeQuerySCM_0017</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeQuerySCM_0017&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">2279.4482</property>
+      <property
+         name="x">375.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase385"
+      from="MethodCall384"
       to="View376">
       <property
          name="fromOutcome">ERPBACKCRUD</property>
       <property
-         name="sdm:polyPoints">L46,449.02148,2354.247,274.5,2308.3447,R50</property>
+         name="sdm:polyPoints">L50,334.5,2279.0977,274.5,2308.3447,R50</property>
    </ControlFlowCase>
 </SDM>

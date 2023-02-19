@@ -844,6 +844,12 @@
         <fixed-outcome>ERP-ACT-SCM-0017_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExeQuerySCM_0017">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -2110,6 +2116,13 @@
     <control-flow-rule id="__364">
       <from-activity-id>SCM_0017_EDIT</from-activity-id>
       <control-flow-case id="__365">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>ExeQuerySCM_0017</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__368">
+      <from-activity-id>ExeQuerySCM_0017</from-activity-id>
+      <control-flow-case id="__369">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0017</to-activity-id>
       </control-flow-case>

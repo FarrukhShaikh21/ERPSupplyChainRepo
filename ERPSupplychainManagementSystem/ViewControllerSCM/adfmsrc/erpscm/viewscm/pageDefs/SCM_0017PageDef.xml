@@ -9,8 +9,6 @@
               id="AdminCompanyVOROIterator"/>
     <iterator Binds="ScmPurchaseBidHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidHeaderROIterator"/>
-    <iterator Binds="ScmPurchaseBidHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmPurchaseBidHeaderCRUDIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="AdminCompanyVOROIterator" id="AdminCompanyVORO">
@@ -40,7 +38,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="ScmPurchaseBidHeaderCRUDIterator" id="BidHeaderSno">
+    <attributeValues IterBinding="ScmPurchaseBidHeaderROIterator" id="BidHeaderSno">
       <AttrNames>
         <Item Value="BidHeaderSno"/>
       </AttrNames>
