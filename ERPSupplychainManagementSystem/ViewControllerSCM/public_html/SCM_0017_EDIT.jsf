@@ -119,7 +119,7 @@
                                 <af:panelGridLayout id="pgl2">
                                     <af:gridRow id="gr3">
                                         <af:gridCell id="gc3" columnSpan="8" styleClass="ERPEntryAreaHeading"
-                                                     halign="stretch" valign="stretch">
+                                                     halign="stretch" valign="stretch" rowSpan="1">
                                             <af:outputText value="Purchase BID Receive" id="ot4"
                                                            styleClass="ERPEntryAreaFont"/>
                                         </af:gridCell>
@@ -196,7 +196,7 @@
                                                                           required="#{bindings.txtLocationName.hints.mandatory}"
                                                                           columns="#{bindings.txtLocationName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:100%"
+                                                                          simple="true" contentStyle="width:90%"
                                                                           autoSubmit="true">
                                                 <f:validator binding="#{bindings.txtLocationName.validator}"/>
                                             </af:inputComboboxListOfValues>
@@ -217,14 +217,14 @@
                                                                           shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
                                                                           simple="true"
                                                                           partialTriggers="txtLocationNameId"
-                                                                          contentStyle="width:100%" autoSubmit="true">
+                                                                          contentStyle="width:90%" autoSubmit="true">
                                                 <f:validator binding="#{bindings.txtSupplierName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
                                         <af:gridCell id="gc24" width="13%" halign="center">
                                             <af:outputLabel value="#{bindings.txtRfqHeaderCode.hints.label}" id="ol10"/>
                                         </af:gridCell>
-                                        <af:gridCell id="gc25" width="21%">
+                                        <af:gridCell id="gc25" width="20%" halign="stretch">
                                             <af:inputComboboxListOfValues id="txtRfqHeaderCodeId"
                                                                           popupTitle="Search and Select: #{bindings.txtRfqHeaderCode.hints.label}"
                                                                           value="#{bindings.txtRfqHeaderCode.inputValue}"
@@ -235,7 +235,7 @@
                                                                           shortDesc="#{bindings.txtRfqHeaderCode.hints.tooltip}"
                                                                           simple="true" autoSubmit="true"
                                                                           partialTriggers="txtSupplierNameId"
-                                                                          contentStyle="width:100%">
+                                                                          contentStyle="width:90%">
                                                 <f:validator binding="#{bindings.txtRfqHeaderCode.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.txtRfqHeaderCode.format}"/>
@@ -273,12 +273,12 @@
                                                                           required="#{bindings.txtTempProjectName.hints.mandatory}"
                                                                           columns="#{bindings.txtTempProjectName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:100%"
+                                                                          simple="true" contentStyle="width:90%"
                                                                           partialTriggers="txtLocationNameId">
                                                 <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="13%" id="gc13" halign="center">
+                                        <af:gridCell width="13%" id="gc13" halign="center">
                                             <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}"
                                                             id="ol5"/>
                                         </af:gridCell>
@@ -292,7 +292,7 @@
                                                                           required="#{bindings.txtTempDepartmentName.hints.mandatory}"
                                                                           columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:100%"
+                                                                          simple="true" contentStyle="width:90%"
                                                                           partialTriggers="txtLocationNameId">
                                                 <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                             </af:inputComboboxListOfValues>

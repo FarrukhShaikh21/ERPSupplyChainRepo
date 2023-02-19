@@ -850,6 +850,12 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="CreateSCM_0017">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ADD-ACT-SCM_0017</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -2105,6 +2111,10 @@
         <from-outcome>ERP-ACT-SCM-0017_EDIT</from-outcome>
         <to-activity-id>ExeWithParaSCM_0017_EDIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__370">
+        <from-outcome>ERP-ADD-ACT-SCM_0017</from-outcome>
+        <to-activity-id>CreateSCM_0017</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__342">
       <from-activity-id>ExeWithParaSCM_0017_EDIT</from-activity-id>
@@ -2125,6 +2135,13 @@
       <control-flow-case id="__369">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0017</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__371">
+      <from-activity-id>CreateSCM_0017</from-activity-id>
+      <control-flow-case id="__372">
+        <from-outcome>ERP-ADD-ACT-SCM_0017</from-outcome>
+        <to-activity-id>SCM_0017_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
