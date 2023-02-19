@@ -50,10 +50,6 @@
       FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyCompanyAccessWiseVC"/>
   </ViewAccessor>
   <ViewAccessor
-    Name="AccGlProjectsQVO"
-    ViewObjectName="erpfms.modelfms.fmsqvo.GlProjectsQVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
     Name="AccAdminCompanyDepartmentVO"
     ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
     RowLevelBinds="true"/>
@@ -140,6 +136,10 @@
       Name="SysSystemParameterByParameterVC"
       FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByParameterVC"/>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlProjectsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovApprovalStatusSno"
     ListVOName="AccSysApprovalStatusVO"
@@ -187,7 +187,7 @@
   </ListBinding>
   <ListBinding
     Name="LovTempProjectName"
-    ListVOName="AccGlProjectsQVO"
+    ListVOName="AccGlProjectsVO"
     ListRangeSize="-1"
     ComboRowCountHint="10"
     NullValueFlag="none"
@@ -206,9 +206,9 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ProjectName"/>
       <Item Value="ProjectCode"/>
-      <Item Value="ProjectShortName"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Name="GlProjectsFindVC"/>
   </ListBinding>
   <ListBinding
     Name="LOV_txtTempDepartmentName"

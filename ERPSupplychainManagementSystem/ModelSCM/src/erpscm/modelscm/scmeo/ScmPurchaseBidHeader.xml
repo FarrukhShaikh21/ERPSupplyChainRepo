@@ -275,14 +275,14 @@
   <Attribute
     Name="CompanyId"
     IsUnique="true"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="COMPANY_ID"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_HEADER">
+    TableName="SCM_PURCHASE_BID_HEADER"
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -294,7 +294,6 @@
   </Attribute>
   <Attribute
     Name="TempProjectId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="TEMP_PROJECT_ID"
@@ -313,7 +312,6 @@
   </Attribute>
   <Attribute
     Name="TempDepartmentId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="TEMP_DEPARTMENT_ID"
@@ -806,6 +804,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.BidHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmPurchaseBidHeaderCompanyIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Scm_Purchase_Bid_Header_Compan"/>
+      <Attr Name="_checkCondition" Value='"COMPANY_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.CompanyId"/>
     </AttrArray>
   </Key>
   <Key
