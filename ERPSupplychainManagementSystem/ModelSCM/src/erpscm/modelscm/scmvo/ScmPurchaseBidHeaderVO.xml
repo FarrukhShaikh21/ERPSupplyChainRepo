@@ -164,6 +164,27 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmPurchaseRfqForLinesVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseRfqLinesForBIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO.ScmPurchaseRfqLinesForBIDVC"/>
+    <ViewCriteriaUsage
+      Name="ScmPurchaseRfqLinesRFQHeaderSnoWiseVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO.ScmPurchaseRfqLinesRFQHeaderSnoWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_SUPPLIER_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SupplierSno==null?-1:SupplierSno]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_RFQ_HEADER_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[RfqHeaderSno==null?-1:RfqHeaderSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovApprovalStatusSno"
     ListVOName="AccSysApprovalStatusVO"

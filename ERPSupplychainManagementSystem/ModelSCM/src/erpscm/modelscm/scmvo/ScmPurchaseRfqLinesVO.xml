@@ -25,6 +25,10 @@
     Name="P_ADF_SUPPLIER_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
+  <Variable
+    Name="P_RFQ_HEADER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <ViewAccessor
     Name="AccInvItemVO"
     ViewObjectName="erpims.modelims.imsvo.InvItemVO"
@@ -380,10 +384,7 @@
     PrecisionRule="true"
     AliasName="STATUS_SNO"
     EntityAttrName="StatusSno"
-    EntityUsage="ScmPurchaseRfqLines"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    SQLType="INTEGER"/>
+    EntityUsage="ScmPurchaseRfqLines"/>
   <ViewAttribute
     Name="txtSumQuantity"
     IsUpdateable="false"
@@ -434,10 +435,7 @@
     Precision="255"
     EntityAttrName="txtGenerateBID"
     EntityUsage="ScmPurchaseRfqLines"
-    AliasName="txt_Generate_BID"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    SQLType="VARCHAR">
+    AliasName="txt_Generate_BID">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -454,10 +452,7 @@
     PrecisionRule="true"
     EntityAttrName="txtBidPrice"
     EntityUsage="ScmPurchaseRfqLines"
-    AliasName="txt_Bid_Price"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    SQLType="NUMERIC">
+    AliasName="txt_Bid_Price">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -539,6 +534,42 @@
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPurchaseRfqLinesRFQHeaderSnoWiseVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseRfqLinesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="RfqHeaderSno"
+        ViewAttribute="RfqHeaderSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_RFQ_HEADER_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

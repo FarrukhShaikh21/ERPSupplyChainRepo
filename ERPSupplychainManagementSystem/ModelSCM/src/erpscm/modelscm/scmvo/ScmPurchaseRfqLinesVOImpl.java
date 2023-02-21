@@ -126,4 +126,20 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         
         this.executeQuery();
     }
+
+    /**
+     * Returns the variable value for P_RFQ_HEADER_SNO.
+     * @return variable value for P_RFQ_HEADER_SNO
+     */
+    public Integer getP_RFQ_HEADER_SNO() {
+        return (Integer) ensureVariableManager().getVariableValue("P_RFQ_HEADER_SNO");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_RFQ_HEADER_SNO.
+     * @param value value to bind as P_RFQ_HEADER_SNO
+     */
+    public void setP_RFQ_HEADER_SNO(Integer value) {
+        ensureVariableManager().setVariableValue("P_RFQ_HEADER_SNO", value);
+    }
 }
