@@ -195,6 +195,10 @@
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[getRowSet().count("BidHeaderSno")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

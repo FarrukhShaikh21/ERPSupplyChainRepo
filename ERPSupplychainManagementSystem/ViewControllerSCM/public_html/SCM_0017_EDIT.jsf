@@ -56,7 +56,7 @@
                                                          icon="#{resource['images:imgUnSuperviseRecord.png']}"
                                                          iconPosition="top"
                                                          action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                         disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.DemandHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.BidHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
                                                          partialTriggers="l7" shortDesc="Un Supervise Record">
                                                     <af:setActionListener from="#{'ScmPurchaseBidHeaderCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
@@ -65,7 +65,7 @@
                                                          icon="#{resource['images:imgSuperviseRecord.png']}"
                                                          iconPosition="top"
                                                          action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.DemandHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.BidHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
                                                          partialTriggers="l7" shortDesc="Supervise Record">
                                                     <af:setActionListener from="#{'ScmPurchaseBidHeaderCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
@@ -274,7 +274,8 @@
                                                                           columns="#{bindings.txtTempProjectName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
                                                                           simple="true" contentStyle="width:90%"
-                                                                          partialTriggers="txtLocationNameId">
+                                                                          partialTriggers="txtLocationNameId"
+                                                                          readOnly="true">
                                                 <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
@@ -293,7 +294,8 @@
                                                                           columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
                                                                           simple="true" contentStyle="width:90%"
-                                                                          partialTriggers="txtLocationNameId">
+                                                                          partialTriggers="txtLocationNameId"
+                                                                          readOnly="true">
                                                 <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
@@ -395,8 +397,9 @@
                                     <f:facet name="statusbar">
                                         <af:toolbar id="t3">
                                             <af:inputText label="#{bindings.txtTotalRecord.hints.label}" id="it15" contentStyle="font-weight:bold"
-                                                          labelStyle="font-weight:bold"
-                                                          value="#{bindings.txtTotalRecord.inputValue}"/>
+                                                          labelStyle="font-weight:bold;width:100px"
+                                                          value="#{bindings.txtTotalRecord.inputValue}"
+                                                          readOnly="true"/>
                                         </af:toolbar>
                                     </f:facet>
                                     <f:facet name="secondaryToolbar"/>
