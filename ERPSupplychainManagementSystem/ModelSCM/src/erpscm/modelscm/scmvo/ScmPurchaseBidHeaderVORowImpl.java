@@ -233,14 +233,14 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setRfqHeaderSno(Integer value) {
         setAttributeInternal(RFQHEADERSNO, value);
-        getAccScmPurchaseRfqForLinesVO().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", value);
+        getAccScmPurchaseRfqForLinesVO().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", value==null?-1:value);
         getAccScmPurchaseRfqForLinesVO().setNamedWhereClauseParam("P_ADF_SUPPLIER_SNO", getSupplierSno());
         getAccScmPurchaseRfqForLinesVO().executeQuery();
         RowSetIterator rsi=getAccScmPurchaseRfqForLinesVO();
-        while(rsi.hasNext()) {
-            rsi.first().remove();
+        while(getScmPurchaseBidLinesVO().getRowCount()>0) {
+            getScmPurchaseBidLinesVO().first().remove();
         }
-        
+        System.out.println(rsi.getRowCount()+ "getRowCount:"+value+":"+getSupplierSno());
         while(rsi.hasNext()) {
             Row erpRfqrow=rsi.next();
             Row newRow=getScmPurchaseBidLinesVO().createRow();
