@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmvo;
 
+import erpglobals.modelglobals.ERPViewRowImpl;
+
 import erpscm.modelscm.scmeo.ScmPurchaseDemandLinesImpl;
 
 import java.math.BigDecimal;
@@ -17,7 +19,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ScmPurchaseDemandLinesVORowImpl extends ViewRowImpl {
+public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
 
 
     public static final int ENTITY_SCMPURCHASEDEMANDLINES = 0;

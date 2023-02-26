@@ -13,10 +13,13 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  RowClass="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVORowImpl">
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVORowImpl"
+  ComponentClass="erpglobals.modelglobals.ERPViewObjectImpl">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access"/>
     <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
+    <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
   </DesignTime>
   <Variable
     Name="P_ADF_DEMAND_HEADER_SNO"
