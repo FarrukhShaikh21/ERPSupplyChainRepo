@@ -244,6 +244,7 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
         while(rsi.hasNext()) {
             Row erpRfqrow=rsi.next();
             Row newRow=getScmPurchaseBidLinesVO().createRow();
+            newRow.setAttribute("RfqLinesSno", erpRfqrow.getAttribute("RfqLinesSno"));
             newRow.setAttribute("ItemId", erpRfqrow.getAttribute("ItemId"));
             newRow.setAttribute("UnitTypeSno", erpRfqrow.getAttribute("UnitTypeSno"));
             newRow.setAttribute("Quantity", erpRfqrow.getAttribute("Quantity"));
@@ -254,6 +255,7 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
             newRow.setAttribute("SupplierItemName", erpRfqrow.getAttribute("SupplierItemName"));
             newRow.setAttribute("Remarks", erpRfqrow.getAttribute("Remarks"));
             newRow.setAttribute("StatusSno", erpRfqrow.getAttribute("StatusSno"));
+            
             getScmPurchaseBidLinesVO().insertRow(newRow);
         }
 //            getScmPurchaseBidLinesVO().ex
