@@ -13,9 +13,11 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVOImpl">
+  ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVOImpl"
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVORowImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
     Name="AccInvItemVO"
@@ -200,9 +202,9 @@
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[getRowSet().count("BidHeaderSno")]]></TransientExpression>
+      trustMode="trusted"><![CDATA[getRowSet().count("BidHeaderSno")]]></TransientExpression>
     <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
