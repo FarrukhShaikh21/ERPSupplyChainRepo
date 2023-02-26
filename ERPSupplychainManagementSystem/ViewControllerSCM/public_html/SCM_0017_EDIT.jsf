@@ -462,7 +462,7 @@
                                                           columns="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.tooltip}"
-                                                          id="it7" readOnly="true">
+                                                          id="it7">
                                                 <f:validator binding="#{row.bindings.BidPrice.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.format}"/>
