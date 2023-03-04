@@ -310,6 +310,14 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLocationName"/>
+      <Item
+        Value="txtRfqHeaderCode"/>
+      <Item
+        Value="txtSupplierName"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="TempDepartmentId"
@@ -328,6 +336,14 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLocationName"/>
+      <Item
+        Value="txtRfqHeaderCode"/>
+      <Item
+        Value="txtSupplierName"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="CreatedBy"
@@ -672,7 +688,11 @@
       trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
     <Dependencies>
       <Item
+        Value="LocationId"/>
+      <Item
         Value="RfqHeaderSno"/>
+      <Item
+        Value="SupplierSno"/>
     </Dependencies>
     <Properties>
       <SchemaBasedProperties>
@@ -695,7 +715,11 @@
       trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
     <Dependencies>
       <Item
+        Value="LocationId"/>
+      <Item
         Value="RfqHeaderSno"/>
+      <Item
+        Value="SupplierSno"/>
     </Dependencies>
     <Properties>
       <SchemaBasedProperties>

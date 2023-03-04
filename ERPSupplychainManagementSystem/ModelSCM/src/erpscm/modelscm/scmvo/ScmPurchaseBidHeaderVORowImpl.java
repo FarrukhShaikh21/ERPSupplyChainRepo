@@ -421,6 +421,9 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
     public void setLocationId(Integer value) {
         setAttributeInternal(LOCATIONID, value);
         setCompanyId(doGetCompanyIDByLocation(value, getGlobalCompanyId()));
+        while(getScmPurchaseBidLinesVO().getRowCount()>0) {
+            getScmPurchaseBidLinesVO().first().remove();
+        }
     }
 
     /**
@@ -819,6 +822,9 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setSupplierSno(Integer value) {
         setAttributeInternal(SUPPLIERSNO, value);
+        while(getScmPurchaseBidLinesVO().getRowCount()>0) {
+            getScmPurchaseBidLinesVO().first().remove();
+        }
     }
 
     /**

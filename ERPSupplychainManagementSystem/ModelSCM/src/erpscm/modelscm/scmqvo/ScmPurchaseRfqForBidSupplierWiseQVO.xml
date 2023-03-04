@@ -60,34 +60,36 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
-  <SQLQuery><![CDATA[SELECT  distinct rfqh.rfq_header_sno, 
-    rfqh.rfq_header_code, 
-      rfqs.contact_no, 
-    rfqs.supplier_sno, 
-    -- rfql.item_id, 
-    pdh.demand_header_code, 
-    pdh.demand_header_sno, 
-    pdh.demand_date, 
-    rfqh.rfq_date 
-FROM scm_purchase_rfq_supplier rfqs, 
-   scm_purchase_rfq_lines rfql, 
-   scm_purchase_rfq_header rfqh 
-    left outer join 
-   scm_purchase_demand_header pdh 
-  on rfqh.demand_header_sno=pdh.demand_header_sno 
-where rfqs.rfq_header_sno=rfqh.rfq_header_sno 
-and not exists(select ''  
-        from scm_purchase_bid_header pbh, 
-           scm_purchase_bid_lines pbl 
-         where pbh.rfq_header_sno=rfqh.rfq_header_sno 
-         and   pbh.bid_header_sno=pbl.bid_header_sno 
-         and   pbl.rfq_lines_sno=rfql.rfq_lines_sno 
-         and   rfqs.supplier_sno=rfqs.supplier_sno 
-        ) 
-and rfqs.rfq_header_sno=rfql.rfq_header_sno 
-  and rfqh.company_id=? 
-  and rfqh.location_id=? 
-  and rfqs.supplier_sno=? 
+  <SQLQuery><![CDATA[SELECT  distinct rfqh.rfq_header_sno,   
+    rfqh.rfq_header_code,   
+      rfqs.contact_no,   
+    rfqs.supplier_sno,   
+    -- rfql.item_id,   
+    pdh.demand_header_code,   
+    pdh.demand_header_sno,   
+    pdh.demand_date,   
+    rfqh.rfq_date ,  
+    rfqh.temp_department_id,  
+    rfqh.temp_project_id  
+FROM scm_purchase_rfq_supplier rfqs,   
+   scm_purchase_rfq_lines rfql,   
+   scm_purchase_rfq_header rfqh   
+    left outer join   
+   scm_purchase_demand_header pdh   
+  on rfqh.demand_header_sno=pdh.demand_header_sno   
+where rfqs.rfq_header_sno=rfqh.rfq_header_sno   
+and not exists(select ''    
+        from scm_purchase_bid_header pbh,   
+           scm_purchase_bid_lines pbl   
+         where pbh.rfq_header_sno=rfqh.rfq_header_sno   
+         and   pbh.bid_header_sno=pbl.bid_header_sno   
+         and   pbl.rfq_lines_sno=rfql.rfq_lines_sno   
+         and   rfqs.supplier_sno=rfqs.supplier_sno   
+        )   
+and rfqs.rfq_header_sno=rfql.rfq_header_sno   
+  and rfqh.company_id=?   
+  and rfqh.location_id=?   
+  and rfqs.supplier_sno=?   
 order by rfq_header_code]]></SQLQuery>
   <ViewAttribute
     Name="RfqHeaderSno"
@@ -98,7 +100,7 @@ order by rfq_header_code]]></SQLQuery>
     ColumnType="INTEGER"
     AliasName="rfq_header_sno"
     Expression="rfq_header_sno"
-    SQLType="NUMERIC">
+    SQLType="INTEGER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
@@ -120,7 +122,7 @@ order by rfq_header_code]]></SQLQuery>
     ColumnType="INT"
     AliasName="rfq_header_code"
     Expression="rfq_header_code"
-    SQLType="NUMERIC">
+    SQLType="INTEGER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
@@ -165,7 +167,7 @@ order by rfq_header_code]]></SQLQuery>
     ColumnType="INT"
     AliasName="supplier_sno"
     Expression="supplier_sno"
-    SQLType="NUMERIC">
+    SQLType="INTEGER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
@@ -187,7 +189,7 @@ order by rfq_header_code]]></SQLQuery>
     ColumnType="INT"
     AliasName="demand_header_code"
     Expression="demand_header_code"
-    SQLType="NUMERIC">
+    SQLType="INTEGER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
@@ -209,7 +211,7 @@ order by rfq_header_code]]></SQLQuery>
     ColumnType="INT"
     AliasName="demand_header_sno"
     Expression="demand_header_sno"
-    SQLType="NUMERIC">
+    SQLType="INTEGER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
@@ -255,6 +257,46 @@ order by rfq_header_code]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmqvo.ScmPurchaseRfqForBidSupplierWiseQVO.RfqDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TempDepartmentId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="temp_department_id"
+    Expression="temp_department_id"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TempProjectId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    AliasName="temp_project_id"
+    Expression="temp_project_id"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

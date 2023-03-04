@@ -274,7 +274,7 @@
                                                                           columns="#{bindings.txtTempProjectName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
                                                                           simple="true" contentStyle="width:90%"
-                                                                          partialTriggers="txtLocationNameId"
+                                                                          partialTriggers="txtLocationNameId txtRfqHeaderCodeId"
                                                                           readOnly="true">
                                                 <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
                                             </af:inputComboboxListOfValues>
@@ -294,7 +294,7 @@
                                                                           columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
                                                                           simple="true" contentStyle="width:90%"
-                                                                          partialTriggers="txtLocationNameId"
+                                                                          partialTriggers="txtLocationNameId txtRfqHeaderCodeId"
                                                                           readOnly="true">
                                                 <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                             </af:inputComboboxListOfValues>
@@ -413,7 +413,8 @@
                                               selectionListener="#{bindings.ScmPurchaseBidLinesDetCRUD.collectionModel.makeCurrent}"
                                               rowSelection="single"
                                               fetchSize="#{bindings.ScmPurchaseBidLinesDetCRUD.rangeSize}" id="t1"
-                                              partialTriggers="::l12 ::l11" columnStretching="last" autoHeightRows="5">
+                                              partialTriggers="::l12 ::l11" columnStretching="last" autoHeightRows="5"
+                                              scrollPolicy="page">
                                         <af:column headerText="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.txtItemName.label}"
                                                    id="c1" width="200" displayIndex="-1">
                                             <af:inputComboboxListOfValues id="txtItemNameId"
