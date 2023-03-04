@@ -71,6 +71,12 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="LocationId"/>
+      <Item
+        Value="SupplierSno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="BillToSno"
@@ -599,6 +605,12 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="LocationId"/>
+      <Item
+        Value="SupplierSno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="ApprovalStatusSno"
@@ -637,6 +649,12 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="LocationId"/>
+      <Item
+        Value="txtLocationName"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtTempDepartmentName"
@@ -747,6 +765,10 @@
           ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.SupplierSno_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="txtLocationName"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtSupplierName"
