@@ -13,7 +13,10 @@
     Name="ScmPurchaseBidHeader"
     Cardinality="1"
     Source="true"
-    Owner="erpscm.modelscm.scmeo.ScmPurchaseBidHeader">
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseBidHeader"
+    LockLevel="NONE"
+    CascadeDelete="true"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseBidHeader"/>
@@ -28,7 +31,8 @@
   <AssociationEnd
     Name="ScmPurchaseBidLines"
     Cardinality="-1"
-    Owner="erpscm.modelscm.scmeo.ScmPurchaseBidLines">
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseBidLines"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseBidLines"/>

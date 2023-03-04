@@ -384,7 +384,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_BID_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -409,7 +408,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_BID_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -492,6 +490,7 @@
       <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_BID_HEADER"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="FK_SCM_PUR_BID_LINE_HEAD_SNO"/>
+      <Attr Name="_isCascadeDelete" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.BidHeaderSno"/>

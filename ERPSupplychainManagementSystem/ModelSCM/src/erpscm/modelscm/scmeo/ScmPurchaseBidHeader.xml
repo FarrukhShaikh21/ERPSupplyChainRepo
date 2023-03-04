@@ -10,7 +10,8 @@
   DBObjectName="SCM_PURCHASE_BID_HEADER"
   AliasName="ScmPurchaseBidHeader"
   BindingStyle="JDBC"
-  RowClass="erpscm.modelscm.scmeo.ScmPurchaseBidHeaderImpl">
+  RowClass="erpscm.modelscm.scmeo.ScmPurchaseBidHeaderImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
@@ -953,6 +954,20 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.SupplierSno"/>
     </AttrArray>
   </Key>
+  <validation:CollectionValidationBean
+    Name="ScmPurchaseBidHeaderLineReqBR"
+    Accessor="ScmPurchaseBidLines"
+    CollAttribute="BidHeaderSno"
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader_Rule_0"
+    OperandType="LITERAL"
+    Inverse="false"
+    CompareType="GREATERTHAN"
+    CompareValue="0"
+    Operation="count">
+    <validation:OnCondition
+      trustMode="untrusted"
+      Name="OnConditionExpr"><![CDATA[ApprovalStatusSno==2]]></validation:OnCondition>
+  </validation:CollectionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
