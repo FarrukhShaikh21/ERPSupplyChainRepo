@@ -109,7 +109,7 @@
                               required="#{bindings.SupplierSno.hints.mandatory}"
                               columns="#{bindings.SupplierSno.hints.displayWidth}"
                               maximumLength="#{bindings.SupplierSno.hints.precision}"
-                              shortDesc="#{bindings.SupplierSno.hints.tooltip}" id="it1">
+                              shortDesc="#{bindings.SupplierSno.hints.tooltip}" id="it1" rendered="false">
                   <f:validator binding="#{bindings.SupplierSno.validator}"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.SupplierSno.format}"/>
                 </af:inputText>
