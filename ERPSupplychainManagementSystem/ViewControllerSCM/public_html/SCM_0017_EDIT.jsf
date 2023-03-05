@@ -117,15 +117,16 @@
                             <af:gridCell marginStart="5px" width="100%" id="gc1" halign="stretch" columnSpan="8"
                                          rowSpan="1" marginEnd="5px">
                                 <af:panelGridLayout id="pgl2">
-                                    <af:gridRow id="gr3">
+                                    <af:gridRow id="gr3" marginTop="5px" marginBottom="5px">
                                         <af:gridCell id="gc3" columnSpan="8" styleClass="ERPEntryAreaHeading"
                                                      halign="stretch" valign="stretch" rowSpan="1">
                                             <af:outputText value="Purchase BID Receive" id="ot4"
                                                            styleClass="ERPEntryAreaFont"/>
                                         </af:gridCell>
                                     </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="auto" id="gr4">
-                                        <af:gridCell width="13%" id="gc4" marginEnd="5px" halign="center">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr4" marginBottom="5px">
+                                        <af:gridCell width="13%" id="gc4" marginEnd="5px" halign="center"
+                                                     valign="middle">
                                             <af:outputLabel value="#{bindings.BidHeaderCode.hints.label}" id="ol3"/>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="20%" id="gc5" halign="stretch"
@@ -169,7 +170,8 @@
                                                                   pattern="#{bindings.BidHeaderCode.format}"/>
                                             </af:inputText>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="13%" id="gc6" halign="center">
+                                        <af:gridCell marginStart="5px" width="13%" id="gc6" halign="center"
+                                                     valign="middle">
                                             <af:outputLabel value="#{bindings.BidDate.hints.label}" id="ol1"/>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="20%" id="gc7" valign="middle">
@@ -183,7 +185,8 @@
                                                 <af:convertDateTime pattern="#{bindings.BidDate.format}"/>
                                             </af:inputDate>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="13%" id="gc8" halign="center">
+                                        <af:gridCell marginStart="5px" width="13%" id="gc8" halign="center"
+                                                     valign="middle">
                                             <af:outputLabel value="#{bindings.txtLocationName.hints.label}" id="ol2"/>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="21%" marginEnd="5px" id="gc9"
@@ -202,8 +205,8 @@
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
                                     </af:gridRow>
-                                    <af:gridRow id="gr10">
-                                        <af:gridCell id="gc22" width="13%" halign="center">
+                                    <af:gridRow id="gr10" marginTop="5px" marginBottom="5px">
+                                        <af:gridCell id="gc22" width="13%" halign="center" valign="middle">
                                             <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol8"/>
                                         </af:gridCell>
                                         <af:gridCell id="gc23" width="21%" halign="stretch" valign="middle">
@@ -221,10 +224,10 @@
                                                 <f:validator binding="#{bindings.txtSupplierName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
-                                        <af:gridCell id="gc24" width="13%" halign="center">
+                                        <af:gridCell id="gc24" width="13%" halign="center" valign="middle">
                                             <af:outputLabel value="#{bindings.txtRfqHeaderCode.hints.label}" id="ol10"/>
                                         </af:gridCell>
-                                        <af:gridCell id="gc25" width="20%" halign="stretch">
+                                        <af:gridCell id="gc25" width="20%" halign="stretch" valign="middle">
                                             <af:inputComboboxListOfValues id="txtRfqHeaderCodeId"
                                                                           popupTitle="Search and Select: #{bindings.txtRfqHeaderCode.hints.label}"
                                                                           value="#{bindings.txtRfqHeaderCode.inputValue}"
@@ -241,10 +244,10 @@
                                                                   pattern="#{bindings.txtRfqHeaderCode.format}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
-                                        <af:gridCell id="gc26" width="13%" halign="center">
+                                        <af:gridCell id="gc26" width="13%" halign="center" valign="middle">
                                             <af:outputLabel value="#{bindings.txtDemandHeaderCode.hints.label}" id="ol11"/>
                                         </af:gridCell>
-                                        <af:gridCell id="gc27" width="21%">
+                                        <af:gridCell id="gc27" width="21%" valign="middle">
                                             <af:inputText value="#{bindings.txtDemandHeaderCode.inputValue}"
                                                           label="#{bindings.txtDemandHeaderCode.hints.label}"
                                                           required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
@@ -260,7 +263,7 @@
                                         </af:gridCell>
                                     </af:gridRow>
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
-                                        <af:gridCell width="13%" id="gc10" halign="center">
+                                        <af:gridCell width="13%" id="gc10" halign="center" valign="middle">
                                             <af:outputLabel value="#{bindings.txtTempProjectName.hints.label}" id="ol4"/>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="20%" id="gc11" halign="stretch"
@@ -279,7 +282,7 @@
                                                 <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
-                                        <af:gridCell width="13%" id="gc13" halign="center">
+                                        <af:gridCell width="13%" id="gc13" halign="center" valign="middle">
                                             <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}"
                                                             id="ol5"/>
                                         </af:gridCell>
@@ -300,11 +303,11 @@
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
                                         <af:gridCell id="gc12" width="13%" marginStart="5px" marginEnd="5px"
-                                                     halign="center">
+                                                     halign="center" valign="middle">
                                             <af:outputLabel value="#{bindings.ApprovalStatusSno.label}" id="ol7"/>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="21%" id="gc15"
-                                                     valign="middle" halign="stretch">
+                                        <af:gridCell marginStart="5px" width="21%" id="gc15" halign="stretch"
+                                                     valign="middle">
                                             <af:panelGroupLayout id="pgl10" layout="horizontal"
                                                                  styleClass="AFStretchWidth">
                                                 <af:selectOneChoice value="#{bindings.ApprovalStatusSno.inputValue}"
@@ -329,7 +332,7 @@
                                             </af:panelGroupLayout>
                                         </af:gridCell>
                                     </af:gridRow>
-                                    <af:gridRow id="gr6">
+                                    <af:gridRow id="gr6" marginTop="5px" marginBottom="5px">
                                         <af:gridCell id="gc16" width="13%" halign="center">
                                             <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol6"/>
                                         </af:gridCell>

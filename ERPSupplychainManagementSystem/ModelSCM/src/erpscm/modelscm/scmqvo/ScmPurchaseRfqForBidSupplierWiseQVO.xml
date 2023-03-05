@@ -86,7 +86,8 @@ and not exists(select ''
          and   pbl.rfq_lines_sno=rfql.rfq_lines_sno   
          and   pbh.supplier_sno=rfqs.supplier_sno   
         )   
-and rfqs.rfq_header_sno=rfql.rfq_header_sno   
+and rfqs.rfq_header_sno=rfql.rfq_header_sno  
+  and rfqh.is_supervised='Y'
   and rfqh.company_id=?   
   and rfqh.location_id=?   
   and rfqs.supplier_sno=?   
