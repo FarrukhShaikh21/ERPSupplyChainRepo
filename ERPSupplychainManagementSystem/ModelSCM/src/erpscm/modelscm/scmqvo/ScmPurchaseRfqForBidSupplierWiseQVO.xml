@@ -84,7 +84,7 @@ and not exists(select ''
          where pbh.rfq_header_sno=rfqh.rfq_header_sno   
          and   pbh.bid_header_sno=pbl.bid_header_sno   
          and   pbl.rfq_lines_sno=rfql.rfq_lines_sno   
-         and   rfqs.supplier_sno=rfqs.supplier_sno   
+         and   pbh.supplier_sno=rfqs.supplier_sno   
         )   
 and rfqs.rfq_header_sno=rfql.rfq_header_sno   
   and rfqh.company_id=?   

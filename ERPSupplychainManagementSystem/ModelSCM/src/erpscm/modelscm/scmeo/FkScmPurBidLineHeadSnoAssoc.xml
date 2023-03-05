@@ -15,12 +15,10 @@
     Source="true"
     Owner="erpscm.modelscm.scmeo.ScmPurchaseBidHeader"
     LockLevel="NONE"
-    CascadeDelete="true"
     DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseBidHeader"/>
-      <Attr Name="_foreignKey" Value="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.PkScmPurchaseBidHeader"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
@@ -36,7 +34,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseBidLines"/>
-      <Attr Name="_foreignKey" Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.FkScmPurBidLineHeadSno"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">

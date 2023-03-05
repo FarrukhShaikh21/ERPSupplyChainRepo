@@ -1179,7 +1179,8 @@
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtDepartmentName.tooltip}"
                                                                           contentStyle="width:100%"
-                                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}">
+                                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}"
+                                                                          autoSubmit="true">
                                                 <f:validator binding="#{row.bindings.txtDepartmentName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
@@ -1193,7 +1194,8 @@
                                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.displayWidth}"
                                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.txtProjectName.tooltip}"
                                                                           contentStyle="width:100%"
-                                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}">
+                                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}"
+                                                                          autoSubmit="true">
                                                 <f:validator binding="#{row.bindings.txtProjectName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:column>
@@ -1205,7 +1207,8 @@
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.RequiredBy.displayWidth}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.RequiredBy.tooltip}"
                                                           id="id2" contentStyle="width:60%"
-                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}">
+                                                          disabled="#{bindings.RfqTypeSno.inputValue==2}"
+                                                          autoSubmit="true">
                                                 <f:validator binding="#{row.bindings.RequiredBy.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.RequiredBy.format}"/>
                                             </af:inputDate>
@@ -1218,7 +1221,8 @@
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.AproxPrice.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.AproxPrice.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.AproxPrice.tooltip}"
-                                                          id="it7" disabled="#{bindings.RfqTypeSno.inputValue==2}">
+                                                          id="it7" disabled="#{bindings.RfqTypeSno.inputValue==2}"
+                                                          autoSubmit="true">
                                                 <f:validator binding="#{row.bindings.AproxPrice.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.AproxPrice.format}"/>
@@ -1253,7 +1257,7 @@
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.NoteToBuyer.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.NoteToBuyer.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.NoteToBuyer.tooltip}"
-                                                          id="it12">
+                                                          id="it12" autoSubmit="true">
                                                 <f:validator binding="#{row.bindings.NoteToBuyer.validator}"/>
                                             </af:inputText>
                                         </af:column>
@@ -1265,7 +1269,7 @@
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.NoteToSupplier.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.NoteToSupplier.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.NoteToSupplier.tooltip}"
-                                                          id="it13">
+                                                          id="it13" autoSubmit="true">
                                                 <f:validator binding="#{row.bindings.NoteToSupplier.validator}"/>
                                             </af:inputText>
                                         </af:column>
@@ -1277,7 +1281,7 @@
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.SupplierItemName.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.SupplierItemName.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.SupplierItemName.tooltip}"
-                                                          id="it16">
+                                                          id="it16" autoSubmit="true">
                                                 <f:validator binding="#{row.bindings.SupplierItemName.validator}"/>
                                             </af:inputText>
                                         </af:column>
@@ -1289,7 +1293,8 @@
                                                           columns="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Remarks.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Remarks.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseRfqLinesDetCRUD.hints.Remarks.tooltip}"
-                                                          id="it17" contentStyle="width:100%">
+                                                          id="it17" contentStyle="width:100%" autoSubmit="true"
+                                                          inlineStyle="voice-rate:normal;">
                                                 <f:validator binding="#{row.bindings.Remarks.validator}"/>
                                             </af:inputText>
                                         </af:column>

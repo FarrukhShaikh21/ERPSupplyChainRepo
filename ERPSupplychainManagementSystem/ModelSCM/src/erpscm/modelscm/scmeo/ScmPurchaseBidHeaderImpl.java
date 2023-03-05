@@ -65,6 +65,7 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
         txtRfqHeaderCode,
         SupplierSno,
         txtSupplierName,
+        txtNoBidPriceCount,
         ScmPurchaseBidLines,
         ScmPurchaseRfqHeader,
         AdminCompany,
@@ -135,6 +136,7 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTNOBIDPRICECOUNT = AttributesEnum.txtNoBidPriceCount.index();
     public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -779,6 +781,22 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
      */
     public void settxtSupplierName(String value) {
         setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtNoBidPriceCount, using the alias name txtNoBidPriceCount.
+     * @return the value of txtNoBidPriceCount
+     */
+    public Integer gettxtNoBidPriceCount() {
+        return (Integer) getAttributeInternal(TXTNOBIDPRICECOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtNoBidPriceCount.
+     * @param value value to set the txtNoBidPriceCount
+     */
+    public void settxtNoBidPriceCount(Integer value) {
+        setAttributeInternal(TXTNOBIDPRICECOUNT, value);
     }
 
     /**

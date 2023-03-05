@@ -795,6 +795,19 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtNoBidPriceCount"
+    ColumnName="txt_No_Bid_Price_Count"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseBidLines?.sum("BidPrice==null||BidPrice<=0?1:0")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidLines"
     Association="erpscm.modelscm.scmeo.FkScmPurBidLineHeadSnoAssoc"
@@ -966,8 +979,20 @@
     Operation="count">
     <validation:OnCondition
       trustMode="untrusted"
-      Name="OnConditionExpr"><![CDATA[ApprovalStatusSno==2]]></validation:OnCondition>
+      Name="OnConditionExpr"><![CDATA[ApprovalStatusSno==2 || IsSupervised=='Y']]></validation:OnCondition>
   </validation:CollectionValidationBean>
+  <validation:CompareValidationBean
+    Name="ScmPurchaseBidHeaderBidPriceBR"
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader_Rule_1"
+    OnAttribute="txtNoBidPriceCount"
+    OperandType="LITERAL"
+    Inverse="false"
+    CompareType="EQUALTO"
+    CompareValue="0">
+    <validation:OnCondition
+      trustMode="untrusted"
+      Name="OnConditionExpr"><![CDATA[IsSupervised=='Y'|| ApprovalStatusSno==2]]></validation:OnCondition>
+  </validation:CompareValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>

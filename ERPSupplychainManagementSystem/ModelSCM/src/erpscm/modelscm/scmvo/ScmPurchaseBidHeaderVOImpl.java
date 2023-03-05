@@ -84,8 +84,8 @@ public class ScmPurchaseBidHeaderVOImpl extends ERPViewObjectImpl {
         // TODO Implement this method
         //System.out.println("i am calling after rollback>>+"/*+getDBTransaction().getRootApplicationModule().findViewObject("GlVoucherHeaderByVoucherIDCRUD").first().getAttribute("VoucherHeaderSno")*/);
         // System.out.println("header:>>"+getDBTransaction().getRootApplicationModule().findViewObject("GlVoucherHeaderByVoucherIDCRUD").first().getAttribute("VoucherHeaderSno"));
-        setErpPkColumn("P_ADF_BID_HEADER_SNO");
-        setErpParameterId("P_ADF_DEMAND_HEADER_SNO");
+        setErpPkColumn("BidHeaderSno");
+        setErpParameterId("P_ADF_BID_HEADER_SNO");
         setErpViewObjectName("ScmPurchaseBidHeaderCRUD");
         
         super.afterRollback(transactionEvent);
