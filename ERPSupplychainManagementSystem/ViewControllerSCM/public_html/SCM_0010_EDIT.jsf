@@ -105,6 +105,14 @@
             </f:facet>
             <f:facet name="second">
               <af:panelGroupLayout id="pgl3" layout="scroll" halign="center" partialTriggers="qryId1">
+                <af:inputText value="#{bindings.SupplierSno.inputValue}" label="#{bindings.SupplierSno.hints.label}"
+                              required="#{bindings.SupplierSno.hints.mandatory}"
+                              columns="#{bindings.SupplierSno.hints.displayWidth}"
+                              maximumLength="#{bindings.SupplierSno.hints.precision}"
+                              shortDesc="#{bindings.SupplierSno.hints.tooltip}" id="it1">
+                  <f:validator binding="#{bindings.SupplierSno.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.SupplierSno.format}"/>
+                </af:inputText>
                 <af:listView value="#{bindings.ScmSupplierByCompanyRO.collectionModel}" var="item"
                              emptyText="#{bindings.ScmSupplierByCompanyRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.ScmSupplierByCompanyRO.rangeSize}" id="lv2" selection="single"
