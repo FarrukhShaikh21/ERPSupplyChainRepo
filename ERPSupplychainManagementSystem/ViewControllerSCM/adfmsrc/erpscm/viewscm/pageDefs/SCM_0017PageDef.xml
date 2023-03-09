@@ -9,6 +9,8 @@
               id="AdminCompanyVOROIterator"/>
     <iterator Binds="ScmPurchaseBidHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidHeaderROIterator"/>
+    <searchRegion Criteria="ScmPurchaseBidHeaderFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ScmPurchaseBidHeaderROIterator" id="ScmPurchaseBidHeaderFindVCQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="AdminCompanyVOROIterator" id="AdminCompanyVORO">

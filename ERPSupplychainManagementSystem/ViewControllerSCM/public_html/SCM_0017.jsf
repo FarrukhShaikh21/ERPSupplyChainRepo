@@ -8,13 +8,13 @@
         <af:dialog id="d2" type="ok">
           <f:facet name="buttonBar"/>
           <af:panelGroupLayout layout="vertical" id="pgl2">
-            <af:panelHeader text="Search RFQ" id="ph1">
+            <af:panelHeader text="Search BID" id="ph1">
               <af:query id="qryId1" headerText="Search" disclosed="true"
-                        value="#{bindings.ScmPurchaseRfqHeaderFindVCQuery.queryDescriptor}"
-                        model="#{bindings.ScmPurchaseRfqHeaderFindVCQuery.queryModel}"
-                        queryListener="#{bindings.ScmPurchaseRfqHeaderFindVCQuery.processQuery}"
-                        queryOperationListener="#{bindings.ScmPurchaseRfqHeaderFindVCQuery.processQueryOperation}"
-                        runQueryAutomatically="allSavedSearches" saveResultsLayout="never" saveQueryMode="hidden"
+                        value="#{bindings.ScmPurchaseBidHeaderFindVCQuery.queryDescriptor}"
+                        model="#{bindings.ScmPurchaseBidHeaderFindVCQuery.queryModel}"
+                        queryListener="#{bindings.ScmPurchaseBidHeaderFindVCQuery.processQuery}"
+                        queryOperationListener="#{bindings.ScmPurchaseBidHeaderFindVCQuery.processQueryOperation}"
+                        saveResultsLayout="never" runQueryAutomatically="allSavedSearches" saveQueryMode="hidden"
                         modeChangeVisible="false"/>
             </af:panelHeader>
           </af:panelGroupLayout>
@@ -27,7 +27,7 @@
               <af:panelSplitter id="ps1">
                 <f:facet name="second">
                   <af:panelGroupLayout id="pgl3" layout="scroll" halign="center">
-                    <af:listView value="#{bindings.ScmPurchaseBidHeaderRO.collectionModel}" var="item"
+                    <af:listView value="#{bindings.ScmPurchaseBidHeaderRO.collectionModel}" var="item" partialTriggers=":::qryId1"
                                  emptyText="#{bindings.ScmPurchaseBidHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                  fetchSize="#{bindings.ScmPurchaseBidHeaderRO.rangeSize}" id="lv2"
                                  styleClass="WBDisplayBlockCenter" selection="single"
