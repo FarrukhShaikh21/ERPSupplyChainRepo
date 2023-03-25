@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmeo;
 
+import erpadm.modeladm.admeo.AdminCompanyImpl;
+
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import java.sql.Timestamp;
@@ -44,7 +46,9 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         CancelledBy,
         CancelledDate,
         DemandHeaderSno,
-        ApprovalStatusSno;
+        ApprovalStatusSno,
+        txtLocationName,
+        AdminCompany;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -67,6 +71,8 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int COMPAREHEADERSNO = AttributesEnum.CompareHeaderSno.index();
     public static final int COMPAREHEADERCODE = AttributesEnum.CompareHeaderCode.index();
     public static final int RFQHEADERSNO = AttributesEnum.RfqHeaderSno.index();
@@ -93,12 +99,22 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     public static final int CANCELLEDDATE = AttributesEnum.CancelledDate.index();
     public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
     public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
+    public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
+    public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public ScmPurchaseBidCompHeaderImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader");
+    }
+
 
     /**
      * Gets the attribute value for CompareHeaderSno, using the alias name CompareHeaderSno.
@@ -136,15 +152,15 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      * Gets the attribute value for RfqHeaderSno, using the alias name RfqHeaderSno.
      * @return the value of RfqHeaderSno
      */
-    public Long getRfqHeaderSno() {
-        return (Long) getAttributeInternal(RFQHEADERSNO);
+    public Integer getRfqHeaderSno() {
+        return (Integer) getAttributeInternal(RFQHEADERSNO);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RfqHeaderSno.
      * @param value value to set the RfqHeaderSno
      */
-    public void setRfqHeaderSno(Long value) {
+    public void setRfqHeaderSno(Integer value) {
         setAttributeInternal(RFQHEADERSNO, value);
     }
 
@@ -488,15 +504,15 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      * Gets the attribute value for DemandHeaderSno, using the alias name DemandHeaderSno.
      * @return the value of DemandHeaderSno
      */
-    public Long getDemandHeaderSno() {
-        return (Long) getAttributeInternal(DEMANDHEADERSNO);
+    public Integer getDemandHeaderSno() {
+        return (Integer) getAttributeInternal(DEMANDHEADERSNO);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for DemandHeaderSno.
      * @param value value to set the DemandHeaderSno
      */
-    public void setDemandHeaderSno(Long value) {
+    public void setDemandHeaderSno(Integer value) {
         setAttributeInternal(DEMANDHEADERSNO, value);
     }
 
@@ -516,6 +532,38 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         setAttributeInternal(APPROVALSTATUSSNO, value);
     }
 
+
+    /**
+     * Gets the attribute value for txtLocationName, using the alias name txtLocationName.
+     * @return the value of txtLocationName
+     */
+    public String gettxtLocationName() {
+        return (String) getAttributeInternal(TXTLOCATIONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtLocationName.
+     * @param value value to set the txtLocationName
+     */
+    public void settxtLocationName(String value) {
+        setAttributeInternal(TXTLOCATIONNAME, value);
+    }
+
+    /**
+     * @return the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
+     */
+    public AdminCompanyImpl getAdminCompany() {
+        return (AdminCompanyImpl) getAttributeInternal(ADMINCOMPANY);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
+     */
+    public void setAdminCompany(AdminCompanyImpl value) {
+        setAttributeInternal(ADMINCOMPANY, value);
+    }
+
+
     /**
      * @param compareHeaderSno key constituent
 
@@ -523,13 +571,6 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      */
     public static Key createPrimaryKey(Integer compareHeaderSno) {
         return new Key(new Object[] { compareHeaderSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader");
     }
 
     /**

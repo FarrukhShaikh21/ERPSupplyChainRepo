@@ -942,6 +942,29 @@
         Required="Optional"
         UpperColumns="0"/>
       <ViewCriteriaItem
+        Name="ScmPurchaseDemandHeaderVO"
+        ViewAttribute="ScmPurchaseDemandHeaderVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseDemandHeaderVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseDemandHeaderVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="DemandHeaderCode"
+              ViewAttribute="DemandHeaderCode"
+              Operator="="
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
         Name="ScmPurchaseRfqHeaderVO"
         ViewAttribute="ScmPurchaseRfqHeaderVO"
         Operator="EXISTS"
@@ -993,29 +1016,6 @@
             <ViewCriteriaItem
               Name="CompanyShortCode"
               ViewAttribute="CompanyShortCode"
-              Operator="="
-              Conjunction="AND"
-              Required="Optional"/>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItem>
-      <ViewCriteriaItem
-        Name="ScmPurchaseDemandHeaderVO"
-        ViewAttribute="ScmPurchaseDemandHeaderVO"
-        Operator="EXISTS"
-        Conjunction="AND"
-        IsNestedCriteria="true"
-        Required="Optional">
-        <ViewCriteria
-          Name="ScmPurchaseDemandHeaderVONestedCriteria"
-          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
-          Conjunction="AND">
-          <ViewCriteriaRow
-            Name="ScmPurchaseDemandHeaderVONestedCriteria_row_0"
-            UpperColumns="1">
-            <ViewCriteriaItem
-              Name="DemandHeaderCode"
-              ViewAttribute="DemandHeaderCode"
               Operator="="
               Conjunction="AND"
               Required="Optional"/>

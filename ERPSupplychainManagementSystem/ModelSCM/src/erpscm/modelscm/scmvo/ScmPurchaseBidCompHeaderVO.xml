@@ -14,6 +14,42 @@
    CustomQuery="false"
    SelectAllAttributes="false"
    PageIterMode="Partial">
+   <ViewAccessor
+      Name="AccSysGeneralValueYesNoVO"
+      ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+      RowLevelBinds="true">
+      <ViewCriteriaUsage
+         Name="SysGeneralValueActiveVC"
+         FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+      <ViewCriteriaUsage
+         Name="SysGeneralValueByValueSetIDVC"
+         FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+   </ViewAccessor>
+   <ViewAccessor
+      Name="AccGlProjectsVO"
+      ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
+      RowLevelBinds="true">
+      <ViewCriteriaUsage
+         Name="GlProjectsActiveVC"
+         FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsActiveVC"/>
+      <ViewCriteriaUsage
+         Name="GlProjectsByCompanyVC"
+         FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
+      <ParameterMap>
+         <PIMap Variable="P_ADF_COMPANY_ID">
+            <TransientExpression
+               trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
+         </PIMap>
+      </ParameterMap>
+   </ViewAccessor>
+   <ViewAccessor
+      Name="AccAdminCompanyVO"
+      ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+      RowLevelBinds="true">
+      <ViewCriteriaUsage
+         Name="AdminCompanyCompanyAccessWiseVC"
+         FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyCompanyAccessWiseVC"/>
+   </ViewAccessor>
    <EntityUsage
       Name="ScmPurchaseBidCompHeader"
       Entity="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader" >
@@ -216,4 +252,10 @@
       EntityUsage="ScmPurchaseBidCompHeader"
       AliasName="APPROVAL_STATUS_SNO" >
    </ViewAttribute>
+   <ViewLinkAccessor
+      Name="AdminCompanyVO"
+      ViewLink="erpscm.modelscm.scmvo.AdminCompanyScmPurchaseBIDCompHeaderLocationIdVL"
+      Type="oracle.jbo.Row"
+      Reversed="true"
+      IsUpdateable="false"/>
 </ViewObject>
