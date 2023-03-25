@@ -68,6 +68,10 @@
          </PIMap>
       </ParameterMap>
    </ViewAccessor>
+   <ViewAccessor
+      Name="AccSysApprovalStatusVO"
+      ViewObjectName="erpadm.modeladm.admvo.SysApprovalStatusVO"
+      RowLevelBinds="true"/>
    <ListBinding
       Name="LovtxtTempProjectName"
       ListVOName="AccGlProjectsVO"
@@ -145,6 +149,24 @@
       <DisplayCriteria
          Name="AdminCompanyFindVC"
          Hint="showAndExecute"/>
+   </ListBinding>
+   <ListBinding
+      Name="LovApprovalStatusSno"
+      ListVOName="AccSysApprovalStatusVO"
+      ListRangeSize="-1"
+      NullValueFlag="none"
+      MRUCount="0">
+      <AttrArray Name="AttrNames">
+         <Item Value="ApprovalStatusSno"/>
+      </AttrArray>
+      <AttrArray Name="AttrExpressions"/>
+      <AttrArray Name="ListAttrNames">
+         <Item Value="ApprovalStatusSno"/>
+      </AttrArray>
+      <AttrArray Name="ListDisplayAttrNames">
+         <Item Value="StatusDescription"/>
+      </AttrArray>
+      <DisplayCriteria/>
    </ListBinding>
    <EntityUsage
       Name="ScmPurchaseBidCompHeader"
@@ -346,7 +368,14 @@
       PrecisionRule="true"
       EntityAttrName="ApprovalStatusSno"
       EntityUsage="ScmPurchaseBidCompHeader"
-      AliasName="APPROVAL_STATUS_SNO" >
+      AliasName="APPROVAL_STATUS_SNO"
+      LOVName="LovApprovalStatusSno">
+      <Properties>
+         <SchemaBasedProperties>
+            <CONTROLTYPE
+               Value="choice"/>
+         </SchemaBasedProperties>
+      </Properties>
    </ViewAttribute>
    <ViewAttribute
       Name="txtLocationName"
@@ -411,6 +440,12 @@
    <ViewLinkAccessor
       Name="GlProjectsVO"
       ViewLink="erpscm.modelscm.scmqvo.GlProjectScmPurBIDHeaderCompTempProjectIdLink"
+      Type="oracle.jbo.Row"
+      Reversed="true"
+      IsUpdateable="false"/>
+   <ViewLinkAccessor
+      Name="ScmPurchaseRfqHeaderVO"
+      ViewLink="erpscm.modelscm.scmvo.ScmPurRfqHeaderScmPurBidCompHeaderRfqHeaderSnoLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false"/>

@@ -52,9 +52,11 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         txtLocationName,
         txtTempDepartmentName,
         txtTempProjectName,
+        txtRfqHeaderCode,
         AdminCompany,
         AdminCompany1,
-        GlProjects;
+        GlProjects,
+        ScmPurchaseRfqHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -108,9 +110,11 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int TXTTEMPDEPARTMENTNAME = AttributesEnum.txtTempDepartmentName.index();
     public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
+    public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
+    public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -592,6 +596,22 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtRfqHeaderCode, using the alias name txtRfqHeaderCode.
+     * @return the value of txtRfqHeaderCode
+     */
+    public String gettxtRfqHeaderCode() {
+        return (String) getAttributeInternal(TXTRFQHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtRfqHeaderCode.
+     * @param value value to set the txtRfqHeaderCode
+     */
+    public void settxtRfqHeaderCode(String value) {
+        setAttributeInternal(TXTRFQHEADERCODE, value);
+    }
+
+    /**
      * @return the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
      */
     public AdminCompanyImpl getAdminCompany() {
@@ -633,6 +653,21 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      */
     public void setGlProjects(GlProjectsImpl value) {
         setAttributeInternal(GLPROJECTS, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmPurchaseRfqHeaderImpl.
+     */
+    public ScmPurchaseRfqHeaderImpl getScmPurchaseRfqHeader() {
+        return (ScmPurchaseRfqHeaderImpl) getAttributeInternal(SCMPURCHASERFQHEADER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmPurchaseRfqHeaderImpl.
+     */
+    public void setScmPurchaseRfqHeader(ScmPurchaseRfqHeaderImpl value) {
+        setAttributeInternal(SCMPURCHASERFQHEADER, value);
     }
 
 

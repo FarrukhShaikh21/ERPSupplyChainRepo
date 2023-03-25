@@ -87,6 +87,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         ScmFobTermVO,
         ScmPurchaseDemandHeaderVO,
         ScmPurchaseBidHeaderVO,
+        ScmPurchaseBidCompHeaderVO,
         AccGlProjectsVO,
         AccAdminCompanyDepartment,
         AccScmPaymentTermHeaderVO,
@@ -185,6 +186,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int SCMFOBTERMVO = AttributesEnum.ScmFobTermVO.index();
     public static final int SCMPURCHASEDEMANDHEADERVO = AttributesEnum.ScmPurchaseDemandHeaderVO.index();
     public static final int SCMPURCHASEBIDHEADERVO = AttributesEnum.ScmPurchaseBidHeaderVO.index();
+    public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
     public static final int ACCADMINCOMPANYDEPARTMENT = AttributesEnum.AccAdminCompanyDepartment.index();
     public static final int ACCSCMPAYMENTTERMHEADERVO = AttributesEnum.AccScmPaymentTermHeaderVO.index();
@@ -1188,6 +1190,13 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDHEADERVO);
     }
 
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseBidCompHeaderVO.
+     */
+    public RowIterator getScmPurchaseBidCompHeaderVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPHEADERVO);
+    }
 
     /**
      * Gets the view accessor <code>RowSet</code> AccGlProjectsVO.
