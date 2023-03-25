@@ -2,6 +2,144 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <af:document title="SCM_0018.jsf" id="d1">
-    <af:form id="f1"></af:form>
+    <af:messages id="m1"/>
+    <af:form id="f1">
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+        <af:dialog id="d2" type="ok">
+          <f:facet name="buttonBar"/>
+          <af:panelGroupLayout layout="vertical" id="pgl2">
+            <af:panelHeader text="Search BID" id="ph1">
+              <af:query id="qryId1" headerText="Search" disclosed="true"
+                        value="#{bindings.ScmPurchaseBidHeaderFindVCQuery.queryDescriptor}"
+                        model="#{bindings.ScmPurchaseBidHeaderFindVCQuery.queryModel}"
+                        queryListener="#{bindings.ScmPurchaseBidHeaderFindVCQuery.processQuery}"
+                        queryOperationListener="#{bindings.ScmPurchaseBidHeaderFindVCQuery.processQueryOperation}"
+                        saveResultsLayout="never" runQueryAutomatically="allSavedSearches" saveQueryMode="hidden"
+                        modeChangeVisible="false"/>
+            </af:panelHeader>
+          </af:panelGroupLayout>
+        </af:dialog>
+      </af:popup>
+      <af:pageTemplate viewId="/ERPTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+        <f:facet name="ERPMain">
+          <af:decorativeBox id="db1" dimensionsFrom="parent" topHeight="40px">
+            <f:facet name="center">
+              <af:panelSplitter id="ps1">
+                <f:facet name="second">
+                  <af:panelGroupLayout id="pgl3" layout="scroll" halign="center">
+                    <af:listView value="#{bindings.ScmPurchaseBidHeaderRO.collectionModel}" var="item" partialTriggers=":::qryId1"
+                                 emptyText="#{bindings.ScmPurchaseBidHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                 fetchSize="#{bindings.ScmPurchaseBidHeaderRO.rangeSize}" id="lv2"
+                                 styleClass="WBDisplayBlockCenter" selection="single"
+                                 selectionListener="#{bindings.ScmPurchaseBidHeaderRO.treeModel.makeCurrent}"
+                                 selectedRowKeys="#{bindings.ScmPurchaseBidHeaderRO.collectionModel.selectedRow}">
+                      <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                        <af:panelGroupLayout id="pgl11" styleClass="WBCardSize" layout="vertical">
+                          <af:panelBox text="PanelBox2" id="pb2" showHeader="never" showDisclosure="false">
+                            <f:facet name="toolbar"/>
+                            <af:panelGridLayout id="pgl4">
+                              <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+                                  <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                    <af:inputText value="#{bindings.BidHeaderSno.inputValue}"
+                                                  label="#{bindings.BidHeaderSno.hints.label}"
+                                                  required="#{bindings.BidHeaderSno.hints.mandatory}"
+                                                  columns="#{bindings.BidHeaderSno.hints.displayWidth}"
+                                                  maximumLength="#{bindings.BidHeaderSno.hints.precision}"
+                                                  shortDesc="#{bindings.BidHeaderSno.hints.tooltip}" id="it1"
+                                                  rendered="false">
+                                      <f:validator binding="#{bindings.BidHeaderSno.validator}"/>
+                                      <af:convertNumber groupingUsed="false" pattern="#{bindings.BidHeaderSno.format}"/>
+                                    </af:inputText>
+                                    <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
+                                             styleClass="ERPLink" action="ERP-ACT-SCM-0017_EDIT"
+                                             shortDesc="BID Code, Click To View Record"/>
+                                    <af:spacer width="10" height="10" id="s3"/>
+                                    <af:outputFormatted value="#{item.bindings.BidHeaderCode.inputValue}" id="of3"
+                                                        styleClass="ERPHeroDetailColor">
+                                      <af:convertNumber groupingUsed="false"
+                                                        pattern="#{bindings.ScmPurchaseBidHeaderRO.hints.BidHeaderCode.format}"/>
+                                    </af:outputFormatted>
+                                    <af:outputFormatted value="#{item.bindings.RfqHeaderCode.inputValue}" id="of1"
+                                                        styleClass="ERPHeroDetailColor">
+                                      <af:convertNumber groupingUsed="false"
+                                                        pattern="#{bindings.ScmPurchaseRfqHeaderRO.hints.RfqHeaderCode.format}"/>
+                                    </af:outputFormatted>
+                                  </af:panelGroupLayout>
+                                </af:gridCell>
+                              </af:gridRow>
+                              <af:gridRow marginTop="5px" height="auto" id="gr4">
+                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
+                                  <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                    <af:image source="#{resource['images:imgDocumentDate.png']}" id="i2"
+                                              shortDesc="Bid Date"/>
+                                    <af:outputFormatted value="#{item.bindings.BidDate.inputValue}" id="of6"
+                                                        styleClass="ERPHeroDetailColor">
+                                      <af:convertDateTime pattern="#{bindings.ScmPurchaseBidHeaderRO.hints.BidDate.format}"/>
+                                    </af:outputFormatted>
+                                    <f:facet name="separator">
+                                      <af:spacer width="10" height="10" id="s2"/>
+                                    </f:facet>
+                                  </af:panelGroupLayout>
+                                </af:gridCell>
+                              </af:gridRow>
+                              <af:gridRow marginTop="5px" height="auto" id="gr5">
+                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5">
+                                  <af:panelGroupLayout id="pgl1" layout="horizontal">
+                                    <af:image source="#{resource['images:imgLocation.png']}" id="i1"
+                                              shortDesc="Location Name"/>
+                                    <af:spacer width="10" height="10" id="s1"/>
+                                    <af:outputFormatted value="#{item.bindings.txtLocationName.inputValue}" id="of8"
+                                                        styleClass="ERPHeroDetailColor"/>
+                                  </af:panelGroupLayout>
+                                </af:gridCell>
+                              </af:gridRow>
+                              <af:gridRow marginTop="5px" height="auto" id="gr9">
+                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
+                                  <af:panelGroupLayout id="pgl12" layout="horizontal">
+                                    <af:image id="i3" shortDesc="Bid Receive Date"
+                                              source="#{resource['images:imgDocumentDate.png']}"/>
+                                    <af:spacer width="10" height="10" id="s4"/>
+                                    <af:outputFormatted value="#{item.bindings.ResponseDate.inputValue}" id="of5"
+                                                        styleClass="ERPHeroDetailColor"/>
+                                  </af:panelGroupLayout>
+                                </af:gridCell>
+                              </af:gridRow>
+                              <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10">
+                                  <af:panelGroupLayout id="pgl9" layout="horizontal">
+                                    <af:image id="i4" shortDesc="Approval Status"
+                                              source="#{resource['images:imgStatus.png']}"/>
+                                    <af:spacer width="10" height="10" id="s6"/>
+                                    <af:outputFormatted value="#{item.bindings.ApprovalStatusSno.inputValue==1?'PREPARED':item.bindings.ApprovalStatusSno.inputValue==2?'FORWARD':item.bindings.ApprovalStatusSno.inputValue==3?'REVERT':item.bindings.ApprovalStatusSno.inputValue==4?'DECLINED':item.bindings.ApprovalStatusSno.inputValue==5?'HOLD':'APPROVED'}"
+                                                        id="of4" styleClass="ERPHeroDetailColor"/>
+                                  </af:panelGroupLayout>
+                                </af:gridCell>
+                              </af:gridRow>
+                            </af:panelGridLayout>
+                          </af:panelBox>
+                        </af:panelGroupLayout>
+                      </af:listItem>
+                    </af:listView>
+                  </af:panelGroupLayout>
+                </f:facet>
+              </af:panelSplitter>
+            </f:facet>
+          </af:decorativeBox>
+        </f:facet>
+        <f:facet name="ERPLeft"/>
+        <f:facet name="ERPToolbar">
+          <af:panelGroupLayout id="pgl6" halign="end" layout="horizontal">
+            <af:link id="l4" partialSubmit="true" icon="#{resource['images:imgFind.png']}">
+              <af:showPopupBehavior popupId="::p1"/>
+            </af:link>
+            <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
+                     action="ERP-ADD-ACT-SCM_0017" shortDesc="Add New Record"/>
+            <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM" partialSubmit="true"
+                     shortDesc="Exit Form"/>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:pageTemplate>
+    </af:form>
   </af:document>
 </f:view>

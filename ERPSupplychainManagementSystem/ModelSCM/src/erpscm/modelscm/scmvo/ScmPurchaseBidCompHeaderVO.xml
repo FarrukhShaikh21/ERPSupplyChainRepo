@@ -481,6 +481,74 @@
       EntityAttrName="txtDemandHeaderCode"
       EntityUsage="ScmPurchaseBidCompHeader"
       AliasName="TXT_DEMAND_HEADER_CODE"/>
+   <ViewCriteria
+      Name="ScmPurchaseBidCompHeaderCompanyAccessVC"
+      ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVO"
+      Conjunction="AND">
+      <Properties>
+         <CustomProperties>
+            <Property
+               Name="displayOperators"
+               Value="InAdvancedMode"/>
+            <Property
+               Name="autoExecute"
+               Value="false"/>
+            <Property
+               Name="allowConjunctionOverride"
+               Value="true"/>
+            <Property
+               Name="showInList"
+               Value="true"/>
+            <Property
+               Name="mode"
+               Value="Basic"/>
+         </CustomProperties>
+      </Properties>
+      <ViewCriteriaRow
+         Name="ScmPurchaseBidCompHeaderCompanyAccessVC_row_0"
+         UpperColumns="1">
+         <ViewCriteriaItem
+            Name="ScmPurchaseBidCompHeaderCompanyAccessVC_ScmPurchaseBidCompHeaderCompanyAccessVC_row_0_AdminCompanyVO"
+            ViewAttribute="AdminCompanyVO"
+            Operator="EXISTS"
+            Conjunction="AND"
+            IsNestedCriteria="true"
+            Required="Optional">
+            <ViewCriteria
+               Name="AdminCompanyVONestedCriteria"
+               ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+               Conjunction="AND">
+               <ViewCriteriaRow
+                  Name="AdminCompanyVONestedCriteria_row_0"
+                  UpperColumns="1">
+                  <ViewCriteriaItem
+                     Name="TempAdminCompanyAccessVO"
+                     ViewAttribute="TempAdminCompanyAccessVO"
+                     Operator="EXISTS"
+                     Conjunction="AND"
+                     IsNestedCriteria="true"
+                     Required="Optional">
+                     <ViewCriteria
+                        Name="TempAdminCompanyAccessVONestedCriteria"
+                        ViewObjectName="erpglobals.modelglobals.globalsvo.TempAdminCompanyAccessVO"
+                        Conjunction="AND">
+                        <ViewCriteriaRow
+                           Name="TempAdminCompanyAccessVONestedCriteria_row_0"
+                           UpperColumns="1">
+                           <ViewCriteriaItem
+                              Name="TempAdminCompanyAccessVONestedCriteria_TempAdminCompanyAccessVONestedCriteria_row_0_CompanyId"
+                              ViewAttribute="CompanyId"
+                              Operator="ISNOTBLANK"
+                              Conjunction="AND"
+                              Required="Optional"/>
+                        </ViewCriteriaRow>
+                     </ViewCriteria>
+                  </ViewCriteriaItem>
+               </ViewCriteriaRow>
+            </ViewCriteria>
+         </ViewCriteriaItem>
+      </ViewCriteriaRow>
+   </ViewCriteria>
    <ViewLinkAccessor
       Name="AdminCompanyVO"
       ViewLink="erpscm.modelscm.scmvo.AdminCompanyScmPurchaseBIDCompHeaderLocationIdVL"
