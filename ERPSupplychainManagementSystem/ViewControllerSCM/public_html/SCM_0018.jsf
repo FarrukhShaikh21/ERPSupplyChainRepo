@@ -39,15 +39,16 @@
                               <af:gridRow marginTop="5px" height="auto" id="gr2">
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
                                   <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                    <af:inputText value="#{bindings.BidHeaderSno.inputValue}"
-                                                  label="#{bindings.BidHeaderSno.hints.label}"
-                                                  required="#{bindings.BidHeaderSno.hints.mandatory}"
-                                                  columns="#{bindings.BidHeaderSno.hints.displayWidth}"
-                                                  maximumLength="#{bindings.BidHeaderSno.hints.precision}"
-                                                  shortDesc="#{bindings.BidHeaderSno.hints.tooltip}" id="it1"
+                                    <af:inputText value="#{bindings.CompareHeaderSno.inputValue}"
+                                                  label="#{bindings.CompareHeaderSno.hints.label}"
+                                                  required="#{bindings.CompareHeaderSno.hints.mandatory}"
+                                                  columns="#{bindings.CompareHeaderSno.hints.displayWidth}"
+                                                  maximumLength="#{bindings.CompareHeaderSno.hints.precision}"
+                                                  shortDesc="#{bindings.CompareHeaderSno.hints.tooltip}" id="it1"
                                                   rendered="false">
-                                      <f:validator binding="#{bindings.BidHeaderSno.validator}"/>
-                                      <af:convertNumber groupingUsed="false" pattern="#{bindings.BidHeaderSno.format}"/>
+                                      <f:validator binding="#{bindings.CompareHeaderSno.validator}"/>
+                                      <af:convertNumber groupingUsed="false"
+                                                        pattern="#{bindings.CompareHeaderSno.format}"/>
                                     </af:inputText>
                                     <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
                                              styleClass="ERPLink" action="ERP-ACT-SCM-0017_EDIT"
@@ -93,8 +94,11 @@
                                     <af:image id="i3" shortDesc="Bid Receive Date"
                                               source="#{resource['images:imgDocumentDate.png']}"/>
                                     <af:spacer width="10" height="10" id="s4"/>
-                                    <af:outputFormatted value="#{item.bindings.ResponseDate.inputValue}" id="of5"
-                                                        styleClass="ERPHeroDetailColor"/>
+                                    <af:outputFormatted value="#{item.bindings.txtRfqHeaderCode.inputValue}" id="of10"
+                                                        styleClass="ERPHeroDetailColor">
+                                      <af:convertNumber groupingUsed="false"
+                                                        pattern="#{bindings.ScmPurchaseBidCompHeaderRO.hints.txtRfqHeaderCode.format}"/>
+                                    </af:outputFormatted>
                                   </af:panelGroupLayout>
                                 </af:gridCell>
                               </af:gridRow>
@@ -112,32 +116,6 @@
                             </af:panelGridLayout>
                           </af:panelBox>
                         </af:panelGroupLayout>
-                        <af:panelGridLayout id="pgl7">
-                          <af:gridRow marginTop="5px" height="auto" id="gr3">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"/>
-                          </af:gridRow>
-                          <af:gridRow marginTop="5px" height="auto" id="gr6">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
-                              <af:outputFormatted value="#{item.bindings.txtLocationName.inputValue}" id="of9"/>
-                            </af:gridCell>
-                          </af:gridRow>
-                          <af:gridRow marginTop="5px" height="auto" id="gr7">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
-                              <af:outputFormatted value="#{item.bindings.txtRfqHeaderCode.inputValue}" id="of10">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.ScmPurchaseBidCompHeaderRO.hints.txtRfqHeaderCode.format}"/>
-                              </af:outputFormatted>
-                            </af:gridCell>
-                          </af:gridRow>
-                          <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8">
-                              <af:outputFormatted value="#{item.bindings.ApprovalStatusSno.inputValue}" id="of11">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.ScmPurchaseBidCompHeaderRO.hints.ApprovalStatusSno.format}"/>
-                              </af:outputFormatted>
-                            </af:gridCell>
-                          </af:gridRow>
-                        </af:panelGridLayout>
                       </af:listItem>
                     </af:listView>
                     <af:listView value="#{bindings.ScmPurchaseBidHeaderRO.collectionModel}" var="item" partialTriggers=":::qryId1"

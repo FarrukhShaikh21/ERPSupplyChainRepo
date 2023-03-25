@@ -859,6 +859,15 @@
     <view id="SCM_0018">
       <page>/SCM_0018.jsf</page>
     </view>
+    <view id="SCM_0018_EDIT">
+      <page>/SCM_0018_EDIT.jsf</page>
+    </view>
+    <method-call id="ExeWithParaBidCompareSCM_0018_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-QRY-SCM_0018_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -2149,6 +2158,20 @@
       <control-flow-case id="__372">
         <from-outcome>ERP-ADD-ACT-SCM_0017</from-outcome>
         <to-activity-id>SCM_0017_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__373">
+      <from-activity-id>SCM_0018</from-activity-id>
+      <control-flow-case id="__374">
+        <from-outcome>ERP-QRY-SCM_0018_EDIT</from-outcome>
+        <to-activity-id>ExeWithParaBidCompareSCM_0018_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__376">
+      <from-activity-id>ExeWithParaBidCompareSCM_0018_EDIT</from-activity-id>
+      <control-flow-case id="__377">
+        <from-outcome>ERP-QRY-SCM_0018_EDIT</from-outcome>
+        <to-activity-id>SCM_0018_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
