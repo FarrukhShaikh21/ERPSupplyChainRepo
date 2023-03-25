@@ -868,6 +868,18 @@
         <fixed-outcome>ERP-QRY-SCM_0018_EDIT</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="CWPBidCompHeadSCM_0018_EDIT">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ADD-SCM_0018_EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeBidCompROSCM_0018">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -2166,12 +2178,37 @@
         <from-outcome>ERP-QRY-SCM_0018_EDIT</from-outcome>
         <to-activity-id>ExeWithParaBidCompareSCM_0018_EDIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__378">
+        <from-outcome>ERP-ADD-SCM_0018_EDIT</from-outcome>
+        <to-activity-id>CWPBidCompHeadSCM_0018_EDIT</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__376">
       <from-activity-id>ExeWithParaBidCompareSCM_0018_EDIT</from-activity-id>
       <control-flow-case id="__377">
         <from-outcome>ERP-QRY-SCM_0018_EDIT</from-outcome>
         <to-activity-id>SCM_0018_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__379">
+      <from-activity-id>CWPBidCompHeadSCM_0018_EDIT</from-activity-id>
+      <control-flow-case id="__380">
+        <from-outcome>ERP-ADD-SCM_0018_EDIT</from-outcome>
+        <to-activity-id>SCM_0018_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__381">
+      <from-activity-id>SCM_0018_EDIT</from-activity-id>
+      <control-flow-case id="__382">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>ExeBidCompROSCM_0018</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__383">
+      <from-activity-id>ExeBidCompROSCM_0018</from-activity-id>
+      <control-flow-case id="__384">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0018</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

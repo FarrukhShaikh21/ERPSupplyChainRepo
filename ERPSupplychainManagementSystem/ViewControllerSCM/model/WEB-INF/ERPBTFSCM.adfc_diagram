@@ -4352,9 +4352,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">1579.0977</property>
+         name="y">1621.9941</property>
       <property
-         name="x">-3271.9785</property>
+         name="x">-3352.9785</property>
    </View>
    <MethodCall
       id="MethodCall393">
@@ -4387,6 +4387,72 @@
       <property
          name="fromOutcome">ERP-QRY-SCM_0018_EDIT</property>
       <property
-         name="sdm:polyPoints">B50,-3288.6484,1487.3965,-3271.9785,1524.7471,T50</property>
+         name="sdm:polyPoints">B50,-3288.6484,1487.3965,-3352.9785,1567.6436,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall396">
+      <property
+         name="activityId">CWPBidCompHeadSCM_0018_EDIT</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CWPBidCompHeadSCM_0018_EDIT&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1632.0977</property>
+      <property
+         name="x">-3116.9805</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase397"
+      from="View390"
+      to="MethodCall396">
+      <property
+         name="fromOutcome">ERP-ADD-SCM_0018_EDIT</property>
+      <property
+         name="sdm:polyPoints">B50,-3139.5,1551.0459,-3116.9805,1577.7471,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase398"
+      from="MethodCall396"
+      to="View392">
+      <property
+         name="fromOutcome">ERP-ADD-SCM_0018_EDIT</property>
+      <property
+         name="sdm:polyPoints">B50,-3116.9805,1685.7471,-3352.9785,1675.6436,B50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall400">
+      <property
+         name="activityId">ExeBidCompROSCM_0018</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeBidCompROSCM_0018&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1588.4482</property>
+      <property
+         name="x">-3221.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase401"
+      from="View392"
+      to="MethodCall400">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">R50,-3311.9785,1621.6436,-3262.5,1588.0977,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase402"
+      from="MethodCall400"
+      to="View390">
+      <property
+         name="fromOutcome">ERPBACKCRUD</property>
+      <property
+         name="sdm:polyPoints">R50,-3180.5,1588.0977,-3180.5,1500.5459,L54</property>
    </ControlFlowCase>
 </SDM>

@@ -4,7 +4,11 @@
                 SkipValidation="true">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
+    <iterator Binds="ScmPurchaseBidCompHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidCompHeaderCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <action IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
+  </bindings>
 </pageDefinition>
