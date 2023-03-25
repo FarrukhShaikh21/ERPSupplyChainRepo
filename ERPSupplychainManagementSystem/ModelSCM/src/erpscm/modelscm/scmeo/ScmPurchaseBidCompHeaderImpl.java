@@ -51,6 +51,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         ApprovalStatusSno,
         txtLocationName,
         txtTempDepartmentName,
+        txtTempProjectName,
         AdminCompany,
         AdminCompany1,
         GlProjects;
@@ -106,6 +107,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int TXTTEMPDEPARTMENTNAME = AttributesEnum.txtTempDepartmentName.index();
+    public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
@@ -571,6 +573,22 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      */
     public void settxtTempDepartmentName(String value) {
         setAttributeInternal(TXTTEMPDEPARTMENTNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtTempProjectName, using the alias name txtTempProjectName.
+     * @return the value of txtTempProjectName
+     */
+    public String gettxtTempProjectName() {
+        return (String) getAttributeInternal(TXTTEMPPROJECTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtTempProjectName.
+     * @param value value to set the txtTempProjectName
+     */
+    public void settxtTempProjectName(String value) {
+        setAttributeInternal(TXTTEMPPROJECTNAME, value);
     }
 
     /**

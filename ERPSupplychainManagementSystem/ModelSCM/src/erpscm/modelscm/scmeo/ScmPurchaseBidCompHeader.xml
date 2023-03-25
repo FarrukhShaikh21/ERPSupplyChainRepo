@@ -530,6 +530,20 @@
       <TransientExpression
          trustMode="untrusted"><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
    </Attribute>
+   <Attribute
+      Name="txtTempProjectName"
+      Precision="80"
+      ColumnName="TXT_TEMP_PROJECT_NAME"
+      SQLType="VARCHAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      IsPersistent="false"
+      IsQueriable="false">
+      <TransientExpression
+         trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+      <RecalcCondition
+         trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+   </Attribute>
    <AccessorAttribute
       Name="AdminCompany"
       Association="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseBIDCompHeaderLocationIdAsso"
