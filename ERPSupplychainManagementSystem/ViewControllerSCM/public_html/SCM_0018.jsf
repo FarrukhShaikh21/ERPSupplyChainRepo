@@ -10,11 +10,11 @@
           <af:panelGroupLayout layout="vertical" id="pgl2">
             <af:panelHeader text="Search BID" id="ph1">
               <af:query id="qryId1" headerText="Search" disclosed="true"
-                        value="#{bindings.ScmPurchaseBidHeaderFindVCQuery.queryDescriptor}"
-                        model="#{bindings.ScmPurchaseBidHeaderFindVCQuery.queryModel}"
-                        queryListener="#{bindings.ScmPurchaseBidHeaderFindVCQuery.processQuery}"
-                        queryOperationListener="#{bindings.ScmPurchaseBidHeaderFindVCQuery.processQueryOperation}"
-                        saveResultsLayout="never" runQueryAutomatically="allSavedSearches" saveQueryMode="hidden"
+                        value="#{bindings.ScmPurchaseBidCompHeaderFindVCQuery.queryDescriptor}"
+                        model="#{bindings.ScmPurchaseBidCompHeaderFindVCQuery.queryModel}"
+                        queryListener="#{bindings.ScmPurchaseBidCompHeaderFindVCQuery.processQuery}"
+                        queryOperationListener="#{bindings.ScmPurchaseBidCompHeaderFindVCQuery.processQueryOperation}"
+                        runQueryAutomatically="allSavedSearches" saveResultsLayout="never" saveQueryMode="hidden"
                         modeChangeVisible="false"/>
             </af:panelHeader>
           </af:panelGroupLayout>
@@ -30,7 +30,9 @@
                     <af:listView value="#{bindings.ScmPurchaseBidCompHeaderRO.collectionModel}" var="item"
                                  emptyText="#{bindings.ScmPurchaseBidCompHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"
                                  fetchSize="#{bindings.ScmPurchaseBidCompHeaderRO.rangeSize}" id="lv1"
-                                 styleClass="WBDisplayBlockCenter">
+                                 styleClass="WBDisplayBlockCenter" selection="single"
+                                 selectionListener="#{bindings.ScmPurchaseBidCompHeaderRO.treeModel.makeCurrent}"
+                                 selectedRowKeys="#{bindings.ScmPurchaseBidCompHeaderRO.collectionModel.selectedRow}">
                       <af:listItem id="li1" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                         <af:panelGroupLayout id="pgl11" styleClass="WBCardSize" layout="vertical">
                           <af:panelBox text="PanelBox2" id="pb2" showHeader="never" showDisclosure="false">
@@ -51,7 +53,7 @@
                                                         pattern="#{bindings.CompareHeaderSno.format}"/>
                                     </af:inputText>
                                     <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
-                                             styleClass="ERPLink" action="ERP-ACT-SCM-0017_EDIT"
+                                             styleClass="ERPLink" action="ERP-QRY-SCM_0018_EDIT"
                                              shortDesc="BID Code, Click To View Record"/>
                                     <af:spacer width="10" height="10" id="s3"/>
                                     <af:outputFormatted value="#{item.bindings.CompareHeaderCode.inputValue}" id="of2"
@@ -118,14 +120,6 @@
                         </af:panelGroupLayout>
                       </af:listItem>
                     </af:listView>
-                    <af:listView value="#{bindings.ScmPurchaseBidHeaderRO.collectionModel}" var="item" partialTriggers=":::qryId1"
-                                 emptyText="#{bindings.ScmPurchaseBidHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                 fetchSize="#{bindings.ScmPurchaseBidHeaderRO.rangeSize}" id="lv2"
-                                 styleClass="WBDisplayBlockCenter" selection="single"
-                                 selectionListener="#{bindings.ScmPurchaseBidHeaderRO.treeModel.makeCurrent}"
-                                 selectedRowKeys="#{bindings.ScmPurchaseBidHeaderRO.collectionModel.selectedRow}">
-                      <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo"/>
-                    </af:listView>
                   </af:panelGroupLayout>
                 </f:facet>
               </af:panelSplitter>
@@ -139,7 +133,7 @@
               <af:showPopupBehavior popupId="::p1"/>
             </af:link>
             <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
-                     action="ERP-ADD-ACT-SCM_0017" shortDesc="Add New Record"/>
+                     action="ERP-ADD-SCM_0018_EDIT" shortDesc="Add New Record"/>
             <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM" partialSubmit="true"
                      shortDesc="Exit Form"/>
           </af:panelGroupLayout>

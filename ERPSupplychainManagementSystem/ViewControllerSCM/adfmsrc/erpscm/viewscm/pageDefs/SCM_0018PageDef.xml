@@ -6,6 +6,10 @@
     <variableIterator id="variables"/>
     <iterator Binds="ScmPurchaseBidCompHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidCompHeaderROIterator"/>
+    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <searchRegion Criteria="ScmPurchaseBidCompHeaderFindVC"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ScmPurchaseBidCompHeaderROIterator" id="ScmPurchaseBidCompHeaderFindVCQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="ScmPurchaseBidCompHeaderROIterator" id="ScmPurchaseBidCompHeaderRO">
