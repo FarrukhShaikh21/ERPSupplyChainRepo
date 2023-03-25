@@ -27,13 +27,11 @@
               <af:panelSplitter id="ps1">
                 <f:facet name="second">
                   <af:panelGroupLayout id="pgl3" layout="scroll" halign="center">
-                    <af:listView value="#{bindings.ScmPurchaseBidHeaderRO.collectionModel}" var="item" partialTriggers=":::qryId1"
-                                 emptyText="#{bindings.ScmPurchaseBidHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                 fetchSize="#{bindings.ScmPurchaseBidHeaderRO.rangeSize}" id="lv2"
-                                 styleClass="WBDisplayBlockCenter" selection="single"
-                                 selectionListener="#{bindings.ScmPurchaseBidHeaderRO.treeModel.makeCurrent}"
-                                 selectedRowKeys="#{bindings.ScmPurchaseBidHeaderRO.collectionModel.selectedRow}">
-                      <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
+                    <af:listView value="#{bindings.ScmPurchaseBidCompHeaderRO.collectionModel}" var="item"
+                                 emptyText="#{bindings.ScmPurchaseBidCompHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                 fetchSize="#{bindings.ScmPurchaseBidCompHeaderRO.rangeSize}" id="lv1"
+                                 styleClass="WBDisplayBlockCenter">
+                      <af:listItem id="li1" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo">
                         <af:panelGroupLayout id="pgl11" styleClass="WBCardSize" layout="vertical">
                           <af:panelBox text="PanelBox2" id="pb2" showHeader="never" showDisclosure="false">
                             <f:facet name="toolbar"/>
@@ -55,15 +53,10 @@
                                              styleClass="ERPLink" action="ERP-ACT-SCM-0017_EDIT"
                                              shortDesc="BID Code, Click To View Record"/>
                                     <af:spacer width="10" height="10" id="s3"/>
-                                    <af:outputFormatted value="#{item.bindings.BidHeaderCode.inputValue}" id="of3"
+                                    <af:outputFormatted value="#{item.bindings.CompareHeaderCode.inputValue}" id="of2"
                                                         styleClass="ERPHeroDetailColor">
                                       <af:convertNumber groupingUsed="false"
-                                                        pattern="#{bindings.ScmPurchaseBidHeaderRO.hints.BidHeaderCode.format}"/>
-                                    </af:outputFormatted>
-                                    <af:outputFormatted value="#{item.bindings.RfqHeaderCode.inputValue}" id="of1"
-                                                        styleClass="ERPHeroDetailColor">
-                                      <af:convertNumber groupingUsed="false"
-                                                        pattern="#{bindings.ScmPurchaseRfqHeaderRO.hints.RfqHeaderCode.format}"/>
+                                                        pattern="#{bindings.ScmPurchaseBidCompHeaderRO.hints.CompareHeaderCode.format}"/>
                                     </af:outputFormatted>
                                   </af:panelGroupLayout>
                                 </af:gridCell>
@@ -73,9 +66,9 @@
                                   <af:panelGroupLayout id="pgl5" layout="horizontal">
                                     <af:image source="#{resource['images:imgDocumentDate.png']}" id="i2"
                                               shortDesc="Bid Date"/>
-                                    <af:outputFormatted value="#{item.bindings.BidDate.inputValue}" id="of6"
+                                    <af:outputFormatted value="#{item.bindings.CompareDate.inputValue}" id="of7"
                                                         styleClass="ERPHeroDetailColor">
-                                      <af:convertDateTime pattern="#{bindings.ScmPurchaseBidHeaderRO.hints.BidDate.format}"/>
+                                      <af:convertDateTime pattern="#{bindings.ScmPurchaseBidCompHeaderRO.hints.CompareDate.format}"/>
                                     </af:outputFormatted>
                                     <f:facet name="separator">
                                       <af:spacer width="10" height="10" id="s2"/>
@@ -119,7 +112,41 @@
                             </af:panelGridLayout>
                           </af:panelBox>
                         </af:panelGroupLayout>
+                        <af:panelGridLayout id="pgl7">
+                          <af:gridRow marginTop="5px" height="auto" id="gr3">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"/>
+                          </af:gridRow>
+                          <af:gridRow marginTop="5px" height="auto" id="gr6">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
+                              <af:outputFormatted value="#{item.bindings.txtLocationName.inputValue}" id="of9"/>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="5px" height="auto" id="gr7">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
+                              <af:outputFormatted value="#{item.bindings.txtRfqHeaderCode.inputValue}" id="of10">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ScmPurchaseBidCompHeaderRO.hints.txtRfqHeaderCode.format}"/>
+                              </af:outputFormatted>
+                            </af:gridCell>
+                          </af:gridRow>
+                          <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc8">
+                              <af:outputFormatted value="#{item.bindings.ApprovalStatusSno.inputValue}" id="of11">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ScmPurchaseBidCompHeaderRO.hints.ApprovalStatusSno.format}"/>
+                              </af:outputFormatted>
+                            </af:gridCell>
+                          </af:gridRow>
+                        </af:panelGridLayout>
                       </af:listItem>
+                    </af:listView>
+                    <af:listView value="#{bindings.ScmPurchaseBidHeaderRO.collectionModel}" var="item" partialTriggers=":::qryId1"
+                                 emptyText="#{bindings.ScmPurchaseBidHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                 fetchSize="#{bindings.ScmPurchaseBidHeaderRO.rangeSize}" id="lv2"
+                                 styleClass="WBDisplayBlockCenter" selection="single"
+                                 selectionListener="#{bindings.ScmPurchaseBidHeaderRO.treeModel.makeCurrent}"
+                                 selectedRowKeys="#{bindings.ScmPurchaseBidHeaderRO.collectionModel.selectedRow}">
+                      <af:listItem id="li2" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo"/>
                     </af:listView>
                   </af:panelGroupLayout>
                 </f:facet>

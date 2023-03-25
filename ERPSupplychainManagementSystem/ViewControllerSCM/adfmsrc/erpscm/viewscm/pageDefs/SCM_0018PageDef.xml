@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SCM_0018PageDef"
+                Package="erpscm.viewscm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ScmPurchaseBidCompHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidCompHeaderROIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ScmPurchaseBidCompHeaderROIterator" id="ScmPurchaseBidCompHeaderRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVO" Name="ScmPurchaseBidCompHeaderRO0">
+        <AttrNames>
+          <Item Value="CompareHeaderCode"/>
+          <Item Value="CompareDate"/>
+          <Item Value="txtLocationName"/>
+          <Item Value="txtRfqHeaderCode"/>
+          <Item Value="ApprovalStatusSno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
