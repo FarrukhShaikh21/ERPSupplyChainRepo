@@ -48,7 +48,9 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         DemandHeaderSno,
         ApprovalStatusSno,
         txtLocationName,
-        AdminCompany;
+        txtTempDepartmentName,
+        AdminCompany,
+        AdminCompany1;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -100,7 +102,9 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
     public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
+    public static final int TXTTEMPDEPARTMENTNAME = AttributesEnum.txtTempDepartmentName.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
+    public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -550,6 +554,22 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtTempDepartmentName, using the alias name txtTempDepartmentName.
+     * @return the value of txtTempDepartmentName
+     */
+    public String gettxtTempDepartmentName() {
+        return (String) getAttributeInternal(TXTTEMPDEPARTMENTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtTempDepartmentName.
+     * @param value value to set the txtTempDepartmentName
+     */
+    public void settxtTempDepartmentName(String value) {
+        setAttributeInternal(TXTTEMPDEPARTMENTNAME, value);
+    }
+
+    /**
      * @return the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
      */
     public AdminCompanyImpl getAdminCompany() {
@@ -561,6 +581,21 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      */
     public void setAdminCompany(AdminCompanyImpl value) {
         setAttributeInternal(ADMINCOMPANY, value);
+    }
+
+
+    /**
+     * @return the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
+     */
+    public AdminCompanyImpl getAdminCompany1() {
+        return (AdminCompanyImpl) getAttributeInternal(ADMINCOMPANY1);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
+     */
+    public void setAdminCompany1(AdminCompanyImpl value) {
+        setAttributeInternal(ADMINCOMPANY1, value);
     }
 
 
