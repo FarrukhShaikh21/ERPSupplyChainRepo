@@ -525,7 +525,12 @@
       SQLType="VARCHAR"
       Type="java.lang.String"
       ColumnType="VARCHAR2"
-      TableName="SCM_PURCHASE_BID_COMP_HEADER"/>
+      TableName="SCM_PURCHASE_BID_COMP_HEADER"
+      IsPersistent="false"
+      IsQueriable="false">
+      <TransientExpression
+         trustMode="untrusted"><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
+   </Attribute>
    <AccessorAttribute
       Name="AdminCompany"
       Association="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseBIDCompHeaderLocationIdAsso"
