@@ -13,7 +13,15 @@
    BindingStyle="JDBC"
    CustomQuery="false"
    SelectAllAttributes="false"
-   PageIterMode="Partial">
+   PageIterMode="Partial"
+   RowClass="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVORowImpl"
+   ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVOImpl">
+   <DesignTime>
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+      <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
+      <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
+      <Attr Name="_isCodegen" Value="true"/>
+   </DesignTime>
    <Variable
       Name="P_ADF_COMPARE_HEADER_SNO"
       Kind="viewcriteria"
@@ -80,6 +88,14 @@
       Name="AccScmPurchaseRfqHeaderVO"
       ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
       RowLevelBinds="true"/>
+   <ViewAccessor
+      Name="AccAdminCompanyForCompVO"
+      ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+      RowLevelBinds="true">
+      <ViewCriteriaUsage
+         Name="AdminCompanyByCompCodeVC"
+         FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompCodeVC"/>
+   </ViewAccessor>
    <ListBinding
       Name="LovtxtTempProjectName"
       ListVOName="AccGlProjectsVO"
@@ -620,18 +636,13 @@
             ViewAttribute="CompareHeaderCode"
             Operator="="
             Conjunction="AND"
-            Value=""
             Required="Optional"/>
          <ViewCriteriaItem
             Name="CompareDate"
             ViewAttribute="CompareDate"
             Operator="BETWEEN"
             Conjunction="AND"
-            Required="Optional">
-            <ViewCriteriaItemValue
-               Name="ScmPurchaseBidCompHeaderVOCriteria_ScmPurchaseBidCompHeaderVOCriteria_row_0_AdminCompanyVO1_vcval0"
-               Value=""/>
-         </ViewCriteriaItem>
+            Required="Optional"/>
          <ViewCriteriaItem
             Name="ScmPurchaseBidCompHeaderVOCriteria_ScmPurchaseBidCompHeaderVOCriteria_row_0_AdminCompanyVO"
             ViewAttribute="AdminCompanyVO"
@@ -651,14 +662,12 @@
                      ViewAttribute="CompanyShortCode"
                      Operator="="
                      Conjunction="AND"
-                     Value=""
                      Required="Optional"/>
                   <ViewCriteriaItem
                      Name="CreatedDate"
                      ViewAttribute="CreatedDate"
                      Operator="="
                      Conjunction="AND"
-                     Value=""
                      Required="Optional"/>
                </ViewCriteriaRow>
             </ViewCriteria>
@@ -682,7 +691,6 @@
                      ViewAttribute="DemandHeaderCode"
                      Operator="="
                      Conjunction="AND"
-                     Value=""
                      Required="Optional"/>
                </ViewCriteriaRow>
             </ViewCriteria>
@@ -706,7 +714,6 @@
                      ViewAttribute="RfqHeaderCode"
                      Operator="="
                      Conjunction="AND"
-                     Value=""
                      Required="Optional"/>
                </ViewCriteriaRow>
             </ViewCriteria>
