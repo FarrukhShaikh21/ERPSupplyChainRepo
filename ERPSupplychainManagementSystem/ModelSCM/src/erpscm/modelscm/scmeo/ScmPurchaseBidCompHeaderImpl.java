@@ -687,6 +687,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         setAttributeInternal(SCMPURCHASEDEMANDHEADER, value);
     }
 
+
     /**
      * @param compareHeaderSno key constituent
 

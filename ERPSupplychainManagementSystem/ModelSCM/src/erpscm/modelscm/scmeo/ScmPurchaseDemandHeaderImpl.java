@@ -637,6 +637,7 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPHEADER);
     }
 
+
     /**
      * @param demandHeaderSno key constituent
 
