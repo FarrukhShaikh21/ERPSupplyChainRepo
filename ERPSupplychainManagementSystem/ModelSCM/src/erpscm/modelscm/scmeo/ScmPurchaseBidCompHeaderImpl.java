@@ -2,6 +2,8 @@ package erpscm.modelscm.scmeo;
 
 import erpadm.modeladm.admeo.AdminCompanyImpl;
 
+import erpfms.modelfms.fmseo.GlProjectsImpl;
+
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import java.sql.Timestamp;
@@ -50,7 +52,8 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         txtLocationName,
         txtTempDepartmentName,
         AdminCompany,
-        AdminCompany1;
+        AdminCompany1,
+        GlProjects;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -105,6 +108,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     public static final int TXTTEMPDEPARTMENTNAME = AttributesEnum.txtTempDepartmentName.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
+    public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -596,6 +600,21 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      */
     public void setAdminCompany1(AdminCompanyImpl value) {
         setAttributeInternal(ADMINCOMPANY1, value);
+    }
+
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlProjectsImpl.
+     */
+    public GlProjectsImpl getGlProjects() {
+        return (GlProjectsImpl) getAttributeInternal(GLPROJECTS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlProjectsImpl.
+     */
+    public void setGlProjects(GlProjectsImpl value) {
+        setAttributeInternal(GLPROJECTS, value);
     }
 
 

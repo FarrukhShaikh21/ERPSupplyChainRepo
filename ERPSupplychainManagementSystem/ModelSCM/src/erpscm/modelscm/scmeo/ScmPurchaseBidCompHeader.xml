@@ -525,7 +525,6 @@
       SQLType="VARCHAR"
       Type="java.lang.String"
       ColumnType="VARCHAR2"
-      TableName="SCM_PURCHASE_BID_COMP_HEADER"
       IsPersistent="false"
       IsQueriable="false">
       <TransientExpression
@@ -544,6 +543,13 @@
       AssociationEnd="erpscm.modelscm.scmeo.AdminCompanySCMPurBIDCompHeaderTempDepartmentIDAsso.AdminCompany1"
       AssociationOtherEnd="erpscm.modelscm.scmeo.AdminCompanySCMPurBIDCompHeaderTempDepartmentIDAsso.ScmPurchaseBidCompHeader"
       Type="erpadm.modeladm.admeo.AdminCompanyImpl"
+      IsUpdateable="true"/>
+   <AccessorAttribute
+      Name="GlProjects"
+      Association="erpscm.modelscm.scmeo.GlProjectScmPurBIDHeaderCompTempProjectIdAsso"
+      AssociationEnd="erpscm.modelscm.scmeo.GlProjectScmPurBIDHeaderCompTempProjectIdAsso.GlProjects"
+      AssociationOtherEnd="erpscm.modelscm.scmeo.GlProjectScmPurBIDHeaderCompTempProjectIdAsso.ScmPurchaseBidCompHeader"
+      Type="erpfms.modelfms.fmseo.GlProjectsImpl"
       IsUpdateable="true"/>
    <Key
       Name="PkScmPurchaseBidCompHead"
@@ -586,6 +592,17 @@
       </DesignTime>
       <AttrArray Name="Attributes">
          <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader.TempDepartmentId"/>
+      </AttrArray>
+   </Key>
+   <Key
+      Name="fk_ScmPurchaseBidCompHeader2">
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="PK_PROJECTS"/>
+         <Attr Name="_isForeign" Value="true"/>
+         <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_BID_COMP_HEADE"/>
+      </DesignTime>
+      <AttrArray Name="Attributes">
+         <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader.TempProjectId"/>
       </AttrArray>
    </Key>
    <ResourceBundle>
