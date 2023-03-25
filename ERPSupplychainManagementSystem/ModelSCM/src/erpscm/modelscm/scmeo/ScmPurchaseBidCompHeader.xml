@@ -549,13 +549,22 @@
       Precision="80"
       ColumnName="TXT_RFQ_HEADER_CODE"
       SQLType="VARCHAR"
-      Type="java.lang.String"
+      Type="java.lang.Integer"
       ColumnType="VARCHAR2"
       IsPersistent="false"
       IsQueriable="false">
       <TransientExpression
          trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
    </Attribute>
+   <Attribute
+      Name="txtDemandHeaderCode"
+      ColumnName="TXT_DEMAND_HEADER_CODE"
+      SQLType="INTEGER"
+      Type="java.lang.Integer"
+      ColumnType="INTEGER"
+      TableName="SCM_PURCHASE_BID_COMP_HEADER"
+      IsPersistent="false"
+      IsQueriable="false"/>
    <AccessorAttribute
       Name="AdminCompany"
       Association="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseBIDCompHeaderLocationIdAsso"

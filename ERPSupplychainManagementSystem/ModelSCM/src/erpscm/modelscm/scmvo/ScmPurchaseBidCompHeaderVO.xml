@@ -72,6 +72,10 @@
       Name="AccSysApprovalStatusVO"
       ViewObjectName="erpadm.modeladm.admvo.SysApprovalStatusVO"
       RowLevelBinds="true"/>
+   <ViewAccessor
+      Name="AccScmPurchaseRfqHeaderVO"
+      ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
+      RowLevelBinds="true"/>
    <ListBinding
       Name="LovtxtTempProjectName"
       ListVOName="AccGlProjectsVO"
@@ -167,6 +171,34 @@
          <Item Value="StatusDescription"/>
       </AttrArray>
       <DisplayCriteria/>
+   </ListBinding>
+   <ListBinding
+      Name="LovtxtRfqHeaderCode"
+      ListVOName="AccScmPurchaseRfqHeaderVO"
+      ListRangeSize="-1"
+      ComboRowCountHint="10"
+      NullValueFlag="none"
+      MRUCount="0">
+      <AttrArray Name="AttrNames">
+         <Item Value="txtRfqHeaderCode"/>
+      </AttrArray>
+      <AttrArray Name="AttrExpressions"/>
+      <AttrArray Name="DerivedAttrNames">
+         <Item Value="RfqHeaderSno"/>
+         <Item Value="DemandHeaderSno"/>
+      </AttrArray>
+      <AttrArray Name="ListAttrNames">
+         <Item Value="RfqHeaderCode"/>
+         <Item Value="RfqHeaderSno"/>
+         <Item Value="DemandHeaderSno"/>
+      </AttrArray>
+      <AttrArray Name="ListDisplayAttrNames">
+         <Item Value="RfqHeaderCode"/>
+         <Item Value="RfqDate"/>
+      </AttrArray>
+      <DisplayCriteria
+         Name="ScmPurchaseRfqHeaderFindVC"
+         Hint="showAndExecute"/>
    </ListBinding>
    <EntityUsage
       Name="ScmPurchaseBidCompHeader"
@@ -432,7 +464,23 @@
       PrecisionRule="true"
       EntityAttrName="txtRfqHeaderCode"
       EntityUsage="ScmPurchaseBidCompHeader"
-      AliasName="TXT_RFQ_HEADER_CODE"/>
+      AliasName="TXT_RFQ_HEADER_CODE"
+      LOVName="LovtxtRfqHeaderCode">
+      <Properties>
+         <SchemaBasedProperties>
+            <CONTROLTYPE
+               Value="combo_lov"/>
+         </SchemaBasedProperties>
+      </Properties>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="txtDemandHeaderCode"
+      IsQueriable="false"
+      IsPersistent="false"
+      PrecisionRule="true"
+      EntityAttrName="txtDemandHeaderCode"
+      EntityUsage="ScmPurchaseBidCompHeader"
+      AliasName="TXT_DEMAND_HEADER_CODE"/>
    <ViewLinkAccessor
       Name="AdminCompanyVO"
       ViewLink="erpscm.modelscm.scmvo.AdminCompanyScmPurchaseBIDCompHeaderLocationIdVL"

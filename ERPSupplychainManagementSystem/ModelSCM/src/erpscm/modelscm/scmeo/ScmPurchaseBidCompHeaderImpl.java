@@ -53,6 +53,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         txtTempDepartmentName,
         txtTempProjectName,
         txtRfqHeaderCode,
+        txtDemandHeaderCode,
         AdminCompany,
         AdminCompany1,
         GlProjects,
@@ -112,6 +113,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     public static final int TXTTEMPDEPARTMENTNAME = AttributesEnum.txtTempDepartmentName.index();
     public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
+    public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
@@ -601,16 +603,32 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      * Gets the attribute value for txtRfqHeaderCode, using the alias name txtRfqHeaderCode.
      * @return the value of txtRfqHeaderCode
      */
-    public String gettxtRfqHeaderCode() {
-        return (String) getAttributeInternal(TXTRFQHEADERCODE);
+    public Integer gettxtRfqHeaderCode() {
+        return (Integer) getAttributeInternal(TXTRFQHEADERCODE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for txtRfqHeaderCode.
      * @param value value to set the txtRfqHeaderCode
      */
-    public void settxtRfqHeaderCode(String value) {
+    public void settxtRfqHeaderCode(Integer value) {
         setAttributeInternal(TXTRFQHEADERCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtDemandHeaderCode, using the alias name txtDemandHeaderCode.
+     * @return the value of txtDemandHeaderCode
+     */
+    public Integer gettxtDemandHeaderCode() {
+        return (Integer) getAttributeInternal(TXTDEMANDHEADERCODE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDemandHeaderCode.
+     * @param value value to set the txtDemandHeaderCode
+     */
+    public void settxtDemandHeaderCode(Integer value) {
+        setAttributeInternal(TXTDEMANDHEADERCODE, value);
     }
 
     /**
