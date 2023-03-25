@@ -425,6 +425,14 @@
          </SchemaBasedProperties>
       </Properties>
    </ViewAttribute>
+   <ViewAttribute
+      Name="txtRfqHeaderCode"
+      IsQueriable="false"
+      IsPersistent="false"
+      PrecisionRule="true"
+      EntityAttrName="txtRfqHeaderCode"
+      EntityUsage="ScmPurchaseBidCompHeader"
+      AliasName="TXT_RFQ_HEADER_CODE"/>
    <ViewLinkAccessor
       Name="AdminCompanyVO"
       ViewLink="erpscm.modelscm.scmvo.AdminCompanyScmPurchaseBIDCompHeaderLocationIdVL"

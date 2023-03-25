@@ -56,7 +56,8 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         AdminCompany,
         AdminCompany1,
         GlProjects,
-        ScmPurchaseRfqHeader;
+        ScmPurchaseRfqHeader,
+        ScmPurchaseDemandHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -115,6 +116,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
+    public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -670,6 +672,20 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         setAttributeInternal(SCMPURCHASERFQHEADER, value);
     }
 
+
+    /**
+     * @return the associated entity ScmPurchaseDemandHeaderImpl.
+     */
+    public ScmPurchaseDemandHeaderImpl getScmPurchaseDemandHeader() {
+        return (ScmPurchaseDemandHeaderImpl) getAttributeInternal(SCMPURCHASEDEMANDHEADER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmPurchaseDemandHeaderImpl.
+     */
+    public void setScmPurchaseDemandHeader(ScmPurchaseDemandHeaderImpl value) {
+        setAttributeInternal(SCMPURCHASEDEMANDHEADER, value);
+    }
 
     /**
      * @param compareHeaderSno key constituent

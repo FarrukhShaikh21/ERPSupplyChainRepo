@@ -551,7 +551,11 @@
       SQLType="VARCHAR"
       Type="java.lang.String"
       ColumnType="VARCHAR2"
-      TableName="SCM_PURCHASE_BID_COMP_HEADER"/>
+      IsPersistent="false"
+      IsQueriable="false">
+      <TransientExpression
+         trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
+   </Attribute>
    <AccessorAttribute
       Name="AdminCompany"
       Association="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseBIDCompHeaderLocationIdAsso"
@@ -579,6 +583,13 @@
       AssociationEnd="erpscm.modelscm.scmeo.ScmPurRfqHeaderScmPurBidCompHeaderRfqHeaderSnoAsso.ScmPurchaseRfqHeader"
       AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurRfqHeaderScmPurBidCompHeaderRfqHeaderSnoAsso.ScmPurchaseBidCompHeader"
       Type="erpscm.modelscm.scmeo.ScmPurchaseRfqHeaderImpl"
+      IsUpdateable="true"/>
+   <AccessorAttribute
+      Name="ScmPurchaseDemandHeader"
+      Association="erpscm.modelscm.scmeo.ScmPurDemandHeadScmPurBIDCompHeadDemandHeaderSnoAsso"
+      AssociationEnd="erpscm.modelscm.scmeo.ScmPurDemandHeadScmPurBIDCompHeadDemandHeaderSnoAsso.ScmPurchaseDemandHeader"
+      AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurDemandHeadScmPurBIDCompHeadDemandHeaderSnoAsso.ScmPurchaseBidCompHeader"
+      Type="erpscm.modelscm.scmeo.ScmPurchaseDemandHeaderImpl"
       IsUpdateable="true"/>
    <Key
       Name="PkScmPurchaseBidCompHead"
@@ -643,6 +654,17 @@
       </DesignTime>
       <AttrArray Name="Attributes">
          <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader.RfqHeaderSno"/>
+      </AttrArray>
+   </Key>
+   <Key
+      Name="fk_ScmPurchaseBidCompHeader4">
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="PK_SCM_PUECHASE_DEMAND_HEADER"/>
+         <Attr Name="_isForeign" Value="true"/>
+         <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_BID_COMP_HEADE"/>
+      </DesignTime>
+      <AttrArray Name="Attributes">
+         <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader.DemandHeaderSno"/>
       </AttrArray>
    </Key>
    <ResourceBundle>
