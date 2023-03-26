@@ -58,7 +58,7 @@
                                                          action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
                                                          disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.BidHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
                                                          partialTriggers="l7" shortDesc="Un Supervise Record">
-                                                    <af:setActionListener from="#{'ScmPurchaseBidHeaderCRUDIterator'}"
+                                                    <af:setActionListener from="#{'ScmPurchaseBidCompHeaderCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 </af:link>
                                                 <af:link text="Supervise" id="l19" partialSubmit="true"
@@ -67,7 +67,7 @@
                                                          action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
                                                          disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.BidHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
                                                          partialTriggers="l7" shortDesc="Supervise Record">
-                                                    <af:setActionListener from="#{'ScmPurchaseBidHeaderCRUDIterator'}"
+                                                    <af:setActionListener from="#{'ScmPurchaseBidCompHeaderCRUDIterator'}"
                                                                           to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
                                                 </af:link>
                                                 <af:link text="Delete" id="l9"
@@ -120,14 +120,14 @@
                                     <af:gridRow id="gr3" marginTop="5px" marginBottom="5px">
                                         <af:gridCell id="gc3" columnSpan="8" styleClass="ERPEntryAreaHeading"
                                                      halign="stretch" valign="stretch" rowSpan="1">
-                                            <af:outputText value="Purchase BID Receive" id="ot4"
+                                            <af:outputText value="Purchase BID Comparison" id="ot4"
                                                            styleClass="ERPEntryAreaFont"/>
                                         </af:gridCell>
                                     </af:gridRow>
                                     <af:gridRow marginTop="5px" height="auto" id="gr4" marginBottom="5px">
                                         <af:gridCell width="13%" id="gc4" marginEnd="5px" halign="center"
                                                      valign="middle">
-                                            <af:outputLabel value="#{bindings.BidHeaderCode.hints.label}" id="ol3"/>
+                                            <af:outputLabel value="#{bindings.CompareHeaderCode.hints.label}" id="ol3"/>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="20%" id="gc5" halign="stretch"
                                                      valign="middle">
@@ -158,6 +158,17 @@
                                                           rendered="false">
                                                 <f:validator binding="#{bindings.IsSupervised.validator}"/>
                                             </af:inputText>
+                                            <af:inputText value="#{bindings.CompareHeaderCode.inputValue}"
+                                                          label="#{bindings.CompareHeaderCode.hints.label}"
+                                                          required="#{bindings.CompareHeaderCode.hints.mandatory}"
+                                                          columns="#{bindings.CompareHeaderCode.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CompareHeaderCode.hints.precision}"
+                                                          shortDesc="#{bindings.CompareHeaderCode.hints.tooltip}"
+                                                          id="it16" simple="true" readOnly="true">
+                                                <f:validator binding="#{bindings.CompareHeaderCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.CompareHeaderCode.format}"/>
+                                            </af:inputText>
                                             <af:inputText value="#{bindings.BidHeaderCode.inputValue}"
                                                           label="#{bindings.BidHeaderCode.hints.label}"
                                                           required="#{bindings.BidHeaderCode.hints.mandatory}"
@@ -172,17 +183,17 @@
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="13%" id="gc6" halign="center"
                                                      valign="middle">
-                                            <af:outputLabel value="#{bindings.BidDate.hints.label}" id="ol1"/>
+                                            <af:outputLabel value="#{bindings.CompareDate.hints.label}" id="ol1"/>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="20%" id="gc7" valign="middle">
-                                            <af:inputDate value="#{bindings.BidDate.inputValue}"
-                                                          label="#{bindings.BidDate.hints.label}"
-                                                          required="#{bindings.BidDate.hints.mandatory}"
-                                                          columns="#{bindings.BidDate.hints.displayWidth}"
-                                                          shortDesc="#{bindings.BidDate.hints.tooltip}" id="id2"
+                                            <af:inputDate value="#{bindings.CompareDate.inputValue}"
+                                                          label="#{bindings.CompareDate.hints.label}"
+                                                          required="#{bindings.CompareDate.hints.mandatory}"
+                                                          columns="#{bindings.CompareDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.CompareDate.hints.tooltip}" id="id1"
                                                           simple="true">
-                                                <f:validator binding="#{bindings.BidDate.validator}"/>
-                                                <af:convertDateTime pattern="#{bindings.BidDate.format}"/>
+                                                <f:validator binding="#{bindings.CompareDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.CompareDate.format}"/>
                                             </af:inputDate>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="13%" id="gc8" halign="center"
@@ -207,26 +218,10 @@
                                     </af:gridRow>
                                     <af:gridRow id="gr10" marginTop="5px" marginBottom="5px">
                                         <af:gridCell id="gc22" width="13%" halign="center" valign="middle">
-                                            <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol8"/>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc23" width="21%" halign="stretch" valign="middle">
-                                            <af:inputComboboxListOfValues id="txtSupplierNameId"
-                                                                          popupTitle="Search and Select: #{bindings.txtSupplierName.hints.label}"
-                                                                          value="#{bindings.txtSupplierName.inputValue}"
-                                                                          label="#{bindings.txtSupplierName.hints.label}"
-                                                                          model="#{bindings.txtSupplierName.listOfValuesModel}"
-                                                                          required="#{bindings.txtSupplierName.hints.mandatory}"
-                                                                          columns="#{bindings.txtSupplierName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
-                                                                          simple="true"
-                                                                          partialTriggers="txtLocationNameId"
-                                                                          contentStyle="width:90%" autoSubmit="true">
-                                                <f:validator binding="#{bindings.txtSupplierName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc24" width="13%" halign="center" valign="middle">
                                             <af:outputLabel value="#{bindings.txtRfqHeaderCode.hints.label}" id="ol10"/>
                                         </af:gridCell>
+                                        <af:gridCell id="gc23" width="21%" halign="stretch" valign="middle"/>
+                                        <af:gridCell id="gc24" width="13%" halign="center" valign="middle"/>
                                         <af:gridCell id="gc25" width="20%" halign="stretch" valign="middle">
                                             <af:inputComboboxListOfValues id="txtRfqHeaderCodeId"
                                                                           popupTitle="Search and Select: #{bindings.txtRfqHeaderCode.hints.label}"

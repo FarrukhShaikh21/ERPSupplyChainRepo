@@ -47,6 +47,14 @@
       Type="java.lang.Integer"
       ColumnType="NUMBER"
       TableName="SCM_PURCHASE_BID_COMP_HEADER" >
+      <Properties>
+         <SchemaBasedProperties>
+            <LABEL
+               ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader.CompareHeaderCode_LABEL"/>
+            <DISPLAYWIDTH
+               Value="20"/>
+         </SchemaBasedProperties>
+      </Properties>
    </Attribute>
    <Attribute
       Name="RfqHeaderSno"
@@ -562,7 +570,6 @@
       SQLType="INTEGER"
       Type="java.lang.Integer"
       ColumnType="INTEGER"
-      TableName="SCM_PURCHASE_BID_COMP_HEADER"
       IsPersistent="false"
       IsQueriable="false"/>
    <AccessorAttribute
