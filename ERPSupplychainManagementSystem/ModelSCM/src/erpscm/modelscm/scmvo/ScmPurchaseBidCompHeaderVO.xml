@@ -14,12 +14,12 @@
    CustomQuery="false"
    SelectAllAttributes="false"
    PageIterMode="Partial"
-   RowClass="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVORowImpl"
-   ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVOImpl">
+   ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVOImpl"
+   RowClass="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVORowImpl">
    <DesignTime>
-      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
       <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
       <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
       <Attr Name="_isCodegen" Value="true"/>
    </DesignTime>
    <Variable
@@ -95,6 +95,17 @@
       <ViewCriteriaUsage
          Name="AdminCompanyByCompCodeVC"
          FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompCodeVC"/>
+   </ViewAccessor>
+   <ViewAccessor
+      Name="AccSysSystemParameterVO"
+      ViewObjectName="erpadm.modeladm.admvo.SysSystemParameterVO"
+      RowLevelBinds="true">
+      <ViewCriteriaUsage
+         Name="SysSystemParameterByGlobalCompanyVC"
+         FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByGlobalCompanyVC"/>
+      <ViewCriteriaUsage
+         Name="SysSystemParameterByParameterVC"
+         FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByParameterVC"/>
    </ViewAccessor>
    <ListBinding
       Name="LovtxtTempProjectName"
@@ -206,11 +217,15 @@
       <AttrArray Name="DerivedAttrNames">
          <Item Value="RfqHeaderSno"/>
          <Item Value="DemandHeaderSno"/>
+         <Item Value="TempDepartmentId"/>
+         <Item Value="TempProjectId"/>
       </AttrArray>
       <AttrArray Name="ListAttrNames">
          <Item Value="RfqHeaderCode"/>
          <Item Value="RfqHeaderSno"/>
          <Item Value="DemandHeaderSno"/>
+         <Item Value="TempDepartmentId"/>
+         <Item Value="TempProjectId"/>
       </AttrArray>
       <AttrArray Name="ListDisplayAttrNames">
          <Item Value="RfqHeaderCode"/>
@@ -546,8 +561,8 @@
                      ViewAttribute="TempAdminCompanyAccessVO"
                      Operator="EXISTS"
                      Conjunction="AND"
-                     IsNestedCriteria="true"
-                     Required="Optional">
+                     Required="Optional"
+                     IsNestedCriteria="true">
                      <ViewCriteria
                         Name="TempAdminCompanyAccessVONestedCriteria"
                         ViewObjectName="erpglobals.modelglobals.globalsvo.TempAdminCompanyAccessVO"

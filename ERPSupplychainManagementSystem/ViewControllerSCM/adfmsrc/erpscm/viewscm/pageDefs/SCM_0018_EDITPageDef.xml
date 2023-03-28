@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="ScmPurchaseBidCompHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidCompHeaderCRUDIterator"/>
+    <iterator Binds="ScmPurchaseBidCompHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidCompHeaderROIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="IsCancelled">
@@ -40,6 +42,24 @@
     <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="txtDemandHeaderCode">
       <AttrNames>
         <Item Value="txtDemandHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" StaticList="false" Uses="LovtxtTempProjectName"
+                  id="txtTempProjectName"/>
+    <listOfValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" StaticList="false" Uses="LovtxtTempDepartmentName"
+                  id="txtTempDepartmentName"/>
+    <list IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" StaticList="false" Uses="LovApprovalStatusSno"
+          id="ApprovalStatusSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action IterBinding="ScmPurchaseBidCompHeaderROIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="ScmPurchaseBidCompHeaderROIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
+    <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
       </AttrNames>
     </attributeValues>
   </bindings>

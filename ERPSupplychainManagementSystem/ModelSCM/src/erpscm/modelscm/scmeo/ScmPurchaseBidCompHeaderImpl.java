@@ -720,6 +720,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      * @param attributeList list of attribute names/values to initialize the row
      */
     protected void create(AttributeList attributeList) {
+        setERPTableName("SCM_PURCHASE_BID_COMP_HEAD_SEQ");
         super.create(attributeList);
     }
 

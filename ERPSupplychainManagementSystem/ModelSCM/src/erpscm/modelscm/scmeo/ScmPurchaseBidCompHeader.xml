@@ -162,7 +162,7 @@
       ColumnType="NUMBER"
       TableName="SCM_PURCHASE_BID_COMP_HEADER" >
       <TransientExpression
-         trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+         trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
       <Properties>
          <SchemaBasedProperties>
             <DISPLAYWIDTH
@@ -492,7 +492,8 @@
       SQLType="NUMERIC"
       Type="java.lang.Integer"
       ColumnType="NUMBER"
-      TableName="SCM_PURCHASE_BID_COMP_HEADER" >
+      TableName="SCM_PURCHASE_BID_COMP_HEADER"
+      DefaultValue="1">
       <Properties>
          <SchemaBasedProperties>
             <LABEL
@@ -510,7 +511,7 @@
       IsPersistent="false"
       IsQueriable="false">
       <TransientExpression
-         trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+         trustMode="trusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
       <RecalcCondition
          trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
       <Properties>
@@ -536,7 +537,15 @@
       IsPersistent="false"
       IsQueriable="false">
       <TransientExpression
-         trustMode="untrusted"><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
+         trustMode="trusted"><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
+      <Properties>
+         <SchemaBasedProperties>
+            <LABEL
+               ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader.txtTempDepartmentName_LABEL"/>
+            <DISPLAYWIDTH
+               Value="20"/>
+         </SchemaBasedProperties>
+      </Properties>
    </Attribute>
    <Attribute
       Name="txtTempProjectName"
@@ -548,9 +557,17 @@
       IsPersistent="false"
       IsQueriable="false">
       <TransientExpression
-         trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+         trustMode="trusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
       <RecalcCondition
          trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+      <Properties>
+         <SchemaBasedProperties>
+            <DISPLAYWIDTH
+               Value="20"/>
+            <LABEL
+               ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader.txtTempProjectName_LABEL"/>
+         </SchemaBasedProperties>
+      </Properties>
    </Attribute>
    <Attribute
       Name="txtRfqHeaderCode"
@@ -562,7 +579,15 @@
       IsPersistent="false"
       IsQueriable="false">
       <TransientExpression
-         trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
+         trustMode="trusted"><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
+      <Properties>
+         <SchemaBasedProperties>
+            <LABEL
+               ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader.txtRfqHeaderCode_LABEL"/>
+            <DISPLAYWIDTH
+               Value="20"/>
+         </SchemaBasedProperties>
+      </Properties>
    </Attribute>
    <Attribute
       Name="txtDemandHeaderCode"
@@ -571,7 +596,16 @@
       Type="java.lang.Integer"
       ColumnType="INTEGER"
       IsPersistent="false"
-      IsQueriable="false"/>
+      IsQueriable="false">
+      <Properties>
+         <SchemaBasedProperties>
+            <DISPLAYWIDTH
+               Value="20"/>
+            <LABEL
+               ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader.txtDemandHeaderCode_LABEL"/>
+         </SchemaBasedProperties>
+      </Properties>
+   </Attribute>
    <AccessorAttribute
       Name="AdminCompany"
       Association="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseBIDCompHeaderLocationIdAsso"
