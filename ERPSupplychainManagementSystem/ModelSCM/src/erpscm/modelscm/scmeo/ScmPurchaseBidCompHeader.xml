@@ -161,8 +161,7 @@
       Type="java.lang.Integer"
       ColumnType="NUMBER"
       TableName="SCM_PURCHASE_BID_COMP_HEADER" >
-      <TransientExpression
-         trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
       <Properties>
          <SchemaBasedProperties>
             <DISPLAYWIDTH
@@ -510,8 +509,7 @@
       ColumnType="VARCHAR2"
       IsPersistent="false"
       IsQueriable="false">
-      <TransientExpression
-         trustMode="trusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+      <TransientExpression><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
       <RecalcCondition
          trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
       <Properties>
@@ -536,8 +534,7 @@
       ColumnType="VARCHAR2"
       IsPersistent="false"
       IsQueriable="false">
-      <TransientExpression
-         trustMode="trusted"><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
+      <TransientExpression><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
       <Properties>
          <SchemaBasedProperties>
             <LABEL
@@ -556,8 +553,7 @@
       ColumnType="VARCHAR2"
       IsPersistent="false"
       IsQueriable="false">
-      <TransientExpression
-         trustMode="trusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+      <TransientExpression><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
       <RecalcCondition
          trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
       <Properties>
@@ -578,8 +574,7 @@
       ColumnType="VARCHAR2"
       IsPersistent="false"
       IsQueriable="false">
-      <TransientExpression
-         trustMode="trusted"><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
+      <TransientExpression><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
       <Properties>
          <SchemaBasedProperties>
             <LABEL
@@ -641,6 +636,13 @@
       AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurDemandHeadScmPurBIDCompHeadDemandHeaderSnoAsso.ScmPurchaseBidCompHeader"
       Type="erpscm.modelscm.scmeo.ScmPurchaseDemandHeaderImpl"
       IsUpdateable="true"/>
+   <AccessorAttribute
+      Name="ScmPurchaseBidCompareItem"
+      Association="erpscm.modelscm.scmeo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoAsso"
+      AssociationEnd="erpscm.modelscm.scmeo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoAsso.ScmPurchaseBidCompareItem"
+      AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoAsso.ScmPurchaseBidCompHeader"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
    <Key
       Name="PkScmPurchaseBidCompHead"
       PrimaryKey="true" >

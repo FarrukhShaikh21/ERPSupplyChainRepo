@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -58,7 +59,8 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         AdminCompany1,
         GlProjects,
         ScmPurchaseRfqHeader,
-        ScmPurchaseDemandHeader;
+        ScmPurchaseDemandHeader,
+        ScmPurchaseBidCompareItem;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -119,6 +121,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
+    public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -703,6 +706,14 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      */
     public void setScmPurchaseDemandHeader(ScmPurchaseDemandHeaderImpl value) {
         setAttributeInternal(SCMPURCHASEDEMANDHEADER, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseBidCompareItem() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPAREITEM);
     }
 
 
