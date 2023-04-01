@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SCM_0001_EDITPageDef"
+                Package="erpscm.viewscm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ScmParameterByCompanyCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmParameterByCompanyCRUDIterator"/>
+    <iterator Binds="AdminCompanyVOByCompanyRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="AdminCompanyVOByCompanyROIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ScmParameterByCompanyCRUDIterator" id="ScmParameterByCompanyCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmParameterVO" Name="ScmParameterByCompanyCRUD">
+        <AttrNames>
+          <Item Value="ParameterId"/>
+          <Item Value="ParameterValue"/>
+          <Item Value="ParameterDescrption"/>
+          <Item Value="IsActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompCode">
+      <AttrNames>
+        <Item Value="CompCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortName">
+      <AttrNames>
+        <Item Value="CompanyShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyShortCode">
+      <AttrNames>
+        <Item Value="CompanyShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AdminCompanyVOByCompanyROIterator" id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" DataControl="ERPSCMModuleDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="ScmParameterByCompanyCRUDIterator" id="CreateInsert"
+            InstanceName="ERPSCMModuleDataControl.ScmParameterByCompanyCRUD" DataControl="ERPSCMModuleDataControl"
+            RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{bindings.CompCode.inputValue}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ScmParameterByCompanyCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ScmFobTermScmPurcRfqHeadFobTermSnoVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpscm.modelscm.scmeo.ScmFobTermScmPurcRfqHeadFobTermSnoAsso">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpscm.modelscm.scmvo.ScmFobTermScmPurcRfqHeadFobTermSnoVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="ScmFobTermVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpscm.modelscm.scmvo.ScmFobTermVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="ScmFobTermVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmvo.ScmFobTermVO.FobTermSno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ScmPurchaseRfqHeaderVO"
+    Cardinality="-1"
+    Owner="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ScmPurchaseRfqHeaderVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO.FobTermSno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
+</ViewLink>

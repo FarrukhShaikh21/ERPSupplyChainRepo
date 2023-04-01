@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1" id="SCM_0003_EDIT_EDITPageDef"
+                Package="erpscm.viewscm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ScmPaymentTermHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPaymentTermHeaderCRUDIterator"/>
+    <iterator Binds="ScmPaymentTermDueDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPaymentTermDueDetCRUDIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="ScmPaymentTermDiscountDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPaymentTermDiscountDetCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="PaymentTermHeaderSno">
+      <AttrNames>
+        <Item Value="PaymentTermHeaderSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="PaymentTermHeaderCode">
+      <AttrNames>
+        <Item Value="PaymentTermHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="PaymentTermShortName">
+      <AttrNames>
+        <Item Value="PaymentTermShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="PaymentTermName">
+      <AttrNames>
+        <Item Value="PaymentTermName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="PaymentTermDate">
+      <AttrNames>
+        <Item Value="PaymentTermDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="CutoffDay">
+      <AttrNames>
+        <Item Value="CutoffDay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="StartDate">
+      <AttrNames>
+        <Item Value="StartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="EndDate">
+      <AttrNames>
+        <Item Value="EndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="GlobalCompanyId">
+      <AttrNames>
+        <Item Value="GlobalCompanyId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="CompanyId">
+      <AttrNames>
+        <Item Value="CompanyId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ScmPaymentTermHeaderCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="ScmPaymentTermDueDetCRUDIterator" id="ScmPaymentTermDueDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPaymentTermDueVO" Name="ScmPaymentTermDueDetCRUD0">
+        <AttrNames>
+          <Item Value="DuePercent"/>
+          <Item Value="DueAmount"/>
+          <Item Value="CalenderDate"/>
+          <Item Value="FixDate"/>
+          <Item Value="Days"/>
+          <Item Value="Monthss"/>
+          <Item Value="MonthAhead"/>
+          <Item Value="PaymentTermDueSno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ScmPaymentTermDiscountDetCRUDIterator" id="ScmPaymentTermDiscountDetCRUD"
+          ChangeEventPolicy="none">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPaymentTermDiscountVO" Name="ScmPaymentTermDiscountDetCRUD0">
+        <AttrNames>
+          <Item Value="DiscountId"/>
+          <Item Value="DiscountPercent"/>
+          <Item Value="DiscountAmount"/>
+          <Item Value="Days"/>
+          <Item Value="Monthss"/>
+          <Item Value="MonthAhead"/>
+          <Item Value="PaymentTermDiscountSno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ScmPaymentTermHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="ScmPaymentTermHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0003_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action IterBinding="ScmPaymentTermDueDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createWithParams" InstanceName="ERPSCMModuleDataControl.ScmPaymentTermDueDetCRUD"
+            DataControl="ERPSCMModuleDataControl">
+      <NamedData NDName="PaymentTermDueSno"
+                 NDValue="#{(bindings.ScmPaymentTermDueDetCRUDIterator.estimatedRowCount +1) *-1}"
+                 NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ScmPaymentTermDueDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="ScmPaymentTermDiscountDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ScmPaymentTermDiscountDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPaymentTermHeaderCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

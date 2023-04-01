@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ScmPurchaseRfqLines"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SCM_PURCHASE_RFQ_LINES"
+  AliasName="ScmPurchaseRfqLines"
+  BindingStyle="JDBC"
+  RowClass="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+  </DesignTime>
+  <Attribute
+    Name="RfqLinesSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="RFQ_LINES_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.RfqLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="RfqHeaderSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="RFQ_HEADER_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.RfqHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="DemandLinesSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="DEMAND_LINES_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.DemandLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="RequiredBy"
+    ColumnName="REQUIRED_BY"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.RequiredBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="NoteToBuyer"
+    Precision="300"
+    ColumnName="NOTE_TO_BUYER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.NoteToBuyer_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="NoteToSupplier"
+    Precision="300"
+    ColumnName="NOTE_TO_SUPPLIER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.NoteToSupplier_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="SupplierItemName"
+    Precision="100"
+    ColumnName="SUPPLIER_ITEM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.SupplierItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="RequesterId"
+    Precision="10"
+    Scale="0"
+    ColumnName="REQUESTER_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.RequesterId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="UnitTypeSno"
+    Precision="6"
+    Scale="0"
+    ColumnName="UNIT_TYPE_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.UnitTypeSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Quantity"
+    Precision="16"
+    Scale="6"
+    ColumnName="QUANTITY"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.Quantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="AproxPrice"
+    Precision="16"
+    Scale="6"
+    ColumnName="APROX_PRICE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.AproxPrice_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Remarks"
+    Precision="300"
+    ColumnName="REMARKS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.Remarks_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ProjectId"
+    Precision="5"
+    Scale="0"
+    ColumnName="PROJECT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <TransientExpression><![CDATA[ScmPurchaseRfqHeader?.TempProjectId]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.ProjectId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="DepartmentId"
+    Precision="5"
+    Scale="0"
+    ColumnName="DEPARTMENT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <TransientExpression><![CDATA[ScmPurchaseRfqHeader?.TempDepartmentId]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.DepartmentId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="8"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.CreatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    RetrievedOnInsert="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.CreatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="8"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.LastUpdatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.LastUpdatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ItemId"
+    Precision="10"
+    Scale="0"
+    ColumnName="ITEM_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.ItemId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtItemName"
+    Precision="80"
+    ColumnName="TXT_ITEM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression><![CDATA[InvItem?.Description]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.txtItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="ItemId"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtUnitTypeName"
+    Precision="80"
+    ColumnName="TXT_UNIT_TYPE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression><![CDATA[InvUnitType?.UnitTypeName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.txtUnitTypeName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="UnitTypeSno"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtDepartmentName"
+    Precision="80"
+    ColumnName="TXT_DEPARTMENT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.txtDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtProjectName"
+    Precision="80"
+    ColumnName="TXT_PROJECT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.txtProjectName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="StatusSno"
+    Precision="5"
+    Scale="0"
+    ColumnName="STATUS_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES"
+    DefaultValue="2"/>
+  <Attribute
+    Name="txtTotalBids"
+    ColumnName="txt_Total_Bids"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression><![CDATA[ScmPurchaseBidLines?.max("txtSupplierSno")]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="RfqLinesSno"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtBidPrice"
+    ColumnName="txt_Bid_Price"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.txtBidPrice_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtGenerateBID"
+    Precision="80"
+    ColumnName="txt_Generate_BID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.txtGenerateBID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="ScmPurchaseRfqHeader"
+    Association="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc.ScmPurchaseRfqHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc.ScmPurchaseRfqLines"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InvItem"
+    Association="erpscm.modelscm.scmeo.InvItemsScmPurchaseRfqLinesItemIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.InvItemsScmPurchaseRfqLinesItemIdAsso.InvItem"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.InvItemsScmPurchaseRfqLinesItemIdAsso.ScmPurchaseRfqLines"
+    Type="erpims.modelims.imseo.InvItemImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InvUnitType"
+    Association="erpscm.modelscm.scmeo.InvUnitTypeScmPurchRfqLineUnitTypeSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.InvUnitTypeScmPurchRfqLineUnitTypeSnoAsso.InvUnitType"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.InvUnitTypeScmPurchRfqLineUnitTypeSnoAsso.ScmPurchaseRfqLines"
+    Type="erpims.modelims.imseo.InvUnitTypeImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlProjects"
+    Association="erpscm.modelscm.scmeo.GLProjectScmPurchaseRfqLinesProjectSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.GLProjectScmPurchaseRfqLinesProjectSnoAsso.GlProjects"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GLProjectScmPurchaseRfqLinesProjectSnoAsso.ScmPurchaseRfqLines"
+    Type="erpfms.modelfms.fmseo.GlProjectsImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AdminCompany"
+    Association="erpscm.modelscm.scmeo.AdminCompanyScmPurcRfqLinDepartmentIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurcRfqLinDepartmentIdAsso.AdminCompany"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurcRfqLinDepartmentIdAsso.ScmPurchaseRfqLines"
+    Type="erpadm.modeladm.admeo.AdminCompanyImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseDemandLines"
+    Association="erpscm.modelscm.scmeo.ScmPurDemandLinScmPurRfqLinesDemandLinesSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurDemandLinScmPurRfqLinesDemandLinesSnoAsso.ScmPurchaseDemandLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurDemandLinScmPurRfqLinesDemandLinesSnoAsso.ScmPurchaseRfqLines"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseDemandLinesImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseBidLines"
+    Association="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoAsso.ScmPurchaseBidLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoAsso.ScmPurchaseRfqLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="AltKeyScmPurchaseRfqLines"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SCM_PURCHASE_RFQ_LINES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.ItemId"/>
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.RfqHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PkScmPurchaseQuotationLine"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SCM_PURCHASE_QUOTATION_LINE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.RfqLinesSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkScmPurQuoteLineHeadSno">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_QUOTATION_HEAD"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PUR_QUOTE_LINE_HEAD_SNO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.RfqHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqLines">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_INV_ITEM"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_LINES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.ItemId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqLines1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_INV_UNIT_TYPE"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_LINES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.UnitTypeSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqLines2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_PROJECTS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_LINES2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.ProjectId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqLines3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADMIN_COMPANY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_LINES3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.DepartmentId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqLines4">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_DEMAND_LINES"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_LINES4"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.DemandLinesSno"/>
+    </AttrArray>
+  </Key>
+  <validation:UniqueKeyValidationBean
+    Name="UniqueScmPurchaseRfqLinesRule"
+    ResId="ERR_REQ_DUPLICATE_ITEM"
+    KeyName="AltKeyScmPurchaseRfqLines">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="ItemId"/>
+      <validation:Item
+        Value="RfqHeaderSno"/>
+    </validation:OnAttributes>
+  </validation:UniqueKeyValidationBean>
+  <validation:ExpressionValidationBean
+    Name="ScmPurchaseRfqLinesrRequiredBR"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="ItemId"/>
+      <validation:Item
+        Value="Quantity"/>
+      <validation:Item
+        Value="ProjectId"/>
+      <validation:Item
+        Value="UnitTypeSno"/>
+      <validation:Item
+        Value="DepartmentId"/>
+      <validation:Item
+        Value="RequiredBy"/>
+    </validation:OnAttributes>
+    <validation:MsgIds>
+      <validation:Item
+        Value="ERR_REQ_ITEM_ID"/>
+      <validation:Item
+        Value="ERR_REQ_FUTURE_DATE"/>
+      <validation:Item
+        Value="ERR_DEPARTMENT"/>
+      <validation:Item
+        Value="ERR_REQ_UNIT_TYPE"/>
+      <validation:Item
+        Value="ERR_PROJECT"/>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_QUANTITY"/>
+      <validation:Item
+        Value="ERR_REQ_REQUIRED_DATE"/>
+    </validation:MsgIds>
+    <validation:TransientExpression
+      trustMode="trusted"><![CDATA[if(ItemId==null)
+{
+adf.error.raise("ERR_REQ_ITEM_ID");
+return false;
+}
+
+if(UnitTypeSno==null)
+{
+adf.error.raise("ERR_REQ_UNIT_TYPE");
+return false;
+}
+
+if(DepartmentId==null)
+{
+adf.error.raise("ERR_DEPARTMENT");
+return false;
+}
+
+if(ProjectId==null)
+{
+adf.error.raise("ERR_PROJECT");
+return false;
+}
+
+if(Quantity==null || Quantity<=0)
+{
+adf.error.raise("ERR_REQ_DEMAND_QUANTITY");
+return false;
+}
+
+if(RequiredBy==null)
+{
+adf.error.raise("ERR_REQ_REQUIRED_DATE");
+return false;
+}
+
+if(RequiredBy<=adf.currentDate)
+{
+adf.error.raise("ERR_REQ_FUTURE_DATE");
+return false;
+}
+
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
+  <validation:ExpressionValidationBean
+    Name="ScmPurchaseRfqLinesBidPriceBR"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="txtBidPrice"/>
+      <validation:Item
+        Value="txtGenerateBID"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="trusted"
+      Name="OnConditionExpr"><![CDATA[txtGenerateBID=='Y']]></validation:OnCondition>
+    <validation:MsgIds>
+      <validation:Item
+        Value="errBidPrice"/>
+    </validation:MsgIds>
+    <validation:TransientExpression
+      trustMode="untrusted"><![CDATA[if(txtGenerateBID=='Y' && (txtBidPrice<=0||txtBidPrice==null))
+{
+return false;
+}
+else
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
+</Entity>

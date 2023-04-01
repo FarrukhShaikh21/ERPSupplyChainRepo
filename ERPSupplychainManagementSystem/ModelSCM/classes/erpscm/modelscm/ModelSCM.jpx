@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ModelSCM"
+  Version="12.1.3.10.47"
+  SeparateXMLFiles="true"
+  PackageName="erpscm.modelscm">
+  <DesignTime>
+    <Attr Name="_jprName" Value="../../../ModelSCM.jpr"/>
+    <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
+    <Attr Name="_NamedConnection" Value="ERPConnSCM"/>
+    <Attr Name="_appModuleNames0" Value="erpscm.modelscm.scmam.ERPSCMModule"/>
+  </DesignTime>
+  <Containee
+    Name="scmam"
+    PackageName="erpscm.modelscm.scmam"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="scmasso"
+    PackageName="erpscm.modelscm.scmasso"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="scmasvo"
+    PackageName="erpscm.modelscm.scmasvo"
+    ObjectType="JboPackage"/>
+  <Containee
+    Name="scmeo"
+    PackageName="erpscm.modelscm.scmeo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="scmqvo"
+    PackageName="erpscm.modelscm.scmqvo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="scmvo"
+    PackageName="erpscm.modelscm.scmvo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <AppContainee
+    Name="ModelIMS"
+    FullName="erpims.modelims.ModelIMS"
+    ObjectType="JboProject">
+    <DesignTime>
+      <Attr Name="_SourceName" Value="ERPModelLIBInventory.jar"/>
+    </DesignTime>
+  </AppContainee>
+  <AppContainee
+    Name="ModelFMS"
+    FullName="erpfms.modelfms.ModelFMS"
+    ObjectType="JboProject">
+    <DesignTime>
+      <Attr Name="_SourceName" Value="ERPModelLIBFinance.jar"/>
+    </DesignTime>
+  </AppContainee>
+  <AppContainee
+    Name="ModelGlobals"
+    FullName="erpglobals.modelglobals.ModelGlobals"
+    ObjectType="JboProject">
+    <DesignTime>
+      <Attr Name="_SourceName" Value="ERPModelLIBGlobals.jar"/>
+    </DesignTime>
+  </AppContainee>
+  <AppContainee
+    Name="ModelADM"
+    FullName="erpadm.modeladm.ModelADM"
+    ObjectType="JboProject">
+    <DesignTime>
+      <Attr Name="_SourceName" Value="ERPModelLIBAdministration.jar"/>
+    </DesignTime>
+  </AppContainee>
+</JboProject>

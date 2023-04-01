@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1" id="SCM_0013_EDITPageDef"
+                Package="erpscm.viewscm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ScmPurchaseDemandHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseDemandHeaderCRUDIterator"/>
+    <iterator Binds="ScmPurchaseDemandLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseDemandLinesDetCRUDIterator">
+      <sortCriteria>
+        <sort attribute="LineNo" ascending="true"/>
+      </sortCriteria>
+    </iterator>
+    <iterator Binds="ScmPurchaseDemandAccountDetCRUD" RangeSize="-1" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseDemandAccountDetCRUDIterator" RowCountThreshold="0"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="DemandHeaderCode">
+      <AttrNames>
+        <Item Value="DemandHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="DemandDate">
+      <AttrNames>
+        <Item Value="DemandDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <listOfValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovtxtProjectName"
+                  id="txtProjectName"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <listOfValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovtxtTempDepartmentName"
+                  id="txtTempDepartmentName"/>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="Remarks" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="ScmPurchaseDemandLinesDetCRUD"
+          ChangeEventPolicy="none">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO" Name="ScmPurchaseDemandLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="LineNo"/>
+          <Item Value="txtItemName"/>
+          <Item Value="txtUnitTypeName"/>
+          <Item Value="txtProjectName"/>
+          <Item Value="txtDepartmentName"/>
+          <Item Value="RequiredByDate"/>
+          <Item Value="DemandQuantity"/>
+          <Item Value="ApproveQuantity"/>
+          <Item Value="txtSupplierName"/>
+          <Item Value="NoteToBuyer"/>
+          <Item Value="NoteToSupplier"/>
+          <Item Value="AproxPrice"/>
+          <Item Value="txtInvOrgDescription"/>
+          <Item Value="txtIsDuplicateItem"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="txtSumDemandQty">
+      <AttrNames>
+        <Item Value="txtSumDemandQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="txtSumApproveQty">
+      <AttrNames>
+        <Item Value="txtSumApproveQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="IsCancelled">
+      <AttrNames>
+        <Item Value="IsCancelled"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="txtLineCount">
+      <AttrNames>
+        <Item Value="txtLineCount"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" StaticList="false" Uses="LovtxtInvOrgDescription"
+                  id="txtInvOrgDescription"/>
+    <listOfValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" StaticList="false" Uses="LovtxtProjectName"
+                  id="txtProjectName1"/>
+    <listOfValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" StaticList="false" Uses="LovtxtDepartmentName"
+                  id="txtDepartmentName"/>
+    <listOfValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <action IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createWithParams" InstanceName="ERPSCMModuleDataControl.ScmPurchaseDemandLinesDetCRUD"
+            DataControl="ERPSCMModuleDataControl">
+      <NamedData NDName="DemandQuantity" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="ScmPurchaseDemandAccountDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseDemandAccountVO"
+                      Name="ScmPurchaseDemandAccountDetCRUD0">
+        <AttrNames>
+          <Item Value="txtChartOfAccountName"/>
+          <Item Value="Quantity"/>
+          <Item Value="DemandAccountSno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createWithParams" InstanceName="ERPSCMModuleDataControl.ScmPurchaseDemandAccountDetCRUD"
+            DataControl="ERPSCMModuleDataControl">
+      <NamedData NDName="LastUpdatedBy" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="txtItemName">
+      <AttrNames>
+        <Item Value="txtItemName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="txtSumQuantity">
+      <AttrNames>
+        <Item Value="txtSumQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovApprovalStatusSno"
+          id="ApprovalStatusSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

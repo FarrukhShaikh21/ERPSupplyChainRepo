@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ScmPaymentTermDiscountVO"
+  Version="12.1.3.2.1"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="AccSysGeneralValueDiscVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[10]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LovDiscountId"
+    ListVOName="AccSysGeneralValueDiscVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DiscountId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ScmPaymentTermDiscount"
+    Entity="erpscm.modelscm.scmeo.ScmPaymentTermDiscount"/>
+  <ViewAttribute
+    Name="PaymentTermDiscountSno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PaymentTermDiscountSno"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="PAYMENT_TERM_DISCOUNT_SNO"/>
+  <ViewAttribute
+    Name="PaymentTermDueSno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PaymentTermDueSno"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="PAYMENT_TERM_DUE_SNO"/>
+  <ViewAttribute
+    Name="PaymentTermHeaderSno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PaymentTermHeaderSno"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="PAYMENT_TERM_HEADER_SNO"/>
+  <ViewAttribute
+    Name="DiscountId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DiscountId"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="DISCOUNT_ID"
+    LOVName="LovDiscountId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DiscountPercent"
+    PrecisionRule="true"
+    EntityAttrName="DiscountPercent"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="DISCOUNT_PERCENT"/>
+  <ViewAttribute
+    Name="DiscountAmount"
+    PrecisionRule="true"
+    EntityAttrName="DiscountAmount"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="DISCOUNT_AMOUNT"/>
+  <ViewAttribute
+    Name="Days"
+    PrecisionRule="true"
+    EntityAttrName="Days"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="DAYS"/>
+  <ViewAttribute
+    Name="Monthss"
+    PrecisionRule="true"
+    EntityAttrName="Monthss"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="MONTHSS"/>
+  <ViewAttribute
+    Name="MonthAhead"
+    PrecisionRule="true"
+    EntityAttrName="MonthAhead"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="MONTH_AHEAD"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="ScmPaymentTermDiscount"
+    AliasName="LAST_UPDATED_DATE"/>
+</ViewObject>

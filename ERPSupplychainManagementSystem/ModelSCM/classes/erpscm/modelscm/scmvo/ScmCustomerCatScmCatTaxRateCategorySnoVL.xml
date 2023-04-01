@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ScmCustomerCatScmCatTaxRateCategorySnoVL"
+  Version="12.1.3.2.1"
+  InheritPersonalization="merge"
+  EntityAssociation="erpscm.modelscm.scmeo.ScmCustomerCatScmCatTaxRateCategorySnoAsso">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpscm.modelscm.scmvo.ScmCustomerCatScmCatTaxRateCategorySnoVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="ScmCustomerCategoryVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpscm.modelscm.scmvo.ScmCustomerCategoryVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="ScmCustomerCategoryVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmvo.ScmCustomerCategoryVO.CategorySno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ScmCategoryTaxRateVO"
+    Cardinality="-1"
+    Owner="erpscm.modelscm.scmvo.ScmCategoryTaxRateVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ScmCategoryTaxRateVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmvo.ScmCategoryTaxRateVO.CategoryId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
+</ViewLink>

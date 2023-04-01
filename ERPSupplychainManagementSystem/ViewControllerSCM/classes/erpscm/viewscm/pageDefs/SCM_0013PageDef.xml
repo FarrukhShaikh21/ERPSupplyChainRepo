@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SCM_0013PageDef"
+                Package="erpscm.viewscm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="ScmPurchaseDemandHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseDemandHeaderROIterator"/>
+    <searchRegion Criteria="ScmPurchaseDemandHeaderFindVC"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ScmPurchaseDemandHeaderROIterator" id="ScmPurchaseDemandHeaderFindVCQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ScmPurchaseDemandHeaderROIterator" id="ScmPurchaseDemandHeaderRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO" Name="ScmPurchaseDemandHeaderRO0">
+        <AttrNames>
+          <Item Value="DemandHeaderCode"/>
+          <Item Value="DemandDate"/>
+          <Item Value="LocationId"/>
+          <Item Value="txtLocationName"/>
+          <Item Value="StatusId"/>
+          <Item Value="txtSumDemandQuantity"/>
+          <Item Value="ApprovalStatusSno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ScmPurchaseDemandHeaderROIterator" id="DemandHeaderSno">
+      <AttrNames>
+        <Item Value="DemandHeaderSno"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

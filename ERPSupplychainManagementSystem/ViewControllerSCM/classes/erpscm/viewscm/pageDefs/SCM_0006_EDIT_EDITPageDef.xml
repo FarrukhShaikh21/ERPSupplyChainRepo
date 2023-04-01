@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1" id="SCM_0006_EDIT_EDITPageDef"
+                Package="erpscm.viewscm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ScmCustomerCategoryCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmCustomerCategoryCRUDIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ScmCustomerCategoryCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CompanyId" NDValue="#{data.erpscm_viewscm_SCM_0006_EDITPageDef.CompCode.inputValue}"
+                 NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ScmCustomerCategoryCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="ScmCustomerCategoryCRUDIterator" id="CategoryTypeName">
+      <AttrNames>
+        <Item Value="CategoryTypeName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCategoryCRUDIterator" id="CategoryShortCode">
+      <AttrNames>
+        <Item Value="CategoryShortCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCategoryCRUDIterator" id="CategoryShortName">
+      <AttrNames>
+        <Item Value="CategoryShortName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCategoryCRUDIterator" id="OpenDate">
+      <AttrNames>
+        <Item Value="OpenDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ScmCustomerCategoryCRUDIterator" StaticList="false" Uses="LovIsActive" id="IsActive"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ScmCustomerCategoryCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmCustomerCategoryCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <attributeValues IterBinding="ScmCustomerCategoryCRUDIterator" id="CategorySno">
+      <AttrNames>
+        <Item Value="CategorySno"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

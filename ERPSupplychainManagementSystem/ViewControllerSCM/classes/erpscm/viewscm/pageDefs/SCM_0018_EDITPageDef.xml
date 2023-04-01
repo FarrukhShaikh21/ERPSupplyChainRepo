@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SCM_0018_EDITPageDef"
+                Package="erpscm.viewscm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ScmPurchaseBidCompHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidCompHeaderCRUDIterator"/>
+    <iterator Binds="ScmPurchaseBidCompHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidCompHeaderROIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="IsCancelled">
+      <AttrNames>
+        <Item Value="IsCancelled"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="CompareHeaderCode">
+      <AttrNames>
+        <Item Value="CompareHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="CompareDate">
+      <AttrNames>
+        <Item Value="CompareDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <listOfValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" StaticList="false" Uses="LovtxtRfqHeaderCode"
+                  id="txtRfqHeaderCode"/>
+    <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="txtDemandHeaderCode">
+      <AttrNames>
+        <Item Value="txtDemandHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" StaticList="false" Uses="LovtxtTempProjectName"
+                  id="txtTempProjectName"/>
+    <listOfValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" StaticList="false" Uses="LovtxtTempDepartmentName"
+                  id="txtTempDepartmentName"/>
+    <list IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" StaticList="false" Uses="LovApprovalStatusSno"
+          id="ApprovalStatusSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action IterBinding="ScmPurchaseBidCompHeaderROIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="ScmPurchaseBidCompHeaderROIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
+    <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
