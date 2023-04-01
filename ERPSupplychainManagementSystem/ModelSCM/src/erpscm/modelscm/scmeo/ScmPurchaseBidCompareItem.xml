@@ -9,7 +9,11 @@
   DBObjectType="table"
   DBObjectName="SCM_PURCHASE_BID_COMPARE_ITEM"
   AliasName="ScmPurchaseBidCompareItem"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpglobals.modelglobals.ERPEntityImpl">
+  <DesignTime>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+  </DesignTime>
   <Attribute
     Name="CompareItemSno"
     IsNotNull="true"
@@ -97,6 +101,14 @@
     ColumnType="DATE"
     TableName="SCM_PURCHASE_BID_COMPARE_ITEM"
     RetrievedOnUpdate="true"/>
+  <Attribute
+    Name="txtItemName"
+    Precision="80"
+    ColumnName="TXT_ITEM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_BID_COMPARE_ITEM"/>
   <AccessorAttribute
     Name="ScmPurchaseBidCompHeader"
     Association="erpscm.modelscm.scmeo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoAsso"
