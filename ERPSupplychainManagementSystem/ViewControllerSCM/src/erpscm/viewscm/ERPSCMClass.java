@@ -152,7 +152,7 @@ public class ERPSCMClass {
         ADFContext.getCurrent().getPageFlowScope().put("G_USER_PICTURE","PICTURE NAME");
        
        
-         if (11==11) {
+         if (1==1) {
             return;
          }
          
