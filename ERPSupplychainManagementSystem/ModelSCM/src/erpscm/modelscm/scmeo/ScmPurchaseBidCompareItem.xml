@@ -9,7 +9,7 @@
   DBObjectType="table"
   DBObjectName="SCM_PURCHASE_BID_COMPARE_ITEM"
   AliasName="ScmPurchaseBidCompareItem"
-  BindingStyle="OracleName">
+  BindingStyle="JDBC">
   <Attribute
     Name="CompareItemSno"
     IsNotNull="true"
@@ -17,7 +17,7 @@
     Scale="0"
     ColumnName="COMPARE_ITEM_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_BID_COMPARE_ITEM"
     PrimaryKey="true"/>
@@ -28,7 +28,7 @@
     Scale="0"
     ColumnName="COMPARE_HEADER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_BID_COMPARE_ITEM"/>
   <Attribute
@@ -38,7 +38,7 @@
     Scale="0"
     ColumnName="ITEM_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_BID_COMPARE_ITEM"/>
   <Attribute
@@ -63,21 +63,12 @@
     TableName="SCM_PURCHASE_BID_COMPARE_ITEM"/>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_COMPARE_ITEM"/>
-  <Attribute
-    Name="SupplierId"
-    Precision="10"
-    Scale="0"
-    ColumnName="SUPPLIER_ID"
-    SQLType="NUMERIC"
-    Type="java.lang.Long"
-    ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_COMPARE_ITEM"/>
+    TableName="SCM_PURCHASE_BID_COMPARE_ITEM"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="Rate"
     Precision="16"
@@ -86,7 +77,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_COMPARE_ITEM"/>
+    TableName="SCM_PURCHASE_BID_COMPARE_ITEM"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="LastUpdatedBy"
     Precision="8"
@@ -102,7 +95,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_BID_COMPARE_ITEM"/>
+    TableName="SCM_PURCHASE_BID_COMPARE_ITEM"
+    RetrievedOnUpdate="true"/>
   <Key
     Name="PkScmPurchaseBidCompItem"
     PrimaryKey="true">
