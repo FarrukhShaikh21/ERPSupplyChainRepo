@@ -765,4 +765,9 @@
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false"/>
+   <ViewLinkAccessor
+      Name="ScmPurchaseBidCompareItemVO"
+      ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
 </ViewObject>
