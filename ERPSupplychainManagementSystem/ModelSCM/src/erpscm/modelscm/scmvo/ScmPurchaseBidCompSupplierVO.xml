@@ -75,4 +75,10 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseBidCompareItemVO"
+    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

@@ -94,6 +94,13 @@
     ColumnType="DATE"
     TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
     RetrievedOnUpdate="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseBidCompareItem"
+    Association="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoAsso.ScmPurchaseBidCompareItem"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoAsso.ScmPurchaseBidCompSupplier"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidCompSupp"
     PrimaryKey="true">
@@ -113,6 +120,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.CompareHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidCompSupplier">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_BID_COMP_ITEM"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_BID_COMP_SUPPL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.CompareItemSno"/>
     </AttrArray>
   </Key>
 </Entity>

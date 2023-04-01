@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoAsso"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="ScmPurchaseBidCompareItem"
+    Cardinality="1"
+    Source="true"
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ScmPurchaseBidCompareItem"/>
+      <Attr Name="_foreignKey" Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.PkScmPurchaseBidCompItem"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.CompareItemSno"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="ScmPurchaseBidCompSupplier"
+    Cardinality="-1"
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ScmPurchaseBidCompSupplier"/>
+      <Attr Name="_foreignKey" Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.fk_ScmPurchaseBidCompSupplier"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.CompareItemSno"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>
