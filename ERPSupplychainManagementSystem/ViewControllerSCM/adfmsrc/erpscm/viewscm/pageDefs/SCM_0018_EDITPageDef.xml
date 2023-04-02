@@ -6,8 +6,6 @@
     <variableIterator id="variables"/>
     <iterator Binds="ScmPurchaseBidCompHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidCompHeaderCRUDIterator"/>
-    <iterator Binds="ScmPurchaseBidCompHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmPurchaseBidCompHeaderROIterator"/>
     <iterator Binds="ScmPurchaseBidCompareItemDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidCompareItemDetCRUDIterator"/>
   </executables>
@@ -55,9 +53,9 @@
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
-    <action IterBinding="ScmPurchaseBidCompHeaderROIterator" id="Delete" RequiresUpdateModel="false"
+    <action IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <action IterBinding="ScmPurchaseBidCompHeaderROIterator" id="CreateWithParams" RequiresUpdateModel="true"
+    <action IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams"/>
     <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="Remarks">
       <AttrNames>
