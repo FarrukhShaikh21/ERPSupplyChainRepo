@@ -6,6 +6,8 @@ import erpfms.modelfms.fmseo.GlProjectsImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
+import erpglobals.modelglobals.ERPGlobalPLSQLClass;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
@@ -755,6 +757,14 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation == DML_INSERT) {
+            String result =
+                ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "COMPARE_HEADER_CODE",
+                                                              this.getEntityDef().getSource(), "COMPANY_ID",
+                                                              getCompanyId().toString());
+            populateAttributeAsChanged(COMPAREHEADERCODE, Integer.parseInt(result));
+        }
+
         super.doDML(operation, e);
     }
 }
