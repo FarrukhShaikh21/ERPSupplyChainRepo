@@ -120,6 +120,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtUnitTypeName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtUnitTypeName"
+    EntityUsage="ScmPurchaseBidCompareItem"
+    AliasName="txt_Unit_Type_Name"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"
@@ -134,6 +142,18 @@
   <ViewLinkAccessor
     Name="InvItemVO"
     ViewLink="erpscm.modelscm.scmvo.InvItemScmPurchaseBidCompItemItemSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InvItemVO1"
+    ViewLink="erpscm.modelscm.scmvo.ViewLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InvUnitTypeVO"
+    ViewLink="erpscm.modelscm.scmvo.InvUnitTypeInvPurcBidCompItemUnitTypeSnoAsso"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

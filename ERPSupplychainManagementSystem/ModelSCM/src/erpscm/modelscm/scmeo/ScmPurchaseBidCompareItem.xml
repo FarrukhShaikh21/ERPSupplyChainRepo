@@ -116,6 +116,22 @@
         Value="ItemId"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtUnitTypeName"
+    Precision="80"
+    ColumnName="txt_Unit_Type_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InvUnitType?.UnitTypeName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="UnitTypeId"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidCompHeader"
     Association="erpscm.modelscm.scmeo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoAsso"
@@ -136,6 +152,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.InvItemScmPurchaseBidCompItemItemSnoAsso.InvItem"
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvItemScmPurchaseBidCompItemItemSnoAsso.ScmPurchaseBidCompareItem"
     Type="erpims.modelims.imseo.InvItemImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InvUnitType"
+    Association="erpscm.modelscm.scmeo.InvUnitTypeInvPurcBidCompItemUnitTypeSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.InvUnitTypeInvPurcBidCompItemUnitTypeSnoAsso.InvUnitType"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.InvUnitTypeInvPurcBidCompItemUnitTypeSnoAsso.ScmPurchaseBidCompareItem"
+    Type="erpims.modelims.imseo.InvUnitTypeImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidCompItem"
@@ -178,6 +201,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.ItemId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidCompareItem2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_INV_UNIT_TYPE"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Compare_It"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.UnitTypeId"/>
     </AttrArray>
   </Key>
 </Entity>
