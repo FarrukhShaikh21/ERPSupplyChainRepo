@@ -13,6 +13,36 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccInvItemVO"
+    ViewObjectName="erpims.modelims.imsvo.InvItemVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtItemName"
+    ListVOName="AccInvItemVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtItemName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ItemShortCode"/>
+      <Item Value="ItemShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InvItemFindVC"/>
+  </ListBinding>
   <EntityUsage
     Name="ScmPurchaseBidCompareItem"
     Entity="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem"/>
@@ -81,7 +111,15 @@
     PrecisionRule="true"
     EntityAttrName="txtItemName"
     EntityUsage="ScmPurchaseBidCompareItem"
-    AliasName="TXT_ITEM_NAME"/>
+    AliasName="TXT_ITEM_NAME"
+    LOVName="LovtxtItemName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"

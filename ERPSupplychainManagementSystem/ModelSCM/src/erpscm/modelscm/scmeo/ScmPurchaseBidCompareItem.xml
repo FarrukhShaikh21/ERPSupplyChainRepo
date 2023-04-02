@@ -108,7 +108,14 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_BID_COMPARE_ITEM"/>
+    TableName="SCM_PURCHASE_BID_COMPARE_ITEM">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InvItem?.Description]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ItemId"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidCompHeader"
     Association="erpscm.modelscm.scmeo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoAsso"
