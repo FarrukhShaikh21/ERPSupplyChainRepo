@@ -106,7 +106,9 @@
     EntityAttrName="txtItemName"
     EntityUsage="ScmPurchaseBidCompareItem"
     AliasName="TXT_ITEM_NAME"
-    LOVName="LovtxtItemName">
+    LOVName="LovtxtItemName"
+    IsQueriable="false"
+    IsPersistent="false">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -138,11 +140,6 @@
     ViewLink="erpscm.modelscm.scmvo.InvItemScmPurchaseBidCompItemItemSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="InvItemVO1"
-    ViewLink="erpscm.modelscm.scmvo.ViewLink"
-    Type="oracle.jbo.Row"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="InvUnitTypeVO"
