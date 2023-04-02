@@ -8,6 +8,8 @@
               id="ScmPurchaseBidCompHeaderCRUDIterator"/>
     <iterator Binds="ScmPurchaseBidCompHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidCompHeaderROIterator"/>
+    <iterator Binds="ScmPurchaseBidCompareItemDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidCompareItemDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="IsCancelled">
@@ -62,5 +64,14 @@
         <Item Value="Remarks"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="ScmPurchaseBidCompareItemDetCRUDIterator" id="ScmPurchaseBidCompareItemDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVO"
+                      Name="ScmPurchaseBidCompareItemDetCRUD0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="txtUnitTypeName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

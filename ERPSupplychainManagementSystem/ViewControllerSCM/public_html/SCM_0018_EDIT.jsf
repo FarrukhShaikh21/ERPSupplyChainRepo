@@ -340,12 +340,48 @@
                             <af:gridCell id="gc29" halign="stretch" width="100%">
                                 <af:panelGridLayout id="pgl3">
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
-                                        <af:gridCell id="gc28" width="20%" halign="stretch">
+                                        <af:gridCell id="gc28" width="30%" halign="stretch">
                                             <af:panelBox text="Bid Item" id="pb1" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
+                                                <af:table value="#{bindings.ScmPurchaseBidCompareItemDetCRUD.collectionModel}"
+                                                          var="row"
+                                                          rows="#{bindings.ScmPurchaseBidCompareItemDetCRUD.rangeSize}"
+                                                          emptyText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.ScmPurchaseBidCompareItemDetCRUD.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.ScmPurchaseBidCompareItemDetCRUD.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.ScmPurchaseBidCompareItemDetCRUD.rangeSize}"
+                                                          id="t1" columnStretching="column:c1">
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtItemName.label}"
+                                                               id="c1">
+                                                        <af:inputComboboxListOfValues id="txtItemNameId"
+                                                                                      popupTitle="Search and Select: #{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtItemName.label}"
+                                                                                      value="#{row.bindings.txtItemName.inputValue}"
+                                                                                      model="#{row.bindings.txtItemName.listOfValuesModel}"
+                                                                                      required="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtItemName.mandatory}"
+                                                                                      columns="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtItemName.displayWidth}"
+                                                                                      shortDesc="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtItemName.tooltip}"
+                                                                                      readOnly="true">
+                                                            <f:validator binding="#{row.bindings.txtItemName.validator}"/>
+                                                        </af:inputComboboxListOfValues>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtUnitTypeName.label}"
+                                                               id="c2" width="150" displayIndex="-1">
+                                                        <af:inputText value="#{row.bindings.txtUnitTypeName.inputValue}"
+                                                                      label="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtUnitTypeName.label}"
+                                                                      required="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtUnitTypeName.mandatory}"
+                                                                      columns="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtUnitTypeName.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtUnitTypeName.precision}"
+                                                                      shortDesc="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtUnitTypeName.tooltip}"
+                                                                      id="it1" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                </af:table>
                                             </af:panelBox>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="80%" marginEnd="5px" id="gc2"
+                                        <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc2"
                                                      halign="stretch">
                                             <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                                 <f:facet name="menus"/>
