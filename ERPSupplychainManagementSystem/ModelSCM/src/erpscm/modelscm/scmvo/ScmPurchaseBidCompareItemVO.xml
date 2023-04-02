@@ -89,12 +89,6 @@
     EntityUsage="ScmPurchaseBidCompareItem"
     AliasName="CREATED_DATE"/>
   <ViewAttribute
-    Name="Rate"
-    PrecisionRule="true"
-    EntityAttrName="Rate"
-    EntityUsage="ScmPurchaseBidCompareItem"
-    AliasName="RATE"/>
-  <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
@@ -149,7 +143,6 @@
     Name="InvItemVO1"
     ViewLink="erpscm.modelscm.scmvo.ViewLink"
     Type="oracle.jbo.Row"
-    Reversed="true"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="InvUnitTypeVO"
