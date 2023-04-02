@@ -609,8 +609,10 @@
       SQLType="INTEGER"
       Type="java.lang.Integer"
       ColumnType="INTEGER"
-      IsPersistent="false"
-      IsQueriable="false">
+      IsQueriable="false"
+      IsPersistent="false">
+      <TransientExpression
+         trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
       <Properties>
          <SchemaBasedProperties>
             <DISPLAYWIDTH
@@ -619,6 +621,10 @@
                ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader.txtDemandHeaderCode_LABEL"/>
          </SchemaBasedProperties>
       </Properties>
+      <Dependencies>
+         <Item
+            Value="DemandHeaderSno"/>
+      </Dependencies>
    </Attribute>
    <AccessorAttribute
       Name="AdminCompany"

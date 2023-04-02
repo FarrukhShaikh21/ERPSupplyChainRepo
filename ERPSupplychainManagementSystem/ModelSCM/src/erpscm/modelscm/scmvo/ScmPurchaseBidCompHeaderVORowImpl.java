@@ -263,6 +263,8 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
     public void setLocationId(Integer value) {
         System.out.println("value"+value);
         setAttributeInternal(LOCATIONID, value);
+        setCompanyId(doGetCompanyIDByLocation(value==null?0:value.intValue(), getGlobalCompanyId()));
+
     }
 
     /**
