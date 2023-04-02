@@ -261,6 +261,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
      * @param value value to set the LOCATION_ID
      */
     public void setLocationId(Integer value) {
+        System.out.println("value"+value);
         setAttributeInternal(LOCATIONID, value);
     }
 
