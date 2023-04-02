@@ -25,6 +25,10 @@
     Name="P_ADF_RFQ_HEADER_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_LOCATION_ID"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <ViewAccessor
     Name="AccGlProjectsVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
@@ -1112,6 +1116,65 @@
               Name="LocationShortCode"
               ViewAttribute="LocationShortCode"
               Operator="="
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPurchaseRfqHeaderByLocationVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseRfqHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="LocationId"
+        ViewAttribute="LocationId"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_LOCATION_ID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ScmPurchaseBidCompHeaderVO"
+        ViewAttribute="ScmPurchaseBidCompHeaderVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseBidCompHeaderVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseBidCompHeaderVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="RfqHeaderSno"
+              ViewAttribute="RfqHeaderSno"
+              Operator="ISNOTBLANK"
               Conjunction="AND"
               Required="Optional"/>
           </ViewCriteriaRow>

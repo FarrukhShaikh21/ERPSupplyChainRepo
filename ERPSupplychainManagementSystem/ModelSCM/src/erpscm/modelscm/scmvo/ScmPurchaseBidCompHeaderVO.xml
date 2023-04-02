@@ -87,7 +87,17 @@
    <ViewAccessor
       Name="AccScmPurchaseRfqHeaderVO"
       ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
-      RowLevelBinds="true"/>
+      RowLevelBinds="true">
+      <ViewCriteriaUsage
+         Name="ScmPurchaseRfqHeaderByLocationVC"
+         FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO.ScmPurchaseRfqHeaderByLocationVC"/>
+      <ParameterMap>
+         <PIMap Variable="P_ADF_LOCATION_ID">
+            <TransientExpression
+               trustMode="untrusted"><![CDATA[LocationId==null?-1:LocationId]]></TransientExpression>
+         </PIMap>
+      </ParameterMap>
+   </ViewAccessor>
    <ViewAccessor
       Name="AccAdminCompanyForCompVO"
       ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
@@ -688,29 +698,6 @@
             </ViewCriteria>
          </ViewCriteriaItem>
          <ViewCriteriaItem
-            Name="ScmPurchaseDemandHeaderVO"
-            ViewAttribute="ScmPurchaseDemandHeaderVO"
-            Operator="EXISTS"
-            Conjunction="AND"
-            IsNestedCriteria="true"
-            Required="Optional">
-            <ViewCriteria
-               Name="ScmPurchaseDemandHeaderVONestedCriteria"
-               ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
-               Conjunction="AND">
-               <ViewCriteriaRow
-                  Name="ScmPurchaseDemandHeaderVONestedCriteria_row_0"
-                  UpperColumns="1">
-                  <ViewCriteriaItem
-                     Name="DemandHeaderCode"
-                     ViewAttribute="DemandHeaderCode"
-                     Operator="="
-                     Conjunction="AND"
-                     Required="Optional"/>
-               </ViewCriteriaRow>
-            </ViewCriteria>
-         </ViewCriteriaItem>
-         <ViewCriteriaItem
             Name="ScmPurchaseRfqHeaderVO"
             ViewAttribute="ScmPurchaseRfqHeaderVO"
             Operator="EXISTS"
@@ -727,6 +714,29 @@
                   <ViewCriteriaItem
                      Name="RfqHeaderCode"
                      ViewAttribute="RfqHeaderCode"
+                     Operator="="
+                     Conjunction="AND"
+                     Required="Optional"/>
+               </ViewCriteriaRow>
+            </ViewCriteria>
+         </ViewCriteriaItem>
+         <ViewCriteriaItem
+            Name="ScmPurchaseDemandHeaderVO"
+            ViewAttribute="ScmPurchaseDemandHeaderVO"
+            Operator="EXISTS"
+            Conjunction="AND"
+            IsNestedCriteria="true"
+            Required="Optional">
+            <ViewCriteria
+               Name="ScmPurchaseDemandHeaderVONestedCriteria"
+               ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
+               Conjunction="AND">
+               <ViewCriteriaRow
+                  Name="ScmPurchaseDemandHeaderVONestedCriteria_row_0"
+                  UpperColumns="1">
+                  <ViewCriteriaItem
+                     Name="DemandHeaderCode"
+                     ViewAttribute="DemandHeaderCode"
                      Operator="="
                      Conjunction="AND"
                      Required="Optional"/>

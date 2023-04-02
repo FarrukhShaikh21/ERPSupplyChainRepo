@@ -42,6 +42,22 @@ public class ScmPurchaseRfqHeaderVOImpl extends ERPViewObjectImpl {
         setErpViewObjectName("ScmPurchaseRfqHeaderCRUD");
         
         super.afterRollback(transactionEvent);
-    }  
+    }
+
+    /**
+     * Returns the variable value for P_ADF_LOCATION_ID.
+     * @return variable value for P_ADF_LOCATION_ID
+     */
+    public Integer getP_ADF_LOCATION_ID() {
+        return (Integer) ensureVariableManager().getVariableValue("P_ADF_LOCATION_ID");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_LOCATION_ID.
+     * @param value value to bind as P_ADF_LOCATION_ID
+     */
+    public void setP_ADF_LOCATION_ID(Integer value) {
+        ensureVariableManager().setVariableValue("P_ADF_LOCATION_ID", value);
+    }
 }
 
