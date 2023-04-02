@@ -337,19 +337,31 @@
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" id="gr2">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch">
-                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                                    <f:facet name="menus"/>
-                                    <f:facet name="toolbar">
-                                        <af:toolbar id="t2"/>
-                                    </f:facet>
-                                    <f:facet name="statusbar">
-                                        <af:toolbar id="t3"/>
-                                    </f:facet>
-                                    <f:facet name="secondaryToolbar"/>
-                                    <f:facet name="afterToolbar"/>
-                                    <f:facet name="viewMenu"/>
-                                </af:panelCollection>
+                            <af:gridCell id="gc29" halign="stretch" width="100%">
+                                <af:panelGridLayout id="pgl3">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
+                                        <af:gridCell id="gc28" width="20%" halign="stretch">
+                                            <af:panelBox text="Bid Item" id="pb1" showDisclosure="false">
+                                                <f:facet name="toolbar"/>
+                                            </af:panelBox>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="80%" marginEnd="5px" id="gc2"
+                                                     halign="stretch">
+                                            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                                <f:facet name="menus"/>
+                                                <f:facet name="toolbar">
+                                                    <af:toolbar id="t2"/>
+                                                </f:facet>
+                                                <f:facet name="statusbar">
+                                                    <af:toolbar id="t3"/>
+                                                </f:facet>
+                                                <f:facet name="secondaryToolbar"/>
+                                                <f:facet name="afterToolbar"/>
+                                                <f:facet name="viewMenu"/>
+                                            </af:panelCollection>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow id="gr9" height="100%">
