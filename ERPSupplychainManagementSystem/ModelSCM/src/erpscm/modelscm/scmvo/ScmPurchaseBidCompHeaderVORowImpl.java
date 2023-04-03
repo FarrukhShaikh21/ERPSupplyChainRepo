@@ -219,7 +219,10 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
             BidCompLine.setAttribute("DemandLinesSno", rfqLineRow.getAttribute("DemandLinesSno"));
             BidCompLine.setAttribute("RfqLinesSno", rfqLineRow.getAttribute("RfqLinesSno"));
             getScmPurchaseBidCompareItemVO().insertRow(BidCompLine);
-
+            getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_ITEM_ID", rfqLineRow.getAttribute("ItemId"));
+            getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_UNIT_TYPE_SNO", rfqLineRow.getAttribute("UnitTypeSno"));  
+            getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value);  
+            getAccScmPurchaseBidLinesVO().executeQuery();
         }
 
     }
