@@ -9,7 +9,7 @@
   DBObjectType="table"
   DBObjectName="SCM_PURCHASE_BID_COMP_SUPPLIER"
   AliasName="ScmPurchaseBidCompSupplier"
-  BindingStyle="OracleName">
+  BindingStyle="JDBC">
   <Attribute
     Name="CompareSupplierSno"
     IsNotNull="true"
@@ -128,6 +128,29 @@
       <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_BID_COMP_ITEM"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_BID_COMP_SUPPL"/>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.CompareItemSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidCompSupplier1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_BID_COMP_ITEM"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Comp_Suppl"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.CompareItemSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidCompSupplier2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_BID_COMP_ITEM"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Comp_Suppl"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.CompareItemSno"/>
