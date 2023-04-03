@@ -352,7 +352,9 @@
                                                           selectionListener="#{bindings.ScmPurchaseBidCompareItemDetCRUD.collectionModel.makeCurrent}"
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.ScmPurchaseBidCompareItemDetCRUD.rangeSize}"
-                                                          id="t1" columnStretching="column:c1">
+                                                          id="t1" columnStretching="column:c1"
+                                                          partialTriggers="::txtRfqHeaderCodeId" autoHeightRows="5"
+                                                          scrollPolicy="page">
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtItemName.label}"
                                                                id="c1">
                                                         <af:inputComboboxListOfValues id="txtItemNameId"

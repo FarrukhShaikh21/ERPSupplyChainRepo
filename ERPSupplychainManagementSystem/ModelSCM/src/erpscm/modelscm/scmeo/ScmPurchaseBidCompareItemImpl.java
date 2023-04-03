@@ -351,6 +351,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      */
     protected void create(AttributeList attributeList) {
         super.create(attributeList);
+        setERPTableName("SCM_PURCHASE_BID_COMP_HEAD_SEQ");
     }
 
     /**
