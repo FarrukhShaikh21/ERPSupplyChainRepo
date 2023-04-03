@@ -124,6 +124,18 @@
     EntityAttrName="txtUnitTypeName"
     EntityUsage="ScmPurchaseBidCompareItem"
     AliasName="txt_Unit_Type_Name"/>
+  <ViewAttribute
+    Name="DemandLinesSno"
+    PrecisionRule="true"
+    EntityAttrName="DemandLinesSno"
+    EntityUsage="ScmPurchaseBidCompareItem"
+    AliasName="DEMAND_LINES_SNO"/>
+  <ViewAttribute
+    Name="RfqLinesSno"
+    PrecisionRule="true"
+    EntityAttrName="RfqLinesSno"
+    EntityUsage="ScmPurchaseBidCompareItem"
+    AliasName="RFQ_LINES_SNO"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"

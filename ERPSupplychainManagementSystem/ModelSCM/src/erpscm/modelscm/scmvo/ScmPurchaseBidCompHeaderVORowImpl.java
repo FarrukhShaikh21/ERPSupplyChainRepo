@@ -17,6 +17,7 @@ import oracle.jbo.RowSet;
 // ---------------------------------------------------------------------
 public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
 
+
     public static final int ENTITY_SCMPURCHASEBIDCOMPHEADER = 0;
 
     /**
@@ -67,7 +68,8 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
         AccSysApprovalStatusVO,
         AccScmPurchaseRfqHeaderVO,
         AccAdminCompanyForCompVO,
-        AccSysSystemParameterVO;
+        AccSysSystemParameterVO,
+        AccScmPurchaseRfqLinesVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -91,6 +93,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int COMPAREHEADERSNO = AttributesEnum.CompareHeaderSno.index();
     public static final int COMPAREHEADERCODE = AttributesEnum.CompareHeaderCode.index();
@@ -137,6 +140,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCSCMPURCHASERFQHEADERVO = AttributesEnum.AccScmPurchaseRfqHeaderVO.index();
     public static final int ACCADMINCOMPANYFORCOMPVO = AttributesEnum.AccAdminCompanyForCompVO.index();
     public static final int ACCSYSSYSTEMPARAMETERVO = AttributesEnum.AccSysSystemParameterVO.index();
+    public static final int ACCSCMPURCHASERFQLINESVO = AttributesEnum.AccScmPurchaseRfqLinesVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -782,6 +786,13 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
      */
     public RowSet getAccSysSystemParameterVO() {
         return (RowSet) getAttributeInternal(ACCSYSSYSTEMPARAMETERVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccScmPurchaseRfqLinesVO.
+     */
+    public RowSet getAccScmPurchaseRfqLinesVO() {
+        return (RowSet) getAttributeInternal(ACCSCMPURCHASERFQLINESVO);
     }
 }
 

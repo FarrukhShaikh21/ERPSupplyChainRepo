@@ -33,6 +33,8 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         LastUpdatedDate,
         txtItemName,
         txtUnitTypeName,
+        DemandLinesSno,
+        RfqLinesSno,
         ScmPurchaseBidCompHeader,
         ScmPurchaseBidCompSupplier,
         InvItem,
@@ -59,6 +61,8 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int COMPAREITEMSNO = AttributesEnum.CompareItemSno.index();
     public static final int COMPAREHEADERSNO = AttributesEnum.CompareHeaderSno.index();
     public static final int ITEMID = AttributesEnum.ItemId.index();
@@ -69,6 +73,8 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
+    public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
+    public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
     public static final int SCMPURCHASEBIDCOMPHEADER = AttributesEnum.ScmPurchaseBidCompHeader.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -79,6 +85,14 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      */
     public ScmPurchaseBidCompareItemImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem");
+    }
+
 
     /**
      * Gets the attribute value for CompareItemSno, using the alias name CompareItemSno.
@@ -241,6 +255,38 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for DemandLinesSno, using the alias name DemandLinesSno.
+     * @return the value of DemandLinesSno
+     */
+    public Integer getDemandLinesSno() {
+        return (Integer) getAttributeInternal(DEMANDLINESSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DemandLinesSno.
+     * @param value value to set the DemandLinesSno
+     */
+    public void setDemandLinesSno(Integer value) {
+        setAttributeInternal(DEMANDLINESSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for RfqLinesSno, using the alias name RfqLinesSno.
+     * @return the value of RfqLinesSno
+     */
+    public Integer getRfqLinesSno() {
+        return (Integer) getAttributeInternal(RFQLINESSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RfqLinesSno.
+     * @param value value to set the RfqLinesSno
+     */
+    public void setRfqLinesSno(Integer value) {
+        setAttributeInternal(RFQLINESSNO, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseBidCompHeaderImpl.
      */
     public ScmPurchaseBidCompHeaderImpl getScmPurchaseBidCompHeader() {
@@ -289,6 +335,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         setAttributeInternal(INVUNITTYPE, value);
     }
 
+
     /**
      * @param compareItemSno key constituent
 
@@ -296,13 +343,6 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      */
     public static Key createPrimaryKey(Integer compareItemSno) {
         return new Key(new Object[] { compareItemSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem");
     }
 
     /**
