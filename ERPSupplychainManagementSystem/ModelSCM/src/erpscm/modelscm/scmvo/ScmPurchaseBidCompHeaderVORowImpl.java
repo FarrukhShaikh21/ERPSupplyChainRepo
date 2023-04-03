@@ -72,8 +72,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
         AccSysSystemParameterVO,
         AccScmPurchaseRfqLinesVO,
         AccScmPurchaseBidLinesVO;
-        static AttributesEnum[] vals = null;
-        ;
+        static AttributesEnum[] vals = null; ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -205,24 +204,24 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setRfqHeaderSno(Integer value) {
         setAttributeInternal(RFQHEADERSNO, value);
-        while(getScmPurchaseBidCompareItemVO().getRowCount()>0) {
+        while (getScmPurchaseBidCompareItemVO().getRowCount() > 0) {
             getScmPurchaseBidCompareItemVO().first().remove();
         }
-        
-        getAccScmPurchaseRfqLinesVO().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", value==null?-1:value);
+
+        getAccScmPurchaseRfqLinesVO().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", value == null ? -1 : value);
         getAccScmPurchaseRfqLinesVO().executeQuery();
-        RowSetIterator rfqLineRsi=getAccScmPurchaseRfqLinesVO();
-        while(rfqLineRsi.hasNext()) {
-            Row rfqLineRow=rfqLineRsi.next();
-            Row BidCompLine=getScmPurchaseBidCompareItemVO().createRow();
+        RowSetIterator rfqLineRsi = getAccScmPurchaseRfqLinesVO();
+        while (rfqLineRsi.hasNext()) {
+            Row rfqLineRow = rfqLineRsi.next();
+            Row BidCompLine = getScmPurchaseBidCompareItemVO().createRow();
             BidCompLine.setAttribute("ItemId", rfqLineRow.getAttribute("ItemId"));
-            BidCompLine.setAttribute("UnitTypeId", rfqLineRow.getAttribute("UnitTypeSno"));
+            BidCompLine.setAttribute("UnitTypeSno", rfqLineRow.getAttribute("UnitTypeSno"));
             BidCompLine.setAttribute("DemandLinesSno", rfqLineRow.getAttribute("DemandLinesSno"));
             BidCompLine.setAttribute("RfqLinesSno", rfqLineRow.getAttribute("RfqLinesSno"));
             getScmPurchaseBidCompareItemVO().insertRow(BidCompLine);
-            
+
         }
-        
+
     }
 
     /**
@@ -286,9 +285,9 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
      * @param value value to set the LOCATION_ID
      */
     public void setLocationId(Integer value) {
-        System.out.println("value"+value);
+        System.out.println("value" + value);
         setAttributeInternal(LOCATIONID, value);
-        setCompanyId(doGetCompanyIDByLocation(value==null?0:value.intValue(), getGlobalCompanyId()));
+        setCompanyId(doGetCompanyIDByLocation(value == null ? 0 : value.intValue(), getGlobalCompanyId()));
 
     }
 

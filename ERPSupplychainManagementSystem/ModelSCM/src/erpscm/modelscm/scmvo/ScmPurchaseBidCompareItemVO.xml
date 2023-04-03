@@ -68,13 +68,6 @@
     EntityUsage="ScmPurchaseBidCompareItem"
     AliasName="ITEM_ID"/>
   <ViewAttribute
-    Name="UnitTypeId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="UnitTypeId"
-    EntityUsage="ScmPurchaseBidCompareItem"
-    AliasName="UNIT_TYPE_ID"/>
-  <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
     PrecisionRule="true"
@@ -136,16 +129,18 @@
     EntityAttrName="RfqLinesSno"
     EntityUsage="ScmPurchaseBidCompareItem"
     AliasName="RFQ_LINES_SNO"/>
+  <ViewAttribute
+    Name="UnitTypeSno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UnitTypeSno"
+    EntityUsage="ScmPurchaseBidCompareItem"
+    AliasName="UNIT_TYPE_SNO"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="ScmPurchaseBidCompSupplierVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
-    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="InvItemVO"
@@ -158,5 +153,10 @@
     ViewLink="erpscm.modelscm.scmvo.InvUnitTypeInvPurcBidCompItemUnitTypeSnoAsso"
     Type="oracle.jbo.Row"
     Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseBidCompSupplierVO"
+    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

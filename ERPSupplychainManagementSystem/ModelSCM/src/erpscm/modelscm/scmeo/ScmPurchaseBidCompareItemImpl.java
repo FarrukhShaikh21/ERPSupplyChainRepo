@@ -26,7 +26,6 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         CompareItemSno,
         CompareHeaderSno,
         ItemId,
-        UnitTypeId,
         CreatedBy,
         CreatedDate,
         LastUpdatedBy,
@@ -35,11 +34,13 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         txtUnitTypeName,
         DemandLinesSno,
         RfqLinesSno,
+        UnitTypeSno,
         ScmPurchaseBidCompHeader,
         ScmPurchaseBidCompSupplier,
         InvItem,
         InvUnitType;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -66,7 +67,6 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public static final int COMPAREITEMSNO = AttributesEnum.CompareItemSno.index();
     public static final int COMPAREHEADERSNO = AttributesEnum.CompareHeaderSno.index();
     public static final int ITEMID = AttributesEnum.ItemId.index();
-    public static final int UNITTYPEID = AttributesEnum.UnitTypeId.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
@@ -75,6 +75,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
     public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
+    public static final int UNITTYPESNO = AttributesEnum.UnitTypeSno.index();
     public static final int SCMPURCHASEBIDCOMPHEADER = AttributesEnum.ScmPurchaseBidCompHeader.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -142,21 +143,6 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         setAttributeInternal(ITEMID, value);
     }
 
-    /**
-     * Gets the attribute value for UnitTypeId, using the alias name UnitTypeId.
-     * @return the value of UnitTypeId
-     */
-    public Integer getUnitTypeId() {
-        return (Integer) getAttributeInternal(UNITTYPEID);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for UnitTypeId.
-     * @param value value to set the UnitTypeId
-     */
-    public void setUnitTypeId(Integer value) {
-        setAttributeInternal(UNITTYPEID, value);
-    }
 
     /**
      * Gets the attribute value for CreatedBy, using the alias name CreatedBy.
@@ -284,6 +270,22 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      */
     public void setRfqLinesSno(Integer value) {
         setAttributeInternal(RFQLINESSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for UnitTypeSno, using the alias name UnitTypeSno.
+     * @return the value of UnitTypeSno
+     */
+    public Integer getUnitTypeSno() {
+        return (Integer) getAttributeInternal(UNITTYPESNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for UnitTypeSno.
+     * @param value value to set the UnitTypeSno
+     */
+    public void setUnitTypeSno(Integer value) {
+        setAttributeInternal(UNITTYPESNO, value);
     }
 
     /**
