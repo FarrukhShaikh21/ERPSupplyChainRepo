@@ -209,7 +209,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
             getScmPurchaseBidCompareItemVO().first().remove();
         }
         
-        getAccScmPurchaseRfqLinesVO().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", value);
+        getAccScmPurchaseRfqLinesVO().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", value==null?-1:value);
         getAccScmPurchaseRfqLinesVO().executeQuery();
         RowSetIterator rfqLineRsi=getAccScmPurchaseRfqLinesVO();
         while(rfqLineRsi.hasNext()) {

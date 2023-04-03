@@ -200,7 +200,9 @@
                                                                           columns="#{bindings.txtLocationName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtLocationName.hints.tooltip}"
                                                                           simple="true" contentStyle="width:90%"
-                                                                          autoSubmit="true">
+                                                                          autoSubmit="true"
+                                                                          readOnly="#{bindings.ScmPurchaseBidCompareItemDetCRUDIterator.estimatedRowCount>0}"
+                                                                          partialTriggers="txtRfqHeaderCodeId">
                                                 <f:validator binding="#{bindings.txtLocationName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
@@ -340,7 +342,7 @@
                             <af:gridCell id="gc29" halign="stretch" width="100%">
                                 <af:panelGridLayout id="pgl3">
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
-                                        <af:gridCell id="gc28" width="30%" halign="stretch">
+                                        <af:gridCell id="gc28" width="40%" halign="stretch" valign="stretch">
                                             <af:panelBox text="Bid Item" id="pb1" showDisclosure="false">
                                                 <f:facet name="toolbar"/>
                                                 <af:table value="#{bindings.ScmPurchaseBidCompareItemDetCRUD.collectionModel}"
@@ -383,8 +385,8 @@
                                                 </af:table>
                                             </af:panelBox>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc2"
-                                                     halign="stretch">
+                                        <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc2"
+                                                     halign="stretch" valign="stretch">
                                             <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                                 <f:facet name="menus"/>
                                                 <f:facet name="toolbar">

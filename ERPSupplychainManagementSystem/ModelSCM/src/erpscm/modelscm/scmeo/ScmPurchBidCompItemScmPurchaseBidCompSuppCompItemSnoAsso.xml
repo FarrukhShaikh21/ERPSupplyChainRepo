@@ -14,7 +14,8 @@
     Cardinality="1"
     Source="true"
     Owner="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem"
-    LockLevel="NONE">
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseBidCompareItem"/>
@@ -28,7 +29,8 @@
   <AssociationEnd
     Name="ScmPurchaseBidCompSupplier"
     Cardinality="-1"
-    Owner="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier">
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseBidCompSupplier"/>
