@@ -16,6 +16,7 @@ import oracle.jbo.RowSet;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
+
     public static final int ENTITY_SCMPURCHASEBIDCOMPAREITEM = 0;
 
     /**
@@ -39,7 +40,8 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
         InvUnitTypeVO,
         ScmPurchaseBidCompSupplierVO,
         AccInvItemVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -61,6 +63,7 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
             return vals;
         }
     }
+
     public static final int COMPAREITEMSNO = AttributesEnum.CompareItemSno.index();
     public static final int COMPAREHEADERSNO = AttributesEnum.CompareHeaderSno.index();
     public static final int ITEMID = AttributesEnum.ItemId.index();

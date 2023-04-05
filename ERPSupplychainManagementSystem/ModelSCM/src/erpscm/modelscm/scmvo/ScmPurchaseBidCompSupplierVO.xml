@@ -75,6 +75,18 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="RfqLinesSno"
+    PrecisionRule="true"
+    EntityAttrName="RfqLinesSno"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="RFQ_LINES_SNO"/>
+  <ViewAttribute
+    Name="DemandLinesSno"
+    PrecisionRule="true"
+    EntityAttrName="DemandLinesSno"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="DEMAND_LINES_SNO"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompareItemVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"

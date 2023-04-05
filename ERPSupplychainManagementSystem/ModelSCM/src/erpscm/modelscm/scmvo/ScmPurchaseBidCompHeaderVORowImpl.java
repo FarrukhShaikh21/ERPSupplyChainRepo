@@ -226,6 +226,13 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
             RowSetIterator RSIbidLine=getAccScmPurchaseBidLinesVO();
             while(RSIbidLine.hasNext()) {
                 Row bidLineRow=RSIbidLine.next();
+                ScmPurchaseBidCompareItemVORowImpl compareSupplier=(ScmPurchaseBidCompareItemVORowImpl)BidCompLine;
+                RowIterator bidCompSupplierVO = compareSupplier.getScmPurchaseBidCompSupplierVO();
+                Row compareSuppRow= bidCompSupplierVO.createRow();
+                compareSuppRow.setAttribute("SupplierId", bidLineRow.getAttribute("txtSupplierSno"));
+                compareSuppRow.setAttribute("Rate", bidLineRow.getAttribute("BidPrice"));
+                compareSuppRow.setAttribute("DemandLinesSno", bidLineRow.getAttribute("DemandLinesSno"));
+                compareSuppRow.setAttribute("RfqLinesSno", bidLineRow.getAttribute("RfqLinesSno"));
                 
             }
         }

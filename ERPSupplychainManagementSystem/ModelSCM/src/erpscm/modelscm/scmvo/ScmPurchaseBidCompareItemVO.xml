@@ -14,9 +14,9 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   RowClass="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVORowImpl"
-  ComponentClass="erpglobals.modelglobals.ERPViewObjectImpl">
+  ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVOImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
     <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
     <Attr Name="_isCodegen" Value="true"/>
@@ -164,7 +164,7 @@
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompSupplierVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>
