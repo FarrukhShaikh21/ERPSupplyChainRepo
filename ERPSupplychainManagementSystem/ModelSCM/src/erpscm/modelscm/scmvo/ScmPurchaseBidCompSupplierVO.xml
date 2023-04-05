@@ -52,12 +52,6 @@
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="CREATED_DATE"/>
   <ViewAttribute
-    Name="SupplierId"
-    PrecisionRule="true"
-    EntityAttrName="SupplierId"
-    EntityUsage="ScmPurchaseBidCompSupplier"
-    AliasName="SUPPLIER_ID"/>
-  <ViewAttribute
     Name="Rate"
     PrecisionRule="true"
     EntityAttrName="Rate"
@@ -87,6 +81,12 @@
     EntityAttrName="DemandLinesSno"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="DEMAND_LINES_SNO"/>
+  <ViewAttribute
+    Name="SupplierSno"
+    PrecisionRule="true"
+    EntityAttrName="SupplierSno"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="SUPPLIER_SNO"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompareItemVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"

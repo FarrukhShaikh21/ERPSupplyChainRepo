@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="SCM_PURCHASE_BID_COMP_SUPPLIER"
   AliasName="ScmPurchaseBidCompSupplier"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplierImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+  </DesignTime>
   <Attribute
     Name="CompareSupplierSno"
     IsNotNull="true"
@@ -58,15 +64,6 @@
     TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
     RetrievedOnInsert="true"/>
   <Attribute
-    Name="SupplierId"
-    Precision="10"
-    Scale="0"
-    ColumnName="SUPPLIER_ID"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"/>
-  <Attribute
     Name="Rate"
     Precision="16"
     Scale="6"
@@ -108,6 +105,15 @@
     Precision="10"
     Scale="0"
     ColumnName="RFQ_LINES_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"/>
+  <Attribute
+    Name="SupplierSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="SUPPLIER_SNO"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
