@@ -398,6 +398,45 @@
                                                 <f:facet name="secondaryToolbar"/>
                                                 <f:facet name="afterToolbar"/>
                                                 <f:facet name="viewMenu"/>
+                                                <af:table value="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel}"
+                                                          var="row"
+                                                          rows="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.rangeSize}"
+                                                          emptyText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.rangeSize}"
+                                                          id="t4">
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.label}"
+                                                               id="c3">
+                                                        <af:inputText value="#{row.bindings.SupplierSno.inputValue}"
+                                                                      label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.label}"
+                                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.mandatory}"
+                                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.precision}"
+                                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.tooltip}"
+                                                                      id="it3">
+                                                            <f:validator binding="#{row.bindings.SupplierSno.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.label}"
+                                                               id="c4">
+                                                        <af:inputText value="#{row.bindings.Rate.inputValue}"
+                                                                      label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.label}"
+                                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.mandatory}"
+                                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.precision}"
+                                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.tooltip}"
+                                                                      id="it4">
+                                                            <f:validator binding="#{row.bindings.Rate.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                </af:table>
                                             </af:panelCollection>
                                         </af:gridCell>
                                     </af:gridRow>

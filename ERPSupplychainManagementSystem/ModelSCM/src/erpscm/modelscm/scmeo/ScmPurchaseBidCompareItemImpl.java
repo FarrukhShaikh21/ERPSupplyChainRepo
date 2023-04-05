@@ -351,9 +351,11 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      * Add attribute defaulting logic in this method.
      * @param attributeList list of attribute names/values to initialize the row
      */
+    @Override
     protected void create(AttributeList attributeList) {
+        System.out.println("overrigde");
+        setERPTableName("SCM_PURCHASE_BID_COMP_ITEM_SEQ");
         super.create(attributeList);
-        setERPTableName("SCM_PURCHASE_BID_COMP_HEAD_SEQ");
     }
 
     /**

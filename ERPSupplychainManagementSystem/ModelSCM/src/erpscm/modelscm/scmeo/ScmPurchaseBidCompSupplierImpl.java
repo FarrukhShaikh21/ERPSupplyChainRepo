@@ -23,9 +23,9 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      * @param attributeList list of attribute names/values to initialize the row
      */
     protected void create(AttributeList attributeList) {
-        super.create(attributeList);
         setERPTableName("SCM_PURCHASE_BID_COMP_SUPP_SEQ");
-        
+        super.create(attributeList);
+
     }
 
     /**
