@@ -223,6 +223,11 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
             getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_UNIT_TYPE_SNO", rfqLineRow.getAttribute("UnitTypeSno"));  
             getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value);  
             getAccScmPurchaseBidLinesVO().executeQuery();
+            RowSetIterator RSIbidLine=getAccScmPurchaseBidLinesVO();
+            while(RSIbidLine.hasNext()) {
+                Row bidLineRow=RSIbidLine.next();
+                
+            }
         }
 
     }

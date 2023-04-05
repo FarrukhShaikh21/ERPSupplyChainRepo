@@ -12,7 +12,15 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVORowImpl"
+  ComponentClass="erpglobals.modelglobals.ERPViewObjectImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
+    <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccInvItemVO"
     ViewObjectName="erpims.modelims.imsvo.InvItemVO"
@@ -156,7 +164,7 @@
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompSupplierVO"
-    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>
