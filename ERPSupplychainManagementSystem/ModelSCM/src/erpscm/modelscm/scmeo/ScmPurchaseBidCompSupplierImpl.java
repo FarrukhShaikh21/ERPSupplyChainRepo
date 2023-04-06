@@ -50,6 +50,9 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         RfqLinesSno,
         SupplierSno,
         txtSupplierName,
+        BidCriteriaSno,
+        IsBidReceived,
+        IsSelect,
         ScmPurchaseBidCompareItem,
         ScmSupplier;
         private static AttributesEnum[] vals = null;
@@ -88,6 +91,9 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
     public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int BIDCRITERIASNO = AttributesEnum.BidCriteriaSno.index();
+    public static final int ISBIDRECEIVED = AttributesEnum.IsBidReceived.index();
+    public static final int ISSELECT = AttributesEnum.IsSelect.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
 
@@ -295,6 +301,54 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void settxtSupplierName(String value) {
         setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for BidCriteriaSno, using the alias name BidCriteriaSno.
+     * @return the value of BidCriteriaSno
+     */
+    public String getBidCriteriaSno() {
+        return (String) getAttributeInternal(BIDCRITERIASNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for BidCriteriaSno.
+     * @param value value to set the BidCriteriaSno
+     */
+    public void setBidCriteriaSno(String value) {
+        setAttributeInternal(BIDCRITERIASNO, value);
+    }
+
+    /**
+     * Gets the attribute value for IsBidReceived, using the alias name IsBidReceived.
+     * @return the value of IsBidReceived
+     */
+    public String getIsBidReceived() {
+        return (String) getAttributeInternal(ISBIDRECEIVED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IsBidReceived.
+     * @param value value to set the IsBidReceived
+     */
+    public void setIsBidReceived(String value) {
+        setAttributeInternal(ISBIDRECEIVED, value);
+    }
+
+    /**
+     * Gets the attribute value for IsSelect, using the alias name IsSelect.
+     * @return the value of IsSelect
+     */
+    public String getIsSelect() {
+        return (String) getAttributeInternal(ISSELECT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IsSelect.
+     * @param value value to set the IsSelect
+     */
+    public void setIsSelect(String value) {
+        setAttributeInternal(ISSELECT, value);
     }
 
     /**

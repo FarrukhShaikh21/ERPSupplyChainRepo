@@ -124,7 +124,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
     IsQueriable="false"
     IsPersistent="false">
     <TransientExpression
@@ -141,6 +140,46 @@
       <Item
         Value="SupplierSno"/>
     </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="BidCriteriaSno"
+    Precision="1"
+    ColumnName="BID_CRITERIA_SNO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsBidReceived"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_BID_RECEIVED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
+    DefaultValue="N">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsSelect"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_SELECT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
+    DefaultValue="N">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidCompareItem"

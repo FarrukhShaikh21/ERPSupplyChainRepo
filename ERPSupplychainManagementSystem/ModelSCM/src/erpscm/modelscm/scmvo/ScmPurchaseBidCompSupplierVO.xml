@@ -95,6 +95,26 @@
     EntityAttrName="txtSupplierName"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="txt_Supplier_Name"/>
+  <ViewAttribute
+    Name="IsSelect"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IsSelect"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="IS_SELECT"/>
+  <ViewAttribute
+    Name="IsBidReceived"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IsBidReceived"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="IS_BID_RECEIVED"/>
+  <ViewAttribute
+    Name="BidCriteriaSno"
+    PrecisionRule="true"
+    EntityAttrName="BidCriteriaSno"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="BID_CRITERIA_SNO"/>
   <ViewLinkAccessor
     Name="ScmSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurcBidCompSupplierSupplierSnoLink"

@@ -239,6 +239,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
                 System.out.println("anc3");
                 compareSuppRow.setAttribute("RfqLinesSno", bidLineRow.getAttribute("RfqLinesSno"));
                 System.out.println("anc4");
+                compareSuppRow.setAttribute("CompareHeaderSno", getCompareHeaderSno());
                 bidCompSupplierVO.insertRow(compareSuppRow);
             }
         }
