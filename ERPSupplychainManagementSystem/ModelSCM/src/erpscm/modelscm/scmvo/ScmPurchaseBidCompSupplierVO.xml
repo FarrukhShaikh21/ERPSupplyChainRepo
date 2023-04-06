@@ -89,7 +89,13 @@
     AliasName="SUPPLIER_SNO"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompareItemVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmSupplierVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurcBidCompSupplierSupplierSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
