@@ -408,8 +408,20 @@
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.rangeSize}"
                                                           id="t4">
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.label}"
+                                                               id="c5" width="200" displayIndex="-1">
+                                                        <af:inputText value="#{row.bindings.txtSupplierName.inputValue}"
+                                                                      label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.label}"
+                                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.mandatory}"
+                                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.precision}"
+                                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.tooltip}"
+                                                                      id="it5" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.txtSupplierName.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.label}"
-                                                               id="c3">
+                                                               id="c3" rendered="false">
                                                         <af:inputText value="#{row.bindings.SupplierSno.inputValue}"
                                                                       label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.label}"
                                                                       required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.mandatory}"
@@ -430,7 +442,7 @@
                                                                       columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.displayWidth}"
                                                                       maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.precision}"
                                                                       shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.tooltip}"
-                                                                      id="it4">
+                                                                      id="it4" readOnly="true">
                                                             <f:validator binding="#{row.bindings.Rate.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.format}"/>

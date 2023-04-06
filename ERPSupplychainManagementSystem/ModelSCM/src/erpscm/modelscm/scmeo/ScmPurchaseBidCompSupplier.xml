@@ -117,6 +117,31 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"/>
+  <Attribute
+    Name="txtSupplierName"
+    Precision="100"
+    ColumnName="txt_Supplier_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
+    IsQueriable="false"
+    IsPersistent="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtSupplierName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="SupplierSno"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidCompareItem"
     Association="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoAsso"
@@ -197,4 +222,8 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.SupplierSno"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </Entity>

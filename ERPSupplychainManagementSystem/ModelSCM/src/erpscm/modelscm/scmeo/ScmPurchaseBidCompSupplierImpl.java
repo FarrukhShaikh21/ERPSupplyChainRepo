@@ -49,6 +49,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         DemandLinesSno,
         RfqLinesSno,
         SupplierSno,
+        txtSupplierName,
         ScmPurchaseBidCompareItem,
         ScmSupplier;
         private static AttributesEnum[] vals = null;
@@ -86,6 +87,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
     public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
+    public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
 
@@ -277,6 +279,22 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void setSupplierSno(Integer value) {
         setAttributeInternal(SUPPLIERSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSupplierName, using the alias name txtSupplierName.
+     * @return the value of txtSupplierName
+     */
+    public String gettxtSupplierName() {
+        return (String) getAttributeInternal(TXTSUPPLIERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierName.
+     * @param value value to set the txtSupplierName
+     */
+    public void settxtSupplierName(String value) {
+        setAttributeInternal(TXTSUPPLIERNAME, value);
     }
 
     /**

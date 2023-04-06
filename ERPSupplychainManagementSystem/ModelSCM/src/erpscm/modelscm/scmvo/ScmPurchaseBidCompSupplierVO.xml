@@ -87,15 +87,23 @@
     EntityAttrName="SupplierSno"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="SUPPLIER_SNO"/>
+  <ViewAttribute
+    Name="txtSupplierName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierName"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Supplier_Name"/>
   <ViewLinkAccessor
-    Name="ScmPurchaseBidCompareItemVO"
-    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    Name="ScmSupplierVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurcBidCompSupplierSupplierSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
   <ViewLinkAccessor
-    Name="ScmSupplierVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurcBidCompSupplierSupplierSnoLink"
+    Name="ScmPurchaseBidCompareItemVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
