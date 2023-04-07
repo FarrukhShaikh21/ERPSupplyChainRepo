@@ -142,7 +142,11 @@
    <ViewAccessor
       Name="AccScmPurchaseRfqSupplierVO"
       ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO"
-      RowLevelBinds="true"/>
+      RowLevelBinds="true">
+      <ViewCriteriaUsage
+         Name="ScmPurchaseRfqSupplierRFQWiseVC"
+         FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO.ScmPurchaseRfqSupplierRFQWiseVC"/>
+   </ViewAccessor>
    <ListBinding
       Name="LovtxtTempProjectName"
       ListVOName="AccGlProjectsVO"

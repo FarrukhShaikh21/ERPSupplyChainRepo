@@ -22,6 +22,10 @@
     Name="P_ADF_SUPPLIER_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_RFQ_HEADER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <ViewAccessor
     Name="AccScmSupplierVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
@@ -197,41 +201,6 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="ScmSupplierVO"
-        ViewAttribute="ScmSupplierVO"
-        Operator="EXISTS"
-        Conjunction="AND"
-        IsNestedCriteria="true"
-        Required="Optional">
-        <ViewCriteria
-          Name="ScmSupplierVONestedCriteria"
-          ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
-          Conjunction="AND">
-          <ViewCriteriaRow
-            Name="ScmSupplierVONestedCriteria_row_0"
-            UpperColumns="1">
-            <ViewCriteriaItem
-              Name="SupplierShortCode"
-              ViewAttribute="SupplierShortCode"
-              Operator="="
-              Conjunction="AND"
-              Required="Optional"/>
-            <ViewCriteriaItem
-              Name="SupplierName"
-              ViewAttribute="SupplierName"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Required="Optional"/>
-            <ViewCriteriaItem
-              Name="SupplierShortName"
-              ViewAttribute="SupplierShortName"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Required="Optional"/>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItem>
-      <ViewCriteriaItem
         Name="ScmPurchaseRfqHeaderVO"
         ViewAttribute="ScmPurchaseRfqHeaderVO"
         Operator="EXISTS"
@@ -277,6 +246,77 @@
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="ScmSupplierVO"
+        ViewAttribute="ScmSupplierVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmSupplierVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmSupplierVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="SupplierShortCode"
+              ViewAttribute="SupplierShortCode"
+              Operator="="
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="SupplierName"
+              ViewAttribute="SupplierName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="SupplierShortName"
+              ViewAttribute="SupplierShortName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPurchaseRfqSupplierRFQWiseVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseRfqSupplierVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="RfqHeaderSno"
+        ViewAttribute="RfqHeaderSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_RFQ_HEADER_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor
