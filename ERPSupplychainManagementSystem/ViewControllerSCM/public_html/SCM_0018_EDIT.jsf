@@ -448,6 +448,18 @@
                                                                               pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.format}"/>
                                                         </af:inputText>
                                                     </af:column>
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.label}"
+                                                               id="c6">
+                                                        <af:selectOneChoice value="#{row.bindings.IsBidReceived.inputValue}"
+                                                                            label="#{row.bindings.IsBidReceived.label}"
+                                                                            required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.mandatory}"
+                                                                            shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.tooltip}"
+                                                                            id="soc3" readOnly="true">
+                                                            <f:selectItems value="#{row.bindings.IsBidReceived.items}"
+                                                                           id="si4"/>
+                                                            <f:validator binding="#{row.bindings.IsBidReceived.validator}"/>
+                                                        </af:selectOneChoice>
+                                                    </af:column>
                                                 </af:table>
                                             </af:panelCollection>
                                         </af:gridCell>

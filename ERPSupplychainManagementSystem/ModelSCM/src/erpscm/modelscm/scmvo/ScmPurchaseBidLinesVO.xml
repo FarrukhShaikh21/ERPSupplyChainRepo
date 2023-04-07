@@ -31,6 +31,10 @@
     Name="P_ADF_UNIT_TYPE_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_SUPPLIER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <ViewAccessor
     Name="AccInvItemVO"
     ViewObjectName="erpims.modelims.imsvo.InvItemVO"
@@ -342,6 +346,14 @@
               Operator="="
               Conjunction="AND"
               Value=":P_ADF_RFQ_HEADER_SNO"
+              IsBindVarValue="true"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="SupplierSno"
+              ViewAttribute="SupplierSno"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_SUPPLIER_SNO"
               IsBindVarValue="true"
               Required="Optional"/>
           </ViewCriteriaRow>

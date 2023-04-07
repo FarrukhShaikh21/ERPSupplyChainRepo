@@ -222,27 +222,37 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
             BidCompLine.setAttribute("DemandLinesSno", rfqLineRow.getAttribute("DemandLinesSno"));
             BidCompLine.setAttribute("RfqLinesSno", rfqLineRow.getAttribute("RfqLinesSno"));
             getScmPurchaseBidCompareItemVO().insertRow(BidCompLine);
-            getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_ITEM_ID", rfqLineRow.getAttribute("ItemId"));
-            getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_UNIT_TYPE_SNO", rfqLineRow.getAttribute("UnitTypeSno"));  
-            getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value);  
-            getAccScmPurchaseBidLinesVO().executeQuery();
-            RowSetIterator RSIbidLine=getAccScmPurchaseBidLinesVO();
-            while(RSIbidLine.hasNext()) {
-                Row bidLineRow=RSIbidLine.next();
+            getAccScmPurchaseRfqSupplierVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value==null?-1:value);
+            getAccScmPurchaseRfqSupplierVO().executeQuery();
+            RowSetIterator RSRfqSupplier=getAccScmPurchaseRfqSupplierVO();
+            
+            while(RSRfqSupplier.hasNext()) {
+                Row bidSupplierRow=RSRfqSupplier.next();
+                ///////////
+                getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_ITEM_ID", rfqLineRow.getAttribute("ItemId"));
+                getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_UNIT_TYPE_SNO", rfqLineRow.getAttribute("UnitTypeSno"));  
+                getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value);  
+                getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_SUPPLIER_SNO", bidSupplierRow.getAttribute("SupplierSno")); 
+                getAccScmPurchaseBidLinesVO().executeQuery();
+                RowSetIterator RSIbidLine=getAccScmPurchaseBidLinesVO();
+                /////////////
                 ScmPurchaseBidCompareItemVORowImpl compareSupplier=(ScmPurchaseBidCompareItemVORowImpl)BidCompLine;
                 RowSetIterator bidCompSupplierVO =(RowSetIterator) compareSupplier.getScmPurchaseBidCompSupplierVO();
                 System.out.println("top");
                 Row compareSuppRow= bidCompSupplierVO.createRow();
                 System.out.println("anc");
-                compareSuppRow.setAttribute("SupplierSno", bidLineRow.getAttribute("txtSupplierSno"));
+                compareSuppRow.setAttribute("SupplierSno", bidSupplierRow.getAttribute("SupplierSno"));
                 System.out.println("anc1");
-                compareSuppRow.setAttribute("Rate", bidLineRow.getAttribute("BidPrice"));
-                System.out.println("anc2");
-                compareSuppRow.setAttribute("DemandLinesSno", bidLineRow.getAttribute("DemandLinesSno"));
-                System.out.println("anc3");
-                compareSuppRow.setAttribute("RfqLinesSno", bidLineRow.getAttribute("RfqLinesSno"));
-                System.out.println("anc4");
-                compareSuppRow.setAttribute("CompareHeaderSno", getCompareHeaderSno());
+                if (RSIbidLine.getRowCount()>0) {
+                    compareSuppRow.setAttribute("Rate", RSIbidLine.first().getAttribute("BidPrice"));
+                    System.out.println("anc2");
+                    compareSuppRow.setAttribute("DemandLinesSno", RSIbidLine.first().getAttribute("DemandLinesSno"));
+                    System.out.println("anc3");
+                    compareSuppRow.setAttribute("RfqLinesSno", RSIbidLine.first().getAttribute("RfqLinesSno"));
+                    compareSuppRow.setAttribute("IsBidReceived", "Y");
+                    System.out.println("anc4");
+                    compareSuppRow.setAttribute("CompareHeaderSno", getCompareHeaderSno());
+                }
                 bidCompSupplierVO.insertRow(compareSuppRow);
             }
         }

@@ -61,5 +61,21 @@ public class ScmPurchaseBidLinesVOImpl extends ViewObjectImpl {
     public void setP_ADF_UNIT_TYPE_SNO(Integer value) {
         ensureVariableManager().setVariableValue("P_ADF_UNIT_TYPE_SNO", value);
     }
+
+    /**
+     * Returns the variable value for P_ADF_SUPPLIER_SNO.
+     * @return variable value for P_ADF_SUPPLIER_SNO
+     */
+    public Integer getP_ADF_SUPPLIER_SNO() {
+        return (Integer) ensureVariableManager().getVariableValue("P_ADF_SUPPLIER_SNO");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_SUPPLIER_SNO.
+     * @param value value to bind as P_ADF_SUPPLIER_SNO
+     */
+    public void setP_ADF_SUPPLIER_SNO(Integer value) {
+        ensureVariableManager().setVariableValue("P_ADF_SUPPLIER_SNO", value);
+    }
 }
 

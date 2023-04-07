@@ -13,6 +13,28 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccSysGeneralValueVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovIsBidReceived"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsBidReceived"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmPurchaseBidCompSupplier"
     Entity="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier"/>
@@ -108,7 +130,15 @@
     PrecisionRule="true"
     EntityAttrName="IsBidReceived"
     EntityUsage="ScmPurchaseBidCompSupplier"
-    AliasName="IS_BID_RECEIVED"/>
+    AliasName="IS_BID_RECEIVED"
+    LOVName="LovIsBidReceived">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BidCriteriaSno"
     PrecisionRule="true"
