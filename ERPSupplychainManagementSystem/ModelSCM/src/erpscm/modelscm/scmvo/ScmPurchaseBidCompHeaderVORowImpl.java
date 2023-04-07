@@ -71,8 +71,10 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
         AccAdminCompanyForCompVO,
         AccSysSystemParameterVO,
         AccScmPurchaseRfqLinesVO,
-        AccScmPurchaseBidLinesVO;
-        static AttributesEnum[] vals = null; ;
+        AccScmPurchaseBidLinesVO,
+        AccScmPurchaseRfqSupplierVO;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -143,6 +145,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCSYSSYSTEMPARAMETERVO = AttributesEnum.AccSysSystemParameterVO.index();
     public static final int ACCSCMPURCHASERFQLINESVO = AttributesEnum.AccScmPurchaseRfqLinesVO.index();
     public static final int ACCSCMPURCHASEBIDLINESVO = AttributesEnum.AccScmPurchaseBidLinesVO.index();
+    public static final int ACCSCMPURCHASERFQSUPPLIERVO = AttributesEnum.AccScmPurchaseRfqSupplierVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -842,6 +845,13 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
      */
     public RowSet getAccScmPurchaseBidLinesVO() {
         return (RowSet) getAttributeInternal(ACCSCMPURCHASEBIDLINESVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccScmPurchaseRfqSupplierVO.
+     */
+    public RowSet getAccScmPurchaseRfqSupplierVO() {
+        return (RowSet) getAttributeInternal(ACCSCMPURCHASERFQSUPPLIERVO);
     }
 }
 
