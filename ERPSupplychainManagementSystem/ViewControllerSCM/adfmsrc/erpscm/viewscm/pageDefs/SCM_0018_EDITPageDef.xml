@@ -81,8 +81,25 @@
           <Item Value="Rate"/>
           <Item Value="txtSupplierName"/>
           <Item Value="IsBidReceived"/>
+          <Item Value="txtBidCriteriaName"/>
+          <Item Value="IsSelect" Binds="IsSelect"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <button IterBinding="ScmPurchaseBidCompSupplierDetCRUDIterator" id="IsSelect" DTSupportsMRU="false"
+            StaticList="true">
+      <AttrNames>
+        <Item Value="IsSelect"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="ScmPurchaseBidCompareItemDetCRUDIterator" id="txtItemName">
+      <AttrNames>
+        <Item Value="txtItemName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

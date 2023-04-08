@@ -383,21 +383,22 @@
                                                         </af:inputText>
                                                     </af:column>
                                                 </af:table>
+                                                <af:inputText value="#{bindings.txtItemName.inputValue}"
+                                                              label="#{bindings.txtItemName.hints.label}"
+                                                              required="#{bindings.txtItemName.hints.mandatory}"
+                                                              columns="#{bindings.txtItemName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.txtItemName.hints.precision}"
+                                                              shortDesc="#{bindings.txtItemName.hints.tooltip}"
+                                                              id="it6" rendered="false">
+                                                    <f:validator binding="#{bindings.txtItemName.validator}"/>
+                                                </af:inputText>
                                             </af:panelBox>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc2"
                                                      halign="stretch" valign="stretch">
-                                            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                                                <f:facet name="menus"/>
-                                                <f:facet name="toolbar">
-                                                    <af:toolbar id="t2"/>
-                                                </f:facet>
-                                                <f:facet name="statusbar">
-                                                    <af:toolbar id="t3"/>
-                                                </f:facet>
-                                                <f:facet name="secondaryToolbar"/>
-                                                <f:facet name="afterToolbar"/>
-                                                <f:facet name="viewMenu"/>
+                                            <af:panelBox text="#{bindings.txtItemName.inputValue}" id="pb2"
+                                                         showDisclosure="false">
+                                                <f:facet name="toolbar"/>
                                                 <af:table value="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel}"
                                                           var="row"
                                                           rows="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.rangeSize}"
@@ -407,7 +408,8 @@
                                                           selectionListener="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel.makeCurrent}"
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.rangeSize}"
-                                                          id="t4">
+                                                          id="t4" autoHeightRows="10" scrollPolicy="page"
+                                                          columnStretching="last" styleClass="AFStretchWidth">
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.label}"
                                                                id="c5" width="200" displayIndex="-1">
                                                         <af:inputText value="#{row.bindings.txtSupplierName.inputValue}"
@@ -435,7 +437,7 @@
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.label}"
-                                                               id="c4">
+                                                               id="c4" width="60" displayIndex="-1">
                                                         <af:inputText value="#{row.bindings.Rate.inputValue}"
                                                                       label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.label}"
                                                                       required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.mandatory}"
@@ -460,8 +462,29 @@
                                                             <f:validator binding="#{row.bindings.IsBidReceived.validator}"/>
                                                         </af:selectOneChoice>
                                                     </af:column>
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.label}"
+                                                               id="c8" width="50">
+                                                        <af:selectBooleanCheckbox value="#{row.bindings.IsSelect.inputValue}"
+                                                                                  label="#{row.bindings.IsSelect.label}"
+                                                                                  shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.tooltip}"
+                                                                                  id="sbc1"
+                                                                                  disabled="#{row.bindings.IsBidReceived.inputValue=='1'}"/>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.label}"
+                                                               id="c7" width="200" displayIndex="-1">
+                                                        <af:inputComboboxListOfValues id="txtBidCriteriaNameId"
+                                                                                      popupTitle="Search and Select: #{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.label}"
+                                                                                      value="#{row.bindings.txtBidCriteriaName.inputValue}"
+                                                                                      model="#{row.bindings.txtBidCriteriaName.listOfValuesModel}"
+                                                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.mandatory}"
+                                                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.displayWidth}"
+                                                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.tooltip}"
+                                                                                      contentStyle="width:100%">
+                                                            <f:validator binding="#{row.bindings.txtBidCriteriaName.validator}"/>
+                                                        </af:inputComboboxListOfValues>
+                                                    </af:column>
                                                 </af:table>
-                                            </af:panelCollection>
+                                            </af:panelBox>
                                         </af:gridCell>
                                     </af:gridRow>
                                 </af:panelGridLayout>

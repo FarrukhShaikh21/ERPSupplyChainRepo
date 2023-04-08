@@ -353,6 +353,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      * @param value value to set the IsSelect
      */
     public void setIsSelect(String value) {
+        System.out.println(value + " is select");
         setAttributeInternal(ISSELECT, value);
     }
 
