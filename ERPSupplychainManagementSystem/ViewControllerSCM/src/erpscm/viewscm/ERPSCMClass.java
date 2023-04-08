@@ -458,9 +458,12 @@ public class ERPSCMClass {
         OperationBinding ob=(OperationBinding)bc.get("ExecuteWithParams"); 
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompareItemDetCRUDIterator");
         ob.getParamsMap().put("P_ADF_ITEM_ID", ib.getCurrentRow().getAttribute("ItemId"));
-        ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompareItemDetCRUDIterator");
         ob.getParamsMap().put("P_ADF_UNIT_TYPE_SNO", ib.getCurrentRow().getAttribute("UnitTypeSno"));
-        
+        ib = (DCIteratorBinding) bc.get("ScmPurchaseBidCompSupplierDetCRUDIterator");
+        ob.getParamsMap().put("P_ADF_SUPPLIER_SNO", ib.getCurrentRow().getAttribute("SupplierSno"));
+        ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompHeaderCRUDIterator");
+        ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO", ib.getCurrentRow().getAttribute("RfqHeaderSno"));
+        ob.execute();
         
         
 //        setNamedWhereClauseParam("P_ADF_ITEM_ID", rfqLineRow.getAttribute("ItemId"));

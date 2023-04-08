@@ -25,40 +25,15 @@
                   <f:facet name="buttonBar"/>
                         </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached"
+                      popupFetchListener="#{pageFlowScope.OracleERPBean.doShowBidReceiveOnBidCompare}">
                 <af:dialog id="d5" type="none">
                     <f:facet name="buttonBar"/>
                     <af:panelFormLayout id="pfl1">
-                        <af:inputComboboxListOfValues id="txtItemName1Id"
-                                                      popupTitle="Search and Select: #{bindings.txtItemName1.hints.label}"
-                                                      value="#{bindings.txtItemName1.inputValue}"
-                                                      label="#{bindings.txtItemName1.hints.label}"
-                                                      model="#{bindings.txtItemName1.listOfValuesModel}"
-                                                      required="#{bindings.txtItemName1.hints.mandatory}"
-                                                      columns="#{bindings.txtItemName1.hints.displayWidth}"
-                                                      shortDesc="#{bindings.txtItemName1.hints.tooltip}"
-                                                      readOnly="true">
-                            <f:validator binding="#{bindings.txtItemName1.validator}"/>
-                        </af:inputComboboxListOfValues>
-                        <af:inputComboboxListOfValues id="txtUnitTypeNameId"
-                                                      popupTitle="Search and Select: #{bindings.txtUnitTypeName.hints.label}"
-                                                      value="#{bindings.txtUnitTypeName.inputValue}"
-                                                      label="#{bindings.txtUnitTypeName.hints.label}"
-                                                      model="#{bindings.txtUnitTypeName.listOfValuesModel}"
-                                                      required="#{bindings.txtUnitTypeName.hints.mandatory}"
-                                                      columns="#{bindings.txtUnitTypeName.hints.displayWidth}"
-                                                      shortDesc="#{bindings.txtUnitTypeName.hints.tooltip}"
-                                                      readOnly="true">
-                            <f:validator binding="#{bindings.txtUnitTypeName.validator}"/>
-                        </af:inputComboboxListOfValues>
-                        <af:inputText value="#{bindings.BidPrice.inputValue}" label="#{bindings.BidPrice.hints.label}"
-                                      required="#{bindings.BidPrice.hints.mandatory}"
-                                      columns="#{bindings.BidPrice.hints.displayWidth}"
-                                      maximumLength="#{bindings.BidPrice.hints.precision}"
-                                      shortDesc="#{bindings.BidPrice.hints.tooltip}" id="it11" readOnly="true">
-                            <f:validator binding="#{bindings.BidPrice.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.BidPrice.format}"/>
-                        </af:inputText>
+                        <af:inputText label="#{bindings.txtItemName1.hints.label}" id="it12" readOnly="true"
+                                      value="#{bindings.txtItemName1.inputValue}"/>
+                        <af:inputText label="#{bindings.txtUnitTypeName.hints.label}" id="it17" readOnly="true"
+                                      value="#{bindings.txtUnitTypeName.inputValue}"/>
                         <af:inputText value="#{bindings.Quantity.inputValue}" label="#{bindings.Quantity.hints.label}"
                                       required="#{bindings.Quantity.hints.mandatory}"
                                       columns="#{bindings.Quantity.hints.displayWidth}"
@@ -66,6 +41,14 @@
                                       shortDesc="#{bindings.Quantity.hints.tooltip}" id="it7" readOnly="true">
                             <f:validator binding="#{bindings.Quantity.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.Quantity.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.BidPrice.inputValue}" label="#{bindings.BidPrice.hints.label}"
+                                      required="#{bindings.BidPrice.hints.mandatory}"
+                                      columns="#{bindings.BidPrice.hints.displayWidth}"
+                                      maximumLength="#{bindings.BidPrice.hints.precision}"
+                                      shortDesc="#{bindings.BidPrice.hints.tooltip}" id="it11" readOnly="true">
+                            <f:validator binding="#{bindings.BidPrice.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.BidPrice.format}"/>
                         </af:inputText>
                         <af:inputText value="#{bindings.txtDepartmentName.inputValue}"
                                       label="#{bindings.txtDepartmentName.hints.label}"
