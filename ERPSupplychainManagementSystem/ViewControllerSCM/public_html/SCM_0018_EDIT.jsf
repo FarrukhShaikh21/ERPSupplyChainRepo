@@ -25,8 +25,8 @@
                   <f:facet name="buttonBar"/>
                         </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
-                <af:dialog id="d5" type="okCancel">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached">
+                <af:dialog id="d5" type="none">
                     <f:facet name="buttonBar"/>
                     <af:panelFormLayout id="pfl1">
                         <af:inputComboboxListOfValues id="txtItemName1Id"
@@ -36,7 +36,8 @@
                                                       model="#{bindings.txtItemName1.listOfValuesModel}"
                                                       required="#{bindings.txtItemName1.hints.mandatory}"
                                                       columns="#{bindings.txtItemName1.hints.displayWidth}"
-                                                      shortDesc="#{bindings.txtItemName1.hints.tooltip}">
+                                                      shortDesc="#{bindings.txtItemName1.hints.tooltip}"
+                                                      readOnly="true">
                             <f:validator binding="#{bindings.txtItemName1.validator}"/>
                         </af:inputComboboxListOfValues>
                         <af:inputComboboxListOfValues id="txtUnitTypeNameId"
@@ -46,14 +47,15 @@
                                                       model="#{bindings.txtUnitTypeName.listOfValuesModel}"
                                                       required="#{bindings.txtUnitTypeName.hints.mandatory}"
                                                       columns="#{bindings.txtUnitTypeName.hints.displayWidth}"
-                                                      shortDesc="#{bindings.txtUnitTypeName.hints.tooltip}">
+                                                      shortDesc="#{bindings.txtUnitTypeName.hints.tooltip}"
+                                                      readOnly="true">
                             <f:validator binding="#{bindings.txtUnitTypeName.validator}"/>
                         </af:inputComboboxListOfValues>
                         <af:inputText value="#{bindings.BidPrice.inputValue}" label="#{bindings.BidPrice.hints.label}"
                                       required="#{bindings.BidPrice.hints.mandatory}"
                                       columns="#{bindings.BidPrice.hints.displayWidth}"
                                       maximumLength="#{bindings.BidPrice.hints.precision}"
-                                      shortDesc="#{bindings.BidPrice.hints.tooltip}" id="it11">
+                                      shortDesc="#{bindings.BidPrice.hints.tooltip}" id="it11" readOnly="true">
                             <f:validator binding="#{bindings.BidPrice.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.BidPrice.format}"/>
                         </af:inputText>
@@ -61,7 +63,7 @@
                                       required="#{bindings.Quantity.hints.mandatory}"
                                       columns="#{bindings.Quantity.hints.displayWidth}"
                                       maximumLength="#{bindings.Quantity.hints.precision}"
-                                      shortDesc="#{bindings.Quantity.hints.tooltip}" id="it7">
+                                      shortDesc="#{bindings.Quantity.hints.tooltip}" id="it7" readOnly="true">
                             <f:validator binding="#{bindings.Quantity.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.Quantity.format}"/>
                         </af:inputText>
@@ -70,7 +72,7 @@
                                       required="#{bindings.txtDepartmentName.hints.mandatory}"
                                       columns="#{bindings.txtDepartmentName.hints.displayWidth}"
                                       maximumLength="#{bindings.txtDepartmentName.hints.precision}"
-                                      shortDesc="#{bindings.txtDepartmentName.hints.tooltip}" id="it13">
+                                      shortDesc="#{bindings.txtDepartmentName.hints.tooltip}" id="it13" readOnly="true">
                             <f:validator binding="#{bindings.txtDepartmentName.validator}"/>
                         </af:inputText>
                         <af:inputText value="#{bindings.txtProjectName.inputValue}"
@@ -78,9 +80,10 @@
                                       required="#{bindings.txtProjectName.hints.mandatory}"
                                       columns="#{bindings.txtProjectName.hints.displayWidth}"
                                       maximumLength="#{bindings.txtProjectName.hints.precision}"
-                                      shortDesc="#{bindings.txtProjectName.hints.tooltip}" id="it15">
+                                      shortDesc="#{bindings.txtProjectName.hints.tooltip}" id="it15" readOnly="true">
                             <f:validator binding="#{bindings.txtProjectName.validator}"/>
                         </af:inputText>
+                        <af:link text="Include In Comparison" id="l12"/>
                     </af:panelFormLayout>
                 </af:dialog>
             </af:popup>
@@ -513,7 +516,9 @@
                                                                id="c6">
                                                         <af:link text="Receive" id="l11"
                                                                  visible="#{row.bindings.IsBidReceived.inputValue=='1'}"
-                                                                 partialSubmit="true"/>
+                                                                 partialSubmit="true">
+                                                            <af:showPopupBehavior popupId="::p4"/>
+                                                        </af:link>
                                                         <af:selectOneChoice value="#{row.bindings.IsBidReceived.inputValue}"
                                                                             label="#{row.bindings.IsBidReceived.label}"
                                                                             required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.mandatory}"
