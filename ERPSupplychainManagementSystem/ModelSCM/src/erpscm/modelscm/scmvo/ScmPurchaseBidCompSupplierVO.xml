@@ -17,6 +17,10 @@
     Name="AccSysGeneralValueVO"
     ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmBidCriteriaVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmBidCriteriaVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovIsBidReceived"
     ListVOName="AccSysGeneralValueVO"
@@ -32,6 +36,29 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtBidCriteriaName"
+    ListVOName="AccScmBidCriteriaVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtBidCriteriaName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BidCriteriaSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BidCriteriaName"/>
+      <Item Value="BidCriteriaSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BidCriteriaName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -145,6 +172,22 @@
     EntityAttrName="BidCriteriaSno"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="BID_CRITERIA_SNO"/>
+  <ViewAttribute
+    Name="txtBidCriteriaName"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="txtBidCriteriaName"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Bid_Criteria_Name"
+    IsPersistent="false"
+    LOVName="LovtxtBidCriteriaName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurcBidCompSupplierSupplierSnoLink"

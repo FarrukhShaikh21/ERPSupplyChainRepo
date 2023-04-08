@@ -54,6 +54,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         BidCriteriaSno,
         IsBidReceived,
         IsSelect,
+        txtBidCriteriaName,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria;
@@ -96,6 +97,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int BIDCRITERIASNO = AttributesEnum.BidCriteriaSno.index();
     public static final int ISBIDRECEIVED = AttributesEnum.IsBidReceived.index();
     public static final int ISSELECT = AttributesEnum.IsSelect.index();
+    public static final int TXTBIDCRITERIANAME = AttributesEnum.txtBidCriteriaName.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -352,6 +354,22 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void setIsSelect(String value) {
         setAttributeInternal(ISSELECT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtBidCriteriaName, using the alias name txtBidCriteriaName.
+     * @return the value of txtBidCriteriaName
+     */
+    public String gettxtBidCriteriaName() {
+        return (String) getAttributeInternal(TXTBIDCRITERIANAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtBidCriteriaName.
+     * @param value value to set the txtBidCriteriaName
+     */
+    public void settxtBidCriteriaName(String value) {
+        setAttributeInternal(TXTBIDCRITERIANAME, value);
     }
 
     /**
