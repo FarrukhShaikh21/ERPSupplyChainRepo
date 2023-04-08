@@ -139,4 +139,9 @@
     EntityAttrName="UnSupervisedBy"
     EntityUsage="ScmBidCriteria"
     AliasName="UN_SUPERVISED_BY"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseBidCompSupplierVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmBidCriteriaScmPurchaseBidCompSupplierBirCriteriaSnoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

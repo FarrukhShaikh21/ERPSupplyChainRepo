@@ -350,6 +350,13 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <AccessorAttribute
+    Name="ScmPurchaseBidCompSupplier"
+    Association="erpscm.modelscm.scmeo.ScmBidCriteriaScmPurchaseBidCompSupplierBirCriteriaSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmBidCriteriaScmPurchaseBidCompSupplierBirCriteriaSnoAsso.ScmPurchaseBidCompSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmBidCriteriaScmPurchaseBidCompSupplierBirCriteriaSnoAsso.ScmBidCriteria"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmBidCriteria"
     PrimaryKey="true">
