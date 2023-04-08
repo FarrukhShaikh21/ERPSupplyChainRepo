@@ -346,6 +346,13 @@
   <ViewUsage
     Name="ScmPurchaseBidCompSupplierDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"/>
+  <ViewUsage
+    Name="ScmPurchaseBidLinesForBidCompareRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO">
+    <ViewCriteriaUsage
+      Name="ScmPurBidLinesByRFQHeadItemUnitVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO.ScmPurBidLinesByRFQHeadItemUnitVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
