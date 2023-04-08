@@ -127,5 +127,12 @@
         <Item Value="Quantity"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="ScmPurchaseBidLinesForBidCompareROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_RFQ_HEADER_SNO" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_ITEM_ID" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_UNIT_TYPE_SNO" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_SUPPLIER_SNO" NDType="java.lang.Integer"/>
+    </action>
   </bindings>
 </pageDefinition>

@@ -563,6 +563,10 @@
                         </af:gridRow>
                     </af:panelGridLayout>
                 </f:facet>
+                <f:facet name="top">
+                    <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="ExecuteWithParams"
+                               disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1"/>
+                </f:facet>
             </af:decorativeBox>
         </af:form>
         <f:facet name="metaContainer">
