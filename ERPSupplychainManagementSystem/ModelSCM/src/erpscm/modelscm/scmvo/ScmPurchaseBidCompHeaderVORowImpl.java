@@ -243,7 +243,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
                 compareSuppRow.setAttribute("CompareHeaderSno", getCompareHeaderSno());
                 if (RSIbidLine.getRowCount()>0) {
                     compareSuppRow.setAttribute("Rate", RSIbidLine.first().getAttribute("BidPrice"));
-//                    compareSuppRow.setAttribute("Quantity", RSIbidLine.first().getAttribute("Quantity"));
+                    compareSuppRow.setAttribute("Quantity", RSIbidLine.first().getAttribute("Quantity"));
                     compareSuppRow.setAttribute("DemandLinesSno", RSIbidLine.first().getAttribute("DemandLinesSno"));
                     compareSuppRow.setAttribute("RfqLinesSno", RSIbidLine.first().getAttribute("RfqLinesSno"));
                     compareSuppRow.setAttribute("IsBidReceived", "Y");

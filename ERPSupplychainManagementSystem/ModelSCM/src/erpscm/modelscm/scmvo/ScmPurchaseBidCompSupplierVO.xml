@@ -74,6 +74,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LovIsSelect"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsSelect"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmPurchaseBidCompSupplier"
     Entity="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier"/>
@@ -162,7 +180,15 @@
     PrecisionRule="true"
     EntityAttrName="IsSelect"
     EntityUsage="ScmPurchaseBidCompSupplier"
-    AliasName="IS_SELECT"/>
+    AliasName="IS_SELECT"
+    LOVName="LovIsSelect">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsBidReceived"
     IsNotNull="true"

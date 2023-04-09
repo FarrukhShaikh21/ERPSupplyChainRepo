@@ -454,15 +454,17 @@ public class ERPSCMClass {
         ib.getViewObject().getCurrentRow().setAttribute("txtIsMerge", "Y");
         
     }
-    public String doIncludeBidRateinComparison() {
-        BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
-        DCIteratorBinding ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompSupplierDetCRUDIterator");
-        AttributeBinding bidValue=(AttributeBinding)bc.get("BidPrice");
-        ib.getCurrentRow().setAttribute("Rate", bidValue.getInputValue());        
-        bidValue=(AttributeBinding)bc.get("BidPrice");
-        ib.getCurrentRow().setAttribute("Quantity", bidValue.getInputValue());        
-        
-        return null;
+    public void doIncludeBidRateinComparison(DialogEvent de) {
+        if (de.getOutcome()==DialogEvent.Outcome.ok) {
+           BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+            DCIteratorBinding ib = (DCIteratorBinding) bc.get("ScmPurchaseBidCompSupplierDetCRUDIterator");
+            AttributeBinding bidValue = (AttributeBinding) bc.get("BidPrice");
+            ib.getCurrentRow().setAttribute("Rate", bidValue.getInputValue());
+            bidValue = (AttributeBinding) bc.get("Quantity");
+            ib.getCurrentRow().setAttribute("Quantity", bidValue.getInputValue());
+            ib.getCurrentRow().setAttribute("IsBidReceived", "Y");
+
+        }
     }
     public void doShowBidReceiveOnBidCompare(PopupFetchEvent pfe) {
         BindingContainer bc = ERPGlobalsClass.doGetERPBindings();

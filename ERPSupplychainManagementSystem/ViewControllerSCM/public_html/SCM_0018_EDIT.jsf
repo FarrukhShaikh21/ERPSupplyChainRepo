@@ -27,7 +27,8 @@
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached"
                       popupFetchListener="#{pageFlowScope.OracleERPBean.doShowBidReceiveOnBidCompare}">
-                <af:dialog id="d5" type="none">
+                <af:dialog id="d5" type="okCancel" affirmativeTextAndAccessKey="Include In Comparison"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doIncludeBidRateinComparison}">
                     <f:facet name="buttonBar"/>
                     <af:panelFormLayout id="pfl1">
                         <af:inputText label="#{bindings.txtItemName1.hints.label}" id="it12" readOnly="true"
@@ -67,7 +68,7 @@
                             <f:validator binding="#{bindings.txtProjectName.validator}"/>
                         </af:inputText>
                         <af:link text="Include In Comparison" id="l12"
-                                 action="#{pageFlowScope.OracleERPBean.doIncludeBidRateinComparison}"/>
+                                 action="#{pageFlowScope.OracleERPBean.doIncludeBidRateinComparison}" rendered="false"/>
                     </af:panelFormLayout>
                 </af:dialog>
             </af:popup>
@@ -454,36 +455,22 @@
                                                           selectionListener="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel.makeCurrent}"
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.rangeSize}"
-                                                          id="t4" autoHeightRows="10" scrollPolicy="page"
-                                                          columnStretching="last" styleClass="AFStretchWidth">
+                                                          id="t2" scrollPolicy="page" autoHeightRows="10"
+                                                          styleClass="AFStretchWidth">
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.label}"
-                                                               id="c5" width="200" displayIndex="-1">
+                                                               id="c3" width="150" displayIndex="-1">
                                                         <af:inputText value="#{row.bindings.txtSupplierName.inputValue}"
                                                                       label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.label}"
                                                                       required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.mandatory}"
                                                                       columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.displayWidth}"
                                                                       maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.precision}"
                                                                       shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.tooltip}"
-                                                                      id="it5" readOnly="true">
+                                                                      id="it3" readOnly="true">
                                                             <f:validator binding="#{row.bindings.txtSupplierName.validator}"/>
                                                         </af:inputText>
                                                     </af:column>
-                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.label}"
-                                                               id="c3" rendered="false">
-                                                        <af:inputText value="#{row.bindings.SupplierSno.inputValue}"
-                                                                      label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.label}"
-                                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.mandatory}"
-                                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.precision}"
-                                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.tooltip}"
-                                                                      id="it3">
-                                                            <f:validator binding="#{row.bindings.SupplierSno.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.SupplierSno.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.label}"
-                                                               id="c4" width="60" displayIndex="-1">
+                                                               id="c4" width="70">
                                                         <af:inputText value="#{row.bindings.Rate.inputValue}"
                                                                       label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.label}"
                                                                       required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.mandatory}"
@@ -497,21 +484,21 @@
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.label}"
-                                                               id="c9">
+                                                               id="c5" width="60" minimumWidth="12">
                                                         <af:inputText value="#{row.bindings.Quantity.inputValue}"
                                                                       label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.label}"
                                                                       required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.mandatory}"
                                                                       columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.displayWidth}"
                                                                       maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.precision}"
                                                                       shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.tooltip}"
-                                                                      id="it18" readOnly="true">
+                                                                      id="it5" readOnly="true">
                                                             <f:validator binding="#{row.bindings.Quantity.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.format}"/>
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.label}"
-                                                               id="c6">
+                                                               id="c7" width="90" minimumWidth="12">
                                                         <af:link text="Receive" id="l11"
                                                                  visible="#{row.bindings.IsBidReceived.inputValue=='1'}"
                                                                  partialSubmit="true">
@@ -529,15 +516,19 @@
                                                         </af:selectOneChoice>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.label}"
-                                                               id="c8" width="50">
-                                                        <af:selectBooleanCheckbox value="#{row.bindings.IsSelect.inputValue}"
-                                                                                  label="#{row.bindings.IsSelect.label}"
-                                                                                  shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.tooltip}"
-                                                                                  id="sbc1"
-                                                                                  disabled="#{row.bindings.IsBidReceived.inputValue=='1'}"/>
+                                                               id="c6" width="70" minimumWidth="12">
+                                                        <af:selectOneChoice value="#{row.bindings.IsSelect.inputValue}"
+                                                                            label="#{row.bindings.IsSelect.label}"
+                                                                            required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.mandatory}"
+                                                                            shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.tooltip}"
+                                                                            id="soc4">
+                                                            <f:selectItems value="#{row.bindings.IsSelect.items}"
+                                                                           id="si5"/>
+                                                            <f:validator binding="#{row.bindings.IsSelect.validator}"/>
+                                                        </af:selectOneChoice>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.label}"
-                                                               id="c7" width="200" displayIndex="-1">
+                                                               id="c8">
                                                         <af:inputComboboxListOfValues id="txtBidCriteriaNameId"
                                                                                       popupTitle="Search and Select: #{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.label}"
                                                                                       value="#{row.bindings.txtBidCriteriaName.inputValue}"
@@ -563,7 +554,7 @@
                 </f:facet>
                 <f:facet name="top">
                     <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="ExecuteWithParams"
-                               disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1"/>
+                               disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1" rendered="false"/>
                 </f:facet>
             </af:decorativeBox>
         </af:form>

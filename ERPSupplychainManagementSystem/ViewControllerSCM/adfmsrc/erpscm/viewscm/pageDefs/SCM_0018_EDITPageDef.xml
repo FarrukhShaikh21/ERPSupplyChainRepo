@@ -8,10 +8,10 @@
               id="ScmPurchaseBidCompHeaderCRUDIterator"/>
     <iterator Binds="ScmPurchaseBidCompareItemDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidCompareItemDetCRUDIterator"/>
-    <iterator Binds="ScmPurchaseBidCompSupplierDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmPurchaseBidCompSupplierDetCRUDIterator"/>
     <iterator Binds="ScmPurchaseBidLinesForBidCompareRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidLinesForBidCompareROIterator"/>
+    <iterator Binds="ScmPurchaseBidCompSupplierDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidCompSupplierDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="IsCancelled">
@@ -75,30 +75,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="ScmPurchaseBidCompSupplierDetCRUDIterator" id="ScmPurchaseBidCompSupplierDetCRUD">
-      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
-                      Name="ScmPurchaseBidCompSupplierDetCRUD0">
-        <AttrNames>
-          <Item Value="SupplierSno"/>
-          <Item Value="Rate"/>
-          <Item Value="Quantity"/>
-          <Item Value="txtSupplierName"/>
-          <Item Value="IsBidReceived"/>
-          <Item Value="txtBidCriteriaName"/>
-          <Item Value="IsSelect" Binds="IsSelect"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <button IterBinding="ScmPurchaseBidCompSupplierDetCRUDIterator" id="IsSelect" DTSupportsMRU="false"
-            StaticList="true">
-      <AttrNames>
-        <Item Value="IsSelect"/>
-      </AttrNames>
-      <ValueList>
-        <Item Value="Y"/>
-        <Item Value="N"/>
-      </ValueList>
-    </button>
     <attributeValues IterBinding="ScmPurchaseBidCompareItemDetCRUDIterator" id="txtItemName">
       <AttrNames>
         <Item Value="txtItemName"/>
@@ -135,5 +111,18 @@
       <NamedData NDName="P_ADF_UNIT_TYPE_SNO" NDType="java.lang.Integer"/>
       <NamedData NDName="P_ADF_SUPPLIER_SNO" NDType="java.lang.Integer"/>
     </action>
+    <tree IterBinding="ScmPurchaseBidCompSupplierDetCRUDIterator" id="ScmPurchaseBidCompSupplierDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
+                      Name="ScmPurchaseBidCompSupplierDetCRUD0">
+        <AttrNames>
+          <Item Value="txtSupplierName"/>
+          <Item Value="Rate"/>
+          <Item Value="Quantity"/>
+          <Item Value="IsSelect"/>
+          <Item Value="IsBidReceived"/>
+          <Item Value="txtBidCriteriaName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
