@@ -66,7 +66,8 @@
                                       shortDesc="#{bindings.txtProjectName.hints.tooltip}" id="it15" readOnly="true">
                             <f:validator binding="#{bindings.txtProjectName.validator}"/>
                         </af:inputText>
-                        <af:link text="Include In Comparison" id="l12"/>
+                        <af:link text="Include In Comparison" id="l12"
+                                 action="#{pageFlowScope.OracleERPBean.doIncludeBidRateinComparison}"/>
                     </af:panelFormLayout>
                 </af:dialog>
             </af:popup>
@@ -493,6 +494,20 @@
                                                             <f:validator binding="#{row.bindings.Rate.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.label}"
+                                                               id="c9">
+                                                        <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                                                                      label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.label}"
+                                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.mandatory}"
+                                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.precision}"
+                                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.tooltip}"
+                                                                      id="it18" readOnly="true">
+                                                            <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.format}"/>
                                                         </af:inputText>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.label}"

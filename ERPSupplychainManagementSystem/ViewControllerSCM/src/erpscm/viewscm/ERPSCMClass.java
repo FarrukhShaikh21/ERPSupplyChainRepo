@@ -457,8 +457,11 @@ public class ERPSCMClass {
     public String doIncludeBidRateinComparison() {
         BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompSupplierDetCRUDIterator");
-        AttributeBinding ab=(AttributeBinding)bc.get("BidPrice");
-        ib.getCurrentRow().setAttribute("arg0", "arg1");        
+        AttributeBinding bidValue=(AttributeBinding)bc.get("BidPrice");
+        ib.getCurrentRow().setAttribute("Rate", bidValue.getInputValue());        
+        bidValue=(AttributeBinding)bc.get("BidPrice");
+        ib.getCurrentRow().setAttribute("Quantity", bidValue.getInputValue());        
+        
         return null;
     }
     public void doShowBidReceiveOnBidCompare(PopupFetchEvent pfe) {
