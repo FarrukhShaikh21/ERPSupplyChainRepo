@@ -19,6 +19,7 @@ import oracle.adf.view.rich.event.PopupCanceledEvent;
 import oracle.adf.view.rich.event.PopupFetchEvent;
 import oracle.adf.view.rich.render.ClientEvent;
 
+import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
@@ -453,6 +454,13 @@ public class ERPSCMClass {
         ib.getViewObject().getCurrentRow().setAttribute("txtIsMerge", "Y");
         
     }
+    public String doIncludeBidRateinComparison() {
+        BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompSupplierDetCRUDIterator");
+        AttributeBinding ab=(AttributeBinding)bc.get("BidPrice");
+        ib.getCurrentRow().setAttribute("arg0", "arg1");        
+        return null;
+    }
     public void doShowBidReceiveOnBidCompare(PopupFetchEvent pfe) {
         BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
         OperationBinding ob=(OperationBinding)bc.get("ExecuteWithParams"); 
@@ -464,12 +472,5 @@ public class ERPSCMClass {
         ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompHeaderCRUDIterator");
         ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO", ib.getCurrentRow().getAttribute("RfqHeaderSno"));
         ob.execute();
-        
-        
-//        setNamedWhereClauseParam("P_ADF_ITEM_ID", rfqLineRow.getAttribute("ItemId"));
-//        getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_UNIT_TYPE_SNO", rfqLineRow.getAttribute("UnitTypeSno"));  
-//        getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value);  
-//        getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_SUPPLIER_SNO", bidSupplierRow.getAttribute("SupplierSno")); 
-        
     }
 }
