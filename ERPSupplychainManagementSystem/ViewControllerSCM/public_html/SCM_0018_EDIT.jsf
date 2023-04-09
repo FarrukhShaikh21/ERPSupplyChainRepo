@@ -27,10 +27,18 @@
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached"
                       popupFetchListener="#{pageFlowScope.OracleERPBean.doShowBidReceiveOnBidCompare}">
-                <af:dialog id="d5" type="okCancel" affirmativeTextAndAccessKey="Include In Comparison"
+                <af:dialog id="d5"
+                           type="#{bindings.ScmPurchaseBidLinesForBidCompareROIterator.estimatedRowCount>0?'okCancel':'none'}" affirmativeTextAndAccessKey="Include In Comparison"
                            dialogListener="#{pageFlowScope.OracleERPBean.doIncludeBidRateinComparison}">
                     <f:facet name="buttonBar"/>
-                    <af:panelFormLayout id="pfl1">
+                    <af:panelGroupLayout id="pgl5" halign="center" layout="vertical"
+                                         rendered="#{bindings.ScmPurchaseBidLinesForBidCompareROIterator.estimatedRowCount==0}">
+                        <af:outputText value="No bid has been entered in system!" id="ot1"
+                                       styleClass="ERPEntryAreaHeading ERPEntryAreaFont"/>
+                    </af:panelGroupLayout>
+                    <af:panelFormLayout id="pfl1"
+                                        rendered="#{bindings.ScmPurchaseBidLinesForBidCompareROIterator.estimatedRowCount>0}"
+                                        maxColumns="1" fieldWidth="200" labelWidth="150">
                         <af:inputText label="#{bindings.txtItemName1.hints.label}" id="it12" readOnly="true"
                                       value="#{bindings.txtItemName1.inputValue}"/>
                         <af:inputText label="#{bindings.txtUnitTypeName.hints.label}" id="it17" readOnly="true"
@@ -521,7 +529,8 @@
                                                                             label="#{row.bindings.IsSelect.label}"
                                                                             required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.mandatory}"
                                                                             shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.tooltip}"
-                                                                            id="soc4">
+                                                                            id="soc4"
+                                                                            disabled="#{row.bindings.IsBidReceived.inputValue=='1'}">
                                                             <f:selectItems value="#{row.bindings.IsSelect.items}"
                                                                            id="si5"/>
                                                             <f:validator binding="#{row.bindings.IsSelect.validator}"/>
