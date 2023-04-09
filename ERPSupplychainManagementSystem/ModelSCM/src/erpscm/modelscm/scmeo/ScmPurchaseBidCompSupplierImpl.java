@@ -55,6 +55,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         IsBidReceived,
         IsSelect,
         txtBidCriteriaName,
+        Quantity,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria;
@@ -98,6 +99,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int ISBIDRECEIVED = AttributesEnum.IsBidReceived.index();
     public static final int ISSELECT = AttributesEnum.IsSelect.index();
     public static final int TXTBIDCRITERIANAME = AttributesEnum.txtBidCriteriaName.index();
+    public static final int QUANTITY = AttributesEnum.Quantity.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -371,6 +373,22 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void settxtBidCriteriaName(String value) {
         setAttributeInternal(TXTBIDCRITERIANAME, value);
+    }
+
+    /**
+     * Gets the attribute value for Quantity, using the alias name Quantity.
+     * @return the value of Quantity
+     */
+    public BigDecimal getQuantity() {
+        return (BigDecimal) getAttributeInternal(QUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Quantity.
+     * @param value value to set the Quantity
+     */
+    public void setQuantity(BigDecimal value) {
+        setAttributeInternal(QUANTITY, value);
     }
 
     /**

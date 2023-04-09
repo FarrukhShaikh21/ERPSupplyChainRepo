@@ -312,7 +312,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
     IsQueriable="false"
     IsPersistent="false">
     <TransientExpression
@@ -329,6 +328,26 @@
       <Item
         Value="BidCriteriaSno"/>
     </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="Quantity"
+    Precision="16"
+    Scale="6"
+    ColumnName="QUANTITY"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.Quantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidCompareItem"
