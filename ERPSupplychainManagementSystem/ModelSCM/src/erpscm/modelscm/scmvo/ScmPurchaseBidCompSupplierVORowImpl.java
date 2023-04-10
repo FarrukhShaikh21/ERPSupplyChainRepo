@@ -310,6 +310,13 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      * @param value value to set the IS_SELECT
      */
     public void setIsSelect(String value) {
+        if (value.equals("Y")) {
+            Row r[] = this.getRowSet().getFilteredRows("IsSelect", "Y");
+            if (r.length>0) {
+                r[0].setAttribute("IsSelect", "N");
+            }
+
+        }
         setAttributeInternal(ISSELECT, value);
     }
 

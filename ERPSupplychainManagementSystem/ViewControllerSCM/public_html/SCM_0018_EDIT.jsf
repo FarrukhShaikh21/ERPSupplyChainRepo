@@ -541,7 +541,8 @@
                                                                             required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.mandatory}"
                                                                             shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.tooltip}"
                                                                             id="soc4"
-                                                                            disabled="#{row.bindings.IsBidReceived.inputValue=='1'}">
+                                                                            disabled="#{row.bindings.IsBidReceived.inputValue=='1'}"
+                                                                            autoSubmit="true">
                                                             <f:selectItems value="#{row.bindings.IsSelect.items}"
                                                                            id="si5"/>
                                                             <f:validator binding="#{row.bindings.IsSelect.validator}"/>
@@ -556,7 +557,8 @@
                                                                                       required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.mandatory}"
                                                                                       columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.displayWidth}"
                                                                                       shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.tooltip}"
-                                                                                      contentStyle="width:100%">
+                                                                                      contentStyle="width:100%"
+                                                                                      autoSubmit="true">
                                                             <f:validator binding="#{row.bindings.txtBidCriteriaName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:column>
