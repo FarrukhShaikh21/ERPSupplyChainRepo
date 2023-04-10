@@ -451,9 +451,20 @@
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="65%" marginEnd="5px" id="gc2"
                                                      halign="stretch" valign="stretch">
-                                            <af:panelBox text="#{bindings.txtItemName.inputValue}" id="pb2"
-                                                         showDisclosure="false">
+                                            <af:panelBox text="#{bindings.txtItemName.inputValue}, Minumum Rate (#{bindings.txtMinimumRate.inputValue})" id="pb2"
+                                                         showDisclosure="false" background="medium">
                                                 <f:facet name="toolbar"/>
+                                                <af:inputText value="#{bindings.txtMinimumRate.inputValue}"
+                                                              label="#{bindings.txtMinimumRate.hints.label}"
+                                                              required="#{bindings.txtMinimumRate.hints.mandatory}"
+                                                              columns="#{bindings.txtMinimumRate.hints.displayWidth}"
+                                                              maximumLength="#{bindings.txtMinimumRate.hints.precision}"
+                                                              shortDesc="#{bindings.txtMinimumRate.hints.tooltip}"
+                                                              id="it18" rendered="false">
+                                                    <f:validator binding="#{bindings.txtMinimumRate.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.txtMinimumRate.format}"/>
+                                                </af:inputText>
                                                 <af:table value="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel}"
                                                           var="row"
                                                           rows="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.rangeSize}"

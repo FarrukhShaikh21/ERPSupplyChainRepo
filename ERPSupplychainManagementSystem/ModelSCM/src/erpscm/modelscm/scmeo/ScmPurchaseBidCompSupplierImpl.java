@@ -56,6 +56,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         IsSelect,
         txtBidCriteriaName,
         Quantity,
+        txtMinimumRate,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria;
@@ -100,6 +101,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int ISSELECT = AttributesEnum.IsSelect.index();
     public static final int TXTBIDCRITERIANAME = AttributesEnum.txtBidCriteriaName.index();
     public static final int QUANTITY = AttributesEnum.Quantity.index();
+    public static final int TXTMINIMUMRATE = AttributesEnum.txtMinimumRate.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -389,6 +391,22 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void setQuantity(BigDecimal value) {
         setAttributeInternal(QUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for txtMinimumRate, using the alias name txtMinimumRate.
+     * @return the value of txtMinimumRate
+     */
+    public BigDecimal gettxtMinimumRate() {
+        return (BigDecimal) getAttributeInternal(TXTMINIMUMRATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtMinimumRate.
+     * @param value value to set the txtMinimumRate
+     */
+    public void settxtMinimumRate(BigDecimal value) {
+        setAttributeInternal(TXTMINIMUMRATE, value);
     }
 
     /**

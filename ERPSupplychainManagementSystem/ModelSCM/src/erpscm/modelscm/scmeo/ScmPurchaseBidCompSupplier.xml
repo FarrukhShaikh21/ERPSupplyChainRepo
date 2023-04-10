@@ -226,7 +226,7 @@
     IsQueriable="false"
     IsPersistent="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -344,6 +344,27 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.Quantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtMinimumRate"
+    ColumnName="txt_Minimum_Rate"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseBidCompareItem?.ScmPurchaseBidCompSupplier?.min("Rate")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtMinimumRate_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

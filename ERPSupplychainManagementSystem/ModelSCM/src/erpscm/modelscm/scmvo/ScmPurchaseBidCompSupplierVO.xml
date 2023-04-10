@@ -232,6 +232,14 @@
     EntityAttrName="Quantity"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="QUANTITY"/>
+  <ViewAttribute
+    Name="txtMinimumRate"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtMinimumRate"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Minimum_Rate"/>
   <ViewLinkAccessor
     Name="ScmSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurcBidCompSupplierSupplierSnoLink"
@@ -250,4 +258,8 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
 </ViewObject>
