@@ -59,7 +59,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         txtMinimumRate,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
-        ScmBidCriteria;
+        ScmBidCriteria,
+        ScmPurchaseBidCompHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -105,6 +106,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
+    public static final int SCMPURCHASEBIDCOMPHEADER = AttributesEnum.ScmPurchaseBidCompHeader.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -451,6 +453,21 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void setScmBidCriteria(EntityImpl value) {
         setAttributeInternal(SCMBIDCRITERIA, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmPurchaseBidCompHeaderImpl.
+     */
+    public ScmPurchaseBidCompHeaderImpl getScmPurchaseBidCompHeader() {
+        return (ScmPurchaseBidCompHeaderImpl) getAttributeInternal(SCMPURCHASEBIDCOMPHEADER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmPurchaseBidCompHeaderImpl.
+     */
+    public void setScmPurchaseBidCompHeader(ScmPurchaseBidCompHeaderImpl value) {
+        setAttributeInternal(SCMPURCHASEBIDCOMPHEADER, value);
     }
 
 

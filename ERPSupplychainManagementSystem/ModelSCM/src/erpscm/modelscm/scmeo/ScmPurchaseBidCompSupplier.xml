@@ -225,8 +225,7 @@
     ColumnType="VARCHAR2"
     IsQueriable="false"
     IsPersistent="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -391,6 +390,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmBidCriteriaScmPurchaseBidCompSupplierBirCriteriaSnoAsso.ScmPurchaseBidCompSupplier"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseBidCompHeader"
+    Association="erpscm.modelscm.scmeo.ScmPurcBidCompHeadScmPurhBidCompSuppCompHeadSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurcBidCompHeadScmPurhBidCompSuppCompHeadSnoAsso.ScmPurchaseBidCompHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurcBidCompHeadScmPurhBidCompSuppCompHeadSnoAsso.ScmPurchaseBidCompSupplier"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeaderImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidCompSupp"
     PrimaryKey="true">
@@ -466,6 +472,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.BidCriteriaSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidCompSupplier5">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_BID_COMP_HEAD"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Comp_Suppl"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.CompareHeaderSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

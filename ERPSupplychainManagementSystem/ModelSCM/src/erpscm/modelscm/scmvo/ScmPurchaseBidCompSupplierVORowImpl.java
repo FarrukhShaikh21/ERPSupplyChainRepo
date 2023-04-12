@@ -16,6 +16,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_SCMPURCHASEBIDCOMPSUPPLIER = 0;
 
     /**
@@ -43,9 +44,11 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         ScmSupplierVO,
         ScmPurchaseBidCompareItemVO,
         ScmBidCriteriaVO,
+        ScmPurchaseBidCompHeaderVO,
         AccSysGeneralValueVO,
         AccScmBidCriteriaVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -67,6 +70,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int COMPARESUPPLIERSNO = AttributesEnum.CompareSupplierSno.index();
     public static final int COMPAREITEMSNO = AttributesEnum.CompareItemSno.index();
     public static final int COMPAREHEADERSNO = AttributesEnum.CompareHeaderSno.index();
@@ -88,6 +92,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMPURCHASEBIDCOMPAREITEMVO = AttributesEnum.ScmPurchaseBidCompareItemVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
+    public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
     public static final int ACCSCMBIDCRITERIAVO = AttributesEnum.AccScmBidCriteriaVO.index();
 
@@ -440,6 +445,20 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void setScmBidCriteriaVO(Row value) {
         setAttributeInternal(SCMBIDCRITERIAVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link ScmPurchaseBidCompHeaderVO.
+     */
+    public Row getScmPurchaseBidCompHeaderVO() {
+        return (Row) getAttributeInternal(SCMPURCHASEBIDCOMPHEADERVO);
+    }
+
+    /**
+     * Sets the master-detail link ScmPurchaseBidCompHeaderVO between this object and <code>value</code>.
+     */
+    public void setScmPurchaseBidCompHeaderVO(Row value) {
+        setAttributeInternal(SCMPURCHASEBIDCOMPHEADERVO, value);
     }
 
     /**
