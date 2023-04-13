@@ -362,7 +362,11 @@
   </ViewUsage>
   <ViewUsage
     Name="ScmPurchaseBidCompSupplierDetRO"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"/>
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseBidCompSupplierByIsSelectVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO.ScmPurchaseBidCompSupplierByIsSelectVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"

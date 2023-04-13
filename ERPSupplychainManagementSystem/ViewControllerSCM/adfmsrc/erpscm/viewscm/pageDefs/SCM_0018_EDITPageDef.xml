@@ -12,6 +12,10 @@
               id="ScmPurchaseBidLinesForBidCompareROIterator"/>
     <iterator Binds="ScmPurchaseBidCompSupplierDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidCompSupplierDetCRUDIterator"/>
+    <iterator Binds="ScmPurchaseRfqSupplierForPoGenRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseRfqSupplierForPoGenROIterator"/>
+    <iterator Binds="ScmPurchaseBidCompSupplierDetRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseBidCompSupplierDetROIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="IsCancelled">
@@ -129,5 +133,25 @@
         <Item Value="txtMinimumRate"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="ScmPurchaseRfqSupplierForPoGenROIterator" id="ScmPurchaseRfqSupplierForPoGenRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO" Name="ScmPurchaseRfqSupplierForPoGenRO0">
+        <AttrNames>
+          <Item Value="txtSupplierName"/>
+          <Item Value="txtRfqHeaderCode"/>
+          <Item Value="txtDemandHeaderCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ScmPurchaseBidCompSupplierDetROIterator" id="ScmPurchaseBidCompSupplierDetRO">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
+                      Name="ScmPurchaseBidCompSupplierDetRO0">
+        <AttrNames>
+          <Item Value="txtItemName"/>
+          <Item Value="txtUnitTypeName"/>
+          <Item Value="Quantity"/>
+          <Item Value="Rate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

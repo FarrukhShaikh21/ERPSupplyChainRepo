@@ -57,6 +57,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         txtBidCriteriaName,
         Quantity,
         txtMinimumRate,
+        txtItemName,
+        txtUnitTypeName,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
@@ -104,6 +106,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int TXTBIDCRITERIANAME = AttributesEnum.txtBidCriteriaName.index();
     public static final int QUANTITY = AttributesEnum.Quantity.index();
     public static final int TXTMINIMUMRATE = AttributesEnum.txtMinimumRate.index();
+    public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
+    public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -411,6 +415,38 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void settxtMinimumRate(BigDecimal value) {
         setAttributeInternal(TXTMINIMUMRATE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtItemName, using the alias name txtItemName.
+     * @return the value of txtItemName
+     */
+    public String gettxtItemName() {
+        return (String) getAttributeInternal(TXTITEMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtItemName.
+     * @param value value to set the txtItemName
+     */
+    public void settxtItemName(String value) {
+        setAttributeInternal(TXTITEMNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtUnitTypeName, using the alias name txtUnitTypeName.
+     * @return the value of txtUnitTypeName
+     */
+    public String gettxtUnitTypeName() {
+        return (String) getAttributeInternal(TXTUNITTYPENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtUnitTypeName.
+     * @param value value to set the txtUnitTypeName
+     */
+    public void settxtUnitTypeName(String value) {
+        setAttributeInternal(TXTUNITTYPENAME, value);
     }
 
     /**

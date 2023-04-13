@@ -42,6 +42,8 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtBidCriteriaName,
         Quantity,
         txtMinimumRate,
+        txtUnitTypeName,
+        txtItemName,
         ScmSupplierVO,
         ScmPurchaseBidCompareItemVO,
         ScmBidCriteriaVO,
@@ -92,6 +94,8 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTBIDCRITERIANAME = AttributesEnum.txtBidCriteriaName.index();
     public static final int QUANTITY = AttributesEnum.Quantity.index();
     public static final int TXTMINIMUMRATE = AttributesEnum.txtMinimumRate.index();
+    public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
+    public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMPURCHASEBIDCOMPAREITEMVO = AttributesEnum.ScmPurchaseBidCompareItemVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
@@ -407,6 +411,38 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtMinimumRate(BigDecimal value) {
         setAttributeInternal(TXTMINIMUMRATE, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Unit_Type_Name using the alias name txtUnitTypeName.
+     * @return the txt_Unit_Type_Name
+     */
+    public String gettxtUnitTypeName() {
+        return (String) getAttributeInternal(TXTUNITTYPENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Unit_Type_Name using the alias name txtUnitTypeName.
+     * @param value value to set the txt_Unit_Type_Name
+     */
+    public void settxtUnitTypeName(String value) {
+        setAttributeInternal(TXTUNITTYPENAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Item_Name using the alias name txtItemName.
+     * @return the txt_Item_Name
+     */
+    public String gettxtItemName() {
+        return (String) getAttributeInternal(TXTITEMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Item_Name using the alias name txtItemName.
+     * @param value value to set the txt_Item_Name
+     */
+    public void settxtItemName(String value) {
+        setAttributeInternal(TXTITEMNAME, value);
     }
 
     /**
