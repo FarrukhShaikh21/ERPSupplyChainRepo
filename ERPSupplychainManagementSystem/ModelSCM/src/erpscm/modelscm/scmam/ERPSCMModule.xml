@@ -324,8 +324,15 @@
     Name="ScmPurchaseBidLinesDetForRFQMergeRO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO"/>
   <ViewUsage
-    Name="ScmPurchaseRfqSupplierVO1"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO"/>
+    Name="ScmPurchaseRfqSupplierForPoGenRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseRfqSupplierExistsInCompareRO"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO.ScmPurchaseRfqSupplierExistsInCompareRO"/>
+    <ViewCriteriaUsage
+      Name="ScmPurchaseRfqSupplierRFQWiseVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO.ScmPurchaseRfqSupplierRFQWiseVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="ScmPurchaseBidCompHeaderRO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVO">
@@ -353,6 +360,9 @@
       Name="ScmPurBidLinesByRFQHeadItemUnitVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO.ScmPurBidLinesByRFQHeadItemUnitVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ScmPurchaseBidCompSupplierDetRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -454,5 +464,11 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseBidCompareItemDetCRUD"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseBidCompSupplierDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoLink1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseRfqSupplierForPoGenRO"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseBidCompSupplierDetRO"
     Reversed="false"/>
 </AppModule>

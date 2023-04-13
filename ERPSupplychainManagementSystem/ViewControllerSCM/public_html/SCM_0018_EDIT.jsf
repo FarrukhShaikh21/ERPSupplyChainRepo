@@ -80,6 +80,71 @@
                     </af:panelFormLayout>
                 </af:dialog>
             </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p5" contentDelivery="lazyUncached">
+                <af:dialog id="d6" type="ok">
+                    <f:facet name="buttonBar"/>
+                    <af:decorativeBox id="db2">
+                        <f:facet name="center">
+                            <af:panelSplitter id="ps1" splitterPosition="500">
+                                <f:facet name="first">
+                                    <af:table value="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.collectionModel}"
+                                              var="row" rows="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.rangeSize}"
+                                              emptyText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.rangeSize}"
+                                              id="t3">
+                                        <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtSupplierName.label}"
+                                                   id="c9" width="200" displayIndex="-1">
+                                            <af:inputComboboxListOfValues id="txtSupplierNameId"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtSupplierName.label}"
+                                                                          value="#{row.bindings.txtSupplierName.inputValue}"
+                                                                          model="#{row.bindings.txtSupplierName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtSupplierName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtSupplierName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtSupplierName.tooltip}"
+                                                                          readOnly="true">
+                                                <f:validator binding="#{row.bindings.txtSupplierName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtRfqHeaderCode.label}"
+                                                   id="c10">
+                                            <af:inputText value="#{row.bindings.txtRfqHeaderCode.inputValue}"
+                                                          label="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtRfqHeaderCode.label}"
+                                                          required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtRfqHeaderCode.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtRfqHeaderCode.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtRfqHeaderCode.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtRfqHeaderCode.tooltip}"
+                                                          id="it19" readOnly="true">
+                                                <f:validator binding="#{row.bindings.txtRfqHeaderCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtRfqHeaderCode.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtDemandHeaderCode.label}"
+                                                   id="c11">
+                                            <af:inputText value="#{row.bindings.txtDemandHeaderCode.inputValue}"
+                                                          label="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtDemandHeaderCode.label}"
+                                                          required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtDemandHeaderCode.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtDemandHeaderCode.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtDemandHeaderCode.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtDemandHeaderCode.tooltip}"
+                                                          id="it20" readOnly="true">
+                                                <f:validator binding="#{row.bindings.txtDemandHeaderCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtDemandHeaderCode.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                    </af:table>
+                                </f:facet>
+                                <f:facet name="second"/>
+                            </af:panelSplitter>
+                        </f:facet>
+                    </af:decorativeBox>
+                </af:dialog>
+            </af:popup>
             <af:decorativeBox id="db1">
                 <f:facet name="center">
                     <af:panelGridLayout id="pgl1" partialTriggers="l5 l1 l8 l20 l19 l9 l10 l6 l4 l7 l3 l2 d3 d4">
