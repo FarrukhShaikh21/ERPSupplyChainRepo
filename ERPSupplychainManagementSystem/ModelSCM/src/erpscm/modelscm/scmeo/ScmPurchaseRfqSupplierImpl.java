@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -34,7 +35,8 @@ public class ScmPurchaseRfqSupplierImpl extends ERPEntityImpl {
         txtRfqHeaderCode,
         txtDemandHeaderSno,
         ScmPurchaseRfqHeader,
-        ScmSupplier;
+        ScmSupplier,
+        ScmPurchaseBidCompSupplier;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -74,6 +76,7 @@ public class ScmPurchaseRfqSupplierImpl extends ERPEntityImpl {
     public static final int TXTDEMANDHEADERSNO = AttributesEnum.txtDemandHeaderSno.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
+    public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -323,6 +326,14 @@ public class ScmPurchaseRfqSupplierImpl extends ERPEntityImpl {
      */
     public void setScmSupplier(ScmSupplierImpl value) {
         setAttributeInternal(SCMSUPPLIER, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseBidCompSupplier() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPSUPPLIER);
     }
 
 

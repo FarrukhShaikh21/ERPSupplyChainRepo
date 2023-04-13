@@ -397,6 +397,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurcBidCompHeadScmPurhBidCompSuppCompHeadSnoAsso.ScmPurchaseBidCompSupplier"
     Type="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeaderImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseRfqSupplier"
+    Association="erpscm.modelscm.scmeo.ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoAsso.ScmPurchaseRfqSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoAsso.ScmPurchaseBidCompSupplier"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplierImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidCompSupp"
     PrimaryKey="true">

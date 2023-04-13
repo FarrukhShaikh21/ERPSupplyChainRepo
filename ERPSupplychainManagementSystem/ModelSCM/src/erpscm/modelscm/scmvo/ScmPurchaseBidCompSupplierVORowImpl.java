@@ -17,6 +17,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_SCMPURCHASEBIDCOMPSUPPLIER = 0;
 
     /**
@@ -45,6 +46,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         ScmPurchaseBidCompareItemVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
+        ScmPurchaseRfqSupplierVO,
         AccSysGeneralValueVO,
         AccScmBidCriteriaVO;
         static AttributesEnum[] vals = null;
@@ -71,6 +73,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int COMPARESUPPLIERSNO = AttributesEnum.CompareSupplierSno.index();
     public static final int COMPAREITEMSNO = AttributesEnum.CompareItemSno.index();
     public static final int COMPAREHEADERSNO = AttributesEnum.CompareHeaderSno.index();
@@ -93,6 +96,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int SCMPURCHASEBIDCOMPAREITEMVO = AttributesEnum.ScmPurchaseBidCompareItemVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
+    public static final int SCMPURCHASERFQSUPPLIERVO = AttributesEnum.ScmPurchaseRfqSupplierVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
     public static final int ACCSCMBIDCRITERIAVO = AttributesEnum.AccScmBidCriteriaVO.index();
 
@@ -459,6 +463,20 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void setScmPurchaseBidCompHeaderVO(Row value) {
         setAttributeInternal(SCMPURCHASEBIDCOMPHEADERVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link ScmPurchaseRfqSupplierVO.
+     */
+    public Row getScmPurchaseRfqSupplierVO() {
+        return (Row) getAttributeInternal(SCMPURCHASERFQSUPPLIERVO);
+    }
+
+    /**
+     * Sets the master-detail link ScmPurchaseRfqSupplierVO between this object and <code>value</code>.
+     */
+    public void setScmPurchaseRfqSupplierVO(Row value) {
+        setAttributeInternal(SCMPURCHASERFQSUPPLIERVO, value);
     }
 
     /**

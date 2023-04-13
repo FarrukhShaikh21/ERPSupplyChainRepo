@@ -5,6 +5,7 @@ import erpscm.modelscm.scmeo.ScmPurchaseRfqSupplierImpl;
 import java.sql.Timestamp;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -37,6 +38,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
         txtDemandHeaderSno,
         ScmSupplierVO,
         ScmPurchaseRfqHeaderVO,
+        ScmPurchaseBidCompSupplierVO,
         AccScmSupplierVO;
         static AttributesEnum[] vals = null;
         ;
@@ -78,6 +80,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTDEMANDHEADERSNO = AttributesEnum.txtDemandHeaderSno.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMPURCHASERFQHEADERVO = AttributesEnum.ScmPurchaseRfqHeaderVO.index();
+    public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
     public static final int ACCSCMSUPPLIERVO = AttributesEnum.AccScmSupplierVO.index();
 
     /**
@@ -328,6 +331,13 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
      */
     public void setScmPurchaseRfqHeaderVO(Row value) {
         setAttributeInternal(SCMPURCHASERFQHEADERVO, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseBidCompSupplierVO.
+     */
+    public RowIterator getScmPurchaseBidCompSupplierVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPSUPPLIERVO);
     }
 
     /**

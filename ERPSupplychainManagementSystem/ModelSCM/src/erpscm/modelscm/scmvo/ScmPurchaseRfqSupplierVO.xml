@@ -331,4 +331,9 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseBidCompSupplierVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
