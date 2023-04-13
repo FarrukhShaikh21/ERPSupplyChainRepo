@@ -80,12 +80,13 @@
                     </af:panelFormLayout>
                 </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p5" contentDelivery="lazyUncached">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p5" contentDelivery="lazyUncached"
+                      popupFetchListener="#{pageFlowScope.OracleERPBean.doShowPoGenerationPopupOnCompare}">
                 <af:dialog id="d6" type="ok">
                     <f:facet name="buttonBar"/>
                     <af:decorativeBox id="db2">
                         <f:facet name="center">
-                            <af:panelSplitter id="ps1" splitterPosition="500">
+                            <af:panelSplitter id="ps1" splitterPosition="100" orientation="vertical" disabled="true">
                                 <f:facet name="first">
                                     <af:table value="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.collectionModel}"
                                               var="row" rows="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.rangeSize}"
@@ -95,7 +96,7 @@
                                               selectionListener="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.collectionModel.makeCurrent}"
                                               rowSelection="single"
                                               fetchSize="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.rangeSize}"
-                                              id="t3">
+                                              id="t3" partialTriggers="::b2" columnStretching="last" autoHeightRows="3">
                                         <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtSupplierName.label}"
                                                    id="c9" width="200" displayIndex="-1">
                                             <af:inputComboboxListOfValues id="txtSupplierNameId"
@@ -110,7 +111,7 @@
                                             </af:inputComboboxListOfValues>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtRfqHeaderCode.label}"
-                                                   id="c10">
+                                                   id="c10" width="80" displayIndex="-1">
                                             <af:inputText value="#{row.bindings.txtRfqHeaderCode.inputValue}"
                                                           label="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtRfqHeaderCode.label}"
                                                           required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtRfqHeaderCode.mandatory}"
@@ -147,54 +148,56 @@
                                               selectedRowKeys="#{bindings.ScmPurchaseBidCompSupplierDetRO.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.ScmPurchaseBidCompSupplierDetRO.collectionModel.makeCurrent}"
                                               rowSelection="single"
-                                              fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetRO.rangeSize}" id="t4">
+                                              fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetRO.rangeSize}" id="t4"
+                                              scrollPolicy="page" autoHeightRows="10" styleClass="AFStretchWidth"
+                                              columnStretching="last">
                                         <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtItemName.label}"
-                                                   id="c12">
+                                                   id="c12" width="150" minimumWidth="12">
                                             <af:inputText value="#{row.bindings.txtItemName.inputValue}"
                                                           label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtItemName.label}"
                                                           required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtItemName.mandatory}"
                                                           columns="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtItemName.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtItemName.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtItemName.tooltip}"
-                                                          id="it21">
+                                                          id="it21" readOnly="true">
                                                 <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                                             </af:inputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtUnitTypeName.label}"
-                                                   id="c13">
+                                                   id="c13" width="150" minimumWidth="12">
                                             <af:inputText value="#{row.bindings.txtUnitTypeName.inputValue}"
                                                           label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtUnitTypeName.label}"
                                                           required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtUnitTypeName.mandatory}"
                                                           columns="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtUnitTypeName.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtUnitTypeName.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtUnitTypeName.tooltip}"
-                                                          id="it22">
+                                                          id="it22" readOnly="true">
                                                 <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                             </af:inputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Quantity.label}"
-                                                   id="c14">
+                                                   id="c14" width="70" displayIndex="-1">
                                             <af:inputText value="#{row.bindings.Quantity.inputValue}"
                                                           label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Quantity.label}"
                                                           required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Quantity.mandatory}"
                                                           columns="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Quantity.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Quantity.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Quantity.tooltip}"
-                                                          id="it23">
+                                                          id="it23" readOnly="true">
                                                 <f:validator binding="#{row.bindings.Quantity.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Quantity.format}"/>
                                             </af:inputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Rate.label}"
-                                                   id="c15">
+                                                   id="c15" width="70" displayIndex="-1">
                                             <af:inputText value="#{row.bindings.Rate.inputValue}"
                                                           label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Rate.label}"
                                                           required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Rate.mandatory}"
                                                           columns="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Rate.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Rate.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Rate.tooltip}"
-                                                          id="it24">
+                                                          id="it24" readOnly="true">
                                                 <f:validator binding="#{row.bindings.Rate.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Rate.format}"/>
@@ -580,7 +583,11 @@
                                                      halign="stretch" valign="stretch">
                                             <af:panelBox text="#{bindings.txtItemName.inputValue}, Minumum Rate (#{bindings.txtMinimumRate.inputValue})" id="pb2"
                                                          showDisclosure="false" background="medium">
-                                                <f:facet name="toolbar"/>
+                                                <f:facet name="toolbar">
+                                                    <af:link text="link 1" id="l13" partialSubmit="true">
+                                                        <af:showPopupBehavior popupId="p5"/>
+                                                    </af:link>
+                                                </f:facet>
                                                 <af:inputText value="#{bindings.txtMinimumRate.inputValue}"
                                                               label="#{bindings.txtMinimumRate.hints.label}"
                                                               required="#{bindings.txtMinimumRate.hints.mandatory}"
@@ -702,8 +709,12 @@
                     </af:panelGridLayout>
                 </f:facet>
                 <f:facet name="top">
-                    <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="ExecuteWithParams"
-                               disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1" rendered="false"/>
+                    <af:panelGroupLayout id="pgl7" rendered="false">
+                        <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="ExecuteWithParams"
+                                   disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1" rendered="false"/>
+                        <af:button actionListener="#{bindings.ExecuteWithParams1.execute}" text="ExecuteWithParams1"
+                                   disabled="#{!bindings.ExecuteWithParams1.enabled}" id="b2"/>
+                    </af:panelGroupLayout>
                 </f:facet>
             </af:decorativeBox>
         </af:form>

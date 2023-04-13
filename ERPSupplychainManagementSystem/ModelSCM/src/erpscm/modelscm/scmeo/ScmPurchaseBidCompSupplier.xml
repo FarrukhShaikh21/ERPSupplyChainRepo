@@ -397,8 +397,10 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
-    IsPersistent="false"
-    IsQueriable="false">
+    IsQueriable="false"
+    IsPersistent="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseBidCompareItem?.txtUnitTypeName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

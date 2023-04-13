@@ -478,4 +478,12 @@ public class ERPSCMClass {
         ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO", ib.getCurrentRow().getAttribute("RfqHeaderSno"));
         ob.execute();
     }
+    
+    public void doShowPoGenerationPopupOnCompare(PopupFetchEvent pfe) {
+        BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+        OperationBinding ob=(OperationBinding)bc.get("ExecuteWithParams1"); 
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompHeaderCRUDIterator");
+        ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO", ib.getCurrentRow().getAttribute("RfqHeaderSno"));
+        ob.execute();
+    }
 }

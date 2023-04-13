@@ -248,11 +248,11 @@
   <ViewAttribute
     Name="txtUnitTypeName"
     IsQueriable="false"
-    IsPersistent="false"
     PrecisionRule="true"
     EntityAttrName="txtUnitTypeName"
     EntityUsage="ScmPurchaseBidCompSupplier"
-    AliasName="txt_Unit_Type_Name"/>
+    AliasName="txt_Unit_Type_Name"
+    IsPersistent="false"/>
   <ViewAttribute
     Name="txtItemName"
     IsQueriable="false"
@@ -304,12 +304,6 @@
     Reversed="true"
     IsUpdateable="false"/>
   <ViewLinkAccessor
-    Name="ScmPurchaseBidCompareItemVO"
-    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
-    Type="oracle.jbo.Row"
-    Reversed="true"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
     Name="ScmBidCriteriaVO"
     ViewLink="erpscm.modelscm.scmvo.ScmBidCriteriaScmPurchaseBidCompSupplierBirCriteriaSnoLink"
     Type="oracle.jbo.Row"
@@ -324,6 +318,12 @@
   <ViewLinkAccessor
     Name="ScmPurchaseRfqSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseBidCompareItemVO"
+    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
