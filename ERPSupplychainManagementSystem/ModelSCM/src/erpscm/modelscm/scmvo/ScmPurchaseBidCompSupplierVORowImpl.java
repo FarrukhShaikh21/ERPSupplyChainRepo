@@ -44,11 +44,12 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtMinimumRate,
         txtUnitTypeName,
         txtItemName,
+        txtGeneratePO,
         ScmSupplierVO,
-        ScmPurchaseBidCompareItemVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
         ScmPurchaseRfqSupplierVO,
+        ScmPurchaseBidCompareItemVO,
         AccSysGeneralValueVO,
         AccScmBidCriteriaVO;
         static AttributesEnum[] vals = null;
@@ -96,11 +97,12 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTMINIMUMRATE = AttributesEnum.txtMinimumRate.index();
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
+    public static final int TXTGENERATEPO = AttributesEnum.txtGeneratePO.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
-    public static final int SCMPURCHASEBIDCOMPAREITEMVO = AttributesEnum.ScmPurchaseBidCompareItemVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
     public static final int SCMPURCHASERFQSUPPLIERVO = AttributesEnum.ScmPurchaseRfqSupplierVO.index();
+    public static final int SCMPURCHASEBIDCOMPAREITEMVO = AttributesEnum.ScmPurchaseBidCompareItemVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
     public static final int ACCSCMBIDCRITERIAVO = AttributesEnum.AccScmBidCriteriaVO.index();
 
@@ -443,6 +445,22 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtItemName(String value) {
         setAttributeInternal(TXTITEMNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Generate_PO using the alias name txtGeneratePO.
+     * @return the txt_Generate_PO
+     */
+    public String gettxtGeneratePO() {
+        return (String) getAttributeInternal(TXTGENERATEPO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Generate_PO using the alias name txtGeneratePO.
+     * @param value value to set the txt_Generate_PO
+     */
+    public void settxtGeneratePO(String value) {
+        setAttributeInternal(TXTGENERATEPO, value);
     }
 
     /**

@@ -59,6 +59,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         txtMinimumRate,
         txtItemName,
         txtUnitTypeName,
+        txtGeneratePO,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
@@ -108,6 +109,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int TXTMINIMUMRATE = AttributesEnum.txtMinimumRate.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
+    public static final int TXTGENERATEPO = AttributesEnum.txtGeneratePO.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -447,6 +449,22 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void settxtUnitTypeName(String value) {
         setAttributeInternal(TXTUNITTYPENAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtGeneratePO, using the alias name txtGeneratePO.
+     * @return the value of txtGeneratePO
+     */
+    public String gettxtGeneratePO() {
+        return (String) getAttributeInternal(TXTGENERATEPO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtGeneratePO.
+     * @param value value to set the txtGeneratePO
+     */
+    public void settxtGeneratePO(String value) {
+        setAttributeInternal(TXTGENERATEPO, value);
     }
 
     /**

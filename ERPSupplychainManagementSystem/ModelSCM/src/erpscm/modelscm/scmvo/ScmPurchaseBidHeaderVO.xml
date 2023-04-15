@@ -769,13 +769,44 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="ApprovalStatusSno"
-        ViewAttribute="ApprovalStatusSno"
+        Name="IsSupervised"
+        ViewAttribute="IsSupervised"
         Operator="="
         Conjunction="AND"
-        Value=":P_ADF_APPROVAL_STATUS_SNO"
-        IsBindVarValue="true"
+        Value="N"
         Required="Optional"/>
+      <ViewCriteriaItemCompound
+        Name="ApprovalStatusSno"
+        ViewAttribute="ApprovalStatusSno">
+        <ViewCriteria
+          Name="ScmPurchaseBidHeaderBySupplierRFQVC_ScmPurchaseBidHeaderVOCriteria_row_0_ApprovalStatusSno_itemHolder"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidHeaderVO"
+          Conjunction="OR">
+          <ViewCriteriaRow
+            Name="ScmPurchaseBidHeaderBySupplierRFQVC_ScmPurchaseBidHeaderVOCriteria_row_0_ApprovalStatusSno_itemHolder_row_0"
+            Conjunction="AND">
+            <ViewCriteriaItem
+              Name="ApprovalStatusSno"
+              ViewAttribute="ApprovalStatusSno"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_APPROVAL_STATUS_SNO"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+          <ViewCriteriaRow
+            Name="ScmPurchaseBidHeaderBySupplierRFQVC_ScmPurchaseBidHeaderVOCriteria_row_0_ApprovalStatusSno_itemHolder_row_1"
+            Conjunction="AND">
+            <ViewCriteriaItem
+              Name="ScmPurchaseBidHeaderBySupplierRFQVC_ScmPurchaseBidHeaderVOCriteria_row_0_ApprovalStatusSno_ScmPurchaseBidHeaderBySupplierRFQVC_ScmPurchaseBidHeaderVOCriteria_row_0_ApprovalStatusSno_itemHolder_ScmPurchaseBidHeaderBySupplierRFQVC_ScmPurchaseBidHeaderVOCriteria_row_0_ApprovalStatusSno_itemHolder_row_1_ApprovalStatusSno"
+              ViewAttribute="ApprovalStatusSno"
+              Operator="="
+              Conjunction="AND"
+              Value="1"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItemCompound>
       <ViewCriteriaItem
         Name="SupplierSno"
         ViewAttribute="SupplierSno"
