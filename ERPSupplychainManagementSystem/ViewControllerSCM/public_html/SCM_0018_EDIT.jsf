@@ -138,6 +138,9 @@
                                                                   pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtDemandHeaderCode.format}"/>
                                             </af:inputText>
                                         </af:column>
+                                        <af:column id="c17" width="80" displayIndex="-1">
+                                            <af:link text="Generate PO" id="l14" partialSubmit="true"/>
+                                        </af:column>
                                     </af:table>
                                 </f:facet>
                                 <f:facet name="second">
@@ -151,6 +154,24 @@
                                               fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetRO.rangeSize}" id="t4"
                                               scrollPolicy="page" autoHeightRows="10" styleClass="AFStretchWidth"
                                               columnStretching="last">
+                                        <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.label}"
+                                                   id="c16">
+                                            <af:inputText value="#{row.bindings.txtGeneratePO.inputValue}"
+                                                          label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.label}"
+                                                          required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.tooltip}"
+                                                          id="it25" rendered="false">
+                                                <f:validator binding="#{row.bindings.txtGeneratePO.validator}"/>
+                                            </af:inputText>
+                                            <af:selectOneChoice label="Label 2"
+                                                                value="#{row.bindings.txtGeneratePO.inputValue}"
+                                                                id="soc5">
+                                                <af:selectItem label="Yes" value="Y" id="si6"/>
+                                                <af:selectItem label="No" value="N" id="si7"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtItemName.label}"
                                                    id="c12" width="150" minimumWidth="12">
                                             <af:inputText value="#{row.bindings.txtItemName.inputValue}"
