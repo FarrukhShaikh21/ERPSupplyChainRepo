@@ -808,6 +808,23 @@
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
   </Attribute>
+  <Attribute
+    Name="txtGenerateFromRFQ"
+    ColumnName="txt_Generate_From_RFQ"
+    SQLType="INTEGER"
+    Type="java.lang.String"
+    ColumnType="INTEGER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidHeader.txtGenerateFromRFQ_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidLines"
     Association="erpscm.modelscm.scmeo.FkScmPurBidLineHeadSnoAssoc"

@@ -69,6 +69,7 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
         txtIsSelected,
         txtDemandHeaderCode,
         txtSupplierName,
+        txtGenerateFromRFQ,
         ScmPurchaseBidLinesVO,
         ScmPurchaseRfqHeaderVO,
         AdminCompanyVO,
@@ -153,6 +154,7 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
     public static final int TXTISSELECTED = AttributesEnum.txtIsSelected.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTGENERATEFROMRFQ = AttributesEnum.txtGenerateFromRFQ.index();
     public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
     public static final int SCMPURCHASERFQHEADERVO = AttributesEnum.ScmPurchaseRfqHeaderVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -233,6 +235,10 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setRfqHeaderSno(Integer value) {
         setAttributeInternal(RFQHEADERSNO, value);
+        System.out.println(gettxtGenerateFromRFQ() +"gettxtGenerateFromRFQ()");
+        if (gettxtGenerateFromRFQ()!=null && gettxtGenerateFromRFQ().equals("Y")) {
+            return;
+       }
         getAccScmPurchaseRfqForLinesVO().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", value==null?-1:value);
         getAccScmPurchaseRfqForLinesVO().setNamedWhereClauseParam("P_ADF_SUPPLIER_SNO", getSupplierSno());
         getAccScmPurchaseRfqForLinesVO().executeQuery();
@@ -873,6 +879,22 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void settxtSupplierName(String value) {
         setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Generate_From_RFQ using the alias name txtGenerateFromRFQ.
+     * @return the txt_Generate_From_RFQ
+     */
+    public String gettxtGenerateFromRFQ() {
+        return (String) getAttributeInternal(TXTGENERATEFROMRFQ);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Generate_From_RFQ using the alias name txtGenerateFromRFQ.
+     * @param value value to set the txt_Generate_From_RFQ
+     */
+    public void settxtGenerateFromRFQ(String value) {
+        setAttributeInternal(TXTGENERATEFROMRFQ, value);
     }
 
     /**

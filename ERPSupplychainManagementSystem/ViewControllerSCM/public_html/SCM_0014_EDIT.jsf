@@ -26,7 +26,11 @@
                 <af:dialog id="d2" title="Purchase RFQ Items For BID Price" type="ok" closeIconVisible="false"
                            dialogListener="#{pageFlowScope.OracleERPBean.doDialogEventEventSCM_0014}">
                     <f:facet name="buttonBar"/>
-                    <af:panelGroupLayout id="pgl7" layout="horizontal">
+                    <af:inputText value="There is no record to generate the BID." id="ot1" label="Label 2"
+                                  readOnly="true" simple="true"
+                                  visible="#{bindings.ScmPurchaseRfqLinesForBIDRO.estimatedRowCount==0}"/>
+                    <af:panelGroupLayout id="pgl7" layout="horizontal"
+                                         visible="#{bindings.ScmPurchaseRfqLinesForBIDRO.estimatedRowCount>0}">
                         <af:inputText value="#{bindings.txtIsMerge.inputValue}"
                                       label="#{bindings.txtIsMerge.hints.label}"
                                       required="#{bindings.txtIsMerge.hints.mandatory}"
@@ -294,13 +298,6 @@
                             </af:inputText>
                         </af:column>
                     </af:table>
-                    <af:panelCollection id="pc3" styleClass="AFStretchWidth" rendered="false">
-                        <f:facet name="menus"/>
-                        <f:facet name="toolbar">
-                            <af:toolbar id="t8" flex="0"/>
-                        </f:facet>
-                        <f:facet name="statusbar"/>
-                    </af:panelCollection>
                 </af:dialog>
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p4"

@@ -719,7 +719,7 @@
                                                                      iconPosition="top"
                                                                      action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
                                                                      partialSubmit="true"
-                                                                     disabled="#{bindings.IsUnsupervised.inputValue=='Y' || bindings.SupplierShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                                                     disabled="#{bindings.IsUnsupervised.inputValue=='Y' || bindings.SupplierShortCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'||bindings.IsSupervised.inputValue=='N'}"
                                                                      shortDesc="Un Supervise Record">
                                                                 <af:setActionListener from="#{'ScmSupplierCRUDIterator'}"
                                                                                       to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>

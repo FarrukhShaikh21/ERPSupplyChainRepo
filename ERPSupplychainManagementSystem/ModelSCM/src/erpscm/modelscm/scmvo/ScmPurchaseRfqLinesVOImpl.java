@@ -63,16 +63,17 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                 System.out.println("erpSupplierSno"+erpSupplierSno);
                 Row newRow=bidvoForInsert.createRow();
                 System.out.println("one");
-                newRow.setAttribute("RfqHeaderSno",rfqRow.getAttribute("RfqHeaderSno"));
-                System.out.println("two");
-                newRow.setAttribute("SupplierSno",erpSupplierSno);
-                System.out.println("three");
-                newRow.setAttribute("DemandHeaderSno",rfqRow.getAttribute("DemandHeaderSno"));
-                    
-                newRow.setAttribute("LocationId",rfqRow.getAttribute("LocationId"));        
-                System.out.println("four");
-                newRow.setAttribute("CompanyId",rfqRow.getAttribute("CompanyId"));
-                System.out.println("five");
+                    newRow.setAttribute("txtGenerateFromRFQ","Y");
+                    newRow.setAttribute("LocationId",rfqRow.getAttribute("LocationId"));
+                    newRow.setAttribute("CompanyId",rfqRow.getAttribute("CompanyId"));
+                    newRow.setAttribute("SupplierSno", erpSupplierSno);
+                    System.out.println("two" + rfqRow.getAttribute("RfqHeaderSno"));
+                    newRow.setAttribute("RfqHeaderSno", rfqRow.getAttribute("RfqHeaderSno"));
+                    System.out.println("three");
+                    newRow.setAttribute("DemandHeaderSno", rfqRow.getAttribute("DemandHeaderSno"));
+
+                    System.out.println("four");
+                    System.out.println("five");
                 newRow.setAttribute("TempProjectId",rfqRow.getAttribute("TempProjectId"));
                 System.out.println("six");
                 newRow.setAttribute("TempDepartmentId",rfqRow.getAttribute("TempDepartmentId"));
@@ -85,7 +86,8 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                 bidvoForInsert.setCurrentRow(newRow);
                 erpMergeBidHeaderSno=(Integer)bidvoForInsert.getCurrentRow().getAttribute("BidHeaderSno");
                 }
-                
+                System.out.println("headsno");
+                System.out.println(bidvoForInsert.getCurrentRow().getAttribute("RfqHeaderSno"));
                 Row DetnewRow=bidDetvoForInsert.createRow();
                 DetnewRow.setAttribute("BidHeaderSno", erpMergeBidHeaderSno);
                 DetnewRow.setAttribute("RfqLinesSno", nextRow.getAttribute("RfqLinesSno"));

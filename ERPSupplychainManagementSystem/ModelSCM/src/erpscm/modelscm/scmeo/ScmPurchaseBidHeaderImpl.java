@@ -66,6 +66,7 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
         SupplierSno,
         txtSupplierName,
         txtNoBidPriceCount,
+        txtGenerateFromRFQ,
         ScmPurchaseBidLines,
         ScmPurchaseRfqHeader,
         AdminCompany,
@@ -137,6 +138,7 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
     public static final int SUPPLIERSNO = AttributesEnum.SupplierSno.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int TXTNOBIDPRICECOUNT = AttributesEnum.txtNoBidPriceCount.index();
+    public static final int TXTGENERATEFROMRFQ = AttributesEnum.txtGenerateFromRFQ.index();
     public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -797,6 +799,22 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
      */
     public void settxtNoBidPriceCount(Integer value) {
         setAttributeInternal(TXTNOBIDPRICECOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtGenerateFromRFQ, using the alias name txtGenerateFromRFQ.
+     * @return the value of txtGenerateFromRFQ
+     */
+    public String gettxtGenerateFromRFQ() {
+        return (String) getAttributeInternal(TXTGENERATEFROMRFQ);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtGenerateFromRFQ.
+     * @param value value to set the txtGenerateFromRFQ
+     */
+    public void settxtGenerateFromRFQ(String value) {
+        setAttributeInternal(TXTGENERATEFROMRFQ, value);
     }
 
     /**
