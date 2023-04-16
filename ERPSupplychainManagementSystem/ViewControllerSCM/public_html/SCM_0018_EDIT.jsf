@@ -82,7 +82,8 @@
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p5" contentDelivery="lazyUncached"
                       popupFetchListener="#{pageFlowScope.OracleERPBean.doShowPoGenerationPopupOnCompare}">
-                <af:dialog id="d6" type="ok">
+                <af:dialog id="d6" type="ok" contentWidth="800" contentHeight="300"
+                           title="Generate PO From Bid Comparison">
                     <f:facet name="buttonBar"/>
                     <af:decorativeBox id="db2">
                         <f:facet name="center">
@@ -96,7 +97,8 @@
                                               selectionListener="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.collectionModel.makeCurrent}"
                                               rowSelection="single"
                                               fetchSize="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.rangeSize}"
-                                              id="t3" partialTriggers="::b2" columnStretching="last" autoHeightRows="3">
+                                              id="t3" partialTriggers="::b2" columnStretching="last" autoHeightRows="3"
+                                              styleClass="AFStretchWidth">
                                         <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtSupplierName.label}"
                                                    id="c9" width="200" displayIndex="-1">
                                             <af:inputComboboxListOfValues id="txtSupplierNameId"
@@ -142,7 +144,7 @@
                                             <af:link text="Generate PO" id="l14" partialSubmit="true"/>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.label}"
-                                                   id="c18">
+                                                   id="c18" width="80" minimumWidth="12">
                                             <af:inputText value="#{row.bindings.txtPurchaseOrderNo.inputValue}"
                                                           label="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.label}"
                                                           required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.mandatory}"
@@ -155,11 +157,11 @@
                                                                   pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.format}"/>
                                             </af:inputText>
                                         </af:column>
-                                        <af:column id="c19">
+                                        <af:column id="c19" width="80" minimumWidth="12">
                                             <af:link text="Merge Into PO" id="l15"/>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.label}"
-                                                   id="c20">
+                                                   id="c20" width="80" minimumWidth="12">
                                             <af:inputText value="#{row.bindings.txtMergePONumber.inputValue}"
                                                           label="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.label}"
                                                           required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.mandatory}"

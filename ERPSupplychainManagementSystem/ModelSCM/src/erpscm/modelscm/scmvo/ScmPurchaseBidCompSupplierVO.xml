@@ -268,7 +268,16 @@
     PrecisionRule="true"
     AliasName="txt_Generate_PO"
     Type="java.lang.String"
-    ColumnType="$none$"/>
+    ColumnType="$none$">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO.txtGeneratePO_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtPOQuantity"
     IsQueriable="false"
@@ -367,4 +376,8 @@
     <Sort
       Attribute="Rate"/>
   </SortCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </ViewObject>
