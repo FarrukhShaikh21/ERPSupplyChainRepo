@@ -141,6 +141,37 @@
                                         <af:column id="c17" width="80" displayIndex="-1">
                                             <af:link text="Generate PO" id="l14" partialSubmit="true"/>
                                         </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.label}"
+                                                   id="c18">
+                                            <af:inputText value="#{row.bindings.txtPurchaseOrderNo.inputValue}"
+                                                          label="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.label}"
+                                                          required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.tooltip}"
+                                                          id="it26" readOnly="true">
+                                                <f:validator binding="#{row.bindings.txtPurchaseOrderNo.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column id="c19">
+                                            <af:link text="Merge Into PO" id="l15"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.label}"
+                                                   id="c20">
+                                            <af:inputText value="#{row.bindings.txtMergePONumber.inputValue}"
+                                                          label="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.label}"
+                                                          required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.tooltip}"
+                                                          id="it27" readOnly="true">
+                                                <f:validator binding="#{row.bindings.txtMergePONumber.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.format}"/>
+                                            </af:inputText>
+                                        </af:column>
                                     </af:table>
                                 </f:facet>
                                 <f:facet name="second">
