@@ -40,6 +40,9 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
         txtDemandHeaderSno,
         txtPurchaseOrderNo,
         txtIsMerge,
+        txtPurchaseOrderSno,
+        txtMergePONumber,
+        txtMergePOSno,
         ScmSupplierVO,
         ScmPurchaseRfqHeaderVO,
         ScmPurchaseBidCompSupplierVO,
@@ -84,6 +87,9 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTDEMANDHEADERSNO = AttributesEnum.txtDemandHeaderSno.index();
     public static final int TXTPURCHASEORDERNO = AttributesEnum.txtPurchaseOrderNo.index();
     public static final int TXTISMERGE = AttributesEnum.txtIsMerge.index();
+    public static final int TXTPURCHASEORDERSNO = AttributesEnum.txtPurchaseOrderSno.index();
+    public static final int TXTMERGEPONUMBER = AttributesEnum.txtMergePONumber.index();
+    public static final int TXTMERGEPOSNO = AttributesEnum.txtMergePOSno.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMPURCHASERFQHEADERVO = AttributesEnum.ScmPurchaseRfqHeaderVO.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
@@ -315,15 +321,15 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
      * Gets the attribute value for the calculated attribute txtPurchaseOrderNo.
      * @return the txtPurchaseOrderNo
      */
-    public BigDecimal gettxtPurchaseOrderNo() {
-        return (BigDecimal) getAttributeInternal(TXTPURCHASEORDERNO);
+    public Integer gettxtPurchaseOrderNo() {
+        return (Integer) getAttributeInternal(TXTPURCHASEORDERNO);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for the calculated attribute txtPurchaseOrderNo.
      * @param value value to set the  txtPurchaseOrderNo
      */
-    public void settxtPurchaseOrderNo(BigDecimal value) {
+    public void settxtPurchaseOrderNo(Integer value) {
         setAttributeInternal(TXTPURCHASEORDERNO, value);
     }
 
@@ -341,6 +347,54 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtIsMerge(String value) {
         setAttributeInternal(TXTISMERGE, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtPurchaseOrderSno.
+     * @return the txtPurchaseOrderSno
+     */
+    public Integer gettxtPurchaseOrderSno() {
+        return (Integer) getAttributeInternal(TXTPURCHASEORDERSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtPurchaseOrderSno.
+     * @param value value to set the  txtPurchaseOrderSno
+     */
+    public void settxtPurchaseOrderSno(Integer value) {
+        setAttributeInternal(TXTPURCHASEORDERSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtMergePONumber.
+     * @return the txtMergePONumber
+     */
+    public Integer gettxtMergePONumber() {
+        return (Integer) getAttributeInternal(TXTMERGEPONUMBER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtMergePONumber.
+     * @param value value to set the  txtMergePONumber
+     */
+    public void settxtMergePONumber(Integer value) {
+        setAttributeInternal(TXTMERGEPONUMBER, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtMergePOSno.
+     * @return the txtMergePOSno
+     */
+    public Integer gettxtMergePOSno() {
+        return (Integer) getAttributeInternal(TXTMERGEPOSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtMergePOSno.
+     * @param value value to set the  txtMergePOSno
+     */
+    public void settxtMergePOSno(Integer value) {
+        setAttributeInternal(TXTMERGEPOSNO, value);
     }
 
     /**
