@@ -45,6 +45,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtUnitTypeName,
         txtItemName,
         txtGeneratePO,
+        txtPOQuantity,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
@@ -98,6 +99,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TXTGENERATEPO = AttributesEnum.txtGeneratePO.index();
+    public static final int TXTPOQUANTITY = AttributesEnum.txtPOQuantity.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
@@ -461,6 +463,22 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtGeneratePO(String value) {
         setAttributeInternal(TXTGENERATEPO, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_POQuantity using the alias name txtPOQuantity.
+     * @return the txt_POQuantity
+     */
+    public BigDecimal gettxtPOQuantity() {
+        return (BigDecimal) getAttributeInternal(TXTPOQUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_POQuantity using the alias name txtPOQuantity.
+     * @param value value to set the txt_POQuantity
+     */
+    public void settxtPOQuantity(BigDecimal value) {
+        setAttributeInternal(TXTPOQUANTITY, value);
     }
 
     /**

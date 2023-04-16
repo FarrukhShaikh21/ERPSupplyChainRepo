@@ -60,6 +60,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         txtItemName,
         txtUnitTypeName,
         txtGeneratePO,
+        txtPOQuantity,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
@@ -110,6 +111,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
     public static final int TXTGENERATEPO = AttributesEnum.txtGeneratePO.index();
+    public static final int TXTPOQUANTITY = AttributesEnum.txtPOQuantity.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -468,6 +470,22 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtPOQuantity, using the alias name txtPOQuantity.
+     * @return the value of txtPOQuantity
+     */
+    public BigDecimal gettxtPOQuantity() {
+        return (BigDecimal) getAttributeInternal(TXTPOQUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtPOQuantity.
+     * @param value value to set the txtPOQuantity
+     */
+    public void settxtPOQuantity(BigDecimal value) {
+        setAttributeInternal(TXTPOQUANTITY, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseBidCompareItemImpl.
      */
     public ScmPurchaseBidCompareItemImpl getScmPurchaseBidCompareItem() {
@@ -564,6 +582,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        System.out.println("scmpurchasebidcompsupplierchancheck");
         super.doDML(operation, e);
     }
 }
