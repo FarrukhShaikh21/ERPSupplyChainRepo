@@ -2,6 +2,8 @@ package erpscm.modelscm.scmvo;
 
 import erpscm.modelscm.scmeo.ScmPurchaseRfqSupplierImpl;
 
+import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.Row;
@@ -36,6 +38,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
         txtRfqHeaderCode,
         txtDemandHeaderCode,
         txtDemandHeaderSno,
+        txtPurchaseOrderNo,
+        txtIsMerge,
         ScmSupplierVO,
         ScmPurchaseRfqHeaderVO,
         ScmPurchaseBidCompSupplierVO,
@@ -78,6 +82,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int TXTDEMANDHEADERSNO = AttributesEnum.txtDemandHeaderSno.index();
+    public static final int TXTPURCHASEORDERNO = AttributesEnum.txtPurchaseOrderNo.index();
+    public static final int TXTISMERGE = AttributesEnum.txtIsMerge.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMPURCHASERFQHEADERVO = AttributesEnum.ScmPurchaseRfqHeaderVO.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
@@ -303,6 +309,38 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtDemandHeaderSno(Integer value) {
         setAttributeInternal(TXTDEMANDHEADERSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtPurchaseOrderNo.
+     * @return the txtPurchaseOrderNo
+     */
+    public BigDecimal gettxtPurchaseOrderNo() {
+        return (BigDecimal) getAttributeInternal(TXTPURCHASEORDERNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtPurchaseOrderNo.
+     * @param value value to set the  txtPurchaseOrderNo
+     */
+    public void settxtPurchaseOrderNo(BigDecimal value) {
+        setAttributeInternal(TXTPURCHASEORDERNO, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtIsMerge.
+     * @return the txtIsMerge
+     */
+    public String gettxtIsMerge() {
+        return (String) getAttributeInternal(TXTISMERGE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtIsMerge.
+     * @param value value to set the  txtIsMerge
+     */
+    public void settxtIsMerge(String value) {
+        setAttributeInternal(TXTISMERGE, value);
     }
 
     /**

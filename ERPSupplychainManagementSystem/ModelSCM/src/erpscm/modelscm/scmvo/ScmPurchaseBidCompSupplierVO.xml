@@ -266,9 +266,9 @@
     IsQueriable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    EntityAttrName="txtGeneratePO"
-    EntityUsage="ScmPurchaseBidCompSupplier"
-    AliasName="txt_Generate_PO"/>
+    AliasName="txt_Generate_PO"
+    Type="java.lang.String"
+    ColumnType="$none$"/>
   <ViewAttribute
     Name="txtPOQuantity"
     IsQueriable="false"
@@ -347,7 +347,7 @@
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompareItemVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
