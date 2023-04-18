@@ -268,7 +268,8 @@
     PrecisionRule="true"
     AliasName="txt_Generate_PO"
     Type="java.lang.String"
-    ColumnType="$none$">
+    ColumnType="$none$"
+    SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -286,6 +287,13 @@
     EntityAttrName="txtPOQuantity"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="txt_POQuantity"/>
+  <ViewAttribute
+    Name="BidLinesSno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BidLinesSno"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="BID_LINES_SNO"/>
   <ViewCriteria
     Name="ScmPurchaseBidCompSupplierByIsSelectVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
@@ -380,4 +388,8 @@
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
 </ViewObject>

@@ -460,6 +460,7 @@ public class ERPSCMClass {
             DCIteratorBinding ib = (DCIteratorBinding) bc.get("ScmPurchaseBidCompSupplierDetCRUDIterator");
             AttributeBinding bidValue = (AttributeBinding) bc.get("BidPrice");
             ib.getCurrentRow().setAttribute("Rate", bidValue.getInputValue());
+            ib.getCurrentRow().setAttribute("BidLinesSno", bidValue.getInputValue());
             bidValue = (AttributeBinding) bc.get("Quantity");
             ib.getCurrentRow().setAttribute("Quantity", bidValue.getInputValue());
             ib.getCurrentRow().setAttribute("IsBidReceived", "Y");

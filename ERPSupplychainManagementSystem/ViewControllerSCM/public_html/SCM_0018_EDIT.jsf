@@ -39,6 +39,15 @@
                     <af:panelFormLayout id="pfl1"
                                         rendered="#{bindings.ScmPurchaseBidLinesForBidCompareROIterator.estimatedRowCount>0}"
                                         maxColumns="1" fieldWidth="200" labelWidth="150">
+                        <af:inputText value="#{bindings.BidLinesSno.inputValue}"
+                                      label="#{bindings.BidLinesSno.hints.label}"
+                                      required="#{bindings.BidLinesSno.hints.mandatory}"
+                                      columns="#{bindings.BidLinesSno.hints.displayWidth}"
+                                      maximumLength="#{bindings.BidLinesSno.hints.precision}"
+                                      shortDesc="#{bindings.BidLinesSno.hints.tooltip}" id="it28" rendered="false">
+                            <f:validator binding="#{bindings.BidLinesSno.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.BidLinesSno.format}"/>
+                        </af:inputText>
                         <af:inputText label="#{bindings.txtItemName1.hints.label}" id="it12" readOnly="true"
                                       value="#{bindings.txtItemName1.inputValue}"/>
                         <af:inputText label="#{bindings.txtUnitTypeName.hints.label}" id="it17" readOnly="true"

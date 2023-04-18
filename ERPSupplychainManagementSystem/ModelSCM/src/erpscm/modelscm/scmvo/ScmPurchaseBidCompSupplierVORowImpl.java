@@ -46,6 +46,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtItemName,
         txtGeneratePO,
         txtPOQuantity,
+        BidLinesSno,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
@@ -100,6 +101,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TXTGENERATEPO = AttributesEnum.txtGeneratePO.index();
     public static final int TXTPOQUANTITY = AttributesEnum.txtPOQuantity.index();
+    public static final int BIDLINESSNO = AttributesEnum.BidLinesSno.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
@@ -479,6 +481,22 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtPOQuantity(BigDecimal value) {
         setAttributeInternal(TXTPOQUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for BID_LINES_SNO using the alias name BidLinesSno.
+     * @return the BID_LINES_SNO
+     */
+    public Integer getBidLinesSno() {
+        return (Integer) getAttributeInternal(BIDLINESSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for BID_LINES_SNO using the alias name BidLinesSno.
+     * @param value value to set the BID_LINES_SNO
+     */
+    public void setBidLinesSno(Integer value) {
+        setAttributeInternal(BIDLINESSNO, value);
     }
 
     /**

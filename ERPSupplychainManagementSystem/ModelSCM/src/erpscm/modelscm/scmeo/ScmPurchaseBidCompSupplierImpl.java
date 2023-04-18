@@ -60,13 +60,13 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         txtItemName,
         txtUnitTypeName,
         txtPOQuantity,
+        BidLinesSno,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
         ScmPurchaseBidCompHeader,
         ScmPurchaseRfqSupplier;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -111,6 +111,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
     public static final int TXTPOQUANTITY = AttributesEnum.txtPOQuantity.index();
+    public static final int BIDLINESSNO = AttributesEnum.BidLinesSno.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -467,6 +468,22 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void settxtPOQuantity(BigDecimal value) {
         setAttributeInternal(TXTPOQUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for BidLinesSno, using the alias name BidLinesSno.
+     * @return the value of BidLinesSno
+     */
+    public Integer getBidLinesSno() {
+        return (Integer) getAttributeInternal(BIDLINESSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for BidLinesSno.
+     * @param value value to set the BidLinesSno
+     */
+    public void setBidLinesSno(Integer value) {
+        setAttributeInternal(BIDLINESSNO, value);
     }
 
     /**
