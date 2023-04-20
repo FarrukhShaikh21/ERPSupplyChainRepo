@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ScmPurchaseOrderCharges"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SCM_PURCHASE_ORDER_CHARGES"
+  AliasName="ScmPurchaseOrderCharges"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="PoOrderChargesSno"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="PO_ORDER_CHARGES_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_CHARGES"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="PoHeaderSno"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="PO_HEADER_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_CHARGES"/>
+  <Attribute
+    Name="ChargesGroupSno"
+    IsNotNull="true"
+    Precision="6"
+    Scale="0"
+    ColumnName="CHARGES_GROUP_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_CHARGES"/>
+  <Attribute
+    Name="ChargesSno"
+    IsNotNull="true"
+    Precision="6"
+    Scale="0"
+    ColumnName="CHARGES_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_CHARGES"/>
+  <Attribute
+    Name="ChargesAmount"
+    IsNotNull="true"
+    Precision="16"
+    Scale="6"
+    ColumnName="CHARGES_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_CHARGES"/>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_CHARGES"/>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SCM_PURCHASE_ORDER_CHARGES"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="5"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_CHARGES"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SCM_PURCHASE_ORDER_CHARGES"/>
+  <AccessorAttribute
+    Name="ScmPurchaseOrderHeader"
+    Association="erpscm.modelscm.scmeo.FkScmPurOrdChargesPoHeadAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.FkScmPurOrdChargesPoHeadAssoc.ScmPurchaseOrderHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.FkScmPurOrdChargesPoHeadAssoc.ScmPurchaseOrderCharges"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkScmPurchaseOrderCharges"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_SCM_PURCHASE_ORDER_CHARGES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderCharges.PoOrderChargesSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkScmPurOrdChargesPoHead">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_ORDER_HEADER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PUR_ORD_CHARGES_PO_HEAD"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderCharges.PoHeaderSno"/>
+    </AttrArray>
+  </Key>
+</Entity>
