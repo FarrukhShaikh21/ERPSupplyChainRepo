@@ -333,7 +333,6 @@
   </Attribute>
   <Attribute
     Name="TempProjectId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="TEMP_PROJECT_ID"
@@ -352,7 +351,6 @@
   </Attribute>
   <Attribute
     Name="TempDepartmentId"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="TEMP_DEPARTMENT_ID"
@@ -371,7 +369,6 @@
   </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
@@ -390,12 +387,12 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_ORDER_HEADER">
+    TableName="SCM_PURCHASE_ORDER_HEADER"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -429,7 +426,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_ORDER_HEADER">
+    TableName="SCM_PURCHASE_ORDER_HEADER"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -484,7 +482,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_ORDER_HEADER">
+    TableName="SCM_PURCHASE_ORDER_HEADER"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL

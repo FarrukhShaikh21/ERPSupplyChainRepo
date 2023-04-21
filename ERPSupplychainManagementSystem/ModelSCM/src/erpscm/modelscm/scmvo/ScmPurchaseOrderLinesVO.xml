@@ -22,217 +22,521 @@
     PrecisionRule="true"
     EntityAttrName="PoLinesSno"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="PO_LINES_SNO"/>
+    AliasName="PO_LINES_SNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.PoLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PoHeaderSno"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="PoHeaderSno"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="PO_HEADER_SNO"/>
+    AliasName="PO_HEADER_SNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.PoHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DemandLinesSno"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="DemandLinesSno"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="DEMAND_LINES_SNO"/>
+    AliasName="DEMAND_LINES_SNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.DemandLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CompareSupplierSno"
     PrecisionRule="true"
     EntityAttrName="CompareSupplierSno"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="COMPARE_SUPPLIER_SNO"/>
+    AliasName="COMPARE_SUPPLIER_SNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.CompareSupplierSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RfqLinesSno"
     PrecisionRule="true"
     EntityAttrName="RfqLinesSno"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="RFQ_LINES_SNO"/>
+    AliasName="RFQ_LINES_SNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.RfqLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BidLinesSno"
     PrecisionRule="true"
     EntityAttrName="BidLinesSno"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="BID_LINES_SNO"/>
+    AliasName="BID_LINES_SNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.BidLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LineNo"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="LineNo"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="LINE_NO"/>
+    AliasName="LINE_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.LineNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ItemId"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="ItemId"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="ITEM_ID"/>
+    AliasName="ITEM_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.ItemId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UnitTypeSno"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="UnitTypeSno"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="UNIT_TYPE_SNO"/>
+    AliasName="UNIT_TYPE_SNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.UnitTypeSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RequiredByDate"
     PrecisionRule="true"
     EntityAttrName="RequiredByDate"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="REQUIRED_BY_DATE"/>
+    AliasName="REQUIRED_BY_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.RequiredByDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PromisedDate"
     PrecisionRule="true"
     EntityAttrName="PromisedDate"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="PROMISED_DATE"/>
+    AliasName="PROMISED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.PromisedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PoRequestQuantity"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="PoRequestQuantity"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="PO_REQUEST_QUANTITY"/>
+    AliasName="PO_REQUEST_QUANTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.PoRequestQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PoApproveQuantity"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="PoApproveQuantity"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="PO_APPROVE_QUANTITY"/>
+    AliasName="PO_APPROVE_QUANTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.PoApproveQuantity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="GrnQuantity"
     PrecisionRule="true"
     EntityAttrName="GrnQuantity"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="GRN_QUANTITY"/>
+    AliasName="GRN_QUANTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.GrnQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CancelQuantity"
     PrecisionRule="true"
     EntityAttrName="CancelQuantity"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="CANCEL_QUANTITY"/>
+    AliasName="CANCEL_QUANTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.CancelQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CancelDate"
     PrecisionRule="true"
     EntityAttrName="CancelDate"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="CANCEL_DATE"/>
+    AliasName="CANCEL_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.CancelDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CancelReasonSno"
     PrecisionRule="true"
     EntityAttrName="CancelReasonSno"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="CANCEL_REASON_SNO"/>
+    AliasName="CANCEL_REASON_SNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.CancelReasonSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DepartmentId"
     PrecisionRule="true"
     EntityAttrName="DepartmentId"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="DEPARTMENT_ID"/>
+    AliasName="DEPARTMENT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.DepartmentId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProjectId"
     PrecisionRule="true"
     EntityAttrName="ProjectId"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="PROJECT_ID"/>
+    AliasName="PROJECT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.ProjectId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedBy"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedBy"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="CREATED_BY"/>
+    AliasName="CREATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.CreatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedDate"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CreatedDate"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="CREATED_DATE"/>
+    AliasName="CREATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.CreatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedBy"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedBy"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="LAST_UPDATED_BY"/>
+    AliasName="LAST_UPDATED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.LastUpdatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastUpdatedDate"
     PrecisionRule="true"
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="LAST_UPDATED_DATE"/>
+    AliasName="LAST_UPDATED_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.LastUpdatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NoteToBuyer"
     PrecisionRule="true"
     EntityAttrName="NoteToBuyer"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="NOTE_TO_BUYER"/>
+    AliasName="NOTE_TO_BUYER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.NoteToBuyer_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NoteToSupplier"
     PrecisionRule="true"
     EntityAttrName="NoteToSupplier"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="NOTE_TO_SUPPLIER"/>
+    AliasName="NOTE_TO_SUPPLIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.NoteToSupplier_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PoRate"
     PrecisionRule="true"
     EntityAttrName="PoRate"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="PO_RATE"/>
+    AliasName="PO_RATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.PoRate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="GrossAmount"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="GrossAmount"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="GROSS_AMOUNT"/>
+    AliasName="GROSS_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.GrossAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DiscountGroupSno"
     PrecisionRule="true"
     EntityAttrName="DiscountGroupSno"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="DISCOUNT_GROUP_SNO"/>
+    AliasName="DISCOUNT_GROUP_SNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.DiscountGroupSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DiscountAmount"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="DiscountAmount"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="DISCOUNT_AMOUNT"/>
+    AliasName="DISCOUNT_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.DiscountAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TaxGroupSno"
     PrecisionRule="true"
     EntityAttrName="TaxGroupSno"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="TAX_GROUP_SNO"/>
+    AliasName="TAX_GROUP_SNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.TaxGroupSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TaxAmount"
     PrecisionRule="true"
     EntityAttrName="TaxAmount"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="TAX_AMOUNT"/>
+    AliasName="TAX_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.TaxAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SupplierItemName"
     PrecisionRule="true"
     EntityAttrName="SupplierItemName"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="SUPPLIER_ITEM_NAME"/>
+    AliasName="SUPPLIER_ITEM_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.SupplierItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NetAmount"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="NetAmount"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="NET_AMOUNT"/>
+    AliasName="NET_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.NetAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="StatusSno"
     PrecisionRule="true"
     EntityAttrName="StatusSno"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="STATUS_SNO"/>
+    AliasName="STATUS_SNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.StatusSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseOrderDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"
@@ -243,4 +547,8 @@
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinTaxPoLinLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </ViewObject>
