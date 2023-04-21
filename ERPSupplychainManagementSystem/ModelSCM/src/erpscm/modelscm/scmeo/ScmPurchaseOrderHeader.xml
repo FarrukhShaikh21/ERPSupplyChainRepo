@@ -783,6 +783,22 @@
         Value="TempProjectId"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtPaymentTermName"
+    Precision="80"
+    ColumnName="txt_Payment_Term_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPaymentTermHeader?.PaymentTermName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="PaymentTermHeaderSno"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderCharges"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdChargesPoHeadAssoc"
@@ -838,6 +854,20 @@
     AssociationEnd="erpscm.modelscm.scmeo.ScmPurchfqHeadScmPurchOrdHeadRfqHeaderSnoAsso.ScmPurchaseRfqHeader"
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchfqHeadScmPurchOrdHeadRfqHeaderSnoAsso.ScmPurchaseOrderHeader"
     Type="erpscm.modelscm.scmeo.ScmPurchaseRfqHeaderImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPaymentTermHeader"
+    Association="erpscm.modelscm.scmeo.ScmPayTermHeadScmPurchOrdHeadPaymentTermSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPayTermHeadScmPurchOrdHeadPaymentTermSnoAsso.ScmPaymentTermHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPayTermHeadScmPurchOrdHeadPaymentTermSnoAsso.ScmPurchaseOrderHeader"
+    Type="erpscm.modelscm.scmeo.ScmPaymentTermHeaderImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmFreightTerm"
+    Association="erpscm.modelscm.scmeo.ScmFreightTermScmPurcOrdHeadFreightTermSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcOrdHeadFreightTermSnoAsso.ScmFreightTerm"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcOrdHeadFreightTermSnoAsso.ScmPurchaseOrderHeader"
+    Type="erpscm.modelscm.scmeo.ScmFreightTermImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderHeader"
@@ -902,6 +932,28 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.RfqHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderHeader4">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PAYMENT_TERM_HEADER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Order_Header4"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.PaymentTermHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderHeader5">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_FREIGHT_TERM"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Order_Header5"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.FreightTermSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

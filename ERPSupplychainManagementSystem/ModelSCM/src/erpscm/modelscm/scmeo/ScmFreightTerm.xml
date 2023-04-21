@@ -367,6 +367,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcRfqHeadFreightTermSnoAsso.ScmFreightTerm"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmPurchaseOrderHeader"
+    Association="erpscm.modelscm.scmeo.ScmFreightTermScmPurcOrdHeadFreightTermSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcOrdHeadFreightTermSnoAsso.ScmPurchaseOrderHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcOrdHeadFreightTermSnoAsso.ScmFreightTerm"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmFreightTerm"
     PrimaryKey="true">
