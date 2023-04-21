@@ -312,6 +312,30 @@
     EntityAttrName="PaymentTermHeaderSno"
     EntityUsage="ScmPurchaseOrderHeader"
     AliasName="PAYMENT_TERM_HEADER_SNO"/>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtLocationName"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="TXT_LOCATION_NAME"/>
+  <ViewAttribute
+    Name="txtTempDepartmentName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtTempDepartmentName"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="TXT_TEMP_DEPARTMENT_NAME"/>
+  <ViewAttribute
+    Name="txtTempProjectName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtTempProjectName"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="TXT_TEMP_PROJECT_NAME"/>
   <ViewCriteria
     Name="ScmPurchaseOrderHeaderByPOHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
@@ -377,6 +401,12 @@
   <ViewLinkAccessor
     Name="AdminCompanyVO1"
     ViewLink="erpscm.modelscm.scmvo.AdminCompanyScmPurchaseOrdHeadTempDepartmentIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlProjectsVO"
+    ViewLink="erpscm.modelscm.scmvo.GlProjectScmPurOrderHeaderTempProjectIdLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

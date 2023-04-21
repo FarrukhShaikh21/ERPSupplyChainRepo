@@ -715,6 +715,75 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtTempDepartmentName"
+    Precision="80"
+    ColumnName="TXT_TEMP_DEPARTMENT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.txtTempDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="TempDepartmentId"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtLocationName"
+    Precision="80"
+    ColumnName="TXT_LOCATION_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.txtLocationName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="LocationId"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtTempProjectName"
+    Precision="80"
+    ColumnName="TXT_TEMP_PROJECT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_ORDER_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="TempProjectId"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderCharges"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdChargesPoHeadAssoc"
@@ -757,6 +826,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseOrdHeadTempDepartmentIdAsso.ScmPurchaseOrderHeader"
     Type="erpadm.modeladm.admeo.AdminCompanyImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlProjects"
+    Association="erpscm.modelscm.scmeo.GlProjectScmPurOrderHeaderTempProjectIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.GlProjectScmPurOrderHeaderTempProjectIdAsso.GlProjects"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GlProjectScmPurOrderHeaderTempProjectIdAsso.ScmPurchaseOrderHeader"
+    Type="erpfms.modelfms.fmseo.GlProjectsImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderHeader"
     PrimaryKey="true">
@@ -798,6 +874,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.TempDepartmentId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderHeader2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_PROJECTS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_ORDER_HEADER2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.TempProjectId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
