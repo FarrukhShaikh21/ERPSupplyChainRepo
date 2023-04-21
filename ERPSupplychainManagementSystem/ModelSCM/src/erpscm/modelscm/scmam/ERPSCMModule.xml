@@ -367,6 +367,24 @@
       Name="ScmPurchaseBidCompSupplierByIsSelectVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO.ScmPurchaseBidCompSupplierByIsSelectVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ScmPurchaseOrderHeaderRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"/>
+  <ViewUsage
+    Name="ScmPurchaseOrderHeaderCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"/>
+  <ViewUsage
+    Name="ScmPurchaseOrderLinesDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO"/>
+  <ViewUsage
+    Name="ScmPurchaseOrderChargesDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderChargesVO"/>
+  <ViewUsage
+    Name="ScmPurchaseOrderDiscountDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderDiscountVO"/>
+  <ViewUsage
+    Name="ScmPurchaseOrderTaxLinesDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderTaxLinesVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -474,5 +492,29 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseRfqSupplierForPoGenRO"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseBidCompSupplierDetRO"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmPurOrdLinPoHeadSnoLink1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurOrdLinPoHeadSnoLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderHeaderRO"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderLinesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmPurOrdChargesPoHeadLink1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurOrdChargesPoHeadLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderHeaderRO"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderChargesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmPurOrdLinDisPoLinLink1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderLinesDetCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderDiscountDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmPurOrdLinTaxPoLinLink1"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurOrdLinTaxPoLinLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderLinesDetCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderTaxLinesDetCRUD"
     Reversed="false"/>
 </AppModule>
