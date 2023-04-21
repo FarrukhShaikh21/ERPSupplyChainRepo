@@ -448,6 +448,9 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
             return false;
        }
         return super.isAttributeUpdateable(i);
-    }    
+    } 
+    public void doGeneratePoFromBidComp() {
+        
+    }
 }
 

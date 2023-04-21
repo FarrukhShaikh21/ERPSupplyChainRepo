@@ -385,6 +385,12 @@
   <ViewUsage
     Name="ScmPurchaseOrderTaxLinesDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderTaxLinesVO"/>
+  <ViewUsage
+    Name="ScmPurchaseOrderHeaderForPOMergeTORfq"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"/>
+  <ViewUsage
+    Name="ScmPurchaseOrderLinesForMergeRFQDet"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO"/>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"
@@ -516,5 +522,11 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurOrdLinTaxPoLinLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderLinesDetCRUD"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderTaxLinesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkScmPurOrdLinPoHeadSnoLink2"
+    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurOrdLinPoHeadSnoLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderHeaderForPOMergeTORfq"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderLinesForMergeRFQDet"
     Reversed="false"/>
 </AppModule>

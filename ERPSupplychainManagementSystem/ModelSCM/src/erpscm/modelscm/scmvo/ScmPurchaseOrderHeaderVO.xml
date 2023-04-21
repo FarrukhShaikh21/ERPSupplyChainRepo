@@ -12,9 +12,23 @@
   BindingStyle="JDBC"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpglobals.modelglobals.ERPViewRowImpl"
+  ComponentClass="erpglobals.modelglobals.ERPViewObjectImpl">
+  <DesignTime>
+    <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
+    <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
+  </DesignTime>
   <Variable
-    Name="P_PO_HEADER_SNO"
+    Name="P_ADF_SUPPLIER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_RFQ_HEADER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_PO_HEADER_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
   <ViewAccessor
@@ -34,6 +48,25 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+<ViewAccessor
+    Name="AccSysSystemParameterVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysSystemParameterVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysSystemParameterByGlobalCompanyVC"
+      FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByGlobalCompanyVC"/>
+    <ViewCriteriaUsage
+      Name="SysSystemParameterByParameterVC"
+      FullName="erpadm.modeladm.admvo.SysSystemParameterVO.SysSystemParameterByParameterVC"/>
+  </ViewAccessor>
+<ViewAccessor
+    Name="AccAdminCompanyForCompVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyByCompCodeVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyByCompCodeVC"/>
+  </ViewAccessor>  
   <ViewAccessor
     Name="AccGlProjectsVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
@@ -404,11 +437,55 @@
         ViewAttribute="PoHeaderSno"
         Operator="="
         Conjunction="AND"
-        Value=":P_PO_HEADER_SNO"
+        Value=":P_ADF_PO_HEADER_SNO"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
-  </ViewCriteria>  
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPurchaseOrderHeaderByRFQSupplierVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseOrderHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="RfqHeaderSno"
+        ViewAttribute="RfqHeaderSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_RFQ_HEADER_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SupplierSno"
+        ViewAttribute="SupplierSno"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_SUPPLIER_SNO"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmPurchaseOrderChargesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdChargesPoHeadLink"
