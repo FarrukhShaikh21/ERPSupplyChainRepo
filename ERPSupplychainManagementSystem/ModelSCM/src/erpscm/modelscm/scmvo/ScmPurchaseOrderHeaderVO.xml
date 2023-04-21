@@ -34,6 +34,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlProjectsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovPoTypeSno"
     ListVOName="AccSysGeneralValuePOTypeVO"
@@ -51,6 +55,31 @@
       <Item Value="ValueCode"/>
     </AttrArray>
     <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtTempProjectName"
+    ListVOName="AccGlProjectsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtTempProjectName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TempProjectId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlProjectsFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderHeader"
@@ -335,7 +364,15 @@
     PrecisionRule="true"
     EntityAttrName="txtTempProjectName"
     EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="TXT_TEMP_PROJECT_NAME"/>
+    AliasName="TXT_TEMP_PROJECT_NAME"
+    LOVName="LovtxtTempProjectName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseOrderHeaderByPOHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
