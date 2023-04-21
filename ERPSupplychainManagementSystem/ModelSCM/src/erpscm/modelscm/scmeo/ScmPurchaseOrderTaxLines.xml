@@ -17,10 +17,19 @@
     Scale="0"
     ColumnName="TAX_LINES_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_TAX_LINES"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.TaxLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PoLinesSno"
     IsNotNull="true"
@@ -28,9 +37,18 @@
     Scale="0"
     ColumnName="PO_LINES_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_TAX_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_TAX_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.PoLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PoHeaderSno"
     IsNotNull="true"
@@ -38,9 +56,18 @@
     Scale="0"
     ColumnName="PO_HEADER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_TAX_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_TAX_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.PoHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="TaxGroupSno"
     IsNotNull="true"
@@ -50,7 +77,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_TAX_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_TAX_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.TaxGroupSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="TaxSno"
     IsNotNull="true"
@@ -60,7 +96,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_TAX_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_TAX_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.TaxSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="TaxPercent"
     IsNotNull="true"
@@ -70,25 +115,51 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_TAX_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_TAX_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.TaxPercent_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
-    IsNotNull="true"
     Precision="5"
     Scale="0"
     ColumnName="CREATED_BY"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_TAX_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_TAX_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.CreatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_ORDER_TAX_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_TAX_LINES"
+    RetrievedOnInsert="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.CreatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -97,14 +168,33 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_TAX_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_TAX_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.LastUpdatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedDate"
     ColumnName="LAST_UPDATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_ORDER_TAX_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_TAX_LINES"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.LastUpdatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoHeadAssoc"
@@ -151,4 +241,8 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.PoLinesSno"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </Entity>
