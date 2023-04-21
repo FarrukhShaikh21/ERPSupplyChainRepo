@@ -930,6 +930,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurRfqHeaderScmPurBidCompHeaderRfqHeaderSnoAsso.ScmPurchaseRfqHeader"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmPurchaseOrderHeader"
+    Association="erpscm.modelscm.scmeo.ScmPurchfqHeadScmPurchOrdHeadRfqHeaderSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchfqHeadScmPurchOrdHeadRfqHeaderSnoAsso.ScmPurchaseOrderHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchfqHeadScmPurchOrdHeadRfqHeaderSnoAsso.ScmPurchaseRfqHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmPurchaseQuotationHead"
     PrimaryKey="true">
@@ -1043,17 +1050,17 @@
       Name="OnConditionExpr"><![CDATA[IsSupervised=='N']]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
-        Value="ERR_VALID_DATES"/>
-      <validation:Item
         Value="ERR_PROJECT"/>
+      <validation:Item
+        Value="ERR_VALID_DATES"/>
       <validation:Item
         Value="ERR_LOCATIONID"/>
       <validation:Item
         Value="ERR_DUE_DATE_FUTURE"/>
       <validation:Item
-        Value="ERR_CLOSE_DATE"/>
-      <validation:Item
         Value="ERR_DEPARTMENT"/>
+      <validation:Item
+        Value="ERR_CLOSE_DATE"/>
     </validation:MsgIds>
     <validation:TransientExpression><![CDATA[if(LocationId==null)
 {
