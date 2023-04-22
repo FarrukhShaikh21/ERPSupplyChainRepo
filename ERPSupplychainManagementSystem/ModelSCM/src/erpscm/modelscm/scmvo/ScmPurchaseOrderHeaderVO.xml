@@ -428,6 +428,20 @@
     EntityAttrName="txtFobTermName"
     EntityUsage="ScmPurchaseOrderHeader"
     AliasName="txt_Fob_Term_Name"/>
+  <ViewAttribute
+    Name="txtRfqHeaderCode"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtRfqHeaderCode"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="txt_Rfq_Header_Code"/>
+  <ViewAttribute
+    Name="txtDemandHeaderCode"
+    PrecisionRule="true"
+    EntityAttrName="txtDemandHeaderCode"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="txt_Demand_Header_Code"/>
   <ViewCriteria
     Name="ScmPurchaseOrderHeaderByPOHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
@@ -567,6 +581,12 @@
   <ViewLinkAccessor
     Name="ScmFobTermVO"
     ViewLink="erpscm.modelscm.scmvo.ScmFobTermScmPurchaseOrdHeadFobTermSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseDemandHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurcDemandHeadScmPurcOrdDemandHeaderSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

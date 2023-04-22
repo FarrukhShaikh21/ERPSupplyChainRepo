@@ -587,6 +587,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurDemandHeadScmPurBIDCompHeadDemandHeaderSnoAsso.ScmPurchaseDemandHeader"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmPurchaseOrderHeader"
+    Association="erpscm.modelscm.scmeo.ScmPurcDemandHeadScmPurcOrdDemandHeaderSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurcDemandHeadScmPurcOrdDemandHeaderSnoAsso.ScmPurchaseOrderHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurcDemandHeadScmPurcOrdDemandHeaderSnoAsso.ScmPurchaseDemandHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmPuechaseDemandHeader"
     PrimaryKey="true">
@@ -672,9 +679,9 @@
       <validation:Item
         Value="ERR_PROJECT"/>
       <validation:Item
-        Value="ERR_DEPARTMENT"/>
-      <validation:Item
         Value="ERR_LOCATIONID"/>
+      <validation:Item
+        Value="ERR_DEPARTMENT"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(LocationId==null)

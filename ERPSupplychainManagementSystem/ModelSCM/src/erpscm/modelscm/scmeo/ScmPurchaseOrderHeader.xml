@@ -855,6 +855,35 @@
         Value="FobTermSno"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtRfqHeaderCode"
+    ColumnName="txt_Rfq_Header_Code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="RfqHeaderSno"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtDemandHeaderCode"
+    ColumnName="txt_Demand_Header_Code"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    TableName="SCM_PURCHASE_ORDER_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="DemandHeaderSno"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderCharges"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdChargesPoHeadAssoc"
@@ -931,6 +960,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.ScmFobTermScmPurchaseOrdHeadFobTermSnoAsso.ScmFobTerm"
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFobTermScmPurchaseOrdHeadFobTermSnoAsso.ScmPurchaseOrderHeader"
     Type="erpscm.modelscm.scmeo.ScmFobTermImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseDemandHeader"
+    Association="erpscm.modelscm.scmeo.ScmPurcDemandHeadScmPurcOrdDemandHeaderSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurcDemandHeadScmPurcOrdDemandHeaderSnoAsso.ScmPurchaseDemandHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurcDemandHeadScmPurcOrdDemandHeaderSnoAsso.ScmPurchaseOrderHeader"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseDemandHeaderImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderHeader"
@@ -1039,6 +1075,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.FobTermSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderHeader8">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PUECHASE_DEMAND_HEADER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Order_Header8"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.DemandHeaderSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
