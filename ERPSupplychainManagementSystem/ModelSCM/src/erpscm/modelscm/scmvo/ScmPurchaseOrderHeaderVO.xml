@@ -414,6 +414,20 @@
     EntityAttrName="txtPaymentTermName"
     EntityUsage="ScmPurchaseOrderHeader"
     AliasName="txt_Payment_Term_Name"/>
+  <ViewAttribute
+    Name="txtFreightTermName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtFreightTermName"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="txt_Freight_Term_Name"/>
+  <ViewAttribute
+    Name="txtFobTermName"
+    PrecisionRule="true"
+    EntityAttrName="txtFobTermName"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="txt_Fob_Term_Name"/>
   <ViewCriteria
     Name="ScmPurchaseOrderHeaderByPOHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
@@ -550,4 +564,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmFobTermVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmFobTermScmPurchaseOrdHeadFobTermSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </ViewObject>

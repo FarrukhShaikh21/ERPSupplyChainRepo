@@ -799,6 +799,62 @@
         Value="PaymentTermHeaderSno"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtFreightTermName"
+    Precision="80"
+    ColumnName="txt_Freight_Term_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmFreightTerm?.FreightTermName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="FreightTermSno"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.txtFreightTermName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtCourierName"
+    Precision="80"
+    ColumnName="txt_Courier_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_ORDER_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.txtCourierName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtFobTermName"
+    Precision="80"
+    ColumnName="txt_Fob_Term_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_ORDER_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmFobTerm?.FobTermName]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="FobTermSno"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderCharges"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdChargesPoHeadAssoc"
@@ -868,6 +924,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcOrdHeadFreightTermSnoAsso.ScmFreightTerm"
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcOrdHeadFreightTermSnoAsso.ScmPurchaseOrderHeader"
     Type="erpscm.modelscm.scmeo.ScmFreightTermImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmFobTerm"
+    Association="erpscm.modelscm.scmeo.ScmFobTermScmPurchaseOrdHeadFobTermSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmFobTermScmPurchaseOrdHeadFobTermSnoAsso.ScmFobTerm"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFobTermScmPurchaseOrdHeadFobTermSnoAsso.ScmPurchaseOrderHeader"
+    Type="erpscm.modelscm.scmeo.ScmFobTermImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderHeader"
@@ -954,6 +1017,28 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.FreightTermSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderHeader6">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_FREIGHT_TERM"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Order_Header6"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.FreightTermSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderHeader7">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_FOB_TERM"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Order_Header7"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.FobTermSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
