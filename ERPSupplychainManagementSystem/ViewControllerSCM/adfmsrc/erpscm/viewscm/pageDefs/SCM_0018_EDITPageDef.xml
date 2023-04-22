@@ -16,6 +16,8 @@
               id="ScmPurchaseRfqSupplierForPoGenROIterator"/>
     <iterator Binds="ScmPurchaseBidCompSupplierDetRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseBidCompSupplierDetROIterator"/>
+    <iterator Binds="ScmPurchaseOrderHeaderForPOMergeTORfq" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseOrderHeaderForPOMergeTORfqIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseBidCompHeaderCRUDIterator" id="IsCancelled">
@@ -166,5 +168,21 @@
         <Item Value="BidLinesSno"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="ScmPurchaseOrderHeaderForPOMergeTORfqIterator" id="ScmPurchaseOrderHeaderForPOMergeTORfq">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
+                      Name="ScmPurchaseOrderHeaderForPOMergeTORfq0">
+        <AttrNames>
+          <Item Value="PoHeaderSno"/>
+          <Item Value="PoHeaderCode"/>
+          <Item Value="PoDate"/>
+          <Item Value="txtLocationName"/>
+          <Item Value="txtRfqHeaderCode"/>
+          <Item Value="txtDemandHeaderCode"/>
+          <Item Value="PoTypeSno"/>
+          <Item Value="txtPaymentTermName"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
