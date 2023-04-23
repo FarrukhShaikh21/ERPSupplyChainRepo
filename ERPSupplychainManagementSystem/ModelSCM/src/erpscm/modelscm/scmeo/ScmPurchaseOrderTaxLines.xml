@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="SCM_PURCHASE_ORDER_TAX_LINES"
   AliasName="ScmPurchaseOrderTaxLines"
-  BindingStyle="JDBC">
+  BindingStyle="JDBC"
+  RowClass="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLinesImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="TaxLinesSno"
     IsNotNull="true"
