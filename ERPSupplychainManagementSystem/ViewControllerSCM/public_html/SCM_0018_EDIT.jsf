@@ -273,8 +273,9 @@
                     </af:decorativeBox>
                 </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p6">
-                <af:dialog id="d7">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p6" contentDelivery="lazyUncached">
+                <af:dialog id="d7" type="ok" title="Select PO For Merging"
+                           affirmativeTextAndAccessKey="Select This For Merge">
                     <f:facet name="buttonBar"/>
                     <af:table value="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.collectionModel}" var="row"
                               rows="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.rangeSize}"
@@ -398,6 +399,143 @@
                                           shortDesc="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.Remarks.tooltip}"
                                           id="it35">
                                 <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                    </af:table>
+                    <af:table value="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.collectionModel}" var="row"
+                              rows="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.rangeSize}"
+                              emptyText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.collectionModel.makeCurrent}"
+                              rowSelection="single"
+                              fetchSize="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.rangeSize}" id="t6">
+                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.LineNo.label}"
+                                   id="c30">
+                            <af:inputText value="#{row.bindings.LineNo.inputValue}"
+                                          label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.LineNo.label}"
+                                          required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.LineNo.mandatory}"
+                                          columns="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.LineNo.displayWidth}"
+                                          maximumLength="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.LineNo.precision}"
+                                          shortDesc="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.LineNo.tooltip}"
+                                          id="it36" readOnly="true">
+                                <f:validator binding="#{row.bindings.LineNo.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.LineNo.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtItemName.label}"
+                                   id="c31">
+                            <af:inputText value="#{row.bindings.txtItemName.inputValue}"
+                                          label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtItemName.label}"
+                                          required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtItemName.mandatory}"
+                                          columns="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtItemName.displayWidth}"
+                                          maximumLength="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtItemName.precision}"
+                                          shortDesc="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtItemName.tooltip}"
+                                          id="it37" readOnly="true">
+                                <f:validator binding="#{row.bindings.txtItemName.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtUnitTypeName.label}"
+                                   id="c32">
+                            <af:inputText value="#{row.bindings.txtUnitTypeName.inputValue}"
+                                          label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtUnitTypeName.label}"
+                                          required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtUnitTypeName.mandatory}"
+                                          columns="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtUnitTypeName.displayWidth}"
+                                          maximumLength="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtUnitTypeName.precision}"
+                                          shortDesc="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.txtUnitTypeName.tooltip}"
+                                          id="it38" readOnly="true">
+                                <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoRate.label}"
+                                   id="c33">
+                            <af:inputText value="#{row.bindings.PoRate.inputValue}"
+                                          label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoRate.label}"
+                                          required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoRate.mandatory}"
+                                          columns="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoRate.displayWidth}"
+                                          maximumLength="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoRate.precision}"
+                                          shortDesc="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoRate.tooltip}"
+                                          id="it39" readOnly="true">
+                                <f:validator binding="#{row.bindings.PoRate.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoRate.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoApproveQuantity.label}"
+                                   id="c34">
+                            <af:inputText value="#{row.bindings.PoApproveQuantity.inputValue}"
+                                          label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoApproveQuantity.label}"
+                                          required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoApproveQuantity.mandatory}"
+                                          columns="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoApproveQuantity.displayWidth}"
+                                          maximumLength="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoApproveQuantity.precision}"
+                                          shortDesc="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoApproveQuantity.tooltip}"
+                                          id="it40" readOnly="true">
+                                <f:validator binding="#{row.bindings.PoApproveQuantity.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoApproveQuantity.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.GrossAmount.label}"
+                                   id="c35">
+                            <af:inputText value="#{row.bindings.GrossAmount.inputValue}"
+                                          label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.GrossAmount.label}"
+                                          required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.GrossAmount.mandatory}"
+                                          columns="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.GrossAmount.displayWidth}"
+                                          maximumLength="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.GrossAmount.precision}"
+                                          shortDesc="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.GrossAmount.tooltip}"
+                                          id="it41" readOnly="true">
+                                <f:validator binding="#{row.bindings.GrossAmount.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.GrossAmount.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.RequiredByDate.label}"
+                                   id="c36">
+                            <af:inputDate value="#{row.bindings.RequiredByDate.inputValue}"
+                                          label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.RequiredByDate.label}"
+                                          required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.RequiredByDate.mandatory}"
+                                          columns="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.RequiredByDate.displayWidth}"
+                                          shortDesc="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.RequiredByDate.tooltip}"
+                                          id="id3" readOnly="true">
+                                <f:validator binding="#{row.bindings.RequiredByDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.RequiredByDate.format}"/>
+                            </af:inputDate>
+                        </af:column>
+                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PromisedDate.label}"
+                                   id="c37">
+                            <af:inputDate value="#{row.bindings.PromisedDate.inputValue}"
+                                          label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PromisedDate.label}"
+                                          required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PromisedDate.mandatory}"
+                                          columns="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PromisedDate.displayWidth}"
+                                          shortDesc="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PromisedDate.tooltip}"
+                                          id="id4" readOnly="true">
+                                <f:validator binding="#{row.bindings.PromisedDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PromisedDate.format}"/>
+                            </af:inputDate>
+                        </af:column>
+                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToBuyer.label}"
+                                   id="c38">
+                            <af:inputText value="#{row.bindings.NoteToBuyer.inputValue}"
+                                          label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToBuyer.label}"
+                                          required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToBuyer.mandatory}"
+                                          columns="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToBuyer.displayWidth}"
+                                          maximumLength="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToBuyer.precision}"
+                                          shortDesc="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToBuyer.tooltip}"
+                                          id="it42" readOnly="true">
+                                <f:validator binding="#{row.bindings.NoteToBuyer.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToSupplier.label}"
+                                   id="c39">
+                            <af:inputText value="#{row.bindings.NoteToSupplier.inputValue}"
+                                          label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToSupplier.label}"
+                                          required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToSupplier.mandatory}"
+                                          columns="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToSupplier.displayWidth}"
+                                          maximumLength="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToSupplier.precision}"
+                                          shortDesc="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.NoteToSupplier.tooltip}"
+                                          id="it43" readOnly="true">
+                                <f:validator binding="#{row.bindings.NoteToSupplier.validator}"/>
                             </af:inputText>
                         </af:column>
                     </af:table>

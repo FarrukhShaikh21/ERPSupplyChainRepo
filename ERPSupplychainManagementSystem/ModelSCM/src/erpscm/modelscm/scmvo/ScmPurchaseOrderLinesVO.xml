@@ -543,6 +543,14 @@
     EntityAttrName="txtUnitTypeName"
     EntityUsage="ScmPurchaseOrderLines"
     AliasName="txt_Unit_Type_Name"/>
+  <ViewAttribute
+    Name="txtItemName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtItemName"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="txt_Item_Name"/>
   <ViewLinkAccessor
     Name="ScmPurchaseOrderDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"
