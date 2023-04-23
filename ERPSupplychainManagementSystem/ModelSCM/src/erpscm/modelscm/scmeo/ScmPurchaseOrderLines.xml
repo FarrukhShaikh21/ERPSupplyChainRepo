@@ -17,10 +17,19 @@
     Scale="0"
     ColumnName="PO_LINES_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_LINES"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.PoLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PoHeaderSno"
     IsNotNull="true"
@@ -28,9 +37,18 @@
     Scale="0"
     ColumnName="PO_HEADER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.PoHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DemandLinesSno"
     IsNotNull="true"
@@ -38,36 +56,72 @@
     Scale="0"
     ColumnName="DEMAND_LINES_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.DemandLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CompareSupplierSno"
     Precision="10"
     Scale="0"
     ColumnName="COMPARE_SUPPLIER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.CompareSupplierSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="RfqLinesSno"
     Precision="10"
     Scale="0"
     ColumnName="RFQ_LINES_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.RfqLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="BidLinesSno"
     Precision="10"
     Scale="0"
     ColumnName="BID_LINES_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.BidLinesSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LineNo"
     IsNotNull="true"
@@ -77,7 +131,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.LineNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ItemId"
     IsNotNull="true"
@@ -87,7 +150,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.ItemId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="UnitTypeSno"
     IsNotNull="true"
@@ -97,21 +169,48 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.UnitTypeSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="RequiredByDate"
     ColumnName="REQUIRED_BY_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.RequiredByDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PromisedDate"
     ColumnName="PROMISED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.PromisedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PoRequestQuantity"
     IsNotNull="true"
@@ -121,7 +220,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.PoRequestQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PoApproveQuantity"
     IsNotNull="true"
@@ -131,7 +239,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.PoApproveQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="GrnQuantity"
     Precision="16"
@@ -140,7 +257,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.GrnQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CancelQuantity"
     Precision="16"
@@ -149,14 +275,32 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.CancelQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CancelDate"
     ColumnName="CANCEL_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.CancelDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CancelReasonSno"
     Precision="6"
@@ -165,7 +309,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.CancelReasonSno_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DepartmentId"
     Precision="10"
@@ -174,7 +325,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.DepartmentId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ProjectId"
     Precision="10"
@@ -183,7 +343,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.ProjectId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedBy"
     IsNotNull="true"
@@ -193,7 +362,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.CreatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CreatedDate"
     IsNotNull="true"
@@ -201,7 +379,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.CreatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedBy"
     Precision="5"
@@ -210,14 +397,32 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.LastUpdatedBy_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastUpdatedDate"
     ColumnName="LAST_UPDATED_DATE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.LastUpdatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="NoteToBuyer"
     Precision="500"
@@ -229,6 +434,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="500"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.NoteToBuyer_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="NoteToSupplier"
@@ -241,6 +454,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="500"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.NoteToSupplier_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="PoRate"
@@ -250,7 +471,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.PoRate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="GrossAmount"
     IsNotNull="true"
@@ -260,7 +490,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.GrossAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DiscountGroupSno"
     Precision="6"
@@ -269,7 +508,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.DiscountGroupSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DiscountAmount"
     IsNotNull="true"
@@ -279,7 +527,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.DiscountAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="TaxGroupSno"
     Precision="6"
@@ -288,7 +545,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.TaxGroupSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="TaxAmount"
     Precision="16"
@@ -297,7 +563,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.TaxAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="SupplierItemName"
     Precision="100"
@@ -309,6 +584,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.SupplierItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="NetAmount"
@@ -319,7 +602,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.NetAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="StatusSno"
     Precision="5"
@@ -328,7 +620,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.StatusSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="txtItemName"
     Precision="100"
@@ -344,6 +645,14 @@
       <Item
         Value="ItemId"/>
     </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtItemName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="txtUnitTypeName"
