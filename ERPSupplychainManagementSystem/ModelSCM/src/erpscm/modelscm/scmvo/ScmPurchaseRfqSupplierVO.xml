@@ -13,7 +13,9 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  RowClass="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVORowImpl">
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVORowImpl"
+  RowInterface="erpscm.modelscm.scmvo.common.ScmPurchaseRfqSupplierVORow"
+  ClientRowProxyName="erpscm.modelscm.scmvo.client.ScmPurchaseRfqSupplierVORowClient">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access"/>
     <Attr Name="_isCodegen" Value="true"/>
@@ -174,7 +176,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
-    SQLType="NUMERIC">
+    SQLType="INTEGER">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -290,41 +292,6 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="ScmSupplierVO"
-        ViewAttribute="ScmSupplierVO"
-        Operator="EXISTS"
-        Conjunction="AND"
-        IsNestedCriteria="true"
-        Required="Optional">
-        <ViewCriteria
-          Name="ScmSupplierVONestedCriteria"
-          ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
-          Conjunction="AND">
-          <ViewCriteriaRow
-            Name="ScmSupplierVONestedCriteria_row_0"
-            UpperColumns="1">
-            <ViewCriteriaItem
-              Name="SupplierShortCode"
-              ViewAttribute="SupplierShortCode"
-              Operator="="
-              Conjunction="AND"
-              Required="Optional"/>
-            <ViewCriteriaItem
-              Name="SupplierName"
-              ViewAttribute="SupplierName"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Required="Optional"/>
-            <ViewCriteriaItem
-              Name="SupplierShortName"
-              ViewAttribute="SupplierShortName"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Required="Optional"/>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItem>
-      <ViewCriteriaItem
         Name="ScmPurchaseRfqHeaderVO"
         ViewAttribute="ScmPurchaseRfqHeaderVO"
         Operator="EXISTS"
@@ -367,6 +334,41 @@
                 </ViewCriteriaRow>
               </ViewCriteria>
             </ViewCriteriaItem>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="ScmSupplierVO"
+        ViewAttribute="ScmSupplierVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmSupplierVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmSupplierVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="SupplierShortCode"
+              ViewAttribute="SupplierShortCode"
+              Operator="="
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="SupplierName"
+              ViewAttribute="SupplierName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="SupplierShortName"
+              ViewAttribute="SupplierShortName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>
@@ -478,6 +480,16 @@
     ViewLink="erpscm.modelscm.scmvo.ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ClientRowInterface
+    Name="__rowClientInterface">
+    <Method
+      Name="doGeneratePoFromBidComp"
+      MethodName="doGeneratePoFromBidComp">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientRowInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>

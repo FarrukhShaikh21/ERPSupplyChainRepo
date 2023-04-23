@@ -2,6 +2,8 @@ package erpscm.modelscm.scmvo;
 
 import erpscm.modelscm.scmeo.ScmPurchaseRfqSupplierImpl;
 
+import erpscm.modelscm.scmvo.common.ScmPurchaseRfqSupplierVORow;
+
 import java.math.BigDecimal;
 
 import java.sql.Timestamp;
@@ -16,7 +18,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl {
+public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmPurchaseRfqSupplierVORow {
 
 
     public static final int ENTITY_SCMPURCHASERFQSUPPLIER = 0;

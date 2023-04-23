@@ -106,7 +106,7 @@
                                               selectionListener="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.collectionModel.makeCurrent}"
                                               rowSelection="single"
                                               fetchSize="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.rangeSize}"
-                                              id="t3" partialTriggers="::b2" columnStretching="last" autoHeightRows="3"
+                                              id="t3" partialTriggers="::b2 b3 l14" columnStretching="last" autoHeightRows="3"
                                               styleClass="AFStretchWidth">
                                         <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtSupplierName.label}"
                                                    id="c9" width="200" displayIndex="-1">
@@ -150,7 +150,9 @@
                                             </af:inputText>
                                         </af:column>
                                         <af:column id="c17" width="80" displayIndex="-1">
-                                            <af:link text="Generate PO" id="l14" partialSubmit="true"/>
+                                            <af:link text="Generate PO" id="l14" partialSubmit="true"
+                                                     actionListener="#{bindings.doGeneratePoFromBidComp.execute}"
+                                                     disabled="#{!bindings.doGeneratePoFromBidComp.enabled}"/>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.label}"
                                                    id="c18" width="80" minimumWidth="12">
@@ -402,6 +404,7 @@
                             </af:inputText>
                         </af:column>
                     </af:table>
+                    <af:spacer width="10" height="10" id="s3"/>
                     <af:table value="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.collectionModel}" var="row"
                               rows="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.rangeSize}"
                               emptyText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.viewable ? 'No data to display.' : 'Access Denied.'}"

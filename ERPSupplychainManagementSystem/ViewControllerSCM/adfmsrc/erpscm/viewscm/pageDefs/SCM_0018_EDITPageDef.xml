@@ -203,5 +203,11 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <methodAction IterBinding="ScmPurchaseRfqSupplierForPoGenROIterator" id="doGeneratePoFromBidComp"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doGeneratePoFromBidComp"
+                  IsViewObjectMethod="false" DataControl="ERPSCMModuleDataControl"
+                  InstanceName="bindings.ScmPurchaseRfqSupplierForPoGenROIterator.currentRow"
+                  IsLocalObjectReference="true"
+                  ReturnName="data.ERPSCMModuleDataControl.methodResults.doGeneratePoFromBidComp_doGeneratePoFromBidComp_doGeneratePoFromBidComp_result"/>
   </bindings>
 </pageDefinition>
