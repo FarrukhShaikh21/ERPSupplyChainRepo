@@ -537,6 +537,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtUnitTypeName"
+    PrecisionRule="true"
+    EntityAttrName="txtUnitTypeName"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="txt_Unit_Type_Name"/>
   <ViewLinkAccessor
     Name="ScmPurchaseOrderDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"
@@ -550,6 +556,12 @@
   <ViewLinkAccessor
     Name="InvItemVO"
     ViewLink="erpscm.modelscm.scmvo.InvItemScmPurchaseOrderLinesItemLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InvUnitTypeVO"
+    ViewLink="erpscm.modelscm.scmvo.InvUnitTypeScmPurchaseOrderLinesUnitTypeSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

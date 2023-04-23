@@ -283,7 +283,8 @@
                               selectedRowKeys="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.collectionModel.selectedRow}"
                               selectionListener="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.collectionModel.makeCurrent}"
                               rowSelection="single"
-                              fetchSize="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.rangeSize}" id="t5">
+                              fetchSize="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.rangeSize}" id="t5"
+                              columnStretching="last">
                         <af:column headerText="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.PoHeaderSno.label}"
                                    id="c21" rendered="false">
                             <af:inputText value="#{row.bindings.PoHeaderSno.inputValue}"
