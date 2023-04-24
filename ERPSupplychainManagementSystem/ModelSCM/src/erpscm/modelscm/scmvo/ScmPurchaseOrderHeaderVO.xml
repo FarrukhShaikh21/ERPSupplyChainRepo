@@ -427,7 +427,9 @@
     PrecisionRule="true"
     EntityAttrName="txtFobTermName"
     EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="txt_Fob_Term_Name"/>
+    AliasName="txt_Fob_Term_Name"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <ViewAttribute
     Name="txtRfqHeaderCode"
     IsQueriable="false"
@@ -441,7 +443,9 @@
     PrecisionRule="true"
     EntityAttrName="txtDemandHeaderCode"
     EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="txt_Demand_Header_Code"/>
+    AliasName="txt_Demand_Header_Code"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <ViewCriteria
     Name="ScmPurchaseOrderHeaderByPOHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"

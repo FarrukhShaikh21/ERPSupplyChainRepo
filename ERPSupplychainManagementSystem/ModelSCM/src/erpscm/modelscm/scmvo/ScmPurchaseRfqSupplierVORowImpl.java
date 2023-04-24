@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import oracle.jbo.ApplicationModule;
+import oracle.jbo.JboException;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
@@ -457,11 +458,21 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         ApplicationModule am = getApplicationModule();
         ViewObject erpPOHeadvo=am.findViewObject("ScmPurchaseOrderHeaderCRUD");
         ViewObject erpPurBidComp=am.findViewObject("ScmPurchaseBidCompHeaderCRUD");
-        
+        int erpPoSelect=0;
         ViewObject supcompvo=am.findViewObject("ScmPurchaseBidCompSupplierDetRO");
         Integer erpPOHeaderSno=gettxtMergePOSno();
         supcompvo.setRangeSize(-1);
-        if (gettxtIsMerge()!=null && gettxtIsMerge().equals("N")) {
+
+        for (int i = 0; i < supcompvo.getRowCount(); i++) {
+            if (supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO")!=null &&supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO").equals("Y") ) {
+                erpPoSelect=1;
+           }
+        }
+        if (erpPoSelect== 0) {
+            throw new JboException("Please select item to generate Purchase Order");
+        }
+
+        if (gettxtIsMerge()==null || gettxtIsMerge().equals("N")) {
             Row poheadRow=erpPOHeadvo.createRow();
             poheadRow.setAttribute("SupplierSno", getSupplierSno());
             poheadRow.setAttribute("DemandHeaderSno", erpPurBidComp.getCurrentRow().getAttribute("DemandHeaderSno"));
@@ -478,15 +489,14 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
             erpPOHeadvo.insertRow(poheadRow);
             erpPOHeaderSno=(Integer)poheadRow.getAttribute("PoHeaderSno");
         }
-        if (1==1) {
-            getDBTransaction().commit();
-       }
+        
         for (int i = 0; i < supcompvo.getRowCount(); i++) {
             Row suprow=supcompvo.getRowAtRangeIndex(i);
             if (suprow.getAttribute("txtGeneratePO")!=null && suprow.getAttribute("txtGeneratePO").equals("Y")) {
                 System.out.println(suprow.getAttribute("txtItemName"));
            }
        }
+        getDBTransaction().commit();
 
     }
 }

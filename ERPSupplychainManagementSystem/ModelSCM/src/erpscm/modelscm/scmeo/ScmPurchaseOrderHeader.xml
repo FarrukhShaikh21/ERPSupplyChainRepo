@@ -838,7 +838,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_HEADER">
+    TableName="SCM_PURCHASE_ORDER_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -855,7 +857,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_HEADER">
+    TableName="SCM_PURCHASE_ORDER_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
       trustMode="trusted"><![CDATA[ScmFobTerm?.FobTermName]]></TransientExpression>
     <Dependencies>
@@ -884,7 +888,9 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_ORDER_HEADER">
+    TableName="SCM_PURCHASE_ORDER_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
       trustMode="trusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
     <Dependencies>
