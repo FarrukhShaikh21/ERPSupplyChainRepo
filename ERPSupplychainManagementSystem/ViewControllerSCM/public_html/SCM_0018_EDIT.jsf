@@ -106,8 +106,8 @@
                                               selectionListener="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.collectionModel.makeCurrent}"
                                               rowSelection="single"
                                               fetchSize="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.rangeSize}"
-                                              id="t3" partialTriggers="::b2 b3 l14" columnStretching="last" autoHeightRows="3"
-                                              styleClass="AFStretchWidth">
+                                              id="t3" partialTriggers="::b2 l14" columnStretching="last" autoHeightRows="3"
+                                              styleClass="AFStretchWidth" scrollPolicy="page">
                                         <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtSupplierName.label}"
                                                    id="c9" width="200" displayIndex="-1">
                                             <af:inputComboboxListOfValues id="txtSupplierNameId"
@@ -197,7 +197,7 @@
                                               rowSelection="single"
                                               fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetRO.rangeSize}" id="t4"
                                               scrollPolicy="page" autoHeightRows="10" styleClass="AFStretchWidth"
-                                              columnStretching="last">
+                                              columnStretching="last" partialTriggers="::b3">
                                         <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.label}"
                                                    id="c16">
                                             <af:inputText value="#{row.bindings.txtGeneratePO.inputValue}"
@@ -1048,6 +1048,8 @@
                                    disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1" rendered="false"/>
                         <af:button actionListener="#{bindings.ExecuteWithParams1.execute}" text="ExecuteWithParams1"
                                    disabled="#{!bindings.ExecuteWithParams1.enabled}" id="b2"/>
+                        <af:button actionListener="#{bindings.ExecuteWithParams2.execute}" text="ExecuteWithParams2"
+                                   disabled="#{!bindings.ExecuteWithParams2.enabled}" id="b3"/>
                     </af:panelGroupLayout>
                 </f:facet>
             </af:decorativeBox>

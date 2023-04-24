@@ -209,5 +209,9 @@
                   InstanceName="bindings.ScmPurchaseRfqSupplierForPoGenROIterator.currentRow"
                   IsLocalObjectReference="true"
                   ReturnName="data.ERPSCMModuleDataControl.methodResults.doGeneratePoFromBidComp_doGeneratePoFromBidComp_doGeneratePoFromBidComp_result"/>
+    <action IterBinding="ScmPurchaseBidCompSupplierDetROIterator" id="ExecuteWithParams2" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_RFQ_HEADER_SNO" NDType="java.lang.Integer"/>
+    </action>
   </bindings>
 </pageDefinition>

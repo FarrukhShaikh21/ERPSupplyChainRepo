@@ -39,7 +39,6 @@
   <Attribute
     Name="PoHeaderCode"
     IsUnique="true"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="PO_HEADER_CODE"
@@ -193,6 +192,7 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_PURCHASE_ORDER_HEADER">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -308,6 +308,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_HEADER">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -731,7 +733,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -757,7 +759,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -783,7 +785,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
     <Dependencies>
       <Item
         Value="TempProjectId"/>
@@ -799,7 +801,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPaymentTermHeader?.PaymentTermName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[ScmPaymentTermHeader?.PaymentTermName]]></TransientExpression>
     <Dependencies>
       <Item
         Value="PaymentTermHeaderSno"/>
@@ -815,7 +817,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmFreightTerm?.FreightTermName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[ScmFreightTerm?.FreightTermName]]></TransientExpression>
     <Dependencies>
       <Item
         Value="FreightTermSno"/>
@@ -855,7 +857,7 @@
     ColumnType="VARCHAR2"
     TableName="SCM_PURCHASE_ORDER_HEADER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmFobTerm?.FobTermName]]></TransientExpression>
+      trustMode="trusted"><![CDATA[ScmFobTerm?.FobTermName]]></TransientExpression>
     <Dependencies>
       <Item
         Value="FobTermSno"/>
@@ -870,7 +872,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
+      trustMode="trusted"><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
     <Dependencies>
       <Item
         Value="RfqHeaderSno"/>
@@ -884,7 +886,7 @@
     ColumnType="INTEGER"
     TableName="SCM_PURCHASE_ORDER_HEADER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
+      trustMode="trusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
     <Dependencies>
       <Item
         Value="DemandHeaderSno"/>

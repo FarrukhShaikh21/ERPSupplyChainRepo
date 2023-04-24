@@ -455,12 +455,37 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
     } 
     public void doGeneratePoFromBidComp() {
         ApplicationModule am = getApplicationModule();
-        ViewObject vo=am.findViewObject("ScmPurchaseOrderHeaderCRUD");
-        ViewObject supcompvo=am.findViewObject("ScmPurchaseBidCompSupplierDetRO");
-        supcompvo.setRangeSize(-1);
+        ViewObject erpPOHeadvo=am.findViewObject("ScmPurchaseOrderHeaderCRUD");
+        ViewObject erpPurBidComp=am.findViewObject("ScmPurchaseBidCompHeaderCRUD");
         
+        ViewObject supcompvo=am.findViewObject("ScmPurchaseBidCompSupplierDetRO");
+        Integer erpPOHeaderSno=gettxtMergePOSno();
+        supcompvo.setRangeSize(-1);
+        if (gettxtIsMerge()!=null && gettxtIsMerge().equals("N")) {
+            Row poheadRow=erpPOHeadvo.createRow();
+            poheadRow.setAttribute("SupplierSno", getSupplierSno());
+            poheadRow.setAttribute("DemandHeaderSno", erpPurBidComp.getCurrentRow().getAttribute("DemandHeaderSno"));
+            poheadRow.setAttribute("CompanyId", erpPurBidComp.getCurrentRow().getAttribute("CompanyId"));
+            poheadRow.setAttribute("CompareHeaderSno", erpPurBidComp.getCurrentRow().getAttribute("CompareHeaderSno"));
+            poheadRow.setAttribute("LocationId", erpPurBidComp.getCurrentRow().getAttribute("LocationId"));
+            poheadRow.setAttribute("TempDepartmentId", erpPurBidComp.getCurrentRow().getAttribute("TempDepartmentId"));
+            poheadRow.setAttribute("TempProjectId", erpPurBidComp.getCurrentRow().getAttribute("TempProjectId"));
+            poheadRow.setAttribute("PoTypeSno", "2");
+            poheadRow.setAttribute("OrderTypeSno", 1);
+            poheadRow.setAttribute("RfqHeaderSno", getRfqHeaderSno());
+            poheadRow.setAttribute("StatusId", 1);
+            poheadRow.setAttribute("ApprovalStatusSno", 1);
+            erpPOHeadvo.insertRow(poheadRow);
+            erpPOHeaderSno=(Integer)poheadRow.getAttribute("PoHeaderSno");
+        }
+        if (1==1) {
+            getDBTransaction().commit();
+       }
         for (int i = 0; i < supcompvo.getRowCount(); i++) {
-            System.out.println(supcompvo.getRowAtRangeIndex(i).getAttribute("txtItemName"));
+            Row suprow=supcompvo.getRowAtRangeIndex(i);
+            if (suprow.getAttribute("txtGeneratePO")!=null && suprow.getAttribute("txtGeneratePO").equals("Y")) {
+                System.out.println(suprow.getAttribute("txtItemName"));
+           }
        }
 
     }

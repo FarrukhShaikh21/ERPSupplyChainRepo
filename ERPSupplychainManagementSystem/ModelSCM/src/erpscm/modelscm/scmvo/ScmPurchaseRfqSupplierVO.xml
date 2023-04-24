@@ -458,6 +458,31 @@
               Value="Y"
               UpperColumns="0"
               Required="Optional"/>
+            <ViewCriteriaItem
+              Name="ScmPurchaseBidCompHeaderVO"
+              ViewAttribute="ScmPurchaseBidCompHeaderVO"
+              Operator="EXISTS"
+              Conjunction="AND"
+              IsNestedCriteria="true"
+              Required="Optional">
+              <ViewCriteria
+                Name="ScmPurchaseBidCompHeaderVONestedCriteria"
+                ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVO"
+                Conjunction="AND">
+                <ViewCriteriaRow
+                  Name="ScmPurchaseBidCompHeaderVONestedCriteria_row_0"
+                  UpperColumns="1">
+                  <ViewCriteriaItem
+                    Name="RfqHeaderSno"
+                    ViewAttribute="RfqHeaderSno"
+                    Operator="="
+                    Conjunction="AND"
+                    Value=":P_ADF_RFQ_HEADER_SNO"
+                    IsBindVarValue="true"
+                    Required="Optional"/>
+                </ViewCriteriaRow>
+              </ViewCriteria>
+            </ViewCriteriaItem>
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>

@@ -486,5 +486,9 @@ public class ERPSCMClass {
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompHeaderCRUDIterator");
         ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO", ib.getCurrentRow().getAttribute("RfqHeaderSno"));
         ob.execute();
+        ob=(OperationBinding)bc.get("ExecuteWithParams2"); 
+        ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompHeaderCRUDIterator");
+        ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO", ib.getCurrentRow().getAttribute("RfqHeaderSno"));
+        ob.execute();
     }
 }

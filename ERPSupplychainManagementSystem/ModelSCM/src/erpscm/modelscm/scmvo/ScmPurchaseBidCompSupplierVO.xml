@@ -18,6 +18,10 @@
     <Attr Name="_codeGenFlag2" Value="Access"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="P_ADF_RFQ_HEADER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <ViewAccessor
     Name="AccSysGeneralValueVO"
     ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
@@ -336,6 +340,31 @@
         Conjunction="AND"
         Value="0"
         Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ScmPurchaseBidCompHeaderVO"
+        ViewAttribute="ScmPurchaseBidCompHeaderVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseBidCompHeaderVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseBidCompHeaderVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="RfqHeaderSno"
+              ViewAttribute="RfqHeaderSno"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_RFQ_HEADER_SNO"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor
@@ -388,6 +417,10 @@
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="Rate"/>
