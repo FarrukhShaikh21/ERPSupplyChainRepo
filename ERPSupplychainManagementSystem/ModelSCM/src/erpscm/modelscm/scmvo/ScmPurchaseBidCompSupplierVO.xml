@@ -367,6 +367,57 @@
       </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPurchaseBidCompSupplierExcludePoGenVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseBidCompSupplierVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ScmPurchaseOrderLinesVO"
+        ViewAttribute="ScmPurchaseOrderLinesVO"
+        Operator="NOT EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseOrderLinesVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseOrderLinesVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="CompareSupplierSno"
+              ViewAttribute="CompareSupplierSno"
+              Operator="ISNOTBLANK"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurcBidCompSupplierSupplierSnoLink"
