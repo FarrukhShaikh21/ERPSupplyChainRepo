@@ -486,6 +486,31 @@
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="ScmPurchaseOrderHeaderVO"
+        ViewAttribute="ScmPurchaseOrderHeaderVO"
+        Operator="NOT EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseOrderHeaderVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseOrderHeaderVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="RfqHeaderSno"
+              ViewAttribute="RfqHeaderSno"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_RFQ_HEADER_SNO"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

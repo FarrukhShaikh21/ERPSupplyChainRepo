@@ -65,7 +65,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         ScmPurchaseOrderHeader,
         ScmPurchaseOrderTaxLines,
         InvItem,
-        InvUnitType;
+        InvUnitType,
+        ScmPurchaseBidCompSupplier;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -88,6 +89,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int POLINESSNO = AttributesEnum.PoLinesSno.index();
     public static final int POHEADERSNO = AttributesEnum.PoHeaderSno.index();
     public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
@@ -129,12 +132,21 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int SCMPURCHASEORDERTAXLINES = AttributesEnum.ScmPurchaseOrderTaxLines.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
+    public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public ScmPurchaseOrderLinesImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseOrderLines");
+    }
+
 
     /**
      * Gets the attribute value for PoLinesSno, using the alias name PoLinesSno.
@@ -769,19 +781,27 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * @return the associated entity ScmPurchaseBidCompSupplierImpl.
+     */
+    public ScmPurchaseBidCompSupplierImpl getScmPurchaseBidCompSupplier() {
+        return (ScmPurchaseBidCompSupplierImpl) getAttributeInternal(SCMPURCHASEBIDCOMPSUPPLIER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmPurchaseBidCompSupplierImpl.
+     */
+    public void setScmPurchaseBidCompSupplier(ScmPurchaseBidCompSupplierImpl value) {
+        setAttributeInternal(SCMPURCHASEBIDCOMPSUPPLIER, value);
+    }
+
+
+    /**
      * @param poLinesSno key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer poLinesSno) {
         return new Key(new Object[] { poLinesSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseOrderLines");
     }
 
     /**

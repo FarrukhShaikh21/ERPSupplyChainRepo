@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -52,6 +53,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         ScmPurchaseBidCompHeaderVO,
         ScmPurchaseRfqSupplierVO,
         ScmPurchaseBidCompareItemVO,
+        ScmPurchaseOrderLinesVO,
         AccSysGeneralValueVO,
         AccScmBidCriteriaVO;
         static AttributesEnum[] vals = null;
@@ -107,6 +109,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
     public static final int SCMPURCHASERFQSUPPLIERVO = AttributesEnum.ScmPurchaseRfqSupplierVO.index();
     public static final int SCMPURCHASEBIDCOMPAREITEMVO = AttributesEnum.ScmPurchaseBidCompareItemVO.index();
+    public static final int SCMPURCHASEORDERLINESVO = AttributesEnum.ScmPurchaseOrderLinesVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
     public static final int ACCSCMBIDCRITERIAVO = AttributesEnum.AccScmBidCriteriaVO.index();
 
@@ -525,6 +528,13 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void setScmPurchaseBidCompareItemVO(Row value) {
         setAttributeInternal(SCMPURCHASEBIDCOMPAREITEMVO, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseOrderLinesVO.
+     */
+    public RowIterator getScmPurchaseOrderLinesVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERLINESVO);
     }
 
     /**
