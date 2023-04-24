@@ -84,7 +84,8 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         ScmPaymentTermHeader,
         ScmFreightTerm,
         ScmFobTerm,
-        ScmPurchaseDemandHeader;
+        ScmPurchaseDemandHeader,
+        ScmPurchaseRfqSupplier;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -107,6 +108,8 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int POHEADERSNO = AttributesEnum.PoHeaderSno.index();
     public static final int POHEADERCODE = AttributesEnum.PoHeaderCode.index();
     public static final int RFQHEADERSNO = AttributesEnum.RfqHeaderSno.index();
@@ -166,12 +169,21 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int SCMFREIGHTTERM = AttributesEnum.ScmFreightTerm.index();
     public static final int SCMFOBTERM = AttributesEnum.ScmFobTerm.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
+    public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public ScmPurchaseOrderHeaderImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseOrderHeader");
+    }
+
 
     /**
      * Gets the attribute value for PoHeaderSno, using the alias name PoHeaderSno.
@@ -1066,19 +1078,27 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     }
 
     /**
+     * @return the associated entity ScmPurchaseRfqSupplierImpl.
+     */
+    public ScmPurchaseRfqSupplierImpl getScmPurchaseRfqSupplier() {
+        return (ScmPurchaseRfqSupplierImpl) getAttributeInternal(SCMPURCHASERFQSUPPLIER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmPurchaseRfqSupplierImpl.
+     */
+    public void setScmPurchaseRfqSupplier(ScmPurchaseRfqSupplierImpl value) {
+        setAttributeInternal(SCMPURCHASERFQSUPPLIER, value);
+    }
+
+
+    /**
      * @param poHeaderSno key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer poHeaderSno) {
         return new Key(new Object[] { poHeaderSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseOrderHeader");
     }
 
     /**

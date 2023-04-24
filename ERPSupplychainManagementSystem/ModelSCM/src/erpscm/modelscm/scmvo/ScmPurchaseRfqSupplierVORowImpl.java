@@ -51,6 +51,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         ScmSupplierVO,
         ScmPurchaseRfqHeaderVO,
         ScmPurchaseBidCompSupplierVO,
+        ScmPurchaseOrderHeaderVO,
         AccScmSupplierVO;
         static AttributesEnum[] vals = null;
         ;
@@ -98,6 +99,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMPURCHASERFQHEADERVO = AttributesEnum.ScmPurchaseRfqHeaderVO.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
+    public static final int SCMPURCHASEORDERHEADERVO = AttributesEnum.ScmPurchaseOrderHeaderVO.index();
     public static final int ACCSCMSUPPLIERVO = AttributesEnum.AccScmSupplierVO.index();
 
     /**
@@ -435,6 +437,13 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
      */
     public RowIterator getScmPurchaseBidCompSupplierVO() {
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPSUPPLIERVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseOrderHeaderVO.
+     */
+    public RowIterator getScmPurchaseOrderHeaderVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERHEADERVO);
     }
 
     /**

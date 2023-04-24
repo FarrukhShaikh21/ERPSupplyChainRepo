@@ -505,6 +505,11 @@
     ViewLink="erpscm.modelscm.scmvo.ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseOrderHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchRfqSupplierScmPurchOrdHeadSupplierSnoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ClientRowInterface
     Name="__rowClientInterface">
     <Method

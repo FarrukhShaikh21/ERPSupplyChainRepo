@@ -308,8 +308,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_HEADER">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -732,8 +731,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
+    <TransientExpression><![CDATA[AdminCompany1?.CompanyName]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -758,8 +756,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+    <TransientExpression><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -784,8 +781,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+    <TransientExpression><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
     <Dependencies>
       <Item
         Value="TempProjectId"/>
@@ -800,8 +796,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[ScmPaymentTermHeader?.PaymentTermName]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmPaymentTermHeader?.PaymentTermName]]></TransientExpression>
     <Dependencies>
       <Item
         Value="PaymentTermHeaderSno"/>
@@ -816,8 +811,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[ScmFreightTerm?.FreightTermName]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmFreightTerm?.FreightTermName]]></TransientExpression>
     <Dependencies>
       <Item
         Value="FreightTermSno"/>
@@ -838,7 +832,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_HEADER"
     IsPersistent="false"
     IsQueriable="false">
     <Properties>
@@ -857,11 +850,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_HEADER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[ScmFobTerm?.FobTermName]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmFobTerm?.FobTermName]]></TransientExpression>
     <Dependencies>
       <Item
         Value="FobTermSno"/>
@@ -875,8 +866,7 @@
     ColumnType="INTEGER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
     <Dependencies>
       <Item
         Value="RfqHeaderSno"/>
@@ -888,11 +878,9 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_ORDER_HEADER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
     <Dependencies>
       <Item
         Value="DemandHeaderSno"/>
@@ -981,6 +969,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.ScmPurcDemandHeadScmPurcOrdDemandHeaderSnoAsso.ScmPurchaseDemandHeader"
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurcDemandHeadScmPurcOrdDemandHeaderSnoAsso.ScmPurchaseOrderHeader"
     Type="erpscm.modelscm.scmeo.ScmPurchaseDemandHeaderImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseRfqSupplier"
+    Association="erpscm.modelscm.scmeo.ScmPurchRfqSupplierScmPurchOrdHeadSupplierSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchRfqSupplierScmPurchOrdHeadSupplierSnoAsso.ScmPurchaseRfqSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchRfqSupplierScmPurchOrdHeadSupplierSnoAsso.ScmPurchaseOrderHeader"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseRfqSupplierImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderHeader"
