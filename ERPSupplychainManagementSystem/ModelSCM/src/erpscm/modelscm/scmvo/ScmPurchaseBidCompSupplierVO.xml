@@ -452,15 +452,15 @@
     Reversed="true"
     IsUpdateable="false"/>
   <ViewLinkAccessor
-    Name="ScmPurchaseBidCompareItemVO"
-    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
-    Type="oracle.jbo.Row"
-    Reversed="true"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
     Name="ScmPurchaseOrderLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurcBidCompSuppScmPurchOrderLinCompSupplierSnoLink"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseBidCompareItemVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
   <SortCriteria>
     <Sort

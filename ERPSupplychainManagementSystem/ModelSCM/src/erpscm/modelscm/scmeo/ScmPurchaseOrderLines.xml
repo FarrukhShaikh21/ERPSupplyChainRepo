@@ -57,7 +57,6 @@
   </Attribute>
   <Attribute
     Name="DemandLinesSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="DEMAND_LINES_SNO"
@@ -509,7 +508,8 @@
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_LINES"
     RetrievedOnUpdate="true"
-    RetrievedOnInsert="true">
+    RetrievedOnInsert="true"
+    DefaultValue="0">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -548,7 +548,8 @@
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_LINES"
     RetrievedOnInsert="true"
-    RetrievedOnUpdate="true">
+    RetrievedOnUpdate="true"
+    DefaultValue="0">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -627,7 +628,8 @@
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_LINES"
     RetrievedOnInsert="true"
-    RetrievedOnUpdate="true">
+    RetrievedOnUpdate="true"
+    DefaultValue="0">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
