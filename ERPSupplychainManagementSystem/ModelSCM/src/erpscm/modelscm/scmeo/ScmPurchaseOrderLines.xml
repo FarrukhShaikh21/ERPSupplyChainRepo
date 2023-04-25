@@ -667,7 +667,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_LINES">
+    TableName="SCM_PURCHASE_ORDER_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[InvUnitType?.UnitTypeName]]></TransientExpression>
     <Properties>

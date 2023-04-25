@@ -302,7 +302,7 @@
     Name="ScmPurchaseBidCompSupplierByIsSelectVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
     Conjunction="AND"
-    Mode="2">
+    Mode="3">
     <Properties>
       <CustomProperties>
         <Property
@@ -332,13 +332,6 @@
         Conjunction="AND"
         Value="Y"
         UpperColumns="0"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="txtPOQuantity"
-        ViewAttribute="txtPOQuantity"
-        Operator=">"
-        Conjunction="AND"
-        Value="0"
         Required="Optional"/>
       <ViewCriteriaItem
         Name="ScmPurchaseBidCompHeaderVO"
@@ -473,6 +466,14 @@
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="Rate"/>
