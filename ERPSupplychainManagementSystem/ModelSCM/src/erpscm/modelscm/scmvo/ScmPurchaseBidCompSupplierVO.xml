@@ -298,6 +298,22 @@
     EntityAttrName="BidLinesSno"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="BID_LINES_SNO"/>
+  <ViewAttribute
+    Name="txtUnitTypeSno"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtUnitTypeSno"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Unit_Type_Sno"/>
+  <ViewAttribute
+    Name="txtItemId"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtItemId"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Item_Id"/>
   <ViewCriteria
     Name="ScmPurchaseBidCompSupplierByIsSelectVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
@@ -466,6 +482,10 @@
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="Rate"/>

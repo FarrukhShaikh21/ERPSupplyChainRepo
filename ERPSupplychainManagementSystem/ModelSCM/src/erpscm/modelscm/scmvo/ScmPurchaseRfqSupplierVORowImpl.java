@@ -456,10 +456,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         return super.isAttributeUpdateable(i);
     } 
     public void doGeneratePoFromBidComp() {
-        ApplicationModule am = getApplicationModule();
-        ViewObject erpPOHeadvo=am.findViewObject("ScmPurchaseOrderHeaderCRUD");
-        ViewObject erpPurBidComp=am.findViewObject("ScmPurchaseBidCompHeaderCRUD");
         int erpPoSelect=0;
+        ApplicationModule am = getApplicationModule();
         ViewObject supcompvo=am.findViewObject("ScmPurchaseBidCompSupplierDetRO");
         Integer erpPOHeaderSno=gettxtMergePOSno();
         supcompvo.setRangeSize(-1);
@@ -472,7 +470,11 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         if (erpPoSelect== 0) {
             throw new JboException("Please select item to generate Purchase Order");
         }
-
+        
+        ViewObject erpPOHeadvo=am.findViewObject("ScmPurchaseOrderHeaderCRUD");
+        ViewObject erpPurBidComp=am.findViewObject("ScmPurchaseBidCompHeaderCRUD");
+        ViewObject erpPOLinesvo=am.findViewObject("ScmPurchaseOrderLinesDetCRUD");
+        
         if (gettxtIsMerge()==null || gettxtIsMerge().equals("N")) {
             Row poheadRow=erpPOHeadvo.createRow();
             poheadRow.setAttribute("SupplierSno", getSupplierSno());
@@ -494,7 +496,17 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         for (int i = 0; i < supcompvo.getRowCount(); i++) {
             Row suprow=supcompvo.getRowAtRangeIndex(i);
             if (suprow.getAttribute("txtGeneratePO")!=null && suprow.getAttribute("txtGeneratePO").equals("Y")) {
+               Row erpPoLinRow=erpPOLinesvo.createRow();
+               erpPoLinRow.setAttribute("ItemId", suprow.getAttribute("txtItemId"));
+               erpPoLinRow.setAttribute("UnitTypeSno", suprow.getAttribute("txtUnitTypeSno"));
+               erpPoLinRow.setAttribute("PoRequestQuantity", suprow.getAttribute("Quantity"));
+               erpPoLinRow.setAttribute("PoApproveQuantity", suprow.getAttribute("Quantity"));
+               erpPoLinRow.setAttribute("PoRate", suprow.getAttribute("Rate"));
+               erpPoLinRow.setAttribute("RfqLinesSno", suprow.getAttribute("RfqLinesSno"));
+               
+               
                 System.out.println(suprow.getAttribute("txtItemName"));
+                
            }
        }
         getDBTransaction().commit();

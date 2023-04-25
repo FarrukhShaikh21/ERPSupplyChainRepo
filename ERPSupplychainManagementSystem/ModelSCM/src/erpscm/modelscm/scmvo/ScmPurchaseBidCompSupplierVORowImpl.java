@@ -48,6 +48,8 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtGeneratePO,
         txtPOQuantity,
         BidLinesSno,
+        txtUnitTypeSno,
+        txtItemId,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
@@ -104,6 +106,8 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTGENERATEPO = AttributesEnum.txtGeneratePO.index();
     public static final int TXTPOQUANTITY = AttributesEnum.txtPOQuantity.index();
     public static final int BIDLINESSNO = AttributesEnum.BidLinesSno.index();
+    public static final int TXTUNITTYPESNO = AttributesEnum.txtUnitTypeSno.index();
+    public static final int TXTITEMID = AttributesEnum.txtItemId.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
@@ -500,6 +504,38 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void setBidLinesSno(Integer value) {
         setAttributeInternal(BIDLINESSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Unit_Type_Sno using the alias name txtUnitTypeSno.
+     * @return the txt_Unit_Type_Sno
+     */
+    public Integer gettxtUnitTypeSno() {
+        return (Integer) getAttributeInternal(TXTUNITTYPESNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Unit_Type_Sno using the alias name txtUnitTypeSno.
+     * @param value value to set the txt_Unit_Type_Sno
+     */
+    public void settxtUnitTypeSno(Integer value) {
+        setAttributeInternal(TXTUNITTYPESNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Item_Id using the alias name txtItemId.
+     * @return the txt_Item_Id
+     */
+    public Integer gettxtItemId() {
+        return (Integer) getAttributeInternal(TXTITEMID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Item_Id using the alias name txtItemId.
+     * @param value value to set the txt_Item_Id
+     */
+    public void settxtItemId(Integer value) {
+        setAttributeInternal(TXTITEMID, value);
     }
 
     /**

@@ -264,15 +264,15 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * Gets the attribute value for ItemId, using the alias name ItemId.
      * @return the value of ItemId
      */
-    public Long getItemId() {
-        return (Long) getAttributeInternal(ITEMID);
+    public Integer getItemId() {
+        return (Integer) getAttributeInternal(ITEMID);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ItemId.
      * @param value value to set the ItemId
      */
-    public void setItemId(Long value) {
+    public void setItemId(Integer value) {
         setAttributeInternal(ITEMID, value);
     }
 
@@ -440,15 +440,15 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * Gets the attribute value for ProjectId, using the alias name ProjectId.
      * @return the value of ProjectId
      */
-    public Long getProjectId() {
-        return (Long) getAttributeInternal(PROJECTID);
+    public Integer getProjectId() {
+        return (Integer) getAttributeInternal(PROJECTID);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ProjectId.
      * @param value value to set the ProjectId
      */
-    public void setProjectId(Long value) {
+    public void setProjectId(Integer value) {
         setAttributeInternal(PROJECTID, value);
     }
 

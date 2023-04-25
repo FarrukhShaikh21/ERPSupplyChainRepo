@@ -62,6 +62,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         txtUnitTypeName,
         txtPOQuantity,
         BidLinesSno,
+        txtItemId,
+        txtUnitTypeSno,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
@@ -114,6 +116,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
     public static final int TXTPOQUANTITY = AttributesEnum.txtPOQuantity.index();
     public static final int BIDLINESSNO = AttributesEnum.BidLinesSno.index();
+    public static final int TXTITEMID = AttributesEnum.txtItemId.index();
+    public static final int TXTUNITTYPESNO = AttributesEnum.txtUnitTypeSno.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -487,6 +491,38 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void setBidLinesSno(Integer value) {
         setAttributeInternal(BIDLINESSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtItemId, using the alias name txtItemId.
+     * @return the value of txtItemId
+     */
+    public Integer gettxtItemId() {
+        return (Integer) getAttributeInternal(TXTITEMID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtItemId.
+     * @param value value to set the txtItemId
+     */
+    public void settxtItemId(Integer value) {
+        setAttributeInternal(TXTITEMID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtUnitTypeSno, using the alias name txtUnitTypeSno.
+     * @return the value of txtUnitTypeSno
+     */
+    public Integer gettxtUnitTypeSno() {
+        return (Integer) getAttributeInternal(TXTUNITTYPESNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtUnitTypeSno.
+     * @param value value to set the txtUnitTypeSno
+     */
+    public void settxtUnitTypeSno(Integer value) {
+        setAttributeInternal(TXTUNITTYPESNO, value);
     }
 
     /**
