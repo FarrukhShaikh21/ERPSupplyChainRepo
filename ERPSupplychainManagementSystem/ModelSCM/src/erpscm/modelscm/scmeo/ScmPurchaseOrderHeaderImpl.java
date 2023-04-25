@@ -84,9 +84,9 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         ScmPaymentTermHeader,
         ScmFreightTerm,
         ScmFobTerm,
-        ScmPurchaseDemandHeader,
-        ScmPurchaseRfqSupplier;
-        private static AttributesEnum[] vals = null;
+        ScmPurchaseDemandHeader;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -169,7 +169,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int SCMFREIGHTTERM = AttributesEnum.ScmFreightTerm.index();
     public static final int SCMFOBTERM = AttributesEnum.ScmFobTerm.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
-    public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1075,20 +1074,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
      */
     public void setScmPurchaseDemandHeader(ScmPurchaseDemandHeaderImpl value) {
         setAttributeInternal(SCMPURCHASEDEMANDHEADER, value);
-    }
-
-    /**
-     * @return the associated entity ScmPurchaseRfqSupplierImpl.
-     */
-    public ScmPurchaseRfqSupplierImpl getScmPurchaseRfqSupplier() {
-        return (ScmPurchaseRfqSupplierImpl) getAttributeInternal(SCMPURCHASERFQSUPPLIER);
-    }
-
-    /**
-     * Sets <code>value</code> as the associated entity ScmPurchaseRfqSupplierImpl.
-     */
-    public void setScmPurchaseRfqSupplier(ScmPurchaseRfqSupplierImpl value) {
-        setAttributeInternal(SCMPURCHASERFQSUPPLIER, value);
     }
 
 

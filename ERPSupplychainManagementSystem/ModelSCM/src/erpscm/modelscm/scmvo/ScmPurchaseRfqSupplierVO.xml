@@ -530,13 +530,15 @@
     ViewLink="erpscm.modelscm.scmvo.ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="ScmPurchaseOrderHeaderVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmPurchRfqSupplierScmPurchOrdHeadSupplierSnoLink"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
   <ClientRowInterface
     Name="__rowClientInterface">
+    <Method
+      Name="doGeneratePoFromBidComp"
+      MethodName="doGeneratePoFromBidComp">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
     <Method
       Name="doGeneratePoFromBidComp"
       MethodName="doGeneratePoFromBidComp">
