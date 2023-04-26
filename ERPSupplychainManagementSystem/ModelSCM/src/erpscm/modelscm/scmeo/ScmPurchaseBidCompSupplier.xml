@@ -417,10 +417,8 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[return Quantity-0]]></TransientExpression>
-    <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[return (Quantity==null?0:Quantity) -  (ScmPurchaseOrderLines?.sum("PoApproveQuantity")==null?0:ScmPurchaseOrderLines?.sum("PoApproveQuantity-(CancelQuantity==null?0:CancelQuantity)"))]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

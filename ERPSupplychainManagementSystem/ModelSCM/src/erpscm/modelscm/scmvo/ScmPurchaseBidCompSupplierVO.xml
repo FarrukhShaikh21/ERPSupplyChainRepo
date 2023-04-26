@@ -318,7 +318,7 @@
     Name="ScmPurchaseBidCompSupplierByIsSelectVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
     Conjunction="AND"
-    Mode="3">
+    Mode="2">
     <Properties>
       <CustomProperties>
         <Property
@@ -348,6 +348,13 @@
         Conjunction="AND"
         Value="Y"
         UpperColumns="0"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="txtPOQuantity"
+        ViewAttribute="txtPOQuantity"
+        Operator=">"
+        Conjunction="AND"
+        Value="0"
         Required="Optional"/>
       <ViewCriteriaItem
         Name="ScmPurchaseBidCompHeaderVO"
@@ -458,7 +465,7 @@
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompareItemVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
@@ -482,6 +489,10 @@
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="Rate"/>
