@@ -213,5 +213,9 @@
             Action="executeWithParams">
       <NamedData NDName="P_ADF_RFQ_HEADER_SNO" NDType="java.lang.Integer"/>
     </action>
+    <methodAction id="doShowBalancePOSupplier" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doShowBalancePOSupplier" IsViewObjectMethod="true" DataControl="ERPSCMModuleDataControl"
+                  InstanceName="data.ERPSCMModuleDataControl.ScmPurchaseRfqSupplierForPoGenRO"
+                  ReturnName="data.ERPSCMModuleDataControl.methodResults.doShowBalancePOSupplier_ERPSCMModuleDataControl_ScmPurchaseRfqSupplierForPoGenRO_doShowBalancePOSupplier_result"/>
   </bindings>
 </pageDefinition>

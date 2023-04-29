@@ -152,7 +152,7 @@
                                         <af:column id="c17" width="80" displayIndex="-1">
                                             <af:link text="Generate PO" id="l14" partialSubmit="true"
                                                      actionListener="#{bindings.doGeneratePoFromBidComp.execute}"
-                                                     disabled="#{!bindings.doGeneratePoFromBidComp.enabled}"/>
+                                                     disabled="#{row.bindings.txtPurchaseOrderNo.inputValue>0}"/>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.label}"
                                                    id="c18" width="80" minimumWidth="12">
@@ -1044,6 +1044,9 @@
                 </f:facet>
                 <f:facet name="top">
                     <af:panelGroupLayout id="pgl7" rendered="false">
+                        <af:button actionListener="#{bindings.doShowBalancePOSupplier.execute}"
+                                   text="doShowBalancePOSupplier"
+                                   disabled="#{!bindings.doShowBalancePOSupplier.enabled}" id="b4"/>
                         <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="ExecuteWithParams"
                                    disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1" rendered="false"/>
                         <af:button actionListener="#{bindings.ExecuteWithParams1.execute}" text="ExecuteWithParams1"

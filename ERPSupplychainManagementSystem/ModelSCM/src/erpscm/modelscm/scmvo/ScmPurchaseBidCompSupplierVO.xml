@@ -434,6 +434,42 @@
       </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPurchaseBidCompSupplierRFQNoWiseVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
+    Conjunction="AND"
+    Mode="2">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseBidCompSupplierVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="txtPOQuantity"
+        ViewAttribute="txtPOQuantity"
+        Operator="="
+        Conjunction="AND"
+        Value="0"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurcBidCompSupplierSupplierSnoLink"

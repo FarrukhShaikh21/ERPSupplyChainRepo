@@ -15,9 +15,12 @@
   PageIterMode="Full"
   RowClass="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVORowImpl"
   RowInterface="erpscm.modelscm.scmvo.common.ScmPurchaseRfqSupplierVORow"
-  ClientRowProxyName="erpscm.modelscm.scmvo.client.ScmPurchaseRfqSupplierVORowClient">
+  ClientRowProxyName="erpscm.modelscm.scmvo.client.ScmPurchaseRfqSupplierVORowClient"
+  ComponentClass="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVOImpl"
+  ComponentInterface="erpscm.modelscm.scmvo.common.ScmPurchaseRfqSupplierVO"
+  ClientProxyName="erpscm.modelscm.scmvo.client.ScmPurchaseRfqSupplierVOClient">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Variable
@@ -292,6 +295,41 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
+        Name="ScmSupplierVO"
+        ViewAttribute="ScmSupplierVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmSupplierVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmSupplierVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="SupplierShortCode"
+              ViewAttribute="SupplierShortCode"
+              Operator="="
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="SupplierName"
+              ViewAttribute="SupplierName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="SupplierShortName"
+              ViewAttribute="SupplierShortName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
         Name="ScmPurchaseRfqHeaderVO"
         ViewAttribute="ScmPurchaseRfqHeaderVO"
         Operator="EXISTS"
@@ -334,41 +372,6 @@
                 </ViewCriteriaRow>
               </ViewCriteria>
             </ViewCriteriaItem>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItem>
-      <ViewCriteriaItem
-        Name="ScmSupplierVO"
-        ViewAttribute="ScmSupplierVO"
-        Operator="EXISTS"
-        Conjunction="AND"
-        IsNestedCriteria="true"
-        Required="Optional">
-        <ViewCriteria
-          Name="ScmSupplierVONestedCriteria"
-          ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
-          Conjunction="AND">
-          <ViewCriteriaRow
-            Name="ScmSupplierVONestedCriteria_row_0"
-            UpperColumns="1">
-            <ViewCriteriaItem
-              Name="SupplierShortCode"
-              ViewAttribute="SupplierShortCode"
-              Operator="="
-              Conjunction="AND"
-              Required="Optional"/>
-            <ViewCriteriaItem
-              Name="SupplierName"
-              ViewAttribute="SupplierName"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Required="Optional"/>
-            <ViewCriteriaItem
-              Name="SupplierShortName"
-              ViewAttribute="SupplierShortName"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>
@@ -486,31 +489,6 @@
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>
-      <ViewCriteriaItem
-        Name="ScmPurchaseOrderHeaderVO"
-        ViewAttribute="ScmPurchaseOrderHeaderVO"
-        Operator="NOT EXISTS"
-        Conjunction="AND"
-        IsNestedCriteria="true"
-        Required="Optional">
-        <ViewCriteria
-          Name="ScmPurchaseOrderHeaderVONestedCriteria"
-          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
-          Conjunction="AND">
-          <ViewCriteriaRow
-            Name="ScmPurchaseOrderHeaderVONestedCriteria_row_0"
-            UpperColumns="1">
-            <ViewCriteriaItem
-              Name="RfqHeaderSno"
-              ViewAttribute="RfqHeaderSno"
-              Operator="="
-              Conjunction="AND"
-              Value=":P_ADF_RFQ_HEADER_SNO"
-              IsBindVarValue="true"
-              Required="Optional"/>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor
@@ -530,6 +508,16 @@
     ViewLink="erpscm.modelscm.scmvo.ScmPurchRfqSuppScmPurchBidCompSupSupplierSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doShowBalancePOSupplier"
+      MethodName="doShowBalancePOSupplier">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
   <ClientRowInterface
     Name="__rowClientInterface">
     <Method

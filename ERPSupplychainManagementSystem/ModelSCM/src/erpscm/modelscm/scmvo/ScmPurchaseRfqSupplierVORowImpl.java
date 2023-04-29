@@ -2,11 +2,13 @@ package erpscm.modelscm.scmvo;
 
 import erpscm.modelscm.scmeo.ScmPurchaseRfqSupplierImpl;
 
+import erpscm.modelscm.scmvo.common.ScmPurchaseRfqSupplierVO;
 import erpscm.modelscm.scmvo.common.ScmPurchaseRfqSupplierVORow;
 
 import java.math.BigDecimal;
 
 import java.sql.Timestamp;
+
 
 import oracle.jbo.ApplicationModule;
 import oracle.jbo.JboException;
@@ -490,7 +492,9 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
             poheadRow.setAttribute("StatusId", 1);
             poheadRow.setAttribute("ApprovalStatusSno", 1);
             erpPOHeadvo.insertRow(poheadRow);
+            erpPOHeadvo.setCurrentRow(poheadRow);
             erpPOHeaderSno=(Integer)poheadRow.getAttribute("PoHeaderSno");
+            settxtPurchaseOrderSno(erpPOHeaderSno);
         }
         
         for (int i = 0; i < supcompvo.getRowCount(); i++) {
@@ -512,7 +516,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
            }
        }
         getDBTransaction().commit();
-
+        settxtPurchaseOrderNo((Integer) erpPOHeadvo.getCurrentRow().getAttribute("PoHeaderCode"));
+        supcompvo.executeQuery();
     }
 }
 
