@@ -151,7 +151,7 @@
                                 <af:column id="c17" width="150" displayIndex="-1">
                                     <af:inputText value="All Items PO Generated" id="it44" readOnly="true"
                                                   visible="#{row.bindings.txtCountSupBidCompForPo.inputValue==0}"/>
-                                    <af:link text="Generate PO #{bindings.ScmPurchaseBidCompSupplierDetRO.estimatedRowCount}" id="l14" partialSubmit="true"
+                                    <af:link text="Generate PO" id="l14" partialSubmit="true"
                                              actionListener="#{bindings.doGeneratePoFromBidComp.execute}"
                                              visible="#{row.bindings.txtCountSupBidCompForPo.inputValue>0}"/>
                                 </af:column>
@@ -176,12 +176,12 @@
                                                   columns="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtCountSupBidCompForPo.displayWidth}"
                                                   maximumLength="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtCountSupBidCompForPo.precision}"
                                                   shortDesc="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtCountSupBidCompForPo.tooltip}"
-                                                  id="it45">
+                                                  id="it45" rendered="false">
                                         <f:validator binding="#{row.bindings.txtCountSupBidCompForPo.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtCountSupBidCompForPo.format}"/>
                                     </af:inputText>
-                                    <af:link text="Merge Into PO" id="l15"/>
+                                    <af:link text="Merge Into PO" id="l15" partialSubmit="true"/>
                                 </af:column>
                                 <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.label}"
                                            id="c20" width="80" minimumWidth="12">

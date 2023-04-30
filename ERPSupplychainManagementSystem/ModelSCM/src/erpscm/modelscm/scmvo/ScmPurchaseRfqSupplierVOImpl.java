@@ -51,11 +51,11 @@ public class ScmPurchaseRfqSupplierVOImpl extends ViewObjectImpl implements ScmP
     public void doShowBalancePOSupplier()
     {
         Integer erpRfqHeaderSno=(Integer)this.getRootApplicationModule().findViewObject("ScmPurchaseBidCompHeaderCRUD").getCurrentRow().getAttribute("RfqHeaderSno");
-        String pERPWhereClahse=" rfq_header_sno="+erpRfqHeaderSno+" and exists (select '' from scm_purchase_bid_comp_supplier bs  ";
-        pERPWhereClahse+=" where bs.supplier_sno=ScmPurchaseRfqSupplier.supplier_sno ";
+        String pERPWhereClahse=" exists (select '' from scm_purchase_bid_comp_supplier bs  ";
+        pERPWhereClahse+=" where bs.RFQ_SUPPLIER_SNO=ScmPurchaseRfqSupplier.RFQ_SUPPLIER_SNO ";
         pERPWhereClahse+=" and bs.is_select='Y' and exists ";
         pERPWhereClahse+=" (select null from scm_purchase_bid_comp_header sh where sh.compare_header_sno=bs.compare_header_sno and sh.rfq_header_sno="+erpRfqHeaderSno+")";
-        pERPWhereClahse+=" and Quantity-(select coalesce(sum(Po_Approve_Quantity),0) from scm_purchase_order_lines pol where pol.COMPARE_SUPPLIER_SNO=bs.COMPARE_SUPPLIER_SNO)>0) ";                                                                                      
+        pERPWhereClahse+=" and Quantity-(select coalesce(sum(Po_Approve_Quantity),0)+coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines pol where pol.bid_lines_sno=bs.bid_lines_sno)>0) ";                                                                                      
         this.setWhereClause(pERPWhereClahse);
         this.executeQuery();
         this.setWhereClause(null);

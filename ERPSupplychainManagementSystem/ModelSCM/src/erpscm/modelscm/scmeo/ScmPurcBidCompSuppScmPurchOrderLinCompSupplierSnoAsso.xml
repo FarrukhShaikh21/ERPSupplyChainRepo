@@ -18,11 +18,10 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseBidCompSupplier"/>
-      <Attr Name="_foreignKey" Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.PkScmPurchaseBidCompSupp"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.CompareSupplierSno"/>
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.BidLinesSno"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
@@ -32,11 +31,10 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseOrderLines"/>
-      <Attr Name="_foreignKey" Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.fk_ScmPurchaseOrderLines2"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.CompareSupplierSno"/>
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.BidLinesSno"/>
     </AttrArray>
   </AssociationEnd>
 </Association>
