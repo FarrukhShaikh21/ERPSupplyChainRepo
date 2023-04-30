@@ -218,5 +218,11 @@
                   MethodName="doShowBalancePOSupplier" IsViewObjectMethod="true" DataControl="ERPSCMModuleDataControl"
                   InstanceName="data.ERPSCMModuleDataControl.ScmPurchaseRfqSupplierForPoGenRO"
                   ReturnName="data.ERPSCMModuleDataControl.methodResults.doShowBalancePOSupplier_ERPSCMModuleDataControl_ScmPurchaseRfqSupplierForPoGenRO_doShowBalancePOSupplier_result"/>
+    <action IterBinding="ScmPurchaseOrderHeaderForPOMergeTORfqIterator" id="ExecuteWithParams3"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="P_ADF_SUPPLIER_SNO" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_RFQ_HEADER_SNO" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_PO_HEADER_SNO" NDType="java.lang.Integer"/>
+    </action>
   </bindings>
 </pageDefinition>

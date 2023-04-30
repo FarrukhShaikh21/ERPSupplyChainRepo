@@ -181,7 +181,9 @@
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtCountSupBidCompForPo.format}"/>
                                     </af:inputText>
-                                    <af:link text="Merge Into PO" id="l15" partialSubmit="true"/>
+                                    <af:link text="Merge Into PO" id="l15" partialSubmit="true">
+                                        <af:showPopupBehavior popupId="::p6"/>
+                                    </af:link>
                                 </af:column>
                                 <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.label}"
                                            id="c20" width="80" minimumWidth="12">
@@ -284,7 +286,8 @@
                     </af:panelSplitter>
                 </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p6" contentDelivery="lazyUncached">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p6" contentDelivery="lazyUncached"
+                      popupFetchListener="#{pageFlowScope.OracleERPBean.doERPShowPOToMergeWithBidCompare}">
                 <af:dialog id="d7" type="ok" title="Select PO For Merging"
                            affirmativeTextAndAccessKey="Select This For Merge">
                     <f:facet name="buttonBar"/>
@@ -296,7 +299,7 @@
                               selectionListener="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.collectionModel.makeCurrent}"
                               rowSelection="single"
                               fetchSize="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.rangeSize}" id="t5"
-                              columnStretching="last">
+                              columnStretching="last" partialTriggers="::b5">
                         <af:column headerText="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.PoHeaderSno.label}"
                                    id="c21" rendered="false">
                             <af:inputText value="#{row.bindings.PoHeaderSno.inputValue}"
@@ -408,7 +411,7 @@
                                           columns="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.Remarks.displayWidth}"
                                           maximumLength="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.Remarks.precision}"
                                           shortDesc="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.Remarks.tooltip}"
-                                          id="it35">
+                                          id="it35" readOnly="true">
                                 <f:validator binding="#{row.bindings.Remarks.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -927,7 +930,7 @@
                                             <af:panelBox text="#{bindings.txtItemName.inputValue}, Minumum Rate (#{bindings.txtMinimumRate.inputValue})" id="pb2"
                                                          showDisclosure="false" background="medium">
                                                 <f:facet name="toolbar">
-                                                    <af:link text="link 1" id="l13" partialSubmit="true">
+                                                    <af:link text="Generate PO" id="l13" partialSubmit="true">
                                                         <af:showPopupBehavior popupId="p5"/>
                                                     </af:link>
                                                 </f:facet>
@@ -1062,6 +1065,8 @@
                                    disabled="#{!bindings.ExecuteWithParams1.enabled}" id="b2"/>
                         <af:button actionListener="#{bindings.ExecuteWithParams2.execute}" text="ExecuteWithParams2"
                                    disabled="#{!bindings.ExecuteWithParams2.enabled}" id="b3"/>
+                        <af:button actionListener="#{bindings.ExecuteWithParams3.execute}" text="ExecuteWithParams3"
+                                   disabled="#{!bindings.ExecuteWithParams3.enabled}" id="b5"/>
                     </af:panelGroupLayout>
                 </f:facet>
             </af:decorativeBox>

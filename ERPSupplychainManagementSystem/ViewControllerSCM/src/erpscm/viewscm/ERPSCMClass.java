@@ -494,4 +494,17 @@ public class ERPSCMClass {
 //        ob=(OperationBinding)bc.get("doShowBalancePOSupplier"); 
 //        ob.execute();
     }
+    
+    public void doERPShowPOToMergeWithBidCompare(PopupFetchEvent pfe) {
+        BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+        
+        
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompHeaderCRUDIterator");
+        OperationBinding ob=(OperationBinding)bc.get("ExecuteWithParams3"); 
+        ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO", ib.getCurrentRow().getAttribute("RfqHeaderSno"));
+        ib=(DCIteratorBinding)bc.get("ScmPurchaseRfqSupplierForPoGenROIterator");
+        ob.getParamsMap().put("P_ADF_SUPPLIER_SNO", ib.getCurrentRow().getAttribute("SupplierSno"));
+        ob.execute();
+    
+    }
 }

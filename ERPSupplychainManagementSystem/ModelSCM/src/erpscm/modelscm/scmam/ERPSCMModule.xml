@@ -387,7 +387,11 @@
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderTaxLinesVO"/>
   <ViewUsage
     Name="ScmPurchaseOrderHeaderForPOMergeTORfq"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"/>
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseOrderHeaderByRFQSupplierVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO.ScmPurchaseOrderHeaderByRFQSupplierVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="ScmPurchaseOrderLinesForMergeRFQDet"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO"/>
