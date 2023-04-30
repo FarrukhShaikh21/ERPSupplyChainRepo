@@ -50,6 +50,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         BidLinesSno,
         txtUnitTypeSno,
         txtItemId,
+        RfqSupplierSno,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
@@ -108,6 +109,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int BIDLINESSNO = AttributesEnum.BidLinesSno.index();
     public static final int TXTUNITTYPESNO = AttributesEnum.txtUnitTypeSno.index();
     public static final int TXTITEMID = AttributesEnum.txtItemId.index();
+    public static final int RFQSUPPLIERSNO = AttributesEnum.RfqSupplierSno.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
@@ -536,6 +538,22 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtItemId(Integer value) {
         setAttributeInternal(TXTITEMID, value);
+    }
+
+    /**
+     * Gets the attribute value for RFQ_SUPPLIER_SNO using the alias name RfqSupplierSno.
+     * @return the RFQ_SUPPLIER_SNO
+     */
+    public Integer getRfqSupplierSno() {
+        return (Integer) getAttributeInternal(RFQSUPPLIERSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for RFQ_SUPPLIER_SNO using the alias name RfqSupplierSno.
+     * @param value value to set the RFQ_SUPPLIER_SNO
+     */
+    public void setRfqSupplierSno(Integer value) {
+        setAttributeInternal(RFQSUPPLIERSNO, value);
     }
 
     /**

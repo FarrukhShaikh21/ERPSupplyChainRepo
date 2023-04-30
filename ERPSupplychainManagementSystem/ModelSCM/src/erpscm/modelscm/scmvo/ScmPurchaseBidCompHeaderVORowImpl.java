@@ -241,6 +241,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
                 ScmPurchaseBidCompareItemVORowImpl compareSupplier=(ScmPurchaseBidCompareItemVORowImpl)BidCompLine;
                 RowSetIterator bidCompSupplierVO =(RowSetIterator) compareSupplier.getScmPurchaseBidCompSupplierVO();
                 Row compareSuppRow= bidCompSupplierVO.createRow();
+                compareSuppRow.setAttribute("RfqSupplierSno", bidSupplierRow.getAttribute("RfqSupplierSno"));
                 compareSuppRow.setAttribute("SupplierSno", bidSupplierRow.getAttribute("SupplierSno"));
                 compareSuppRow.setAttribute("CompareHeaderSno", getCompareHeaderSno());
                 if (RSIbidLine.getRowCount()>0) {

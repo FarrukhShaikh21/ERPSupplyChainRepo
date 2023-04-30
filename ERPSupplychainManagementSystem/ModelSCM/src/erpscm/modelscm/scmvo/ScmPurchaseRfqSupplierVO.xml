@@ -260,6 +260,21 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtCountSupBidCompForPo"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseBidCompSupplierVO?.sum("IsSelect=='Y' && txtPOQuantity>0?txtPOQuantity:0")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqSupplierForBidVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO"
@@ -294,41 +309,6 @@
         Value=":P_ADF_SUPPLIER_SNO"
         IsBindVarValue="true"
         Required="Optional"/>
-      <ViewCriteriaItem
-        Name="ScmSupplierVO"
-        ViewAttribute="ScmSupplierVO"
-        Operator="EXISTS"
-        Conjunction="AND"
-        IsNestedCriteria="true"
-        Required="Optional">
-        <ViewCriteria
-          Name="ScmSupplierVONestedCriteria"
-          ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
-          Conjunction="AND">
-          <ViewCriteriaRow
-            Name="ScmSupplierVONestedCriteria_row_0"
-            UpperColumns="1">
-            <ViewCriteriaItem
-              Name="SupplierShortCode"
-              ViewAttribute="SupplierShortCode"
-              Operator="="
-              Conjunction="AND"
-              Required="Optional"/>
-            <ViewCriteriaItem
-              Name="SupplierName"
-              ViewAttribute="SupplierName"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Required="Optional"/>
-            <ViewCriteriaItem
-              Name="SupplierShortName"
-              ViewAttribute="SupplierShortName"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Required="Optional"/>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="ScmPurchaseRfqHeaderVO"
         ViewAttribute="ScmPurchaseRfqHeaderVO"
@@ -372,6 +352,41 @@
                 </ViewCriteriaRow>
               </ViewCriteria>
             </ViewCriteriaItem>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="ScmSupplierVO"
+        ViewAttribute="ScmSupplierVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmSupplierVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmSupplierVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="SupplierShortCode"
+              ViewAttribute="SupplierShortCode"
+              Operator="="
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="SupplierName"
+              ViewAttribute="SupplierName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="SupplierShortName"
+              ViewAttribute="SupplierShortName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>
       </ViewCriteriaItem>

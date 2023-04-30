@@ -314,6 +314,12 @@
     EntityAttrName="txtItemId"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="txt_Item_Id"/>
+  <ViewAttribute
+    Name="RfqSupplierSno"
+    PrecisionRule="true"
+    EntityAttrName="RfqSupplierSno"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="RFQ_SUPPLIER_SNO"/>
   <ViewCriteria
     Name="ScmPurchaseBidCompSupplierByIsSelectVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
@@ -525,6 +531,10 @@
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="Rate"/>

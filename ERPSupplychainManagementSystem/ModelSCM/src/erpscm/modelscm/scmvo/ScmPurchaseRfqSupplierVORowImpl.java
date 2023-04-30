@@ -50,6 +50,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         txtPurchaseOrderSno,
         txtMergePONumber,
         txtMergePOSno,
+        txtCountSupBidCompForPo,
         ScmSupplierVO,
         ScmPurchaseRfqHeaderVO,
         ScmPurchaseBidCompSupplierVO,
@@ -97,6 +98,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
     public static final int TXTPURCHASEORDERSNO = AttributesEnum.txtPurchaseOrderSno.index();
     public static final int TXTMERGEPONUMBER = AttributesEnum.txtMergePONumber.index();
     public static final int TXTMERGEPOSNO = AttributesEnum.txtMergePOSno.index();
+    public static final int TXTCOUNTSUPBIDCOMPFORPO = AttributesEnum.txtCountSupBidCompForPo.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMPURCHASERFQHEADERVO = AttributesEnum.ScmPurchaseRfqHeaderVO.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
@@ -402,6 +404,14 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
      */
     public void settxtMergePOSno(Integer value) {
         setAttributeInternal(TXTMERGEPOSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtCountSupBidCompForPo.
+     * @return the txtCountSupBidCompForPo
+     */
+    public Integer gettxtCountSupBidCompForPo() {
+        return (Integer) getAttributeInternal(TXTCOUNTSUPBIDCOMPFORPO);
     }
 
     /**

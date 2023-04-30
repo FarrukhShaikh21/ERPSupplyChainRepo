@@ -64,6 +64,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         BidLinesSno,
         txtItemId,
         txtUnitTypeSno,
+        RfqSupplierSno,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
@@ -118,6 +119,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int BIDLINESSNO = AttributesEnum.BidLinesSno.index();
     public static final int TXTITEMID = AttributesEnum.txtItemId.index();
     public static final int TXTUNITTYPESNO = AttributesEnum.txtUnitTypeSno.index();
+    public static final int RFQSUPPLIERSNO = AttributesEnum.RfqSupplierSno.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -523,6 +525,22 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void settxtUnitTypeSno(Integer value) {
         setAttributeInternal(TXTUNITTYPESNO, value);
+    }
+
+    /**
+     * Gets the attribute value for RfqSupplierSno, using the alias name RfqSupplierSno.
+     * @return the value of RfqSupplierSno
+     */
+    public Integer getRfqSupplierSno() {
+        return (Integer) getAttributeInternal(RFQSUPPLIERSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RfqSupplierSno.
+     * @param value value to set the RfqSupplierSno
+     */
+    public void setRfqSupplierSno(Integer value) {
+        setAttributeInternal(RFQSUPPLIERSNO, value);
     }
 
     /**
