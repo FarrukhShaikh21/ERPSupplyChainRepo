@@ -421,10 +421,10 @@
     <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtPOQuantity_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtPOQuantity_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -508,7 +508,6 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -528,7 +527,6 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -537,6 +535,26 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtDepartmentId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtRemainingQtyForPO"
+    ColumnName="txt_Remaining_Qty_For_PO"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[return (Quantity==null?0:Quantity) -  (ScmPurchaseOrderLines?.sum("PoApproveQuantity")==null?0:ScmPurchaseOrderLines?.sum("PoApproveQuantity-(CancelQuantity==null?0:CancelQuantity)"))]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtRemainingQtyForPO_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

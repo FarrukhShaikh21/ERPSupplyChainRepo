@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 
 import java.sql.Timestamp;
 
+import oracle.jbo.JboException;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
@@ -54,13 +55,14 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtDepartmentId,
         txtProjectId,
         txtGeneratePOQty,
+        txtRemainingQtyForPO,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
         ScmPurchaseRfqSupplierVO,
         ScmPurchaseOrderLinesVO,
-        ScmPurchaseBidCompareItemVO,
         ScmPurchaseBidLinesVO,
+        ScmPurchaseBidCompareItemVO,
         AccSysGeneralValueVO,
         AccScmBidCriteriaVO;
         static AttributesEnum[] vals = null;
@@ -117,13 +119,14 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTDEPARTMENTID = AttributesEnum.txtDepartmentId.index();
     public static final int TXTPROJECTID = AttributesEnum.txtProjectId.index();
     public static final int TXTGENERATEPOQTY = AttributesEnum.txtGeneratePOQty.index();
+    public static final int TXTREMAININGQTYFORPO = AttributesEnum.txtRemainingQtyForPO.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
     public static final int SCMPURCHASERFQSUPPLIERVO = AttributesEnum.ScmPurchaseRfqSupplierVO.index();
     public static final int SCMPURCHASEORDERLINESVO = AttributesEnum.ScmPurchaseOrderLinesVO.index();
-    public static final int SCMPURCHASEBIDCOMPAREITEMVO = AttributesEnum.ScmPurchaseBidCompareItemVO.index();
     public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
+    public static final int SCMPURCHASEBIDCOMPAREITEMVO = AttributesEnum.ScmPurchaseBidCompareItemVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
     public static final int ACCSCMBIDCRITERIAVO = AttributesEnum.AccScmBidCriteriaVO.index();
 
@@ -609,7 +612,32 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      * @param value value to set the  txtGeneratePOQty
      */
     public void settxtGeneratePOQty(BigDecimal value) {
+        try {
+            if (value != null && value.compareTo(gettxtRemainingQtyForPO()) ==1) {
+                throw new JboException("PO Quantity Should not be greater than Remaining Quantity.");
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+            throw new JboException("PO Quantity Should not be greater than Remaining Quantity.");
+        }
         setAttributeInternal(TXTGENERATEPOQTY, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Remaining_Qty_For_PO using the alias name txtRemainingQtyForPO.
+     * @return the txt_Remaining_Qty_For_PO
+     */
+    public BigDecimal gettxtRemainingQtyForPO() {
+        return (BigDecimal) getAttributeInternal(TXTREMAININGQTYFORPO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Remaining_Qty_For_PO using the alias name txtRemainingQtyForPO.
+     * @param value value to set the txt_Remaining_Qty_For_PO
+     */
+    public void settxtRemainingQtyForPO(BigDecimal value) {
+        setAttributeInternal(TXTREMAININGQTYFORPO, value);
     }
 
     /**

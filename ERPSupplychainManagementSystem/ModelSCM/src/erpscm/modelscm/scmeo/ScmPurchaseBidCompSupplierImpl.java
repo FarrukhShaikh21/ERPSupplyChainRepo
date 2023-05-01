@@ -67,6 +67,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         RfqSupplierSno,
         txtProjectId,
         txtDepartmentId,
+        txtRemainingQtyForPO,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
@@ -125,6 +126,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int RFQSUPPLIERSNO = AttributesEnum.RfqSupplierSno.index();
     public static final int TXTPROJECTID = AttributesEnum.txtProjectId.index();
     public static final int TXTDEPARTMENTID = AttributesEnum.txtDepartmentId.index();
+    public static final int TXTREMAININGQTYFORPO = AttributesEnum.txtRemainingQtyForPO.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -579,6 +581,22 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void settxtDepartmentId(Integer value) {
         setAttributeInternal(TXTDEPARTMENTID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtRemainingQtyForPO, using the alias name txtRemainingQtyForPO.
+     * @return the value of txtRemainingQtyForPO
+     */
+    public BigDecimal gettxtRemainingQtyForPO() {
+        return (BigDecimal) getAttributeInternal(TXTREMAININGQTYFORPO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtRemainingQtyForPO.
+     * @param value value to set the txtRemainingQtyForPO
+     */
+    public void settxtRemainingQtyForPO(BigDecimal value) {
+        setAttributeInternal(TXTREMAININGQTYFORPO, value);
     }
 
     /**
