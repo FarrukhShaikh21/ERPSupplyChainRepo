@@ -869,5 +869,13 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
     public RowSet getAccScmPurchaseRfqSupplierVO() {
         return (RowSet) getAttributeInternal(ACCSCMPURCHASERFQSUPPLIERVO);
     }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        // TODO Implement this method
+        if (getIsSupervised().equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
+    }
 }
 

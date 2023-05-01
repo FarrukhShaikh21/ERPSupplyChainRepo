@@ -320,6 +320,40 @@
     EntityAttrName="RfqSupplierSno"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="RFQ_SUPPLIER_SNO"/>
+  <ViewAttribute
+    Name="txtDepartmentId"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtDepartmentId"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Department_Id"/>
+  <ViewAttribute
+    Name="txtProjectId"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtProjectId"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Project_Id"/>
+  <ViewAttribute
+    Name="txtGeneratePOQty"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO.txtGeneratePOQty_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseBidCompSupplierByIsSelectVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
@@ -506,14 +540,14 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
-    Name="ScmPurchaseBidCompareItemVO"
-    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    Name="ScmPurchaseBidLinesVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidLinesScmPurchBidCompSuppBidLinesSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
   <ViewLinkAccessor
-    Name="ScmPurchaseBidLinesVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidLinesScmPurchBidCompSuppBidLinesSnoLink"
+    Name="ScmPurchaseBidCompareItemVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

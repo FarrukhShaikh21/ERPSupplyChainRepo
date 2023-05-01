@@ -51,6 +51,9 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtUnitTypeSno,
         txtItemId,
         RfqSupplierSno,
+        txtDepartmentId,
+        txtProjectId,
+        txtGeneratePOQty,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
@@ -111,6 +114,9 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTUNITTYPESNO = AttributesEnum.txtUnitTypeSno.index();
     public static final int TXTITEMID = AttributesEnum.txtItemId.index();
     public static final int RFQSUPPLIERSNO = AttributesEnum.RfqSupplierSno.index();
+    public static final int TXTDEPARTMENTID = AttributesEnum.txtDepartmentId.index();
+    public static final int TXTPROJECTID = AttributesEnum.txtProjectId.index();
+    public static final int TXTGENERATEPOQTY = AttributesEnum.txtGeneratePOQty.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
@@ -559,6 +565,54 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for txt_Department_Id using the alias name txtDepartmentId.
+     * @return the txt_Department_Id
+     */
+    public Integer gettxtDepartmentId() {
+        return (Integer) getAttributeInternal(TXTDEPARTMENTID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Department_Id using the alias name txtDepartmentId.
+     * @param value value to set the txt_Department_Id
+     */
+    public void settxtDepartmentId(Integer value) {
+        setAttributeInternal(TXTDEPARTMENTID, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Project_Id using the alias name txtProjectId.
+     * @return the txt_Project_Id
+     */
+    public Integer gettxtProjectId() {
+        return (Integer) getAttributeInternal(TXTPROJECTID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Project_Id using the alias name txtProjectId.
+     * @param value value to set the txt_Project_Id
+     */
+    public void settxtProjectId(Integer value) {
+        setAttributeInternal(TXTPROJECTID, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtGeneratePOQty.
+     * @return the txtGeneratePOQty
+     */
+    public BigDecimal gettxtGeneratePOQty() {
+        return (BigDecimal) getAttributeInternal(TXTGENERATEPOQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtGeneratePOQty.
+     * @param value value to set the  txtGeneratePOQty
+     */
+    public void settxtGeneratePOQty(BigDecimal value) {
+        setAttributeInternal(TXTGENERATEPOQTY, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link ScmSupplierVO.
      */
     public Row getScmSupplierVO() {
@@ -661,6 +715,14 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public RowSet getAccScmBidCriteriaVO() {
         return (RowSet) getAttributeInternal(ACCSCMBIDCRITERIAVO);
+    }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        // TODO Implement this method
+        if ((i!=TXTGENERATEPO &&i!=TXTGENERATEPOQTY ) && getScmPurchaseBidCompHeaderVO().getAttribute("IsSupervised").equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
     }
 }
 

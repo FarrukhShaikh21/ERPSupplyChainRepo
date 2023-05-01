@@ -343,5 +343,13 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
     public RowSet getAccInvItemVO() {
         return (RowSet) getAttributeInternal(ACCINVITEMVO);
     }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        // TODO Implement this method
+        if (getScmPurchaseBidCompHeaderVO().getAttribute("IsSupervised").equals("Y")) {
+            return false;
+        }
+        return super.isAttributeUpdateable(i);
+    }
 }
 

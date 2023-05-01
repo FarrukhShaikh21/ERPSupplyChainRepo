@@ -149,11 +149,14 @@
                                     </af:inputText>
                                 </af:column>
                                 <af:column id="c17" width="150" displayIndex="-1">
+                                    <af:inputText label="Label 2" id="it48" readOnly="true"
+                                                  value="Supervise To Generate PO"
+                                                  visible="#{bindings.IsSupervised.inputValue=='N'}"/>
                                     <af:inputText value="All Items PO Generated" id="it44" readOnly="true"
-                                                  visible="#{row.bindings.txtCountSupBidCompForPo.inputValue==0}"/>
+                                                  visible="#{row.bindings.txtCountSupBidCompForPo.inputValue==0 &amp;&amp; bindings.IsSupervised.inputValue=='Y'}"/>
                                     <af:link text="Generate PO" id="l14" partialSubmit="true"
                                              actionListener="#{bindings.doGeneratePoFromBidComp.execute}"
-                                             visible="#{row.bindings.txtCountSupBidCompForPo.inputValue>0}"/>
+                                             visible="#{row.bindings.txtCountSupBidCompForPo.inputValue>0 &amp;&amp; bindings.IsSupervised.inputValue=='Y'}"/>
                                 </af:column>
                                 <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtPurchaseOrderNo.label}"
                                            id="c18" width="80" minimumWidth="12">
@@ -298,6 +301,34 @@
                                         <f:validator binding="#{row.bindings.Quantity.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Quantity.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtPOQuantity.label}"
+                                           id="c41" width="70" displayIndex="-1">
+                                    <af:inputText value="#{row.bindings.txtPOQuantity.inputValue}"
+                                                  label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtPOQuantity.label}"
+                                                  required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtPOQuantity.mandatory}"
+                                                  columns="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtPOQuantity.displayWidth}"
+                                                  maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtPOQuantity.precision}"
+                                                  shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtPOQuantity.tooltip}"
+                                                  id="it50" readOnly="true">
+                                        <f:validator binding="#{row.bindings.txtPOQuantity.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtPOQuantity.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePOQty.label}"
+                                           id="c40" width="70">
+                                    <af:inputText value="#{row.bindings.txtGeneratePOQty.inputValue}"
+                                                  label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePOQty.label}"
+                                                  required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePOQty.mandatory}"
+                                                  columns="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePOQty.displayWidth}"
+                                                  maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePOQty.precision}"
+                                                  shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePOQty.tooltip}"
+                                                  id="it49">
+                                        <f:validator binding="#{row.bindings.txtGeneratePOQty.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePOQty.format}"/>
                                     </af:inputText>
                                 </af:column>
                                 <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Rate.label}"

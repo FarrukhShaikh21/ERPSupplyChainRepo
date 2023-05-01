@@ -519,6 +519,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                erpPoLinRow.setAttribute("RfqLinesSno", suprow.getAttribute("RfqLinesSno"));
                erpPoLinRow.setAttribute("DemandLinesSno", suprow.getAttribute("DemandLinesSno"));
                erpPoLinRow.setAttribute("BidLinesSno", suprow.getAttribute("BidLinesSno"));
+               erpPoLinRow.setAttribute("ProjectId", suprow.getAttribute("txtProjectId"));
+               erpPoLinRow.setAttribute("DepartmentId", suprow.getAttribute("txtDepartmentId"));
                erpPoLinRow.setAttribute("CompareSupplierSno", suprow.getAttribute("CompareSupplierSno"));
                erpPoLinRow.setAttribute("LineNo", erpPOLinesvo.getRowCount());
                erpPOLinesvo.insertRow(erpPoLinRow);
