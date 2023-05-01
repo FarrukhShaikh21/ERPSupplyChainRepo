@@ -65,6 +65,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         txtItemId,
         txtUnitTypeSno,
         RfqSupplierSno,
+        txtProjectId,
+        txtDepartmentId,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
@@ -121,6 +123,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int TXTITEMID = AttributesEnum.txtItemId.index();
     public static final int TXTUNITTYPESNO = AttributesEnum.txtUnitTypeSno.index();
     public static final int RFQSUPPLIERSNO = AttributesEnum.RfqSupplierSno.index();
+    public static final int TXTPROJECTID = AttributesEnum.txtProjectId.index();
+    public static final int TXTDEPARTMENTID = AttributesEnum.txtDepartmentId.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -543,6 +547,38 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void setRfqSupplierSno(Integer value) {
         setAttributeInternal(RFQSUPPLIERSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtProjectId, using the alias name txtProjectId.
+     * @return the value of txtProjectId
+     */
+    public Integer gettxtProjectId() {
+        return (Integer) getAttributeInternal(TXTPROJECTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtProjectId.
+     * @param value value to set the txtProjectId
+     */
+    public void settxtProjectId(Integer value) {
+        setAttributeInternal(TXTPROJECTID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtDepartmentId, using the alias name txtDepartmentId.
+     * @return the value of txtDepartmentId
+     */
+    public Integer gettxtDepartmentId() {
+        return (Integer) getAttributeInternal(TXTDEPARTMENTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDepartmentId.
+     * @param value value to set the txtDepartmentId
+     */
+    public void settxtDepartmentId(Integer value) {
+        setAttributeInternal(TXTDEPARTMENTID, value);
     }
 
     /**
