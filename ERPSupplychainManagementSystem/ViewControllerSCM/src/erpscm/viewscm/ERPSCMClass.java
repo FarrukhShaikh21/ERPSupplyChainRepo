@@ -507,4 +507,16 @@ public class ERPSCMClass {
         ob.execute();
     
     }
+    
+    public void doERPMergeBidCompareInPO(DialogEvent de) {
+        if (de.getOutcome()==DialogEvent.Outcome.ok) {
+           BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+            DCIteratorBinding ERPPOib = (DCIteratorBinding) bc.get("ScmPurchaseOrderHeaderForPOMergeTORfqIterator");
+            DCIteratorBinding ERPPOToBeGenerated = (DCIteratorBinding) bc.get("ScmPurchaseRfqSupplierForPoGenROIterator");
+            ERPPOToBeGenerated.getCurrentRow().setAttribute("txtMergePONumber",ERPPOib.getCurrentRow().getAttribute("PoHeaderCode"));
+            ERPPOToBeGenerated.getCurrentRow().setAttribute("txtMergePOSno", ERPPOib.getCurrentRow().getAttribute("PoHeaderSno"));
+            ERPPOToBeGenerated.getCurrentRow().setAttribute("txtIsMerge", "Y");
+
+        }
+    }
 }

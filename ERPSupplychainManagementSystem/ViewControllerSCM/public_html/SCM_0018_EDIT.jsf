@@ -181,23 +181,56 @@
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtCountSupBidCompForPo.format}"/>
                                     </af:inputText>
-                                    <af:link text="Merge Into PO" id="l15" partialSubmit="true">
+                                    <af:link text="Merge Into PO" id="l15" partialSubmit="true"
+                                             visible="#{row.bindings.txtCountSupBidCompForPo.inputValue>0}">
                                         <af:showPopupBehavior popupId="::p6"/>
                                     </af:link>
                                 </af:column>
                                 <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.label}"
                                            id="c20" width="80" minimumWidth="12">
-                                    <af:inputText value="#{row.bindings.txtMergePONumber.inputValue}"
-                                                  label="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.label}"
-                                                  required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.mandatory}"
-                                                  columns="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.displayWidth}"
-                                                  maximumLength="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.precision}"
-                                                  shortDesc="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.tooltip}"
-                                                  id="it27" readOnly="true">
-                                        <f:validator binding="#{row.bindings.txtMergePONumber.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.format}"/>
-                                    </af:inputText>
+                                    <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                        <af:inputText value="#{row.bindings.txtIsMerge.inputValue}"
+                                                      label="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtIsMerge.label}"
+                                                      required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtIsMerge.mandatory}"
+                                                      columns="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtIsMerge.displayWidth}"
+                                                      maximumLength="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtIsMerge.precision}"
+                                                      shortDesc="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtIsMerge.tooltip}"
+                                                      id="it47" rendered="false">
+                                            <f:validator binding="#{row.bindings.txtIsMerge.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{row.bindings.txtMergePOSno.inputValue}"
+                                                      label="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePOSno.label}"
+                                                      required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePOSno.mandatory}"
+                                                      columns="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePOSno.displayWidth}"
+                                                      maximumLength="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePOSno.precision}"
+                                                      shortDesc="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePOSno.tooltip}"
+                                                      id="it46" rendered="false">
+                                            <f:validator binding="#{row.bindings.txtMergePOSno.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePOSno.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{row.bindings.txtMergePONumber.inputValue}"
+                                                      label="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.label}"
+                                                      required="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.mandatory}"
+                                                      columns="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.displayWidth}"
+                                                      maximumLength="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.precision}"
+                                                      shortDesc="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.tooltip}"
+                                                      id="it27" readOnly="true">
+                                            <f:validator binding="#{row.bindings.txtMergePONumber.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtMergePONumber.format}"/>
+                                        </af:inputText>
+                                        <af:spacer width="10" height="10" id="s4"/>
+                                        <af:link text="Clear" id="l16" partialSubmit="true"
+                                                 visible="#{row.bindings.txtMergePONumber.inputValue!=null}">
+                                            <af:setActionListener from="#{null}"
+                                                                  to="#{row.bindings.txtMergePONumber.inputValue}"/>
+                                            <af:setActionListener from="#{null}"
+                                                                  to="#{row.bindings.txtMergePOSno.inputValue}"/>
+                                            <af:setActionListener to="#{row.bindings.txtMergePOSno.inputValue}"
+                                                                  from="#{null}"/>
+                                        </af:link>
+                                    </af:panelGroupLayout>
                                 </af:column>
                             </af:table>
                         </f:facet>
@@ -289,7 +322,8 @@
             <af:popup childCreation="deferred" autoCancel="disabled" id="p6" contentDelivery="lazyUncached"
                       popupFetchListener="#{pageFlowScope.OracleERPBean.doERPShowPOToMergeWithBidCompare}">
                 <af:dialog id="d7" type="ok" title="Select PO For Merging"
-                           affirmativeTextAndAccessKey="Select This For Merge">
+                           affirmativeTextAndAccessKey="Select This For Merge"
+                           dialogListener="#{pageFlowScope.OracleERPBean.doERPMergeBidCompareInPO}">
                     <f:facet name="buttonBar"/>
                     <af:table value="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.collectionModel}" var="row"
                               rows="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.rangeSize}"
