@@ -475,7 +475,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         supcompvo.setRangeSize(-1);
 
         for (int i = 0; i < supcompvo.getRowCount(); i++) {
-            if (supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO")!=null &&supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO").equals("Y") ) {
+            if (supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO")!=null &&supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO").equals("Y") && supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePOQty")!=null ) {
                 erpPoSelect=1;
            }
         }
@@ -513,8 +513,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                Row erpPoLinRow=erpPOLinesvo.createRow();
                erpPoLinRow.setAttribute("ItemId", suprow.getAttribute("txtItemId"));
                erpPoLinRow.setAttribute("UnitTypeSno", suprow.getAttribute("txtUnitTypeSno"));
-               erpPoLinRow.setAttribute("PoRequestQuantity", suprow.getAttribute("Quantity"));
-               erpPoLinRow.setAttribute("PoApproveQuantity", suprow.getAttribute("Quantity"));
+               erpPoLinRow.setAttribute("PoRequestQuantity", suprow.getAttribute("txtGeneratePOQty"));
+               erpPoLinRow.setAttribute("PoApproveQuantity", suprow.getAttribute("txtGeneratePOQty"));
                erpPoLinRow.setAttribute("PoRate", suprow.getAttribute("Rate"));
                erpPoLinRow.setAttribute("RfqLinesSno", suprow.getAttribute("RfqLinesSno"));
                erpPoLinRow.setAttribute("DemandLinesSno", suprow.getAttribute("DemandLinesSno"));
