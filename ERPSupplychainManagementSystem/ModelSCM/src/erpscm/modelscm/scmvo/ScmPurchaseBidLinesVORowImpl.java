@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -16,6 +17,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_SCMPURCHASEBIDLINES = 0;
 
     /**
@@ -52,9 +54,11 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
         AdminCompanyVO,
         GlProjectsVO,
         ScmPurchaseBidHeaderVO,
+        ScmPurchaseBidCompSupplierVO,
         AccInvItemVO,
         AccInvUnitTypeVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -76,6 +80,7 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int BIDLINESSNO = AttributesEnum.BidLinesSno.index();
     public static final int BIDHEADERSNO = AttributesEnum.BidHeaderSno.index();
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
@@ -106,6 +111,7 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int SCMPURCHASEBIDHEADERVO = AttributesEnum.ScmPurchaseBidHeaderVO.index();
+    public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
 
@@ -579,6 +585,13 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
      */
     public void setScmPurchaseBidHeaderVO(Row value) {
         setAttributeInternal(SCMPURCHASEBIDHEADERVO, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseBidCompSupplierVO.
+     */
+    public RowIterator getScmPurchaseBidCompSupplierVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPSUPPLIERVO);
     }
 
     /**

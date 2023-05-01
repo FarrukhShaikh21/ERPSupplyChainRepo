@@ -479,6 +479,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurcBidLinDepartmentIdAsso.ScmPurchaseBidLines"
     Type="erpadm.modeladm.admeo.AdminCompanyImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseBidCompSupplier"
+    Association="erpscm.modelscm.scmeo.ScmPurchBidLinesScmPurchBidCompSuppBidLinesSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchBidLinesScmPurchBidCompSuppBidLinesSnoAsso.ScmPurchaseBidCompSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchBidLinesScmPurchBidCompSuppBidLinesSnoAsso.ScmPurchaseBidLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmPurchaseBidLines"
     PrimaryKey="true">
