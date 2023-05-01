@@ -363,7 +363,7 @@
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.PoDate.label}"
-                                   id="c23">
+                                   id="c23" width="80" displayIndex="-1">
                             <af:inputDate value="#{row.bindings.PoDate.inputValue}"
                                           label="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.PoDate.label}"
                                           required="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.PoDate.mandatory}"
@@ -387,7 +387,7 @@
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.txtRfqHeaderCode.label}"
-                                   id="c25">
+                                   id="c25" width="80">
                             <af:inputText value="#{row.bindings.txtRfqHeaderCode.inputValue}"
                                           label="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.txtRfqHeaderCode.label}"
                                           required="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.txtRfqHeaderCode.mandatory}"
@@ -401,7 +401,7 @@
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.txtDemandHeaderCode.label}"
-                                   id="c26">
+                                   id="c26" width="90">
                             <af:inputText value="#{row.bindings.txtDemandHeaderCode.inputValue}"
                                           label="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.txtDemandHeaderCode.label}"
                                           required="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.txtDemandHeaderCode.mandatory}"
@@ -460,7 +460,7 @@
                               rowSelection="single"
                               fetchSize="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.rangeSize}" id="t6">
                         <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.LineNo.label}"
-                                   id="c30">
+                                   id="c30" width="50">
                             <af:inputText value="#{row.bindings.LineNo.inputValue}"
                                           label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.LineNo.label}"
                                           required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.LineNo.mandatory}"
@@ -498,7 +498,7 @@
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoRate.label}"
-                                   id="c33">
+                                   id="c33" width="70" displayIndex="-1">
                             <af:inputText value="#{row.bindings.PoRate.inputValue}"
                                           label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoRate.label}"
                                           required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoRate.mandatory}"
@@ -512,7 +512,7 @@
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoApproveQuantity.label}"
-                                   id="c34">
+                                   id="c34" width="70" displayIndex="-1">
                             <af:inputText value="#{row.bindings.PoApproveQuantity.inputValue}"
                                           label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoApproveQuantity.label}"
                                           required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PoApproveQuantity.mandatory}"
@@ -526,7 +526,7 @@
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.GrossAmount.label}"
-                                   id="c35">
+                                   id="c35" width="80" displayIndex="-1">
                             <af:inputText value="#{row.bindings.GrossAmount.inputValue}"
                                           label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.GrossAmount.label}"
                                           required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.GrossAmount.mandatory}"
@@ -540,7 +540,7 @@
                             </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.RequiredByDate.label}"
-                                   id="c36">
+                                   id="c36" width="80" displayIndex="-1">
                             <af:inputDate value="#{row.bindings.RequiredByDate.inputValue}"
                                           label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.RequiredByDate.label}"
                                           required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.RequiredByDate.mandatory}"
@@ -552,7 +552,7 @@
                             </af:inputDate>
                         </af:column>
                         <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PromisedDate.label}"
-                                   id="c37">
+                                   id="c37" width="80">
                             <af:inputDate value="#{row.bindings.PromisedDate.inputValue}"
                                           label="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PromisedDate.label}"
                                           required="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.PromisedDate.mandatory}"
