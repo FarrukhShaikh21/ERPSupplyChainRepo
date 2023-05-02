@@ -613,6 +613,10 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtGeneratePOQty(BigDecimal value) {
         try {
+            System.out.println(value.compareTo(gettxtRemainingQtyForPO()) + "comp");
+            if (value != null && value.compareTo(new BigDecimal(0))==-1) {
+                ;
+           }
             if (value != null && value.compareTo(gettxtRemainingQtyForPO()) ==1) {
                 throw new JboException("PO Quantity Should not be greater than Remaining Quantity.");
             }

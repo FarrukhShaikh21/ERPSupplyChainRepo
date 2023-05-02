@@ -471,6 +471,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         int erpPoSelect=0;
         ApplicationModule am = getApplicationModule();
         ViewObject supcompvo=am.findViewObject("ScmPurchaseBidCompSupplierDetRO");
+        ViewObject erpMergePoLinesvo=am.findViewObject("ScmPurchaseOrderLinesForMergeRFQDet");
         Integer erpPOHeaderSno=gettxtMergePOSno();
         supcompvo.setRangeSize(-1);
 
@@ -510,20 +511,27 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         for (int i = 0; i < supcompvo.getRowCount(); i++) {
             Row suprow=supcompvo.getRowAtRangeIndex(i);
             if (suprow.getAttribute("txtGeneratePO")!=null && suprow.getAttribute("txtGeneratePO").equals("Y")) {
-               Row erpPoLinRow=erpPOLinesvo.createRow();
-               erpPoLinRow.setAttribute("ItemId", suprow.getAttribute("txtItemId"));
-               erpPoLinRow.setAttribute("UnitTypeSno", suprow.getAttribute("txtUnitTypeSno"));
-               erpPoLinRow.setAttribute("PoRequestQuantity", suprow.getAttribute("txtGeneratePOQty"));
-               erpPoLinRow.setAttribute("PoApproveQuantity", suprow.getAttribute("txtGeneratePOQty"));
-               erpPoLinRow.setAttribute("PoRate", suprow.getAttribute("Rate"));
-               erpPoLinRow.setAttribute("RfqLinesSno", suprow.getAttribute("RfqLinesSno"));
-               erpPoLinRow.setAttribute("DemandLinesSno", suprow.getAttribute("DemandLinesSno"));
-               erpPoLinRow.setAttribute("BidLinesSno", suprow.getAttribute("BidLinesSno"));
-               erpPoLinRow.setAttribute("ProjectId", suprow.getAttribute("txtProjectId"));
-               erpPoLinRow.setAttribute("DepartmentId", suprow.getAttribute("txtDepartmentId"));
-               erpPoLinRow.setAttribute("CompareSupplierSno", suprow.getAttribute("CompareSupplierSno"));
-               erpPoLinRow.setAttribute("LineNo", erpPOLinesvo.getRowCount());
-               erpPOLinesvo.insertRow(erpPoLinRow);
+                    Row[] filteredRows=erpMergePoLinesvo.getFilteredRows("ItemId", suprow.getAttribute("txtItemId"));
+                if (filteredRows.length == 0) {
+                    Row erpPoLinRow = erpPOLinesvo.createRow();
+                    erpPoLinRow.setAttribute("ItemId", suprow.getAttribute("txtItemId"));
+                    erpPoLinRow.setAttribute("UnitTypeSno", suprow.getAttribute("txtUnitTypeSno"));
+                    erpPoLinRow.setAttribute("PoRequestQuantity", suprow.getAttribute("txtGeneratePOQty"));
+                    erpPoLinRow.setAttribute("PoApproveQuantity", suprow.getAttribute("txtGeneratePOQty"));
+                    erpPoLinRow.setAttribute("PoRate", suprow.getAttribute("Rate"));
+                    erpPoLinRow.setAttribute("RfqLinesSno", suprow.getAttribute("RfqLinesSno"));
+                    erpPoLinRow.setAttribute("DemandLinesSno", suprow.getAttribute("DemandLinesSno"));
+                    erpPoLinRow.setAttribute("BidLinesSno", suprow.getAttribute("BidLinesSno"));
+                    erpPoLinRow.setAttribute("ProjectId", suprow.getAttribute("txtProjectId"));
+                    erpPoLinRow.setAttribute("DepartmentId", suprow.getAttribute("txtDepartmentId"));
+                    erpPoLinRow.setAttribute("CompareSupplierSno", suprow.getAttribute("CompareSupplierSno"));
+                    erpPoLinRow.setAttribute("LineNo", erpPOLinesvo.getRowCount());
+                    erpPOLinesvo.insertRow(erpPoLinRow);
+                }
+                else {
+                    filteredRows[0].setAttribute("PoRequestQuantity",new BigDecimal(filteredRows[0].getAttribute("PoRequestQuantity").toString()).add(new BigDecimal(suprow.getAttribute("txtGeneratePOQty").toString())));
+                    filteredRows[0].setAttribute("PoApproveQuantity",new BigDecimal(filteredRows[0].getAttribute("PoApproveQuantity").toString()).add(new BigDecimal(suprow.getAttribute("txtGeneratePOQty").toString())));
+                }
                 
            }
        }
