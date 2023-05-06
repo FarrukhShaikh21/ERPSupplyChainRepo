@@ -511,9 +511,16 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         for (int i = 0; i < supcompvo.getRowCount(); i++) {
             Row suprow=supcompvo.getRowAtRangeIndex(i);
             if (suprow.getAttribute("txtGeneratePO")!=null && suprow.getAttribute("txtGeneratePO").equals("Y")) {
-                    Row[] filteredRows=erpMergePoLinesvo.getFilteredRows("ItemId", suprow.getAttribute("txtItemId"));
-                if (filteredRows.length == 0) {
+                    Row[] filteredRows=null;
+                    
+                    if (gettxtIsMerge()!=null && gettxtIsMerge().equals("Y")) {
+                    filteredRows=erpMergePoLinesvo.getFilteredRows("CompareSupplierSno", suprow.getAttribute("CompareSupplierSno"));
+                    
+                }
+                
+                if (filteredRows==null || filteredRows.length == 0 ) {
                     Row erpPoLinRow = erpPOLinesvo.createRow();
+                    erpPoLinRow.setAttribute("PoHeaderSno", erpPOHeaderSno);
                     erpPoLinRow.setAttribute("ItemId", suprow.getAttribute("txtItemId"));
                     erpPoLinRow.setAttribute("UnitTypeSno", suprow.getAttribute("txtUnitTypeSno"));
                     erpPoLinRow.setAttribute("PoRequestQuantity", suprow.getAttribute("txtGeneratePOQty"));
@@ -536,7 +543,12 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
            }
        }
         getDBTransaction().commit();
-        settxtPurchaseOrderNo((Integer) erpPOHeadvo.getCurrentRow().getAttribute("PoHeaderCode"));
+        if (gettxtIsMerge()!=null && gettxtIsMerge().equals("Y")) {
+            settxtPurchaseOrderNo(gettxtMergePONumber());
+        }
+        else {
+            settxtPurchaseOrderNo((Integer) erpPOHeadvo.getCurrentRow().getAttribute("PoHeaderCode"));
+}
         supcompvo.executeQuery();
     }
 }
