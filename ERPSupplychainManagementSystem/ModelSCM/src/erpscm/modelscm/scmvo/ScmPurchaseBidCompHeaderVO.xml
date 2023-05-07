@@ -36,6 +36,12 @@
       <ViewCriteriaUsage
          Name="SysGeneralValueByValueSetIDVC"
          FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+      <ParameterMap>
+         <PIMap Variable="P_ADF_VALUE_SET_ID">
+            <TransientExpression
+               trustMode="untrusted"><![CDATA[4]]></TransientExpression>
+         </PIMap>
+      </ParameterMap>
    </ViewAccessor>
    <ViewAccessor
       Name="AccGlProjectsVO"
@@ -728,29 +734,6 @@
             </ViewCriteria>
          </ViewCriteriaItem>
          <ViewCriteriaItem
-            Name="ScmPurchaseDemandHeaderVO"
-            ViewAttribute="ScmPurchaseDemandHeaderVO"
-            Operator="EXISTS"
-            Conjunction="AND"
-            IsNestedCriteria="true"
-            Required="Optional">
-            <ViewCriteria
-               Name="ScmPurchaseDemandHeaderVONestedCriteria"
-               ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
-               Conjunction="AND">
-               <ViewCriteriaRow
-                  Name="ScmPurchaseDemandHeaderVONestedCriteria_row_0"
-                  UpperColumns="1">
-                  <ViewCriteriaItem
-                     Name="DemandHeaderCode"
-                     ViewAttribute="DemandHeaderCode"
-                     Operator="="
-                     Conjunction="AND"
-                     Required="Optional"/>
-               </ViewCriteriaRow>
-            </ViewCriteria>
-         </ViewCriteriaItem>
-         <ViewCriteriaItem
             Name="ScmPurchaseRfqHeaderVO"
             ViewAttribute="ScmPurchaseRfqHeaderVO"
             Operator="EXISTS"
@@ -767,6 +750,29 @@
                   <ViewCriteriaItem
                      Name="RfqHeaderCode"
                      ViewAttribute="RfqHeaderCode"
+                     Operator="="
+                     Conjunction="AND"
+                     Required="Optional"/>
+               </ViewCriteriaRow>
+            </ViewCriteria>
+         </ViewCriteriaItem>
+         <ViewCriteriaItem
+            Name="ScmPurchaseDemandHeaderVO"
+            ViewAttribute="ScmPurchaseDemandHeaderVO"
+            Operator="EXISTS"
+            Conjunction="AND"
+            IsNestedCriteria="true"
+            Required="Optional">
+            <ViewCriteria
+               Name="ScmPurchaseDemandHeaderVONestedCriteria"
+               ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
+               Conjunction="AND">
+               <ViewCriteriaRow
+                  Name="ScmPurchaseDemandHeaderVONestedCriteria_row_0"
+                  UpperColumns="1">
+                  <ViewCriteriaItem
+                     Name="DemandHeaderCode"
+                     ViewAttribute="DemandHeaderCode"
                      Operator="="
                      Conjunction="AND"
                      Required="Optional"/>

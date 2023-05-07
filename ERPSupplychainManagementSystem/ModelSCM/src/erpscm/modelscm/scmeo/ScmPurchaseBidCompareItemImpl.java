@@ -36,6 +36,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         RfqLinesSno,
         UnitTypeSno,
         txtCountBidSelected,
+        ExcludeComparison,
         ScmPurchaseBidCompHeader,
         ScmPurchaseBidCompSupplier,
         InvItem,
@@ -77,6 +78,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
     public static final int UNITTYPESNO = AttributesEnum.UnitTypeSno.index();
     public static final int TXTCOUNTBIDSELECTED = AttributesEnum.txtCountBidSelected.index();
+    public static final int EXCLUDECOMPARISON = AttributesEnum.ExcludeComparison.index();
     public static final int SCMPURCHASEBIDCOMPHEADER = AttributesEnum.ScmPurchaseBidCompHeader.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -303,6 +305,22 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      */
     public void settxtCountBidSelected(Integer value) {
         setAttributeInternal(TXTCOUNTBIDSELECTED, value);
+    }
+
+    /**
+     * Gets the attribute value for ExcludeComparison, using the alias name ExcludeComparison.
+     * @return the value of ExcludeComparison
+     */
+    public String getExcludeComparison() {
+        return (String) getAttributeInternal(EXCLUDECOMPARISON);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ExcludeComparison.
+     * @param value value to set the ExcludeComparison
+     */
+    public void setExcludeComparison(String value) {
+        setAttributeInternal(EXCLUDECOMPARISON, value);
     }
 
     /**

@@ -25,6 +25,23 @@
     Name="AccInvItemVO"
     ViewObjectName="erpims.modelims.imsvo.InvItemVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSysGeneralValueVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[4]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -50,6 +67,25 @@
     </AttrArray>
     <DisplayCriteria
       Name="InvItemFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovExcludeComparison"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ExcludeComparison"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseBidCompareItem"
@@ -152,6 +188,20 @@
     EntityAttrName="txtCountBidSelected"
     EntityUsage="ScmPurchaseBidCompareItem"
     AliasName="txt_Count_Bid_Selected"/>
+  <ViewAttribute
+    Name="ExcludeComparison"
+    PrecisionRule="true"
+    EntityAttrName="ExcludeComparison"
+    EntityUsage="ScmPurchaseBidCompareItem"
+    AliasName="EXCLUDE_COMPARISON"
+    LOVName="LovExcludeComparison">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"
@@ -172,7 +222,7 @@
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompSupplierVO"
-    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

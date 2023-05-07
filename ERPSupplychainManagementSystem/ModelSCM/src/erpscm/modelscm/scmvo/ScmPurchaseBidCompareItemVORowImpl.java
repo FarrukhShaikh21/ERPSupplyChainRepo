@@ -37,11 +37,13 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
         RfqLinesSno,
         UnitTypeSno,
         txtCountBidSelected,
+        ExcludeComparison,
         ScmPurchaseBidCompHeaderVO,
         InvItemVO,
         InvUnitTypeVO,
         ScmPurchaseBidCompSupplierVO,
-        AccInvItemVO;
+        AccInvItemVO,
+        AccSysGeneralValueVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -80,11 +82,13 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
     public static final int UNITTYPESNO = AttributesEnum.UnitTypeSno.index();
     public static final int TXTCOUNTBIDSELECTED = AttributesEnum.txtCountBidSelected.index();
+    public static final int EXCLUDECOMPARISON = AttributesEnum.ExcludeComparison.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
+    public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -309,6 +313,22 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for EXCLUDE_COMPARISON using the alias name ExcludeComparison.
+     * @return the EXCLUDE_COMPARISON
+     */
+    public String getExcludeComparison() {
+        return (String) getAttributeInternal(EXCLUDECOMPARISON);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for EXCLUDE_COMPARISON using the alias name ExcludeComparison.
+     * @param value value to set the EXCLUDE_COMPARISON
+     */
+    public void setExcludeComparison(String value) {
+        setAttributeInternal(EXCLUDECOMPARISON, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link ScmPurchaseBidCompHeaderVO.
      */
     public Row getScmPurchaseBidCompHeaderVO() {
@@ -363,6 +383,14 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
     public RowSet getAccInvItemVO() {
         return (RowSet) getAttributeInternal(ACCINVITEMVO);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSysGeneralValueVO.
+     */
+    public RowSet getAccSysGeneralValueVO() {
+        return (RowSet) getAttributeInternal(ACCSYSGENERALVALUEVO);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method

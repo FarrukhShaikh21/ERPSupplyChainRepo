@@ -632,7 +632,9 @@
       SQLType="INTEGER"
       Type="java.lang.Integer"
       ColumnType="INTEGER"
-      TableName="SCM_PURCHASE_BID_COMP_HEADER">
+      TableName="SCM_PURCHASE_BID_COMP_HEADER"
+      IsPersistent="false"
+      IsQueriable="false">
       <TransientExpression
          trustMode="untrusted"><![CDATA[ScmPurchaseBidCompareItem?.sum("")]]></TransientExpression>
       <Properties>
