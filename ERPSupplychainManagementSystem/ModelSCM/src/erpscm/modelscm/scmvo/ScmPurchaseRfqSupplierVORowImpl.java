@@ -476,12 +476,12 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         supcompvo.setRangeSize(-1);
 
         for (int i = 0; i < supcompvo.getRowCount(); i++) {
-            if (supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO")!=null &&supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO").equals("Y") && supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePOQty")!=null ) {
+            if (supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO")!=null &&supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO").equals("Y") && supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePOQty")!=null && new BigDecimal(supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePOQty").toString()).intValue()>0 ) {
                 erpPoSelect=1;
            }
         }
         if (erpPoSelect== 0) {
-            throw new JboException("Please select item to generate Purchase Order");
+            throw new JboException("Please select item and enter quantity to generate Purchase Order");
         }
         
         ViewObject erpPOHeadvo=am.findViewObject("ScmPurchaseOrderHeaderCRUD");
