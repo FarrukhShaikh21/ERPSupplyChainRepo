@@ -36,12 +36,13 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         RfqLinesSno,
         UnitTypeSno,
         txtCountBidSelected,
-        ExcludeComparison,
+        IncludeComparison,
         ScmPurchaseBidCompHeader,
         ScmPurchaseBidCompSupplier,
         InvItem,
         InvUnitType;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -78,7 +79,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
     public static final int UNITTYPESNO = AttributesEnum.UnitTypeSno.index();
     public static final int TXTCOUNTBIDSELECTED = AttributesEnum.txtCountBidSelected.index();
-    public static final int EXCLUDECOMPARISON = AttributesEnum.ExcludeComparison.index();
+    public static final int INCLUDECOMPARISON = AttributesEnum.IncludeComparison.index();
     public static final int SCMPURCHASEBIDCOMPHEADER = AttributesEnum.ScmPurchaseBidCompHeader.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -307,20 +308,21 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         setAttributeInternal(TXTCOUNTBIDSELECTED, value);
     }
 
+
     /**
-     * Gets the attribute value for ExcludeComparison, using the alias name ExcludeComparison.
-     * @return the value of ExcludeComparison
+     * Gets the attribute value for IncludeComparison, using the alias name IncludeComparison.
+     * @return the value of IncludeComparison
      */
-    public String getExcludeComparison() {
-        return (String) getAttributeInternal(EXCLUDECOMPARISON);
+    public String getIncludeComparison() {
+        return (String) getAttributeInternal(INCLUDECOMPARISON);
     }
 
     /**
-     * Sets <code>value</code> as the attribute value for ExcludeComparison.
-     * @param value value to set the ExcludeComparison
+     * Sets <code>value</code> as the attribute value for IncludeComparison.
+     * @param value value to set the IncludeComparison
      */
-    public void setExcludeComparison(String value) {
-        setAttributeInternal(EXCLUDECOMPARISON, value);
+    public void setIncludeComparison(String value) {
+        setAttributeInternal(INCLUDECOMPARISON, value);
     }
 
     /**

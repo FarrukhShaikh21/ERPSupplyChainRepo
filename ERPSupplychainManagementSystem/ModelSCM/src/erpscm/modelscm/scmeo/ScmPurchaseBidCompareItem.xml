@@ -178,17 +178,25 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="ExcludeComparison"
+    Name="IncludeComparison"
     Precision="1"
-    ColumnName="EXCLUDE_COMPARISON"
+    ColumnName="INCLUDE_COMPARISON"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_PURCHASE_BID_COMPARE_ITEM"
-    DefaultValue="N">
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.IncludeComparison_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidCompHeader"

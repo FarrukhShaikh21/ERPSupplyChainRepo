@@ -69,14 +69,14 @@
       Name="InvItemFindVC"/>
   </ListBinding>
   <ListBinding
-    Name="LovExcludeComparison"
+    Name="LovIncludeComparison"
     ListVOName="AccSysGeneralValueVO"
     ListRangeSize="-1"
     NullValueFlag="start"
     NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="ExcludeComparison"/>
+      <Item Value="IncludeComparison"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
@@ -189,12 +189,12 @@
     EntityUsage="ScmPurchaseBidCompareItem"
     AliasName="txt_Count_Bid_Selected"/>
   <ViewAttribute
-    Name="ExcludeComparison"
+    Name="IncludeComparison"
     PrecisionRule="true"
-    EntityAttrName="ExcludeComparison"
+    EntityAttrName="IncludeComparison"
     EntityUsage="ScmPurchaseBidCompareItem"
-    AliasName="EXCLUDE_COMPARISON"
-    LOVName="LovExcludeComparison">
+    AliasName="INCLUDE_COMPARISON"
+    LOVName="LovIncludeComparison">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -222,7 +222,11 @@
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompSupplierVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
 </ViewObject>

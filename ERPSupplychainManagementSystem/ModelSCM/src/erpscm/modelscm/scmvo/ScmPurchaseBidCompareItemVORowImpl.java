@@ -37,7 +37,7 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
         RfqLinesSno,
         UnitTypeSno,
         txtCountBidSelected,
-        ExcludeComparison,
+        IncludeComparison,
         ScmPurchaseBidCompHeaderVO,
         InvItemVO,
         InvUnitTypeVO,
@@ -82,7 +82,7 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
     public static final int UNITTYPESNO = AttributesEnum.UnitTypeSno.index();
     public static final int TXTCOUNTBIDSELECTED = AttributesEnum.txtCountBidSelected.index();
-    public static final int EXCLUDECOMPARISON = AttributesEnum.ExcludeComparison.index();
+    public static final int INCLUDECOMPARISON = AttributesEnum.IncludeComparison.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
@@ -312,20 +312,21 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(TXTCOUNTBIDSELECTED, value);
     }
 
+
     /**
-     * Gets the attribute value for EXCLUDE_COMPARISON using the alias name ExcludeComparison.
-     * @return the EXCLUDE_COMPARISON
+     * Gets the attribute value for INCLUDE_COMPARISON using the alias name IncludeComparison.
+     * @return the INCLUDE_COMPARISON
      */
-    public String getExcludeComparison() {
-        return (String) getAttributeInternal(EXCLUDECOMPARISON);
+    public String getIncludeComparison() {
+        return (String) getAttributeInternal(INCLUDECOMPARISON);
     }
 
     /**
-     * Sets <code>value</code> as attribute value for EXCLUDE_COMPARISON using the alias name ExcludeComparison.
-     * @param value value to set the EXCLUDE_COMPARISON
+     * Sets <code>value</code> as attribute value for INCLUDE_COMPARISON using the alias name IncludeComparison.
+     * @param value value to set the INCLUDE_COMPARISON
      */
-    public void setExcludeComparison(String value) {
-        setAttributeInternal(EXCLUDECOMPARISON, value);
+    public void setIncludeComparison(String value) {
+        setAttributeInternal(INCLUDECOMPARISON, value);
     }
 
     /**

@@ -1024,18 +1024,6 @@
                                                             <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                                         </af:inputText>
                                                     </af:column>
-                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.ExcludeComparison.label}"
-                                                               id="c44">
-                                                        <af:selectOneChoice value="#{row.bindings.ExcludeComparison.inputValue}"
-                                                                            label="#{row.bindings.ExcludeComparison.label}"
-                                                                            required="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.ExcludeComparison.mandatory}"
-                                                                            shortDesc="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.ExcludeComparison.tooltip}"
-                                                                            id="soc7">
-                                                            <f:selectItems value="#{row.bindings.ExcludeComparison.items}"
-                                                                           id="si9"/>
-                                                            <f:validator binding="#{row.bindings.ExcludeComparison.validator}"/>
-                                                        </af:selectOneChoice>
-                                                    </af:column>
                                                 </af:table>
                                                 <af:inputText value="#{bindings.txtItemName.inputValue}"
                                                               label="#{bindings.txtItemName.hints.label}"
