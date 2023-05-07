@@ -57,6 +57,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         txtTempProjectName,
         txtRfqHeaderCode,
         txtDemandHeaderCode,
+        txtCountItemBid,
         AdminCompany,
         AdminCompany1,
         GlProjects,
@@ -119,6 +120,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
+    public static final int TXTCOUNTITEMBID = AttributesEnum.txtCountItemBid.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
@@ -636,6 +638,22 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      */
     public void settxtDemandHeaderCode(Integer value) {
         setAttributeInternal(TXTDEMANDHEADERCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCountItemBid, using the alias name txtCountItemBid.
+     * @return the value of txtCountItemBid
+     */
+    public Integer gettxtCountItemBid() {
+        return (Integer) getAttributeInternal(TXTCOUNTITEMBID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCountItemBid.
+     * @param value value to set the txtCountItemBid
+     */
+    public void settxtCountItemBid(Integer value) {
+        setAttributeInternal(TXTCOUNTITEMBID, value);
     }
 
     /**

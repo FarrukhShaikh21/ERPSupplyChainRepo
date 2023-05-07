@@ -35,12 +35,12 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         DemandLinesSno,
         RfqLinesSno,
         UnitTypeSno,
+        txtCountBidSelected,
         ScmPurchaseBidCompHeader,
         ScmPurchaseBidCompSupplier,
         InvItem,
         InvUnitType;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -76,6 +76,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
     public static final int UNITTYPESNO = AttributesEnum.UnitTypeSno.index();
+    public static final int TXTCOUNTBIDSELECTED = AttributesEnum.txtCountBidSelected.index();
     public static final int SCMPURCHASEBIDCOMPHEADER = AttributesEnum.ScmPurchaseBidCompHeader.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -286,6 +287,22 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      */
     public void setUnitTypeSno(Integer value) {
         setAttributeInternal(UNITTYPESNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCountBidSelected, using the alias name txtCountBidSelected.
+     * @return the value of txtCountBidSelected
+     */
+    public Integer gettxtCountBidSelected() {
+        return (Integer) getAttributeInternal(TXTCOUNTBIDSELECTED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCountBidSelected.
+     * @param value value to set the txtCountBidSelected
+     */
+    public void settxtCountBidSelected(Integer value) {
+        setAttributeInternal(TXTCOUNTBIDSELECTED, value);
     }
 
     /**

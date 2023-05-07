@@ -985,6 +985,20 @@
                                                           id="t1" columnStretching="column:c1"
                                                           partialTriggers="::txtRfqHeaderCodeId" autoHeightRows="5"
                                                           scrollPolicy="page">
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtCountBidSelected.label}"
+                                                               id="c43">
+                                                        <af:inputText value="#{row.bindings.txtCountBidSelected.inputValue}"
+                                                                      label="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtCountBidSelected.label}"
+                                                                      required="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtCountBidSelected.mandatory}"
+                                                                      columns="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtCountBidSelected.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtCountBidSelected.precision}"
+                                                                      shortDesc="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtCountBidSelected.tooltip}"
+                                                                      id="it53">
+                                                            <f:validator binding="#{row.bindings.txtCountBidSelected.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtCountBidSelected.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtItemName.label}"
                                                                id="c1">
                                                         <af:inputComboboxListOfValues id="txtItemNameId"

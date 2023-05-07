@@ -626,6 +626,24 @@
             Value="DemandHeaderSno"/>
       </Dependencies>
    </Attribute>
+   <Attribute
+      Name="txtCountItemBid"
+      ColumnName="txt_Count_Item_Bid"
+      SQLType="INTEGER"
+      Type="java.lang.Integer"
+      ColumnType="INTEGER"
+      TableName="SCM_PURCHASE_BID_COMP_HEADER">
+      <TransientExpression
+         trustMode="untrusted"><![CDATA[ScmPurchaseBidCompareItem?.sum("")]]></TransientExpression>
+      <Properties>
+         <SchemaBasedProperties>
+            <LABEL
+               ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompHeader.txtCountItemBid_LABEL"/>
+            <DISPLAYWIDTH
+               Value="20"/>
+         </SchemaBasedProperties>
+      </Properties>
+   </Attribute>
    <AccessorAttribute
       Name="AdminCompany"
       Association="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseBIDCompHeaderLocationIdAsso"

@@ -17,6 +17,7 @@ import oracle.jbo.RowSet;
 // ---------------------------------------------------------------------
 public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
 
+
     public static final int ENTITY_SCMPURCHASEBIDCOMPAREITEM = 0;
 
     /**
@@ -35,6 +36,7 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
         DemandLinesSno,
         RfqLinesSno,
         UnitTypeSno,
+        txtCountBidSelected,
         ScmPurchaseBidCompHeaderVO,
         InvItemVO,
         InvUnitTypeVO,
@@ -64,6 +66,7 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
         }
     }
 
+
     public static final int COMPAREITEMSNO = AttributesEnum.CompareItemSno.index();
     public static final int COMPAREHEADERSNO = AttributesEnum.CompareHeaderSno.index();
     public static final int ITEMID = AttributesEnum.ItemId.index();
@@ -76,6 +79,7 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
     public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
     public static final int RFQLINESSNO = AttributesEnum.RfqLinesSno.index();
     public static final int UNITTYPESNO = AttributesEnum.UnitTypeSno.index();
+    public static final int TXTCOUNTBIDSELECTED = AttributesEnum.txtCountBidSelected.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
@@ -286,6 +290,22 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
      */
     public void setUnitTypeSno(Integer value) {
         setAttributeInternal(UNITTYPESNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Count_Bid_Selected using the alias name txtCountBidSelected.
+     * @return the txt_Count_Bid_Selected
+     */
+    public Integer gettxtCountBidSelected() {
+        return (Integer) getAttributeInternal(TXTCOUNTBIDSELECTED);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Count_Bid_Selected using the alias name txtCountBidSelected.
+     * @param value value to set the txt_Count_Bid_Selected
+     */
+    public void settxtCountBidSelected(Integer value) {
+        setAttributeInternal(TXTCOUNTBIDSELECTED, value);
     }
 
     /**
