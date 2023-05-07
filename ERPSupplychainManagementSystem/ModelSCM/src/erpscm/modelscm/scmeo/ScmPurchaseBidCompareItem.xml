@@ -185,7 +185,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_PURCHASE_BID_COMPARE_ITEM"
-    DefaultValue="Y">
+    DefaultValue="Y"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -234,6 +235,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.CompareItemSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmPurchaseBidCompareItemIncludeComparisonCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Scm_Purchase_Bid_Compare_Item_"/>
+      <Attr Name="_checkCondition" Value='"INCLUDE_COMPARISON" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.IncludeComparison"/>
     </AttrArray>
   </Key>
   <Key

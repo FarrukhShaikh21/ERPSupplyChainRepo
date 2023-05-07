@@ -984,7 +984,7 @@
                                                           fetchSize="#{bindings.ScmPurchaseBidCompareItemDetCRUD.rangeSize}"
                                                           id="t1" columnStretching="column:c1"
                                                           partialTriggers="::txtRfqHeaderCodeId" autoHeightRows="5"
-                                                          scrollPolicy="page">
+                                                          scrollPolicy="page" styleClass="AFStretchWidth">
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtCountBidSelected.label}"
                                                                id="c43" rendered="false">
                                                         <af:inputText value="#{row.bindings.txtCountBidSelected.inputValue}"
@@ -1013,7 +1013,7 @@
                                                         </af:inputComboboxListOfValues>
                                                     </af:column>
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtUnitTypeName.label}"
-                                                               id="c2" width="140" displayIndex="-1">
+                                                               id="c2" width="120" displayIndex="-1">
                                                         <af:inputText value="#{row.bindings.txtUnitTypeName.inputValue}"
                                                                       label="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtUnitTypeName.label}"
                                                                       required="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtUnitTypeName.mandatory}"
@@ -1023,6 +1023,18 @@
                                                                       id="it1" readOnly="true">
                                                             <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                                         </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.IncludeComparison.label}"
+                                                               id="c44" width="65" displayIndex="-1">
+                                                        <af:selectOneChoice value="#{row.bindings.IncludeComparison.inputValue}"
+                                                                            label="#{row.bindings.IncludeComparison.label}"
+                                                                            required="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.IncludeComparison.mandatory}"
+                                                                            shortDesc="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.IncludeComparison.tooltip}"
+                                                                            id="soc7" contentStyle="width:100%">
+                                                            <f:selectItems value="#{row.bindings.IncludeComparison.items}"
+                                                                           id="si9"/>
+                                                            <f:validator binding="#{row.bindings.IncludeComparison.validator}"/>
+                                                        </af:selectOneChoice>
                                                     </af:column>
                                                 </af:table>
                                                 <af:inputText value="#{bindings.txtItemName.inputValue}"
