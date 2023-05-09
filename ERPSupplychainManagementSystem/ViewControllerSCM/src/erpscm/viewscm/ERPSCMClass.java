@@ -492,7 +492,7 @@ public class ERPSCMClass {
         ob=(OperationBinding)bc.get("ExecuteWithParams2"); 
         System.out.println("five-tf");
 //        ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompHeaderCRUDIterator");
-        ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO",43);//ib.getCurrentRow().getAttribute("RfqHeaderSno"));
+        ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO",ib.getCurrentRow().getAttribute("RfqHeaderSno"));
         System.out.println("six-tf");
         ob.execute();
 //        ob=(OperationBinding)bc.get("doShowBalancePOSupplier"); 

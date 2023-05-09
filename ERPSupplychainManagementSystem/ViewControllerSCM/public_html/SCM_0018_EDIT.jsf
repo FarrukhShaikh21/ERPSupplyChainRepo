@@ -89,8 +89,8 @@
                     </af:panelFormLayout>
                 </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p5" contentDelivery="lazyUncached"
-                      resetEditableValues="whenCanceled" animate="false">
+            <af:popup childCreation="deferred" id="p5" contentDelivery="lazyUncached" animate="false"
+                      popupFetchListener="#{pageFlowScope.OracleERPBean.doShowPoGenerationPopupOnCompare}">
                 <af:dialog id="d6" type="ok" contentWidth="850" contentHeight="500"
                            title="Generate PO From Bid Comparison" stretchChildren="first">
                     <af:inputText value="#{bindings.txtSupplierName.inputValue}" simple="true"
@@ -112,7 +112,7 @@
                                       rowSelection="single"
                                       fetchSize="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.rangeSize}" id="t3"
                                       partialTriggers="::b2 l14" columnStretching="last" autoHeightRows="5"
-                                      styleClass="AFStretchWidth" scrollPolicy="page">
+                                      styleClass="AFStretchWidth" scrollPolicy="page" contentDelivery="immediate">
                                 <af:column headerText="#{bindings.ScmPurchaseRfqSupplierForPoGenRO.hints.txtSupplierName.label}"
                                            id="c9" width="200" displayIndex="-1">
                                     <af:inputComboboxListOfValues id="txtSupplierNameId"
@@ -244,8 +244,7 @@
                             </af:table>
                         </f:facet>
                         <f:facet name="second">
-                            <af:panelBox text="#{bindings.txtSupplierName.inputValue}" id="pb3" showDisclosure="false"
-                                         rendered="false">
+                            <af:panelBox text="#{bindings.txtSupplierName.inputValue}" id="pb3" showDisclosure="false">
                                 <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.ScmPurchaseBidCompSupplierDetRO.collectionModel}" var="row"
                                           rows="#{bindings.ScmPurchaseBidCompSupplierDetRO.rangeSize}"
@@ -256,7 +255,7 @@
                                           rowSelection="single"
                                           fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetRO.rangeSize}" id="t4"
                                           autoHeightRows="10" styleClass="AFStretchWidth" columnStretching="last"
-                                          partialTriggers="::b3 ::b2" scrollPolicy="page">
+                                          partialTriggers="::b3 ::b2" scrollPolicy="page" contentDelivery="immediate">
                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.label}"
                                                id="c16">
                                         <af:inputText value="#{row.bindings.txtGeneratePO.inputValue}"
@@ -375,7 +374,7 @@
                     </af:panelSplitter>
                 </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p6" contentDelivery="lazyUncached"
+            <af:popup childCreation="deferred" id="p6" contentDelivery="lazyUncached"
                       popupFetchListener="#{pageFlowScope.OracleERPBean.doERPShowPOToMergeWithBidCompare}">
                 <af:dialog id="d7" type="ok" title="Select PO For Merging"
                            affirmativeTextAndAccessKey="Select This For Merge"
@@ -393,7 +392,8 @@
                                       selectionListener="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.collectionModel.makeCurrent}"
                                       rowSelection="single"
                                       fetchSize="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.rangeSize}" id="t5"
-                                      columnStretching="last" partialTriggers="::b5">
+                                      columnStretching="last" partialTriggers="::b5" contentDelivery="immediate"
+                                      autoHeightRows="5" scrollPolicy="page">
                                 <af:column headerText="#{bindings.ScmPurchaseOrderHeaderForPOMergeTORfq.hints.PoHeaderSno.label}"
                                            id="c21" rendered="false">
                                     <af:inputText value="#{row.bindings.PoHeaderSno.inputValue}"
@@ -520,7 +520,7 @@
                                       selectionListener="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.collectionModel.makeCurrent}"
                                       rowSelection="single"
                                       fetchSize="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.rangeSize}" id="t6"
-                                      autoHeightRows="3" scrollPolicy="page">
+                                      autoHeightRows="3" scrollPolicy="page" contentDelivery="immediate">
                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesForMergeRFQDet.hints.LineNo.label}"
                                            id="c30" width="50">
                                     <af:inputText value="#{row.bindings.LineNo.inputValue}"
