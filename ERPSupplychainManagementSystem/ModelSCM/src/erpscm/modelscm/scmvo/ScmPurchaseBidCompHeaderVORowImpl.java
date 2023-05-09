@@ -56,6 +56,9 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
         txtTempProjectName,
         txtRfqHeaderCode,
         txtDemandHeaderCode,
+        txtCountItemBid,
+        txtCountComparisonItem,
+        txtMaxItemNameForMsg,
         AdminCompanyVO,
         AdminCompanyVO1,
         GlProjectsVO,
@@ -130,6 +133,9 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
     public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
+    public static final int TXTCOUNTITEMBID = AttributesEnum.txtCountItemBid.index();
+    public static final int TXTCOUNTCOMPARISONITEM = AttributesEnum.txtCountComparisonItem.index();
+    public static final int TXTMAXITEMNAMEFORMSG = AttributesEnum.txtMaxItemNameForMsg.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int ADMINCOMPANYVO1 = AttributesEnum.AdminCompanyVO1.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
@@ -707,6 +713,54 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void settxtDemandHeaderCode(Integer value) {
         setAttributeInternal(TXTDEMANDHEADERCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Count_Item_Bid using the alias name txtCountItemBid.
+     * @return the txt_Count_Item_Bid
+     */
+    public Integer gettxtCountItemBid() {
+        return (Integer) getAttributeInternal(TXTCOUNTITEMBID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Count_Item_Bid using the alias name txtCountItemBid.
+     * @param value value to set the txt_Count_Item_Bid
+     */
+    public void settxtCountItemBid(Integer value) {
+        setAttributeInternal(TXTCOUNTITEMBID, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Count_Comparison_Item using the alias name txtCountComparisonItem.
+     * @return the txt_Count_Comparison_Item
+     */
+    public Integer gettxtCountComparisonItem() {
+        return (Integer) getAttributeInternal(TXTCOUNTCOMPARISONITEM);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Count_Comparison_Item using the alias name txtCountComparisonItem.
+     * @param value value to set the txt_Count_Comparison_Item
+     */
+    public void settxtCountComparisonItem(Integer value) {
+        setAttributeInternal(TXTCOUNTCOMPARISONITEM, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Max_Item_Name_For_Msg using the alias name txtMaxItemNameForMsg.
+     * @return the txt_Max_Item_Name_For_Msg
+     */
+    public String gettxtMaxItemNameForMsg() {
+        return (String) getAttributeInternal(TXTMAXITEMNAMEFORMSG);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Max_Item_Name_For_Msg using the alias name txtMaxItemNameForMsg.
+     * @param value value to set the txt_Max_Item_Name_For_Msg
+     */
+    public void settxtMaxItemNameForMsg(String value) {
+        setAttributeInternal(TXTMAXITEMNAMEFORMSG, value);
     }
 
     /**

@@ -168,6 +168,8 @@
     IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[ScmPurchaseBidCompSupplier?.count("IsSelect=='Y'?CompareItemSno:null")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

@@ -90,7 +90,7 @@
                 </af:dialog>
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p5" contentDelivery="lazyUncached"
-                      popupFetchListener="#{pageFlowScope.OracleERPBean.doShowPoGenerationPopupOnCompare}">
+                      resetEditableValues="whenCanceled" animate="false">
                 <af:dialog id="d6" type="ok" contentWidth="850" contentHeight="500"
                            title="Generate PO From Bid Comparison" stretchChildren="first">
                     <af:inputText value="#{bindings.txtSupplierName.inputValue}" simple="true"
@@ -244,7 +244,8 @@
                             </af:table>
                         </f:facet>
                         <f:facet name="second">
-                            <af:panelBox text="#{bindings.txtSupplierName.inputValue}" id="pb3" showDisclosure="false">
+                            <af:panelBox text="#{bindings.txtSupplierName.inputValue}" id="pb3" showDisclosure="false"
+                                         rendered="false">
                                 <f:facet name="toolbar"/>
                                 <af:table value="#{bindings.ScmPurchaseBidCompSupplierDetRO.collectionModel}" var="row"
                                           rows="#{bindings.ScmPurchaseBidCompSupplierDetRO.rangeSize}"
@@ -952,6 +953,28 @@
                                             <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol6"/>
                                         </af:gridCell>
                                         <af:gridCell id="gc17" columnSpan="5" halign="stretch" valign="middle">
+                                            <af:inputText value="#{bindings.txtCountComparisonItem.inputValue}"
+                                                          label="#{bindings.txtCountComparisonItem.hints.label}"
+                                                          required="#{bindings.txtCountComparisonItem.hints.mandatory}"
+                                                          columns="#{bindings.txtCountComparisonItem.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtCountComparisonItem.hints.precision}"
+                                                          shortDesc="#{bindings.txtCountComparisonItem.hints.tooltip}"
+                                                          id="it55" rendered="false">
+                                                <f:validator binding="#{bindings.txtCountComparisonItem.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.txtCountComparisonItem.format}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.txtCountItemBid.inputValue}"
+                                                          label="#{bindings.txtCountItemBid.hints.label}"
+                                                          required="#{bindings.txtCountItemBid.hints.mandatory}"
+                                                          columns="#{bindings.txtCountItemBid.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtCountItemBid.hints.precision}"
+                                                          shortDesc="#{bindings.txtCountItemBid.hints.tooltip}"
+                                                          id="it54" rendered="false">
+                                                <f:validator binding="#{bindings.txtCountItemBid.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.txtCountItemBid.format}"/>
+                                            </af:inputText>
                                             <af:inputText value="#{bindings.Remarks.inputValue}"
                                                           label="#{bindings.Remarks.hints.label}"
                                                           required="#{bindings.Remarks.hints.mandatory}"
@@ -960,6 +983,15 @@
                                                           shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2"
                                                           simple="true" contentStyle="width:100%">
                                                 <f:validator binding="#{bindings.Remarks.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.txtMaxItemNameForMsg.inputValue}"
+                                                          label="#{bindings.txtMaxItemNameForMsg.hints.label}"
+                                                          required="#{bindings.txtMaxItemNameForMsg.hints.mandatory}"
+                                                          columns="#{bindings.txtMaxItemNameForMsg.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtMaxItemNameForMsg.hints.precision}"
+                                                          shortDesc="#{bindings.txtMaxItemNameForMsg.hints.tooltip}"
+                                                          id="it56" rendered="false">
+                                                <f:validator binding="#{bindings.txtMaxItemNameForMsg.validator}"/>
                                             </af:inputText>
                                         </af:gridCell>
                                     </af:gridRow>

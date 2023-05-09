@@ -562,6 +562,30 @@
       EntityUsage="ScmPurchaseBidCompHeader"
       AliasName="TXT_DEMAND_HEADER_CODE"
       IsPersistent="false"/>
+   <ViewAttribute
+      Name="txtCountItemBid"
+      IsQueriable="false"
+      IsPersistent="false"
+      PrecisionRule="true"
+      EntityAttrName="txtCountItemBid"
+      EntityUsage="ScmPurchaseBidCompHeader"
+      AliasName="txt_Count_Item_Bid"/>
+   <ViewAttribute
+      Name="txtCountComparisonItem"
+      IsQueriable="false"
+      IsPersistent="false"
+      PrecisionRule="true"
+      EntityAttrName="txtCountComparisonItem"
+      EntityUsage="ScmPurchaseBidCompHeader"
+      AliasName="txt_Count_Comparison_Item"/>
+   <ViewAttribute
+      Name="txtMaxItemNameForMsg"
+      IsQueriable="false"
+      IsPersistent="false"
+      PrecisionRule="true"
+      EntityAttrName="txtMaxItemNameForMsg"
+      EntityUsage="ScmPurchaseBidCompHeader"
+      AliasName="txt_Max_Item_Name_For_Msg"/>
    <ViewCriteria
       Name="ScmPurchaseBidCompHeaderCompanyAccessVC"
       ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVO"

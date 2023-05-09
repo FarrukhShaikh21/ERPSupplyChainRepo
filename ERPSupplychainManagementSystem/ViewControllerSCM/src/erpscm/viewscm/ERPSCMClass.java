@@ -482,14 +482,18 @@ public class ERPSCMClass {
     
     public void doShowPoGenerationPopupOnCompare(PopupFetchEvent pfe) {
         BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
-        
+        System.out.println("one-tf");
         OperationBinding ob=(OperationBinding)bc.get("doShowBalancePOSupplier"); 
+        System.out.println("two-tf");
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompHeaderCRUDIterator");
-//        ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO", ib.getCurrentRow().getAttribute("RfqHeaderSno"));
+        System.out.println("three-tf");
         ob.execute();
+        System.out.println("four-tf"); 
         ob=(OperationBinding)bc.get("ExecuteWithParams2"); 
+        System.out.println("five-tf");
 //        ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompHeaderCRUDIterator");
-        ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO", ib.getCurrentRow().getAttribute("RfqHeaderSno"));
+        ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO",43);//ib.getCurrentRow().getAttribute("RfqHeaderSno"));
+        System.out.println("six-tf");
         ob.execute();
 //        ob=(OperationBinding)bc.get("doShowBalancePOSupplier"); 
 //        ob.execute();

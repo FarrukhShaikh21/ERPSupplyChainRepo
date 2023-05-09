@@ -41,7 +41,8 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         ScmPurchaseBidCompSupplier,
         InvItem,
         InvUnitType;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -323,6 +324,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public void setIncludeComparison(String value) {
         setAttributeInternal(INCLUDECOMPARISON, value);
     }
+
 
     /**
      * @return the associated entity ScmPurchaseBidCompHeaderImpl.

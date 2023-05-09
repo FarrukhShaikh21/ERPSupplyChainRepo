@@ -58,6 +58,8 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         txtRfqHeaderCode,
         txtDemandHeaderCode,
         txtCountItemBid,
+        txtCountComparisonItem,
+        txtMaxItemNameForMsg,
         AdminCompany,
         AdminCompany1,
         GlProjects,
@@ -121,6 +123,8 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int TXTCOUNTITEMBID = AttributesEnum.txtCountItemBid.index();
+    public static final int TXTCOUNTCOMPARISONITEM = AttributesEnum.txtCountComparisonItem.index();
+    public static final int TXTMAXITEMNAMEFORMSG = AttributesEnum.txtMaxItemNameForMsg.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
@@ -654,6 +658,38 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
      */
     public void settxtCountItemBid(Integer value) {
         setAttributeInternal(TXTCOUNTITEMBID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCountComparisonItem, using the alias name txtCountComparisonItem.
+     * @return the value of txtCountComparisonItem
+     */
+    public Integer gettxtCountComparisonItem() {
+        return (Integer) getAttributeInternal(TXTCOUNTCOMPARISONITEM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCountComparisonItem.
+     * @param value value to set the txtCountComparisonItem
+     */
+    public void settxtCountComparisonItem(Integer value) {
+        setAttributeInternal(TXTCOUNTCOMPARISONITEM, value);
+    }
+
+    /**
+     * Gets the attribute value for txtMaxItemNameForMsg, using the alias name txtMaxItemNameForMsg.
+     * @return the value of txtMaxItemNameForMsg
+     */
+    public String gettxtMaxItemNameForMsg() {
+        return (String) getAttributeInternal(TXTMAXITEMNAMEFORMSG);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtMaxItemNameForMsg.
+     * @param value value to set the txtMaxItemNameForMsg
+     */
+    public void settxtMaxItemNameForMsg(String value) {
+        setAttributeInternal(TXTMAXITEMNAMEFORMSG, value);
     }
 
     /**
