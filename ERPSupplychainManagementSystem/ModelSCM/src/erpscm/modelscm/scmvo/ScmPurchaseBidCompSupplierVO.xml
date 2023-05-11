@@ -362,6 +362,18 @@
     EntityAttrName="txtRemainingQtyForPO"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="txt_Remaining_Qty_For_PO"/>
+  <ViewAttribute
+    Name="IsComplete"
+    PrecisionRule="true"
+    EntityAttrName="IsComplete"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="IS_COMPLETE"/>
+  <ViewAttribute
+    Name="RemainingBalance"
+    PrecisionRule="true"
+    EntityAttrName="RemainingBalance"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="REMAINING_BALANCE"/>
   <ViewCriteria
     Name="ScmPurchaseBidCompSupplierByIsSelectVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
@@ -579,6 +591,10 @@
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="Rate"/>

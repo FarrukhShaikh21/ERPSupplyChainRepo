@@ -56,6 +56,8 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtProjectId,
         txtGeneratePOQty,
         txtRemainingQtyForPO,
+        IsComplete,
+        RemainingBalance,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
@@ -120,6 +122,8 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTPROJECTID = AttributesEnum.txtProjectId.index();
     public static final int TXTGENERATEPOQTY = AttributesEnum.txtGeneratePOQty.index();
     public static final int TXTREMAININGQTYFORPO = AttributesEnum.txtRemainingQtyForPO.index();
+    public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
+    public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
@@ -641,6 +645,38 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtRemainingQtyForPO(BigDecimal value) {
         setAttributeInternal(TXTREMAININGQTYFORPO, value);
+    }
+
+    /**
+     * Gets the attribute value for IS_COMPLETE using the alias name IsComplete.
+     * @return the IS_COMPLETE
+     */
+    public String getIsComplete() {
+        return (String) getAttributeInternal(ISCOMPLETE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for IS_COMPLETE using the alias name IsComplete.
+     * @param value value to set the IS_COMPLETE
+     */
+    public void setIsComplete(String value) {
+        setAttributeInternal(ISCOMPLETE, value);
+    }
+
+    /**
+     * Gets the attribute value for REMAINING_BALANCE using the alias name RemainingBalance.
+     * @return the REMAINING_BALANCE
+     */
+    public BigDecimal getRemainingBalance() {
+        return (BigDecimal) getAttributeInternal(REMAININGBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for REMAINING_BALANCE using the alias name RemainingBalance.
+     * @param value value to set the REMAINING_BALANCE
+     */
+    public void setRemainingBalance(BigDecimal value) {
+        setAttributeInternal(REMAININGBALANCE, value);
     }
 
     /**

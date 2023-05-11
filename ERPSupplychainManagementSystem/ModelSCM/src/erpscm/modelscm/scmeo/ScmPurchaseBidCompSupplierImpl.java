@@ -68,6 +68,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         txtProjectId,
         txtDepartmentId,
         txtRemainingQtyForPO,
+        IsComplete,
+        RemainingBalance,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
@@ -127,6 +129,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int TXTPROJECTID = AttributesEnum.txtProjectId.index();
     public static final int TXTDEPARTMENTID = AttributesEnum.txtDepartmentId.index();
     public static final int TXTREMAININGQTYFORPO = AttributesEnum.txtRemainingQtyForPO.index();
+    public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
+    public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -597,6 +601,38 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void settxtRemainingQtyForPO(BigDecimal value) {
         setAttributeInternal(TXTREMAININGQTYFORPO, value);
+    }
+
+    /**
+     * Gets the attribute value for IsComplete, using the alias name IsComplete.
+     * @return the value of IsComplete
+     */
+    public String getIsComplete() {
+        return (String) getAttributeInternal(ISCOMPLETE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IsComplete.
+     * @param value value to set the IsComplete
+     */
+    public void setIsComplete(String value) {
+        setAttributeInternal(ISCOMPLETE, value);
+    }
+
+    /**
+     * Gets the attribute value for RemainingBalance, using the alias name RemainingBalance.
+     * @return the value of RemainingBalance
+     */
+    public BigDecimal getRemainingBalance() {
+        return (BigDecimal) getAttributeInternal(REMAININGBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RemainingBalance.
+     * @param value value to set the RemainingBalance
+     */
+    public void setRemainingBalance(BigDecimal value) {
+        setAttributeInternal(REMAININGBALANCE, value);
     }
 
     /**
