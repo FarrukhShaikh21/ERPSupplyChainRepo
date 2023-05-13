@@ -120,14 +120,6 @@
                         </af:panelGroupLayout>
                       </af:listItem>
                     </af:listView>
-                    <af:listView value="#{bindings.ScmPurchaseBidCompHeaderRO.collectionModel}" var="item"
-                                 emptyText="#{bindings.ScmPurchaseBidCompHeaderRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                 fetchSize="#{bindings.ScmPurchaseBidCompHeaderRO.rangeSize}" id="lv11"
-                                 styleClass="WBDisplayBlockCenter" selection="single"
-                                 selectionListener="#{bindings.ScmPurchaseBidCompHeaderRO.treeModel.makeCurrent}"
-                                 selectedRowKeys="#{bindings.ScmPurchaseBidCompHeaderRO.collectionModel.selectedRow}">
-                      <af:listItem id="li1" styleClass="WBDisplayBlock WBDisplayBlockPadding WBDisplayBlockCenterUndo"/>
-                    </af:listView>
                   </af:panelGroupLayout>
                 </f:facet>
               </af:panelSplitter>

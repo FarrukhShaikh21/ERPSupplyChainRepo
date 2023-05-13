@@ -880,11 +880,18 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCM_0019">
+      <page>/SCM_0019.jsf</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>ACT-GOTOSCM-MENU</from-outcome>
         <to-activity-id>doSetERPModuleActionRights</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__386">
+        <from-outcome>ERP-ACT-SCM_0019</from-outcome>
+        <to-activity-id>SCM_0019</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__4">
