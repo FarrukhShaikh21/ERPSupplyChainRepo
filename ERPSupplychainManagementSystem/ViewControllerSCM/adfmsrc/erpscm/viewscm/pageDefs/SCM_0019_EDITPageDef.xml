@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SCM_0019_EDITPageDef"
+                Package="erpscm.viewscm.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ScmPurchaseOrderHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseOrderHeaderCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="PoHeaderCode">
+      <AttrNames>
+        <Item Value="PoHeaderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="PoDate">
+      <AttrNames>
+        <Item Value="PoDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
