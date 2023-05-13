@@ -898,15 +898,17 @@
         <fixed-outcome>ERPBACKCRUD</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="CWPSCM_0019_EDIT">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SCM_0019_ADD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>ACT-GOTOSCM-MENU</from-outcome>
         <to-activity-id>doSetERPModuleActionRights</to-activity-id>
-      </control-flow-case>
-      <control-flow-case id="__386">
-        <from-outcome>ERP-ACT-SCM_0019</from-outcome>
-        <to-activity-id>SCM_0019</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__4">
@@ -1010,6 +1012,10 @@
       <control-flow-case id="__375">
         <from-outcome>ERP-ACT-SCM_0018</from-outcome>
         <to-activity-id>SCM_0018</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__396">
+        <from-outcome>ERP-ACT-SCM_0019</from-outcome>
+        <to-activity-id>SCM_0019</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__24">
@@ -2239,6 +2245,10 @@
         <from-outcome>ACT-ERP-SCM-0019-EDIT</from-outcome>
         <to-activity-id>EWPSCM_0019_EDIT</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__394">
+        <from-outcome>ERP-ACT-SCM_0019_ADD</from-outcome>
+        <to-activity-id>CWPSCM_0019_EDIT</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__388">
       <from-activity-id>EWPSCM_0019_EDIT</from-activity-id>
@@ -2259,6 +2269,13 @@
       <control-flow-case id="__393">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0019</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__397">
+      <from-activity-id>CWPSCM_0019_EDIT</from-activity-id>
+      <control-flow-case id="__398">
+        <from-outcome>ERP-ACT-SCM_0019_ADD</from-outcome>
+        <to-activity-id>SCM_0019_EDIT</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
