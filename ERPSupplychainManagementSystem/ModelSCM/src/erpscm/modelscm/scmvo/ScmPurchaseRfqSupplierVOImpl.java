@@ -50,6 +50,9 @@ public class ScmPurchaseRfqSupplierVOImpl extends ViewObjectImpl implements ScmP
 
     public void doShowBalancePOSupplier()
     {
+        if (1==1) {
+            return;
+       }
         Integer erpRfqHeaderSno=(Integer)this.getRootApplicationModule().findViewObject("ScmPurchaseBidCompHeaderCRUD").getCurrentRow().getAttribute("RfqHeaderSno");
         String pERPWhereClahse=" exists (select '' from scm_purchase_bid_comp_supplier bs  ";
         pERPWhereClahse+=" where bs.RFQ_SUPPLIER_SNO=ScmPurchaseRfqSupplier.RFQ_SUPPLIER_SNO ";

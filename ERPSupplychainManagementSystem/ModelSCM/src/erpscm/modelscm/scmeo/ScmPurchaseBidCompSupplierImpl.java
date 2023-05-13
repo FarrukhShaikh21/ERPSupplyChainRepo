@@ -756,6 +756,13 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     protected void doDML(int operation, TransactionEvent e) {
         System.out.println("scmpurchasebidcompsupplierchancheck");
+        if (operation==DML_INSERT) {
+           populateAttributeAsChanged(REMAININGBALANCE, getQuantity());      
+       }
+        else if (operation==DML_UPDATE) {
+            populateAttributeAsChanged(ISCOMPLETE, getRemainingBalance().compareTo(new BigDecimal(0))==1?"N":"Y"); 
+           
+       }
         super.doDML(operation, e);
     }
 }

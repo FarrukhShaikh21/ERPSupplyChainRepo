@@ -71,6 +71,26 @@
     Name="AccGlProjectsVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmPaymentTermHeaderVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmFreightTermVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmFreightTermVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmFobTermVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmFobTermVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmPurchaseRfqHeaderVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmPurchaseDemandHeaderVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovPoTypeSno"
     ListVOName="AccSysGeneralValuePOTypeVO"
@@ -113,6 +133,129 @@
     </AttrArray>
     <DisplayCriteria
       Name="GlProjectsFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtPaymentTermName"
+    ListVOName="AccScmPaymentTermHeaderVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtPaymentTermName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="PaymentTermHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PaymentTermName"/>
+      <Item Value="PaymentTermHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PaymentTermName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmPaymentTermHeaderFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtFreightTermName"
+    ListVOName="AccScmFreightTermVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtFreightTermName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="FreightTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FreightTermName"/>
+      <Item Value="FreightTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FreightTermName"/>
+      <Item Value="FreightTermCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmFreightTermFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtFobTermName"
+    ListVOName="AccScmFobTermVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtFobTermName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="FobTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FobTermName"/>
+      <Item Value="FobTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FobTermName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtRfqHeaderCode"
+    ListVOName="AccScmPurchaseRfqHeaderVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtRfqHeaderCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="RfqHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RfqHeaderCode"/>
+      <Item Value="RfqHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RfqHeaderCode"/>
+      <Item Value="RfqDate"/>
+      <Item Value="txtDemandHeaderCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmPurchaseRfqHeaderFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtDemandHeaderCode"
+    ListVOName="AccScmPurchaseDemandHeaderVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtDemandHeaderCode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DemandHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DemandHeaderCode"/>
+      <Item Value="DemandHeaderSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DemandHeaderCode"/>
+      <Item Value="DemandDate"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmPurchaseDemandHeaderFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderHeader"
@@ -413,7 +556,15 @@
     PrecisionRule="true"
     EntityAttrName="txtPaymentTermName"
     EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="txt_Payment_Term_Name"/>
+    AliasName="txt_Payment_Term_Name"
+    LOVName="LovtxtPaymentTermName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtFreightTermName"
     IsQueriable="false"
@@ -421,7 +572,15 @@
     PrecisionRule="true"
     EntityAttrName="txtFreightTermName"
     EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="txt_Freight_Term_Name"/>
+    AliasName="txt_Freight_Term_Name"
+    LOVName="LovtxtFreightTermName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtFobTermName"
     PrecisionRule="true"
@@ -429,7 +588,15 @@
     EntityUsage="ScmPurchaseOrderHeader"
     AliasName="txt_Fob_Term_Name"
     IsQueriable="false"
-    IsPersistent="false"/>
+    IsPersistent="false"
+    LOVName="LovtxtFobTermName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtRfqHeaderCode"
     IsQueriable="false"
@@ -437,7 +604,15 @@
     PrecisionRule="true"
     EntityAttrName="txtRfqHeaderCode"
     EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="txt_Rfq_Header_Code"/>
+    AliasName="txt_Rfq_Header_Code"
+    LOVName="LovtxtRfqHeaderCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtDemandHeaderCode"
     PrecisionRule="true"
@@ -445,7 +620,15 @@
     EntityUsage="ScmPurchaseOrderHeader"
     AliasName="txt_Demand_Header_Code"
     IsQueriable="false"
-    IsPersistent="false"/>
+    IsPersistent="false"
+    LOVName="LovtxtDemandHeaderCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseOrderHeaderByPOHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"

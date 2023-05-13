@@ -477,6 +477,14 @@
               UpperColumns="0"
               Required="Optional"/>
             <ViewCriteriaItem
+              Name="IsComplete"
+              ViewAttribute="IsComplete"
+              Operator="="
+              Conjunction="AND"
+              Value="N"
+              UpperColumns="0"
+              Required="Optional"/>
+            <ViewCriteriaItem
               Name="ScmPurchaseBidCompHeaderVO"
               ViewAttribute="ScmPurchaseBidCompHeaderVO"
               Operator="EXISTS"

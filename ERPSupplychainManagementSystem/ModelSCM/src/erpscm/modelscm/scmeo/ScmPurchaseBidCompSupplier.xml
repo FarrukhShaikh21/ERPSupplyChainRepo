@@ -550,7 +550,9 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[return (Quantity==null?0:Quantity) -  (ScmPurchaseOrderLines?.sum("PoApproveQuantity")==null?0:ScmPurchaseOrderLines?.sum("PoApproveQuantity-(CancelQuantity==null?0:CancelQuantity)"))]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[return (Quantity==null?0:Quantity) -  (ScmPurchaseOrderLines?.sum("PoApproveQuantity")==null?0:ScmPurchaseOrderLines?.sum("PoApproveQuantity"))]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -567,7 +569,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER">
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
