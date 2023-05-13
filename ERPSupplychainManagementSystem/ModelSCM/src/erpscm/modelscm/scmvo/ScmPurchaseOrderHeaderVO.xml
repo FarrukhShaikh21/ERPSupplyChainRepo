@@ -91,6 +91,18 @@
     Name="AccScmPurchaseDemandHeaderVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
     RowLevelBinds="true"/>
+<ViewAccessor
+    Name="AccAdminCompanyVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyCompanyAccessWiseVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyCompanyAccessWiseVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmSupplierVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovPoTypeSno"
     ListVOName="AccSysGeneralValuePOTypeVO"
@@ -256,6 +268,56 @@
     </AttrArray>
     <DisplayCriteria
       Name="ScmPurchaseDemandHeaderFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLocationName"
+    ListVOName="AccAdminCompanyVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="LocationId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSupplierName"
+    ListVOName="AccScmSupplierVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SupplierSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SupplierName"/>
+      <Item Value="SupplierSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SupplierName"/>
+      <Item Value="SupplierShortCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmSupplierFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderHeader"
@@ -524,7 +586,15 @@
     PrecisionRule="true"
     EntityAttrName="txtLocationName"
     EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="TXT_LOCATION_NAME"/>
+    AliasName="TXT_LOCATION_NAME"
+    LOVName="LovtxtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtTempDepartmentName"
     IsQueriable="false"
@@ -622,6 +692,22 @@
     IsQueriable="false"
     IsPersistent="false"
     LOVName="LovtxtDemandHeaderCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSupplierName"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierName"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="txt_Supplier_Name"
+    LOVName="LovtxtSupplierName"
+    IsQueriable="false"
+    IsPersistent="false">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

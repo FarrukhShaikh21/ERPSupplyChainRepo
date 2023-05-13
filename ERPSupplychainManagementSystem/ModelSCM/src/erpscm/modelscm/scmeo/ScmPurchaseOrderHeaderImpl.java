@@ -73,6 +73,7 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         txtFobTermName,
         txtRfqHeaderCode,
         txtDemandHeaderCode,
+        txtSupplierName,
         ScmPurchaseOrderCharges,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderLines,
@@ -85,8 +86,7 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         ScmFreightTerm,
         ScmFobTerm,
         ScmPurchaseDemandHeader;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -157,6 +157,7 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int TXTFOBTERMNAME = AttributesEnum.txtFobTermName.index();
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
+    public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int SCMPURCHASEORDERCHARGES = AttributesEnum.ScmPurchaseOrderCharges.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
@@ -934,6 +935,22 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
      */
     public void settxtDemandHeaderCode(Integer value) {
         setAttributeInternal(TXTDEMANDHEADERCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSupplierName, using the alias name txtSupplierName.
+     * @return the value of txtSupplierName
+     */
+    public String gettxtSupplierName() {
+        return (String) getAttributeInternal(TXTSUPPLIERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierName.
+     * @param value value to set the txtSupplierName
+     */
+    public void settxtSupplierName(String value) {
+        setAttributeInternal(TXTSUPPLIERNAME, value);
     }
 
     /**

@@ -18,5 +18,9 @@
         <Item Value="PoDate"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
   </bindings>
 </pageDefinition>
