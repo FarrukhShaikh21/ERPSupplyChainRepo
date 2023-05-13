@@ -41,17 +41,6 @@
                               <af:gridRow marginTop="5px" height="auto" id="gr1">
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
                                   <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                    <af:inputText value="#{bindings.CompareHeaderSno.inputValue}"
-                                                  label="#{bindings.CompareHeaderSno.hints.label}"
-                                                  required="#{bindings.CompareHeaderSno.hints.mandatory}"
-                                                  columns="#{bindings.CompareHeaderSno.hints.displayWidth}"
-                                                  maximumLength="#{bindings.CompareHeaderSno.hints.precision}"
-                                                  shortDesc="#{bindings.CompareHeaderSno.hints.tooltip}" id="it1"
-                                                  rendered="false">
-                                      <f:validator binding="#{bindings.CompareHeaderSno.validator}"/>
-                                      <af:convertNumber groupingUsed="false"
-                                                        pattern="#{bindings.CompareHeaderSno.format}"/>
-                                    </af:inputText>
                                     <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
                                              styleClass="ERPLink" action="ERP-QRY-SCM_0018_EDIT"
                                              shortDesc="BID Code, Click To View Record"/>
@@ -61,6 +50,16 @@
                                       <af:convertNumber groupingUsed="false"
                                                         pattern="#{bindings.ScmPurchaseBidCompHeaderRO.hints.CompareHeaderCode.format}"/>
                                     </af:outputFormatted>
+                                    <af:inputText value="#{bindings.PoHeaderSno.inputValue}"
+                                                  label="#{bindings.PoHeaderSno.hints.label}"
+                                                  required="#{bindings.PoHeaderSno.hints.mandatory}"
+                                                  columns="#{bindings.PoHeaderSno.hints.displayWidth}"
+                                                  maximumLength="#{bindings.PoHeaderSno.hints.precision}"
+                                                  shortDesc="#{bindings.PoHeaderSno.hints.tooltip}" id="it1"
+                                                  rendered="false">
+                                      <f:validator binding="#{bindings.PoHeaderSno.validator}"/>
+                                      <af:convertNumber groupingUsed="false" pattern="#{bindings.PoHeaderSno.format}"/>
+                                    </af:inputText>
                                   </af:panelGroupLayout>
                                 </af:gridCell>
                               </af:gridRow>
