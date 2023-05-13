@@ -886,6 +886,18 @@
     <view id="SCM_0019_EDIT">
       <page>/SCM_0019_EDIT.jsf</page>
     </view>
+    <method-call id="EWPSCM_0019_EDIT">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SCM-0019-EDIT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeQrySCM_0019_QRY">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ERPBACKCRUD</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>doSetSCMErpApplicationGlobals</from-activity-id>
       <control-flow-case id="__3">
@@ -2219,6 +2231,34 @@
       <control-flow-case id="__384">
         <from-outcome>ERPBACKCRUD</from-outcome>
         <to-activity-id>SCM_0018</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__385">
+      <from-activity-id>SCM_0019</from-activity-id>
+      <control-flow-case id="__387">
+        <from-outcome>ACT-ERP-SCM-0019-EDIT</from-outcome>
+        <to-activity-id>EWPSCM_0019_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__388">
+      <from-activity-id>EWPSCM_0019_EDIT</from-activity-id>
+      <control-flow-case id="__389">
+        <from-outcome>ACT-ERP-SCM-0019-EDIT</from-outcome>
+        <to-activity-id>SCM_0019_EDIT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__390">
+      <from-activity-id>SCM_0019_EDIT</from-activity-id>
+      <control-flow-case id="__391">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>ExeQrySCM_0019_QRY</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__392">
+      <from-activity-id>ExeQrySCM_0019_QRY</from-activity-id>
+      <control-flow-case id="__393">
+        <from-outcome>ERPBACKCRUD</from-outcome>
+        <to-activity-id>SCM_0019</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

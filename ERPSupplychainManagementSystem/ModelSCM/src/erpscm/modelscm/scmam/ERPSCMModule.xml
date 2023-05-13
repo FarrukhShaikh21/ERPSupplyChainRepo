@@ -372,7 +372,11 @@
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"/>
   <ViewUsage
     Name="ScmPurchaseOrderHeaderCRUD"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"/>
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseOrderHeaderByPOHeaderSnoVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO.ScmPurchaseOrderHeaderByPOHeaderSnoVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="ScmPurchaseOrderLinesDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO"/>
