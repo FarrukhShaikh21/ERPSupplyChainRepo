@@ -13,6 +13,46 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccInvItemVO"
+    ViewObjectName="erpims.modelims.imsvo.InvItemVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvItemByCompanyByIDVC"
+      FullName="erpims.modelims.imsvo.InvItemVO.InvItemByCompanyByIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseOrderHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LovtxtItemName"
+    ListVOName="AccInvItemVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtItemName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ItemShortCode"/>
+      <Item Value="ItemShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InvItemFindVC"/>
+  </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderLines"
     Entity="erpscm.modelscm.scmeo.ScmPurchaseOrderLines"/>
@@ -552,7 +592,15 @@
     PrecisionRule="true"
     EntityAttrName="txtItemName"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="txt_Item_Name"/>
+    AliasName="txt_Item_Name"
+    LOVName="LovtxtItemName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtTotalRecord"
     IsUpdateable="false"
@@ -620,6 +668,12 @@
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompSupplierVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurcBidCompSuppScmPurchOrderLinCompSupplierSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseOrderHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinPoHeadSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

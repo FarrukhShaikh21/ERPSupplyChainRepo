@@ -67,5 +67,13 @@
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSCMModuleDataControl"/>
+    <action IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
+    <action IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>
