@@ -42,7 +42,7 @@
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
                                   <af:panelGroupLayout id="pgl8" layout="horizontal">
                                     <af:link id="l3" partialSubmit="true" icon="#{resource['images:imgView.png']}"
-                                             styleClass="ERPLink" action="ERP-QRY-SCM_0018_EDIT"
+                                             styleClass="ERPLink" action="ACT-ERP-SCM-0019-EDIT"
                                              shortDesc="BID Code, Click To View Record"/>
                                     <af:spacer width="10" height="10" id="s3"/>
                                     <af:outputFormatted value="#{item.bindings.PoHeaderCode.inputValue}" id="of2"
@@ -132,7 +132,7 @@
               <af:showPopupBehavior popupId="::p1"/>
             </af:link>
             <af:link id="l2" partialSubmit="true" icon="#{resource['images:imgNewDocument.png']}"
-                     action="ERP-ADD-SCM_0018_EDIT" shortDesc="Add New Record"/>
+                     action="ERP-ACT-SCM_0019_ADD" shortDesc="Add New Record"/>
             <af:link id="l1" icon="#{resource['images:imgExitForm.png']}" action="ERPACTEXITFORM" partialSubmit="true"
                      shortDesc="Exit Form"/>
           </af:panelGroupLayout>
