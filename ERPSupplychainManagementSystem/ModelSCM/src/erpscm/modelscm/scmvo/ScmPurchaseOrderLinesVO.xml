@@ -643,6 +643,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ChartOfAccountId"
+    PrecisionRule="true"
+    EntityAttrName="ChartOfAccountId"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="CHART_OF_ACCOUNT_ID"/>
   <ViewLinkAccessor
     Name="ScmPurchaseOrderDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"
@@ -674,6 +680,12 @@
   <ViewLinkAccessor
     Name="ScmPurchaseOrderHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinPoHeadSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlChartOfAccountsVO"
+    ViewLink="erpscm.modelscm.scmvo.GlChartOfAccountScmPurcOrderLinesChartOfAccountIdLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

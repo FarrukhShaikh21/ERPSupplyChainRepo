@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmeo;
 
+import erpfms.modelfms.fmseo.GlChartOfAccountsImpl;
+
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import erpims.modelims.imseo.InvItemImpl;
@@ -61,12 +63,15 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         StatusSno,
         txtItemName,
         txtUnitTypeName,
+        ChartOfAccountId,
+        txtCOADescription,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         ScmPurchaseOrderTaxLines,
         InvItem,
         InvUnitType,
-        ScmPurchaseBidCompSupplier;
+        ScmPurchaseBidCompSupplier,
+        GlChartOfAccounts;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -127,12 +132,15 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int STATUSSNO = AttributesEnum.StatusSno.index();
     public static final int TXTITEMNAME = AttributesEnum.txtItemName.index();
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
+    public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
+    public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int SCMPURCHASEORDERTAXLINES = AttributesEnum.ScmPurchaseOrderTaxLines.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
+    public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -725,6 +733,38 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for ChartOfAccountId, using the alias name ChartOfAccountId.
+     * @return the value of ChartOfAccountId
+     */
+    public Integer getChartOfAccountId() {
+        return (Integer) getAttributeInternal(CHARTOFACCOUNTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ChartOfAccountId.
+     * @param value value to set the ChartOfAccountId
+     */
+    public void setChartOfAccountId(Integer value) {
+        setAttributeInternal(CHARTOFACCOUNTID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCOADescription, using the alias name txtCOADescription.
+     * @return the value of txtCOADescription
+     */
+    public String gettxtCOADescription() {
+        return (String) getAttributeInternal(TXTCOADESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCOADescription.
+     * @param value value to set the txtCOADescription
+     */
+    public void settxtCOADescription(String value) {
+        setAttributeInternal(TXTCOADESCRIPTION, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getScmPurchaseOrderDiscount() {
@@ -792,6 +832,21 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      */
     public void setScmPurchaseBidCompSupplier(ScmPurchaseBidCompSupplierImpl value) {
         setAttributeInternal(SCMPURCHASEBIDCOMPSUPPLIER, value);
+    }
+
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlChartOfAccountsImpl.
+     */
+    public GlChartOfAccountsImpl getGlChartOfAccounts() {
+        return (GlChartOfAccountsImpl) getAttributeInternal(GLCHARTOFACCOUNTS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlChartOfAccountsImpl.
+     */
+    public void setGlChartOfAccounts(GlChartOfAccountsImpl value) {
+        setAttributeInternal(GLCHARTOFACCOUNTS, value);
     }
 
 
