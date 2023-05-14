@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="ScmPurchaseOrderHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseOrderHeaderCRUDIterator"/>
+    <iterator Binds="ScmPurchaseOrderLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseOrderLinesDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="PoHeaderCode">
@@ -22,5 +24,48 @@
                   id="txtLocationName"/>
     <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
                   id="txtSupplierName"/>
+    <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovtxtDemandHeaderCode"
+                  id="txtDemandHeaderCode"/>
+    <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovtxtRfqHeaderCode"
+                  id="txtRfqHeaderCode"/>
+    <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovtxtTempProjectName"
+                  id="txtTempProjectName"/>
+    <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovtxtTempDepartmentName"
+                  id="txtTempDepartmentName"/>
+    <list IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovApprovalStatusSno"
+          id="ApprovalStatusSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" id="txtTotalRecord">
+      <AttrNames>
+        <Item Value="txtTotalRecord"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" id="txtSumQuantity">
+      <AttrNames>
+        <Item Value="txtSumQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="IsSupervised">
+      <AttrNames>
+        <Item Value="IsSupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="IsUnsupervised">
+      <AttrNames>
+        <Item Value="IsUnsupervised"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="IsCancelled">
+      <AttrNames>
+        <Item Value="IsCancelled"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="ERPSCMModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSCMModuleDataControl"/>
   </bindings>
 </pageDefinition>

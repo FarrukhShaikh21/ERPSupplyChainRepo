@@ -169,17 +169,6 @@
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.PoHeaderCode.format}"/>
                                             </af:inputText>
-                                            <af:inputText value="#{bindings.BidHeaderCode.inputValue}"
-                                                          label="#{bindings.BidHeaderCode.hints.label}"
-                                                          required="#{bindings.BidHeaderCode.hints.mandatory}"
-                                                          columns="#{bindings.BidHeaderCode.hints.displayWidth}"
-                                                          maximumLength="#{bindings.BidHeaderCode.hints.precision}"
-                                                          shortDesc="#{bindings.BidHeaderCode.hints.tooltip}" id="it3"
-                                                          readOnly="true" simple="true">
-                                                <f:validator binding="#{bindings.BidHeaderCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.BidHeaderCode.format}"/>
-                                            </af:inputText>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="13%" id="gc6" halign="center"
                                                      valign="middle">
@@ -218,7 +207,7 @@
                                         <af:gridCell id="gc22" width="13%" halign="center" valign="middle">
                                             <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol8"/>
                                         </af:gridCell>
-                                        <af:gridCell id="gc23" width="21%" halign="stretch" valign="middle">
+                                        <af:gridCell id="gc23" width="20%" halign="stretch" valign="middle">
                                             <af:inputComboboxListOfValues id="txtSupplierNameId"
                                                                           popupTitle="Search and Select: #{bindings.txtSupplierName.hints.label}"
                                                                           value="#{bindings.txtSupplierName.inputValue}"
@@ -233,10 +222,30 @@
                                                 <f:validator binding="#{bindings.txtSupplierName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
+                                        <af:gridCell id="gc26" width="13%" halign="center" valign="middle">
+                                            <af:outputLabel
+                                                            id="ol11"
+                                                            value="#{bindings.txtDemandHeaderCode.hints.label}"/>
+                                        </af:gridCell>
+                                        <af:gridCell id="gc27" width="20%" valign="middle">
+                                            <af:inputComboboxListOfValues id="txtDemandHeaderCodeId"
+                                                                          popupTitle="Search and Select: #{bindings.txtDemandHeaderCode.hints.label}"
+                                                                          value="#{bindings.txtDemandHeaderCode.inputValue}"
+                                                                          label="#{bindings.txtDemandHeaderCode.hints.label}"
+                                                                          model="#{bindings.txtDemandHeaderCode.listOfValuesModel}"
+                                                                          required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
+                                                                          columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
+                                                                          simple="true">
+                                                <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.txtDemandHeaderCode.format}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:gridCell>
                                         <af:gridCell id="gc24" width="13%" halign="center" valign="middle">
                                             <af:outputLabel value="#{bindings.txtRfqHeaderCode.hints.label}" id="ol10"/>
                                         </af:gridCell>
-                                        <af:gridCell id="gc25" width="20%" halign="stretch" valign="middle">
+                                        <af:gridCell id="gc25" width="21%" halign="stretch" valign="middle">
                                             <af:inputComboboxListOfValues id="txtRfqHeaderCodeId"
                                                                           popupTitle="Search and Select: #{bindings.txtRfqHeaderCode.hints.label}"
                                                                           value="#{bindings.txtRfqHeaderCode.inputValue}"
@@ -252,23 +261,6 @@
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.txtRfqHeaderCode.format}"/>
                                             </af:inputComboboxListOfValues>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc26" width="13%" halign="center" valign="middle">
-                                            <af:outputLabel value="#{bindings.txtDemandHeaderCode.hints.label}" id="ol11"/>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc27" width="21%" valign="middle">
-                                            <af:inputText value="#{bindings.txtDemandHeaderCode.inputValue}"
-                                                          label="#{bindings.txtDemandHeaderCode.hints.label}"
-                                                          required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
-                                                          columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtDemandHeaderCode.hints.precision}"
-                                                          shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
-                                                          id="it14" simple="true" readOnly="true"
-                                                          partialTriggers="txtRfqHeaderCodeId">
-                                                <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.txtDemandHeaderCode.format}"/>
-                                            </af:inputText>
                                         </af:gridCell>
                                     </af:gridRow>
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
@@ -286,8 +278,7 @@
                                                                           columns="#{bindings.txtTempProjectName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
                                                                           simple="true" contentStyle="width:90%"
-                                                                          partialTriggers="txtLocationNameId txtRfqHeaderCodeId"
-                                                                          readOnly="true">
+                                                                          partialTriggers="txtLocationNameId txtRfqHeaderCodeId">
                                                 <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
@@ -306,8 +297,7 @@
                                                                           columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
                                                                           simple="true" contentStyle="width:90%"
-                                                                          partialTriggers="txtLocationNameId txtRfqHeaderCodeId"
-                                                                          readOnly="true">
+                                                                          partialTriggers="txtLocationNameId txtRfqHeaderCodeId">
                                                 <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
@@ -346,17 +336,6 @@
                                             <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol6"/>
                                         </af:gridCell>
                                         <af:gridCell id="gc17" columnSpan="5" halign="stretch" valign="middle">
-                                            <af:inputText value="#{bindings.txtSumBidQuantity.inputValue}"
-                                                          label="#{bindings.txtSumBidQuantity.hints.label}"
-                                                          required="#{bindings.txtSumBidQuantity.hints.mandatory}"
-                                                          columns="#{bindings.txtSumBidQuantity.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtSumBidQuantity.hints.precision}"
-                                                          shortDesc="#{bindings.txtSumBidQuantity.hints.tooltip}"
-                                                          id="it1" simple="true" rendered="false">
-                                                <f:validator binding="#{bindings.txtSumBidQuantity.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.txtSumBidQuantity.format}"/>
-                                            </af:inputText>
                                             <af:inputText value="#{bindings.Remarks.inputValue}"
                                                           label="#{bindings.Remarks.hints.label}"
                                                           required="#{bindings.Remarks.hints.mandatory}"
@@ -365,6 +344,17 @@
                                                           shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2"
                                                           simple="true" contentStyle="width:100%">
                                                 <f:validator binding="#{bindings.Remarks.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.txtSumQuantity.inputValue}"
+                                                          label="#{bindings.txtSumQuantity.hints.label}"
+                                                          required="#{bindings.txtSumQuantity.hints.mandatory}"
+                                                          columns="#{bindings.txtSumQuantity.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtSumQuantity.hints.precision}"
+                                                          shortDesc="#{bindings.txtSumQuantity.hints.tooltip}" id="it1"
+                                                          rendered="false">
+                                                <f:validator binding="#{bindings.txtSumQuantity.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.txtSumQuantity.format}"/>
                                             </af:inputText>
                                         </af:gridCell>
                                     </af:gridRow>
@@ -417,83 +407,6 @@
                                     <f:facet name="secondaryToolbar"/>
                                     <f:facet name="afterToolbar"/>
                                     <f:facet name="viewMenu"/>
-                                    <af:table value="#{bindings.ScmPurchaseBidLinesDetCRUD.collectionModel}" var="row"
-                                              rows="#{bindings.ScmPurchaseBidLinesDetCRUD.rangeSize}"
-                                              emptyText="#{bindings.ScmPurchaseBidLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                              rowBandingInterval="0"
-                                              selectedRowKeys="#{bindings.ScmPurchaseBidLinesDetCRUD.collectionModel.selectedRow}"
-                                              selectionListener="#{bindings.ScmPurchaseBidLinesDetCRUD.collectionModel.makeCurrent}"
-                                              rowSelection="single"
-                                              fetchSize="#{bindings.ScmPurchaseBidLinesDetCRUD.rangeSize}" id="t1"
-                                              partialTriggers="::l12 ::l11" columnStretching="last" autoHeightRows="5"
-                                              scrollPolicy="page">
-                                        <af:column headerText="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.txtItemName.label}"
-                                                   id="c1" width="200" displayIndex="-1">
-                                            <af:inputComboboxListOfValues id="txtItemNameId"
-                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseBidLinesDetCRUD.hints.txtItemName.label}"
-                                                                          value="#{row.bindings.txtItemName.inputValue}"
-                                                                          model="#{row.bindings.txtItemName.listOfValuesModel}"
-                                                                          required="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.txtItemName.mandatory}"
-                                                                          columns="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.txtItemName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.txtItemName.tooltip}"
-                                                                          contentStyle="width:100%" readOnly="true">
-                                                <f:validator binding="#{row.bindings.txtItemName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.txtUnitTypeName.label}"
-                                                   id="c2" width="200" displayIndex="-1">
-                                            <af:inputComboboxListOfValues id="txtUnitTypeNameId"
-                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseBidLinesDetCRUD.hints.txtUnitTypeName.label}"
-                                                                          value="#{row.bindings.txtUnitTypeName.inputValue}"
-                                                                          model="#{row.bindings.txtUnitTypeName.listOfValuesModel}"
-                                                                          required="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
-                                                                          columns="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
-                                                                          contentStyle="width:100%" readOnly="true">
-                                                <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Quantity.label}"
-                                                   id="c3" width="70" displayIndex="-1">
-                                            <af:inputText value="#{row.bindings.Quantity.inputValue}"
-                                                          label="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Quantity.label}"
-                                                          required="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Quantity.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Quantity.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Quantity.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Quantity.tooltip}"
-                                                          id="it6" readOnly="true">
-                                                <f:validator binding="#{row.bindings.Quantity.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Quantity.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.label}"
-                                                   id="c4" width="70" displayIndex="-1">
-                                            <af:inputText value="#{row.bindings.BidPrice.inputValue}"
-                                                          label="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.label}"
-                                                          required="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.tooltip}"
-                                                          id="it7">
-                                                <f:validator binding="#{row.bindings.BidPrice.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.BidPrice.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Remarks.label}"
-                                                   id="c7">
-                                            <af:inputText value="#{row.bindings.Remarks.inputValue}"
-                                                          label="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Remarks.label}"
-                                                          required="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Remarks.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Remarks.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Remarks.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseBidLinesDetCRUD.hints.Remarks.tooltip}"
-                                                          id="it11" contentStyle="width:100%">
-                                                <f:validator binding="#{row.bindings.Remarks.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                    </af:table>
                                 </af:panelCollection>
                             </af:gridCell>
                         </af:gridRow>

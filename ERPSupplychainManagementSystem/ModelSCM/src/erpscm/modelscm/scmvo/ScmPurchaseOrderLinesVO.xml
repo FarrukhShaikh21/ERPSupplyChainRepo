@@ -553,6 +553,48 @@
     EntityAttrName="txtItemName"
     EntityUsage="ScmPurchaseOrderLines"
     AliasName="txt_Item_Name"/>
+  <ViewAttribute
+    Name="txtTotalRecord"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="VIEW_ATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.txtTotalRecord_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSumQuantity"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[getRowSet().sum("Quantity")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.txtSumQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseOrderDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"
