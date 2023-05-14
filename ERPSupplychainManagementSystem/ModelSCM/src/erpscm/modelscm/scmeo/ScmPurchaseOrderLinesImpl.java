@@ -1,6 +1,10 @@
 package erpscm.modelscm.scmeo;
 
+import erpadm.modeladm.admeo.AdminCompanyImpl;
+
 import erpfms.modelfms.fmseo.GlChartOfAccountsImpl;
+
+import erpfms.modelfms.fmseo.GlProjectsImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
@@ -65,13 +69,17 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         txtUnitTypeName,
         ChartOfAccountId,
         txtCOADescription,
+        txtDepartmentName,
+        txtProjectName,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         ScmPurchaseOrderTaxLines,
         InvItem,
         InvUnitType,
         ScmPurchaseBidCompSupplier,
-        GlChartOfAccounts;
+        GlChartOfAccounts,
+        GlProjects,
+        AdminCompany;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -134,6 +142,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int TXTUNITTYPENAME = AttributesEnum.txtUnitTypeName.index();
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
+    public static final int TXTDEPARTMENTNAME = AttributesEnum.txtDepartmentName.index();
+    public static final int TXTPROJECTNAME = AttributesEnum.txtProjectName.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int SCMPURCHASEORDERTAXLINES = AttributesEnum.ScmPurchaseOrderTaxLines.index();
@@ -141,6 +151,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
     public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
+    public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
+    public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -765,6 +777,38 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtDepartmentName, using the alias name txtDepartmentName.
+     * @return the value of txtDepartmentName
+     */
+    public String gettxtDepartmentName() {
+        return (String) getAttributeInternal(TXTDEPARTMENTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDepartmentName.
+     * @param value value to set the txtDepartmentName
+     */
+    public void settxtDepartmentName(String value) {
+        setAttributeInternal(TXTDEPARTMENTNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtProjectName, using the alias name txtProjectName.
+     * @return the value of txtProjectName
+     */
+    public String gettxtProjectName() {
+        return (String) getAttributeInternal(TXTPROJECTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtProjectName.
+     * @param value value to set the txtProjectName
+     */
+    public void settxtProjectName(String value) {
+        setAttributeInternal(TXTPROJECTNAME, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getScmPurchaseOrderDiscount() {
@@ -847,6 +891,36 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      */
     public void setGlChartOfAccounts(GlChartOfAccountsImpl value) {
         setAttributeInternal(GLCHARTOFACCOUNTS, value);
+    }
+
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlProjectsImpl.
+     */
+    public GlProjectsImpl getGlProjects() {
+        return (GlProjectsImpl) getAttributeInternal(GLPROJECTS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlProjectsImpl.
+     */
+    public void setGlProjects(GlProjectsImpl value) {
+        setAttributeInternal(GLPROJECTS, value);
+    }
+
+
+    /**
+     * @return the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
+     */
+    public AdminCompanyImpl getAdminCompany() {
+        return (AdminCompanyImpl) getAttributeInternal(ADMINCOMPANY);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.
+     */
+    public void setAdminCompany(AdminCompanyImpl value) {
+        setAttributeInternal(ADMINCOMPANY, value);
     }
 
 

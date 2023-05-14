@@ -717,11 +717,51 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="txtDepartmentName"
+    Precision="100"
+    ColumnName="txt_Department_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AdminCompany?.CompanyName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtDepartmentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtProjectName"
+    Precision="100"
+    ColumnName="txt_Project_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_ORDER_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlProjects?.ProjectName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtProjectName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderDiscount"
@@ -771,6 +811,20 @@
     AssociationEnd="erpscm.modelscm.scmeo.GlChartOfAccountScmPurcOrderLinesChartOfAccountIdAsso.GlChartOfAccounts"
     AssociationOtherEnd="erpscm.modelscm.scmeo.GlChartOfAccountScmPurcOrderLinesChartOfAccountIdAsso.ScmPurchaseOrderLines"
     Type="erpfms.modelfms.fmseo.GlChartOfAccountsImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlProjects"
+    Association="erpscm.modelscm.scmeo.GLProjectScmPurchaseOrderLinesProjectSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.GLProjectScmPurchaseOrderLinesProjectSnoAsso.GlProjects"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GLProjectScmPurchaseOrderLinesProjectSnoAsso.ScmPurchaseOrderLines"
+    Type="erpfms.modelfms.fmseo.GlProjectsImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AdminCompany"
+    Association="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseOrderLinDepartmentIdAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseOrderLinDepartmentIdAsso.AdminCompany"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseOrderLinDepartmentIdAsso.ScmPurchaseOrderLines"
+    Type="erpadm.modeladm.admeo.AdminCompanyImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderLines"
@@ -835,6 +889,28 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.ChartOfAccountId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderLines4">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_PROJECTS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Order_Lines4"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.PoLinesSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderLines5">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADMIN_COMPANY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Order_Lines5"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.DepartmentId"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

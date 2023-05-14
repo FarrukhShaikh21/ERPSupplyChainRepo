@@ -27,6 +27,38 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccAdminCompanyForDeptVO"
+    ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AdminCompanyDepartmentAccessWiseVC"
+      FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyDepartmentAccessWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMP_CODE">
+        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_USER_ID">
+        <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlProjectsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlProjectsActiveVC"
+      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsActiveVC"/>
+    <ViewCriteriaUsage
+      Name="GlProjectsByCompanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -52,6 +84,58 @@
     </AttrArray>
     <DisplayCriteria
       Name="InvItemFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtProjectName"
+    ListVOName="AccGlProjectsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtProjectName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ProjectId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjectName"/>
+      <Item Value="ProjectCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlProjectsFindVC"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtDepartmentName"
+    ListVOName="AccAdminCompanyForDeptVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtDepartmentName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DepartmentId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CompanyName"/>
+      <Item Value="CompanyShortCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AdminCompanyFindVC"
+      Hint="showAndExecute"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderLines"
@@ -649,6 +733,46 @@
     EntityAttrName="ChartOfAccountId"
     EntityUsage="ScmPurchaseOrderLines"
     AliasName="CHART_OF_ACCOUNT_ID"/>
+  <ViewAttribute
+    Name="txtProjectName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtProjectName"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="txt_Project_Name"
+    LOVName="LovtxtProjectName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtDepartmentName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtDepartmentName"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="txt_Department_Name"
+    LOVName="LovtxtDepartmentName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtCOADescription"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCOADescription"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="TXT_COADESCRIPTION"/>  
   <ViewLinkAccessor
     Name="ScmPurchaseOrderDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"
@@ -686,6 +810,18 @@
   <ViewLinkAccessor
     Name="GlChartOfAccountsVO"
     ViewLink="erpscm.modelscm.scmvo.GlChartOfAccountScmPurcOrderLinesChartOfAccountIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlProjectsVO"
+    ViewLink="erpscm.modelscm.scmvo.GLProjectScmPurchaseOrderLinesProjectSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AdminCompanyVO"
+    ViewLink="erpscm.modelscm.scmvo.AdminCompanyScmPurchaseOrderLinDepartmentIdLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
