@@ -59,6 +59,27 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlChartOfAccountsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlChartOfAccountsByComnanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO.GlChartOfAccountsByComnanyVC"/>
+    <ViewCriteriaUsage
+      Name="GlChartOfAccountsLastLevelVC"
+      FullName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO.GlChartOfAccountsLastLevelVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseOrderHeaderVO?.CompanyId==null?-1:ScmPurchaseOrderHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -136,6 +157,31 @@
     <DisplayCriteria
       Name="AdminCompanyFindVC"
       Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtCOADescription"
+    ListVOName="AccGlChartOfAccountsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCOADescription"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ChartOfAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlChartOfAccountsVOFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderLines"
@@ -772,7 +818,15 @@
     PrecisionRule="true"
     EntityAttrName="txtCOADescription"
     EntityUsage="ScmPurchaseOrderLines"
-    AliasName="TXT_COADESCRIPTION"/>  
+    AliasName="TXT_COADESCRIPTION"
+    LOVName="LovtxtCOADescription">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>  
   <ViewLinkAccessor
     Name="ScmPurchaseOrderDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"

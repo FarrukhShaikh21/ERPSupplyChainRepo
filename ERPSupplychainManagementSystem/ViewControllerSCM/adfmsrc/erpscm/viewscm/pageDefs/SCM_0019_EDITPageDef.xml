@@ -75,5 +75,26 @@
             Action="removeCurrentRow"/>
     <action IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
+    <tree IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" id="ScmPurchaseOrderLinesDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO" Name="ScmPurchaseOrderLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="LineNo"/>
+          <Item Value="txtItemName"/>
+          <Item Value="txtUnitTypeName"/>
+          <Item Value="PoRate"/>
+          <Item Value="PoRequestQuantity"/>
+          <Item Value="PoApproveQuantity"/>
+          <Item Value="GrnQuantity"/>
+          <Item Value="CancelQuantity"/>
+          <Item Value="RequiredByDate"/>
+          <Item Value="PromisedDate"/>
+          <Item Value="SupplierItemName"/>
+          <Item Value="NoteToBuyer"/>
+          <Item Value="NoteToSupplier"/>
+          <Item Value="GrossAmount"/>
+          <Item Value="DiscountAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

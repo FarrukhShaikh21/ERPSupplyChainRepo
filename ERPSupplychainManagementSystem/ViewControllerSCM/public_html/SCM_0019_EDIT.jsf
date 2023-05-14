@@ -407,6 +407,212 @@
                                     <f:facet name="secondaryToolbar"/>
                                     <f:facet name="afterToolbar"/>
                                     <f:facet name="viewMenu"/>
+                                    <af:table value="#{bindings.ScmPurchaseOrderLinesDetCRUD.collectionModel}" var="row"
+                                              rows="#{bindings.ScmPurchaseOrderLinesDetCRUD.rangeSize}"
+                                              emptyText="#{bindings.ScmPurchaseOrderLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.ScmPurchaseOrderLinesDetCRUD.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.ScmPurchaseOrderLinesDetCRUD.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.ScmPurchaseOrderLinesDetCRUD.rangeSize}" id="t1"
+                                              partialTriggers="::l12 ::l11">
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.label}"
+                                                   id="c1">
+                                            <af:inputText value="#{row.bindings.LineNo.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.tooltip}"
+                                                          id="it3">
+                                                <f:validator binding="#{row.bindings.LineNo.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.label}"
+                                                   id="c2">
+                                            <af:inputComboboxListOfValues id="txtItemNameId"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.label}"
+                                                                          value="#{row.bindings.txtItemName.inputValue}"
+                                                                          model="#{row.bindings.txtItemName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.tooltip}">
+                                                <f:validator binding="#{row.bindings.txtItemName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.label}"
+                                                   id="c3">
+                                            <af:inputText value="#{row.bindings.txtUnitTypeName.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
+                                                          id="it6">
+                                                <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.label}"
+                                                   id="c4">
+                                            <af:inputText value="#{row.bindings.PoRate.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.tooltip}"
+                                                          id="it7">
+                                                <f:validator binding="#{row.bindings.PoRate.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.label}"
+                                                   id="c5">
+                                            <af:inputText value="#{row.bindings.PoRequestQuantity.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.tooltip}"
+                                                          id="it11">
+                                                <f:validator binding="#{row.bindings.PoRequestQuantity.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.label}"
+                                                   id="c6">
+                                            <af:inputText value="#{row.bindings.PoApproveQuantity.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.tooltip}"
+                                                          id="it12">
+                                                <f:validator binding="#{row.bindings.PoApproveQuantity.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.label}"
+                                                   id="c7">
+                                            <af:inputText value="#{row.bindings.GrnQuantity.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.tooltip}"
+                                                          id="it13">
+                                                <f:validator binding="#{row.bindings.GrnQuantity.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.label}"
+                                                   id="c8">
+                                            <af:inputText value="#{row.bindings.CancelQuantity.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.tooltip}"
+                                                          id="it14">
+                                                <f:validator binding="#{row.bindings.CancelQuantity.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
+                                                   id="c9">
+                                            <af:inputDate value="#{row.bindings.RequiredByDate.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.displayWidth}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.tooltip}"
+                                                          id="id2">
+                                                <f:validator binding="#{row.bindings.RequiredByDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.label}"
+                                                   id="c10">
+                                            <af:inputDate value="#{row.bindings.PromisedDate.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.displayWidth}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.tooltip}"
+                                                          id="id3">
+                                                <f:validator binding="#{row.bindings.PromisedDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.label}"
+                                                   id="c11">
+                                            <af:inputText value="#{row.bindings.SupplierItemName.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.tooltip}"
+                                                          id="it17">
+                                                <f:validator binding="#{row.bindings.SupplierItemName.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.label}"
+                                                   id="c12">
+                                            <af:inputText value="#{row.bindings.NoteToBuyer.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.tooltip}"
+                                                          id="it18">
+                                                <f:validator binding="#{row.bindings.NoteToBuyer.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.label}"
+                                                   id="c13">
+                                            <af:inputText value="#{row.bindings.NoteToSupplier.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.tooltip}"
+                                                          id="it19">
+                                                <f:validator binding="#{row.bindings.NoteToSupplier.validator}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.label}"
+                                                   id="c14">
+                                            <af:inputText value="#{row.bindings.GrossAmount.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.tooltip}"
+                                                          id="it20">
+                                                <f:validator binding="#{row.bindings.GrossAmount.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.label}"
+                                                   id="c15">
+                                            <af:inputText value="#{row.bindings.DiscountAmount.inputValue}"
+                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.label}"
+                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.mandatory}"
+                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.displayWidth}"
+                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.precision}"
+                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.tooltip}"
+                                                          id="it21">
+                                                <f:validator binding="#{row.bindings.DiscountAmount.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                    </af:table>
                                 </af:panelCollection>
                             </af:gridCell>
                         </af:gridRow>
