@@ -96,5 +96,11 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <listOfValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" StaticList="false" Uses="LovtxtProjectName"
+                  id="txtProjectName"/>
+    <listOfValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" StaticList="false" Uses="LovtxtDepartmentName"
+                  id="txtDepartmentName"/>
+    <listOfValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" StaticList="false" Uses="LovtxtCOADescription"
+                  id="txtCOADescription"/>
   </bindings>
 </pageDefinition>

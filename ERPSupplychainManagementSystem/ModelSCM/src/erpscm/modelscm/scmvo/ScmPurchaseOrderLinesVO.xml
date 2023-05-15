@@ -36,7 +36,7 @@
       FullName="erpadm.modeladm.admvo.AdminCompanyVO.AdminCompanyDepartmentAccessWiseVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COMP_CODE">
-        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+        <TransientExpression><![CDATA[ScmPurchaseOrderHeaderVO?.CompanyId==null?-1:ScmPurchaseOrderHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
       <PIMap Variable="P_ADF_USER_ID">
         <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelUserSno()]]></TransientExpression>
@@ -55,7 +55,7 @@
       FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+        <TransientExpression><![CDATA[ScmPurchaseOrderHeaderVO?.CompanyId==null?-1:ScmPurchaseOrderHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -80,6 +80,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccInvUnitTypeVO"
+    ViewObjectName="erpims.modelims.imsvo.InvUnitTypeVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -182,6 +186,30 @@
     </AttrArray>
     <DisplayCriteria
       Name="GlChartOfAccountsVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtUnitTypeName"
+    ListVOName="AccInvUnitTypeVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtUnitTypeName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="UnitTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitTypeName"/>
+      <Item Value="UnitTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitTypeName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InvUnitTypeFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderLines"
@@ -714,7 +742,15 @@
     EntityUsage="ScmPurchaseOrderLines"
     AliasName="txt_Unit_Type_Name"
     IsQueriable="false"
-    IsPersistent="false"/>
+    IsPersistent="false"
+    LOVName="LovtxtUnitTypeName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtItemName"
     IsQueriable="false"

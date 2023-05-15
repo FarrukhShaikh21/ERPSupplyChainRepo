@@ -417,14 +417,14 @@
                                               fetchSize="#{bindings.ScmPurchaseOrderLinesDetCRUD.rangeSize}" id="t1"
                                               partialTriggers="::l12 ::l11">
                                         <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.label}"
-                                                   id="c1">
+                                                   id="c1" width="70">
                                             <af:inputText value="#{row.bindings.LineNo.inputValue}"
                                                           label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.label}"
                                                           required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.mandatory}"
                                                           columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.displayWidth}"
                                                           maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.precision}"
                                                           shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.tooltip}"
-                                                          id="it3">
+                                                          id="it3" readOnly="true">
                                                 <f:validator binding="#{row.bindings.LineNo.validator}"/>
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.format}"/>
@@ -444,18 +444,18 @@
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.label}"
                                                    id="c3">
-                                            <af:inputText value="#{row.bindings.txtUnitTypeName.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
-                                                          id="it6">
+                                            <af:inputComboboxListOfValues id="txtUnitTypeNameId"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.label}"
+                                                                          value="#{row.bindings.txtUnitTypeName.inputValue}"
+                                                                          model="#{row.bindings.txtUnitTypeName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.tooltip}">
                                                 <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
-                                            </af:inputText>
+                                            </af:inputComboboxListOfValues>
                                         </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.label}"
-                                                   id="c4">
+                                                   id="c4" width="80">
                                             <af:inputText value="#{row.bindings.PoRate.inputValue}"
                                                           label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.label}"
                                                           required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.mandatory}"
@@ -620,8 +620,38 @@
                             <af:gridCell id="gc21" width="100%" halign="stretch" valign="stretch">
                                 <af:panelAccordion discloseMany="false" id="pa1">
                                     <af:showDetailItem id="pane1" text="Other Detail Info">
-                                        <af:panelFormLayout id="pfl1" maxColumns="2" rows="1">
+                                        <af:panelFormLayout id="pfl1" maxColumns="3" rows="1">
                                             <f:facet name="footer"/>
+                                            <af:inputComboboxListOfValues id="iclov2"
+                                                                          popupTitle="Search and Select: #{bindings.txtProjectName.hints.label}"
+                                                                          value="#{bindings.txtProjectName.inputValue}"
+                                                                          label="#{bindings.txtProjectName.hints.label}"
+                                                                          model="#{bindings.txtProjectName.listOfValuesModel}"
+                                                                          required="#{bindings.txtProjectName.hints.mandatory}"
+                                                                          columns="#{bindings.txtProjectName.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtProjectName.hints.tooltip}">
+                                                <f:validator binding="#{bindings.txtProjectName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                            <af:inputComboboxListOfValues id="txtDepartmentNameId"
+                                                                          popupTitle="Search and Select: #{bindings.txtDepartmentName.hints.label}"
+                                                                          value="#{bindings.txtDepartmentName.inputValue}"
+                                                                          label="#{bindings.txtDepartmentName.hints.label}"
+                                                                          model="#{bindings.txtDepartmentName.listOfValuesModel}"
+                                                                          required="#{bindings.txtDepartmentName.hints.mandatory}"
+                                                                          columns="#{bindings.txtDepartmentName.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtDepartmentName.hints.tooltip}">
+                                                <f:validator binding="#{bindings.txtDepartmentName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                            <af:inputComboboxListOfValues id="txtCOADescriptionId"
+                                                                          popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
+                                                                          value="#{bindings.txtCOADescription.inputValue}"
+                                                                          label="#{bindings.txtCOADescription.hints.label}"
+                                                                          model="#{bindings.txtCOADescription.listOfValuesModel}"
+                                                                          required="#{bindings.txtCOADescription.hints.mandatory}"
+                                                                          columns="#{bindings.txtCOADescription.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtCOADescription.hints.tooltip}">
+                                                <f:validator binding="#{bindings.txtCOADescription.validator}"/>
+                                            </af:inputComboboxListOfValues>
                                         </af:panelFormLayout>
                                     </af:showDetailItem>
                                 </af:panelAccordion>

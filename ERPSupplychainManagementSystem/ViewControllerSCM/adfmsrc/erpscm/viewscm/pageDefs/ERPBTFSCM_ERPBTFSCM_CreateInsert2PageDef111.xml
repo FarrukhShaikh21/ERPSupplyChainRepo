@@ -4,11 +4,12 @@
                 SkipValidation="true">
   <parameters/>
   <executables>
-    <iterator Binds="ScmPurchaseOrderHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmPurchaseOrderHeaderROIterator"/>
+    <iterator Binds="ScmPurchaseOrderHeaderCRUD" RangeSize="10" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseOrderHeaderCRUDIterator"/>
   </executables>
   <bindings>
-    <action IterBinding="ScmPurchaseOrderHeaderROIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+    <action IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow" InstanceName="ERPSCMModuleDataControl.ScmPurchaseOrderHeaderCRUD"
+            DataControl="ERPSCMModuleDataControl"/>
   </bindings>
 </pageDefinition>
