@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmeo;
 
+import erpfms.modelfms.fmseo.GlTaxTypeImpl;
+
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import java.math.BigDecimal;
@@ -24,15 +26,16 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
         TaxLinesSno,
         PoLinesSno,
         PoHeaderSno,
-        TaxGroupSno,
-        TaxSno,
         TaxPercent,
         CreatedBy,
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
+        TaxLineAmount,
+        TaxTypeSno,
         ScmPurchaseOrderHeader,
-        ScmPurchaseOrderLines;
+        ScmPurchaseOrderLines,
+        GlTaxType;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -55,24 +58,35 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int TAXLINESSNO = AttributesEnum.TaxLinesSno.index();
     public static final int POLINESSNO = AttributesEnum.PoLinesSno.index();
     public static final int POHEADERSNO = AttributesEnum.PoHeaderSno.index();
-    public static final int TAXGROUPSNO = AttributesEnum.TaxGroupSno.index();
-    public static final int TAXSNO = AttributesEnum.TaxSno.index();
     public static final int TAXPERCENT = AttributesEnum.TaxPercent.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int TAXLINEAMOUNT = AttributesEnum.TaxLineAmount.index();
+    public static final int TAXTYPESNO = AttributesEnum.TaxTypeSno.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
+    public static final int GLTAXTYPE = AttributesEnum.GlTaxType.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public ScmPurchaseOrderTaxLinesImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines");
+    }
+
 
     /**
      * Gets the attribute value for TaxLinesSno, using the alias name TaxLinesSno.
@@ -122,37 +136,6 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
         setAttributeInternal(POHEADERSNO, value);
     }
 
-    /**
-     * Gets the attribute value for TaxGroupSno, using the alias name TaxGroupSno.
-     * @return the value of TaxGroupSno
-     */
-    public Integer getTaxGroupSno() {
-        return (Integer) getAttributeInternal(TAXGROUPSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for TaxGroupSno.
-     * @param value value to set the TaxGroupSno
-     */
-    public void setTaxGroupSno(Integer value) {
-        setAttributeInternal(TAXGROUPSNO, value);
-    }
-
-    /**
-     * Gets the attribute value for TaxSno, using the alias name TaxSno.
-     * @return the value of TaxSno
-     */
-    public Integer getTaxSno() {
-        return (Integer) getAttributeInternal(TAXSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for TaxSno.
-     * @param value value to set the TaxSno
-     */
-    public void setTaxSno(Integer value) {
-        setAttributeInternal(TAXSNO, value);
-    }
 
     /**
      * Gets the attribute value for TaxPercent, using the alias name TaxPercent.
@@ -235,6 +218,38 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for TaxLineAmount, using the alias name TaxLineAmount.
+     * @return the value of TaxLineAmount
+     */
+    public BigDecimal getTaxLineAmount() {
+        return (BigDecimal) getAttributeInternal(TAXLINEAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TaxLineAmount.
+     * @param value value to set the TaxLineAmount
+     */
+    public void setTaxLineAmount(BigDecimal value) {
+        setAttributeInternal(TAXLINEAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for TaxTypeSno, using the alias name TaxTypeSno.
+     * @return the value of TaxTypeSno
+     */
+    public Integer getTaxTypeSno() {
+        return (Integer) getAttributeInternal(TAXTYPESNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TaxTypeSno.
+     * @param value value to set the TaxTypeSno
+     */
+    public void setTaxTypeSno(Integer value) {
+        setAttributeInternal(TAXTYPESNO, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseOrderHeaderImpl.
      */
     public ScmPurchaseOrderHeaderImpl getScmPurchaseOrderHeader() {
@@ -262,6 +277,22 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
         setAttributeInternal(SCMPURCHASEORDERLINES, value);
     }
 
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlTaxTypeImpl.
+     */
+    public GlTaxTypeImpl getGlTaxType() {
+        return (GlTaxTypeImpl) getAttributeInternal(GLTAXTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlTaxTypeImpl.
+     */
+    public void setGlTaxType(GlTaxTypeImpl value) {
+        setAttributeInternal(GLTAXTYPE, value);
+    }
+
+
     /**
      * @param taxLinesSno key constituent
 
@@ -269,13 +300,6 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
      */
     public static Key createPrimaryKey(Integer taxLinesSno) {
         return new Key(new Object[] { taxLinesSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines");
     }
 
     /**

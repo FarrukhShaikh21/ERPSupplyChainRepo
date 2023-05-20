@@ -38,20 +38,6 @@
     EntityUsage="ScmPurchaseOrderTaxLines"
     AliasName="PO_HEADER_SNO"/>
   <ViewAttribute
-    Name="TaxGroupSno"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="TaxGroupSno"
-    EntityUsage="ScmPurchaseOrderTaxLines"
-    AliasName="TAX_GROUP_SNO"/>
-  <ViewAttribute
-    Name="TaxSno"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="TaxSno"
-    EntityUsage="ScmPurchaseOrderTaxLines"
-    AliasName="TAX_SNO"/>
-  <ViewAttribute
     Name="TaxPercent"
     IsNotNull="true"
     PrecisionRule="true"
@@ -84,4 +70,24 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmPurchaseOrderTaxLines"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="TaxLineAmount"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TaxLineAmount"
+    EntityUsage="ScmPurchaseOrderTaxLines"
+    AliasName="TAX_LINE_AMOUNT"/>
+  <ViewAttribute
+    Name="TaxTypeSno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TaxTypeSno"
+    EntityUsage="ScmPurchaseOrderTaxLines"
+    AliasName="TAX_TYPE_SNO"/>
+  <ViewLinkAccessor
+    Name="GlTaxTypeVO"
+    ViewLink="erpscm.modelscm.scmvo.GlTaxTypeScmPurchaseOrderTaxLineTaxTypeSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
