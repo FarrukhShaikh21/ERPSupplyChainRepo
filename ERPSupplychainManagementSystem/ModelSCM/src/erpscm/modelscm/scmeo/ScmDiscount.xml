@@ -267,6 +267,13 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <AccessorAttribute
+    Name="ScmPurchaseOrderDiscount"
+    Association="erpscm.modelscm.scmeo.ScmDiscountScmPurchOrderDiscountDiscountSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmDiscountScmPurchOrderDiscountDiscountSnoAsso.ScmPurchaseOrderDiscount"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmDiscountScmPurchOrderDiscountDiscountSnoAsso.ScmDiscount"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmDiscount"
     PrimaryKey="true">

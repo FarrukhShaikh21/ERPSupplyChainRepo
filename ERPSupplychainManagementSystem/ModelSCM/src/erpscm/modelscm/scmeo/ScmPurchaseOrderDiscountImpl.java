@@ -35,7 +35,8 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
         TotalDiscount,
         txtDiscountName,
         ScmPurchaseOrderHeader,
-        ScmPurchaseOrderLines;
+        ScmPurchaseOrderLines,
+        ScmDiscount;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -75,6 +76,7 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
     public static final int TXTDISCOUNTNAME = AttributesEnum.txtDiscountName.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
+    public static final int SCMDISCOUNT = AttributesEnum.ScmDiscount.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -325,6 +327,21 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
      */
     public void setScmPurchaseOrderLines(ScmPurchaseOrderLinesImpl value) {
         setAttributeInternal(SCMPURCHASEORDERLINES, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmDiscountImpl.
+     */
+    public ScmDiscountImpl getScmDiscount() {
+        return (ScmDiscountImpl) getAttributeInternal(SCMDISCOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmDiscountImpl.
+     */
+    public void setScmDiscount(ScmDiscountImpl value) {
+        setAttributeInternal(SCMDISCOUNT, value);
     }
 
 

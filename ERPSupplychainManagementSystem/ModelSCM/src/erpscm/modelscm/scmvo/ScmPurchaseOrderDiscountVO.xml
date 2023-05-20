@@ -13,6 +13,34 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccScmDiscountVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmDiscountVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtDiscountName"
+    ListVOName="AccScmDiscountVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtDiscountName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DiscountSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DiscountName"/>
+      <Item Value="DiscountSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DiscountName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderDiscount"
     Entity="erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount"/>
@@ -99,9 +127,23 @@
   <ViewAttribute
     Name="txtDiscountName"
     IsQueriable="false"
-    IsPersistent="false"
     PrecisionRule="true"
     EntityAttrName="txtDiscountName"
     EntityUsage="ScmPurchaseOrderDiscount"
-    AliasName="TXT_DISCOUNT_NAME"/>
+    AliasName="TXT_DISCOUNT_NAME"
+    IsPersistent="false"
+    LOVName="LovtxtDiscountName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="ScmDiscountVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmDiscountScmPurchOrderDiscountDiscountSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
