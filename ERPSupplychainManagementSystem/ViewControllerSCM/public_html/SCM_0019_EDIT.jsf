@@ -618,43 +618,52 @@
                         </af:gridRow>
                         <af:gridRow id="gr9" height="100%">
                             <af:gridCell id="gc21" width="100%" halign="stretch" valign="stretch">
-                                <af:panelAccordion discloseMany="false" id="pa1">
-                                    <af:showDetailItem id="pane1" text="Other Detail Info">
-                                        <af:panelFormLayout id="pfl1" maxColumns="3" rows="1">
-                                            <f:facet name="footer"/>
-                                            <af:inputComboboxListOfValues id="iclov2"
-                                                                          popupTitle="Search and Select: #{bindings.txtProjectName.hints.label}"
-                                                                          value="#{bindings.txtProjectName.inputValue}"
-                                                                          label="#{bindings.txtProjectName.hints.label}"
-                                                                          model="#{bindings.txtProjectName.listOfValuesModel}"
-                                                                          required="#{bindings.txtProjectName.hints.mandatory}"
-                                                                          columns="#{bindings.txtProjectName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtProjectName.hints.tooltip}">
-                                                <f:validator binding="#{bindings.txtProjectName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                            <af:inputComboboxListOfValues id="txtDepartmentNameId"
-                                                                          popupTitle="Search and Select: #{bindings.txtDepartmentName.hints.label}"
-                                                                          value="#{bindings.txtDepartmentName.inputValue}"
-                                                                          label="#{bindings.txtDepartmentName.hints.label}"
-                                                                          model="#{bindings.txtDepartmentName.listOfValuesModel}"
-                                                                          required="#{bindings.txtDepartmentName.hints.mandatory}"
-                                                                          columns="#{bindings.txtDepartmentName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtDepartmentName.hints.tooltip}">
-                                                <f:validator binding="#{bindings.txtDepartmentName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                            <af:inputComboboxListOfValues id="txtCOADescriptionId"
-                                                                          popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
-                                                                          value="#{bindings.txtCOADescription.inputValue}"
-                                                                          label="#{bindings.txtCOADescription.hints.label}"
-                                                                          model="#{bindings.txtCOADescription.listOfValuesModel}"
-                                                                          required="#{bindings.txtCOADescription.hints.mandatory}"
-                                                                          columns="#{bindings.txtCOADescription.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtCOADescription.hints.tooltip}">
-                                                <f:validator binding="#{bindings.txtCOADescription.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:panelFormLayout>
-                                    </af:showDetailItem>
-                                </af:panelAccordion>
+                                <af:panelGridLayout id="pgl3">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
+                                        <af:gridCell marginStart="5px" width="34%" id="gc28" halign="stretch">
+                                            <af:panelAccordion discloseMany="false" id="pa1">
+                                                <af:showDetailItem id="pane1" text="Other Detail Info">
+                                                    <af:panelFormLayout id="pfl1" maxColumns="1" rows="1">
+                                                        <f:facet name="footer"/>
+                                                        <af:inputComboboxListOfValues id="iclov2"
+                                                                                      popupTitle="Search and Select: #{bindings.txtProjectName.hints.label}"
+                                                                                      value="#{bindings.txtProjectName.inputValue}"
+                                                                                      label="#{bindings.txtProjectName.hints.label}"
+                                                                                      model="#{bindings.txtProjectName.listOfValuesModel}"
+                                                                                      required="#{bindings.txtProjectName.hints.mandatory}"
+                                                                                      columns="#{bindings.txtProjectName.hints.displayWidth}"
+                                                                                      shortDesc="#{bindings.txtProjectName.hints.tooltip}">
+                                                            <f:validator binding="#{bindings.txtProjectName.validator}"/>
+                                                        </af:inputComboboxListOfValues>
+                                                        <af:inputComboboxListOfValues id="txtDepartmentNameId"
+                                                                                      popupTitle="Search and Select: #{bindings.txtDepartmentName.hints.label}"
+                                                                                      value="#{bindings.txtDepartmentName.inputValue}"
+                                                                                      label="#{bindings.txtDepartmentName.hints.label}"
+                                                                                      model="#{bindings.txtDepartmentName.listOfValuesModel}"
+                                                                                      required="#{bindings.txtDepartmentName.hints.mandatory}"
+                                                                                      columns="#{bindings.txtDepartmentName.hints.displayWidth}"
+                                                                                      shortDesc="#{bindings.txtDepartmentName.hints.tooltip}">
+                                                            <f:validator binding="#{bindings.txtDepartmentName.validator}"/>
+                                                        </af:inputComboboxListOfValues>
+                                                        <af:inputComboboxListOfValues id="txtCOADescriptionId"
+                                                                                      popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
+                                                                                      value="#{bindings.txtCOADescription.inputValue}"
+                                                                                      label="#{bindings.txtCOADescription.hints.label}"
+                                                                                      model="#{bindings.txtCOADescription.listOfValuesModel}"
+                                                                                      required="#{bindings.txtCOADescription.hints.mandatory}"
+                                                                                      columns="#{bindings.txtCOADescription.hints.displayWidth}"
+                                                                                      shortDesc="#{bindings.txtCOADescription.hints.tooltip}">
+                                                            <f:validator binding="#{bindings.txtCOADescription.validator}"/>
+                                                        </af:inputComboboxListOfValues>
+                                                    </af:panelFormLayout>
+                                                </af:showDetailItem>
+                                            </af:panelAccordion>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="33%" id="gc29" halign="stretch"/>
+                                        <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc30"
+                                                     halign="stretch"/>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
                             </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>

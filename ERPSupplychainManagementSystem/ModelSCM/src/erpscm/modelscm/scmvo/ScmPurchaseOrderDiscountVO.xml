@@ -38,13 +38,6 @@
     EntityUsage="ScmPurchaseOrderDiscount"
     AliasName="PO_HEADER_SNO"/>
   <ViewAttribute
-    Name="DiscountGroupSno"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="DiscountGroupSno"
-    EntityUsage="ScmPurchaseOrderDiscount"
-    AliasName="DISCOUNT_GROUP_SNO"/>
-  <ViewAttribute
     Name="DiscountSno"
     IsNotNull="true"
     PrecisionRule="true"
@@ -90,4 +83,17 @@
     EntityAttrName="LastUpdatedDate"
     EntityUsage="ScmPurchaseOrderDiscount"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="DiscountAmount"
+    PrecisionRule="true"
+    EntityAttrName="DiscountAmount"
+    EntityUsage="ScmPurchaseOrderDiscount"
+    AliasName="DISCOUNT_AMOUNT"/>
+  <ViewAttribute
+    Name="TotalDiscount"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TotalDiscount"
+    EntityUsage="ScmPurchaseOrderDiscount"
+    AliasName="TOTAL_DISCOUNT"/>
 </ViewObject>

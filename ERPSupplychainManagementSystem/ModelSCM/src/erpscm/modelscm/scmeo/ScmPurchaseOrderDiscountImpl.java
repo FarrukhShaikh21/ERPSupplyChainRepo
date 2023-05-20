@@ -24,7 +24,6 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
         OrderDiscountSno,
         PoLinesSno,
         PoHeaderSno,
-        DiscountGroupSno,
         DiscountSno,
         DiscountPercent,
         DiscountReasonSno,
@@ -32,6 +31,8 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
         CreatedDate,
         LastUpdatedBy,
         LastUpdatedDate,
+        DiscountAmount,
+        TotalDiscount,
         ScmPurchaseOrderHeader,
         ScmPurchaseOrderLines;
         private static AttributesEnum[] vals = null;
@@ -56,10 +57,11 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int ORDERDISCOUNTSNO = AttributesEnum.OrderDiscountSno.index();
     public static final int POLINESSNO = AttributesEnum.PoLinesSno.index();
     public static final int POHEADERSNO = AttributesEnum.PoHeaderSno.index();
-    public static final int DISCOUNTGROUPSNO = AttributesEnum.DiscountGroupSno.index();
     public static final int DISCOUNTSNO = AttributesEnum.DiscountSno.index();
     public static final int DISCOUNTPERCENT = AttributesEnum.DiscountPercent.index();
     public static final int DISCOUNTREASONSNO = AttributesEnum.DiscountReasonSno.index();
@@ -67,6 +69,8 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
     public static final int CREATEDDATE = AttributesEnum.CreatedDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int DISCOUNTAMOUNT = AttributesEnum.DiscountAmount.index();
+    public static final int TOTALDISCOUNT = AttributesEnum.TotalDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
 
@@ -75,6 +79,14 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
      */
     public ScmPurchaseOrderDiscountImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount");
+    }
+
 
     /**
      * Gets the attribute value for OrderDiscountSno, using the alias name OrderDiscountSno.
@@ -124,21 +136,6 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
         setAttributeInternal(POHEADERSNO, value);
     }
 
-    /**
-     * Gets the attribute value for DiscountGroupSno, using the alias name DiscountGroupSno.
-     * @return the value of DiscountGroupSno
-     */
-    public Integer getDiscountGroupSno() {
-        return (Integer) getAttributeInternal(DISCOUNTGROUPSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for DiscountGroupSno.
-     * @param value value to set the DiscountGroupSno
-     */
-    public void setDiscountGroupSno(Integer value) {
-        setAttributeInternal(DISCOUNTGROUPSNO, value);
-    }
 
     /**
      * Gets the attribute value for DiscountSno, using the alias name DiscountSno.
@@ -253,6 +250,38 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for DiscountAmount, using the alias name DiscountAmount.
+     * @return the value of DiscountAmount
+     */
+    public BigDecimal getDiscountAmount() {
+        return (BigDecimal) getAttributeInternal(DISCOUNTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DiscountAmount.
+     * @param value value to set the DiscountAmount
+     */
+    public void setDiscountAmount(BigDecimal value) {
+        setAttributeInternal(DISCOUNTAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for TotalDiscount, using the alias name TotalDiscount.
+     * @return the value of TotalDiscount
+     */
+    public BigDecimal getTotalDiscount() {
+        return (BigDecimal) getAttributeInternal(TOTALDISCOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TotalDiscount.
+     * @param value value to set the TotalDiscount
+     */
+    public void setTotalDiscount(BigDecimal value) {
+        setAttributeInternal(TOTALDISCOUNT, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseOrderHeaderImpl.
      */
     public ScmPurchaseOrderHeaderImpl getScmPurchaseOrderHeader() {
@@ -280,6 +309,7 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
         setAttributeInternal(SCMPURCHASEORDERLINES, value);
     }
 
+
     /**
      * @param orderDiscountSno key constituent
 
@@ -287,13 +317,6 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
      */
     public static Key createPrimaryKey(Integer orderDiscountSno) {
         return new Key(new Object[] { orderDiscountSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount");
     }
 
     /**

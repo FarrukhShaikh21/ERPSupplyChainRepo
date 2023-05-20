@@ -75,25 +75,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="DiscountGroupSno"
-    IsNotNull="true"
-    Precision="6"
-    Scale="0"
-    ColumnName="DISCOUNT_GROUP_SNO"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_DISCOUNT">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount.DiscountGroupSno_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="DiscountSno"
     IsNotNull="true"
     Precision="6"
@@ -214,6 +195,43 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount.LastUpdatedDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="DiscountAmount"
+    Precision="16"
+    Scale="6"
+    ColumnName="DISCOUNT_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount.DiscountAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="TotalDiscount"
+    IsNotNull="true"
+    Precision="16"
+    Scale="6"
+    ColumnName="TOTAL_DISCOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_DISCOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount.TotalDiscount_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
