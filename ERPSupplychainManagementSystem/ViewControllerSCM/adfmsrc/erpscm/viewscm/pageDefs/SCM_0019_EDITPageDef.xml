@@ -8,6 +8,10 @@
               id="ScmPurchaseOrderHeaderCRUDIterator"/>
     <iterator Binds="ScmPurchaseOrderLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseOrderLinesDetCRUDIterator"/>
+    <iterator Binds="ScmPurchaseOrderDiscountDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseOrderDiscountDetCRUDIterator"/>
+    <iterator Binds="ScmPurchaseOrderTaxLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
+              id="ScmPurchaseOrderTaxLinesDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="PoHeaderCode">
@@ -96,11 +100,27 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <listOfValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" StaticList="false" Uses="LovtxtProjectName"
-                  id="txtProjectName"/>
-    <listOfValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" StaticList="false" Uses="LovtxtDepartmentName"
-                  id="txtDepartmentName"/>
-    <listOfValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" StaticList="false" Uses="LovtxtCOADescription"
-                  id="txtCOADescription"/>
+    <tree IterBinding="ScmPurchaseOrderDiscountDetCRUDIterator" id="ScmPurchaseOrderDiscountDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseOrderDiscountVO"
+                      Name="ScmPurchaseOrderDiscountDetCRUD0">
+        <AttrNames>
+          <Item Value="DiscountReasonSno"/>
+          <Item Value="txtDiscountName"/>
+          <Item Value="DiscountPercent"/>
+          <Item Value="DiscountAmount"/>
+          <Item Value="TotalDiscount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ScmPurchaseOrderTaxLinesDetCRUDIterator" id="ScmPurchaseOrderTaxLinesDetCRUD">
+      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseOrderTaxLinesVO"
+                      Name="ScmPurchaseOrderTaxLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="txtTaxTypeName"/>
+          <Item Value="TaxPercent"/>
+          <Item Value="TaxLineAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
