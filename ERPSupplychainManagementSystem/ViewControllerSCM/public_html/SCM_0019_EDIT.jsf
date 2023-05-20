@@ -548,6 +548,42 @@
                                                 <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.format}"/>
                                             </af:inputDate>
                                         </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.label}"
+                                                   id="c25">
+                                            <af:inputComboboxListOfValues id="txtCOADescriptionId"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.label}"
+                                                                          value="#{row.bindings.txtCOADescription.inputValue}"
+                                                                          model="#{row.bindings.txtCOADescription.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.tooltip}">
+                                                <f:validator binding="#{row.bindings.txtCOADescription.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.label}"
+                                                   id="c26">
+                                            <af:inputComboboxListOfValues id="txtDepartmentNameId"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.label}"
+                                                                          value="#{row.bindings.txtDepartmentName.inputValue}"
+                                                                          model="#{row.bindings.txtDepartmentName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.tooltip}">
+                                                <f:validator binding="#{row.bindings.txtDepartmentName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.label}"
+                                                   id="c24">
+                                            <af:inputComboboxListOfValues id="iclov2"
+                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.label}"
+                                                                          value="#{row.bindings.txtProjectName.inputValue}"
+                                                                          model="#{row.bindings.txtProjectName.listOfValuesModel}"
+                                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.displayWidth}"
+                                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.tooltip}">
+                                                <f:validator binding="#{row.bindings.txtProjectName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.label}"
                                                    id="c11">
                                             <af:inputText value="#{row.bindings.SupplierItemName.inputValue}"
@@ -630,7 +666,7 @@
                                                       selectionListener="#{bindings.ScmPurchaseOrderDiscountDetCRUD.collectionModel.makeCurrent}"
                                                       rowSelection="single"
                                                       fetchSize="#{bindings.ScmPurchaseOrderDiscountDetCRUD.rangeSize}"
-                                                      id="t4">
+                                                      id="t4" columnStretching="column:c17">
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.label}"
                                                            id="c16">
                                                     <af:inputText value="#{row.bindings.DiscountReasonSno.inputValue}"
