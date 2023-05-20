@@ -33,6 +33,7 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
         LastUpdatedDate,
         DiscountAmount,
         TotalDiscount,
+        txtDiscountName,
         ScmPurchaseOrderHeader,
         ScmPurchaseOrderLines;
         private static AttributesEnum[] vals = null;
@@ -71,6 +72,7 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int DISCOUNTAMOUNT = AttributesEnum.DiscountAmount.index();
     public static final int TOTALDISCOUNT = AttributesEnum.TotalDiscount.index();
+    public static final int TXTDISCOUNTNAME = AttributesEnum.txtDiscountName.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
 
@@ -279,6 +281,22 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
      */
     public void setTotalDiscount(BigDecimal value) {
         setAttributeInternal(TOTALDISCOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtDiscountName, using the alias name txtDiscountName.
+     * @return the value of txtDiscountName
+     */
+    public String gettxtDiscountName() {
+        return (String) getAttributeInternal(TXTDISCOUNTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDiscountName.
+     * @param value value to set the txtDiscountName
+     */
+    public void settxtDiscountName(String value) {
+        setAttributeInternal(TXTDISCOUNTNAME, value);
     }
 
     /**
