@@ -201,6 +201,30 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtTaxTypeName"
+    Precision="80"
+    ColumnName="TXT_TAX_TYPE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlTaxType?.TaxTypeName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines.txtTaxTypeName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="TaxTypeSno"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoHeadAssoc"

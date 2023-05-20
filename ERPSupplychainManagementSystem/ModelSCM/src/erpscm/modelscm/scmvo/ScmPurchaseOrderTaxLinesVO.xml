@@ -13,6 +13,43 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccGlTaxTypeVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlTaxTypeVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlTaxTypeVOByCompanyIDVC"
+      FullName="erpfms.modelfms.fmsvo.GlTaxTypeVO.GlTaxTypeVOByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseOrderHeaderVO?.CompanyId==null?-1:ScmPurchaseOrderHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LovtxtTaxTypeName"
+    ListVOName="AccGlTaxTypeVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtTaxTypeName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="TaxTypeName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="TaxTypeName"/>
+      <Item Value="TaxTypeCode"/>
+      <Item Value="TaxTypeShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlTaxTypeVOFindVC"
+      Hint="showAndExecute"/>
+  </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderTaxLines"
     Entity="erpscm.modelscm.scmeo.ScmPurchaseOrderTaxLines"/>
@@ -84,9 +121,31 @@
     EntityAttrName="TaxTypeSno"
     EntityUsage="ScmPurchaseOrderTaxLines"
     AliasName="TAX_TYPE_SNO"/>
+  <ViewAttribute
+    Name="txtTaxTypeName"
+    PrecisionRule="true"
+    EntityAttrName="txtTaxTypeName"
+    EntityUsage="ScmPurchaseOrderTaxLines"
+    AliasName="TXT_TAX_TYPE_NAME"
+    IsQueriable="false"
+    IsPersistent="false"
+    LOVName="LovtxtTaxTypeName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="GlTaxTypeVO"
     ViewLink="erpscm.modelscm.scmvo.GlTaxTypeScmPurchaseOrderTaxLineTaxTypeSnoVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseOrderHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinTaxPoHeadLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

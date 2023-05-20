@@ -33,6 +33,7 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
         LastUpdatedDate,
         TaxLineAmount,
         TaxTypeSno,
+        txtTaxTypeName,
         ScmPurchaseOrderHeader,
         ScmPurchaseOrderLines,
         GlTaxType;
@@ -70,6 +71,7 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int TAXLINEAMOUNT = AttributesEnum.TaxLineAmount.index();
     public static final int TAXTYPESNO = AttributesEnum.TaxTypeSno.index();
+    public static final int TXTTAXTYPENAME = AttributesEnum.txtTaxTypeName.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
     public static final int GLTAXTYPE = AttributesEnum.GlTaxType.index();
@@ -247,6 +249,22 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
      */
     public void setTaxTypeSno(Integer value) {
         setAttributeInternal(TAXTYPESNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtTaxTypeName, using the alias name txtTaxTypeName.
+     * @return the value of txtTaxTypeName
+     */
+    public String gettxtTaxTypeName() {
+        return (String) getAttributeInternal(TXTTAXTYPENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtTaxTypeName.
+     * @param value value to set the txtTaxTypeName
+     */
+    public void settxtTaxTypeName(String value) {
+        setAttributeInternal(TXTTAXTYPENAME, value);
     }
 
     /**
