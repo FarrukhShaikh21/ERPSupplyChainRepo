@@ -225,27 +225,6 @@
         Value="TaxTypeSno"/>
     </Dependencies>
   </Attribute>
-  <AccessorAttribute
-    Name="ScmPurchaseOrderHeader"
-    Association="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoHeadAssoc"
-    AssociationEnd="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoHeadAssoc.ScmPurchaseOrderHeader"
-    AssociationOtherEnd="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoHeadAssoc.ScmPurchaseOrderTaxLines"
-    Type="oracle.jbo.server.EntityImpl"
-    IsUpdateable="true"/>
-  <AccessorAttribute
-    Name="ScmPurchaseOrderLines"
-    Association="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoLinAssoc"
-    AssociationEnd="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoLinAssoc.ScmPurchaseOrderLines"
-    AssociationOtherEnd="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoLinAssoc.ScmPurchaseOrderTaxLines"
-    Type="oracle.jbo.server.EntityImpl"
-    IsUpdateable="true"/>
-  <AccessorAttribute
-    Name="GlTaxType"
-    Association="erpscm.modelscm.scmeo.GlTaxTypeScmPurchaseOrderTaxLineTaxTypeSnoAsso"
-    AssociationEnd="erpscm.modelscm.scmeo.GlTaxTypeScmPurchaseOrderTaxLineTaxTypeSnoAsso.GlTaxType"
-    AssociationOtherEnd="erpscm.modelscm.scmeo.GlTaxTypeScmPurchaseOrderTaxLineTaxTypeSnoAsso.ScmPurchaseOrderTaxLines"
-    Type="erpfms.modelfms.fmseo.GlTaxTypeImpl"
-    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderTaxLine"
     PrimaryKey="true">

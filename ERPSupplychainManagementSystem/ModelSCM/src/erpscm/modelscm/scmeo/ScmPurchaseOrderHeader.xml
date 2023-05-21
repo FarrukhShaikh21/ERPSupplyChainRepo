@@ -966,13 +966,6 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <AccessorAttribute
-    Name="ScmPurchaseOrderTaxLines"
-    Association="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoHeadAssoc"
-    AssociationEnd="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoHeadAssoc.ScmPurchaseOrderTaxLines"
-    AssociationOtherEnd="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoHeadAssoc.ScmPurchaseOrderHeader"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <AccessorAttribute
     Name="AdminCompany"
     Association="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseOrdHeaderLocationIdAsso"
     AssociationEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseOrdHeaderLocationIdAsso.AdminCompany"

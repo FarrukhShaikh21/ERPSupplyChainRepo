@@ -777,13 +777,6 @@
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <AccessorAttribute
-    Name="ScmPurchaseOrderTaxLines"
-    Association="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoLinAssoc"
-    AssociationEnd="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoLinAssoc.ScmPurchaseOrderTaxLines"
-    AssociationOtherEnd="erpscm.modelscm.scmeo.FkScmPurOrdLinTaxPoLinAssoc.ScmPurchaseOrderLines"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <AccessorAttribute
     Name="InvItem"
     Association="erpscm.modelscm.scmeo.InvItemScmPurchaseOrderLinesItemSno"
     AssociationEnd="erpscm.modelscm.scmeo.InvItemScmPurchaseOrderLinesItemSno.InvItem"

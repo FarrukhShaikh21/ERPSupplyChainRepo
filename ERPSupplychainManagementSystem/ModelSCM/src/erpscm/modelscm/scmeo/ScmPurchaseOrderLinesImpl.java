@@ -73,14 +73,14 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         TaxTypeSno,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
-        ScmPurchaseOrderTaxLines,
         InvItem,
         InvUnitType,
         ScmPurchaseBidCompSupplier,
         GlChartOfAccounts,
         GlProjects,
         AdminCompany;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -146,7 +146,6 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int TAXTYPESNO = AttributesEnum.TaxTypeSno.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
-    public static final int SCMPURCHASEORDERTAXLINES = AttributesEnum.ScmPurchaseOrderTaxLines.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
@@ -830,12 +829,6 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         setAttributeInternal(SCMPURCHASEORDERHEADER, value);
     }
 
-    /**
-     * @return the associated entity oracle.jbo.RowIterator.
-     */
-    public RowIterator getScmPurchaseOrderTaxLines() {
-        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERTAXLINES);
-    }
 
     /**
      * @return the associated entity erpims.modelims.imseo.InvItemImpl.

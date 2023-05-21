@@ -137,16 +137,4 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
-  <ViewLinkAccessor
-    Name="GlTaxTypeVO"
-    ViewLink="erpscm.modelscm.scmvo.GlTaxTypeScmPurchaseOrderTaxLineTaxTypeSnoVL"
-    Type="oracle.jbo.Row"
-    Reversed="true"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="ScmPurchaseOrderHeaderVO"
-    ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinTaxPoHeadLink"
-    Type="oracle.jbo.Row"
-    Reversed="true"
-    IsUpdateable="false"/>
 </ViewObject>

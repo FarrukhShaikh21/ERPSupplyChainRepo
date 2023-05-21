@@ -77,7 +77,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         ScmPurchaseOrderCharges,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderLines,
-        ScmPurchaseOrderTaxLines,
         AdminCompany,
         AdminCompany1,
         GlProjects,
@@ -86,7 +85,8 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         ScmFreightTerm,
         ScmFobTerm,
         ScmPurchaseDemandHeader;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -161,7 +161,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int SCMPURCHASEORDERCHARGES = AttributesEnum.ScmPurchaseOrderCharges.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
-    public static final int SCMPURCHASEORDERTAXLINES = AttributesEnum.ScmPurchaseOrderTaxLines.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
@@ -974,12 +973,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         return (RowIterator) getAttributeInternal(SCMPURCHASEORDERLINES);
     }
 
-    /**
-     * @return the associated entity oracle.jbo.RowIterator.
-     */
-    public RowIterator getScmPurchaseOrderTaxLines() {
-        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERTAXLINES);
-    }
 
     /**
      * @return the associated entity erpadm.modeladm.admeo.AdminCompanyImpl.

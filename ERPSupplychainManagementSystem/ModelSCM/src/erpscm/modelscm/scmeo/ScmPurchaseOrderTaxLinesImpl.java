@@ -34,10 +34,9 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
         TaxLineAmount,
         TaxTypeSno,
         txtTaxTypeName,
-        ScmPurchaseOrderHeader,
-        ScmPurchaseOrderLines,
         GlTaxType;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -72,8 +71,6 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
     public static final int TAXLINEAMOUNT = AttributesEnum.TaxLineAmount.index();
     public static final int TAXTYPESNO = AttributesEnum.TaxTypeSno.index();
     public static final int TXTTAXTYPENAME = AttributesEnum.txtTaxTypeName.index();
-    public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
-    public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
     public static final int GLTAXTYPE = AttributesEnum.GlTaxType.index();
 
     /**
@@ -265,34 +262,6 @@ public class ScmPurchaseOrderTaxLinesImpl extends ERPEntityImpl {
      */
     public void settxtTaxTypeName(String value) {
         setAttributeInternal(TXTTAXTYPENAME, value);
-    }
-
-    /**
-     * @return the associated entity ScmPurchaseOrderHeaderImpl.
-     */
-    public ScmPurchaseOrderHeaderImpl getScmPurchaseOrderHeader() {
-        return (ScmPurchaseOrderHeaderImpl) getAttributeInternal(SCMPURCHASEORDERHEADER);
-    }
-
-    /**
-     * Sets <code>value</code> as the associated entity ScmPurchaseOrderHeaderImpl.
-     */
-    public void setScmPurchaseOrderHeader(ScmPurchaseOrderHeaderImpl value) {
-        setAttributeInternal(SCMPURCHASEORDERHEADER, value);
-    }
-
-    /**
-     * @return the associated entity ScmPurchaseOrderLinesImpl.
-     */
-    public ScmPurchaseOrderLinesImpl getScmPurchaseOrderLines() {
-        return (ScmPurchaseOrderLinesImpl) getAttributeInternal(SCMPURCHASEORDERLINES);
-    }
-
-    /**
-     * Sets <code>value</code> as the associated entity ScmPurchaseOrderLinesImpl.
-     */
-    public void setScmPurchaseOrderLines(ScmPurchaseOrderLinesImpl value) {
-        setAttributeInternal(SCMPURCHASEORDERLINES, value);
     }
 
 
