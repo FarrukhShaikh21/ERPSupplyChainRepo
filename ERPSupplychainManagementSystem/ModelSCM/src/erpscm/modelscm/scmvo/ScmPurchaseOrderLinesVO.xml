@@ -660,21 +660,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="TaxGroupSno"
-    PrecisionRule="true"
-    EntityAttrName="TaxGroupSno"
-    EntityUsage="ScmPurchaseOrderLines"
-    AliasName="TAX_GROUP_SNO">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.TaxGroupSno_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="TaxAmount"
     PrecisionRule="true"
     EntityAttrName="TaxAmount"
@@ -862,7 +847,13 @@
           Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
-  </ViewAttribute>  
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TaxTypeSno"
+    PrecisionRule="true"
+    EntityAttrName="TaxTypeSno"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="TAX_TYPE_SNO"/>
   <ViewLinkAccessor
     Name="ScmPurchaseOrderDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"

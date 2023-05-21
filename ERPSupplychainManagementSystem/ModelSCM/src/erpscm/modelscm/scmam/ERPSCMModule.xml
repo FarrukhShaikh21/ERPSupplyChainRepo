@@ -387,9 +387,6 @@
     Name="ScmPurchaseOrderDiscountDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderDiscountVO"/>
   <ViewUsage
-    Name="ScmPurchaseOrderTaxLinesDetCRUD"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderTaxLinesVO"/>
-  <ViewUsage
     Name="ScmPurchaseOrderHeaderForPOMergeTORfq"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO">
     <ViewCriteriaUsage
@@ -524,12 +521,6 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderLinesDetCRUD"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderDiscountDetCRUD"
-    Reversed="false"/>
-  <ViewLinkUsage
-    Name="FkScmPurOrdLinTaxPoLinLink1"
-    ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurOrdLinTaxPoLinLink"
-    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderLinesDetCRUD"
-    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderTaxLinesDetCRUD"
     Reversed="false"/>
   <ViewLinkUsage
     Name="FkScmPurOrdLinPoHeadSnoLink2"

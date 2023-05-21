@@ -560,24 +560,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="TaxGroupSno"
-    Precision="6"
-    Scale="0"
-    ColumnName="TAX_GROUP_SNO"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.TaxGroupSno_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="TaxAmount"
     Precision="16"
     Scale="6"
@@ -749,7 +731,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -758,6 +739,24 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtProjectName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="TaxTypeSno"
+    Precision="6"
+    Scale="0"
+    ColumnName="TAX_TYPE_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.TaxTypeSno_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

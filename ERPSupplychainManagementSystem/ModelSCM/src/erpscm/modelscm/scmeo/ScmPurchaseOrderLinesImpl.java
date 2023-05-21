@@ -60,7 +60,6 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         GrossAmount,
         DiscountGroupSno,
         DiscountAmount,
-        TaxGroupSno,
         TaxAmount,
         SupplierItemName,
         NetAmount,
@@ -71,6 +70,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         txtCOADescription,
         txtDepartmentName,
         txtProjectName,
+        TaxTypeSno,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         ScmPurchaseOrderTaxLines,
@@ -133,7 +133,6 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int GROSSAMOUNT = AttributesEnum.GrossAmount.index();
     public static final int DISCOUNTGROUPSNO = AttributesEnum.DiscountGroupSno.index();
     public static final int DISCOUNTAMOUNT = AttributesEnum.DiscountAmount.index();
-    public static final int TAXGROUPSNO = AttributesEnum.TaxGroupSno.index();
     public static final int TAXAMOUNT = AttributesEnum.TaxAmount.index();
     public static final int SUPPLIERITEMNAME = AttributesEnum.SupplierItemName.index();
     public static final int NETAMOUNT = AttributesEnum.NetAmount.index();
@@ -144,6 +143,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int TXTDEPARTMENTNAME = AttributesEnum.txtDepartmentName.index();
     public static final int TXTPROJECTNAME = AttributesEnum.txtProjectName.index();
+    public static final int TAXTYPESNO = AttributesEnum.TaxTypeSno.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int SCMPURCHASEORDERTAXLINES = AttributesEnum.ScmPurchaseOrderTaxLines.index();
@@ -632,21 +632,6 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         setAttributeInternal(DISCOUNTAMOUNT, value);
     }
 
-    /**
-     * Gets the attribute value for TaxGroupSno, using the alias name TaxGroupSno.
-     * @return the value of TaxGroupSno
-     */
-    public Integer getTaxGroupSno() {
-        return (Integer) getAttributeInternal(TAXGROUPSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for TaxGroupSno.
-     * @param value value to set the TaxGroupSno
-     */
-    public void setTaxGroupSno(Integer value) {
-        setAttributeInternal(TAXGROUPSNO, value);
-    }
 
     /**
      * Gets the attribute value for TaxAmount, using the alias name TaxAmount.
@@ -806,6 +791,22 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      */
     public void settxtProjectName(String value) {
         setAttributeInternal(TXTPROJECTNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for TaxTypeSno, using the alias name TaxTypeSno.
+     * @return the value of TaxTypeSno
+     */
+    public Integer getTaxTypeSno() {
+        return (Integer) getAttributeInternal(TAXTYPESNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TaxTypeSno.
+     * @param value value to set the TaxTypeSno
+     */
+    public void setTaxTypeSno(Integer value) {
+        setAttributeInternal(TAXTYPESNO, value);
     }
 
     /**
