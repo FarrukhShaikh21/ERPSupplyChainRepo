@@ -27,6 +27,8 @@
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_LINES"
     PrimaryKey="true">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlTaxType?.TaxTypeName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -35,6 +37,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="TaxTypeSno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="PoHeaderSno"
@@ -762,6 +768,23 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtTaxTypeName"
+    Precision="80"
+    ColumnName="txt_Tax_Type_Name"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtTaxTypeName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderDiscount"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdLinDisPoLinAssoc"
@@ -817,6 +840,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseOrderLinDepartmentIdAsso.AdminCompany"
     AssociationOtherEnd="erpscm.modelscm.scmeo.AdminCompanyScmPurchaseOrderLinDepartmentIdAsso.ScmPurchaseOrderLines"
     Type="erpadm.modeladm.admeo.AdminCompanyImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlTaxType"
+    Association="erpscm.modelscm.scmeo.GlTaxTypeScmPurchaseOrderLinesTaxTypeSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.GlTaxTypeScmPurchaseOrderLinesTaxTypeSnoAsso.GlTaxType"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GlTaxTypeScmPurchaseOrderLinesTaxTypeSnoAsso.ScmPurchaseOrderLines"
+    Type="erpfms.modelfms.fmseo.GlTaxTypeImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderLines"
@@ -903,6 +933,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.DepartmentId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderLines6">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="GLTAXTYPE_PRIMARY_KEY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Order_Lines6"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.TaxTypeSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

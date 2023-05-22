@@ -6,6 +6,8 @@ import erpfms.modelfms.fmseo.GlChartOfAccountsImpl;
 
 import erpfms.modelfms.fmseo.GlProjectsImpl;
 
+import erpfms.modelfms.fmseo.GlTaxTypeImpl;
+
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import erpims.modelims.imseo.InvItemImpl;
@@ -71,6 +73,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         txtDepartmentName,
         txtProjectName,
         TaxTypeSno,
+        txtTaxTypeName,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         InvItem,
@@ -78,9 +81,9 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         ScmPurchaseBidCompSupplier,
         GlChartOfAccounts,
         GlProjects,
-        AdminCompany;
-        static AttributesEnum[] vals = null;
-        ;
+        AdminCompany,
+        GlTaxType;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -144,6 +147,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int TXTDEPARTMENTNAME = AttributesEnum.txtDepartmentName.index();
     public static final int TXTPROJECTNAME = AttributesEnum.txtProjectName.index();
     public static final int TAXTYPESNO = AttributesEnum.TaxTypeSno.index();
+    public static final int TXTTAXTYPENAME = AttributesEnum.txtTaxTypeName.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -152,6 +156,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
+    public static final int GLTAXTYPE = AttributesEnum.GlTaxType.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -809,6 +814,22 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtTaxTypeName, using the alias name txtTaxTypeName.
+     * @return the value of txtTaxTypeName
+     */
+    public String gettxtTaxTypeName() {
+        return (String) getAttributeInternal(TXTTAXTYPENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtTaxTypeName.
+     * @param value value to set the txtTaxTypeName
+     */
+    public void settxtTaxTypeName(String value) {
+        setAttributeInternal(TXTTAXTYPENAME, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getScmPurchaseOrderDiscount() {
@@ -915,6 +936,21 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      */
     public void setAdminCompany(AdminCompanyImpl value) {
         setAttributeInternal(ADMINCOMPANY, value);
+    }
+
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlTaxTypeImpl.
+     */
+    public GlTaxTypeImpl getGlTaxType() {
+        return (GlTaxTypeImpl) getAttributeInternal(GLTAXTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlTaxTypeImpl.
+     */
+    public void setGlTaxType(GlTaxTypeImpl value) {
+        setAttributeInternal(GLTAXTYPE, value);
     }
 
 
