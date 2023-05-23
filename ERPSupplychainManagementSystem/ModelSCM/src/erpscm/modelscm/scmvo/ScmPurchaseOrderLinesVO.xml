@@ -670,21 +670,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="DiscountGroupSno"
-    PrecisionRule="true"
-    EntityAttrName="DiscountGroupSno"
-    EntityUsage="ScmPurchaseOrderLines"
-    AliasName="DISCOUNT_GROUP_SNO">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO.DiscountGroupSno_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="DiscountAmount"
     IsNotNull="true"
     PrecisionRule="true"
@@ -901,7 +886,9 @@
     EntityAttrName="txtTaxTypeName"
     EntityUsage="ScmPurchaseOrderLines"
     AliasName="txt_Tax_Type_Name"
-    LOVName="LovtxtTaxTypeName">
+    LOVName="LovtxtTaxTypeName"
+    IsQueriable="false"
+    IsPersistent="false">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

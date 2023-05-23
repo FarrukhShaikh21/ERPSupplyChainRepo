@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmSupplierSites"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="SCM_SUPPLIER_SITES"
@@ -607,6 +607,20 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmAdminProvienceScmSupplierSitesScmProvienceIdAsso.ScmSupplierSites"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseOrderHeader"
+    Association="erpscm.modelscm.scmeo.ScmSupplierSiteBillToSnoScmPurchOrderHeadAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmSupplierSiteBillToSnoScmPurchOrderHeadAsso.ScmPurchaseOrderHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmSupplierSiteBillToSnoScmPurchOrderHeadAsso.ScmSupplierSites"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmPurchaseOrderHeader1"
+    Association="erpscm.modelscm.scmeo.ScmSupplierSiteScmPurchOrderHeadShiplToSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmSupplierSiteScmPurchOrderHeadShiplToSnoAsso.ScmPurchaseOrderHeader1"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmSupplierSiteScmPurchOrderHeadShiplToSnoAsso.ScmSupplierSites1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmSupplierSites"
     PrimaryKey="true">

@@ -939,7 +939,19 @@
     ViewLink="erpscm.modelscm.scmvo.ScmPurcDemandHeadScmPurcOrdDemandHeaderSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
-    IsUpdateable="false"/>   
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmSupplierSitesVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmSupplierSiteBillToSnoScmPurchOrderHeadLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmSupplierSitesVO1"
+    ViewLink="erpscm.modelscm.scmvo.ScmSupplierSiteScmPurchOrderHeadShiplToSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>

@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmSupplierSitesVO"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   SelectListFlags="1"
   FromListFlags="1"
@@ -509,5 +509,15 @@
     ViewLink="erpscm.modelscm.scmvo.ScmAdminProvienceScmSupplierSitesScmProvienceIdVL"
     Type="oracle.jbo.Row"
     Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseOrderHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmSupplierSiteBillToSnoScmPurchOrderHeadLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseOrderHeaderVO1"
+    ViewLink="erpscm.modelscm.scmvo.ScmSupplierSiteScmPurchOrderHeadShiplToSnoLink"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

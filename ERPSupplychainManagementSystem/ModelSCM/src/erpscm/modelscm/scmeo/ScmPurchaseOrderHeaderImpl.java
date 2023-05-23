@@ -84,9 +84,10 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         ScmPaymentTermHeader,
         ScmFreightTerm,
         ScmFobTerm,
-        ScmPurchaseDemandHeader;
-        static AttributesEnum[] vals = null;
-        ;
+        ScmPurchaseDemandHeader,
+        ScmSupplierSites,
+        ScmSupplierSites1;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -169,6 +170,8 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int SCMFREIGHTTERM = AttributesEnum.ScmFreightTerm.index();
     public static final int SCMFOBTERM = AttributesEnum.ScmFobTerm.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
+    public static final int SCMSUPPLIERSITES = AttributesEnum.ScmSupplierSites.index();
+    public static final int SCMSUPPLIERSITES1 = AttributesEnum.ScmSupplierSites1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1084,6 +1087,36 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
      */
     public void setScmPurchaseDemandHeader(ScmPurchaseDemandHeaderImpl value) {
         setAttributeInternal(SCMPURCHASEDEMANDHEADER, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmSupplierSitesImpl.
+     */
+    public ScmSupplierSitesImpl getScmSupplierSites() {
+        return (ScmSupplierSitesImpl) getAttributeInternal(SCMSUPPLIERSITES);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmSupplierSitesImpl.
+     */
+    public void setScmSupplierSites(ScmSupplierSitesImpl value) {
+        setAttributeInternal(SCMSUPPLIERSITES, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmSupplierSitesImpl.
+     */
+    public ScmSupplierSitesImpl getScmSupplierSites1() {
+        return (ScmSupplierSitesImpl) getAttributeInternal(SCMSUPPLIERSITES1);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmSupplierSitesImpl.
+     */
+    public void setScmSupplierSites1(ScmSupplierSitesImpl value) {
+        setAttributeInternal(SCMSUPPLIERSITES1, value);
     }
 
 

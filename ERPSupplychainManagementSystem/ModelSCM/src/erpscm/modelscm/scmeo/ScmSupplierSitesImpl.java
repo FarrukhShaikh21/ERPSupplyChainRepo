@@ -10,6 +10,7 @@ import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 import java.sql.Timestamp;
 
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.TransactionEvent;
@@ -59,7 +60,9 @@ public class ScmSupplierSitesImpl extends ERPEntityImpl {
         ScmSupplier,
         SmCountry,
         SmCity,
-        AdminProvience;
+        AdminProvience,
+        ScmPurchaseOrderHeader,
+        ScmPurchaseOrderHeader1;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -120,6 +123,8 @@ public class ScmSupplierSitesImpl extends ERPEntityImpl {
     public static final int SMCOUNTRY = AttributesEnum.SmCountry.index();
     public static final int SMCITY = AttributesEnum.SmCity.index();
     public static final int ADMINPROVIENCE = AttributesEnum.AdminProvience.index();
+    public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
+    public static final int SCMPURCHASEORDERHEADER1 = AttributesEnum.ScmPurchaseOrderHeader1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -704,6 +709,22 @@ public class ScmSupplierSitesImpl extends ERPEntityImpl {
      */
     public void setAdminProvience(EntityImpl value) {
         setAttributeInternal(ADMINPROVIENCE, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseOrderHeader() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERHEADER);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseOrderHeader1() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERHEADER1);
     }
 
 

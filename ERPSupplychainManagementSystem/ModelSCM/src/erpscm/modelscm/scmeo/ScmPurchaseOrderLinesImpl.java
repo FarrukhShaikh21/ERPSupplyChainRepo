@@ -60,7 +60,6 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         NoteToSupplier,
         PoRate,
         GrossAmount,
-        DiscountGroupSno,
         DiscountAmount,
         TaxAmount,
         SupplierItemName,
@@ -83,7 +82,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         GlProjects,
         AdminCompany,
         GlTaxType;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -134,7 +134,6 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int NOTETOSUPPLIER = AttributesEnum.NoteToSupplier.index();
     public static final int PORATE = AttributesEnum.PoRate.index();
     public static final int GROSSAMOUNT = AttributesEnum.GrossAmount.index();
-    public static final int DISCOUNTGROUPSNO = AttributesEnum.DiscountGroupSno.index();
     public static final int DISCOUNTAMOUNT = AttributesEnum.DiscountAmount.index();
     public static final int TAXAMOUNT = AttributesEnum.TaxAmount.index();
     public static final int SUPPLIERITEMNAME = AttributesEnum.SupplierItemName.index();
@@ -604,21 +603,6 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         setAttributeInternal(GROSSAMOUNT, value);
     }
 
-    /**
-     * Gets the attribute value for DiscountGroupSno, using the alias name DiscountGroupSno.
-     * @return the value of DiscountGroupSno
-     */
-    public Integer getDiscountGroupSno() {
-        return (Integer) getAttributeInternal(DISCOUNTGROUPSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for DiscountGroupSno.
-     * @param value value to set the DiscountGroupSno
-     */
-    public void setDiscountGroupSno(Integer value) {
-        setAttributeInternal(DISCOUNTGROUPSNO, value);
-    }
 
     /**
      * Gets the attribute value for DiscountAmount, using the alias name DiscountAmount.

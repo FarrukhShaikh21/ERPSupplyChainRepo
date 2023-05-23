@@ -25,732 +25,731 @@
                   <f:facet name="buttonBar"/>
                         </af:dialog>
             </af:popup>
-            <af:decorativeBox id="db1">
+            <af:decorativeBox id="db1" topHeight="55px">
                 <f:facet name="center">
-                    <af:panelGridLayout id="pgl1" partialTriggers="l5 l1 l8 l20 l19 l9 l10 l6 l4 l7 l3 l2 d3 d4">
-                        <af:gridRow id="gr8">
-                            <af:gridCell id="gc20" valign="stretch" halign="stretch">
-                                <af:panelGridLayout id="pgl6">
-                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
-                                        <af:gridCell marginStart="5px" width="50%" id="gc18" valign="middle"
-                                                     columnSpan="1" styleClass="ERPToolBarBackground" halign="stretch">
-                                            <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}"
-                                                           id="ot3" styleClass="ERPActivityNameFormHeading"/>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="50%" id="gc19"
-                                                     halign="end" columnSpan="1" rowSpan="1"
-                                                     styleClass="ERPToolBarBackground" valign="stretch">
-                                            <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
-                                                <af:link id="l5" partialSubmit="true"
-                                                         icon="#{resource['images:imgCloseDialog.png']}" text="Close"
-                                                         iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
-                                                         shortDesc="Close Form"/>
-                                                <af:link actionListener="#{bindings.CreateWithParams.execute}"
-                                                         text="CreateWithParams"
-                                                         disabled="#{!bindings.CreateWithParams.enabled}" id="l1"
-                                                         rendered="false"/>
-                                                <af:link actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                         id="l8" rendered="false"/>
-                                                <af:link text="UnSupervise" id="l20" partialSubmit="true"
-                                                         icon="#{resource['images:imgUnSuperviseRecord.png']}"
-                                                         iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                                         disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.BidHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
-                                                         partialTriggers="l7" shortDesc="Un Supervise Record">
-                                                    <af:setActionListener from="#{'ScmPurchaseOrderHeaderCRUDIterator'}"
-                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                                </af:link>
-                                                <af:link text="Supervise" id="l19" partialSubmit="true"
-                                                         icon="#{resource['images:imgSuperviseRecord.png']}"
-                                                         iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.BidHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
-                                                         partialTriggers="l7" shortDesc="Supervise Record">
-                                                    <af:setActionListener from="#{'ScmPurchaseOrderHeaderCRUDIterator'}"
-                                                                          to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
-                                                </af:link>
-                                                <af:link text="Delete" id="l9"
-                                                         actionListener="#{bindings.Delete.execute}"
-                                                         icon="#{resource['images:imgDeleteRecord.png']}"
-                                                         iconPosition="top" partialSubmit="true"
-                                                         disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
-                                                         shortDesc="Delete Record"/>
-                                                <af:link text="Add" id="l10"
-                                                         icon="#{resource['images:imgAddRecord.png']}"
-                                                         iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
-                                                         partialSubmit="true"
-                                                         disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
-                                                         shortDesc="Add New Record"/>
-                                                <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
-                                                         disabled="#{!bindings.Commit.enabled}" id="l6"
-                                                         rendered="false"/>
-                                                <af:link text="Undo" id="l4" icon="#{resource['images:imgUndo.png']}"
-                                                         partialSubmit="true" iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}"
-                                                         immediate="true" shortDesc="Undi Record">
-                                                    <af:resetActionListener/>
-                                                </af:link>
-                                                <af:link id="l7" partialSubmit="true"
-                                                         icon="#{resource['images:imgSave.png']}" text="Save"
-                                                         iconPosition="top"
-                                                         action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
-                                                         shortDesc="Save Record"/>
-                                                <af:spacer width="1" height="10" id="s2"/>
-                                                <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
-                                                         id="l3" rendered="false"/>
-                                                <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                                         immediate="true" id="l2" rendered="false">
-                                                    <af:resetActionListener/>
-                                                </af:link>
-                                                <f:facet name="separator">
-                                                    <af:spacer width="10" height="10" id="s1"/>
-                                                </f:facet>
-                                            </af:panelGroupLayout>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                </af:panelGridLayout>
-                            </af:gridCell>
-                        </af:gridRow>
-                        <af:gridRow height="auto" id="gr1">
-                            <af:gridCell marginStart="5px" width="100%" id="gc1" halign="stretch" columnSpan="8"
-                                         rowSpan="1" marginEnd="5px">
-                                <af:panelGridLayout id="pgl2">
-                                    <af:gridRow id="gr3" marginTop="5px" marginBottom="5px">
-                                        <af:gridCell id="gc3" columnSpan="8" styleClass="ERPEntryAreaHeading"
-                                                     halign="stretch" valign="stretch" rowSpan="1">
-                                            <af:outputText value="Purchase Order" id="ot4"
-                                                           styleClass="ERPEntryAreaFont"/>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="auto" id="gr4" marginBottom="5px">
-                                        <af:gridCell width="13%" id="gc4" marginEnd="5px" halign="center"
-                                                     valign="middle">
-                                            <af:outputLabel value="#{bindings.PoHeaderCode.hints.label}" id="ol3"/>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="20%" id="gc5" halign="stretch"
-                                                     valign="middle">
-                                            <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
-                                                          label="#{bindings.IsUnsupervised.hints.label}"
-                                                          required="#{bindings.IsUnsupervised.hints.mandatory}"
-                                                          columns="#{bindings.IsUnsupervised.hints.displayWidth}"
-                                                          maximumLength="#{bindings.IsUnsupervised.hints.precision}"
-                                                          shortDesc="#{bindings.IsUnsupervised.hints.tooltip}" id="it8"
-                                                          rendered="false">
-                                                <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.IsCancelled.inputValue}"
-                                                          label="#{bindings.IsCancelled.hints.label}"
-                                                          required="#{bindings.IsCancelled.hints.mandatory}"
-                                                          columns="#{bindings.IsCancelled.hints.displayWidth}"
-                                                          maximumLength="#{bindings.IsCancelled.hints.precision}"
-                                                          shortDesc="#{bindings.IsCancelled.hints.tooltip}" id="it10"
-                                                          rendered="false">
-                                                <f:validator binding="#{bindings.IsCancelled.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.IsSupervised.inputValue}"
-                                                          label="#{bindings.IsSupervised.hints.label}"
-                                                          required="#{bindings.IsSupervised.hints.mandatory}"
-                                                          columns="#{bindings.IsSupervised.hints.displayWidth}"
-                                                          maximumLength="#{bindings.IsSupervised.hints.precision}"
-                                                          shortDesc="#{bindings.IsSupervised.hints.tooltip}" id="it9"
-                                                          rendered="false">
-                                                <f:validator binding="#{bindings.IsSupervised.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.PoHeaderCode.inputValue}"
-                                                          label="#{bindings.PoHeaderCode.hints.label}"
-                                                          required="#{bindings.PoHeaderCode.hints.mandatory}"
-                                                          columns="#{bindings.PoHeaderCode.hints.displayWidth}"
-                                                          maximumLength="#{bindings.PoHeaderCode.hints.precision}"
-                                                          shortDesc="#{bindings.PoHeaderCode.hints.tooltip}" id="it16"
-                                                          simple="true" readOnly="true">
-                                                <f:validator binding="#{bindings.PoHeaderCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.PoHeaderCode.format}"/>
-                                            </af:inputText>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="13%" id="gc6" halign="center"
-                                                     valign="middle">
-                                            <af:outputLabel value="#{bindings.PoDate.hints.label}" id="ol1"/>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="20%" id="gc7" valign="middle">
-                                            <af:inputDate value="#{bindings.PoDate.inputValue}"
-                                                          required="#{bindings.PoDate.hints.mandatory}"
-                                                          columns="#{bindings.PoDate.hints.displayWidth}"
-                                                          shortDesc="#{bindings.PoDate.hints.tooltip}" id="id1">
-                                                <f:validator binding="#{bindings.PoDate.validator}"/>
-                                                <af:convertDateTime pattern="#{bindings.PoDate.format}"/>
-                                            </af:inputDate>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="13%" id="gc8" halign="center"
-                                                     valign="middle">
-                                            <af:outputLabel value="#{bindings.txtLocationName.hints.label}" id="ol2"/>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="21%" marginEnd="5px" id="gc9"
-                                                     halign="stretch" valign="middle">
-                                            <af:inputComboboxListOfValues id="txtLocationNameId"
-                                                                          popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
-                                                                          value="#{bindings.txtLocationName.inputValue}"
-                                                                          label="#{bindings.txtLocationName.hints.label}"
-                                                                          model="#{bindings.txtLocationName.listOfValuesModel}"
-                                                                          required="#{bindings.txtLocationName.hints.mandatory}"
-                                                                          columns="#{bindings.txtLocationName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:90%"
-                                                                          autoSubmit="true">
-                                                <f:validator binding="#{bindings.txtLocationName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                    <af:gridRow id="gr10" marginTop="5px" marginBottom="5px">
-                                        <af:gridCell id="gc22" width="13%" halign="center" valign="middle">
-                                            <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol8"/>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc23" width="20%" halign="stretch" valign="middle">
-                                            <af:inputComboboxListOfValues id="txtSupplierNameId"
-                                                                          popupTitle="Search and Select: #{bindings.txtSupplierName.hints.label}"
-                                                                          value="#{bindings.txtSupplierName.inputValue}"
-                                                                          label="#{bindings.txtSupplierName.hints.label}"
-                                                                          model="#{bindings.txtSupplierName.listOfValuesModel}"
-                                                                          required="#{bindings.txtSupplierName.hints.mandatory}"
-                                                                          columns="#{bindings.txtSupplierName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
-                                                                          simple="true"
-                                                                          partialTriggers="txtLocationNameId"
-                                                                          contentStyle="width:90%" autoSubmit="true">
-                                                <f:validator binding="#{bindings.txtSupplierName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc26" width="13%" halign="center" valign="middle">
-                                            <af:outputLabel
-                                                            id="ol11"
-                                                            value="#{bindings.txtDemandHeaderCode.hints.label}"/>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc27" width="20%" valign="middle">
-                                            <af:inputComboboxListOfValues id="txtDemandHeaderCodeId"
-                                                                          popupTitle="Search and Select: #{bindings.txtDemandHeaderCode.hints.label}"
-                                                                          value="#{bindings.txtDemandHeaderCode.inputValue}"
-                                                                          label="#{bindings.txtDemandHeaderCode.hints.label}"
-                                                                          model="#{bindings.txtDemandHeaderCode.listOfValuesModel}"
-                                                                          required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
-                                                                          columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
-                                                                          simple="true">
-                                                <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.txtDemandHeaderCode.format}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc24" width="13%" halign="center" valign="middle">
-                                            <af:outputLabel value="#{bindings.txtRfqHeaderCode.hints.label}" id="ol10"/>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc25" width="21%" halign="stretch" valign="middle">
-                                            <af:inputComboboxListOfValues id="txtRfqHeaderCodeId"
-                                                                          popupTitle="Search and Select: #{bindings.txtRfqHeaderCode.hints.label}"
-                                                                          value="#{bindings.txtRfqHeaderCode.inputValue}"
-                                                                          label="#{bindings.txtRfqHeaderCode.hints.label}"
-                                                                          model="#{bindings.txtRfqHeaderCode.listOfValuesModel}"
-                                                                          required="#{bindings.txtRfqHeaderCode.hints.mandatory}"
-                                                                          columns="#{bindings.txtRfqHeaderCode.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtRfqHeaderCode.hints.tooltip}"
-                                                                          simple="true" autoSubmit="true"
-                                                                          partialTriggers="txtSupplierNameId"
-                                                                          contentStyle="width:90%">
-                                                <f:validator binding="#{bindings.txtRfqHeaderCode.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.txtRfqHeaderCode.format}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
-                                        <af:gridCell width="13%" id="gc10" halign="center" valign="middle">
-                                            <af:outputLabel value="#{bindings.txtTempProjectName.hints.label}" id="ol4"/>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="20%" id="gc11" halign="stretch"
-                                                     valign="middle">
-                                            <af:inputComboboxListOfValues id="txtProjectNameId"
-                                                                          popupTitle="Search and Select: #{bindings.txtTempProjectName.hints.label}"
-                                                                          value="#{bindings.txtTempProjectName.inputValue}"
-                                                                          label="#{bindings.txtTempProjectName.hints.label}"
-                                                                          model="#{bindings.txtTempProjectName.listOfValuesModel}"
-                                                                          required="#{bindings.txtTempProjectName.hints.mandatory}"
-                                                                          columns="#{bindings.txtTempProjectName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:90%"
-                                                                          partialTriggers="txtLocationNameId txtRfqHeaderCodeId">
-                                                <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:gridCell>
-                                        <af:gridCell width="13%" id="gc13" halign="center" valign="middle">
-                                            <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}"
-                                                            id="ol5"/>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="20%" id="gc14" halign="stretch"
-                                                     valign="middle">
-                                            <af:inputComboboxListOfValues id="iclov1"
-                                                                          popupTitle="Search and Select: #{bindings.txtTempDepartmentName.hints.label}"
-                                                                          value="#{bindings.txtTempDepartmentName.inputValue}"
-                                                                          label="#{bindings.txtTempDepartmentName.hints.label}"
-                                                                          model="#{bindings.txtTempDepartmentName.listOfValuesModel}"
-                                                                          required="#{bindings.txtTempDepartmentName.hints.mandatory}"
-                                                                          columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
-                                                                          shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:90%"
-                                                                          partialTriggers="txtLocationNameId txtRfqHeaderCodeId">
-                                                <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc12" width="13%" marginStart="5px" marginEnd="5px"
-                                                     halign="center" valign="middle">
-                                            <af:outputLabel value="#{bindings.ApprovalStatusSno.label}" id="ol7"/>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="21%" id="gc15" halign="stretch"
-                                                     valign="middle">
-                                            <af:panelGroupLayout id="pgl10" layout="horizontal"
-                                                                 styleClass="AFStretchWidth">
-                                                <af:selectOneChoice value="#{bindings.ApprovalStatusSno.inputValue}"
-                                                                    label="#{bindings.ApprovalStatusSno.label}"
-                                                                    required="#{bindings.ApprovalStatusSno.hints.mandatory}"
-                                                                    shortDesc="#{bindings.ApprovalStatusSno.hints.tooltip}"
-                                                                    id="soc1" simple="true" contentStyle="width:100%"
-                                                                    visible="#{bindings.ApprovalStatusSno.inputValue!=1 &amp;&amp; bindings.ApprovalStatusSno.inputValue!=2}">
-                                                    <f:selectItems value="#{bindings.ApprovalStatusSno.items}"
-                                                                   id="si1"/>
-                                                    <f:validator binding="#{bindings.ApprovalStatusSno.validator}"/>
-                                                </af:selectOneChoice>
-                                                <af:selectOneChoice label="Label 1"
-                                                                    value="#{bindings.ApprovalStatusSno.inputValue}"
-                                                                    id="soc2"
-                                                                    visible="#{bindings.ApprovalStatusSno.inputValue==1 || bindings.ApprovalStatusSno.inputValue==2}"
-                                                                    simple="true" contentStyle="width:100%"
-                                                                    autoSubmit="true">
-                                                    <af:selectItem label="Prepared" value="1" id="si2"/>
-                                                    <af:selectItem label="Reviewed" value="2" id="si3"/>
-                                                </af:selectOneChoice>
-                                            </af:panelGroupLayout>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                    <af:gridRow id="gr6" marginTop="5px" marginBottom="5px">
-                                        <af:gridCell id="gc16" width="13%" halign="center">
-                                            <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol6"/>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc17" columnSpan="5" halign="stretch" valign="middle">
-                                            <af:inputText value="#{bindings.Remarks.inputValue}"
-                                                          label="#{bindings.Remarks.hints.label}"
-                                                          required="#{bindings.Remarks.hints.mandatory}"
-                                                          columns="#{bindings.Remarks.hints.displayWidth}"
-                                                          maximumLength="#{bindings.Remarks.hints.precision}"
-                                                          shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2"
-                                                          simple="true" contentStyle="width:100%">
-                                                <f:validator binding="#{bindings.Remarks.validator}"/>
-                                            </af:inputText>
-                                            <af:inputText value="#{bindings.txtSumQuantity.inputValue}"
-                                                          label="#{bindings.txtSumQuantity.hints.label}"
-                                                          required="#{bindings.txtSumQuantity.hints.mandatory}"
-                                                          columns="#{bindings.txtSumQuantity.hints.displayWidth}"
-                                                          maximumLength="#{bindings.txtSumQuantity.hints.precision}"
-                                                          shortDesc="#{bindings.txtSumQuantity.hints.tooltip}" id="it1"
-                                                          rendered="false">
-                                                <f:validator binding="#{bindings.txtSumQuantity.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.txtSumQuantity.format}"/>
-                                            </af:inputText>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                </af:panelGridLayout>
-                            </af:gridCell>
-                        </af:gridRow>
-                        <af:gridRow marginTop="5px" height="auto" id="gr2">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch">
-                                <af:inputText value="#{bindings.txtItemName.inputValue}"
-                                              label="#{bindings.txtItemName.hints.label}"
-                                              required="#{bindings.txtItemName.hints.mandatory}"
-                                              columns="#{bindings.txtItemName.hints.displayWidth}"
-                                              maximumLength="#{bindings.txtItemName.hints.precision}"
-                                              shortDesc="#{bindings.txtItemName.hints.tooltip}" id="it5"
-                                              rendered="false">
-                                    <f:validator binding="#{bindings.txtItemName.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.txtTotalRecord.inputValue}"
-                                              label="#{bindings.txtTotalRecord.hints.label}"
-                                              required="#{bindings.txtTotalRecord.hints.mandatory}"
-                                              columns="#{bindings.txtTotalRecord.hints.displayWidth}"
-                                              maximumLength="#{bindings.txtTotalRecord.hints.precision}"
-                                              shortDesc="#{bindings.txtTotalRecord.hints.tooltip}" id="it4"
-                                              rendered="false">
-                                    <f:validator binding="#{bindings.txtTotalRecord.validator}"/>
-                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.txtTotalRecord.format}"/>
-                                </af:inputText>
-                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
-                                    <f:facet name="menus"/>
-                                    <f:facet name="toolbar">
-                                        <af:toolbar id="t2">
-                                            <af:link actionListener="#{bindings.CreateInsert.execute}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised=='Y'}"
-                                                     id="l12" icon="#{resource['images:imgAddRecord.png']}"
-                                                     partialSubmit="true"/>
-                                            <af:link actionListener="#{bindings.Delete1.execute}"
-                                                     disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised=='Y'}"
-                                                     id="l11" partialSubmit="true"
-                                                     icon="#{resource['images:imgDeleteRecord.png']}" immediate="true"/>
-                                        </af:toolbar>
-                                    </f:facet>
-                                    <f:facet name="statusbar">
-                                        <af:toolbar id="t3">
-                                            <af:inputText label="#{bindings.txtTotalRecord.hints.label}" id="it15" contentStyle="font-weight:bold"
-                                                          labelStyle="font-weight:bold;width:100px"
-                                                          value="#{bindings.txtTotalRecord.inputValue}"
-                                                          readOnly="true"/>
-                                        </af:toolbar>
-                                    </f:facet>
-                                    <f:facet name="secondaryToolbar"/>
-                                    <f:facet name="afterToolbar"/>
-                                    <f:facet name="viewMenu"/>
-                                    <af:table value="#{bindings.ScmPurchaseOrderLinesDetCRUD.collectionModel}" var="row"
-                                              rows="#{bindings.ScmPurchaseOrderLinesDetCRUD.rangeSize}"
-                                              emptyText="#{bindings.ScmPurchaseOrderLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                              rowBandingInterval="0"
-                                              selectedRowKeys="#{bindings.ScmPurchaseOrderLinesDetCRUD.collectionModel.selectedRow}"
-                                              selectionListener="#{bindings.ScmPurchaseOrderLinesDetCRUD.collectionModel.makeCurrent}"
-                                              rowSelection="single"
-                                              fetchSize="#{bindings.ScmPurchaseOrderLinesDetCRUD.rangeSize}" id="t1"
-                                              partialTriggers="::l12 ::l11">
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.label}"
-                                                   id="c1" width="70">
-                                            <af:inputText value="#{row.bindings.LineNo.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.tooltip}"
-                                                          id="it3" readOnly="true">
-                                                <f:validator binding="#{row.bindings.LineNo.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.label}"
-                                                   id="c2">
-                                            <af:inputComboboxListOfValues id="txtItemNameId"
-                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.label}"
-                                                                          value="#{row.bindings.txtItemName.inputValue}"
-                                                                          model="#{row.bindings.txtItemName.listOfValuesModel}"
-                                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.mandatory}"
-                                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.tooltip}">
-                                                <f:validator binding="#{row.bindings.txtItemName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.label}"
-                                                   id="c3">
-                                            <af:inputComboboxListOfValues id="txtUnitTypeNameId"
-                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.label}"
-                                                                          value="#{row.bindings.txtUnitTypeName.inputValue}"
-                                                                          model="#{row.bindings.txtUnitTypeName.listOfValuesModel}"
-                                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
-                                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.tooltip}">
-                                                <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.label}"
-                                                   id="c4" width="80">
-                                            <af:inputText value="#{row.bindings.PoRate.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.tooltip}"
-                                                          id="it7">
-                                                <f:validator binding="#{row.bindings.PoRate.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.label}"
-                                                   id="c5">
-                                            <af:inputText value="#{row.bindings.PoRequestQuantity.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.tooltip}"
-                                                          id="it11">
-                                                <f:validator binding="#{row.bindings.PoRequestQuantity.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.label}"
-                                                   id="c6">
-                                            <af:inputText value="#{row.bindings.PoApproveQuantity.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.tooltip}"
-                                                          id="it12">
-                                                <f:validator binding="#{row.bindings.PoApproveQuantity.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.label}"
-                                                   id="c7">
-                                            <af:inputText value="#{row.bindings.GrnQuantity.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.tooltip}"
-                                                          id="it13">
-                                                <f:validator binding="#{row.bindings.GrnQuantity.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.label}"
-                                                   id="c8">
-                                            <af:inputText value="#{row.bindings.CancelQuantity.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.tooltip}"
-                                                          id="it14">
-                                                <f:validator binding="#{row.bindings.CancelQuantity.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
-                                                   id="c9">
-                                            <af:inputDate value="#{row.bindings.RequiredByDate.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.displayWidth}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.tooltip}"
-                                                          id="id2">
-                                                <f:validator binding="#{row.bindings.RequiredByDate.validator}"/>
-                                                <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.format}"/>
-                                            </af:inputDate>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.label}"
-                                                   id="c10">
-                                            <af:inputDate value="#{row.bindings.PromisedDate.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.displayWidth}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.tooltip}"
-                                                          id="id3">
-                                                <f:validator binding="#{row.bindings.PromisedDate.validator}"/>
-                                                <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.format}"/>
-                                            </af:inputDate>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.label}"
-                                                   id="c25">
-                                            <af:inputComboboxListOfValues id="txtCOADescriptionId"
-                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.label}"
-                                                                          value="#{row.bindings.txtCOADescription.inputValue}"
-                                                                          model="#{row.bindings.txtCOADescription.listOfValuesModel}"
-                                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.mandatory}"
-                                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.tooltip}">
-                                                <f:validator binding="#{row.bindings.txtCOADescription.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.label}"
-                                                   id="c26">
-                                            <af:inputComboboxListOfValues id="txtDepartmentNameId"
-                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.label}"
-                                                                          value="#{row.bindings.txtDepartmentName.inputValue}"
-                                                                          model="#{row.bindings.txtDepartmentName.listOfValuesModel}"
-                                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.mandatory}"
-                                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.tooltip}">
-                                                <f:validator binding="#{row.bindings.txtDepartmentName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.label}"
-                                                   id="c24">
-                                            <af:inputComboboxListOfValues id="iclov2"
-                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.label}"
-                                                                          value="#{row.bindings.txtProjectName.inputValue}"
-                                                                          model="#{row.bindings.txtProjectName.listOfValuesModel}"
-                                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.mandatory}"
-                                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.displayWidth}"
-                                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.tooltip}">
-                                                <f:validator binding="#{row.bindings.txtProjectName.validator}"/>
-                                            </af:inputComboboxListOfValues>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.label}"
-                                                   id="c11">
-                                            <af:inputText value="#{row.bindings.SupplierItemName.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.tooltip}"
-                                                          id="it17">
-                                                <f:validator binding="#{row.bindings.SupplierItemName.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.label}"
-                                                   id="c12">
-                                            <af:inputText value="#{row.bindings.NoteToBuyer.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.tooltip}"
-                                                          id="it18">
-                                                <f:validator binding="#{row.bindings.NoteToBuyer.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.label}"
-                                                   id="c13">
-                                            <af:inputText value="#{row.bindings.NoteToSupplier.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.tooltip}"
-                                                          id="it19">
-                                                <f:validator binding="#{row.bindings.NoteToSupplier.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.label}"
-                                                   id="c14">
-                                            <af:inputText value="#{row.bindings.GrossAmount.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.tooltip}"
-                                                          id="it20">
-                                                <f:validator binding="#{row.bindings.GrossAmount.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.label}"
-                                                   id="c15">
-                                            <af:inputText value="#{row.bindings.DiscountAmount.inputValue}"
-                                                          label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.label}"
-                                                          required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.tooltip}"
-                                                          id="it21">
-                                                <f:validator binding="#{row.bindings.DiscountAmount.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                    </af:table>
-                                </af:panelCollection>
-                            </af:gridCell>
-                        </af:gridRow>
-                        <af:gridRow id="gr9" height="100%">
-                            <af:gridCell id="gc21" width="100%" halign="stretch" valign="stretch">
-                                <af:panelGridLayout id="pgl3">
-                                    <af:gridRow id="gr12">
-                                        <af:gridCell id="gc28" styleClass="ERPEntryAreaHeading" halign="stretch"
-                                                     valign="stretch" width="55%">
-                                            <af:outputText value="Discount" id="ot1" styleClass="ERPEntryAreaFont"/>
-                                        </af:gridCell>
-                                        <af:gridCell id="gc31" styleClass="ERPEntryAreaHeading" halign="stretch">
-                                            <af:outputText value="outputText1" id="ot2"
-                                                           styleClass="ERPEntryAreaFont"/>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
-                                        <af:gridCell marginStart="5px" width="55%" id="gc29" halign="stretch">
-                                            <af:table value="#{bindings.ScmPurchaseOrderDiscountDetCRUD.collectionModel}"
+                    <af:panelTabbed position="above" id="pt1">
+                        <af:showDetailItem id="tab1" text="Header">
+                            <af:panelGridLayout id="pgl2">
+                                <af:gridRow id="gr3" marginTop="5px" marginBottom="5px">
+                                    <af:gridCell id="gc3" columnSpan="8" styleClass="ERPEntryAreaHeading"
+                                                 halign="stretch" valign="stretch" rowSpan="1">
+                                        <af:outputText value="Purchase Order" id="ot4" styleClass="ERPEntryAreaFont"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" id="gr4" marginBottom="5px">
+                                    <af:gridCell width="13%" id="gc4" marginEnd="5px" halign="center" valign="middle">
+                                        <af:outputLabel value="#{bindings.PoHeaderCode.hints.label}" id="ol3"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc5" halign="stretch"
+                                                 valign="middle">
+                                        <af:inputText value="#{bindings.IsUnsupervised.inputValue}"
+                                                      label="#{bindings.IsUnsupervised.hints.label}"
+                                                      required="#{bindings.IsUnsupervised.hints.mandatory}"
+                                                      columns="#{bindings.IsUnsupervised.hints.displayWidth}"
+                                                      maximumLength="#{bindings.IsUnsupervised.hints.precision}"
+                                                      shortDesc="#{bindings.IsUnsupervised.hints.tooltip}" id="it8"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.IsUnsupervised.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.IsCancelled.inputValue}"
+                                                      label="#{bindings.IsCancelled.hints.label}"
+                                                      required="#{bindings.IsCancelled.hints.mandatory}"
+                                                      columns="#{bindings.IsCancelled.hints.displayWidth}"
+                                                      maximumLength="#{bindings.IsCancelled.hints.precision}"
+                                                      shortDesc="#{bindings.IsCancelled.hints.tooltip}" id="it10"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.IsCancelled.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.IsSupervised.inputValue}"
+                                                      label="#{bindings.IsSupervised.hints.label}"
+                                                      required="#{bindings.IsSupervised.hints.mandatory}"
+                                                      columns="#{bindings.IsSupervised.hints.displayWidth}"
+                                                      maximumLength="#{bindings.IsSupervised.hints.precision}"
+                                                      shortDesc="#{bindings.IsSupervised.hints.tooltip}" id="it9"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.IsSupervised.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.PoHeaderCode.inputValue}"
+                                                      label="#{bindings.PoHeaderCode.hints.label}"
+                                                      required="#{bindings.PoHeaderCode.hints.mandatory}"
+                                                      columns="#{bindings.PoHeaderCode.hints.displayWidth}"
+                                                      maximumLength="#{bindings.PoHeaderCode.hints.precision}"
+                                                      shortDesc="#{bindings.PoHeaderCode.hints.tooltip}" id="it16"
+                                                      simple="true" readOnly="true">
+                                            <f:validator binding="#{bindings.PoHeaderCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.PoHeaderCode.format}"/>
+                                        </af:inputText>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="13%" id="gc6" halign="center" valign="middle">
+                                        <af:outputLabel value="#{bindings.PoDate.hints.label}" id="ol1"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc7" valign="middle">
+                                        <af:inputDate value="#{bindings.PoDate.inputValue}"
+                                                      required="#{bindings.PoDate.hints.mandatory}"
+                                                      columns="#{bindings.PoDate.hints.displayWidth}"
+                                                      shortDesc="#{bindings.PoDate.hints.tooltip}" id="id1">
+                                            <f:validator binding="#{bindings.PoDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.PoDate.format}"/>
+                                        </af:inputDate>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="13%" id="gc8" halign="center" valign="middle">
+                                        <af:outputLabel value="#{bindings.txtLocationName.hints.label}" id="ol2"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="21%" marginEnd="5px" id="gc9" halign="stretch"
+                                                 valign="middle">
+                                        <af:inputComboboxListOfValues id="txtLocationNameId"
+                                                                      popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
+                                                                      value="#{bindings.txtLocationName.inputValue}"
+                                                                      label="#{bindings.txtLocationName.hints.label}"
+                                                                      model="#{bindings.txtLocationName.listOfValuesModel}"
+                                                                      required="#{bindings.txtLocationName.hints.mandatory}"
+                                                                      columns="#{bindings.txtLocationName.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.txtLocationName.hints.tooltip}"
+                                                                      simple="true" contentStyle="width:90%"
+                                                                      autoSubmit="true">
+                                            <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                                        </af:inputComboboxListOfValues>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow id="gr10" marginTop="5px" marginBottom="5px">
+                                    <af:gridCell id="gc22" width="13%" halign="center" valign="middle">
+                                        <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol8"/>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc23" width="20%" halign="stretch" valign="middle">
+                                        <af:inputComboboxListOfValues id="txtSupplierNameId"
+                                                                      popupTitle="Search and Select: #{bindings.txtSupplierName.hints.label}"
+                                                                      value="#{bindings.txtSupplierName.inputValue}"
+                                                                      label="#{bindings.txtSupplierName.hints.label}"
+                                                                      model="#{bindings.txtSupplierName.listOfValuesModel}"
+                                                                      required="#{bindings.txtSupplierName.hints.mandatory}"
+                                                                      columns="#{bindings.txtSupplierName.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
+                                                                      simple="true" partialTriggers="txtLocationNameId"
+                                                                      contentStyle="width:90%" autoSubmit="true">
+                                            <f:validator binding="#{bindings.txtSupplierName.validator}"/>
+                                        </af:inputComboboxListOfValues>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc26" width="13%" halign="center" valign="middle">
+                                        <af:outputLabel id="ol11" value="#{bindings.txtDemandHeaderCode.hints.label}"/>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc27" width="20%" valign="middle">
+                                        <af:inputComboboxListOfValues id="txtDemandHeaderCodeId"
+                                                                      popupTitle="Search and Select: #{bindings.txtDemandHeaderCode.hints.label}"
+                                                                      value="#{bindings.txtDemandHeaderCode.inputValue}"
+                                                                      label="#{bindings.txtDemandHeaderCode.hints.label}"
+                                                                      model="#{bindings.txtDemandHeaderCode.listOfValuesModel}"
+                                                                      required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
+                                                                      columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
+                                                                      simple="true">
+                                            <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.txtDemandHeaderCode.format}"/>
+                                        </af:inputComboboxListOfValues>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc24" width="13%" halign="center" valign="middle">
+                                        <af:outputLabel value="#{bindings.txtRfqHeaderCode.hints.label}" id="ol10"/>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc25" width="21%" halign="stretch" valign="middle">
+                                        <af:inputComboboxListOfValues id="txtRfqHeaderCodeId"
+                                                                      popupTitle="Search and Select: #{bindings.txtRfqHeaderCode.hints.label}"
+                                                                      value="#{bindings.txtRfqHeaderCode.inputValue}"
+                                                                      label="#{bindings.txtRfqHeaderCode.hints.label}"
+                                                                      model="#{bindings.txtRfqHeaderCode.listOfValuesModel}"
+                                                                      required="#{bindings.txtRfqHeaderCode.hints.mandatory}"
+                                                                      columns="#{bindings.txtRfqHeaderCode.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.txtRfqHeaderCode.hints.tooltip}"
+                                                                      simple="true" autoSubmit="true"
+                                                                      partialTriggers="txtSupplierNameId"
+                                                                      contentStyle="width:90%">
+                                            <f:validator binding="#{bindings.txtRfqHeaderCode.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.txtRfqHeaderCode.format}"/>
+                                        </af:inputComboboxListOfValues>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                    <af:gridCell width="13%" id="gc10" halign="center" valign="middle">
+                                        <af:outputLabel value="#{bindings.txtTempProjectName.hints.label}" id="ol4"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc11" halign="stretch"
+                                                 valign="middle">
+                                        <af:inputComboboxListOfValues id="txtProjectNameId"
+                                                                      popupTitle="Search and Select: #{bindings.txtTempProjectName.hints.label}"
+                                                                      value="#{bindings.txtTempProjectName.inputValue}"
+                                                                      label="#{bindings.txtTempProjectName.hints.label}"
+                                                                      model="#{bindings.txtTempProjectName.listOfValuesModel}"
+                                                                      required="#{bindings.txtTempProjectName.hints.mandatory}"
+                                                                      columns="#{bindings.txtTempProjectName.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
+                                                                      simple="true" contentStyle="width:90%"
+                                                                      partialTriggers="txtLocationNameId txtRfqHeaderCodeId">
+                                            <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
+                                        </af:inputComboboxListOfValues>
+                                    </af:gridCell>
+                                    <af:gridCell width="13%" id="gc13" halign="center" valign="middle">
+                                        <af:outputLabel value="#{bindings.txtTempDepartmentName.hints.label}" id="ol5"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc14" halign="stretch"
+                                                 valign="middle">
+                                        <af:inputComboboxListOfValues id="iclov1"
+                                                                      popupTitle="Search and Select: #{bindings.txtTempDepartmentName.hints.label}"
+                                                                      value="#{bindings.txtTempDepartmentName.inputValue}"
+                                                                      label="#{bindings.txtTempDepartmentName.hints.label}"
+                                                                      model="#{bindings.txtTempDepartmentName.listOfValuesModel}"
+                                                                      required="#{bindings.txtTempDepartmentName.hints.mandatory}"
+                                                                      columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
+                                                                      simple="true" contentStyle="width:90%"
+                                                                      partialTriggers="txtLocationNameId txtRfqHeaderCodeId">
+                                            <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
+                                        </af:inputComboboxListOfValues>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc12" width="13%" marginStart="5px" marginEnd="5px" halign="center"
+                                                 valign="middle">
+                                        <af:outputLabel value="#{bindings.ApprovalStatusSno.label}" id="ol7"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="21%" id="gc15" halign="stretch"
+                                                 valign="middle">
+                                        <af:panelGroupLayout id="pgl10" layout="horizontal" styleClass="AFStretchWidth">
+                                            <af:selectOneChoice value="#{bindings.ApprovalStatusSno.inputValue}"
+                                                                label="#{bindings.ApprovalStatusSno.label}"
+                                                                required="#{bindings.ApprovalStatusSno.hints.mandatory}"
+                                                                shortDesc="#{bindings.ApprovalStatusSno.hints.tooltip}"
+                                                                id="soc1" simple="true" contentStyle="width:100%"
+                                                                visible="#{bindings.ApprovalStatusSno.inputValue!=1 &amp;&amp; bindings.ApprovalStatusSno.inputValue!=2}">
+                                                <f:selectItems value="#{bindings.ApprovalStatusSno.items}" id="si1"/>
+                                                <f:validator binding="#{bindings.ApprovalStatusSno.validator}"/>
+                                            </af:selectOneChoice>
+                                            <af:selectOneChoice label="Label 1"
+                                                                value="#{bindings.ApprovalStatusSno.inputValue}"
+                                                                id="soc2"
+                                                                visible="#{bindings.ApprovalStatusSno.inputValue==1 || bindings.ApprovalStatusSno.inputValue==2}"
+                                                                simple="true" contentStyle="width:100%"
+                                                                autoSubmit="true">
+                                                <af:selectItem label="Prepared" value="1" id="si2"/>
+                                                <af:selectItem label="Reviewed" value="2" id="si3"/>
+                                            </af:selectOneChoice>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow id="gr6" marginTop="5px" marginBottom="5px">
+                                    <af:gridCell id="gc16" width="13%" halign="center">
+                                        <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol6"/>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc17" columnSpan="5" halign="stretch" valign="middle">
+                                        <af:inputText value="#{bindings.Remarks.inputValue}"
+                                                      label="#{bindings.Remarks.hints.label}"
+                                                      required="#{bindings.Remarks.hints.mandatory}"
+                                                      columns="#{bindings.Remarks.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Remarks.hints.precision}"
+                                                      shortDesc="#{bindings.Remarks.hints.tooltip}" id="it2"
+                                                      simple="true" contentStyle="width:100%">
+                                            <f:validator binding="#{bindings.Remarks.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.txtSumQuantity.inputValue}"
+                                                      label="#{bindings.txtSumQuantity.hints.label}"
+                                                      required="#{bindings.txtSumQuantity.hints.mandatory}"
+                                                      columns="#{bindings.txtSumQuantity.hints.displayWidth}"
+                                                      maximumLength="#{bindings.txtSumQuantity.hints.precision}"
+                                                      shortDesc="#{bindings.txtSumQuantity.hints.tooltip}" id="it1"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.txtSumQuantity.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.txtSumQuantity.format}"/>
+                                        </af:inputText>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab2" text="Lines">
+                            <af:panelGridLayout id="pgl5">
+                                <af:gridRow marginTop="5px" height="auto" id="gr13">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc32"
+                                                 halign="stretch">
+                                        <af:inputText value="#{bindings.txtItemName.inputValue}"
+                                                      label="#{bindings.txtItemName.hints.label}"
+                                                      required="#{bindings.txtItemName.hints.mandatory}"
+                                                      columns="#{bindings.txtItemName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.txtItemName.hints.precision}"
+                                                      shortDesc="#{bindings.txtItemName.hints.tooltip}" id="it5"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.txtItemName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.txtTotalRecord.inputValue}"
+                                                      label="#{bindings.txtTotalRecord.hints.label}"
+                                                      required="#{bindings.txtTotalRecord.hints.mandatory}"
+                                                      columns="#{bindings.txtTotalRecord.hints.displayWidth}"
+                                                      maximumLength="#{bindings.txtTotalRecord.hints.precision}"
+                                                      shortDesc="#{bindings.txtTotalRecord.hints.tooltip}" id="it4"
+                                                      rendered="false">
+                                            <f:validator binding="#{bindings.txtTotalRecord.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.txtTotalRecord.format}"/>
+                                        </af:inputText>
+                                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                                            <f:facet name="menus"/>
+                                            <f:facet name="toolbar">
+                                                <af:toolbar id="t2">
+                                                    <af:link actionListener="#{bindings.CreateInsert.execute}"
+                                                             disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N' || bindings.IsSupervised=='Y'}"
+                                                             id="l12" icon="#{resource['images:imgAddRecord.png']}"
+                                                             partialSubmit="true"/>
+                                                    <af:link actionListener="#{bindings.Delete1.execute}"
+                                                             disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N' || bindings.IsSupervised=='Y'}"
+                                                             id="l11" partialSubmit="true"
+                                                             icon="#{resource['images:imgDeleteRecord.png']}"
+                                                             immediate="true"/>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <f:facet name="statusbar">
+                                                <af:toolbar id="t3">
+                                                    <af:inputText label="#{bindings.txtTotalRecord.hints.label}"
+                                                                  id="it15" contentStyle="font-weight:bold"
+                                                                  labelStyle="font-weight:bold;width:100px"
+                                                                  value="#{bindings.txtTotalRecord.inputValue}"
+                                                                  readOnly="true"/>
+                                                </af:toolbar>
+                                            </f:facet>
+                                            <f:facet name="secondaryToolbar"/>
+                                            <f:facet name="afterToolbar"/>
+                                            <f:facet name="viewMenu"/>
+                                            <af:table value="#{bindings.ScmPurchaseOrderLinesDetCRUD.collectionModel}"
                                                       var="row"
-                                                      rows="#{bindings.ScmPurchaseOrderDiscountDetCRUD.rangeSize}"
-                                                      emptyText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      rows="#{bindings.ScmPurchaseOrderLinesDetCRUD.rangeSize}"
+                                                      emptyText="#{bindings.ScmPurchaseOrderLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
                                                       rowBandingInterval="0"
-                                                      selectedRowKeys="#{bindings.ScmPurchaseOrderDiscountDetCRUD.collectionModel.selectedRow}"
-                                                      selectionListener="#{bindings.ScmPurchaseOrderDiscountDetCRUD.collectionModel.makeCurrent}"
+                                                      selectedRowKeys="#{bindings.ScmPurchaseOrderLinesDetCRUD.collectionModel.selectedRow}"
+                                                      selectionListener="#{bindings.ScmPurchaseOrderLinesDetCRUD.collectionModel.makeCurrent}"
                                                       rowSelection="single"
-                                                      fetchSize="#{bindings.ScmPurchaseOrderDiscountDetCRUD.rangeSize}"
-                                                      id="t4" columnStretching="column:c17">
-                                                <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.label}"
-                                                           id="c16">
-                                                    <af:inputText value="#{row.bindings.DiscountReasonSno.inputValue}"
-                                                                  label="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.label}"
-                                                                  required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.mandatory}"
-                                                                  columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.displayWidth}"
-                                                                  maximumLength="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.precision}"
-                                                                  shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.tooltip}"
-                                                                  id="it6">
-                                                        <f:validator binding="#{row.bindings.DiscountReasonSno.validator}"/>
+                                                      fetchSize="#{bindings.ScmPurchaseOrderLinesDetCRUD.rangeSize}"
+                                                      id="t1" partialTriggers="::l12 ::l11">
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.label}"
+                                                           id="c1" width="70">
+                                                    <af:inputText value="#{row.bindings.LineNo.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.tooltip}"
+                                                                  id="it3" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.LineNo.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.format}"/>
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.format}"/>
                                                     </af:inputText>
                                                 </af:column>
-                                                <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountName.label}"
-                                                           id="c17">
-                                                    <af:inputComboboxListOfValues id="txtDiscountNameId"
-                                                                                  popupTitle="Search and Select: #{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountName.label}"
-                                                                                  value="#{row.bindings.txtDiscountName.inputValue}"
-                                                                                  model="#{row.bindings.txtDiscountName.listOfValuesModel}"
-                                                                                  required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountName.mandatory}"
-                                                                                  columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountName.displayWidth}"
-                                                                                  shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountName.tooltip}">
-                                                        <f:validator binding="#{row.bindings.txtDiscountName.validator}"/>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.label}"
+                                                           id="c2">
+                                                    <af:inputComboboxListOfValues id="txtItemNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.label}"
+                                                                                  value="#{row.bindings.txtItemName.inputValue}"
+                                                                                  model="#{row.bindings.txtItemName.listOfValuesModel}"
+                                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.mandatory}"
+                                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.displayWidth}"
+                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.tooltip}">
+                                                        <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
-                                                <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.label}"
-                                                           id="c18" width="60" displayIndex="-1">
-                                                    <af:inputText value="#{row.bindings.DiscountPercent.inputValue}"
-                                                                  label="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.label}"
-                                                                  required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.mandatory}"
-                                                                  columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.displayWidth}"
-                                                                  maximumLength="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.precision}"
-                                                                  shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.tooltip}"
-                                                                  id="it22">
-                                                        <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.label}"
+                                                           id="c3">
+                                                    <af:inputComboboxListOfValues id="txtUnitTypeNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.label}"
+                                                                                  value="#{row.bindings.txtUnitTypeName.inputValue}"
+                                                                                  model="#{row.bindings.txtUnitTypeName.listOfValuesModel}"
+                                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
+                                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
+                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.tooltip}">
+                                                        <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.label}"
+                                                           id="c4" width="80">
+                                                    <af:inputText value="#{row.bindings.PoRate.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.tooltip}"
+                                                                  id="it7">
+                                                        <f:validator binding="#{row.bindings.PoRate.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.format}"/>
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.format}"/>
                                                     </af:inputText>
                                                 </af:column>
-                                                <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.label}"
-                                                           id="c19" width="80" displayIndex="-1">
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.label}"
+                                                           id="c5">
+                                                    <af:inputText value="#{row.bindings.PoRequestQuantity.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.tooltip}"
+                                                                  id="it11">
+                                                        <f:validator binding="#{row.bindings.PoRequestQuantity.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRequestQuantity.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.label}"
+                                                           id="c6">
+                                                    <af:inputText value="#{row.bindings.PoApproveQuantity.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.tooltip}"
+                                                                  id="it12">
+                                                        <f:validator binding="#{row.bindings.PoApproveQuantity.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.label}"
+                                                           id="c7">
+                                                    <af:inputText value="#{row.bindings.GrnQuantity.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.tooltip}"
+                                                                  id="it13">
+                                                        <f:validator binding="#{row.bindings.GrnQuantity.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.label}"
+                                                           id="c8">
+                                                    <af:inputText value="#{row.bindings.CancelQuantity.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.tooltip}"
+                                                                  id="it14">
+                                                        <f:validator binding="#{row.bindings.CancelQuantity.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.CancelQuantity.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
+                                                           id="c9">
+                                                    <af:inputDate value="#{row.bindings.RequiredByDate.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.displayWidth}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.tooltip}"
+                                                                  id="id2">
+                                                        <f:validator binding="#{row.bindings.RequiredByDate.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.format}"/>
+                                                    </af:inputDate>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.label}"
+                                                           id="c10">
+                                                    <af:inputDate value="#{row.bindings.PromisedDate.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.displayWidth}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.tooltip}"
+                                                                  id="id3">
+                                                        <f:validator binding="#{row.bindings.PromisedDate.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.format}"/>
+                                                    </af:inputDate>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.label}"
+                                                           id="c25">
+                                                    <af:inputComboboxListOfValues id="txtCOADescriptionId"
+                                                                                  popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.label}"
+                                                                                  value="#{row.bindings.txtCOADescription.inputValue}"
+                                                                                  model="#{row.bindings.txtCOADescription.listOfValuesModel}"
+                                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.mandatory}"
+                                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.displayWidth}"
+                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.tooltip}">
+                                                        <f:validator binding="#{row.bindings.txtCOADescription.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.label}"
+                                                           id="c26">
+                                                    <af:inputComboboxListOfValues id="txtDepartmentNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.label}"
+                                                                                  value="#{row.bindings.txtDepartmentName.inputValue}"
+                                                                                  model="#{row.bindings.txtDepartmentName.listOfValuesModel}"
+                                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.mandatory}"
+                                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.displayWidth}"
+                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.tooltip}">
+                                                        <f:validator binding="#{row.bindings.txtDepartmentName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.label}"
+                                                           id="c24">
+                                                    <af:inputComboboxListOfValues id="iclov2"
+                                                                                  popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.label}"
+                                                                                  value="#{row.bindings.txtProjectName.inputValue}"
+                                                                                  model="#{row.bindings.txtProjectName.listOfValuesModel}"
+                                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.mandatory}"
+                                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.displayWidth}"
+                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.tooltip}">
+                                                        <f:validator binding="#{row.bindings.txtProjectName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.label}"
+                                                           id="c11">
+                                                    <af:inputText value="#{row.bindings.SupplierItemName.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.SupplierItemName.tooltip}"
+                                                                  id="it17">
+                                                        <f:validator binding="#{row.bindings.SupplierItemName.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.label}"
+                                                           id="c12">
+                                                    <af:inputText value="#{row.bindings.NoteToBuyer.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToBuyer.tooltip}"
+                                                                  id="it18">
+                                                        <f:validator binding="#{row.bindings.NoteToBuyer.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.label}"
+                                                           id="c13">
+                                                    <af:inputText value="#{row.bindings.NoteToSupplier.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.NoteToSupplier.tooltip}"
+                                                                  id="it19">
+                                                        <f:validator binding="#{row.bindings.NoteToSupplier.validator}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.label}"
+                                                           id="c14">
+                                                    <af:inputText value="#{row.bindings.GrossAmount.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.tooltip}"
+                                                                  id="it20">
+                                                        <f:validator binding="#{row.bindings.GrossAmount.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrossAmount.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.label}"
+                                                           id="c15">
                                                     <af:inputText value="#{row.bindings.DiscountAmount.inputValue}"
-                                                                  label="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.label}"
-                                                                  required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.mandatory}"
-                                                                  columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.displayWidth}"
-                                                                  maximumLength="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.precision}"
-                                                                  shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.tooltip}"
-                                                                  id="it23">
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.tooltip}"
+                                                                  id="it21">
                                                         <f:validator binding="#{row.bindings.DiscountAmount.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.format}"/>
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.format}"/>
                                                     </af:inputText>
                                                 </af:column>
-                                                <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.label}"
-                                                           id="c20">
-                                                    <af:inputText value="#{row.bindings.TotalDiscount.inputValue}"
-                                                                  label="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.label}"
-                                                                  required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.mandatory}"
-                                                                  columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.displayWidth}"
-                                                                  maximumLength="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.precision}"
-                                                                  shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.tooltip}"
-                                                                  id="it24">
-                                                        <f:validator binding="#{row.bindings.TotalDiscount.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.format}"/>
-                                                    </af:inputText>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxTypeName.label}"
+                                                           id="c21">
+                                                    <af:inputComboboxListOfValues id="txtTaxTypeNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxTypeName.label}"
+                                                                                  value="#{row.bindings.txtTaxTypeName.inputValue}"
+                                                                                  model="#{row.bindings.txtTaxTypeName.listOfValuesModel}"
+                                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxTypeName.mandatory}"
+                                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxTypeName.displayWidth}"
+                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxTypeName.tooltip}">
+                                                        <f:validator binding="#{row.bindings.txtTaxTypeName.validator}"/>
+                                                    </af:inputComboboxListOfValues>
                                                 </af:column>
                                             </af:table>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="45%" marginEnd="5px" id="gc30"
-                                                     halign="stretch"/>
-                                    </af:gridRow>
-                                </af:panelGridLayout>
+                                        </af:panelCollection>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc33">
+                                        <af:panelGridLayout id="pgl3">
+                                            <af:gridRow id="gr12">
+                                                <af:gridCell id="gc28" styleClass="ERPEntryAreaHeading" halign="stretch"
+                                                             valign="stretch" width="55%">
+                                                    <af:outputText value="Discount" id="ot1"
+                                                                   styleClass="ERPEntryAreaFont"/>
+                                                </af:gridCell>
+                                                <af:gridCell id="gc31" styleClass="ERPEntryAreaHeading"
+                                                             halign="stretch">
+                                                    <af:outputText value="outputText1" id="ot2"
+                                                                   styleClass="ERPEntryAreaFont"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
+                                                <af:gridCell marginStart="5px" width="55%" id="gc29" halign="stretch">
+                                                    <af:table value="#{bindings.ScmPurchaseOrderDiscountDetCRUD.collectionModel}"
+                                                              var="row"
+                                                              rows="#{bindings.ScmPurchaseOrderDiscountDetCRUD.rangeSize}"
+                                                              emptyText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                              rowBandingInterval="0"
+                                                              selectedRowKeys="#{bindings.ScmPurchaseOrderDiscountDetCRUD.collectionModel.selectedRow}"
+                                                              selectionListener="#{bindings.ScmPurchaseOrderDiscountDetCRUD.collectionModel.makeCurrent}"
+                                                              rowSelection="single"
+                                                              fetchSize="#{bindings.ScmPurchaseOrderDiscountDetCRUD.rangeSize}"
+                                                              id="t4" columnStretching="column:c17">
+                                                        <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.label}"
+                                                                   id="c16">
+                                                            <af:inputText value="#{row.bindings.DiscountReasonSno.inputValue}"
+                                                                          label="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.label}"
+                                                                          required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.precision}"
+                                                                          shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.tooltip}"
+                                                                          id="it6">
+                                                                <f:validator binding="#{row.bindings.DiscountReasonSno.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountName.label}"
+                                                                   id="c17" width="150">
+                                                            <af:inputComboboxListOfValues id="txtDiscountNameId"
+                                                                                          popupTitle="Search and Select: #{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountName.label}"
+                                                                                          value="#{row.bindings.txtDiscountName.inputValue}"
+                                                                                          model="#{row.bindings.txtDiscountName.listOfValuesModel}"
+                                                                                          required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountName.mandatory}"
+                                                                                          columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountName.displayWidth}"
+                                                                                          shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountName.tooltip}">
+                                                                <f:validator binding="#{row.bindings.txtDiscountName.validator}"/>
+                                                            </af:inputComboboxListOfValues>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.label}"
+                                                                   id="c18" width="60" displayIndex="-1">
+                                                            <af:inputText value="#{row.bindings.DiscountPercent.inputValue}"
+                                                                          label="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.label}"
+                                                                          required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.precision}"
+                                                                          shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.tooltip}"
+                                                                          id="it22">
+                                                                <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountPercent.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.label}"
+                                                                   id="c19" width="80" displayIndex="-1">
+                                                            <af:inputText value="#{row.bindings.DiscountAmount.inputValue}"
+                                                                          label="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.label}"
+                                                                          required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.precision}"
+                                                                          shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.tooltip}"
+                                                                          id="it23">
+                                                                <f:validator binding="#{row.bindings.DiscountAmount.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                        <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.label}"
+                                                                   id="c20">
+                                                            <af:inputText value="#{row.bindings.TotalDiscount.inputValue}"
+                                                                          label="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.label}"
+                                                                          required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.mandatory}"
+                                                                          columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.displayWidth}"
+                                                                          maximumLength="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.precision}"
+                                                                          shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.tooltip}"
+                                                                          id="it24">
+                                                                <f:validator binding="#{row.bindings.TotalDiscount.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.format}"/>
+                                                            </af:inputText>
+                                                        </af:column>
+                                                    </af:table>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="45%" marginEnd="5px" id="gc30"
+                                                             halign="stretch"/>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </f:facet>
+                <f:facet name="top">
+                    <af:panelGridLayout id="pgl6">
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                            <af:gridCell marginStart="5px" width="50%" id="gc18" valign="middle" columnSpan="1"
+                                         styleClass="ERPToolBarBackground" halign="stretch">
+                                <af:outputText value="#{pageFlowScope.ERPMainTempBean.LErpActivityName}" id="ot3"
+                                               styleClass="ERPActivityNameFormHeading"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="50%" id="gc19" halign="end" columnSpan="1" rowSpan="1"
+                                         styleClass="ERPToolBarBackground" valign="stretch">
+                                <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end">
+                                    <af:link id="l5" partialSubmit="true"
+                                             icon="#{resource['images:imgCloseDialog.png']}" text="Close"
+                                             iconPosition="top" action="#{pageFlowScope.OracleERPBean.doBackFromEdit}"
+                                             shortDesc="Close Form"/>
+                                    <af:link actionListener="#{bindings.CreateWithParams.execute}"
+                                             text="CreateWithParams" disabled="#{!bindings.CreateWithParams.enabled}"
+                                             id="l1" rendered="false"/>
+                                    <af:link actionListener="#{bindings.Delete.execute}" text="Delete" id="l8"
+                                             rendered="false"/>
+                                    <af:link text="UnSupervise" id="l20" partialSubmit="true"
+                                             icon="#{resource['images:imgUnSuperviseRecord.png']}" iconPosition="top"
+                                             action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
+                                             disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.BidHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                             partialTriggers="l7" shortDesc="Un Supervise Record">
+                                        <af:setActionListener from="#{'ScmPurchaseOrderHeaderCRUDIterator'}"
+                                                              to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                    </af:link>
+                                    <af:link text="Supervise" id="l19" partialSubmit="true"
+                                             icon="#{resource['images:imgSuperviseRecord.png']}" iconPosition="top"
+                                             action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
+                                             disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.BidHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                             partialTriggers="l7" shortDesc="Supervise Record">
+                                        <af:setActionListener from="#{'ScmPurchaseOrderHeaderCRUDIterator'}"
+                                                              to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
+                                    </af:link>
+                                    <af:link text="Delete" id="l9" actionListener="#{bindings.Delete.execute}"
+                                             icon="#{resource['images:imgDeleteRecord.png']}" iconPosition="top"
+                                             partialSubmit="true"
+                                             disabled="#{bindings.IsSupervised.inputValue=='Y' || pageFlowScope.ERPMainTempBean.LERPAllowDelete=='N'}"
+                                             shortDesc="Delete Record"/>
+                                    <af:link text="Add" id="l10" icon="#{resource['images:imgAddRecord.png']}"
+                                             iconPosition="top"
+                                             action="#{pageFlowScope.OracleERPBean.doERPAddRecordWithPara}"
+                                             partialSubmit="true"
+                                             disabled="#{pageFlowScope.ERPMainTempBean.LERPAllowAdd=='N'}"
+                                             shortDesc="Add New Record"/>
+                                    <af:link actionListener="#{bindings.Commit.execute}" text="Commit"
+                                             disabled="#{!bindings.Commit.enabled}" id="l6" rendered="false"/>
+                                    <af:link text="Undo" id="l4" icon="#{resource['images:imgUndo.png']}"
+                                             partialSubmit="true" iconPosition="top"
+                                             action="#{pageFlowScope.OracleERPBean.doErpUndoRecord}" immediate="true"
+                                             shortDesc="Undi Record">
+                                        <af:resetActionListener/>
+                                    </af:link>
+                                    <af:link id="l7" partialSubmit="true" icon="#{resource['images:imgSave.png']}"
+                                             text="Save" iconPosition="top"
+                                             action="#{pageFlowScope.OracleERPBean.doERPCommitRecord}"
+                                             shortDesc="Save Record"/>
+                                    <af:spacer width="1" height="10" id="s2"/>
+                                    <af:link actionListener="#{bindings.Commit.execute}" text="Commit" id="l3"
+                                             rendered="false"/>
+                                    <af:link actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                             immediate="true" id="l2" rendered="false">
+                                        <af:resetActionListener/>
+                                    </af:link>
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s1"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
                             </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>
