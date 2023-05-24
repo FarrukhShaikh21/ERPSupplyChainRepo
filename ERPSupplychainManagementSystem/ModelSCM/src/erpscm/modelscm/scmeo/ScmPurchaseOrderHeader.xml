@@ -984,6 +984,47 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="DeliveryTermSno"
+    Precision="6"
+    Scale="0"
+    ColumnName="DELIVERY_TERM_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.DeliveryTermSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtDeliveryTermName"
+    Precision="100"
+    ColumnName="TXT_DELIVERY_TERM_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_ORDER_HEADER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmDeliveryTerm?.DeliveryTermName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.txtDeliveryTermName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="DeliveryTermSno"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderCharges"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdChargesPoHeadAssoc"
@@ -1075,6 +1116,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmSupplierSiteScmPurchOrderHeadShiplToSnoAsso.ScmPurchaseOrderHeader1"
     Type="erpscm.modelscm.scmeo.ScmSupplierSitesImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmDeliveryTerm"
+    Association="erpscm.modelscm.scmeo.ScmDeliveryTermScmPurOrdHeadDeliveryTermSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmDeliveryTermScmPurOrdHeadDeliveryTermSnoAsso.ScmDeliveryTerm"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmDeliveryTermScmPurOrdHeadDeliveryTermSnoAsso.ScmPurchaseOrderHeader"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderHeader"
     PrimaryKey="true">
@@ -1127,6 +1175,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.ShipToSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderHeader11">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_DELIVERY_TERM"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_ORDER_HEADER11"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.DeliveryTermSno"/>
     </AttrArray>
   </Key>
   <Key

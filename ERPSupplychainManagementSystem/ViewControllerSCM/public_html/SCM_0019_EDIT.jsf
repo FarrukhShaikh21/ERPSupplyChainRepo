@@ -159,7 +159,7 @@
                                                                       required="#{bindings.txtSupplierShipToLocation.hints.mandatory}"
                                                                       columns="#{bindings.txtSupplierShipToLocation.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtSupplierShipToLocation.hints.tooltip}"
-                                                                      simple="true">
+                                                                      simple="true" contentStyle="width:90%">
                                             <f:validator binding="#{bindings.txtSupplierShipToLocation.validator}"/>
                                         </af:inputComboboxListOfValues>
                                     </af:gridCell>
@@ -215,7 +215,7 @@
                                                                       required="#{bindings.txtPaymentTermName.hints.mandatory}"
                                                                       columns="#{bindings.txtPaymentTermName.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtPaymentTermName.hints.tooltip}"
-                                                                      simple="true">
+                                                                      simple="true" contentStyle="width:90%">
                                             <f:validator binding="#{bindings.txtPaymentTermName.validator}"/>
                                         </af:inputComboboxListOfValues>
                                     </af:gridCell>

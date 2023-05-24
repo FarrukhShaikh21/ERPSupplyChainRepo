@@ -153,6 +153,20 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmDeliveryTermVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmDeliveryTermVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmDeliveryTermByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmDeliveryTermVO.ScmDeliveryTermByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovPoTypeSno"
     ListVOName="AccSysGeneralValuePOTypeVO"
@@ -460,6 +474,31 @@
       <Item Value="SiteName"/>
       <Item Value="SiteShortName"/>
       <Item Value="SupplierSiteCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_txtDeliveryTermName"
+    ListVOName="AccScmDeliveryTermVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtDeliveryTermName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DeliveryTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DeliveryTermName"/>
+      <Item Value="DeliveryTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DeliveryTermName"/>
+      <Item Value="DeliveryTermShortName"/>
+      <Item Value="DeliveryTermCode"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -907,6 +946,26 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="DeliveryTermSno"
+    PrecisionRule="true"
+    EntityAttrName="DeliveryTermSno"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="DELIVERY_TERM_SNO"/>
+  <ViewAttribute
+    Name="txtDeliveryTermName"
+    PrecisionRule="true"
+    EntityAttrName="txtDeliveryTermName"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="TXT_DELIVERY_TERM_NAME"
+    LOVName="LOV_txtDeliveryTermName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseOrderHeaderByPOHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
@@ -1059,6 +1118,12 @@
   <ViewLinkAccessor
     Name="ScmSupplierSitesVO1"
     ViewLink="erpscm.modelscm.scmvo.ScmSupplierSiteScmPurchOrderHeadShiplToSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmDeliveryTermVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmDeliveryTermScmPurOrdHeadDeliveryTermSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
