@@ -125,6 +125,34 @@
     Name="AccSysApprovalStatusVO"
     ViewObjectName="erpadm.modeladm.admvo.SysApprovalStatusVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmSupplierSitesVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierSitesVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmSupplierSitesBySupplierIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmSupplierSitesVO.ScmSupplierSitesBySupplierIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_SUPPLIER_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SupplierSno==null?-1:SupplierSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmSupplierSitesShipToVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierSitesVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmSupplierSitesBySupplierIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmSupplierSitesVO.ScmSupplierSitesBySupplierIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_SUPPLIER_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SupplierSno==null?-1:SupplierSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovPoTypeSno"
     ListVOName="AccSysGeneralValuePOTypeVO"
@@ -382,6 +410,56 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="StatusDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSupplierBillToLocation"
+    ListVOName="AccScmSupplierSitesVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierBillToLocation"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="txtSupplierBillToLocation"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SupplierSitesSno"/>
+      <Item Value="SiteName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SiteName"/>
+      <Item Value="SupplierSiteCode"/>
+      <Item Value="SiteShortName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LoftxtSupplierShipToLocation"
+    ListVOName="AccScmSupplierSitesShipToVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierShipToLocation"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ShipToSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SiteName"/>
+      <Item Value="SupplierSitesSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SiteName"/>
+      <Item Value="SiteShortName"/>
+      <Item Value="SupplierSiteCode"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -790,6 +868,38 @@
     LOVName="LovtxtSupplierName"
     IsQueriable="false"
     IsPersistent="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSupplierBillToLocation"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierBillToLocation"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="txt_Supplier_Bill_To_Location"
+    LOVName="LovtxtSupplierBillToLocation">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSupplierShipToLocation"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierShipToLocation"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="txt_Supplier_Ship_To_Location"
+    LOVName="LoftxtSupplierShipToLocation">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

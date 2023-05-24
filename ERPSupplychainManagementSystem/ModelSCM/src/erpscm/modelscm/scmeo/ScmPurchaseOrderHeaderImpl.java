@@ -74,6 +74,8 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         txtRfqHeaderCode,
         txtDemandHeaderCode,
         txtSupplierName,
+        txtSupplierBillToLocation,
+        txtSupplierShipToLocation,
         ScmPurchaseOrderCharges,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderLines,
@@ -159,6 +161,8 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTSUPPLIERBILLTOLOCATION = AttributesEnum.txtSupplierBillToLocation.index();
+    public static final int TXTSUPPLIERSHIPTOLOCATION = AttributesEnum.txtSupplierShipToLocation.index();
     public static final int SCMPURCHASEORDERCHARGES = AttributesEnum.ScmPurchaseOrderCharges.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
@@ -953,6 +957,39 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
      */
     public void settxtSupplierName(String value) {
         setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSupplierBillToLocation, using the alias name txtSupplierBillToLocation.
+     * @return the value of txtSupplierBillToLocation
+     */
+    public String gettxtSupplierBillToLocation() {
+        return (String) getAttributeInternal(TXTSUPPLIERBILLTOLOCATION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierBillToLocation.
+     * @param value value to set the txtSupplierBillToLocation
+     */
+    public void settxtSupplierBillToLocation(String value) {
+        setAttributeInternal(TXTSUPPLIERBILLTOLOCATION, value);
+    }
+
+
+    /**
+     * Gets the attribute value for txtSupplierShipToLocation, using the alias name txtSupplierShipToLocation.
+     * @return the value of txtSupplierShipToLocation
+     */
+    public String gettxtSupplierShipToLocation() {
+        return (String) getAttributeInternal(TXTSUPPLIERSHIPTOLOCATION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierShipToLocation.
+     * @param value value to set the txtSupplierShipToLocation
+     */
+    public void settxtSupplierShipToLocation(String value) {
+        setAttributeInternal(TXTSUPPLIERSHIPTOLOCATION, value);
     }
 
     /**

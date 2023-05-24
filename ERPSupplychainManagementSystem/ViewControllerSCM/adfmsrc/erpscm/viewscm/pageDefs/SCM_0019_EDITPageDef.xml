@@ -114,5 +114,11 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false"
+                  Uses="LovtxtSupplierBillToLocation" id="txtSupplierBillToLocation"/>
+    <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false"
+                  Uses="LoftxtSupplierShipToLocation" id="txtSupplierShipToLocation"/>
+    <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovtxtPaymentTermName"
+                  id="txtPaymentTermName"/>
   </bindings>
 </pageDefinition>
