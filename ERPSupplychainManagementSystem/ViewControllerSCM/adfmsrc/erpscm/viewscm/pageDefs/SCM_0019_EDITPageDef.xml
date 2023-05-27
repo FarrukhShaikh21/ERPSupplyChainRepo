@@ -120,5 +120,10 @@
                   Uses="LoftxtSupplierShipToLocation" id="txtSupplierShipToLocation"/>
     <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovtxtPaymentTermName"
                   id="txtPaymentTermName"/>
+    <attributeValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" id="ReferenceNo">
+      <AttrNames>
+        <Item Value="ReferenceNo"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

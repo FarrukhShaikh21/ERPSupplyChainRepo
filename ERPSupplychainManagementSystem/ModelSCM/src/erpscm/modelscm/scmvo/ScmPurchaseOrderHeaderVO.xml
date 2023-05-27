@@ -966,6 +966,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtOrderTypeName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtOrderTypeName"
+    EntityUsage="ScmPurchaseOrderHeader"
+    AliasName="TXT_ORDER_TYPE_NAME"/>
   <ViewCriteria
     Name="ScmPurchaseOrderHeaderByPOHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
@@ -1124,6 +1132,12 @@
   <ViewLinkAccessor
     Name="ScmDeliveryTermVO"
     ViewLink="erpscm.modelscm.scmvo.ScmDeliveryTermScmPurOrdHeadDeliveryTermSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmOrderTypeVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmOrderTypeScmPurchOrderHeadOrderTypeSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

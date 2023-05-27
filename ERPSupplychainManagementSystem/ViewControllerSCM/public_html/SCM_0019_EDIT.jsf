@@ -285,6 +285,26 @@
                                         </af:panelGroupLayout>
                                     </af:gridCell>
                                 </af:gridRow>
+                                <af:gridRow id="gr8">
+                                    <af:gridCell id="gc37" halign="center" width="13%">
+                                        <af:outputLabel value="#{bindings.ReferenceNo.hints.label}" id="ol14"/>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc38" halign="stretch" width="20%">
+                                        <af:inputText value="#{bindings.ReferenceNo.inputValue}"
+                                                      label="#{bindings.ReferenceNo.hints.label}"
+                                                      required="#{bindings.ReferenceNo.hints.mandatory}"
+                                                      columns="#{bindings.ReferenceNo.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ReferenceNo.hints.precision}"
+                                                      shortDesc="#{bindings.ReferenceNo.hints.tooltip}" id="it25"
+                                                      simple="true" contentStyle="width:100%">
+                                            <f:validator binding="#{bindings.ReferenceNo.validator}"/>
+                                        </af:inputText>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc39" width="13%"/>
+                                    <af:gridCell id="gc40" halign="stretch" width="20%"/>
+                                    <af:gridCell id="gc41" width="13%"/>
+                                    <af:gridCell id="gc42" halign="stretch" width="21%"/>
+                                </af:gridRow>
                                 <af:gridRow id="gr6" marginTop="5px" marginBottom="5px">
                                     <af:gridCell id="gc16" width="13%" halign="center">
                                         <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol6"/>

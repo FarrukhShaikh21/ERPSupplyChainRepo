@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -38,7 +39,8 @@ public class ScmOrderTypeImpl extends ERPEntityImpl {
         IsUnsupervised,
         UnSupervisedDate,
         SupervisedBy,
-        UnSupervisedBy;
+        UnSupervisedBy,
+        ScmPurchaseOrderHeader;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -61,6 +63,8 @@ public class ScmOrderTypeImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int ORDERTYPESNO = AttributesEnum.OrderTypeSno.index();
     public static final int ORDERTYPECODE = AttributesEnum.OrderTypeCode.index();
     public static final int ORDERTYPESHORTNAME = AttributesEnum.OrderTypeShortName.index();
@@ -80,12 +84,21 @@ public class ScmOrderTypeImpl extends ERPEntityImpl {
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
+    public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public ScmOrderTypeImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmOrderType");
+    }
+
 
     /**
      * Gets the attribute value for OrderTypeSno, using the alias name OrderTypeSno.
@@ -392,19 +405,20 @@ public class ScmOrderTypeImpl extends ERPEntityImpl {
     }
 
     /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseOrderHeader() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERHEADER);
+    }
+
+
+    /**
      * @param orderTypeSno key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer orderTypeSno) {
         return new Key(new Object[] { orderTypeSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmOrderType");
     }
 
     /**

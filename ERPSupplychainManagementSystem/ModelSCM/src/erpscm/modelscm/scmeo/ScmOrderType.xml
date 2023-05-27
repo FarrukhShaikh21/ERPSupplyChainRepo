@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="ScmOrderType"
-  Version="12.1.3.2.1"
+  Version="12.1.3.10.47"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="SCM_ORDER_TYPE"
@@ -118,8 +118,7 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SCM_ORDER_TYPE">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -180,8 +179,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_ORDER_TYPE">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
+    <TransientExpression><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -373,6 +371,13 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <AccessorAttribute
+    Name="ScmPurchaseOrderHeader"
+    Association="erpscm.modelscm.scmeo.ScmOrderTypeScmPurchOrderHeadOrderTypeSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmOrderTypeScmPurchOrderHeadOrderTypeSnoAsso.ScmPurchaseOrderHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmOrderTypeScmPurchOrderHeadOrderTypeSnoAsso.ScmOrderType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmOrderType"
     PrimaryKey="true">

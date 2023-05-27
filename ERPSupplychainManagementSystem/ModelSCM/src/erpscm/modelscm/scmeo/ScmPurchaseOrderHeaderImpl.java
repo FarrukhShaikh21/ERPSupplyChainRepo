@@ -79,6 +79,7 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         txtSupplierShipToLocation,
         DeliveryTermSno,
         txtDeliveryTermName,
+        txtOrderTypeName,
         ScmPurchaseOrderCharges,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderLines,
@@ -92,7 +93,8 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         ScmPurchaseDemandHeader,
         ScmSupplierSites,
         ScmSupplierSites1,
-        ScmDeliveryTerm;
+        ScmDeliveryTerm,
+        ScmOrderType;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -169,6 +171,7 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int TXTSUPPLIERSHIPTOLOCATION = AttributesEnum.txtSupplierShipToLocation.index();
     public static final int DELIVERYTERMSNO = AttributesEnum.DeliveryTermSno.index();
     public static final int TXTDELIVERYTERMNAME = AttributesEnum.txtDeliveryTermName.index();
+    public static final int TXTORDERTYPENAME = AttributesEnum.txtOrderTypeName.index();
     public static final int SCMPURCHASEORDERCHARGES = AttributesEnum.ScmPurchaseOrderCharges.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
@@ -183,6 +186,7 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int SCMSUPPLIERSITES = AttributesEnum.ScmSupplierSites.index();
     public static final int SCMSUPPLIERSITES1 = AttributesEnum.ScmSupplierSites1.index();
     public static final int SCMDELIVERYTERM = AttributesEnum.ScmDeliveryTerm.index();
+    public static final int SCMORDERTYPE = AttributesEnum.ScmOrderType.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1032,6 +1036,22 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtOrderTypeName, using the alias name txtOrderTypeName.
+     * @return the value of txtOrderTypeName
+     */
+    public String gettxtOrderTypeName() {
+        return (String) getAttributeInternal(TXTORDERTYPENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtOrderTypeName.
+     * @param value value to set the txtOrderTypeName
+     */
+    public void settxtOrderTypeName(String value) {
+        setAttributeInternal(TXTORDERTYPENAME, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getScmPurchaseOrderCharges() {
@@ -1208,6 +1228,21 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
      */
     public void setScmDeliveryTerm(EntityImpl value) {
         setAttributeInternal(SCMDELIVERYTERM, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmOrderTypeImpl.
+     */
+    public ScmOrderTypeImpl getScmOrderType() {
+        return (ScmOrderTypeImpl) getAttributeInternal(SCMORDERTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmOrderTypeImpl.
+     */
+    public void setScmOrderType(ScmOrderTypeImpl value) {
+        setAttributeInternal(SCMORDERTYPE, value);
     }
 
 
