@@ -167,6 +167,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmOrderTypeVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmOrderTypeVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovPoTypeSno"
     ListVOName="AccSysGeneralValuePOTypeVO"
@@ -439,11 +443,11 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
-      <Item Value="txtSupplierBillToLocation"/>
+      <Item Value="BillToSno"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="SupplierSitesSno"/>
       <Item Value="SiteName"/>
+      <Item Value="SupplierSitesSno"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="SiteName"/>
@@ -501,6 +505,32 @@
       <Item Value="DeliveryTermCode"/>
     </AttrArray>
     <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtOrderTypeName"
+    ListVOName="AccScmOrderTypeVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtOrderTypeName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OrderTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrderTypeName"/>
+      <Item Value="OrderTypeSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrderTypeName"/>
+      <Item Value="OrderTypeCode"/>
+      <Item Value="OrderTypeShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmOrderTypeFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderHeader"
@@ -973,7 +1003,15 @@
     PrecisionRule="true"
     EntityAttrName="txtOrderTypeName"
     EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="TXT_ORDER_TYPE_NAME"/>
+    AliasName="TXT_ORDER_TYPE_NAME"
+    LOVName="LovtxtOrderTypeName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseOrderHeaderByPOHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
