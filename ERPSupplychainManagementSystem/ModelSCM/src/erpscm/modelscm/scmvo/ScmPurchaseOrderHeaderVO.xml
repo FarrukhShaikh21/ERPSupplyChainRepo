@@ -185,7 +185,7 @@
       <Item Value="ValueCode"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="ValueCode"/>
+      <Item Value="ValueDescription"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -482,7 +482,7 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_txtDeliveryTermName"
+    Name="LOVtxtDeliveryTermName"
     ListVOName="AccScmDeliveryTermVO"
     ListRangeSize="-1"
     ComboRowCountHint="10"
@@ -988,7 +988,9 @@
     EntityAttrName="txtDeliveryTermName"
     EntityUsage="ScmPurchaseOrderHeader"
     AliasName="TXT_DELIVERY_TERM_NAME"
-    LOVName="LOV_txtDeliveryTermName">
+    LOVName="LOVtxtDeliveryTermName"
+    IsQueriable="false"
+    IsPersistent="false">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

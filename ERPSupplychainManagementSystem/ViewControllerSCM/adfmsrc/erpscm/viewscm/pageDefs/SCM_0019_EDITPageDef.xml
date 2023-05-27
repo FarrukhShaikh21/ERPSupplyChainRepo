@@ -129,5 +129,7 @@
                   id="txtOrderTypeName"/>
     <list IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LovPoTypeSno" id="PoTypeSno"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LOVtxtDeliveryTermName"
+                  id="txtDeliveryTermName"/>
   </bindings>
 </pageDefinition>

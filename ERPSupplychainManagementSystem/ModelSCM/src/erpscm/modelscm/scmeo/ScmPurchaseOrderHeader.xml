@@ -1009,7 +1009,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_HEADER">
+    TableName="SCM_PURCHASE_ORDER_HEADER"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[ScmDeliveryTerm?.DeliveryTermName]]></TransientExpression>
     <Properties>
