@@ -83,8 +83,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         ScmPurchaseOrderCharges,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderLines,
-        AdminCompany,
-        AdminCompany1,
         GlProjects,
         ScmPurchaseRfqHeader,
         ScmPaymentTermHeader,
@@ -175,8 +173,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int SCMPURCHASEORDERCHARGES = AttributesEnum.ScmPurchaseOrderCharges.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
-    public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
-    public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int SCMPAYMENTTERMHEADER = AttributesEnum.ScmPaymentTermHeader.index();
@@ -382,15 +378,15 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
      * Gets the attribute value for StatusId, using the alias name StatusId.
      * @return the value of StatusId
      */
-    public Long getStatusId() {
-        return (Long) getAttributeInternal(STATUSID);
+    public Integer getStatusId() {
+        return (Integer) getAttributeInternal(STATUSID);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for StatusId.
      * @param value value to set the StatusId
      */
-    public void setStatusId(Long value) {
+    public void setStatusId(Integer value) {
         setAttributeInternal(STATUSID, value);
     }
 

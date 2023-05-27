@@ -18,7 +18,6 @@
   </DesignTime>
   <Attribute
     Name="PoHeaderSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="PO_HEADER_SNO"
@@ -26,7 +25,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_HEADER"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -57,7 +57,6 @@
   </Attribute>
   <Attribute
     Name="RfqHeaderSno"
-    IsNotNull="true"
     Precision="10"
     Scale="0"
     ColumnName="RFQ_HEADER_SNO"
@@ -228,9 +227,10 @@
     Scale="0"
     ColumnName="STATUS_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_HEADER">
+    TableName="SCM_PURCHASE_ORDER_HEADER"
+    DefaultValue="1">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -1009,7 +1009,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_HEADER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -1161,6 +1160,18 @@
     PrimaryKey="true">
     <DesignTime>
       <Attr Name="_DBObjectName" Value="PK_SCM_PURCHASE_ORDER_HEADER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.PoHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ScmPurchaseOrderHeaderPoHeaderSnoCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Scm_Purchase_Order_Header_Po_H"/>
+      <Attr Name="_checkCondition" Value='"PO_HEADER_SNO" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.PoHeaderSno"/>
