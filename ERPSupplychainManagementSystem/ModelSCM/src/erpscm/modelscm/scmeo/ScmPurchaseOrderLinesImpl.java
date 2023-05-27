@@ -813,6 +813,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         setAttributeInternal(TXTTAXTYPENAME, value);
     }
 
+
     /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
@@ -975,6 +976,9 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+//            populateAttributeAsChanged(LINENO, gettxtMaxLineNo()+1);
+       }
         super.doDML(operation, e);
     }
 }

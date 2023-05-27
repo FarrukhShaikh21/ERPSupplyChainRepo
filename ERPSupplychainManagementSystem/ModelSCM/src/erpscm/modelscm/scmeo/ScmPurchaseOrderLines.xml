@@ -135,7 +135,6 @@
   </Attribute>
   <Attribute
     Name="LineNo"
-    IsNotNull="true"
     Precision="6"
     Scale="0"
     ColumnName="LINE_NO"
@@ -143,6 +142,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_LINES">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseOrderHeader?.ScmPurchaseOrderLines?.max("LineNo")==null?1:ScmPurchaseOrderHeader?.ScmPurchaseOrderLines?.max("LineNo")+1]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -224,7 +225,6 @@
   </Attribute>
   <Attribute
     Name="PoRequestQuantity"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="PO_REQUEST_QUANTITY"
@@ -245,7 +245,6 @@
   </Attribute>
   <Attribute
     Name="PoApproveQuantity"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="PO_APPROVE_QUANTITY"
@@ -757,7 +756,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <Properties>

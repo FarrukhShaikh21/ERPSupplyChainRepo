@@ -13,11 +13,13 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  RowClass="erpglobals.modelglobals.ERPViewRowImpl"
+  RowClass="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVORowImpl"
   ComponentClass="erpglobals.modelglobals.ERPViewObjectImpl">
   <DesignTime>
     <Attr Name="_objectSuperClassName" Value="erpglobals.modelglobals.ERPViewObjectImpl"/>
     <Attr Name="_rowSuperClassName" Value="erpglobals.modelglobals.ERPViewRowImpl"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Variable
     Name="P_ADF_SUPPLIER_SNO"

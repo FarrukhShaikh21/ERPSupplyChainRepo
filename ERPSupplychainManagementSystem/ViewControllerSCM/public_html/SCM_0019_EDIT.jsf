@@ -399,7 +399,7 @@
                             <af:panelGridLayout id="pgl5">
                                 <af:gridRow marginTop="5px" height="auto" id="gr13">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc32"
-                                                 halign="stretch">
+                                                 halign="stretch" valign="stretch">
                                         <af:inputText value="#{bindings.txtItemName.inputValue}"
                                                       label="#{bindings.txtItemName.hints.label}"
                                                       required="#{bindings.txtItemName.hints.mandatory}"
@@ -456,7 +456,22 @@
                                                       selectionListener="#{bindings.ScmPurchaseOrderLinesDetCRUD.collectionModel.makeCurrent}"
                                                       rowSelection="single"
                                                       fetchSize="#{bindings.ScmPurchaseOrderLinesDetCRUD.rangeSize}"
-                                                      id="t1" partialTriggers="::l12 ::l11">
+                                                      id="t1" partialTriggers="::l12 ::l11" scrollPolicy="page"
+                                                      autoHeightRows="10">
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoLinesSno.label}"
+                                                           id="c22">
+                                                    <af:inputText value="#{row.bindings.PoLinesSno.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoLinesSno.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoLinesSno.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoLinesSno.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoLinesSno.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoLinesSno.tooltip}"
+                                                                  id="it26">
+                                                        <f:validator binding="#{row.bindings.PoLinesSno.validator}"/>
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoLinesSno.format}"/>
+                                                    </af:inputText>
+                                                </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.LineNo.label}"
                                                            id="c1" width="70">
                                                     <af:inputText value="#{row.bindings.LineNo.inputValue}"
@@ -479,7 +494,8 @@
                                                                                   model="#{row.bindings.txtItemName.listOfValuesModel}"
                                                                                   required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.mandatory}"
                                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.displayWidth}"
-                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.tooltip}">
+                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.tooltip}"
+                                                                                  contentStyle="width:90%">
                                                         <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
@@ -491,7 +507,8 @@
                                                                                   model="#{row.bindings.txtUnitTypeName.listOfValuesModel}"
                                                                                   required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.mandatory}"
                                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
-                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.tooltip}">
+                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
+                                                                                  contentStyle="width:90%">
                                                         <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
@@ -531,7 +548,7 @@
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.tooltip}"
-                                                                  id="it12">
+                                                                  id="it12" autoSubmit="true">
                                                         <f:validator binding="#{row.bindings.PoApproveQuantity.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.format}"/>
@@ -566,25 +583,26 @@
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
-                                                           id="c9">
+                                                           id="c9" width="120" displayIndex="-1">
                                                     <af:inputDate value="#{row.bindings.RequiredByDate.inputValue}"
                                                                   label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
                                                                   required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.mandatory}"
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.displayWidth}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.tooltip}"
-                                                                  id="id2">
+                                                                  id="id2" contentStyle="width:55%">
                                                         <f:validator binding="#{row.bindings.RequiredByDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.format}"/>
                                                     </af:inputDate>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.label}"
-                                                           id="c10">
+                                                           id="c10" width="120" displayIndex="-1">
                                                     <af:inputDate value="#{row.bindings.PromisedDate.inputValue}"
                                                                   label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.label}"
                                                                   required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.mandatory}"
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.displayWidth}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.tooltip}"
-                                                                  id="id3">
+                                                                  id="id3" contentStyle="width:55%" autoSubmit="true"
+                                                                  inlineStyle="voice-rate:normal;">
                                                         <f:validator binding="#{row.bindings.PromisedDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.format}"/>
                                                     </af:inputDate>
@@ -597,7 +615,8 @@
                                                                                   model="#{row.bindings.txtCOADescription.listOfValuesModel}"
                                                                                   required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.mandatory}"
                                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.displayWidth}"
-                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.tooltip}">
+                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtCOADescription.tooltip}"
+                                                                                  contentStyle="width:90%">
                                                         <f:validator binding="#{row.bindings.txtCOADescription.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
@@ -609,12 +628,13 @@
                                                                                   model="#{row.bindings.txtDepartmentName.listOfValuesModel}"
                                                                                   required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.mandatory}"
                                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.displayWidth}"
-                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.tooltip}">
+                                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDepartmentName.tooltip}"
+                                                                                  contentStyle="width:90%">
                                                         <f:validator binding="#{row.bindings.txtDepartmentName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.label}"
-                                                           id="c24">
+                                                           id="c24" width="200" displayIndex="-1">
                                                     <af:inputComboboxListOfValues id="iclov2"
                                                                                   popupTitle="Search and Select: #{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtProjectName.label}"
                                                                                   value="#{row.bindings.txtProjectName.inputValue}"
