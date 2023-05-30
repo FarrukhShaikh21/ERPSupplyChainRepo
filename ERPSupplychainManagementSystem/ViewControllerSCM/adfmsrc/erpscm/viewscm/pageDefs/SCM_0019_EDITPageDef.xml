@@ -7,7 +7,7 @@
     <iterator Binds="ScmPurchaseOrderHeaderCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseOrderHeaderCRUDIterator"/>
     <iterator Binds="ScmPurchaseOrderLinesDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
-              id="ScmPurchaseOrderLinesDetCRUDIterator"/>
+              id="ScmPurchaseOrderLinesDetCRUDIterator" RowCountThreshold="0"/>
     <iterator Binds="ScmPurchaseOrderDiscountDetCRUD" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseOrderDiscountDetCRUDIterator"/>
   </executables>
@@ -132,5 +132,11 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <listOfValues IterBinding="ScmPurchaseOrderHeaderCRUDIterator" StaticList="false" Uses="LOVtxtDeliveryTermName"
                   id="txtDeliveryTermName"/>
+    <listOfValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" StaticList="false" Uses="LovtxtCOADescription"
+                  id="txtCOADescription"/>
+    <listOfValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" StaticList="false" Uses="LovtxtDepartmentName"
+                  id="txtDepartmentName"/>
+    <listOfValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" StaticList="false" Uses="LovtxtProjectName"
+                  id="txtProjectName"/>
   </bindings>
 </pageDefinition>

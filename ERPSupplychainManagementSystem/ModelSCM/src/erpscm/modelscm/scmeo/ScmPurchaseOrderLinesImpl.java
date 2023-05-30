@@ -82,8 +82,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         GlProjects,
         AdminCompany,
         GlTaxType;
-        static AttributesEnum[] vals = null;
-        ;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -447,15 +446,15 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * Gets the attribute value for DepartmentId, using the alias name DepartmentId.
      * @return the value of DepartmentId
      */
-    public Long getDepartmentId() {
-        return (Long) getAttributeInternal(DEPARTMENTID);
+    public Integer getDepartmentId() {
+        return (Integer) getAttributeInternal(DEPARTMENTID);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for DepartmentId.
      * @param value value to set the DepartmentId
      */
-    public void setDepartmentId(Long value) {
+    public void setDepartmentId(Integer value) {
         setAttributeInternal(DEPARTMENTID, value);
     }
 

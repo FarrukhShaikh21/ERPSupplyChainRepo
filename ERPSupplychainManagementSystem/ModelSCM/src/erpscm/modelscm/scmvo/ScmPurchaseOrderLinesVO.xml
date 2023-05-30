@@ -122,7 +122,8 @@
       <Item Value="ItemShortName"/>
     </AttrArray>
     <DisplayCriteria
-      Name="InvItemFindVC"/>
+      Name="InvItemFindVC"
+      Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
     Name="LovtxtProjectName"
@@ -145,6 +146,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ProjectName"/>
       <Item Value="ProjectCode"/>
+      <Item Value="ProjectShortName"/>
     </AttrArray>
     <DisplayCriteria
       Name="GlProjectsFindVC"
@@ -258,6 +260,7 @@
   <ViewAttribute
     Name="PoLinesSno"
     IsNotNull="true"
+    PrimaryKey="true"
     PrecisionRule="true"
     EntityAttrName="PoLinesSno"
     EntityUsage="ScmPurchaseOrderLines"
