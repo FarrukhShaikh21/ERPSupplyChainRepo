@@ -359,6 +359,7 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
      * @param attributeList list of attribute names/values to initialize the row
      */
     protected void create(AttributeList attributeList) {
+        setERPTableName("scm_purchase_order_discount_sq");
         super.create(attributeList);
     }
 
