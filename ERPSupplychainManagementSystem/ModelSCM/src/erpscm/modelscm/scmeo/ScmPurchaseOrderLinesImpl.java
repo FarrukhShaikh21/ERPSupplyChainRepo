@@ -77,6 +77,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         txtNetAmount,
         txtDiscountAmount,
         txtDiscountedAmount,
+        TaxPercent,
+        txtTaxAmount,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         InvItem,
@@ -154,6 +156,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int TXTDISCOUNTAMOUNT = AttributesEnum.txtDiscountAmount.index();
     public static final int TXTDISCOUNTEDAMOUNT = AttributesEnum.txtDiscountedAmount.index();
+    public static final int TAXPERCENT = AttributesEnum.TaxPercent.index();
+    public static final int TXTTAXAMOUNT = AttributesEnum.txtTaxAmount.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -883,6 +887,39 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      */
     public void settxtDiscountedAmount(BigDecimal value) {
         setAttributeInternal(TXTDISCOUNTEDAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for TaxPercent, using the alias name TaxPercent.
+     * @return the value of TaxPercent
+     */
+    public BigDecimal getTaxPercent() {
+        return (BigDecimal) getAttributeInternal(TAXPERCENT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TaxPercent.
+     * @param value value to set the TaxPercent
+     */
+    public void setTaxPercent(BigDecimal value) {
+        setAttributeInternal(TAXPERCENT, value);
+    }
+
+
+    /**
+     * Gets the attribute value for txtTaxAmount, using the alias name txtTaxAmount.
+     * @return the value of txtTaxAmount
+     */
+    public BigDecimal gettxtTaxAmount() {
+        return (BigDecimal) getAttributeInternal(TXTTAXAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtTaxAmount.
+     * @param value value to set the txtTaxAmount
+     */
+    public void settxtTaxAmount(BigDecimal value) {
+        setAttributeInternal(TXTTAXAMOUNT, value);
     }
 
     /**
