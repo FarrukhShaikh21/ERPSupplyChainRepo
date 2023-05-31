@@ -914,6 +914,20 @@
     EntityAttrName="txtNetAmount"
     EntityUsage="ScmPurchaseOrderLines"
     AliasName="txt_Net_Amount"/>
+  <ViewAttribute
+    Name="txtDiscountAmount"
+    PrecisionRule="true"
+    EntityAttrName="txtDiscountAmount"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="txt_Discount_Amount"/>
+  <ViewAttribute
+    Name="txtDiscountedAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtDiscountedAmount"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="txt_Discounted_Amount"/>
   <ViewLinkAccessor
     Name="ScmPurchaseOrderDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"

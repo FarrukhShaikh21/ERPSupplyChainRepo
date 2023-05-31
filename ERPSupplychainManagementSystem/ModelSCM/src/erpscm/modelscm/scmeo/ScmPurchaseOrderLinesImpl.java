@@ -75,6 +75,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         txtTaxTypeName,
         txtGrossAmount,
         txtNetAmount,
+        txtDiscountAmount,
+        txtDiscountedAmount,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         InvItem,
@@ -150,6 +152,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int TXTTAXTYPENAME = AttributesEnum.txtTaxTypeName.index();
     public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
+    public static final int TXTDISCOUNTAMOUNT = AttributesEnum.txtDiscountAmount.index();
+    public static final int TXTDISCOUNTEDAMOUNT = AttributesEnum.txtDiscountedAmount.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -847,6 +851,38 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      */
     public void settxtNetAmount(BigDecimal value) {
         setAttributeInternal(TXTNETAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtDiscountAmount, using the alias name txtDiscountAmount.
+     * @return the value of txtDiscountAmount
+     */
+    public BigDecimal gettxtDiscountAmount() {
+        return (BigDecimal) getAttributeInternal(TXTDISCOUNTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDiscountAmount.
+     * @param value value to set the txtDiscountAmount
+     */
+    public void settxtDiscountAmount(BigDecimal value) {
+        setAttributeInternal(TXTDISCOUNTAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtDiscountedAmount, using the alias name txtDiscountedAmount.
+     * @return the value of txtDiscountedAmount
+     */
+    public BigDecimal gettxtDiscountedAmount() {
+        return (BigDecimal) getAttributeInternal(TXTDISCOUNTEDAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDiscountedAmount.
+     * @param value value to set the txtDiscountedAmount
+     */
+    public void settxtDiscountedAmount(BigDecimal value) {
+        setAttributeInternal(TXTDISCOUNTEDAMOUNT, value);
     }
 
     /**
