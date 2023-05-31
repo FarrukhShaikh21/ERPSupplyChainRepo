@@ -775,6 +775,50 @@
         Value="TaxTypeSno"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtGrossAmount"
+    ColumnName="txt_Gross_Amount"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(PoApproveQuantity==null?0:PoApproveQuantity)* (PoRate==null?0:PoRate)]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="PoApproveQuantity"/>
+      <Item
+        Value="PoRate"/>
+      <Item
+        Value="PoRequestQuantity"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtGrossAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtNetAmount"
+    ColumnName="txt_Net_Amount"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtNetAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderDiscount"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdLinDisPoLinAssoc"

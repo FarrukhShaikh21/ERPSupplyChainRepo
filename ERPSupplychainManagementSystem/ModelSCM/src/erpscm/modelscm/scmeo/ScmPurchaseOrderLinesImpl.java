@@ -73,6 +73,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         txtProjectName,
         TaxTypeSno,
         txtTaxTypeName,
+        txtGrossAmount,
+        txtNetAmount,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         InvItem,
@@ -146,6 +148,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int TXTPROJECTNAME = AttributesEnum.txtProjectName.index();
     public static final int TAXTYPESNO = AttributesEnum.TaxTypeSno.index();
     public static final int TXTTAXTYPENAME = AttributesEnum.txtTaxTypeName.index();
+    public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
+    public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -812,6 +816,38 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         setAttributeInternal(TXTTAXTYPENAME, value);
     }
 
+
+    /**
+     * Gets the attribute value for txtGrossAmount, using the alias name txtGrossAmount.
+     * @return the value of txtGrossAmount
+     */
+    public BigDecimal gettxtGrossAmount() {
+        return (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtGrossAmount.
+     * @param value value to set the txtGrossAmount
+     */
+    public void settxtGrossAmount(BigDecimal value) {
+        setAttributeInternal(TXTGROSSAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtNetAmount, using the alias name txtNetAmount.
+     * @return the value of txtNetAmount
+     */
+    public BigDecimal gettxtNetAmount() {
+        return (BigDecimal) getAttributeInternal(TXTNETAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtNetAmount.
+     * @param value value to set the txtNetAmount
+     */
+    public void settxtNetAmount(BigDecimal value) {
+        setAttributeInternal(TXTNETAMOUNT, value);
+    }
 
     /**
      * @return the associated entity oracle.jbo.RowIterator.
