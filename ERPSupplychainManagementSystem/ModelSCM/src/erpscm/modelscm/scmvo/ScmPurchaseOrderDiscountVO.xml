@@ -27,6 +27,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmDiscountReasonVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmDiscountReasonVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtDiscountName"
     ListVOName="AccScmDiscountVO"
@@ -53,6 +57,30 @@
     <DisplayCriteria
       Hint="showAndExecute"
       Name="ScmDiscountFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtDiscountReasonName"
+    ListVOName="AccScmDiscountReasonVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtDiscountReasonName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DiscountReasonSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DiscountReasonName"/>
+      <Item Value="DiscountReasonSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DiscountReasonName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="ScmDiscountReasonFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderDiscount"
@@ -153,6 +181,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtDiscountReasonName"
+    PrecisionRule="true"
+    EntityAttrName="txtDiscountReasonName"
+    EntityUsage="ScmPurchaseOrderDiscount"
+    AliasName="TXT_DISCOUNT_REASON_NAME"
+    IsQueriable="false"
+    IsPersistent="false"
+    LOVName="LovtxtDiscountReasonName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.ScmDiscountScmPurchOrderDiscountDiscountSnoLink"
@@ -162,6 +206,12 @@
   <ViewLinkAccessor
     Name="ScmPurchaseOrderHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoHeadLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmDiscountReasonVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmDiscountReasonScmPurcOrderDiscDiscountReasonSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

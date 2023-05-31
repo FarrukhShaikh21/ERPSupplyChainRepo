@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -36,7 +37,8 @@ public class ScmDiscountReasonImpl extends ERPEntityImpl {
         IsUnsupervised,
         UnSupervisedDate,
         SupervisedBy,
-        UnSupervisedBy;
+        UnSupervisedBy,
+        ScmPurchaseOrderDiscount;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -59,6 +61,8 @@ public class ScmDiscountReasonImpl extends ERPEntityImpl {
             return vals;
         }
     }
+
+
     public static final int DISCOUNTREASONSNO = AttributesEnum.DiscountReasonSno.index();
     public static final int DISCOUNTREASONCODE = AttributesEnum.DiscountReasonCode.index();
     public static final int DISCOUNTREASONSHORTNAME = AttributesEnum.DiscountReasonShortName.index();
@@ -77,12 +81,21 @@ public class ScmDiscountReasonImpl extends ERPEntityImpl {
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
+    public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public ScmDiscountReasonImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmDiscountReason");
+    }
+
 
     /**
      * Gets the attribute value for DiscountReasonSno, using the alias name DiscountReasonSno.
@@ -373,19 +386,20 @@ public class ScmDiscountReasonImpl extends ERPEntityImpl {
     }
 
     /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseOrderDiscount() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERDISCOUNT);
+    }
+
+
+    /**
      * @param discountReasonSno key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Integer discountReasonSno) {
         return new Key(new Object[] { discountReasonSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpscm.modelscm.scmeo.ScmDiscountReason");
     }
 
     /**

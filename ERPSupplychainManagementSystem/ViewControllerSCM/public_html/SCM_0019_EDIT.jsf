@@ -811,19 +811,17 @@
                                                                   fetchSize="#{bindings.ScmPurchaseOrderDiscountDetCRUD.rangeSize}"
                                                                   id="t4" columnStretching="column:c17"
                                                                   partialTriggers="::l13 ::l14" autoHeightRows="0">
-                                                            <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.label}"
-                                                                       id="c16">
-                                                                <af:inputText value="#{row.bindings.DiscountReasonSno.inputValue}"
-                                                                              label="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.label}"
-                                                                              required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.mandatory}"
-                                                                              columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.displayWidth}"
-                                                                              maximumLength="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.precision}"
-                                                                              shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.tooltip}"
-                                                                              id="it6">
-                                                                    <f:validator binding="#{row.bindings.DiscountReasonSno.validator}"/>
-                                                                    <af:convertNumber groupingUsed="false"
-                                                                                      pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountReasonSno.format}"/>
-                                                                </af:inputText>
+                                                            <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountReasonName.label}"
+                                                                       id="c16" width="150" displayIndex="-1">
+                                                                <af:inputComboboxListOfValues id="txtDiscountReasonNameId"
+                                                                                              popupTitle="Search and Select: #{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountReasonName.label}"
+                                                                                              value="#{row.bindings.txtDiscountReasonName.inputValue}"
+                                                                                              model="#{row.bindings.txtDiscountReasonName.listOfValuesModel}"
+                                                                                              required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountReasonName.mandatory}"
+                                                                                              columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountReasonName.displayWidth}"
+                                                                                              shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountReasonName.tooltip}">
+                                                                    <f:validator binding="#{row.bindings.txtDiscountReasonName.validator}"/>
+                                                                </af:inputComboboxListOfValues>
                                                             </af:column>
                                                             <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountName.label}"
                                                                        id="c17" width="150">

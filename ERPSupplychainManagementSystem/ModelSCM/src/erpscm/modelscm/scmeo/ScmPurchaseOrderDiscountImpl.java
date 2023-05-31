@@ -34,9 +34,11 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
         DiscountAmount,
         TotalDiscount,
         txtDiscountName,
+        txtDiscountReasonName,
         ScmPurchaseOrderHeader,
         ScmPurchaseOrderLines,
-        ScmDiscount;
+        ScmDiscount,
+        ScmDiscountReason;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -74,9 +76,11 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
     public static final int DISCOUNTAMOUNT = AttributesEnum.DiscountAmount.index();
     public static final int TOTALDISCOUNT = AttributesEnum.TotalDiscount.index();
     public static final int TXTDISCOUNTNAME = AttributesEnum.txtDiscountName.index();
+    public static final int TXTDISCOUNTREASONNAME = AttributesEnum.txtDiscountReasonName.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
     public static final int SCMDISCOUNT = AttributesEnum.ScmDiscount.index();
+    public static final int SCMDISCOUNTREASON = AttributesEnum.ScmDiscountReason.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -302,6 +306,22 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtDiscountReasonName, using the alias name txtDiscountReasonName.
+     * @return the value of txtDiscountReasonName
+     */
+    public String gettxtDiscountReasonName() {
+        return (String) getAttributeInternal(TXTDISCOUNTREASONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDiscountReasonName.
+     * @param value value to set the txtDiscountReasonName
+     */
+    public void settxtDiscountReasonName(String value) {
+        setAttributeInternal(TXTDISCOUNTREASONNAME, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseOrderHeaderImpl.
      */
     public ScmPurchaseOrderHeaderImpl getScmPurchaseOrderHeader() {
@@ -342,6 +362,21 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
      */
     public void setScmDiscount(ScmDiscountImpl value) {
         setAttributeInternal(SCMDISCOUNT, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmDiscountReasonImpl.
+     */
+    public ScmDiscountReasonImpl getScmDiscountReason() {
+        return (ScmDiscountReasonImpl) getAttributeInternal(SCMDISCOUNTREASON);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmDiscountReasonImpl.
+     */
+    public void setScmDiscountReason(ScmDiscountReasonImpl value) {
+        setAttributeInternal(SCMDISCOUNTREASON, value);
     }
 
 

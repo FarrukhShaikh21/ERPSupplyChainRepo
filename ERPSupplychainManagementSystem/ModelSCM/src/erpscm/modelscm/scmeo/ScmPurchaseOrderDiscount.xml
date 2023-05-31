@@ -261,6 +261,31 @@
         Value="DiscountSno"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtDiscountReasonName"
+    Precision="80"
+    ColumnName="TXT_DISCOUNT_REASON_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_ORDER_DISCOUNT"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmDiscountReason?.DiscountReasonName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount.txtDiscountReasonName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="DiscountReasonSno"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdLinDisPoHeadAssoc"
@@ -281,6 +306,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.ScmDiscountScmPurchOrderDiscountDiscountSnoAsso.ScmDiscount"
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmDiscountScmPurchOrderDiscountDiscountSnoAsso.ScmPurchaseOrderDiscount"
     Type="erpscm.modelscm.scmeo.ScmDiscountImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmDiscountReason"
+    Association="erpscm.modelscm.scmeo.ScmDiscountReasonScmPurcOrderDiscDiscountReasonSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmDiscountReasonScmPurcOrderDiscDiscountReasonSnoAsso.ScmDiscountReason"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmDiscountReasonScmPurcOrderDiscDiscountReasonSnoAsso.ScmPurchaseOrderDiscount"
+    Type="erpscm.modelscm.scmeo.ScmDiscountReasonImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderDiscount"
@@ -323,6 +355,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount.DiscountSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderDiscount1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_DISCOUNT_REASON"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_ORDER_DISCOUNT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount.DiscountReasonSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
