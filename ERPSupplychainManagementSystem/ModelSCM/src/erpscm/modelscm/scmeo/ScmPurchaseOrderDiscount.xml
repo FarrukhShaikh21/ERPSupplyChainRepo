@@ -65,6 +65,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_DISCOUNT">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseOrderLines?.PoHeaderSno]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -268,7 +270,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_DISCOUNT"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression

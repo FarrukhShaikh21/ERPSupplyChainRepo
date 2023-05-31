@@ -30,7 +30,17 @@
   <ViewAccessor
     Name="AccScmDiscountReasonVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmDiscountReasonVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmDiscountReasonByCompanyIdVC"
+      FullName="erpscm.modelscm.scmvo.ScmDiscountReasonVO.ScmDiscountReasonByCompanyIdVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseOrderHeaderVO?.CompanyId==null?-1:ScmPurchaseOrderHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtDiscountName"
     ListVOName="AccScmDiscountVO"
@@ -55,8 +65,7 @@
       <Item Value="DiscountShortName"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"
-      Name="ScmDiscountFindVC"/>
+      Hint="hide"/>
   </ListBinding>
   <ListBinding
     Name="LovtxtDiscountReasonName"
