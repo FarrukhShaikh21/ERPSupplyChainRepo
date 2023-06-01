@@ -104,6 +104,8 @@
           <Item Value="TaxPercent"/>
           <Item Value="txtTaxAmount"/>
           <Item Value="txtNetAmount"/>
+          <Item Value="txtDiscountedAmount"/>
+          <Item Value="txtDiscountAmount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -147,16 +149,6 @@
             Action="createInsertRow"/>
     <action IterBinding="ScmPurchaseOrderDiscountDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <attributeValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" id="RequiredByDate">
-      <AttrNames>
-        <Item Value="RequiredByDate"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" id="PromisedDate">
-      <AttrNames>
-        <Item Value="PromisedDate"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" id="SupplierItemName">
       <AttrNames>
         <Item Value="SupplierItemName"/>

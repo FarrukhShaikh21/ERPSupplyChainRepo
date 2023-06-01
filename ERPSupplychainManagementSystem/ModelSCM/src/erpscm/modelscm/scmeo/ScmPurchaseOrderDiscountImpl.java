@@ -35,6 +35,7 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
         TotalDiscount,
         txtDiscountName,
         txtDiscountReasonName,
+        txtTotalDiscount,
         ScmPurchaseOrderHeader,
         ScmPurchaseOrderLines,
         ScmDiscount,
@@ -77,6 +78,7 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
     public static final int TOTALDISCOUNT = AttributesEnum.TotalDiscount.index();
     public static final int TXTDISCOUNTNAME = AttributesEnum.txtDiscountName.index();
     public static final int TXTDISCOUNTREASONNAME = AttributesEnum.txtDiscountReasonName.index();
+    public static final int TXTTOTALDISCOUNT = AttributesEnum.txtTotalDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
     public static final int SCMDISCOUNT = AttributesEnum.ScmDiscount.index();
@@ -322,6 +324,22 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtTotalDiscount, using the alias name txtTotalDiscount.
+     * @return the value of txtTotalDiscount
+     */
+    public BigDecimal gettxtTotalDiscount() {
+        return (BigDecimal) getAttributeInternal(TXTTOTALDISCOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtTotalDiscount.
+     * @param value value to set the txtTotalDiscount
+     */
+    public void settxtTotalDiscount(BigDecimal value) {
+        setAttributeInternal(TXTTOTALDISCOUNT, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseOrderHeaderImpl.
      */
     public ScmPurchaseOrderHeaderImpl getScmPurchaseOrderHeader() {
@@ -418,6 +436,9 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation!=DML_DELETE) {
+            populateAttributeAsChanged(TOTALDISCOUNT, TXTTOTALDISCOUNT);
+       }
         super.doDML(operation, e);
     }
 }

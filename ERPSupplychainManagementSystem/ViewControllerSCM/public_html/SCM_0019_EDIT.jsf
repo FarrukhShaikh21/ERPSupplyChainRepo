@@ -557,18 +557,18 @@
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtGrossAmount.format}"/>
                                                     </af:inputText>
                                                 </af:column>
-                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.label}"
-                                                           id="c15" width="80" displayIndex="-1">
-                                                    <af:inputText value="#{row.bindings.DiscountAmount.inputValue}"
-                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.label}"
-                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.mandatory}"
-                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.displayWidth}"
-                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.precision}"
-                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.tooltip}"
-                                                                  id="it21" readOnly="true">
-                                                        <f:validator binding="#{row.bindings.DiscountAmount.validator}"/>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDiscountAmount.label}"
+                                                           id="c9" width="80">
+                                                    <af:inputText value="#{row.bindings.txtDiscountAmount.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDiscountAmount.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDiscountAmount.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDiscountAmount.displayWidth}"
+                                                                  maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDiscountAmount.precision}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDiscountAmount.tooltip}"
+                                                                  id="it6" readOnly="true">
+                                                        <f:validator binding="#{row.bindings.txtDiscountAmount.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.DiscountAmount.format}"/>
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDiscountAmount.format}"/>
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxTypeName.label}"
@@ -626,6 +626,30 @@
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtNetAmount.format}"/>
                                                     </af:inputText>
                                                 </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.label}"
+                                                           id="c10">
+                                                    <af:inputDate value="#{row.bindings.PromisedDate.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.displayWidth}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.tooltip}"
+                                                                  id="id2">
+                                                        <f:validator binding="#{row.bindings.PromisedDate.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.format}"/>
+                                                    </af:inputDate>
+                                                </af:column>
+                                                <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
+                                                           id="c11">
+                                                    <af:inputDate value="#{row.bindings.RequiredByDate.inputValue}"
+                                                                  label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
+                                                                  required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.mandatory}"
+                                                                  columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.displayWidth}"
+                                                                  shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.tooltip}"
+                                                                  id="id3">
+                                                        <f:validator binding="#{row.bindings.RequiredByDate.validator}"/>
+                                                        <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.format}"/>
+                                                    </af:inputDate>
+                                                </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.GrnQuantity.label}"
                                                            id="c7" width="70">
                                                     <af:inputText value="#{row.bindings.GrnQuantity.inputValue}"
@@ -677,24 +701,6 @@
                                                 <af:gridCell marginStart="5px" width="34%" id="gc30" halign="stretch">
                                                     <af:panelFormLayout id="pfl2">
                                                         <f:facet name="footer"/>
-                                                        <af:inputDate value="#{bindings.RequiredByDate.inputValue}"
-                                                                      label="#{bindings.RequiredByDate.hints.label}"
-                                                                      required="#{bindings.RequiredByDate.hints.mandatory}"
-                                                                      columns="#{bindings.RequiredByDate.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.RequiredByDate.hints.tooltip}"
-                                                                      id="id4">
-                                                            <f:validator binding="#{bindings.RequiredByDate.validator}"/>
-                                                            <af:convertDateTime pattern="#{bindings.RequiredByDate.format}"/>
-                                                        </af:inputDate>
-                                                        <af:inputDate value="#{bindings.PromisedDate.inputValue}"
-                                                                      label="#{bindings.PromisedDate.hints.label}"
-                                                                      required="#{bindings.PromisedDate.hints.mandatory}"
-                                                                      columns="#{bindings.PromisedDate.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.PromisedDate.hints.tooltip}"
-                                                                      id="id5">
-                                                            <f:validator binding="#{bindings.PromisedDate.validator}"/>
-                                                            <af:convertDateTime pattern="#{bindings.PromisedDate.format}"/>
-                                                        </af:inputDate>
                                                     </af:panelFormLayout>
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="33%" id="gc31" halign="stretch">
@@ -810,7 +816,8 @@
                                                                   rowSelection="single"
                                                                   fetchSize="#{bindings.ScmPurchaseOrderDiscountDetCRUD.rangeSize}"
                                                                   id="t4" columnStretching="column:c17"
-                                                                  partialTriggers="::l13 ::l14" autoHeightRows="0">
+                                                                  partialTriggers="::l13 ::l14" autoHeightRows="3"
+                                                                  scrollPolicy="page">
                                                             <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountReasonName.label}"
                                                                        id="c16" width="200" displayIndex="-1"
                                                                        minimumWidth="12">

@@ -1084,8 +1084,11 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
-        if (operation==DML_INSERT) {
-//            populateAttributeAsChanged(LINENO, gettxtMaxLineNo()+1);
+        if (operation!=DML_DELETE) {
+            populateAttributeAsChanged(DISCOUNTAMOUNT, gettxtDiscountAmount());
+            populateAttributeAsChanged(GROSSAMOUNT, gettxtGrossAmount());
+            populateAttributeAsChanged(NETAMOUNT, gettxtNetAmount());
+            populateAttributeAsChanged(TAXAMOUNT, gettxtTaxAmount());
        }
         super.doDML(operation, e);
     }
