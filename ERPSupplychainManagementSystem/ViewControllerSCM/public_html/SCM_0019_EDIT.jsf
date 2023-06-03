@@ -122,7 +122,7 @@
                                                             label="#{bindings.PoTypeSno.label}"
                                                             required="#{bindings.PoTypeSno.hints.mandatory}"
                                                             shortDesc="#{bindings.PoTypeSno.hints.tooltip}" id="soc3"
-                                                            simple="true" contentStyle="width:100%">
+                                                            simple="true" contentStyle="width:100%" autoSubmit="true">
                                             <f:selectItems value="#{bindings.PoTypeSno.items}" id="si4"/>
                                             <f:validator binding="#{bindings.PoTypeSno.validator}"/>
                                         </af:selectOneChoice>
@@ -295,7 +295,9 @@
                                                                       required="#{bindings.txtDemandHeaderCode.hints.mandatory}"
                                                                       columns="#{bindings.txtDemandHeaderCode.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtDemandHeaderCode.hints.tooltip}"
-                                                                      simple="true" contentStyle="width:90%">
+                                                                      simple="true" contentStyle="width:90%"
+                                                                      disabled="#{bindings.PoTypeSno.inputValue=='1'}"
+                                                                      partialTriggers="soc3">
                                             <f:validator binding="#{bindings.txtDemandHeaderCode.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.txtDemandHeaderCode.format}"/>
@@ -526,7 +528,8 @@
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.format}"
                                                                           minIntegerDigits="1" maxIntegerDigits="10"
-                                                                          minFractionDigits="0" maxFractionDigits="6"/>
+                                                                          minFractionDigits="0" maxFractionDigits="6"
+                                                                          roundingMode="HALF_UP"/>
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.label}"
@@ -537,7 +540,7 @@
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.tooltip}"
-                                                                  id="it12" autoSubmit="true" readOnly="true">
+                                                                  id="it12" autoSubmit="true">
                                                         <f:validator binding="#{row.bindings.PoApproveQuantity.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.format}"/>
@@ -553,8 +556,11 @@
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtGrossAmount.tooltip}"
                                                                   id="it20" readOnly="true">
                                                         <f:validator binding="#{row.bindings.txtGrossAmount.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtGrossAmount.format}"/>
+                                                        <af:convertNumber
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtGrossAmount.format}"
+                                                                          minIntegerDigits="1" maxIntegerDigits="10"
+                                                                          minFractionDigits="0" maxFractionDigits="6"
+                                                                          roundingMode="HALF_UP"/>
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDiscountAmount.label}"
@@ -596,7 +602,10 @@
                                                                   id="it27" autoSubmit="true">
                                                         <f:validator binding="#{row.bindings.TaxPercent.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.TaxPercent.format}"/>
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.TaxPercent.format}"
+                                                                          minIntegerDigits="1" maxIntegerDigits="3"
+                                                                          minFractionDigits="0" maxFractionDigits="6"
+                                                                          roundingMode="HALF_UP"/>
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxAmount.label}"
@@ -609,8 +618,11 @@
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxAmount.tooltip}"
                                                                   id="it28" readOnly="true">
                                                         <f:validator binding="#{row.bindings.txtTaxAmount.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxAmount.format}"/>
+                                                        <af:convertNumber
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxAmount.format}"
+                                                                          minIntegerDigits="1" maxIntegerDigits="10"
+                                                                          minFractionDigits="0" maxFractionDigits="6"
+                                                                          roundingMode="HALF_UP"/>
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtNetAmount.label}"
@@ -624,8 +636,11 @@
                                                                   id="it29" readOnly="true"
                                                                   partialTriggers=":::pc2:t4:it22 :::pc2:t4:it23">
                                                         <f:validator binding="#{row.bindings.txtNetAmount.validator}"/>
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtNetAmount.format}"/>
+                                                        <af:convertNumber
+                                                                          pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtNetAmount.format}"
+                                                                          roundingMode="HALF_UP" minIntegerDigits="1"
+                                                                          maxIntegerDigits="10" minFractionDigits="0"
+                                                                          maxFractionDigits="6"/>
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.label}"
@@ -635,19 +650,19 @@
                                                                   required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.mandatory}"
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.displayWidth}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.tooltip}"
-                                                                  id="id2">
+                                                                  id="id2" contentStyle="width:50%">
                                                         <f:validator binding="#{row.bindings.PromisedDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PromisedDate.format}"/>
                                                     </af:inputDate>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
-                                                           id="c11">
+                                                           id="c11" width="110" displayIndex="-1">
                                                     <af:inputDate value="#{row.bindings.RequiredByDate.inputValue}"
                                                                   label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.label}"
                                                                   required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.mandatory}"
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.displayWidth}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.tooltip}"
-                                                                  id="id3">
+                                                                  id="id3" contentStyle="width:54%">
                                                         <f:validator binding="#{row.bindings.RequiredByDate.validator}"/>
                                                         <af:convertDateTime pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.RequiredByDate.format}"/>
                                                     </af:inputDate>
@@ -749,7 +764,7 @@
                                                                       columns="#{bindings.PoRequestQuantity.hints.displayWidth}"
                                                                       maximumLength="#{bindings.PoRequestQuantity.hints.precision}"
                                                                       shortDesc="#{bindings.PoRequestQuantity.hints.tooltip}"
-                                                                      id="it30">
+                                                                      id="it30" readOnly="true">
                                                             <f:validator binding="#{bindings.PoRequestQuantity.validator}"/>
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.PoRequestQuantity.format}"/>

@@ -88,7 +88,17 @@
   <ViewAccessor
     Name="AccScmPurchaseRfqHeaderVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseRfqHeaderByLocationVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO.ScmPurchaseRfqHeaderByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATION_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[LocationId==null?0:LocationId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccScmPurchaseDemandHeaderVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"

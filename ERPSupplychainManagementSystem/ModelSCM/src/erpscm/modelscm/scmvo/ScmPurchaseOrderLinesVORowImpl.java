@@ -376,13 +376,6 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
      */
     public void setPoRequestQuantity(BigDecimal value) {
         setAttributeInternal(POREQUESTQUANTITY, value);
-        getScmPurchaseOrderDiscountVO().setRangeSize(-1);
-        for (int i = 0; i < getScmPurchaseOrderDiscountVO().getRowCount(); i++) {
-            getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).setAttribute("DiscountAmount", getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).getAttribute("DiscountAmount"));
-            getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).setAttribute("DiscountPercent", getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).getAttribute("DiscountPercent"));
-        }
-
-
     }
 
     /**
@@ -399,7 +392,8 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
      */
     public void setPoApproveQuantity(BigDecimal value) {
         setAttributeInternal(POAPPROVEQUANTITY, value);
-        setPoApproveQuantity(value);
+        setPoRequestQuantity(value);
+        doCalculatePODiscount();
     }
 
     /**
@@ -608,6 +602,7 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
      */
     public void setPoRate(BigDecimal value) {
         setAttributeInternal(PORATE, value);
+        doCalculatePODiscount();
     }
 
     /**
@@ -1105,6 +1100,13 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
      */
     public RowSet getAccGlTaxTypeVO() {
         return (RowSet) getAttributeInternal(ACCGLTAXTYPEVO);
+    }
+    public void doCalculatePODiscount(){
+    getScmPurchaseOrderDiscountVO().setRangeSize(-1);
+    for (int i = 0; i < getScmPurchaseOrderDiscountVO().getRowCount(); i++) {
+        getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).setAttribute("DiscountAmount", getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).getAttribute("DiscountAmount"));
+        getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).setAttribute("DiscountPercent", getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).getAttribute("DiscountPercent"));
+    }
     }
 }
 

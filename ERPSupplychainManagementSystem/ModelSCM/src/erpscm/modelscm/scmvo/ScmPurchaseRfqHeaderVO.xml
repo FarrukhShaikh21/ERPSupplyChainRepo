@@ -973,11 +973,45 @@
       Name="ScmPurchaseRfqHeaderVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="LocationId"
-        ViewAttribute="LocationId"
-        Operator="="
+        Name="AdminCompanyVO1"
+        ViewAttribute="AdminCompanyVO1"
+        Operator="EXISTS"
         Conjunction="AND"
-        Required="Optional"/>
+        Required="Optional"
+        IsNestedCriteria="true">
+        <ViewCriteria
+          Name="AdminCompanyVONestedCriteria"
+          ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="AdminCompanyVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="TempAdminCompanyAccessVO"
+              ViewAttribute="TempAdminCompanyAccessVO"
+              Operator="EXISTS"
+              Conjunction="AND"
+              IsNestedCriteria="true"
+              Required="Optional">
+              <ViewCriteria
+                Name="TempAdminCompanyAccessVONestedCriteria"
+                ViewObjectName="erpglobals.modelglobals.globalsvo.TempAdminCompanyAccessVO"
+                Conjunction="AND">
+                <ViewCriteriaRow
+                  Name="TempAdminCompanyAccessVONestedCriteria_row_0"
+                  UpperColumns="1">
+                  <ViewCriteriaItem
+                    Name="CompanyId"
+                    ViewAttribute="CompanyId"
+                    Operator="ISNOTBLANK"
+                    Conjunction="AND"
+                    Required="Optional"/>
+                </ViewCriteriaRow>
+              </ViewCriteria>
+            </ViewCriteriaItem>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewCriteria

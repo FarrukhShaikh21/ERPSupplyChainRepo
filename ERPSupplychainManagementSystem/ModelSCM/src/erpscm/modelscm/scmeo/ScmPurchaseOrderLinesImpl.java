@@ -830,7 +830,13 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * @return the value of txtGrossAmount
      */
     public BigDecimal gettxtGrossAmount() {
-        return (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
+        BigDecimal ERPgrossAmount= (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
+        try {
+            return ERPgrossAmount.setScale(2, BigDecimal.ROUND_HALF_UP);
+       } catch (Exception e) {
+            // TODO: Add catch code
+            return new BigDecimal(0);
+        }
     }
 
     /**
@@ -846,7 +852,13 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * @return the value of txtNetAmount
      */
     public BigDecimal gettxtNetAmount() {
-        return (BigDecimal) getAttributeInternal(TXTNETAMOUNT);
+        BigDecimal ERPNetAmount= (BigDecimal) getAttributeInternal(TXTNETAMOUNT);
+        try {
+            return ERPNetAmount.setScale(2, BigDecimal.ROUND_HALF_UP);
+        } catch (Exception e) {
+            // TODO: Add catch code
+            return new BigDecimal(0);
+        }
     }
 
     /**
@@ -862,7 +874,13 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * @return the value of txtDiscountAmount
      */
     public BigDecimal gettxtDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(TXTDISCOUNTAMOUNT);
+        BigDecimal ERPDiscountAmount= (BigDecimal) getAttributeInternal(TXTDISCOUNTAMOUNT);
+        try {
+            return ERPDiscountAmount.setScale(2, BigDecimal.ROUND_HALF_UP);
+        } catch (Exception e) {
+            // TODO: Add catch code
+            return new BigDecimal(0);
+        }
     }
 
     /**
@@ -878,7 +896,13 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * @return the value of txtDiscountedAmount
      */
     public BigDecimal gettxtDiscountedAmount() {
-        return (BigDecimal) getAttributeInternal(TXTDISCOUNTEDAMOUNT);
+        BigDecimal ERPDiscountedAmount= (BigDecimal) getAttributeInternal(TXTDISCOUNTEDAMOUNT);
+        try {
+            return ERPDiscountedAmount.setScale(2, BigDecimal.ROUND_HALF_UP);
+        } catch (Exception e) {
+            // TODO: Add catch code
+            return new BigDecimal(0);
+        }
     }
 
     /**
@@ -911,7 +935,13 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * @return the value of txtTaxAmount
      */
     public BigDecimal gettxtTaxAmount() {
-        return (BigDecimal) getAttributeInternal(TXTTAXAMOUNT);
+        BigDecimal ERPTaxAmount= (BigDecimal) getAttributeInternal(TXTTAXAMOUNT);
+        try {
+            return ERPTaxAmount.setScale(2, BigDecimal.ROUND_HALF_UP);
+        } catch (Exception e) {
+            // TODO: Add catch code
+            return new BigDecimal(0);
+        }
     }
 
     /**
