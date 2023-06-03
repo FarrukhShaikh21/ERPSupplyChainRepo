@@ -328,7 +328,13 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
      * @return the value of txtTotalDiscount
      */
     public BigDecimal gettxtTotalDiscount() {
-        return (BigDecimal) getAttributeInternal(TXTTOTALDISCOUNT);
+        BigDecimal ERPtotalDiscount= (BigDecimal) getAttributeInternal(TXTTOTALDISCOUNT);
+        try {
+            return ERPtotalDiscount.setScale(2, BigDecimal.ROUND_HALF_UP);
+        } catch (Exception e) {
+            // TODO: Add catch code
+            return new BigDecimal(0);
+        }
     }
 
     /**
@@ -441,5 +447,12 @@ public class ScmPurchaseOrderDiscountImpl extends ERPEntityImpl {
        }
         super.doDML(operation, e);
     }
+    public static void main(String[] args) {
+       BigDecimal a = new BigDecimal("10.5649");
+        System.out.println(a.setScale(3, BigDecimal.ROUND_HALF_UP));
+       a=a.setScale(2, BigDecimal.ROUND_HALF_UP);
+       System.out.println(a);
+       
+   }
 }
 

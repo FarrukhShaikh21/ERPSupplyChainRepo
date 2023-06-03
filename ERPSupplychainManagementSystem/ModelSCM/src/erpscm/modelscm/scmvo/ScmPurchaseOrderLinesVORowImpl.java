@@ -376,6 +376,13 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
      */
     public void setPoRequestQuantity(BigDecimal value) {
         setAttributeInternal(POREQUESTQUANTITY, value);
+        getScmPurchaseOrderDiscountVO().setRangeSize(-1);
+        for (int i = 0; i < getScmPurchaseOrderDiscountVO().getRowCount(); i++) {
+            getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).setAttribute("DiscountAmount", getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).getAttribute("DiscountAmount"));
+            getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).setAttribute("DiscountPercent", getScmPurchaseOrderDiscountVO().getRowAtRangeIndex(i).getAttribute("DiscountPercent"));
+        }
+
+
     }
 
     /**

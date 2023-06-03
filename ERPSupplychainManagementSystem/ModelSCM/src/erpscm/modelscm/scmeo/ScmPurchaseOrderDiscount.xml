@@ -102,7 +102,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_DISCOUNT">
+    TableName="SCM_PURCHASE_ORDER_DISCOUNT"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -208,7 +210,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_DISCOUNT">
+    TableName="SCM_PURCHASE_ORDER_DISCOUNT"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -220,14 +224,15 @@
   </Attribute>
   <Attribute
     Name="TotalDiscount"
-    IsNotNull="true"
     Precision="16"
     Scale="6"
     ColumnName="TOTAL_DISCOUNT"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_DISCOUNT">
+    TableName="SCM_PURCHASE_ORDER_DISCOUNT"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -295,7 +300,7 @@
     IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[if (DiscountAmount !=null && DiscountAmount >0 && ScmPurchaseOrderLines?.txtGrossAmount>0)
-{ScmPurchaseOrderLines?.txtGrossAmount - DiscountAmount}
+{DiscountAmount}
 else if(DiscountPercent!=null && DiscountPercent>0 && ScmPurchaseOrderLines?.txtGrossAmount>0)
 {ScmPurchaseOrderLines?.txtGrossAmount * DiscountPercent /100}
 else return 0;]]></TransientExpression>

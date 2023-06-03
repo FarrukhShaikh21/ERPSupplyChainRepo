@@ -810,6 +810,10 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(txtDiscountedAmount==null?0:txtDiscountedAmount) + (txtTaxAmount==null?0:txtTaxAmount)]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -818,6 +822,20 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="PoApproveQuantity"/>
+      <Item
+        Value="PoRate"/>
+      <Item
+        Value="PoRequestQuantity"/>
+      <Item
+        Value="txtDiscountAmount"/>
+      <Item
+        Value="txtDiscountedAmount"/>
+      <Item
+        Value="txtTaxAmount"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtDiscountAmount"
@@ -825,9 +843,12 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseOrderDiscount?.sum("txtTotalDiscount")==null?0:ScmPurchaseOrderDiscount?.sum("txtTotalDiscount")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -845,6 +866,10 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(txtGrossAmount==null?0:txtGrossAmount) - (txtDiscountAmount==null?0:txtDiscountAmount)]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -853,6 +878,12 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="txtDiscountAmount"/>
+      <Item
+        Value="txtGrossAmount"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="TaxPercent"
@@ -862,7 +893,9 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES">
+    TableName="SCM_PURCHASE_ORDER_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -878,9 +911,12 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_LINES"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(txtDiscountedAmount==null?0:txtDiscountedAmount) * (TaxPercent==null?0:TaxPercent/100)]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -889,6 +925,16 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="PoApproveQuantity"/>
+      <Item
+        Value="PoRate"/>
+      <Item
+        Value="PoRequestQuantity"/>
+      <Item
+        Value="TaxPercent"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderDiscount"

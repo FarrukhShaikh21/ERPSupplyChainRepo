@@ -182,7 +182,7 @@ public class ScmPurchaseOrderDiscountVORowImpl extends ViewRowImpl {
      */
     public void setDiscountPercent(BigDecimal value) {
         setAttributeInternal(DISCOUNTPERCENT, value);
-        setDiscountAmount(null);
+        setAttributeInternal(DISCOUNTAMOUNT, null);
     }
 
     /**
@@ -279,7 +279,7 @@ public class ScmPurchaseOrderDiscountVORowImpl extends ViewRowImpl {
      */
     public void setDiscountAmount(BigDecimal value) {
         setAttributeInternal(DISCOUNTAMOUNT, value);
-        setDiscountPercent(null);
+        setAttributeInternal(DISCOUNTPERCENT, null);
     }
 
     /**

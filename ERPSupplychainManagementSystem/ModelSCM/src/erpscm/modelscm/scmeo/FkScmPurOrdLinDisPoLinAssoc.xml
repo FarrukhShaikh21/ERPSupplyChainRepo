@@ -13,7 +13,9 @@
     Name="ScmPurchaseOrderLines"
     Cardinality="1"
     Source="true"
-    Owner="erpscm.modelscm.scmeo.ScmPurchaseOrderLines">
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseOrderLines"
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseOrderLines"/>
@@ -28,7 +30,8 @@
   <AssociationEnd
     Name="ScmPurchaseOrderDiscount"
     Cardinality="-1"
-    Owner="erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount">
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseOrderDiscount"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseOrderDiscount"/>

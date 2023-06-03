@@ -521,7 +521,7 @@
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.tooltip}"
-                                                                  id="it7">
+                                                                  id="it7" autoSubmit="true">
                                                         <f:validator binding="#{row.bindings.PoRate.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.format}"
@@ -558,7 +558,8 @@
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDiscountAmount.label}"
-                                                           id="c9" width="80">
+                                                           id="c9" width="80"
+                                                           partialTriggers=":::pc2:t4:it22 :::pc2:t4:it23">
                                                     <af:inputText value="#{row.bindings.txtDiscountAmount.inputValue}"
                                                                   label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDiscountAmount.label}"
                                                                   required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtDiscountAmount.mandatory}"
@@ -592,35 +593,36 @@
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.TaxPercent.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.TaxPercent.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.TaxPercent.tooltip}"
-                                                                  id="it27">
+                                                                  id="it27" autoSubmit="true">
                                                         <f:validator binding="#{row.bindings.TaxPercent.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.TaxPercent.format}"/>
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxAmount.label}"
-                                                           id="c24">
+                                                           id="c24" partialTriggers=":::pc2:t4:it22 :::pc2:t4:it23">
                                                     <af:inputText value="#{row.bindings.txtTaxAmount.inputValue}"
                                                                   label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxAmount.label}"
                                                                   required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxAmount.mandatory}"
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxAmount.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxAmount.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxAmount.tooltip}"
-                                                                  id="it28">
+                                                                  id="it28" readOnly="true">
                                                         <f:validator binding="#{row.bindings.txtTaxAmount.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtTaxAmount.format}"/>
                                                     </af:inputText>
                                                 </af:column>
                                                 <af:column headerText="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtNetAmount.label}"
-                                                           id="c25">
+                                                           id="c25" partialTriggers=":::pc2:t4:it22 :::pc2:t4:it23">
                                                     <af:inputText value="#{row.bindings.txtNetAmount.inputValue}"
                                                                   label="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtNetAmount.label}"
                                                                   required="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtNetAmount.mandatory}"
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtNetAmount.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtNetAmount.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtNetAmount.tooltip}"
-                                                                  id="it29">
+                                                                  id="it29" readOnly="true"
+                                                                  partialTriggers=":::pc2:t4:it22 :::pc2:t4:it23">
                                                         <f:validator binding="#{row.bindings.txtNetAmount.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtNetAmount.format}"/>
@@ -816,7 +818,7 @@
                                                                   rowSelection="single"
                                                                   fetchSize="#{bindings.ScmPurchaseOrderDiscountDetCRUD.rangeSize}"
                                                                   id="t4" columnStretching="column:c17"
-                                                                  partialTriggers="::l13 ::l14" autoHeightRows="3"
+                                                                  partialTriggers="::l13 ::l14 :::pc1:t1:it7" autoHeightRows="3"
                                                                   scrollPolicy="page">
                                                             <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtDiscountReasonName.label}"
                                                                        id="c16" width="200" displayIndex="-1"
@@ -877,19 +879,19 @@
                                                                                       pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.DiscountAmount.format}"/>
                                                                 </af:inputText>
                                                             </af:column>
-                                                            <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.label}"
-                                                                       id="c20">
-                                                                <af:inputText value="#{row.bindings.TotalDiscount.inputValue}"
-                                                                              label="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.label}"
-                                                                              required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.mandatory}"
-                                                                              columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.displayWidth}"
-                                                                              maximumLength="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.precision}"
-                                                                              shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.tooltip}"
-                                                                              id="it24" readOnly="true"
+                                                            <af:column headerText="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtTotalDiscount.label}"
+                                                                       id="c12">
+                                                                <af:inputText value="#{row.bindings.txtTotalDiscount.inputValue}"
+                                                                              label="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtTotalDiscount.label}"
+                                                                              required="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtTotalDiscount.mandatory}"
+                                                                              columns="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtTotalDiscount.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtTotalDiscount.precision}"
+                                                                              shortDesc="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtTotalDiscount.tooltip}"
+                                                                              id="it19" readOnly="true"
                                                                               partialTriggers="it22 it23">
-                                                                    <f:validator binding="#{row.bindings.TotalDiscount.validator}"/>
+                                                                    <f:validator binding="#{row.bindings.txtTotalDiscount.validator}"/>
                                                                     <af:convertNumber groupingUsed="false"
-                                                                                      pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.TotalDiscount.format}"/>
+                                                                                      pattern="#{bindings.ScmPurchaseOrderDiscountDetCRUD.hints.txtTotalDiscount.format}"/>
                                                                 </af:inputText>
                                                             </af:column>
                                                         </af:table>
