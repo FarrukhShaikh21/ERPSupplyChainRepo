@@ -12,8 +12,6 @@
         <sort attribute="LineNo" ascending="true"/>
       </sortCriteria>
     </iterator>
-    <iterator Binds="ScmPurchaseDemandAccountDetCRUD" RangeSize="-1" DataControl="ERPSCMModuleDataControl"
-              id="ScmPurchaseDemandAccountDetCRUDIterator" RowCountThreshold="0"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ScmPurchaseDemandHeaderCRUDIterator" id="DemandHeaderCode">
@@ -112,31 +110,9 @@
     </action>
     <action IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <tree IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="ScmPurchaseDemandAccountDetCRUD">
-      <nodeDefinition DefName="erpscm.modelscm.scmvo.ScmPurchaseDemandAccountVO"
-                      Name="ScmPurchaseDemandAccountDetCRUD0">
-        <AttrNames>
-          <Item Value="txtChartOfAccountName"/>
-          <Item Value="Quantity"/>
-          <Item Value="DemandAccountSno"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <action IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
-            Action="createWithParams" InstanceName="ERPSCMModuleDataControl.ScmPurchaseDemandAccountDetCRUD"
-            DataControl="ERPSCMModuleDataControl">
-      <NamedData NDName="LastUpdatedBy" NDValue="#{''}" NDType="java.lang.String"/>
-    </action>
-    <action IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
-            Action="removeCurrentRow"/>
     <attributeValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="txtItemName">
       <AttrNames>
         <Item Value="txtItemName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ScmPurchaseDemandAccountDetCRUDIterator" id="txtSumQuantity">
-      <AttrNames>
-        <Item Value="txtSumQuantity"/>
       </AttrNames>
     </attributeValues>
     <list IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovApprovalStatusSno"

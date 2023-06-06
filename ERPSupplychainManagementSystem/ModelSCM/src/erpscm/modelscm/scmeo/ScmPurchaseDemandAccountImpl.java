@@ -32,9 +32,9 @@ public class ScmPurchaseDemandAccountImpl extends ERPEntityImpl {
         LastUpdatedBy,
         LastUpdatedDate,
         txtChartOfAccountName,
-        ScmPurchaseDemandLines,
         GlChartOfAccounts;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -67,7 +67,6 @@ public class ScmPurchaseDemandAccountImpl extends ERPEntityImpl {
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
     public static final int TXTCHARTOFACCOUNTNAME = AttributesEnum.txtChartOfAccountName.index();
-    public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
     public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
 
     /**
@@ -228,19 +227,6 @@ public class ScmPurchaseDemandAccountImpl extends ERPEntityImpl {
         setAttributeInternal(TXTCHARTOFACCOUNTNAME, value);
     }
 
-    /**
-     * @return the associated entity ScmPurchaseDemandLinesImpl.
-     */
-    public ScmPurchaseDemandLinesImpl getScmPurchaseDemandLines() {
-        return (ScmPurchaseDemandLinesImpl) getAttributeInternal(SCMPURCHASEDEMANDLINES);
-    }
-
-    /**
-     * Sets <code>value</code> as the associated entity ScmPurchaseDemandLinesImpl.
-     */
-    public void setScmPurchaseDemandLines(ScmPurchaseDemandLinesImpl value) {
-        setAttributeInternal(SCMPURCHASEDEMANDLINES, value);
-    }
 
     /**
      * @return the associated entity erpfms.modelfms.fmseo.GlChartOfAccountsImpl.

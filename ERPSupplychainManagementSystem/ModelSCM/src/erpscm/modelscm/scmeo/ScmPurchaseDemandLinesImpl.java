@@ -69,9 +69,9 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         ScmSupplier,
         ScmPurchaseRfqLines,
         InvInventoryOrg,
-        ScmPurchaseDemandAccount,
         ScmPurchaseBidLines;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -134,7 +134,6 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
-    public static final int SCMPURCHASEDEMANDACCOUNT = AttributesEnum.ScmPurchaseDemandAccount.index();
     public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
 
     /**
@@ -754,14 +753,6 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public void setInvInventoryOrg(InvInventoryOrgImpl value) {
         setAttributeInternal(INVINVENTORYORG, value);
-    }
-
-
-    /**
-     * @return the associated entity oracle.jbo.RowIterator.
-     */
-    public RowIterator getScmPurchaseDemandAccount() {
-        return (RowIterator) getAttributeInternal(SCMPURCHASEDEMANDACCOUNT);
     }
 
 
