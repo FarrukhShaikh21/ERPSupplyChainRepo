@@ -90,12 +90,12 @@
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
     RowLevelBinds="true">
     <ViewCriteriaUsage
-      Name="ScmPurchaseRfqHeaderByLocationVC"
-      FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO.ScmPurchaseRfqHeaderByLocationVC"/>
+      Name="ScmPurchaseRfqHeaderSupplierWiseVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO.ScmPurchaseRfqHeaderSupplierWiseVC"/>
     <ParameterMap>
-      <PIMap Variable="P_ADF_LOCATION_ID">
+      <PIMap Variable="P_ADF_SUPPLIER_SNO">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[LocationId==null?0:LocationId]]></TransientExpression>
+          trustMode="untrusted"><![CDATA[SupplierSno==null?0:SupplierSno]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
