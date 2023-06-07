@@ -392,6 +392,9 @@ public class ERPSCMClass {
     }
 
     public String doShowPurchaseRFQForBids() {
+        BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+        OperationBinding ob=(OperationBinding)bc.get("doShowErpUniqueRfqLines"); 
+        ob.execute();        
         RichPopup.PopupHints hints = new RichPopup.PopupHints();
         this.lerpRFQForBidsPopupShow.show(hints); 
         

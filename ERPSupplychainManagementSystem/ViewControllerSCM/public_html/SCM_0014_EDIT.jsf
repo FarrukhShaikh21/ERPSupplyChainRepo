@@ -987,6 +987,10 @@
                                         </af:panelGridLayout>
                                     </af:showDetailItem>
                                     <af:showDetailItem id="tab2" text="Supplier">
+                                        <af:button actionListener="#{bindings.doShowErpUniqueRfqLines.execute}"
+                                                   text="doShowErpUniqueRfqLines"
+                                                   disabled="#{!bindings.doShowErpUniqueRfqLines.enabled}" id="b1"
+                                                   rendered="false"/>
                                         <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                                             <f:facet name="menus"/>
                                             <f:facet name="toolbar">

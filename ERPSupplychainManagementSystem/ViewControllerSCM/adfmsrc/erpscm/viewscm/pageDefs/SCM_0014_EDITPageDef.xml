@@ -241,5 +241,9 @@
         <Item Value="txtMergeBidHeaderSno"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="doShowErpUniqueRfqLines" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doShowErpUniqueRfqLines" IsViewObjectMethod="true" DataControl="ERPSCMModuleDataControl"
+                  InstanceName="data.ERPSCMModuleDataControl.ScmPurchaseRfqLinesForBIDRO"
+                  ReturnName="data.ERPSCMModuleDataControl.methodResults.doShowErpUniqueRfqLines_ERPSCMModuleDataControl_ScmPurchaseRfqLinesForBIDRO_doShowErpUniqueRfqLines_result"/>
   </bindings>
 </pageDefinition>
