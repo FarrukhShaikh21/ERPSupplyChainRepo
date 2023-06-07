@@ -933,8 +933,9 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
             erpNewRow.setAttribute("ItemId", erpNextRow.getAttribute("ItemId"));
             erpNewRow.setAttribute("SupplierItemName", erpNextRow.getAttribute("SupplierItemName"));
             
-            System.out.println("RfqHeaderSno:" + erpNewRow.getAttribute("RfqHeaderSno"));
+//            System.out.println("RfqHeaderSno:" + erpNewRow.getAttribute("RfqHeaderSno"));
             getScmPurchaseRfqLinesVO().insertRow(erpNewRow);
+            
             //            getApplicationModule().findViewObject("ScmPurchaseRfqLinesDetCRUD").insertRow(erpNewRow);
         }
             getApplicationModule().findViewObject("ScmPurchaseRfqLinesDetCRUD").executeQuery();

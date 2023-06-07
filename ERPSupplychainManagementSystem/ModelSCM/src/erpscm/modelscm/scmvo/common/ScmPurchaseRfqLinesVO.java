@@ -7,5 +7,7 @@ import oracle.jbo.ViewObject;
 // ---------------------------------------------------------------------
 public interface ScmPurchaseRfqLinesVO extends ViewObject {
     void doERPGenerateBidFromRFQ();
+
+    void doShowErpUniqueRfqLines();
 }
 

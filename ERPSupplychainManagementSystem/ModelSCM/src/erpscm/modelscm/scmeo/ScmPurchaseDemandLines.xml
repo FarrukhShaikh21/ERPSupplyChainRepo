@@ -578,6 +578,24 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="ChartOfAccountId"
+    Precision="10"
+    Scale="0"
+    ColumnName="CHART_OF_ACCOUNT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_DEMAND_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.ChartOfAccountId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseDemandHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurDemLinHeaderIdAssoc"
@@ -810,9 +828,9 @@ return true;]]></validation:TransientExpression>
       <validation:Item
         Value="ERR_REQ_DEMAND_QUANTITY"/>
       <validation:Item
-        Value="ERR_REQ_DEMAND_ACCOUNT"/>
-      <validation:Item
         Value="ERR_REQ_REQUIRED_DATE"/>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_ACCOUNT"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(ItemId==null)

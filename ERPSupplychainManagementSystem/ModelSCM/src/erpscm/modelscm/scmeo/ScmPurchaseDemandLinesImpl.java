@@ -61,6 +61,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         txtInvOrgDescription,
         txtCoaInventory,
         txtIsDuplicateItem,
+        ChartOfAccountId,
         ScmPurchaseDemandHeader,
         GlProjects,
         AdminCompany,
@@ -126,6 +127,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int TXTINVORGDESCRIPTION = AttributesEnum.txtInvOrgDescription.index();
     public static final int TXTCOAINVENTORY = AttributesEnum.txtCoaInventory.index();
     public static final int TXTISDUPLICATEITEM = AttributesEnum.txtIsDuplicateItem.index();
+    public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -645,6 +647,23 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public void settxtIsDuplicateItem(String value) {
         setAttributeInternal(TXTISDUPLICATEITEM, value);
+    }
+
+
+    /**
+     * Gets the attribute value for ChartOfAccountId, using the alias name ChartOfAccountId.
+     * @return the value of ChartOfAccountId
+     */
+    public Integer getChartOfAccountId() {
+        return (Integer) getAttributeInternal(CHARTOFACCOUNTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ChartOfAccountId.
+     * @param value value to set the ChartOfAccountId
+     */
+    public void setChartOfAccountId(Integer value) {
+        setAttributeInternal(CHARTOFACCOUNTID, value);
     }
 
     /**

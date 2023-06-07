@@ -144,4 +144,8 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
     public void setP_RFQ_HEADER_SNO(Integer value) {
         ensureVariableManager().setVariableValue("P_RFQ_HEADER_SNO", value);
     }
+    public void doShowErpUniqueRfqLines() {
+        this.setWhereClause("rfq_lines_sno=(select max(rfql.rfq_lines_sno) from Scm_Purchase_Rfq_Lines RFQL where RFQL.rfq_header_sno=ScmPurchaseRfqLines.rfq_header_sno group by item_id)");
+        this.executeQuery();
+    }
 }
