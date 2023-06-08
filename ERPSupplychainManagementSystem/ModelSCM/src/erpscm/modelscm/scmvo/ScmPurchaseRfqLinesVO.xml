@@ -89,6 +89,14 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccInvSubinventoryOrgVO"
+    ViewObjectName="erpims.modelims.imsvo.InvSubinventoryOrgVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccInvInventoryOrgVO"
+    ViewObjectName="erpims.modelims.imsvo.InvInventoryOrgVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -187,6 +195,59 @@
     </AttrArray>
     <DisplayCriteria
       Name="AdminCompanyFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtInventoryOrgName"
+    ListVOName="AccInvInventoryOrgVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtInventoryOrgName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="InventoryOrgSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgDescription"/>
+      <Item Value="InventoryOrgSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrgDescription"/>
+      <Item Value="InventoryOrgCode"/>
+      <Item Value="OrgShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InvInventoryOrgVOFindVC"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSubInventoryOrgName"
+    ListVOName="AccInvSubinventoryOrgVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSubInventoryOrgName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SubinventoryOrgSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SubinventoryDescription"/>
+      <Item Value="SubinventoryOrgSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SubinventoryDescription"/>
+      <Item Value="SubinventoryOrgCode"/>
+      <Item Value="SubinventoryOrgShortName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseRfqLines"
@@ -465,6 +526,50 @@
         Value="AproxPrice"/>
     </Dependencies>
   </ViewAttribute>
+  <ViewAttribute
+    Name="SubinventoryOrgSno"
+    PrecisionRule="true"
+    EntityAttrName="SubinventoryOrgSno"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="SUBINVENTORY_ORG_SNO"/>
+  <ViewAttribute
+    Name="InventoryOrgSno"
+    PrecisionRule="true"
+    EntityAttrName="InventoryOrgSno"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="INVENTORY_ORG_SNO"/>
+  <ViewAttribute
+    Name="txtSubInventoryOrgName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSubInventoryOrgName"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="TXT_SUB_INVENTORY_ORG_NAME"
+    LOVName="LovtxtSubInventoryOrgName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtInventoryOrgName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtInventoryOrgName"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="TXT_INVENTORY_ORG_NAME"
+    LOVName="LovtxtInventoryOrgName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqLinesForBIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
@@ -647,6 +752,18 @@
     Name="ScmPurchaseBidLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoVL"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InvInventoryOrgVO"
+    ViewLink="erpscm.modelscm.scmvo.InvInventoryOrgScmPurcRfqLinesInventoryOrgSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InvSubinventoryOrgVO"
+    ViewLink="erpscm.modelscm.scmvo.InvInventoryOrgScmPurcRfqLinesSubInventoryOrgSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
   <ClientInterface
     Name="__clientInterface">

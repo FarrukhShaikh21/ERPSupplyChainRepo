@@ -513,6 +513,94 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="InventoryOrgSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="INVENTORY_ORG_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.InventoryOrgSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="SubinventoryOrgSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="SUBINVENTORY_ORG_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.SubinventoryOrgSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtInventoryOrgName"
+    Precision="80"
+    ColumnName="TXT_INVENTORY_ORG_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InvInventoryOrg?.OrgDescription]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.txtInventoryOrgName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="InventoryOrgSno"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtSubInventoryOrgName"
+    Precision="80"
+    ColumnName="TXT_SUB_INVENTORY_ORG_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InvSubinventoryOrg?.SubinventoryDescription]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.txtSubInventoryOrgName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="SubinventoryOrgSno"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc"
@@ -562,6 +650,20 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesScmPurchaseBidLinesRFQLinesSnoAsso.ScmPurchaseRfqLines"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="InvInventoryOrg"
+    Association="erpscm.modelscm.scmeo.InvInventoryOrgScmPurcRfqLinesInventoryOrgSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.InvInventoryOrgScmPurcRfqLinesInventoryOrgSnoAssoc.InvInventoryOrg"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.InvInventoryOrgScmPurcRfqLinesInventoryOrgSnoAssoc.ScmPurchaseRfqLines"
+    Type="erpims.modelims.imseo.InvInventoryOrgImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InvSubinventoryOrg"
+    Association="erpscm.modelscm.scmeo.InvInventoryOrgScmPurcRfqLinesSubInventoryOrgSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.InvInventoryOrgScmPurcRfqLinesSubInventoryOrgSnoAssoc.InvSubinventoryOrg"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.InvInventoryOrgScmPurcRfqLinesSubInventoryOrgSnoAssoc.ScmPurchaseRfqLines"
+    Type="erpims.modelims.imseo.InvSubinventoryOrgImpl"
+    IsUpdateable="true"/>
   <Key
     Name="AltKeyScmPurchaseRfqLines"
     AltKey="true">
@@ -650,6 +752,28 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.DemandLinesSno"/>
     </AttrArray>
   </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqLines5">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_INV_INVENTORY_ORG"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_LINES5"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.InventoryOrgSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqLines6">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_LINES6"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.SubinventoryOrgSno"/>
+    </AttrArray>
+  </Key>
   <validation:UniqueKeyValidationBean
     Name="UniqueScmPurchaseRfqLinesRule"
     ResId="ERR_REQ_DUPLICATE_ITEM"
@@ -695,8 +819,7 @@
       <validation:Item
         Value="ERR_REQ_REQUIRED_DATE"/>
     </validation:MsgIds>
-    <validation:TransientExpression
-      trustMode="trusted"><![CDATA[if(ItemId==null)
+    <validation:TransientExpression><![CDATA[if(ItemId==null)
 {
 adf.error.raise("ERR_REQ_ITEM_ID");
 return false;
@@ -751,7 +874,6 @@ return true;]]></validation:TransientExpression>
         Value="txtGenerateBID"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      trustMode="trusted"
       Name="OnConditionExpr"><![CDATA[txtGenerateBID=='Y']]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
