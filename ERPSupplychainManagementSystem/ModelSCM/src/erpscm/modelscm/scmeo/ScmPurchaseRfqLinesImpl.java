@@ -2,6 +2,7 @@ package erpscm.modelscm.scmeo;
 
 import erpadm.modeladm.admeo.AdminCompanyImpl;
 
+import erpfms.modelfms.fmseo.GlChartOfAccountsImpl;
 import erpfms.modelfms.fmseo.GlProjectsImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
@@ -63,6 +64,7 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
         SubinventoryOrgSno,
         txtInventoryOrgName,
         txtSubInventoryOrgName,
+        ChartOfAccountId,
         ScmPurchaseRfqHeader,
         InvItem,
         InvUnitType,
@@ -71,7 +73,8 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
         ScmPurchaseDemandLines,
         ScmPurchaseBidLines,
         InvInventoryOrg,
-        InvSubinventoryOrg;
+        InvSubinventoryOrg,
+        GlChartOfAccounts;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -127,6 +130,7 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int TXTINVENTORYORGNAME = AttributesEnum.txtInventoryOrgName.index();
     public static final int TXTSUBINVENTORYORGNAME = AttributesEnum.txtSubInventoryOrgName.index();
+    public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
@@ -136,6 +140,7 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
     public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
     public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
     public static final int INVSUBINVENTORYORG = AttributesEnum.InvSubinventoryOrg.index();
+    public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -652,6 +657,22 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for ChartOfAccountId, using the alias name ChartOfAccountId.
+     * @return the value of ChartOfAccountId
+     */
+    public Integer getChartOfAccountId() {
+        return (Integer) getAttributeInternal(CHARTOFACCOUNTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ChartOfAccountId.
+     * @param value value to set the ChartOfAccountId
+     */
+    public void setChartOfAccountId(Integer value) {
+        setAttributeInternal(CHARTOFACCOUNTID, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseRfqHeaderImpl.
      */
     public ScmPurchaseRfqHeaderImpl getScmPurchaseRfqHeader() {
@@ -772,6 +793,21 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
      */
     public void setInvSubinventoryOrg(InvSubinventoryOrgImpl value) {
         setAttributeInternal(INVSUBINVENTORYORG, value);
+    }
+
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlChartOfAccountsImpl.
+     */
+    public GlChartOfAccountsImpl getGlChartOfAccounts() {
+        return (GlChartOfAccountsImpl) getAttributeInternal(GLCHARTOFACCOUNTS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlChartOfAccountsImpl.
+     */
+    public void setGlChartOfAccounts(GlChartOfAccountsImpl value) {
+        setAttributeInternal(GLCHARTOFACCOUNTS, value);
     }
 
 

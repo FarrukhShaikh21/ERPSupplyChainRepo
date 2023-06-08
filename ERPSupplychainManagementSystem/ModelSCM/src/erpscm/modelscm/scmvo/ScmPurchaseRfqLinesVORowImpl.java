@@ -57,6 +57,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         InventoryOrgSno,
         txtSubInventoryOrgName,
         txtInventoryOrgName,
+        ChartOfAccountId,
         InvItemVO,
         InvUnitTypeVO,
         GlProjectsVO,
@@ -66,6 +67,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         ScmPurchaseBidLinesVO,
         InvInventoryOrgVO,
         InvSubinventoryOrgVO,
+        GlChartOfAccountsVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsVO,
@@ -129,6 +131,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int TXTSUBINVENTORYORGNAME = AttributesEnum.txtSubInventoryOrgName.index();
     public static final int TXTINVENTORYORGNAME = AttributesEnum.txtInventoryOrgName.index();
+    public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
@@ -138,6 +141,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
     public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int INVSUBINVENTORYORGVO = AttributesEnum.InvSubinventoryOrgVO.index();
+    public static final int GLCHARTOFACCOUNTSVO = AttributesEnum.GlChartOfAccountsVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
@@ -658,6 +662,22 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for CHART_OF_ACCOUNT_ID using the alias name ChartOfAccountId.
+     * @return the CHART_OF_ACCOUNT_ID
+     */
+    public Integer getChartOfAccountId() {
+        return (Integer) getAttributeInternal(CHARTOFACCOUNTID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for CHART_OF_ACCOUNT_ID using the alias name ChartOfAccountId.
+     * @param value value to set the CHART_OF_ACCOUNT_ID
+     */
+    public void setChartOfAccountId(Integer value) {
+        setAttributeInternal(CHARTOFACCOUNTID, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link InvItemVO.
      */
     public Row getInvItemVO() {
@@ -775,6 +795,20 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
      */
     public void setInvSubinventoryOrgVO(Row value) {
         setAttributeInternal(INVSUBINVENTORYORGVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link GlChartOfAccountsVO.
+     */
+    public Row getGlChartOfAccountsVO() {
+        return (Row) getAttributeInternal(GLCHARTOFACCOUNTSVO);
+    }
+
+    /**
+     * Sets the master-detail link GlChartOfAccountsVO between this object and <code>value</code>.
+     */
+    public void setGlChartOfAccountsVO(Row value) {
+        setAttributeInternal(GLCHARTOFACCOUNTSVO, value);
     }
 
     /**

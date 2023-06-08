@@ -601,6 +601,15 @@
         Value="SubinventoryOrgSno"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="ChartOfAccountId"
+    Precision="10"
+    Scale="0"
+    ColumnName="CHART_OF_ACCOUNT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES"/>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc"
@@ -663,6 +672,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.InvInventoryOrgScmPurcRfqLinesSubInventoryOrgSnoAssoc.InvSubinventoryOrg"
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvInventoryOrgScmPurcRfqLinesSubInventoryOrgSnoAssoc.ScmPurchaseRfqLines"
     Type="erpims.modelims.imseo.InvSubinventoryOrgImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlChartOfAccounts"
+    Association="erpscm.modelscm.scmeo.GlChartOfAccountScmPurchRfqLinesChartOfAccountIDAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.GlChartOfAccountScmPurchRfqLinesChartOfAccountIDAssoc.GlChartOfAccounts"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GlChartOfAccountScmPurchRfqLinesChartOfAccountIDAssoc.ScmPurchaseRfqLines"
+    Type="erpfms.modelfms.fmseo.GlChartOfAccountsImpl"
     IsUpdateable="true"/>
   <Key
     Name="AltKeyScmPurchaseRfqLines"
@@ -772,6 +788,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.SubinventoryOrgSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqLines7">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_GL_CHART_OF_ACCOUNTS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_LINES7"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.ChartOfAccountId"/>
     </AttrArray>
   </Key>
   <validation:UniqueKeyValidationBean

@@ -570,6 +570,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ChartOfAccountId"
+    PrecisionRule="true"
+    EntityAttrName="ChartOfAccountId"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="CHART_OF_ACCOUNT_ID"/>
   <ViewCriteria
     Name="ScmPurchaseRfqLinesForBIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
@@ -762,6 +768,12 @@
   <ViewLinkAccessor
     Name="InvSubinventoryOrgVO"
     ViewLink="erpscm.modelscm.scmvo.InvInventoryOrgScmPurcRfqLinesSubInventoryOrgSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlChartOfAccountsVO"
+    ViewLink="erpscm.modelscm.scmqvo.GlChartOfAccountScmPurchRfqLinesChartOfAccountIDLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

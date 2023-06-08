@@ -245,5 +245,9 @@
                   MethodName="doShowErpUniqueRfqLines" IsViewObjectMethod="true" DataControl="ERPSCMModuleDataControl"
                   InstanceName="data.ERPSCMModuleDataControl.ScmPurchaseRfqLinesForBIDRO"
                   ReturnName="data.ERPSCMModuleDataControl.methodResults.doShowErpUniqueRfqLines_ERPSCMModuleDataControl_ScmPurchaseRfqLinesForBIDRO_doShowErpUniqueRfqLines_result"/>
+    <listOfValues IterBinding="ScmPurchaseRfqLinesDetCRUDIterator" StaticList="false" Uses="LovtxtInventoryOrgName"
+                  id="txtInventoryOrgName"/>
+    <listOfValues IterBinding="ScmPurchaseRfqLinesDetCRUDIterator" StaticList="false" Uses="LovtxtSubInventoryOrgName"
+                  id="txtSubInventoryOrgName"/>
   </bindings>
 </pageDefinition>

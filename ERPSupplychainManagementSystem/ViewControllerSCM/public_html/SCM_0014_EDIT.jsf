@@ -1308,6 +1308,33 @@
                                 </af:panelCollection>
                             </af:gridCell>
                         </af:gridRow>
+                        <af:gridRow id="gr13">
+                            <af:gridCell id="gc41">
+                                <af:panelFormLayout id="pfl1">
+                                    <f:facet name="footer"/>
+                                    <af:inputComboboxListOfValues id="txtInventoryOrgNameId"
+                                                                  popupTitle="Search and Select: #{bindings.txtInventoryOrgName.hints.label}"
+                                                                  value="#{bindings.txtInventoryOrgName.inputValue}"
+                                                                  label="#{bindings.txtInventoryOrgName.hints.label}"
+                                                                  model="#{bindings.txtInventoryOrgName.listOfValuesModel}"
+                                                                  required="#{bindings.txtInventoryOrgName.hints.mandatory}"
+                                                                  columns="#{bindings.txtInventoryOrgName.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.txtInventoryOrgName.hints.tooltip}">
+                                        <f:validator binding="#{bindings.txtInventoryOrgName.validator}"/>
+                                    </af:inputComboboxListOfValues>
+                                    <af:inputComboboxListOfValues id="txtSubInventoryOrgNameId"
+                                                                  popupTitle="Search and Select: #{bindings.txtSubInventoryOrgName.hints.label}"
+                                                                  value="#{bindings.txtSubInventoryOrgName.inputValue}"
+                                                                  label="#{bindings.txtSubInventoryOrgName.hints.label}"
+                                                                  model="#{bindings.txtSubInventoryOrgName.listOfValuesModel}"
+                                                                  required="#{bindings.txtSubInventoryOrgName.hints.mandatory}"
+                                                                  columns="#{bindings.txtSubInventoryOrgName.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.txtSubInventoryOrgName.hints.tooltip}">
+                                        <f:validator binding="#{bindings.txtSubInventoryOrgName.validator}"/>
+                                    </af:inputComboboxListOfValues>
+                                </af:panelFormLayout>
+                            </af:gridCell>
+                        </af:gridRow>
                     </af:panelGridLayout>
                 </f:facet>
                 <f:facet name="top"/>
