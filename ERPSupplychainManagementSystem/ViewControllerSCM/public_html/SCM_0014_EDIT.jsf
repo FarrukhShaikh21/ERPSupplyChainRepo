@@ -1332,6 +1332,16 @@
                                                                   shortDesc="#{bindings.txtSubInventoryOrgName.hints.tooltip}">
                                         <f:validator binding="#{bindings.txtSubInventoryOrgName.validator}"/>
                                     </af:inputComboboxListOfValues>
+                                    <af:inputComboboxListOfValues id="txtCOADescriptionId"
+                                                                  popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
+                                                                  value="#{bindings.txtCOADescription.inputValue}"
+                                                                  label="#{bindings.txtCOADescription.hints.label}"
+                                                                  model="#{bindings.txtCOADescription.listOfValuesModel}"
+                                                                  required="#{bindings.txtCOADescription.hints.mandatory}"
+                                                                  columns="#{bindings.txtCOADescription.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.txtCOADescription.hints.tooltip}">
+                                        <f:validator binding="#{bindings.txtCOADescription.validator}"/>
+                                    </af:inputComboboxListOfValues>
                                 </af:panelFormLayout>
                             </af:gridCell>
                         </af:gridRow>

@@ -65,6 +65,7 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
         txtInventoryOrgName,
         txtSubInventoryOrgName,
         ChartOfAccountId,
+        txtCOADescription,
         ScmPurchaseRfqHeader,
         InvItem,
         InvUnitType,
@@ -131,6 +132,7 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
     public static final int TXTINVENTORYORGNAME = AttributesEnum.txtInventoryOrgName.index();
     public static final int TXTSUBINVENTORYORGNAME = AttributesEnum.txtSubInventoryOrgName.index();
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
+    public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
@@ -670,6 +672,22 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
      */
     public void setChartOfAccountId(Integer value) {
         setAttributeInternal(CHARTOFACCOUNTID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCOADescription, using the alias name txtCOADescription.
+     * @return the value of txtCOADescription
+     */
+    public String gettxtCOADescription() {
+        return (String) getAttributeInternal(TXTCOADESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCOADescription.
+     * @param value value to set the txtCOADescription
+     */
+    public void settxtCOADescription(String value) {
+        setAttributeInternal(TXTCOADESCRIPTION, value);
     }
 
     /**

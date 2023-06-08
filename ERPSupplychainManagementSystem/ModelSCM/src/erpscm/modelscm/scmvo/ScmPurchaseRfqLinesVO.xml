@@ -97,6 +97,10 @@
     Name="AccInvInventoryOrgVO"
     ViewObjectName="erpims.modelims.imsvo.InvInventoryOrgVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccGlChartOfAccountsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -248,6 +252,31 @@
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtCOADescription"
+    ListVOName="AccGlChartOfAccountsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCOADescription"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ChartOfAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlChartOfAccountsVOFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseRfqLines"
@@ -576,6 +605,20 @@
     EntityAttrName="ChartOfAccountId"
     EntityUsage="ScmPurchaseRfqLines"
     AliasName="CHART_OF_ACCOUNT_ID"/>
+  <ViewAttribute
+    Name="txtCOADescription"
+    PrecisionRule="true"
+    EntityAttrName="txtCOADescription"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="TXT_COADESCRIPTION"
+    LOVName="LovtxtCOADescription">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqLinesForBIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
@@ -768,6 +811,12 @@
   <ViewLinkAccessor
     Name="InvSubinventoryOrgVO"
     ViewLink="erpscm.modelscm.scmvo.InvInventoryOrgScmPurcRfqLinesSubInventoryOrgSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlChartOfAccountsVO"
+    ViewLink="erpscm.modelscm.scmvo.GlChartOfAccountScmPurchRfqLinesChartOfAccountIDLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

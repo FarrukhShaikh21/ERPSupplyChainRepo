@@ -58,6 +58,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         txtSubInventoryOrgName,
         txtInventoryOrgName,
         ChartOfAccountId,
+        txtCOADescription,
         InvItemVO,
         InvUnitTypeVO,
         GlProjectsVO,
@@ -67,12 +68,14 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         ScmPurchaseBidLinesVO,
         InvInventoryOrgVO,
         InvSubinventoryOrgVO,
+        GlChartOfAccountsVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsVO,
         AccAdminCompanyVO,
         AccInvSubinventoryOrgVO,
-        AccInvInventoryOrgVO;
+        AccInvInventoryOrgVO,
+        AccGlChartOfAccountsVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -131,6 +134,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     public static final int TXTSUBINVENTORYORGNAME = AttributesEnum.txtSubInventoryOrgName.index();
     public static final int TXTINVENTORYORGNAME = AttributesEnum.txtInventoryOrgName.index();
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
+    public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
@@ -140,12 +144,14 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
     public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int INVSUBINVENTORYORGVO = AttributesEnum.InvSubinventoryOrgVO.index();
+    public static final int GLCHARTOFACCOUNTSVO = AttributesEnum.GlChartOfAccountsVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
     public static final int ACCADMINCOMPANYVO = AttributesEnum.AccAdminCompanyVO.index();
     public static final int ACCINVSUBINVENTORYORGVO = AttributesEnum.AccInvSubinventoryOrgVO.index();
     public static final int ACCINVINVENTORYORGVO = AttributesEnum.AccInvInventoryOrgVO.index();
+    public static final int ACCGLCHARTOFACCOUNTSVO = AttributesEnum.AccGlChartOfAccountsVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -676,6 +682,22 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for TXT_COADESCRIPTION using the alias name txtCOADescription.
+     * @return the TXT_COADESCRIPTION
+     */
+    public String gettxtCOADescription() {
+        return (String) getAttributeInternal(TXTCOADESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_COADESCRIPTION using the alias name txtCOADescription.
+     * @param value value to set the TXT_COADESCRIPTION
+     */
+    public void settxtCOADescription(String value) {
+        setAttributeInternal(TXTCOADESCRIPTION, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link InvItemVO.
      */
     public Row getInvItemVO() {
@@ -797,6 +819,20 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
 
 
     /**
+     * Gets the associated <code>Row</code> using master-detail link GlChartOfAccountsVO.
+     */
+    public Row getGlChartOfAccountsVO() {
+        return (Row) getAttributeInternal(GLCHARTOFACCOUNTSVO);
+    }
+
+    /**
+     * Sets the master-detail link GlChartOfAccountsVO between this object and <code>value</code>.
+     */
+    public void setGlChartOfAccountsVO(Row value) {
+        setAttributeInternal(GLCHARTOFACCOUNTSVO, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> AccInvItemVO.
      */
     public RowSet getAccInvItemVO() {
@@ -836,6 +872,13 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
      */
     public RowSet getAccInvInventoryOrgVO() {
         return (RowSet) getAttributeInternal(ACCINVINVENTORYORGVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccGlChartOfAccountsVO.
+     */
+    public RowSet getAccGlChartOfAccountsVO() {
+        return (RowSet) getAttributeInternal(ACCGLCHARTOFACCOUNTSVO);
     }
 
     @Override
