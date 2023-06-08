@@ -67,7 +67,6 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         ScmPurchaseBidLinesVO,
         InvInventoryOrgVO,
         InvSubinventoryOrgVO,
-        GlChartOfAccountsVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsVO,
@@ -141,7 +140,6 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
     public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int INVSUBINVENTORYORGVO = AttributesEnum.InvSubinventoryOrgVO.index();
-    public static final int GLCHARTOFACCOUNTSVO = AttributesEnum.GlChartOfAccountsVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
@@ -797,19 +795,6 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         setAttributeInternal(INVSUBINVENTORYORGVO, value);
     }
 
-    /**
-     * Gets the associated <code>Row</code> using master-detail link GlChartOfAccountsVO.
-     */
-    public Row getGlChartOfAccountsVO() {
-        return (Row) getAttributeInternal(GLCHARTOFACCOUNTSVO);
-    }
-
-    /**
-     * Sets the master-detail link GlChartOfAccountsVO between this object and <code>value</code>.
-     */
-    public void setGlChartOfAccountsVO(Row value) {
-        setAttributeInternal(GLCHARTOFACCOUNTSVO, value);
-    }
 
     /**
      * Gets the view accessor <code>RowSet</code> AccInvItemVO.
