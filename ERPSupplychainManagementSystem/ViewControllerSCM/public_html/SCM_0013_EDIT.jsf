@@ -510,10 +510,10 @@
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow id="gr9" marginTop="5px">
-                            <af:gridCell id="gc21">
+                            <af:gridCell id="gc21" halign="stretch">
                                 <af:panelBox text="Line Detail" id="pb1" showDisclosure="false">
                                     <f:facet name="toolbar"/>
-                                    <af:panelFormLayout id="pfl1" maxColumns="5" rows="1" labelAlignment="top">
+                                    <af:panelFormLayout id="pfl1" maxColumns="2" rows="1" labelAlignment="top">
                                         <af:inputComboboxListOfValues id="iclov2"
                                                                       popupTitle="Search and Select: #{bindings.txtInvOrgDescription.hints.label}"
                                                                       value="#{bindings.txtInvOrgDescription.inputValue}"

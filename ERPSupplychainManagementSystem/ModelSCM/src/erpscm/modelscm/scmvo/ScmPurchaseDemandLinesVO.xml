@@ -140,7 +140,17 @@
   <ViewAccessor
     Name="AccInvSubinventoryOrgVO"
     ViewObjectName="erpims.modelims.imsvo.InvSubinventoryOrgVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvSubinventoryOrgByInvOrgSnoVC"
+      FullName="erpims.modelims.imsvo.InvSubinventoryOrgVO.InvSubinventoryOrgByInvOrgSnoVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_INVENTORY_ORG_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[InventoryOrgSno==null?-1:InventoryOrgSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
