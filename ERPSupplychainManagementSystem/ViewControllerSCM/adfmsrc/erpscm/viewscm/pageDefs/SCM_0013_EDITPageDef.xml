@@ -101,8 +101,6 @@
                   id="txtProjectName1"/>
     <listOfValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" StaticList="false" Uses="LovtxtDepartmentName"
                   id="txtDepartmentName"/>
-    <listOfValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
-                  id="txtSupplierName"/>
     <action IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createWithParams" InstanceName="ERPSCMModuleDataControl.ScmPurchaseDemandLinesDetCRUD"
             DataControl="ERPSCMModuleDataControl">
@@ -117,5 +115,9 @@
     </attributeValues>
     <list IterBinding="ScmPurchaseDemandHeaderCRUDIterator" StaticList="false" Uses="LovApprovalStatusSno"
           id="ApprovalStatusSno" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" StaticList="false" Uses="LovtxtCOADescription"
+                  id="txtCOADescription"/>
+    <listOfValues IterBinding="ScmPurchaseDemandLinesDetCRUDIterator" StaticList="false"
+                  Uses="LovtxtSubInvOrgDescription" id="txtSubInvOrgDescription"/>
   </bindings>
 </pageDefinition>

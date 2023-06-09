@@ -62,6 +62,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
         txtIsDuplicateItem,
         ChartOfAccountId,
         txtCOADescription,
+        txtSubInvOrgDescription,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
@@ -72,6 +73,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
         InvInventoryOrgVO,
         ScmPurchaseBidLinesVO,
         GlChartOfAccountsVO,
+        InvSubinventoryOrgVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsQVO,
@@ -79,7 +81,8 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
         AccGlProjectsVO,
         AccScmSupplierVO,
         AccInvInventoryOrgVO,
-        AccGlChartOfAccountsVO;
+        AccGlChartOfAccountsVO,
+        AccInvSubinventoryOrgVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -140,6 +143,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     public static final int TXTISDUPLICATEITEM = AttributesEnum.txtIsDuplicateItem.index();
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
+    public static final int TXTSUBINVORGDESCRIPTION = AttributesEnum.txtSubInvOrgDescription.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -150,6 +154,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
     public static final int GLCHARTOFACCOUNTSVO = AttributesEnum.GlChartOfAccountsVO.index();
+    public static final int INVSUBINVENTORYORGVO = AttributesEnum.InvSubinventoryOrgVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSQVO = AttributesEnum.AccGlProjectsQVO.index();
@@ -158,6 +163,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     public static final int ACCSCMSUPPLIERVO = AttributesEnum.AccScmSupplierVO.index();
     public static final int ACCINVINVENTORYORGVO = AttributesEnum.AccInvInventoryOrgVO.index();
     public static final int ACCGLCHARTOFACCOUNTSVO = AttributesEnum.AccGlChartOfAccountsVO.index();
+    public static final int ACCINVSUBINVENTORYORGVO = AttributesEnum.AccInvSubinventoryOrgVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -713,6 +719,22 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for txt_Sub_Inv_Org_Description using the alias name txtSubInvOrgDescription.
+     * @return the txt_Sub_Inv_Org_Description
+     */
+    public String gettxtSubInvOrgDescription() {
+        return (String) getAttributeInternal(TXTSUBINVORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Sub_Inv_Org_Description using the alias name txtSubInvOrgDescription.
+     * @param value value to set the txt_Sub_Inv_Org_Description
+     */
+    public void settxtSubInvOrgDescription(String value) {
+        setAttributeInternal(TXTSUBINVORGDESCRIPTION, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link GlProjectsVO.
      */
     public Row getGlProjectsVO() {
@@ -840,6 +862,20 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     }
 
     /**
+     * Gets the associated <code>Row</code> using master-detail link InvSubinventoryOrgVO.
+     */
+    public Row getInvSubinventoryOrgVO() {
+        return (Row) getAttributeInternal(INVSUBINVENTORYORGVO);
+    }
+
+    /**
+     * Sets the master-detail link InvSubinventoryOrgVO between this object and <code>value</code>.
+     */
+    public void setInvSubinventoryOrgVO(Row value) {
+        setAttributeInternal(INVSUBINVENTORYORGVO, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> AccInvItemVO.
      */
     public RowSet getAccInvItemVO() {
@@ -894,6 +930,13 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
      */
     public RowSet getAccGlChartOfAccountsVO() {
         return (RowSet) getAttributeInternal(ACCGLCHARTOFACCOUNTSVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccInvSubinventoryOrgVO.
+     */
+    public RowSet getAccInvSubinventoryOrgVO() {
+        return (RowSet) getAttributeInternal(ACCINVSUBINVENTORYORGVO);
     }
 
     @Override

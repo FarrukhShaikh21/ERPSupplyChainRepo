@@ -173,13 +173,14 @@
                                         <af:gridCell marginStart="5px" width="13%" id="gc6" halign="center">
                                             <af:outputLabel value="#{bindings.DemandDate.hints.label}" id="ol1"/>
                                         </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="20%" id="gc7" valign="middle">
+                                        <af:gridCell marginStart="5px" width="20%" id="gc7" valign="middle"
+                                                     halign="stretch">
                                             <af:inputDate value="#{bindings.DemandDate.inputValue}"
                                                           label="#{bindings.DemandDate.hints.label}"
                                                           required="#{bindings.DemandDate.hints.mandatory}"
                                                           columns="#{bindings.DemandDate.hints.displayWidth}"
                                                           shortDesc="#{bindings.DemandDate.hints.tooltip}" id="id1"
-                                                          simple="true" contentStyle="width:100%">
+                                                          simple="true" contentStyle="width:90%">
                                                 <f:validator binding="#{bindings.DemandDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.DemandDate.format}"/>
                                             </af:inputDate>
@@ -512,7 +513,7 @@
                             <af:gridCell id="gc21">
                                 <af:panelBox text="Line Detail" id="pb1" showDisclosure="false">
                                     <f:facet name="toolbar"/>
-                                    <af:panelFormLayout id="pfl1" maxColumns="4" rows="1" labelAlignment="top">
+                                    <af:panelFormLayout id="pfl1" maxColumns="5" rows="1" labelAlignment="top">
                                         <af:inputComboboxListOfValues id="iclov2"
                                                                       popupTitle="Search and Select: #{bindings.txtInvOrgDescription.hints.label}"
                                                                       value="#{bindings.txtInvOrgDescription.inputValue}"
@@ -521,8 +522,19 @@
                                                                       required="#{bindings.txtInvOrgDescription.hints.mandatory}"
                                                                       columns="#{bindings.txtInvOrgDescription.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtInvOrgDescription.hints.tooltip}"
-                                                                      labelStyle="text-align:center">
+                                                                      labelStyle="text-align:center" autoSubmit="true">
                                             <f:validator binding="#{bindings.txtInvOrgDescription.validator}"/>
+                                        </af:inputComboboxListOfValues>
+                                        <af:inputComboboxListOfValues id="txtSubInvOrgDescriptionId"
+                                                                      popupTitle="Search and Select: #{bindings.txtSubInvOrgDescription.hints.label}"
+                                                                      value="#{bindings.txtSubInvOrgDescription.inputValue}"
+                                                                      label="#{bindings.txtSubInvOrgDescription.hints.label}"
+                                                                      model="#{bindings.txtSubInvOrgDescription.listOfValuesModel}"
+                                                                      required="#{bindings.txtSubInvOrgDescription.hints.mandatory}"
+                                                                      columns="#{bindings.txtSubInvOrgDescription.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.txtSubInvOrgDescription.hints.tooltip}"
+                                                                      partialTriggers="iclov2">
+                                            <f:validator binding="#{bindings.txtSubInvOrgDescription.validator}"/>
                                         </af:inputComboboxListOfValues>
                                         <af:inputComboboxListOfValues id="txtProjectName1Id"
                                                                       popupTitle="Search and Select: #{bindings.txtProjectName1.hints.label}"
@@ -546,16 +558,16 @@
                                                                       labelStyle="text-align:center">
                                             <f:validator binding="#{bindings.txtDepartmentName.validator}"/>
                                         </af:inputComboboxListOfValues>
-                                        <af:inputComboboxListOfValues id="iclov4"
-                                                                      popupTitle="Search and Select: #{bindings.txtSupplierName.hints.label}"
-                                                                      value="#{bindings.txtSupplierName.inputValue}"
-                                                                      label="#{bindings.txtSupplierName.hints.label}"
-                                                                      model="#{bindings.txtSupplierName.listOfValuesModel}"
-                                                                      required="#{bindings.txtSupplierName.hints.mandatory}"
-                                                                      columns="#{bindings.txtSupplierName.hints.displayWidth}"
-                                                                      shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
+                                        <af:inputComboboxListOfValues id="txtCOADescriptionId"
+                                                                      popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
+                                                                      value="#{bindings.txtCOADescription.inputValue}"
+                                                                      label="#{bindings.txtCOADescription.hints.label}"
+                                                                      model="#{bindings.txtCOADescription.listOfValuesModel}"
+                                                                      required="#{bindings.txtCOADescription.hints.mandatory}"
+                                                                      columns="#{bindings.txtCOADescription.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.txtCOADescription.hints.tooltip}"
                                                                       labelStyle="text-align:center">
-                                            <f:validator binding="#{bindings.txtSupplierName.validator}"/>
+                                            <f:validator binding="#{bindings.txtCOADescription.validator}"/>
                                         </af:inputComboboxListOfValues>
                                     </af:panelFormLayout>
                                 </af:panelBox>

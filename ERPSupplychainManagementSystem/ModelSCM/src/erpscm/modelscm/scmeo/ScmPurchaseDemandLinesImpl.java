@@ -10,6 +10,7 @@ import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
 import erpims.modelims.imseo.InvInventoryOrgImpl;
 import erpims.modelims.imseo.InvItemImpl;
+import erpims.modelims.imseo.InvSubinventoryOrgImpl;
 import erpims.modelims.imseo.InvUnitTypeImpl;
 
 import java.math.BigDecimal;
@@ -64,6 +65,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         txtIsDuplicateItem,
         ChartOfAccountId,
         txtCOADescription,
+        txtSubInvOrgDescription,
         ScmPurchaseDemandHeader,
         GlProjects,
         AdminCompany,
@@ -73,7 +75,8 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         ScmPurchaseRfqLines,
         InvInventoryOrg,
         ScmPurchaseBidLines,
-        GlChartOfAccounts;
+        GlChartOfAccounts,
+        InvSubinventoryOrg;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -131,6 +134,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int TXTISDUPLICATEITEM = AttributesEnum.txtIsDuplicateItem.index();
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
+    public static final int TXTSUBINVORGDESCRIPTION = AttributesEnum.txtSubInvOrgDescription.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -141,6 +145,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
     public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
     public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
+    public static final int INVSUBINVENTORYORG = AttributesEnum.InvSubinventoryOrg.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -687,6 +692,22 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtSubInvOrgDescription, using the alias name txtSubInvOrgDescription.
+     * @return the value of txtSubInvOrgDescription
+     */
+    public String gettxtSubInvOrgDescription() {
+        return (String) getAttributeInternal(TXTSUBINVORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSubInvOrgDescription.
+     * @param value value to set the txtSubInvOrgDescription
+     */
+    public void settxtSubInvOrgDescription(String value) {
+        setAttributeInternal(TXTSUBINVORGDESCRIPTION, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseDemandHeaderImpl.
      */
     public ScmPurchaseDemandHeaderImpl getScmPurchaseDemandHeader() {
@@ -815,6 +836,21 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public void setGlChartOfAccounts(GlChartOfAccountsImpl value) {
         setAttributeInternal(GLCHARTOFACCOUNTS, value);
+    }
+
+
+    /**
+     * @return the associated entity erpims.modelims.imseo.InvSubinventoryOrgImpl.
+     */
+    public InvSubinventoryOrgImpl getInvSubinventoryOrg() {
+        return (InvSubinventoryOrgImpl) getAttributeInternal(INVSUBINVENTORYORG);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpims.modelims.imseo.InvSubinventoryOrgImpl.
+     */
+    public void setInvSubinventoryOrg(InvSubinventoryOrgImpl value) {
+        setAttributeInternal(INVSUBINVENTORYORG, value);
     }
 
 
