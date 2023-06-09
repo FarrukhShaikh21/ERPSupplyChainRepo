@@ -78,7 +78,8 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
         AccAdminCompanyVO,
         AccGlProjectsVO,
         AccScmSupplierVO,
-        AccInvInventoryOrgVO;
+        AccInvInventoryOrgVO,
+        AccGlChartOfAccountsVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -156,6 +157,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
     public static final int ACCSCMSUPPLIERVO = AttributesEnum.AccScmSupplierVO.index();
     public static final int ACCINVINVENTORYORGVO = AttributesEnum.AccInvInventoryOrgVO.index();
+    public static final int ACCGLCHARTOFACCOUNTSVO = AttributesEnum.AccGlChartOfAccountsVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -885,6 +887,13 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
      */
     public RowSet getAccInvInventoryOrgVO() {
         return (RowSet) getAttributeInternal(ACCINVINVENTORYORGVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccGlChartOfAccountsVO.
+     */
+    public RowSet getAccGlChartOfAccountsVO() {
+        return (RowSet) getAttributeInternal(ACCGLCHARTOFACCOUNTSVO);
     }
 
     @Override

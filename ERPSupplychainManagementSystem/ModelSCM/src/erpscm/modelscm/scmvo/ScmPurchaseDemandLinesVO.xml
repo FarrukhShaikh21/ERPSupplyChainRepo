@@ -38,7 +38,8 @@
       FullName="erpims.modelims.imsvo.InvItemVO.InvItemByCompanyByIDVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -106,11 +107,30 @@
     ViewObjectName="erpims.modelims.imsvo.InvInventoryOrgVO"
     RowLevelBinds="true">
     <ViewCriteriaUsage
-      Name="InvInventoryOrgByLocationWiseVC"
-      FullName="erpims.modelims.imsvo.InvInventoryOrgVO.InvInventoryOrgByLocationWiseVC"/>
+      Name="InvInventoryOrgByCompanyIDVC"
+      FullName="erpims.modelims.imsvo.InvInventoryOrgVO.InvInventoryOrgByCompanyIDVC"/>
     <ParameterMap>
-      <PIMap Variable="P_ADF_LOCATION_ID">
-        <TransientExpression><![CDATA[ScmPurchaseDemandHeaderVO?.LocationId==null?0:ScmPurchaseDemandHeaderVO?.LocationId]]></TransientExpression>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlChartOfAccountsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlChartOfAccountsByComnanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO.GlChartOfAccountsByComnanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeaderVO?.CompanyId==null?-1:ScmPurchaseDemandHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_GLOBAL_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpglobals.modelglobals.ERPGlobalPLSQLClass.doGetModelGlobalDefCompany()]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -265,6 +285,32 @@
     </AttrArray>
     <DisplayCriteria
       Name="InvInventoryOrgVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtCOADescription"
+    ListVOName="AccGlChartOfAccountsVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCOADescription"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ChartOfAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ChartOfAccountCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="GlChartOfAccountsVOFindVC"
+      Hint="showAndExecute"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseDemandLines"
@@ -599,7 +645,15 @@
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="TXT_COADESCRIPTION"
     IsQueriable="false"
-    IsPersistent="false"/>
+    IsPersistent="false"
+    LOVName="LovtxtCOADescription">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"
