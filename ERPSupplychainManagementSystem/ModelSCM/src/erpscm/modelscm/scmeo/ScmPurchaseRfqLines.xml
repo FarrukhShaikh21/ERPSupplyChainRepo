@@ -617,9 +617,12 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_RFQ_LINES"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -628,6 +631,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="ChartOfAccountId"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
@@ -709,6 +716,7 @@
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.ItemId"/>
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.RfqHeaderSno"/>
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.InventoryOrgSno"/>
     </AttrArray>
   </Key>
   <Key

@@ -198,7 +198,7 @@
                                                                           required="#{bindings.txtLocationName.hints.mandatory}"
                                                                           columns="#{bindings.txtLocationName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:100%"
+                                                                          simple="true" contentStyle="width:90%"
                                                                           autoSubmit="true">
                                                 <f:validator binding="#{bindings.txtLocationName.validator}"/>
                                             </af:inputComboboxListOfValues>
@@ -218,7 +218,7 @@
                                                                           required="#{bindings.txtProjectName.hints.mandatory}"
                                                                           columns="#{bindings.txtProjectName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtProjectName.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:100%"
+                                                                          simple="true" contentStyle="width:90%"
                                                                           partialTriggers="txtLocationNameId">
                                                 <f:validator binding="#{bindings.txtProjectName.validator}"/>
                                             </af:inputComboboxListOfValues>
@@ -237,7 +237,7 @@
                                                                           required="#{bindings.txtTempDepartmentName.hints.mandatory}"
                                                                           columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
                                                                           shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
-                                                                          simple="true" contentStyle="width:100%">
+                                                                          simple="true" contentStyle="width:90%">
                                                 <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                             </af:inputComboboxListOfValues>
                                         </af:gridCell>
@@ -365,18 +365,6 @@
                                               autoHeightRows="#{pageFlowScope.OracleERPBean.erpScreenSize=='portrait'?8:15}"
                                               scrollPolicy="page" partialTriggers="::l12 ::l11"
                                               blockRowNavigationOnError="always">
-                                        <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.label}"
-                                                   id="c8" rendered="false">
-                                            <af:inputText value="#{row.bindings.txtIsDuplicateItem.inputValue}"
-                                                          label="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.label}"
-                                                          required="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.mandatory}"
-                                                          columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.displayWidth}"
-                                                          maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.precision}"
-                                                          shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.txtIsDuplicateItem.tooltip}"
-                                                          id="it18">
-                                                <f:validator binding="#{row.bindings.txtIsDuplicateItem.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
                                         <af:column headerText="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.LineNo.label}"
                                                    id="c1" width="60" headerClass="ERPToolBarBackground">
                                             <af:inputText value="#{row.bindings.LineNo.inputValue}"
@@ -513,7 +501,8 @@
                             <af:gridCell id="gc21" halign="stretch">
                                 <af:panelBox text="Line Detail" id="pb1" showDisclosure="false">
                                     <f:facet name="toolbar"/>
-                                    <af:panelFormLayout id="pfl1" maxColumns="2" rows="1" labelAlignment="top">
+                                    <af:panelFormLayout id="pfl1" maxColumns="5" rows="1" labelAlignment="top">
+                                        <f:facet name="footer"/>
                                         <af:inputComboboxListOfValues id="iclov2"
                                                                       popupTitle="Search and Select: #{bindings.txtInvOrgDescription.hints.label}"
                                                                       value="#{bindings.txtInvOrgDescription.inputValue}"
@@ -522,7 +511,8 @@
                                                                       required="#{bindings.txtInvOrgDescription.hints.mandatory}"
                                                                       columns="#{bindings.txtInvOrgDescription.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtInvOrgDescription.hints.tooltip}"
-                                                                      labelStyle="text-align:center" autoSubmit="true">
+                                                                      labelStyle="text-align:center" autoSubmit="true"
+                                                                      contentStyle="width:90%">
                                             <f:validator binding="#{bindings.txtInvOrgDescription.validator}"/>
                                         </af:inputComboboxListOfValues>
                                         <af:inputComboboxListOfValues id="txtSubInvOrgDescriptionId"
@@ -533,7 +523,7 @@
                                                                       required="#{bindings.txtSubInvOrgDescription.hints.mandatory}"
                                                                       columns="#{bindings.txtSubInvOrgDescription.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtSubInvOrgDescription.hints.tooltip}"
-                                                                      partialTriggers="iclov2">
+                                                                      partialTriggers="iclov2" contentStyle="width:90%">
                                             <f:validator binding="#{bindings.txtSubInvOrgDescription.validator}"/>
                                         </af:inputComboboxListOfValues>
                                         <af:inputComboboxListOfValues id="txtProjectName1Id"
@@ -544,7 +534,8 @@
                                                                       required="#{bindings.txtProjectName1.hints.mandatory}"
                                                                       columns="#{bindings.txtProjectName1.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtProjectName1.hints.tooltip}"
-                                                                      labelStyle="text-align:center">
+                                                                      labelStyle="text-align:center"
+                                                                      contentStyle="width:90%">
                                             <f:validator binding="#{bindings.txtProjectName1.validator}"/>
                                         </af:inputComboboxListOfValues>
                                         <af:inputComboboxListOfValues id="iclov3"
@@ -555,7 +546,8 @@
                                                                       required="#{bindings.txtDepartmentName.hints.mandatory}"
                                                                       columns="#{bindings.txtDepartmentName.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtDepartmentName.hints.tooltip}"
-                                                                      labelStyle="text-align:center">
+                                                                      labelStyle="text-align:center"
+                                                                      contentStyle="width:90%">
                                             <f:validator binding="#{bindings.txtDepartmentName.validator}"/>
                                         </af:inputComboboxListOfValues>
                                         <af:inputComboboxListOfValues id="txtCOADescriptionId"
@@ -566,10 +558,21 @@
                                                                       required="#{bindings.txtCOADescription.hints.mandatory}"
                                                                       columns="#{bindings.txtCOADescription.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtCOADescription.hints.tooltip}"
-                                                                      labelStyle="text-align:center">
+                                                                      labelStyle="text-align:center"
+                                                                      contentStyle="width:90%">
                                             <f:validator binding="#{bindings.txtCOADescription.validator}"/>
                                         </af:inputComboboxListOfValues>
                                     </af:panelFormLayout>
+                                    <af:panelGridLayout id="pgl5" rendered="false">
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                                            <af:gridCell marginStart="5px" width="20%" id="gc22" halign="stretch"/>
+                                            <af:gridCell marginStart="5px" width="20%" id="gc23" halign="stretch"/>
+                                            <af:gridCell marginStart="5px" width="20%" id="gc24" halign="stretch"/>
+                                            <af:gridCell marginStart="5px" width="20%" id="gc25" halign="stretch"/>
+                                            <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc26"
+                                                         halign="stretch"/>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>

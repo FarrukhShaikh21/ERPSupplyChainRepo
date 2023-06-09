@@ -656,14 +656,6 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
-    <Dependencies>
-      <Item
-        Value="InventoryOrgSno"/>
-      <Item
-        Value="SubinventoryOrgSno"/>
-      <Item
-        Value="txtInvOrgDescription"/>
-    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseDemandHeader"
@@ -905,9 +897,9 @@
       <validation:Item
         Value="ERR_REQ_DEMAND_QUANTITY"/>
       <validation:Item
-        Value="ERR_REQ_DEMAND_ACCOUNT"/>
-      <validation:Item
         Value="ERR_REQ_REQUIRED_DATE"/>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_ACCOUNT"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(ItemId==null)
