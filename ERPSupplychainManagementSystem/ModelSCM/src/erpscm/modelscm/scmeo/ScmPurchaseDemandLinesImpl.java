@@ -2,6 +2,7 @@ package erpscm.modelscm.scmeo;
 
 import erpadm.modeladm.admeo.AdminCompanyImpl;
 
+import erpfms.modelfms.fmseo.GlChartOfAccountsImpl;
 import erpfms.modelfms.fmseo.GlProjectsImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
@@ -62,6 +63,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         txtCoaInventory,
         txtIsDuplicateItem,
         ChartOfAccountId,
+        txtCOADescription,
         ScmPurchaseDemandHeader,
         GlProjects,
         AdminCompany,
@@ -70,9 +72,9 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         ScmSupplier,
         ScmPurchaseRfqLines,
         InvInventoryOrg,
-        ScmPurchaseBidLines;
-        static AttributesEnum[] vals = null;
-        ;
+        ScmPurchaseBidLines,
+        GlChartOfAccounts;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -128,6 +130,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int TXTCOAINVENTORY = AttributesEnum.txtCoaInventory.index();
     public static final int TXTISDUPLICATEITEM = AttributesEnum.txtIsDuplicateItem.index();
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
+    public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -137,6 +140,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
     public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
+    public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -667,6 +671,22 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtCOADescription, using the alias name txtCOADescription.
+     * @return the value of txtCOADescription
+     */
+    public String gettxtCOADescription() {
+        return (String) getAttributeInternal(TXTCOADESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCOADescription.
+     * @param value value to set the txtCOADescription
+     */
+    public void settxtCOADescription(String value) {
+        setAttributeInternal(TXTCOADESCRIPTION, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseDemandHeaderImpl.
      */
     public ScmPurchaseDemandHeaderImpl getScmPurchaseDemandHeader() {
@@ -780,6 +800,21 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public RowIterator getScmPurchaseBidLines() {
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDLINES);
+    }
+
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlChartOfAccountsImpl.
+     */
+    public GlChartOfAccountsImpl getGlChartOfAccounts() {
+        return (GlChartOfAccountsImpl) getAttributeInternal(GLCHARTOFACCOUNTS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlChartOfAccountsImpl.
+     */
+    public void setGlChartOfAccounts(GlChartOfAccountsImpl value) {
+        setAttributeInternal(GLCHARTOFACCOUNTS, value);
     }
 
 

@@ -61,6 +61,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
         txtLineCount,
         txtIsDuplicateItem,
         ChartOfAccountId,
+        txtCOADescription,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
@@ -70,6 +71,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
         ScmPurchaseRfqLinesVO,
         InvInventoryOrgVO,
         ScmPurchaseBidLinesVO,
+        GlChartOfAccountsVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsQVO,
@@ -136,6 +138,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     public static final int TXTLINECOUNT = AttributesEnum.txtLineCount.index();
     public static final int TXTISDUPLICATEITEM = AttributesEnum.txtIsDuplicateItem.index();
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
+    public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -145,6 +148,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
     public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
+    public static final int GLCHARTOFACCOUNTSVO = AttributesEnum.GlChartOfAccountsVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSQVO = AttributesEnum.AccGlProjectsQVO.index();
@@ -691,6 +695,22 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for TXT_COADESCRIPTION using the alias name txtCOADescription.
+     * @return the TXT_COADESCRIPTION
+     */
+    public String gettxtCOADescription() {
+        return (String) getAttributeInternal(TXTCOADESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_COADESCRIPTION using the alias name txtCOADescription.
+     * @param value value to set the TXT_COADESCRIPTION
+     */
+    public void settxtCOADescription(String value) {
+        setAttributeInternal(TXTCOADESCRIPTION, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link GlProjectsVO.
      */
     public Row getGlProjectsVO() {
@@ -801,6 +821,20 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
      */
     public RowIterator getScmPurchaseBidLinesVO() {
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDLINESVO);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link GlChartOfAccountsVO.
+     */
+    public Row getGlChartOfAccountsVO() {
+        return (Row) getAttributeInternal(GLCHARTOFACCOUNTSVO);
+    }
+
+    /**
+     * Sets the master-detail link GlChartOfAccountsVO between this object and <code>value</code>.
+     */
+    public void setGlChartOfAccountsVO(Row value) {
+        setAttributeInternal(GLCHARTOFACCOUNTSVO, value);
     }
 
     /**

@@ -1312,6 +1312,16 @@
                             <af:gridCell id="gc41">
                                 <af:panelFormLayout id="pfl1">
                                     <f:facet name="footer"/>
+                                    <af:inputComboboxListOfValues id="txtCOADescriptionId"
+                                                                  popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
+                                                                  value="#{bindings.txtCOADescription.inputValue}"
+                                                                  label="#{bindings.txtCOADescription.hints.label}"
+                                                                  model="#{bindings.txtCOADescription.listOfValuesModel}"
+                                                                  required="#{bindings.txtCOADescription.hints.mandatory}"
+                                                                  columns="#{bindings.txtCOADescription.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.txtCOADescription.hints.tooltip}">
+                                        <f:validator binding="#{bindings.txtCOADescription.validator}"/>
+                                    </af:inputComboboxListOfValues>
                                     <af:inputComboboxListOfValues id="txtInventoryOrgNameId"
                                                                   popupTitle="Search and Select: #{bindings.txtInventoryOrgName.hints.label}"
                                                                   value="#{bindings.txtInventoryOrgName.inputValue}"
@@ -1331,16 +1341,6 @@
                                                                   columns="#{bindings.txtSubInventoryOrgName.hints.displayWidth}"
                                                                   shortDesc="#{bindings.txtSubInventoryOrgName.hints.tooltip}">
                                         <f:validator binding="#{bindings.txtSubInventoryOrgName.validator}"/>
-                                    </af:inputComboboxListOfValues>
-                                    <af:inputComboboxListOfValues id="txtCOADescriptionId"
-                                                                  popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
-                                                                  value="#{bindings.txtCOADescription.inputValue}"
-                                                                  label="#{bindings.txtCOADescription.hints.label}"
-                                                                  model="#{bindings.txtCOADescription.listOfValuesModel}"
-                                                                  required="#{bindings.txtCOADescription.hints.mandatory}"
-                                                                  columns="#{bindings.txtCOADescription.hints.displayWidth}"
-                                                                  shortDesc="#{bindings.txtCOADescription.hints.tooltip}">
-                                        <f:validator binding="#{bindings.txtCOADescription.validator}"/>
                                     </af:inputComboboxListOfValues>
                                 </af:panelFormLayout>
                             </af:gridCell>

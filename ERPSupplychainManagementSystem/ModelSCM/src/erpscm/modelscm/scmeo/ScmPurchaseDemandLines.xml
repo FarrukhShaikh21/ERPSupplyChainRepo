@@ -596,6 +596,31 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtCOADescription"
+    Precision="80"
+    ColumnName="TXT_COADESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_DEMAND_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.txtCOADescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="ChartOfAccountId"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseDemandHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurDemLinHeaderIdAssoc"
@@ -659,6 +684,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchaseDmdLinesScmPurchBidLinesDemandLineSnoAsso.ScmPurchaseDemandLines"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GlChartOfAccounts"
+    Association="erpscm.modelscm.scmeo.GlChartOfAccountScmPurchDemLineChartOfAccountIDAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.GlChartOfAccountScmPurchDemLineChartOfAccountIDAssoc.GlChartOfAccounts"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GlChartOfAccountScmPurchDemLineChartOfAccountIDAssoc.ScmPurchaseDemandLines"
+    Type="erpfms.modelfms.fmseo.GlChartOfAccountsImpl"
+    IsUpdateable="true"/>
   <Key
     Name="AltKeyScmPurchaseDemandLine"
     AltKey="true">

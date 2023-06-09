@@ -592,6 +592,14 @@
     EntityAttrName="ChartOfAccountId"
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="CHART_OF_ACCOUNT_ID"/>
+  <ViewAttribute
+    Name="txtCOADescription"
+    PrecisionRule="true"
+    EntityAttrName="txtCOADescription"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="TXT_COADESCRIPTION"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"
@@ -785,6 +793,12 @@
     Name="ScmPurchaseBidLinesVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchaseDmdLinesScmPurchBidLinesDemandLineSnoVL"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlChartOfAccountsVO"
+    ViewLink="erpscm.modelscm.scmvo.GlChartOfAccountScmPurchDemLineChartOfAccountIDLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
