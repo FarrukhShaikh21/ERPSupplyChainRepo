@@ -48,6 +48,12 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
         txtSupplierSno,
         txtDepartmentName,
         txtProjectName,
+        txtSubInvOrgDescription,
+        txtInvOrgDescription,
+        txtCOADescription,
+        ChartOfAccountId,
+        SubInventoryOrgSno,
+        InventoryOrgSno,
         ScmPurchaseRfqLinesVO,
         ScmPurchaseDemandLinesVO,
         InvItemVO,
@@ -57,8 +63,13 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
         ScmPurchaseBidHeaderVO,
         ScmPurchaseBidCompSupplierVO,
         InvInventoryOrgVO,
+        GlChartOfAccountsVO,
+        InvSubinventoryOrgVO,
         AccInvItemVO,
-        AccInvUnitTypeVO;
+        AccInvUnitTypeVO,
+        AccGlChartOfAccountsVO,
+        AccInvInventoryOrgVO,
+        AccInvSubinventoryOrgVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -107,6 +118,12 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
     public static final int TXTSUPPLIERSNO = AttributesEnum.txtSupplierSno.index();
     public static final int TXTDEPARTMENTNAME = AttributesEnum.txtDepartmentName.index();
     public static final int TXTPROJECTNAME = AttributesEnum.txtProjectName.index();
+    public static final int TXTSUBINVORGDESCRIPTION = AttributesEnum.txtSubInvOrgDescription.index();
+    public static final int TXTINVORGDESCRIPTION = AttributesEnum.txtInvOrgDescription.index();
+    public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
+    public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
+    public static final int SUBINVENTORYORGSNO = AttributesEnum.SubInventoryOrgSno.index();
+    public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
     public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -116,8 +133,13 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
     public static final int SCMPURCHASEBIDHEADERVO = AttributesEnum.ScmPurchaseBidHeaderVO.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
     public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
+    public static final int GLCHARTOFACCOUNTSVO = AttributesEnum.GlChartOfAccountsVO.index();
+    public static final int INVSUBINVENTORYORGVO = AttributesEnum.InvSubinventoryOrgVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
+    public static final int ACCGLCHARTOFACCOUNTSVO = AttributesEnum.AccGlChartOfAccountsVO.index();
+    public static final int ACCINVINVENTORYORGVO = AttributesEnum.AccInvInventoryOrgVO.index();
+    public static final int ACCINVSUBINVENTORYORGVO = AttributesEnum.AccInvSubinventoryOrgVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -494,6 +516,102 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for TXT_SUB_INV_ORG_DESCRIPTION using the alias name txtSubInvOrgDescription.
+     * @return the TXT_SUB_INV_ORG_DESCRIPTION
+     */
+    public String gettxtSubInvOrgDescription() {
+        return (String) getAttributeInternal(TXTSUBINVORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_SUB_INV_ORG_DESCRIPTION using the alias name txtSubInvOrgDescription.
+     * @param value value to set the TXT_SUB_INV_ORG_DESCRIPTION
+     */
+    public void settxtSubInvOrgDescription(String value) {
+        setAttributeInternal(TXTSUBINVORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_INV_ORG_DESCRIPTION using the alias name txtInvOrgDescription.
+     * @return the TXT_INV_ORG_DESCRIPTION
+     */
+    public String gettxtInvOrgDescription() {
+        return (String) getAttributeInternal(TXTINVORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_INV_ORG_DESCRIPTION using the alias name txtInvOrgDescription.
+     * @param value value to set the TXT_INV_ORG_DESCRIPTION
+     */
+    public void settxtInvOrgDescription(String value) {
+        setAttributeInternal(TXTINVORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_COADESCRIPTION using the alias name txtCOADescription.
+     * @return the TXT_COADESCRIPTION
+     */
+    public String gettxtCOADescription() {
+        return (String) getAttributeInternal(TXTCOADESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_COADESCRIPTION using the alias name txtCOADescription.
+     * @param value value to set the TXT_COADESCRIPTION
+     */
+    public void settxtCOADescription(String value) {
+        setAttributeInternal(TXTCOADESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for CHART_OF_ACCOUNT_ID using the alias name ChartOfAccountId.
+     * @return the CHART_OF_ACCOUNT_ID
+     */
+    public Integer getChartOfAccountId() {
+        return (Integer) getAttributeInternal(CHARTOFACCOUNTID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for CHART_OF_ACCOUNT_ID using the alias name ChartOfAccountId.
+     * @param value value to set the CHART_OF_ACCOUNT_ID
+     */
+    public void setChartOfAccountId(Integer value) {
+        setAttributeInternal(CHARTOFACCOUNTID, value);
+    }
+
+    /**
+     * Gets the attribute value for SUB_INVENTORY_ORG_SNO using the alias name SubInventoryOrgSno.
+     * @return the SUB_INVENTORY_ORG_SNO
+     */
+    public Integer getSubInventoryOrgSno() {
+        return (Integer) getAttributeInternal(SUBINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SUB_INVENTORY_ORG_SNO using the alias name SubInventoryOrgSno.
+     * @param value value to set the SUB_INVENTORY_ORG_SNO
+     */
+    public void setSubInventoryOrgSno(Integer value) {
+        setAttributeInternal(SUBINVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for INVENTORY_ORG_SNO using the alias name InventoryOrgSno.
+     * @return the INVENTORY_ORG_SNO
+     */
+    public Integer getInventoryOrgSno() {
+        return (Integer) getAttributeInternal(INVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for INVENTORY_ORG_SNO using the alias name InventoryOrgSno.
+     * @param value value to set the INVENTORY_ORG_SNO
+     */
+    public void setInventoryOrgSno(Integer value) {
+        setAttributeInternal(INVENTORYORGSNO, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link ScmPurchaseRfqLinesVO.
      */
     public Row getScmPurchaseRfqLinesVO() {
@@ -613,6 +731,34 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the associated <code>Row</code> using master-detail link GlChartOfAccountsVO.
+     */
+    public Row getGlChartOfAccountsVO() {
+        return (Row) getAttributeInternal(GLCHARTOFACCOUNTSVO);
+    }
+
+    /**
+     * Sets the master-detail link GlChartOfAccountsVO between this object and <code>value</code>.
+     */
+    public void setGlChartOfAccountsVO(Row value) {
+        setAttributeInternal(GLCHARTOFACCOUNTSVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link InvSubinventoryOrgVO.
+     */
+    public Row getInvSubinventoryOrgVO() {
+        return (Row) getAttributeInternal(INVSUBINVENTORYORGVO);
+    }
+
+    /**
+     * Sets the master-detail link InvSubinventoryOrgVO between this object and <code>value</code>.
+     */
+    public void setInvSubinventoryOrgVO(Row value) {
+        setAttributeInternal(INVSUBINVENTORYORGVO, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> AccInvItemVO.
      */
     public RowSet getAccInvItemVO() {
@@ -625,6 +771,29 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
     public RowSet getAccInvUnitTypeVO() {
         return (RowSet) getAttributeInternal(ACCINVUNITTYPEVO);
     }
+
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccGlChartOfAccountsVO.
+     */
+    public RowSet getAccGlChartOfAccountsVO() {
+        return (RowSet) getAttributeInternal(ACCGLCHARTOFACCOUNTSVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccInvInventoryOrgVO.
+     */
+    public RowSet getAccInvInventoryOrgVO() {
+        return (RowSet) getAttributeInternal(ACCINVINVENTORYORGVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccInvSubinventoryOrgVO.
+     */
+    public RowSet getAccInvSubinventoryOrgVO() {
+        return (RowSet) getAttributeInternal(ACCINVSUBINVENTORYORGVO);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method

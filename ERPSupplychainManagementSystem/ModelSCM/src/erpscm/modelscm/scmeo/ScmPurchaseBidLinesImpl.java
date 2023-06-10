@@ -2,12 +2,14 @@ package erpscm.modelscm.scmeo;
 
 import erpadm.modeladm.admeo.AdminCompanyImpl;
 
+import erpfms.modelfms.fmseo.GlChartOfAccountsImpl;
 import erpfms.modelfms.fmseo.GlProjectsImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
 import erpims.modelims.imseo.InvInventoryOrgImpl;
 import erpims.modelims.imseo.InvItemImpl;
+import erpims.modelims.imseo.InvSubinventoryOrgImpl;
 import erpims.modelims.imseo.InvUnitTypeImpl;
 
 import java.math.BigDecimal;
@@ -66,7 +68,9 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
         GlProjects,
         AdminCompany,
         ScmPurchaseBidCompSupplier,
-        InvInventoryOrg;
+        InvInventoryOrg,
+        GlChartOfAccounts,
+        InvSubinventoryOrg;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -128,6 +132,8 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
     public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
+    public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
+    public static final int INVSUBINVENTORYORG = AttributesEnum.InvSubinventoryOrg.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -710,6 +716,34 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
      */
     public void setInvInventoryOrg(InvInventoryOrgImpl value) {
         setAttributeInternal(INVINVENTORYORG, value);
+    }
+
+    /**
+     * @return the associated entity erpfms.modelfms.fmseo.GlChartOfAccountsImpl.
+     */
+    public GlChartOfAccountsImpl getGlChartOfAccounts() {
+        return (GlChartOfAccountsImpl) getAttributeInternal(GLCHARTOFACCOUNTS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpfms.modelfms.fmseo.GlChartOfAccountsImpl.
+     */
+    public void setGlChartOfAccounts(GlChartOfAccountsImpl value) {
+        setAttributeInternal(GLCHARTOFACCOUNTS, value);
+    }
+
+    /**
+     * @return the associated entity erpims.modelims.imseo.InvSubinventoryOrgImpl.
+     */
+    public InvSubinventoryOrgImpl getInvSubinventoryOrg() {
+        return (InvSubinventoryOrgImpl) getAttributeInternal(INVSUBINVENTORYORG);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpims.modelims.imseo.InvSubinventoryOrgImpl.
+     */
+    public void setInvSubinventoryOrg(InvSubinventoryOrgImpl value) {
+        setAttributeInternal(INVSUBINVENTORYORG, value);
     }
 
     /**

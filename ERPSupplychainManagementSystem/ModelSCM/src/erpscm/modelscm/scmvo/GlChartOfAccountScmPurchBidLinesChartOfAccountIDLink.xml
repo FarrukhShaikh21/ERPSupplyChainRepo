@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GlChartOfAccountScmPurchBidLinesChartOfAccountIDLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpscm.modelscm.scmeo.GlChartOfAccountScmPurchBidLinesChartOfAccountIDAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpscm.modelscm.scmvo.GlChartOfAccountScmPurchBidLinesChartOfAccountIDLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="GlChartOfAccountsVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpfms.modelfms.fmsvo.GlChartOfAccountsVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="GlChartOfAccountsVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpfms.modelfms.fmsvo.GlChartOfAccountsVO.ChartOfAccountId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ScmPurchaseBidLinesVO"
+    Cardinality="-1"
+    Owner="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="false"/>
+      <Attr Name="_finderName" Value="ScmPurchaseBidLinesVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
+</ViewLink>

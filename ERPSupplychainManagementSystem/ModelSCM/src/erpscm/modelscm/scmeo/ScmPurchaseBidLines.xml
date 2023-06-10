@@ -496,7 +496,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[InvInventoryOrg?.OrgDdescription]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[GlChartOfAccounts?.Description]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -521,6 +521,10 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InvInventoryOrg?.OrgDdescription]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -539,6 +543,10 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InvSubinventoryOrg?.SubinventoryDescription]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -547,6 +555,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="SubInventoryOrgSno"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidHeader"
@@ -610,6 +622,20 @@
     AssociationEnd="erpscm.modelscm.scmeo.InvInventoryOrgSnoScmPurchaseBidLinesInvOrgSnoAssoc.InvInventoryOrg"
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvInventoryOrgSnoScmPurchaseBidLinesInvOrgSnoAssoc.ScmPurchaseBidLines"
     Type="erpims.modelims.imseo.InvInventoryOrgImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GlChartOfAccounts"
+    Association="erpscm.modelscm.scmeo.GlChartOfAccountScmPurchBidLinesChartOfAccountIDAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.GlChartOfAccountScmPurchBidLinesChartOfAccountIDAssoc.GlChartOfAccounts"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.GlChartOfAccountScmPurchBidLinesChartOfAccountIDAssoc.ScmPurchaseBidLines"
+    Type="erpfms.modelfms.fmseo.GlChartOfAccountsImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InvSubinventoryOrg"
+    Association="erpscm.modelscm.scmeo.InvSubInventoryOrgScmPurchBidLinesSubInvOrgSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.InvSubInventoryOrgScmPurchBidLinesSubInvOrgSnoAssoc.InvSubinventoryOrg"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.InvSubInventoryOrgScmPurchBidLinesSubInvOrgSnoAssoc.ScmPurchaseBidLines"
+    Type="erpims.modelims.imseo.InvSubinventoryOrgImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidLines"
@@ -697,6 +723,28 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.InventoryOrgSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidLines6">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_GL_CHART_OF_ACCOUNTS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_BID_LINES6"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.ChartOfAccountId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidLines7">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_BID_LINES7"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidLines.SubInventoryOrgSno"/>
     </AttrArray>
   </Key>
   <validation:ExpressionValidationBean

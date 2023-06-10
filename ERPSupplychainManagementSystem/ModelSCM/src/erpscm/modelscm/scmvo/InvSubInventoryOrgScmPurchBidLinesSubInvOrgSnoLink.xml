@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InvSubInventoryOrgScmPurchBidLinesSubInvOrgSnoLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpscm.modelscm.scmeo.InvSubInventoryOrgScmPurchBidLinesSubInvOrgSnoAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpscm.modelscm.scmvo.InvSubInventoryOrgScmPurchBidLinesSubInvOrgSnoLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="InvSubinventoryOrgVO"
+    Cardinality="1"
+    Source="true"
+    Owner="erpims.modelims.imsvo.InvSubinventoryOrgVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="InvSubinventoryOrgVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpims.modelims.imsvo.InvSubinventoryOrgVO.SubinventoryOrgSno"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ScmPurchaseBidLinesVO"
+    Cardinality="-1"
+    Owner="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="false"/>
+      <Attr Name="_finderName" Value="ScmPurchaseBidLinesVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
+  </ResourceBundle>
+</ViewLink>

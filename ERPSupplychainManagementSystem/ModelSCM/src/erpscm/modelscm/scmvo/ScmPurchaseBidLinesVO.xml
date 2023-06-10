@@ -38,11 +38,63 @@
   <ViewAccessor
     Name="AccInvItemVO"
     ViewObjectName="erpims.modelims.imsvo.InvItemVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvItemByCompanyByIDVC"
+      FullName="erpims.modelims.imsvo.InvItemVO.InvItemByCompanyByIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseBidHeaderVO?.CompanyId==null?-1:ScmPurchaseBidHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccInvUnitTypeVO"
     ViewObjectName="erpims.modelims.imsvo.InvUnitTypeVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvUnitTypeByCompanyIDVC"
+      FullName="erpims.modelims.imsvo.InvUnitTypeVO.InvUnitTypeByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseBidHeaderVO?.CompanyId==null?-1:ScmPurchaseBidHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccGlChartOfAccountsVO"
+    ViewObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccInvInventoryOrgVO"
+    ViewObjectName="erpims.modelims.imsvo.InvInventoryOrgVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvInventoryOrgByCompanyIDVC"
+      FullName="erpims.modelims.imsvo.InvInventoryOrgVO.InvInventoryOrgByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseBidHeaderVO?.CompanyId==null?-1:ScmPurchaseBidHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccInvSubinventoryOrgVO"
+    ViewObjectName="erpims.modelims.imsvo.InvSubinventoryOrgVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvSubinventoryOrgByInvOrgSnoVC"
+      FullName="erpims.modelims.imsvo.InvSubinventoryOrgVO.InvSubinventoryOrgByInvOrgSnoVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_INVENTORY_ORG_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[InventoryOrgSno==null?-1:InventoryOrgSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -284,6 +336,50 @@
     AliasName="txt_Project_Name"
     IsQueriable="false"
     IsPersistent="false"/>
+  <ViewAttribute
+    Name="txtSubInvOrgDescription"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSubInvOrgDescription"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="TXT_SUB_INV_ORG_DESCRIPTION"/>
+  <ViewAttribute
+    Name="txtInvOrgDescription"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtInvOrgDescription"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="TXT_INV_ORG_DESCRIPTION"/>
+  <ViewAttribute
+    Name="txtCOADescription"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCOADescription"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="TXT_COADESCRIPTION"/>
+  <ViewAttribute
+    Name="ChartOfAccountId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ChartOfAccountId"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="CHART_OF_ACCOUNT_ID"/>
+  <ViewAttribute
+    Name="SubInventoryOrgSno"
+    PrecisionRule="true"
+    EntityAttrName="SubInventoryOrgSno"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="SUB_INVENTORY_ORG_SNO"/>
+  <ViewAttribute
+    Name="InventoryOrgSno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InventoryOrgSno"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="INVENTORY_ORG_SNO"/>
   <ViewCriteria
     Name="ScmPurBidLinesByRFQHeadItemUnitVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO"
@@ -411,6 +507,18 @@
   <ViewLinkAccessor
     Name="InvInventoryOrgVO"
     ViewLink="erpscm.modelscm.scmvo.InvInventoryOrgSnoScmPurchaseBidLinesInvOrgSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="GlChartOfAccountsVO"
+    ViewLink="erpscm.modelscm.scmvo.GlChartOfAccountScmPurchBidLinesChartOfAccountIDLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InvSubinventoryOrgVO"
+    ViewLink="erpscm.modelscm.scmvo.InvSubInventoryOrgScmPurchBidLinesSubInvOrgSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

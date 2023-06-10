@@ -492,7 +492,7 @@
                             <af:gridCell id="gc21" width="100%" halign="stretch" valign="stretch">
                                 <af:panelAccordion discloseMany="false" id="pa1">
                                     <af:showDetailItem id="pane1" text="Other Detail Info">
-                                        <af:panelFormLayout id="pfl1" maxColumns="2" rows="1">
+                                        <af:panelFormLayout id="pfl1" maxColumns="5" rows="1" labelAlignment="top">
                                             <f:facet name="footer"/>
                                             <af:inputText value="#{bindings.txtDepartmentName.inputValue}"
                                                           label="#{bindings.txtDepartmentName.hints.label}"
@@ -511,6 +511,33 @@
                                                           shortDesc="#{bindings.txtProjectName.hints.tooltip}" id="it13"
                                                           readOnly="true">
                                                 <f:validator binding="#{bindings.txtProjectName.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.txtCOADescription.inputValue}"
+                                                          label="#{bindings.txtCOADescription.hints.label}"
+                                                          required="#{bindings.txtCOADescription.hints.mandatory}"
+                                                          columns="#{bindings.txtCOADescription.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtCOADescription.hints.precision}"
+                                                          shortDesc="#{bindings.txtCOADescription.hints.tooltip}"
+                                                          id="it16" readOnly="true">
+                                                <f:validator binding="#{bindings.txtCOADescription.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.txtInvOrgDescription.inputValue}"
+                                                          label="#{bindings.txtInvOrgDescription.hints.label}"
+                                                          required="#{bindings.txtInvOrgDescription.hints.mandatory}"
+                                                          columns="#{bindings.txtInvOrgDescription.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtInvOrgDescription.hints.precision}"
+                                                          shortDesc="#{bindings.txtInvOrgDescription.hints.tooltip}"
+                                                          id="it17" readOnly="true">
+                                                <f:validator binding="#{bindings.txtInvOrgDescription.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.txtSubInvOrgDescription.inputValue}"
+                                                          label="#{bindings.txtSubInvOrgDescription.hints.label}"
+                                                          required="#{bindings.txtSubInvOrgDescription.hints.mandatory}"
+                                                          columns="#{bindings.txtSubInvOrgDescription.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtSubInvOrgDescription.hints.precision}"
+                                                          shortDesc="#{bindings.txtSubInvOrgDescription.hints.tooltip}"
+                                                          id="it18" readOnly="true">
+                                                <f:validator binding="#{bindings.txtSubInvOrgDescription.validator}"/>
                                             </af:inputText>
                                         </af:panelFormLayout>
                                     </af:showDetailItem>
