@@ -393,6 +393,13 @@
   <ViewUsage
     Name="ScmPurchaseOrderLinesForMergeRFQDet"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderLinesVO"/>
+  <ViewUsage
+    Name="ScmPurchaseDemandLinesMultiItemRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandLinesCheckSameItemInLineVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.ScmPurchaseDemandLinesCheckSameItemInLineVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"

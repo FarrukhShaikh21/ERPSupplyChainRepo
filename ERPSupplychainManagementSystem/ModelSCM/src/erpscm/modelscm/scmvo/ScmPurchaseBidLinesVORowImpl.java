@@ -18,6 +18,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_SCMPURCHASEBIDLINES = 0;
 
     /**
@@ -55,6 +56,7 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
         GlProjectsVO,
         ScmPurchaseBidHeaderVO,
         ScmPurchaseBidCompSupplierVO,
+        InvInventoryOrgVO,
         AccInvItemVO,
         AccInvUnitTypeVO;
         static AttributesEnum[] vals = null;
@@ -80,6 +82,7 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int BIDLINESSNO = AttributesEnum.BidLinesSno.index();
     public static final int BIDHEADERSNO = AttributesEnum.BidHeaderSno.index();
@@ -112,6 +115,7 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int SCMPURCHASEBIDHEADERVO = AttributesEnum.ScmPurchaseBidHeaderVO.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
+    public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
 
@@ -592,6 +596,20 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
      */
     public RowIterator getScmPurchaseBidCompSupplierVO() {
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPSUPPLIERVO);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link InvInventoryOrgVO.
+     */
+    public Row getInvInventoryOrgVO() {
+        return (Row) getAttributeInternal(INVINVENTORYORGVO);
+    }
+
+    /**
+     * Sets the master-detail link InvInventoryOrgVO between this object and <code>value</code>.
+     */
+    public void setInvInventoryOrgVO(Row value) {
+        setAttributeInternal(INVINVENTORYORGVO, value);
     }
 
     /**

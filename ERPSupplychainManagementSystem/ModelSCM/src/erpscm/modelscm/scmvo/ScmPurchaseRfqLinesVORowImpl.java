@@ -881,6 +881,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         return (RowSet) getAttributeInternal(ACCGLCHARTOFACCOUNTSVO);
     }
 
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method

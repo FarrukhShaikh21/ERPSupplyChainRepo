@@ -938,6 +938,8 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
             
 //            System.out.println("RfqHeaderSno:" + erpNewRow.getAttribute("RfqHeaderSno"));
             getScmPurchaseRfqLinesVO().insertRow(erpNewRow);
+           
+//            oracle.jbo.common.VariableImpl@40e82d81 java.lang.Integer       
             
             //            getApplicationModule().findViewObject("ScmPurchaseRfqLinesDetCRUD").insertRow(erpNewRow);
         }
@@ -1302,6 +1304,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public RowSet getAccSysGeneralValueVO() {
         return (RowSet) getAttributeInternal(ACCSYSGENERALVALUEVO);
     }
+
 
     @Override
     public boolean isAttributeUpdateable(int i) {

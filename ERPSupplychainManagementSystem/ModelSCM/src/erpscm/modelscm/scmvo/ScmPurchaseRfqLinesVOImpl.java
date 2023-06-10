@@ -2,6 +2,7 @@ package erpscm.modelscm.scmvo;
 
 import erpscm.modelscm.scmvo.common.ScmPurchaseRfqLinesVO;
 
+import oracle.jbo.ApplicationModule;
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.ViewObjectImpl;
@@ -37,7 +38,8 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
     public void doERPGenerateBidFromRFQ() {
         
         this.setRangeSize(-1);
-        ViewObject rfqvo=this.getApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD");
+        ApplicationModule rfqam=this.getApplicationModule();
+        ViewObject rfqvo=rfqam.findViewObject("ScmPurchaseRfqHeaderCRUD");
         Integer isMasterGenerated=0;
         System.out.println(rfqvo.getCurrentRow().getAttribute("txtBidHeaderSno")+ "bid header sno");
         ViewObject bidDetvoForInsert=this.getApplicationModule().findViewObject("ScmPurchaseBidLinesDetForRFQMergeRO");
@@ -101,8 +103,20 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                 DetnewRow.setAttribute("StatusSno", nextRow.getAttribute("StatusSno"));
                 DetnewRow.setAttribute("DemandLinesSno", nextRow.getAttribute("DemandLinesSno"));
 //               nextRow.setAttribute("txtGenerateBID", "G");
-               bidDetvoForInsert.insertRow(DetnewRow);
-               
+                bidDetvoForInsert.insertRow(DetnewRow);
+//                getDBTransaction().
+                ViewObject demLinMultile= rfqam.findViewObject("ScmPurchaseDemandLinesMultiItemRO");
+                demLinMultile.setNamedWhereClauseParam("P_ADF_DEMAND_LINES_SNO", nextRow.getAttribute("DemandLinesSno"));
+                demLinMultile.setNamedWhereClauseParam("P_ADF_DEMAND_HEADER_SNO", rfqRow.getAttribute("DemandHeaderSno")==null?-1:rfqRow.getAttribute("DemandHeaderSno"));
+                demLinMultile.setNamedWhereClauseParam("P_ADF_ITEM_ID", nextRow.getAttribute("ItemId"));
+                demLinMultile.executeQuery();
+                if (demLinMultile.getRowCount()>0) {
+//                DetnewRow.
+               }
+                
+                
+                
+                
                 
            }
         }

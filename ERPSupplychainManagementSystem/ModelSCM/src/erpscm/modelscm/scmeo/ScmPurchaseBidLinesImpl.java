@@ -6,6 +6,7 @@ import erpfms.modelfms.fmseo.GlProjectsImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
+import erpims.modelims.imseo.InvInventoryOrgImpl;
 import erpims.modelims.imseo.InvItemImpl;
 import erpims.modelims.imseo.InvUnitTypeImpl;
 
@@ -51,6 +52,12 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
         txtSupplierSno,
         txtDepartmentName,
         txtProjectName,
+        ChartOfAccountId,
+        InventoryOrgSno,
+        SubInventoryOrgSno,
+        txtCOADescription,
+        txtInvOrgDescription,
+        txtSubInvOrgDescription,
         ScmPurchaseBidHeader,
         ScmPurchaseRfqLines,
         ScmPurchaseDemandLines,
@@ -58,7 +65,8 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
         InvUnitType,
         GlProjects,
         AdminCompany,
-        ScmPurchaseBidCompSupplier;
+        ScmPurchaseBidCompSupplier,
+        InvInventoryOrg;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -105,6 +113,12 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
     public static final int TXTSUPPLIERSNO = AttributesEnum.txtSupplierSno.index();
     public static final int TXTDEPARTMENTNAME = AttributesEnum.txtDepartmentName.index();
     public static final int TXTPROJECTNAME = AttributesEnum.txtProjectName.index();
+    public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
+    public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
+    public static final int SUBINVENTORYORGSNO = AttributesEnum.SubInventoryOrgSno.index();
+    public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
+    public static final int TXTINVORGDESCRIPTION = AttributesEnum.txtInvOrgDescription.index();
+    public static final int TXTSUBINVORGDESCRIPTION = AttributesEnum.txtSubInvOrgDescription.index();
     public static final int SCMPURCHASEBIDHEADER = AttributesEnum.ScmPurchaseBidHeader.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
@@ -113,6 +127,7 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
+    public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -481,6 +496,102 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for ChartOfAccountId, using the alias name ChartOfAccountId.
+     * @return the value of ChartOfAccountId
+     */
+    public Integer getChartOfAccountId() {
+        return (Integer) getAttributeInternal(CHARTOFACCOUNTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ChartOfAccountId.
+     * @param value value to set the ChartOfAccountId
+     */
+    public void setChartOfAccountId(Integer value) {
+        setAttributeInternal(CHARTOFACCOUNTID, value);
+    }
+
+    /**
+     * Gets the attribute value for InventoryOrgSno, using the alias name InventoryOrgSno.
+     * @return the value of InventoryOrgSno
+     */
+    public Integer getInventoryOrgSno() {
+        return (Integer) getAttributeInternal(INVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for InventoryOrgSno.
+     * @param value value to set the InventoryOrgSno
+     */
+    public void setInventoryOrgSno(Integer value) {
+        setAttributeInternal(INVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for SubInventoryOrgSno, using the alias name SubInventoryOrgSno.
+     * @return the value of SubInventoryOrgSno
+     */
+    public Integer getSubInventoryOrgSno() {
+        return (Integer) getAttributeInternal(SUBINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SubInventoryOrgSno.
+     * @param value value to set the SubInventoryOrgSno
+     */
+    public void setSubInventoryOrgSno(Integer value) {
+        setAttributeInternal(SUBINVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCOADescription, using the alias name txtCOADescription.
+     * @return the value of txtCOADescription
+     */
+    public String gettxtCOADescription() {
+        return (String) getAttributeInternal(TXTCOADESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCOADescription.
+     * @param value value to set the txtCOADescription
+     */
+    public void settxtCOADescription(String value) {
+        setAttributeInternal(TXTCOADESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for txtInvOrgDescription, using the alias name txtInvOrgDescription.
+     * @return the value of txtInvOrgDescription
+     */
+    public String gettxtInvOrgDescription() {
+        return (String) getAttributeInternal(TXTINVORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtInvOrgDescription.
+     * @param value value to set the txtInvOrgDescription
+     */
+    public void settxtInvOrgDescription(String value) {
+        setAttributeInternal(TXTINVORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSubInvOrgDescription, using the alias name txtSubInvOrgDescription.
+     * @return the value of txtSubInvOrgDescription
+     */
+    public String gettxtSubInvOrgDescription() {
+        return (String) getAttributeInternal(TXTSUBINVORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSubInvOrgDescription.
+     * @param value value to set the txtSubInvOrgDescription
+     */
+    public void settxtSubInvOrgDescription(String value) {
+        setAttributeInternal(TXTSUBINVORGDESCRIPTION, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseBidHeaderImpl.
      */
     public ScmPurchaseBidHeaderImpl getScmPurchaseBidHeader() {
@@ -586,6 +697,20 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPSUPPLIER);
     }
 
+
+    /**
+     * @return the associated entity erpims.modelims.imseo.InvInventoryOrgImpl.
+     */
+    public InvInventoryOrgImpl getInvInventoryOrg() {
+        return (InvInventoryOrgImpl) getAttributeInternal(INVINVENTORYORG);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpims.modelims.imseo.InvInventoryOrgImpl.
+     */
+    public void setInvInventoryOrg(InvInventoryOrgImpl value) {
+        setAttributeInternal(INVINVENTORYORG, value);
+    }
 
     /**
      * @param bidLinesSno key constituent
