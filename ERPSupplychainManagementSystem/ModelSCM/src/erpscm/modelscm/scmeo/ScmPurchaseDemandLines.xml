@@ -744,6 +744,7 @@
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.ItemId"/>
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.DemandHeaderSno"/>
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.InventoryOrgSno"/>
     </AttrArray>
   </Key>
   <Key
@@ -897,9 +898,9 @@
       <validation:Item
         Value="ERR_REQ_DEMAND_QUANTITY"/>
       <validation:Item
-        Value="ERR_REQ_REQUIRED_DATE"/>
-      <validation:Item
         Value="ERR_REQ_DEMAND_ACCOUNT"/>
+      <validation:Item
+        Value="ERR_REQ_REQUIRED_DATE"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(ItemId==null)

@@ -15,12 +15,10 @@
     Source="true"
     Owner="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader"
     LockLevel="NONE"
-    CascadeDelete="true"
     DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseDemandHeader"/>
-      <Attr Name="_foreignKey" Value="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.PkScmPuechaseDemandHeader"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
@@ -36,7 +34,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseDemandLines"/>
-      <Attr Name="_foreignKey" Value="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.FkScmPurDemLinHeaderId"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">

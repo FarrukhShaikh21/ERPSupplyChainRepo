@@ -91,27 +91,25 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                 System.out.println("headsno");
                 System.out.println(bidvoForInsert.getCurrentRow().getAttribute("RfqHeaderSno"));
                 Row DetnewRow=bidDetvoForInsert.createRow();
-                DetnewRow.setAttribute("BidHeaderSno", erpMergeBidHeaderSno);
-                DetnewRow.setAttribute("RfqLinesSno", nextRow.getAttribute("RfqLinesSno"));
-                DetnewRow.setAttribute("DemandLinesSno", nextRow.getAttribute("DemandLinesSno"));
-                DetnewRow.setAttribute("ItemId", nextRow.getAttribute("ItemId"));
-                DetnewRow.setAttribute("UnitTypeSno", nextRow.getAttribute("UnitTypeSno"));
-                DetnewRow.setAttribute("Quantity", nextRow.getAttribute("Quantity"));
-                DetnewRow.setAttribute("BidPrice", nextRow.getAttribute("txtBidPrice"));
-                DetnewRow.setAttribute("ProjectId", nextRow.getAttribute("ProjectId"));
-                DetnewRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
-                DetnewRow.setAttribute("StatusSno", nextRow.getAttribute("StatusSno"));
-                DetnewRow.setAttribute("DemandLinesSno", nextRow.getAttribute("DemandLinesSno"));
-//               nextRow.setAttribute("txtGenerateBID", "G");
-                bidDetvoForInsert.insertRow(DetnewRow);
+               ///insert
+               DetnewRow.setAttribute("BidHeaderSno", erpMergeBidHeaderSno);
+               doCreateBidReceiveLine(DetnewRow, nextRow, bidDetvoForInsert);
 //                getDBTransaction().
-                ViewObject demLinMultile= rfqam.findViewObject("ScmPurchaseDemandLinesMultiItemRO");
-                demLinMultile.setNamedWhereClauseParam("P_ADF_DEMAND_LINES_SNO", nextRow.getAttribute("DemandLinesSno"));
-                demLinMultile.setNamedWhereClauseParam("P_ADF_DEMAND_HEADER_SNO", rfqRow.getAttribute("DemandHeaderSno")==null?-1:rfqRow.getAttribute("DemandHeaderSno"));
+                ViewObject demLinMultile= rfqam.findViewObject("ScmPurchaseRfqLinesForMultipleItemRO");
+                demLinMultile.setNamedWhereClauseParam("P_ADF_RFQ_LINES_SNO", nextRow.getAttribute("RfqLinesSno"));
+                demLinMultile.setNamedWhereClauseParam("P_RFQ_HEADER_SNO", rfqRow.getAttribute("RfqHeaderSno")==null?-1:rfqRow.getAttribute("RfqHeaderSno"));
                 demLinMultile.setNamedWhereClauseParam("P_ADF_ITEM_ID", nextRow.getAttribute("ItemId"));
                 demLinMultile.executeQuery();
                 if (demLinMultile.getRowCount()>0) {
-//                DetnewRow.
+                    Row newBidLine=bidDetvoForInsert.createRow();
+                   newBidLine.setAttribute("BidHeaderSno", erpMergeBidHeaderSno);
+                   demLinMultile.first().setAttribute("txtBidPrice", nextRow.getAttribute("txtBidPrice"));
+                   doCreateBidReceiveLine(newBidLine, demLinMultile.first(), bidDetvoForInsert);
+//                   DetnewRow.setAttribute("InventoryOrgSno", nextRow.getAttribute("DemandLinesSno"));
+//                   DetnewRow.setAttribute("SubinventoryOrgSno", nextRow.getAttribute("DemandLinesSno"));
+//                   DetnewRow.setAttribute("ChartOfAccountId", nextRow.getAttribute("DemandLinesSno"));
+//                   DetnewRow.setAttribute("ProjectId", nextRow.getAttribute("DemandLinesSno"));
+//                   DetnewRow.setAttribute("DepartmentId", nextRow.getAttribute("DemandLinesSno"));
                }
                 
                 
@@ -163,5 +161,56 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         this.setWhereClause("rfq_header_sno="+erpRfqHeaderSno+" AND rfq_lines_sno IN(select max(rfql.rfq_lines_sno) from Scm_Purchase_Rfq_Lines RFQL where RFQL.rfq_header_sno=ScmPurchaseRfqLines.rfq_header_sno group by item_id)");
         this.executeQuery();
         this.setWhereClause(null);
+    }
+    public void doCreateBidReceiveLine(Row DetnewRow,Row nextRow, ViewObject bidDetvoForInsert) {
+        DetnewRow.setAttribute("RfqLinesSno", nextRow.getAttribute("RfqLinesSno"));
+        DetnewRow.setAttribute("DemandLinesSno", nextRow.getAttribute("DemandLinesSno"));
+        DetnewRow.setAttribute("ItemId", nextRow.getAttribute("ItemId"));
+        DetnewRow.setAttribute("UnitTypeSno", nextRow.getAttribute("UnitTypeSno"));
+        DetnewRow.setAttribute("Quantity", nextRow.getAttribute("Quantity"));
+        DetnewRow.setAttribute("BidPrice", nextRow.getAttribute("txtBidPrice"));
+        DetnewRow.setAttribute("ProjectId", nextRow.getAttribute("ProjectId"));
+        DetnewRow.setAttribute("DepartmentId", nextRow.getAttribute("DepartmentId"));
+        DetnewRow.setAttribute("StatusSno", nextRow.getAttribute("StatusSno"));
+        DetnewRow.setAttribute("DemandLinesSno", nextRow.getAttribute("DemandLinesSno"));
+        DetnewRow.setAttribute("InventoryOrgSno", nextRow.getAttribute("InventoryOrgSno"));
+        DetnewRow.setAttribute("SubInventoryOrgSno", nextRow.getAttribute("SubinventoryOrgSno"));
+        System.out.println( nextRow.getAttribute("ChartOfAccountId") + "coa id");
+        DetnewRow.setAttribute("ChartOfAccountId", nextRow.getAttribute("ChartOfAccountId"));
+         /////
+        //               nextRow.setAttribute("txtGenerateBID", "G");
+         bidDetvoForInsert.insertRow(DetnewRow);
+    }
+
+    /**
+     * Returns the variable value for P_ADF_ITEM_ID.
+     * @return variable value for P_ADF_ITEM_ID
+     */
+    public Integer getP_ADF_ITEM_ID() {
+        return (Integer) ensureVariableManager().getVariableValue("P_ADF_ITEM_ID");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_ITEM_ID.
+     * @param value value to bind as P_ADF_ITEM_ID
+     */
+    public void setP_ADF_ITEM_ID(Integer value) {
+        ensureVariableManager().setVariableValue("P_ADF_ITEM_ID", value);
+    }
+
+    /**
+     * Returns the variable value for P_ADF_RFQ_LINES_SNO.
+     * @return variable value for P_ADF_RFQ_LINES_SNO
+     */
+    public Integer getP_ADF_RFQ_LINES_SNO() {
+        return (Integer) ensureVariableManager().getVariableValue("P_ADF_RFQ_LINES_SNO");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_RFQ_LINES_SNO.
+     * @param value value to bind as P_ADF_RFQ_LINES_SNO
+     */
+    public void setP_ADF_RFQ_LINES_SNO(Integer value) {
+        ensureVariableManager().setVariableValue("P_ADF_RFQ_LINES_SNO", value);
     }
 }

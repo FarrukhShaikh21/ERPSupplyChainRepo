@@ -522,7 +522,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[InvInventoryOrg?.OrgDdescription]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[InvInventoryOrg?.OrgDescription]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -533,6 +533,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="InventoryOrgSno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtSubInvOrgDescription"
