@@ -2,6 +2,7 @@ package erpscm.modelscm.scmeo;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
+import erpims.modelims.imseo.InvInventoryOrgImpl;
 import erpims.modelims.imseo.InvItemImpl;
 import erpims.modelims.imseo.InvUnitTypeImpl;
 
@@ -37,12 +38,15 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         UnitTypeSno,
         txtCountBidSelected,
         IncludeComparison,
+        InventoryOrgSno,
+        IsMultipleItem,
+        SubinventoryOrgSno,
         ScmPurchaseBidCompHeader,
         ScmPurchaseBidCompSupplier,
         InvItem,
-        InvUnitType;
-        static AttributesEnum[] vals = null;
-        ;
+        InvUnitType,
+        InvInventoryOrg;
+        private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -80,10 +84,14 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public static final int UNITTYPESNO = AttributesEnum.UnitTypeSno.index();
     public static final int TXTCOUNTBIDSELECTED = AttributesEnum.txtCountBidSelected.index();
     public static final int INCLUDECOMPARISON = AttributesEnum.IncludeComparison.index();
+    public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
+    public static final int ISMULTIPLEITEM = AttributesEnum.IsMultipleItem.index();
+    public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int SCMPURCHASEBIDCOMPHEADER = AttributesEnum.ScmPurchaseBidCompHeader.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
+    public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -327,6 +335,54 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
 
 
     /**
+     * Gets the attribute value for InventoryOrgSno, using the alias name InventoryOrgSno.
+     * @return the value of InventoryOrgSno
+     */
+    public Integer getInventoryOrgSno() {
+        return (Integer) getAttributeInternal(INVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for InventoryOrgSno.
+     * @param value value to set the InventoryOrgSno
+     */
+    public void setInventoryOrgSno(Integer value) {
+        setAttributeInternal(INVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for IsMultipleItem, using the alias name IsMultipleItem.
+     * @return the value of IsMultipleItem
+     */
+    public String getIsMultipleItem() {
+        return (String) getAttributeInternal(ISMULTIPLEITEM);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IsMultipleItem.
+     * @param value value to set the IsMultipleItem
+     */
+    public void setIsMultipleItem(String value) {
+        setAttributeInternal(ISMULTIPLEITEM, value);
+    }
+
+    /**
+     * Gets the attribute value for SubinventoryOrgSno, using the alias name SubinventoryOrgSno.
+     * @return the value of SubinventoryOrgSno
+     */
+    public Long getSubinventoryOrgSno() {
+        return (Long) getAttributeInternal(SUBINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for SubinventoryOrgSno.
+     * @param value value to set the SubinventoryOrgSno
+     */
+    public void setSubinventoryOrgSno(Long value) {
+        setAttributeInternal(SUBINVENTORYORGSNO, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseBidCompHeaderImpl.
      */
     public ScmPurchaseBidCompHeaderImpl getScmPurchaseBidCompHeader() {
@@ -373,6 +429,21 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      */
     public void setInvUnitType(InvUnitTypeImpl value) {
         setAttributeInternal(INVUNITTYPE, value);
+    }
+
+
+    /**
+     * @return the associated entity erpims.modelims.imseo.InvInventoryOrgImpl.
+     */
+    public InvInventoryOrgImpl getInvInventoryOrg() {
+        return (InvInventoryOrgImpl) getAttributeInternal(INVINVENTORYORG);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpims.modelims.imseo.InvInventoryOrgImpl.
+     */
+    public void setInvInventoryOrg(InvInventoryOrgImpl value) {
+        setAttributeInternal(INVINVENTORYORG, value);
     }
 
 

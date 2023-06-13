@@ -201,6 +201,24 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="IsMultipleItem"
+    PrecisionRule="true"
+    EntityAttrName="IsMultipleItem"
+    EntityUsage="ScmPurchaseBidCompareItem"
+    AliasName="IS_MULTIPLE_ITEM"/>
+  <ViewAttribute
+    Name="InventoryOrgSno"
+    PrecisionRule="true"
+    EntityAttrName="InventoryOrgSno"
+    EntityUsage="ScmPurchaseBidCompareItem"
+    AliasName="INVENTORY_ORG_SNO"/>
+  <ViewAttribute
+    Name="SubinventoryOrgSno"
+    PrecisionRule="true"
+    EntityAttrName="SubinventoryOrgSno"
+    EntityUsage="ScmPurchaseBidCompareItem"
+    AliasName="SUBINVENTORY_ORG_SNO"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"
@@ -223,6 +241,12 @@
     Name="ScmPurchaseBidCompSupplierVO"
     ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InvInventoryOrgVO"
+    ViewLink="erpscm.modelscm.scmvo.InvInventoryOrgScmPurBidComItemInventoryOrgSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle

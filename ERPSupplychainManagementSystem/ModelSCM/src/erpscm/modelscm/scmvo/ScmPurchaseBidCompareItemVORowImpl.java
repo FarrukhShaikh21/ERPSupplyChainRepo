@@ -38,10 +38,14 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
         UnitTypeSno,
         txtCountBidSelected,
         IncludeComparison,
+        IsMultipleItem,
+        InventoryOrgSno,
+        SubinventoryOrgSno,
         ScmPurchaseBidCompHeaderVO,
         InvItemVO,
         InvUnitTypeVO,
         ScmPurchaseBidCompSupplierVO,
+        InvInventoryOrgVO,
         AccInvItemVO,
         AccSysGeneralValueVO;
         static AttributesEnum[] vals = null;
@@ -83,10 +87,14 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
     public static final int UNITTYPESNO = AttributesEnum.UnitTypeSno.index();
     public static final int TXTCOUNTBIDSELECTED = AttributesEnum.txtCountBidSelected.index();
     public static final int INCLUDECOMPARISON = AttributesEnum.IncludeComparison.index();
+    public static final int ISMULTIPLEITEM = AttributesEnum.IsMultipleItem.index();
+    public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
+    public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
+    public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
 
@@ -330,6 +338,54 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for IS_MULTIPLE_ITEM using the alias name IsMultipleItem.
+     * @return the IS_MULTIPLE_ITEM
+     */
+    public String getIsMultipleItem() {
+        return (String) getAttributeInternal(ISMULTIPLEITEM);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for IS_MULTIPLE_ITEM using the alias name IsMultipleItem.
+     * @param value value to set the IS_MULTIPLE_ITEM
+     */
+    public void setIsMultipleItem(String value) {
+        setAttributeInternal(ISMULTIPLEITEM, value);
+    }
+
+    /**
+     * Gets the attribute value for INVENTORY_ORG_SNO using the alias name InventoryOrgSno.
+     * @return the INVENTORY_ORG_SNO
+     */
+    public Integer getInventoryOrgSno() {
+        return (Integer) getAttributeInternal(INVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for INVENTORY_ORG_SNO using the alias name InventoryOrgSno.
+     * @param value value to set the INVENTORY_ORG_SNO
+     */
+    public void setInventoryOrgSno(Integer value) {
+        setAttributeInternal(INVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for SUBINVENTORY_ORG_SNO using the alias name SubinventoryOrgSno.
+     * @return the SUBINVENTORY_ORG_SNO
+     */
+    public Long getSubinventoryOrgSno() {
+        return (Long) getAttributeInternal(SUBINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SUBINVENTORY_ORG_SNO using the alias name SubinventoryOrgSno.
+     * @param value value to set the SUBINVENTORY_ORG_SNO
+     */
+    public void setSubinventoryOrgSno(Long value) {
+        setAttributeInternal(SUBINVENTORYORGSNO, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link ScmPurchaseBidCompHeaderVO.
      */
     public Row getScmPurchaseBidCompHeaderVO() {
@@ -376,6 +432,20 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
      */
     public RowIterator getScmPurchaseBidCompSupplierVO() {
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPSUPPLIERVO);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link InvInventoryOrgVO.
+     */
+    public Row getInvInventoryOrgVO() {
+        return (Row) getAttributeInternal(INVINVENTORYORGVO);
+    }
+
+    /**
+     * Sets the master-detail link InvInventoryOrgVO between this object and <code>value</code>.
+     */
+    public void setInvInventoryOrgVO(Row value) {
+        setAttributeInternal(INVINVENTORYORGVO, value);
     }
 
     /**
