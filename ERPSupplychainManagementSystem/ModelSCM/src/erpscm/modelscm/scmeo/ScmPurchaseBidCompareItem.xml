@@ -226,7 +226,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_BID_COMPARE_ITEM">
+    TableName="SCM_PURCHASE_BID_COMPARE_ITEM"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -256,6 +257,58 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtOrgDescription"
+    Precision="100"
+    ColumnName="txt_Org_Description"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InvInventoryOrg?.OrgDescription]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.txtOrgDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="InventoryOrgSno"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtSubOrgDescription"
+    Precision="100"
+    ColumnName="txt_Sub_Org_Description"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InvInventoryOrg?.SubinventoryDescription]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.txtSubOrgDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="SubinventoryOrgSno"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidCompHeader"
@@ -291,6 +344,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.InvInventoryOrgScmPurBidComItemInventoryOrgSnoAssoc.InvInventoryOrg"
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvInventoryOrgScmPurBidComItemInventoryOrgSnoAssoc.ScmPurchaseBidCompareItem"
     Type="erpims.modelims.imseo.InvInventoryOrgImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InvSubinventoryOrg"
+    Association="erpscm.modelscm.scmeo.InvSubInvOrgScmPurBidComItemSubInventoryOrgSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.InvSubInvOrgScmPurBidComItemSubInventoryOrgSnoAssoc.InvSubinventoryOrg"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.InvSubInvOrgScmPurBidComItemSubInventoryOrgSnoAssoc.ScmPurchaseBidCompareItem"
+    Type="erpims.modelims.imseo.InvSubinventoryOrgImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseBidCompItem"
@@ -378,6 +438,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.InventoryOrgSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseBidCompareItem5">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Bid_Compare_It"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.SubinventoryOrgSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

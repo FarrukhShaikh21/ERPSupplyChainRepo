@@ -41,11 +41,14 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
         IsMultipleItem,
         InventoryOrgSno,
         SubinventoryOrgSno,
+        txtSubOrgDescription,
+        txtOrgDescription,
         ScmPurchaseBidCompHeaderVO,
         InvItemVO,
         InvUnitTypeVO,
         ScmPurchaseBidCompSupplierVO,
         InvInventoryOrgVO,
+        InvSubinventoryOrgVO,
         AccInvItemVO,
         AccSysGeneralValueVO;
         static AttributesEnum[] vals = null;
@@ -90,11 +93,14 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
     public static final int ISMULTIPLEITEM = AttributesEnum.IsMultipleItem.index();
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
+    public static final int TXTSUBORGDESCRIPTION = AttributesEnum.txtSubOrgDescription.index();
+    public static final int TXTORGDESCRIPTION = AttributesEnum.txtOrgDescription.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
     public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
+    public static final int INVSUBINVENTORYORGVO = AttributesEnum.InvSubinventoryOrgVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
 
@@ -386,6 +392,38 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for txt_Sub_Org_Description using the alias name txtSubOrgDescription.
+     * @return the txt_Sub_Org_Description
+     */
+    public String gettxtSubOrgDescription() {
+        return (String) getAttributeInternal(TXTSUBORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Sub_Org_Description using the alias name txtSubOrgDescription.
+     * @param value value to set the txt_Sub_Org_Description
+     */
+    public void settxtSubOrgDescription(String value) {
+        setAttributeInternal(TXTSUBORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Org_Description using the alias name txtOrgDescription.
+     * @return the txt_Org_Description
+     */
+    public String gettxtOrgDescription() {
+        return (String) getAttributeInternal(TXTORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Org_Description using the alias name txtOrgDescription.
+     * @param value value to set the txt_Org_Description
+     */
+    public void settxtOrgDescription(String value) {
+        setAttributeInternal(TXTORGDESCRIPTION, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link ScmPurchaseBidCompHeaderVO.
      */
     public Row getScmPurchaseBidCompHeaderVO() {
@@ -446,6 +484,20 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
      */
     public void setInvInventoryOrgVO(Row value) {
         setAttributeInternal(INVINVENTORYORGVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link InvSubinventoryOrgVO.
+     */
+    public Row getInvSubinventoryOrgVO() {
+        return (Row) getAttributeInternal(INVSUBINVENTORYORGVO);
+    }
+
+    /**
+     * Sets the master-detail link InvSubinventoryOrgVO between this object and <code>value</code>.
+     */
+    public void setInvSubinventoryOrgVO(Row value) {
+        setAttributeInternal(INVSUBINVENTORYORGVO, value);
     }
 
     /**

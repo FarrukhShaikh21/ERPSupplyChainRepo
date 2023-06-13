@@ -4,6 +4,7 @@ import erpglobals.modelglobals.ERPEntityImpl;
 
 import erpims.modelims.imseo.InvInventoryOrgImpl;
 import erpims.modelims.imseo.InvItemImpl;
+import erpims.modelims.imseo.InvSubinventoryOrgImpl;
 import erpims.modelims.imseo.InvUnitTypeImpl;
 
 import java.sql.Timestamp;
@@ -41,11 +42,14 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         InventoryOrgSno,
         IsMultipleItem,
         SubinventoryOrgSno,
+        txtOrgDescription,
+        txtSubOrgDescription,
         ScmPurchaseBidCompHeader,
         ScmPurchaseBidCompSupplier,
         InvItem,
         InvUnitType,
-        InvInventoryOrg;
+        InvInventoryOrg,
+        InvSubinventoryOrg;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -87,11 +91,14 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int ISMULTIPLEITEM = AttributesEnum.IsMultipleItem.index();
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
+    public static final int TXTORGDESCRIPTION = AttributesEnum.txtOrgDescription.index();
+    public static final int TXTSUBORGDESCRIPTION = AttributesEnum.txtSubOrgDescription.index();
     public static final int SCMPURCHASEBIDCOMPHEADER = AttributesEnum.ScmPurchaseBidCompHeader.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
     public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
+    public static final int INVSUBINVENTORYORG = AttributesEnum.InvSubinventoryOrg.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -383,6 +390,38 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtOrgDescription, using the alias name txtOrgDescription.
+     * @return the value of txtOrgDescription
+     */
+    public String gettxtOrgDescription() {
+        return (String) getAttributeInternal(TXTORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtOrgDescription.
+     * @param value value to set the txtOrgDescription
+     */
+    public void settxtOrgDescription(String value) {
+        setAttributeInternal(TXTORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSubOrgDescription, using the alias name txtSubOrgDescription.
+     * @return the value of txtSubOrgDescription
+     */
+    public String gettxtSubOrgDescription() {
+        return (String) getAttributeInternal(TXTSUBORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSubOrgDescription.
+     * @param value value to set the txtSubOrgDescription
+     */
+    public void settxtSubOrgDescription(String value) {
+        setAttributeInternal(TXTSUBORGDESCRIPTION, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseBidCompHeaderImpl.
      */
     public ScmPurchaseBidCompHeaderImpl getScmPurchaseBidCompHeader() {
@@ -444,6 +483,21 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      */
     public void setInvInventoryOrg(InvInventoryOrgImpl value) {
         setAttributeInternal(INVINVENTORYORG, value);
+    }
+
+
+    /**
+     * @return the associated entity erpims.modelims.imseo.InvSubinventoryOrgImpl.
+     */
+    public InvSubinventoryOrgImpl getInvSubinventoryOrg() {
+        return (InvSubinventoryOrgImpl) getAttributeInternal(INVSUBINVENTORYORG);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpims.modelims.imseo.InvSubinventoryOrgImpl.
+     */
+    public void setInvSubinventoryOrg(InvSubinventoryOrgImpl value) {
+        setAttributeInternal(INVSUBINVENTORYORG, value);
     }
 
 

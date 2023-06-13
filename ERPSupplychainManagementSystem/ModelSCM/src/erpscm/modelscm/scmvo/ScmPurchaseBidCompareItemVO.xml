@@ -219,6 +219,22 @@
     EntityAttrName="SubinventoryOrgSno"
     EntityUsage="ScmPurchaseBidCompareItem"
     AliasName="SUBINVENTORY_ORG_SNO"/>
+  <ViewAttribute
+    Name="txtSubOrgDescription"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSubOrgDescription"
+    EntityUsage="ScmPurchaseBidCompareItem"
+    AliasName="txt_Sub_Org_Description"/>
+  <ViewAttribute
+    Name="txtOrgDescription"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtOrgDescription"
+    EntityUsage="ScmPurchaseBidCompareItem"
+    AliasName="txt_Org_Description"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"
@@ -245,6 +261,12 @@
   <ViewLinkAccessor
     Name="InvInventoryOrgVO"
     ViewLink="erpscm.modelscm.scmvo.InvInventoryOrgScmPurBidComItemInventoryOrgSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InvSubinventoryOrgVO"
+    ViewLink="erpscm.modelscm.scmvo.InvSubInvOrgScmPurBidComItemSubInventoryOrgSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
