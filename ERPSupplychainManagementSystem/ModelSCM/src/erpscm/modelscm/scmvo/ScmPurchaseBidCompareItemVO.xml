@@ -235,6 +235,43 @@
     EntityAttrName="txtOrgDescription"
     EntityUsage="ScmPurchaseBidCompareItem"
     AliasName="txt_Org_Description"/>
+  <ViewCriteria
+    Name="ScmPurchaseBidCompareItemNonMultipleVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVO"
+    Conjunction="AND"
+    Mode="3">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseBidCompareItemVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="IsMultipleItem"
+        ViewAttribute="IsMultipleItem"
+        Operator="="
+        Conjunction="AND"
+        Value="N"
+        UpperColumns="0"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"

@@ -1004,7 +1004,11 @@
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
                                         <af:gridCell id="gc28" width="35%" halign="stretch" valign="stretch">
                                             <af:panelBox text="Bid Item" id="pb1" showDisclosure="false">
-                                                <f:facet name="toolbar"/>
+                                                <f:facet name="toolbar">
+                                                    <af:button actionListener="#{bindings.Execute.execute}"
+                                                               text="Execute" disabled="#{!bindings.Execute.enabled}"
+                                                               id="b6"/>
+                                                </f:facet>
                                                 <af:table value="#{bindings.ScmPurchaseBidCompareItemDetCRUD.collectionModel}"
                                                           var="row"
                                                           rows="#{bindings.ScmPurchaseBidCompareItemDetCRUD.rangeSize}"
@@ -1015,7 +1019,7 @@
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.ScmPurchaseBidCompareItemDetCRUD.rangeSize}"
                                                           id="t1" columnStretching="column:c1"
-                                                          partialTriggers="::txtRfqHeaderCodeId" autoHeightRows="5"
+                                                          partialTriggers="::txtRfqHeaderCodeId ::b6" autoHeightRows="5"
                                                           scrollPolicy="page" styleClass="AFStretchWidth">
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtCountBidSelected.label}"
                                                                id="c43" rendered="false">

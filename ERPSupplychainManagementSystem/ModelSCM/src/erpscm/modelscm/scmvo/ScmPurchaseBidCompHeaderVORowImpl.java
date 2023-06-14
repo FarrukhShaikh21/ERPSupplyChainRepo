@@ -221,7 +221,6 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
         while (getScmPurchaseBidCompareItemVO().getRowCount() > 0) {
             getScmPurchaseBidCompareItemVO().first().remove();
         }
-
         getAccScmPurchaseRfqLinesVO().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", value == null ? -1 : value);
         getAccScmPurchaseRfqLinesVO().executeQuery();
         RowSetIterator rfqLineRsi = getAccScmPurchaseRfqLinesVO();
@@ -235,7 +234,16 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
             BidCompLine.setAttribute("InventoryOrgSno", rfqLineRow.getAttribute("InventoryOrgSno"));
             BidCompLine.setAttribute("SubinventoryOrgSno", rfqLineRow.getAttribute("SubinventoryOrgSno"));
             
-//            BidCompLine.setAttribute("IsMultipleItem", rfqLineRow.getAttribute("SubinventoryOrgSno"));
+            getAccScmPurchaseRfqLinesMultipleExistsVC().setNamedWhereClauseParam("P_ADF_ITEM_ID",rfqLineRow.getAttribute("ItemId"));
+            getAccScmPurchaseRfqLinesMultipleExistsVC().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", value==null?-1:value);
+            getAccScmPurchaseRfqLinesMultipleExistsVC().setNamedWhereClauseParam("P_ADF_RFQ_LINES_SNO", rfqLineRow.getAttribute("RfqLinesSno"));
+            getAccScmPurchaseRfqLinesMultipleExistsVC().executeQuery();
+            if (getAccScmPurchaseRfqLinesMultipleExistsVC().getRowCount()>0) {
+                BidCompLine.setAttribute("IsMultipleItem", "Y");
+            }
+            else {
+                BidCompLine.setAttribute("IsMultipleItem", "N");
+            }
             
             getScmPurchaseBidCompareItemVO().insertRow(BidCompLine);
             getAccScmPurchaseRfqSupplierVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value==null?-1:value);
@@ -268,6 +276,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
                 }
                 bidCompSupplierVO.insertRow(compareSuppRow);
             }
+             
         }
 
     }

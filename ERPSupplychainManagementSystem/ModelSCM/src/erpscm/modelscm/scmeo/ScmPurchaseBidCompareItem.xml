@@ -167,7 +167,10 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseBidCompSupplier?.count("IsSelect=='Y'?CompareItemSno:null")]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[if (IsMultipleItem=='N') 
+return (ScmPurchaseBidCompSupplier?.count("IsSelect=='Y'?CompareItemSno:null"));
+else
+return 0;]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -227,7 +230,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SCM_PURCHASE_BID_COMPARE_ITEM"
-    DefaultValue="N">
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

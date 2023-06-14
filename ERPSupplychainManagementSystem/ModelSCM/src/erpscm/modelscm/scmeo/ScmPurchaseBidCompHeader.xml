@@ -657,7 +657,9 @@
       IsPersistent="false"
       IsQueriable="false">
       <TransientExpression
-         trustMode="untrusted"><![CDATA[ScmPurchaseBidCompareItem?.count("IncludeComparison=='Y'?1:null")]]></TransientExpression>
+         trustMode="untrusted"><![CDATA[ScmPurchaseBidCompareItem?.count("IncludeComparison=='Y' && IsMultipleItem=='N'?1:null")]]></TransientExpression>
+      <RecalcCondition
+         trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
       <Properties>
          <SchemaBasedProperties>
             <LABEL
