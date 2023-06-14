@@ -76,7 +76,8 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
         AccSysSystemParameterVO,
         AccScmPurchaseRfqLinesVO,
         AccScmPurchaseBidLinesVO,
-        AccScmPurchaseRfqSupplierVO;
+        AccScmPurchaseRfqSupplierVO,
+        AccScmPurchaseRfqLinesMultipleExistsVC;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -154,6 +155,8 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCSCMPURCHASERFQLINESVO = AttributesEnum.AccScmPurchaseRfqLinesVO.index();
     public static final int ACCSCMPURCHASEBIDLINESVO = AttributesEnum.AccScmPurchaseBidLinesVO.index();
     public static final int ACCSCMPURCHASERFQSUPPLIERVO = AttributesEnum.AccScmPurchaseRfqSupplierVO.index();
+    public static final int ACCSCMPURCHASERFQLINESMULTIPLEEXISTSVC =
+        AttributesEnum.AccScmPurchaseRfqLinesMultipleExistsVC.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -231,6 +234,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
             BidCompLine.setAttribute("RfqLinesSno", rfqLineRow.getAttribute("RfqLinesSno"));
             BidCompLine.setAttribute("InventoryOrgSno", rfqLineRow.getAttribute("InventoryOrgSno"));
             BidCompLine.setAttribute("SubinventoryOrgSno", rfqLineRow.getAttribute("SubinventoryOrgSno"));
+            
 //            BidCompLine.setAttribute("IsMultipleItem", rfqLineRow.getAttribute("SubinventoryOrgSno"));
             
             getScmPurchaseBidCompareItemVO().insertRow(BidCompLine);
@@ -927,6 +931,15 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
     public RowSet getAccScmPurchaseRfqSupplierVO() {
         return (RowSet) getAttributeInternal(ACCSCMPURCHASERFQSUPPLIERVO);
     }
+
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccScmPurchaseRfqLinesMultipleExistsVC.
+     */
+    public RowSet getAccScmPurchaseRfqLinesMultipleExistsVC() {
+        return (RowSet) getAttributeInternal(ACCSCMPURCHASERFQLINESMULTIPLEEXISTSVC);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method

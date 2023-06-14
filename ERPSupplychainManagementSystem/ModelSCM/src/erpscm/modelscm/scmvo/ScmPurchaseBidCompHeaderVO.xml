@@ -153,6 +153,15 @@
          Name="ScmPurchaseRfqSupplierRFQWiseVC"
          FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqSupplierVO.ScmPurchaseRfqSupplierRFQWiseVC"/>
    </ViewAccessor>
+   <ViewAccessor
+      Name="AccScmPurchaseRfqLinesMultipleExistsVC"
+      ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
+      OrderBy="ScmPurchaseRfqLines.RFQ_LINES_SNO"
+      RowLevelBinds="true">
+      <ViewCriteriaUsage
+         Name="ScmPurchaseRfqLinesMultiItemExistsForBidCompVC"
+         FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO.ScmPurchaseRfqLinesMultiItemExistsForBidCompVC"/>
+   </ViewAccessor>
    <ListBinding
       Name="LovtxtTempProjectName"
       ListVOName="AccGlProjectsVO"
