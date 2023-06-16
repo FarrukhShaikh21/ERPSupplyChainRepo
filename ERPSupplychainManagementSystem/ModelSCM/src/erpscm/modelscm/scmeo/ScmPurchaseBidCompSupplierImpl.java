@@ -70,6 +70,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         txtRemainingQtyForPO,
         IsComplete,
         RemainingBalance,
+        txtOrgDescription,
+        txtSubOrgDescription,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
@@ -131,6 +133,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int TXTREMAININGQTYFORPO = AttributesEnum.txtRemainingQtyForPO.index();
     public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
     public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
+    public static final int TXTORGDESCRIPTION = AttributesEnum.txtOrgDescription.index();
+    public static final int TXTSUBORGDESCRIPTION = AttributesEnum.txtSubOrgDescription.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -633,6 +637,38 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void setRemainingBalance(BigDecimal value) {
         setAttributeInternal(REMAININGBALANCE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtOrgDescription, using the alias name txtOrgDescription.
+     * @return the value of txtOrgDescription
+     */
+    public String gettxtOrgDescription() {
+        return (String) getAttributeInternal(TXTORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtOrgDescription.
+     * @param value value to set the txtOrgDescription
+     */
+    public void settxtOrgDescription(String value) {
+        setAttributeInternal(TXTORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSubOrgDescription, using the alias name txtSubOrgDescription.
+     * @return the value of txtSubOrgDescription
+     */
+    public String gettxtSubOrgDescription() {
+        return (String) getAttributeInternal(TXTSUBORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSubOrgDescription.
+     * @param value value to set the txtSubOrgDescription
+     */
+    public void settxtSubOrgDescription(String value) {
+        setAttributeInternal(TXTSUBORGDESCRIPTION, value);
     }
 
     /**

@@ -24,15 +24,11 @@
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
   <Variable
-    Name="P_ADF_ITEM_ID"
-    Kind="viewcriteria"
-    Type="java.lang.Integer"/>
-  <Variable
-    Name="P_ADF_UNIT_TYPE_SNO"
-    Kind="viewcriteria"
-    Type="java.lang.Integer"/>
-  <Variable
     Name="P_ADF_SUPPLIER_SNO"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_ADF_RFQ_LINES_SNO"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
   <ViewAccessor
@@ -407,19 +403,11 @@
       Name="ScmPurchaseBidLinesVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="ItemId"
-        ViewAttribute="ItemId"
+        Name="RfqLinesSno"
+        ViewAttribute="RfqLinesSno"
         Operator="="
         Conjunction="AND"
-        Value=":P_ADF_ITEM_ID"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="UnitTypeSno"
-        ViewAttribute="UnitTypeSno"
-        Operator="="
-        Conjunction="AND"
-        Value=":P_ADF_UNIT_TYPE_SNO"
+        Value=":P_ADF_RFQ_LINES_SNO"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

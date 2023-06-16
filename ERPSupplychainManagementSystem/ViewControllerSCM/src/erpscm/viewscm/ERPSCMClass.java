@@ -23,7 +23,9 @@ import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
+import oracle.jbo.ApplicationModule;
 import oracle.jbo.Row;
+import oracle.jbo.ViewObject;
 import oracle.jbo.server.DBTransaction;
 
 import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
@@ -459,14 +461,64 @@ public class ERPSCMClass {
     }
     public void doIncludeBidRateinComparison(DialogEvent de) {
         if (de.getOutcome()==DialogEvent.Outcome.ok) {
-           BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
+            //this will set the bid in purchase comparison supplier
+            //this is calling on receive button scm_0018
+            BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
             DCIteratorBinding ib = (DCIteratorBinding) bc.get("ScmPurchaseBidCompSupplierDetCRUDIterator");
             AttributeBinding bidValue = (AttributeBinding) bc.get("BidPrice");
+            AttributeBinding ErpBidLinesSno = (AttributeBinding) bc.get("BidLinesSno");
+            
             ib.getCurrentRow().setAttribute("Rate", bidValue.getInputValue());
-            ib.getCurrentRow().setAttribute("BidLinesSno", bidValue.getInputValue());
+            ib.getCurrentRow().setAttribute("BidLinesSno", ErpBidLinesSno.getInputValue());
             bidValue = (AttributeBinding) bc.get("Quantity");
             ib.getCurrentRow().setAttribute("Quantity", bidValue.getInputValue());
+            ib.getCurrentRow().setAttribute("RemainingBalance", bidValue.getInputValue());
             ib.getCurrentRow().setAttribute("IsBidReceived", "Y");
+            if (1==11) {
+                return;
+           }
+            Integer ErpSupplierSno=(Integer)ib.getCurrentRow().getAttribute("SupplierSno");
+            ///if same item exists in this comparison (different inv org then)
+            ApplicationModule am=ib.getViewObject().getApplicationModule();
+            ViewObject ERPItemvo=am.findViewObject("ScmPurBidCompItemCopySameRateCRUD");
+            ViewObject ERPSuppvo=am.findViewObject("ScmPurchBidCompSupCopySameRateDetCRUD");
+            ERPItemvo.setNamedWhereClauseParam("P_ADF_ITEM_ID",ib.getCurrentRow().getAttribute("txtItemId"));
+            ERPItemvo.setNamedWhereClauseParam("P_ADF_COMPARE_HEADER_SNO",ib.getCurrentRow().getAttribute("CompareHeaderSno"));
+            ERPItemvo.executeQuery();
+            ERPItemvo.setRangeSize(-1);
+            //this is item view if multiple item exists in comparison
+            for (int i = 0; i < ERPItemvo.getRowCount(); i++) {
+                ERPItemvo.setCurrentRow(ERPItemvo.getRowAtRangeIndex(i));
+               OperationBinding ob=(OperationBinding)bc.get("ExecuteWithParams");
+//               DCIteratorBinding ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompareItemDetCRUDIterator");
+               ob.getParamsMap().put("P_ADF_RFQ_LINES_SNO", ERPItemvo.getRowAtRangeIndex(i).getAttribute("RfqLinesSno"));
+               //        ob.getParamsMap().put("P_ADF_UNIT_TYPE_SNO", ib.getCurrentRow().getAttribute("UnitTypeSno"));
+//               ib = (DCIteratorBinding) bc.get("ScmPurchaseBidCompSupplierDetCRUDIterator");
+                ERPSuppvo.setNamedWhereClauseParam("P_ADF_SUPPLIER_SNO", ErpSupplierSno);
+                ERPSuppvo.executeQuery();
+                ERPSuppvo.setRangeSize(-1);
+                for (int j=0; j<ERPSuppvo.getRowCount(); j++) {
+                    //checking bid of duplicate item against same supplier
+                    ob.getParamsMap().put("P_ADF_SUPPLIER_SNO", ERPSuppvo.getRowAtRangeIndex(j).getAttribute("SupplierSno"));
+                    ib = (DCIteratorBinding) bc.get("ScmPurchaseBidCompHeaderCRUDIterator");
+                    ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO", ib.getCurrentRow().getAttribute("RfqHeaderSno"));
+                    ob.execute();
+                    DCIteratorBinding bidCompareRo=(DCIteratorBinding)bc.get("ScmPurchaseBidLinesForBidCompareROIterator");
+                    System.out.println(bidCompareRo.getRowAtRangeIndex(0).getAttribute("BidPrice"));
+                    System.out.println(bidCompareRo.getRowAtRangeIndex(0).getAttribute("BidLinesSno"));
+                    System.out.println(bidCompareRo.getRowAtRangeIndex(0).getAttribute("Quantity"));
+                    
+                    ERPSuppvo.getRowAtRangeIndex(j).setAttribute("Rate", bidCompareRo.getRowAtRangeIndex(0).getAttribute("BidPrice"));
+                    ERPSuppvo.getRowAtRangeIndex(j).setAttribute("BidLinesSno", bidCompareRo.getRowAtRangeIndex(0).getAttribute("BidLinesSno"));
+//                    bidValue = (AttributeBinding) bc.get("Quantity");
+                    
+                    ERPSuppvo.getRowAtRangeIndex(j).setAttribute("Quantity", bidCompareRo.getRowAtRangeIndex(0).getAttribute("Quantity"));
+                    ERPSuppvo.getRowAtRangeIndex(j).setAttribute("RemainingBalance",bidCompareRo.getRowAtRangeIndex(0).getAttribute("Quantity"));
+                    ERPSuppvo.getRowAtRangeIndex(j).setAttribute("IsBidReceived", "Y");
+                }
+                
+           }
+
 
         }
     }
@@ -474,8 +526,8 @@ public class ERPSCMClass {
         BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
         OperationBinding ob=(OperationBinding)bc.get("ExecuteWithParams"); 
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompareItemDetCRUDIterator");
-        ob.getParamsMap().put("P_ADF_ITEM_ID", ib.getCurrentRow().getAttribute("ItemId"));
-        ob.getParamsMap().put("P_ADF_UNIT_TYPE_SNO", ib.getCurrentRow().getAttribute("UnitTypeSno"));
+        ob.getParamsMap().put("P_ADF_RFQ_LINES_SNO", ib.getCurrentRow().getAttribute("RfqLinesSno"));
+//        ob.getParamsMap().put("P_ADF_UNIT_TYPE_SNO", ib.getCurrentRow().getAttribute("UnitTypeSno"));
         ib = (DCIteratorBinding) bc.get("ScmPurchaseBidCompSupplierDetCRUDIterator");
         ob.getParamsMap().put("P_ADF_SUPPLIER_SNO", ib.getCurrentRow().getAttribute("SupplierSno"));
         ib=(DCIteratorBinding)bc.get("ScmPurchaseBidCompHeaderCRUDIterator");

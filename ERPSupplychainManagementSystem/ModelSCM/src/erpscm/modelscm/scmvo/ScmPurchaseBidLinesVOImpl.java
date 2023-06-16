@@ -30,37 +30,6 @@ public class ScmPurchaseBidLinesVOImpl extends ViewObjectImpl {
         ensureVariableManager().setVariableValue("P_ADF_RFQ_HEADER_SNO", value);
     }
 
-    /**
-     * Returns the variable value for P_ADF_ITEM_ID.
-     * @return variable value for P_ADF_ITEM_ID
-     */
-    public Integer getP_ADF_ITEM_ID() {
-        return (Integer) ensureVariableManager().getVariableValue("P_ADF_ITEM_ID");
-    }
-
-    /**
-     * Sets <code>value</code> for variable P_ADF_ITEM_ID.
-     * @param value value to bind as P_ADF_ITEM_ID
-     */
-    public void setP_ADF_ITEM_ID(Integer value) {
-        ensureVariableManager().setVariableValue("P_ADF_ITEM_ID", value);
-    }
-
-    /**
-     * Returns the variable value for P_ADF_UNIT_TYPE_SNO.
-     * @return variable value for P_ADF_UNIT_TYPE_SNO
-     */
-    public Integer getP_ADF_UNIT_TYPE_SNO() {
-        return (Integer) ensureVariableManager().getVariableValue("P_ADF_UNIT_TYPE_SNO");
-    }
-
-    /**
-     * Sets <code>value</code> for variable P_ADF_UNIT_TYPE_SNO.
-     * @param value value to bind as P_ADF_UNIT_TYPE_SNO
-     */
-    public void setP_ADF_UNIT_TYPE_SNO(Integer value) {
-        ensureVariableManager().setVariableValue("P_ADF_UNIT_TYPE_SNO", value);
-    }
 
     /**
      * Returns the variable value for P_ADF_SUPPLIER_SNO.
@@ -76,6 +45,22 @@ public class ScmPurchaseBidLinesVOImpl extends ViewObjectImpl {
      */
     public void setP_ADF_SUPPLIER_SNO(Integer value) {
         ensureVariableManager().setVariableValue("P_ADF_SUPPLIER_SNO", value);
+    }
+
+    /**
+     * Returns the variable value for P_ADF_RFQ_LINES_SNO.
+     * @return variable value for P_ADF_RFQ_LINES_SNO
+     */
+    public Integer getP_ADF_RFQ_LINES_SNO() {
+        return (Integer) ensureVariableManager().getVariableValue("P_ADF_RFQ_LINES_SNO");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_RFQ_LINES_SNO.
+     * @param value value to bind as P_ADF_RFQ_LINES_SNO
+     */
+    public void setP_ADF_RFQ_LINES_SNO(Integer value) {
+        ensureVariableManager().setVariableValue("P_ADF_RFQ_LINES_SNO", value);
     }
 }
 

@@ -117,8 +117,7 @@
     <action IterBinding="ScmPurchaseBidLinesForBidCompareROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
             Action="executeWithParams">
       <NamedData NDName="P_ADF_RFQ_HEADER_SNO" NDType="java.lang.Integer"/>
-      <NamedData NDName="P_ADF_ITEM_ID" NDType="java.lang.Integer"/>
-      <NamedData NDName="P_ADF_UNIT_TYPE_SNO" NDType="java.lang.Integer"/>
+      <NamedData NDName="P_ADF_RFQ_LINES_SNO" NDType="java.lang.Integer"/>
       <NamedData NDName="P_ADF_SUPPLIER_SNO" NDType="java.lang.Integer"/>
     </action>
     <tree IterBinding="ScmPurchaseBidCompSupplierDetCRUDIterator" id="ScmPurchaseBidCompSupplierDetCRUD">
@@ -165,6 +164,8 @@
           <Item Value="txtGeneratePOQty"/>
           <Item Value="txtPOQuantity"/>
           <Item Value="txtRemainingQtyForPO"/>
+          <Item Value="txtOrgDescription"/>
+          <Item Value="txtSubOrgDescription"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -58,6 +58,8 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtRemainingQtyForPO,
         IsComplete,
         RemainingBalance,
+        txtSubOrgDescription,
+        txtOrgDescription,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
@@ -124,6 +126,8 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTREMAININGQTYFORPO = AttributesEnum.txtRemainingQtyForPO.index();
     public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
     public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
+    public static final int TXTSUBORGDESCRIPTION = AttributesEnum.txtSubOrgDescription.index();
+    public static final int TXTORGDESCRIPTION = AttributesEnum.txtOrgDescription.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
@@ -677,6 +681,38 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void setRemainingBalance(BigDecimal value) {
         setAttributeInternal(REMAININGBALANCE, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Sub_Org_Description using the alias name txtSubOrgDescription.
+     * @return the txt_Sub_Org_Description
+     */
+    public String gettxtSubOrgDescription() {
+        return (String) getAttributeInternal(TXTSUBORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Sub_Org_Description using the alias name txtSubOrgDescription.
+     * @param value value to set the txt_Sub_Org_Description
+     */
+    public void settxtSubOrgDescription(String value) {
+        setAttributeInternal(TXTSUBORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Org_Description using the alias name txtOrgDescription.
+     * @return the txt_Org_Description
+     */
+    public String gettxtOrgDescription() {
+        return (String) getAttributeInternal(TXTORGDESCRIPTION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Org_Description using the alias name txtOrgDescription.
+     * @param value value to set the txt_Org_Description
+     */
+    public void settxtOrgDescription(String value) {
+        setAttributeInternal(TXTORGDESCRIPTION, value);
     }
 
     /**

@@ -257,7 +257,7 @@
                                           autoHeightRows="10" styleClass="AFStretchWidth" columnStretching="last"
                                           partialTriggers="::b3 ::b2" scrollPolicy="page" contentDelivery="immediate">
                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.label}"
-                                               id="c16">
+                                               id="c16" width="80">
                                         <af:inputText value="#{row.bindings.txtGeneratePO.inputValue}"
                                                       label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.label}"
                                                       required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.mandatory}"
@@ -298,8 +298,32 @@
                                             <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                         </af:inputText>
                                     </af:column>
+                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtOrgDescription.label}"
+                                               id="c45">
+                                        <af:inputText value="#{row.bindings.txtOrgDescription.inputValue}"
+                                                      label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtOrgDescription.label}"
+                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtOrgDescription.mandatory}"
+                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtOrgDescription.displayWidth}"
+                                                      maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtOrgDescription.precision}"
+                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtOrgDescription.tooltip}"
+                                                      id="it57" readOnly="true">
+                                            <f:validator binding="#{row.bindings.txtOrgDescription.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtSubOrgDescription.label}"
+                                               id="c46">
+                                        <af:inputText value="#{row.bindings.txtSubOrgDescription.inputValue}"
+                                                      label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtSubOrgDescription.label}"
+                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtSubOrgDescription.mandatory}"
+                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtSubOrgDescription.displayWidth}"
+                                                      maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtSubOrgDescription.precision}"
+                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtSubOrgDescription.tooltip}"
+                                                      id="it58" readOnly="true">
+                                            <f:validator binding="#{row.bindings.txtSubOrgDescription.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Quantity.label}"
-                                               id="c14" width="70" displayIndex="-1">
+                                               id="c14" width="60" displayIndex="-1">
                                         <af:inputText value="#{row.bindings.Quantity.inputValue}"
                                                       label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Quantity.label}"
                                                       required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.Quantity.mandatory}"

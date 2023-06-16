@@ -344,12 +344,7 @@
   <ViewUsage
     Name="ScmPurchaseBidCompareItemDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVO"
-    FetchMode="FETCH_ALL">
-    <ViewCriteriaUsage
-      Name="ScmPurchaseBidCompareItemNonMultipleVC"
-      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVO.ScmPurchaseBidCompareItemNonMultipleVC"
-      Required="true"/>
-  </ViewUsage>
+    FetchMode="FETCH_ALL"/>
   <ViewUsage
     Name="ScmPurchaseBidCompSupplierDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"/>
@@ -402,6 +397,20 @@
     <ViewCriteriaUsage
       Name="ScmPurchaseRfqLineMultiItemAndInvOrgVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO.ScmPurchaseRfqLineMultiItemAndInvOrgVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmPurBidCompItemCopySameRateCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseBidCompareReceiveBidSameItemVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVO.ScmPurchaseBidCompareReceiveBidSameItemVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmPurchBidCompSupCopySameRateDetCRUD"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseBidCompSupplierSupplierWiseVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO.ScmPurchaseBidCompSupplierSupplierWiseVC"/>
   </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
@@ -528,5 +537,11 @@
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPurOrdLinPoHeadSnoLink"
     SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderHeaderForPOMergeTORfq"
     DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchaseOrderLinesForMergeRFQDet"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink2"
+    ViewLinkObjectName="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    SrcViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurBidCompItemCopySameRateCRUD"
+    DstViewUsageName="erpscm.modelscm.scmam.ERPSCMModule.ScmPurchBidCompSupCopySameRateDetCRUD"
     Reversed="false"/>
 </AppModule>
