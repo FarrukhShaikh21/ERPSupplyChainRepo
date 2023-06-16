@@ -344,7 +344,11 @@
   <ViewUsage
     Name="ScmPurchaseBidCompareItemDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVO"
-    FetchMode="FETCH_ALL"/>
+    FetchMode="FETCH_ALL">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseBidCompareItemNonMultipleVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVO.ScmPurchaseBidCompareItemNonMultipleVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="ScmPurchaseBidCompSupplierDetCRUD"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"/>

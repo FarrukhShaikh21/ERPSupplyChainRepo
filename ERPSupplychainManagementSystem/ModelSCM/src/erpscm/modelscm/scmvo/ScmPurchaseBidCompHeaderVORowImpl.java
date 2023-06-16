@@ -253,8 +253,9 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
             while(RSRfqSupplier.hasNext()) {
                 Row bidSupplierRow=RSRfqSupplier.next();
                 ///////////
-                getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_ITEM_ID", rfqLineRow.getAttribute("ItemId"));
-                getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_UNIT_TYPE_SNO", rfqLineRow.getAttribute("UnitTypeSno"));  
+//                getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_ITEM_ID", rfqLineRow.getAttribute("ItemId"));
+//                getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_UNIT_TYPE_SNO", rfqLineRow.getAttribute("UnitTypeSno"));  
+                getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_RFQ_LINES_SNO", rfqLineRow.getAttribute("RfqLinesSno"));  
                 getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value);  
                 getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_SUPPLIER_SNO", bidSupplierRow.getAttribute("SupplierSno")); 
                 getAccScmPurchaseBidLinesVO().executeQuery();
