@@ -6,9 +6,12 @@ import java.math.BigDecimal;
 
 import java.sql.Timestamp;
 
+import oracle.jbo.ApplicationModule;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
+import oracle.jbo.ViewObject;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.TransactionEvent;
@@ -798,6 +801,36 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         else if (operation==DML_UPDATE) {
             populateAttributeAsChanged(ISCOMPLETE, getRemainingBalance().compareTo(new BigDecimal(0))==1?"N":"Y"); 
            
+       }
+        if (operation!=DML_DELETE ) {
+            ApplicationModule am=getDBTransaction().getRootApplicationModule();
+            ViewObject vo=am.findViewObject("ScmPurchBidCompSuppSetSameRateCRUD");
+            vo.setNamedWhereClauseParam("P_ADF_ITEM_ID", getScmPurchaseBidCompareItem().getItemId());
+            vo.setNamedWhereClauseParam("P_ADF_COMPARE_HEADER_SNO", getCompareHeaderSno());
+//            vo.executeQuery();
+            vo.setWhereClause("IS_SELECT='Y'");
+            vo.executeQuery();
+            Row r[]=vo.getFilteredRows("IsSelect", "Y");
+            vo.setRangeSize(-1);
+           
+            for (int i = 0; i < vo.getEstimatedRowCount(); i++) {
+                vo.getRowAtRangeIndex(i).setAttribute("IsSelect", "N");
+            }
+            vo.setWhereClause(null);
+            vo.setWhereClause("Supplier_Sno="+getSupplierSno());
+            vo.executeQuery();
+
+//            Row rr[]=vo.getFilteredRows("SupplierSno", getSupplierSno());
+            vo.setRangeSize(-1);           
+           for (int i = 0; i < vo.getEstimatedRowCount(); i++) {
+                vo.getRowAtRangeIndex(i).setAttribute("IsSelect", getIsSelect());
+                vo.getRowAtRangeIndex(i).setAttribute("BidCriteriaSno", getBidCriteriaSno());
+            }
+
+            System.out.println(vo.getRowCount()+ "grc");
+//            Row r=vo.getFilteredRows("IsSelect", "Y")[0];
+            
+        
        }
         super.doDML(operation, e);
     }
