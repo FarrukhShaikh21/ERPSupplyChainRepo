@@ -1219,9 +1219,10 @@
                                                                                       model="#{row.bindings.txtBidCriteriaName.listOfValuesModel}"
                                                                                       required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.mandatory}"
                                                                                       columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.displayWidth}"
-                                                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.tooltip}"
+                                                                                      shortDesc="#{row.bindings.IsBidReceived.inputValue=='N'}"
                                                                                       contentStyle="width:100%"
-                                                                                      autoSubmit="true">
+                                                                                      autoSubmit="true"
+                                                                                      disabled="#{row.bindings.IsBidReceived.inputValue=='1'}">
                                                             <f:validator binding="#{row.bindings.txtBidCriteriaName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:column>

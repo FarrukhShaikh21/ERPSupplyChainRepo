@@ -794,15 +794,17 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
-        System.out.println("scmpurchasebidcompsupplierchancheck");
+        
         if (operation==DML_INSERT) {
-           populateAttributeAsChanged(REMAININGBALANCE, getQuantity());      
+            populateAttributeAsChanged(REMAININGBALANCE, getQuantity()==null?new BigDecimal(0):getQuantity());
+           populateAttributeAsChanged(ISCOMPLETE, "N"); 
        }
         else if (operation==DML_UPDATE) {
+            System.out.println(getRemainingBalance()+ "grm");
             populateAttributeAsChanged(ISCOMPLETE, getRemainingBalance().compareTo(new BigDecimal(0))==1?"N":"Y"); 
            
        }
-        if (operation!=DML_DELETE ) {
+        if (operation!=DML_DELETE && 2==1) {
             ApplicationModule am=getDBTransaction().getRootApplicationModule();
             ViewObject vo=am.findViewObject("ScmPurchBidCompSuppSetSameRateCRUD");
             vo.setNamedWhereClauseParam("P_ADF_ITEM_ID", getScmPurchaseBidCompareItem().getItemId());

@@ -377,15 +377,15 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      * Gets the attribute value for SubinventoryOrgSno, using the alias name SubinventoryOrgSno.
      * @return the value of SubinventoryOrgSno
      */
-    public Long getSubinventoryOrgSno() {
-        return (Long) getAttributeInternal(SUBINVENTORYORGSNO);
+    public Integer getSubinventoryOrgSno() {
+        return (Integer) getAttributeInternal(SUBINVENTORYORGSNO);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for SubinventoryOrgSno.
      * @param value value to set the SubinventoryOrgSno
      */
-    public void setSubinventoryOrgSno(Long value) {
+    public void setSubinventoryOrgSno(Integer value) {
         setAttributeInternal(SUBINVENTORYORGSNO, value);
     }
 

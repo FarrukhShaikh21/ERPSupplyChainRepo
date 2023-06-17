@@ -4,6 +4,8 @@ import erpglobals.modelglobals.ERPViewRowImpl;
 
 import erpscm.modelscm.scmeo.ScmPurchaseBidCompHeaderImpl;
 
+import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.Row;
@@ -268,8 +270,10 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
                 compareSuppRow.setAttribute("SupplierSno", bidSupplierRow.getAttribute("SupplierSno"));
                 compareSuppRow.setAttribute("CompareHeaderSno", getCompareHeaderSno());
                 if (RSIbidLine.getRowCount()>0) {
+                    System.out.println("count bid line zero");
                     compareSuppRow.setAttribute("Rate", RSIbidLine.first().getAttribute("BidPrice"));
                     compareSuppRow.setAttribute("Quantity", RSIbidLine.first().getAttribute("Quantity"));
+                    compareSuppRow.setAttribute("RemainingBalance", RSIbidLine.first().getAttribute("Quantity"));
                     compareSuppRow.setAttribute("DemandLinesSno", RSIbidLine.first().getAttribute("DemandLinesSno"));
                     compareSuppRow.setAttribute("RfqLinesSno", RSIbidLine.first().getAttribute("RfqLinesSno"));
                     compareSuppRow.setAttribute("BidLinesSno", RSIbidLine.first().getAttribute("BidLinesSno"));
