@@ -504,6 +504,7 @@ public class ERPSCMClass {
                     ob.getParamsMap().put("P_ADF_RFQ_HEADER_SNO", ib.getCurrentRow().getAttribute("RfqHeaderSno"));
                     ob.execute();
                     DCIteratorBinding bidCompareRo=(DCIteratorBinding)bc.get("ScmPurchaseBidLinesForBidCompareROIterator");
+                    System.out.println(bidCompareRo.getEstimatedRowCount() +"ercecl");
                     System.out.println(bidCompareRo.getRowAtRangeIndex(0).getAttribute("BidPrice"));
                     System.out.println(bidCompareRo.getRowAtRangeIndex(0).getAttribute("BidLinesSno"));
                     System.out.println(bidCompareRo.getRowAtRangeIndex(0).getAttribute("Quantity"));

@@ -97,14 +97,16 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
 //                getDBTransaction().
                 ViewObject demLinMultile= rfqam.findViewObject("ScmPurchaseRfqLinesForMultipleItemRO");
                 demLinMultile.setNamedWhereClauseParam("P_ADF_RFQ_LINES_SNO", nextRow.getAttribute("RfqLinesSno"));
-                demLinMultile.setNamedWhereClauseParam("P_RFQ_HEADER_SNO", rfqRow.getAttribute("RfqHeaderSno")==null?-1:rfqRow.getAttribute("RfqHeaderSno"));
+                demLinMultile.setNamedWhereClauseParam("P_RFQ_HEADER_SNO", rfqvo.getCurrentRow().getAttribute("RfqHeaderSno"));
                 demLinMultile.setNamedWhereClauseParam("P_ADF_ITEM_ID", nextRow.getAttribute("ItemId"));
                 demLinMultile.executeQuery();
-                if (demLinMultile.getRowCount()>0) {
+                demLinMultile.setRangeSize(-1);
+                for (int j = 0; j < demLinMultile.getEstimatedRowCount(); j++) 
+                {
                     Row newBidLine=bidDetvoForInsert.createRow();
                    newBidLine.setAttribute("BidHeaderSno", erpMergeBidHeaderSno);
-                   demLinMultile.first().setAttribute("txtBidPrice", nextRow.getAttribute("txtBidPrice"));
-                   doCreateBidReceiveLine(newBidLine, demLinMultile.first(), bidDetvoForInsert);
+                   demLinMultile.getRowAtRangeIndex(j).setAttribute("txtBidPrice", nextRow.getAttribute("txtBidPrice"));
+                   doCreateBidReceiveLine(newBidLine, demLinMultile.getRowAtRangeIndex(j), bidDetvoForInsert);
 //                   DetnewRow.setAttribute("InventoryOrgSno", nextRow.getAttribute("DemandLinesSno"));
 //                   DetnewRow.setAttribute("SubinventoryOrgSno", nextRow.getAttribute("DemandLinesSno"));
 //                   DetnewRow.setAttribute("ChartOfAccountId", nextRow.getAttribute("DemandLinesSno"));
@@ -160,7 +162,7 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         String erpRfqHeaderSno=getRootApplicationModule().findViewObject("ScmPurchaseRfqHeaderCRUD").getCurrentRow().getAttribute("RfqHeaderSno").toString();
         this.setWhereClause("rfq_header_sno="+erpRfqHeaderSno+" AND rfq_lines_sno IN(select max(rfql.rfq_lines_sno) from Scm_Purchase_Rfq_Lines RFQL where RFQL.rfq_header_sno=ScmPurchaseRfqLines.rfq_header_sno group by item_id)");
         this.executeQuery();
-        this.setWhereClause(null);
+//        this.setWhereClause(null);
     }
     public void doCreateBidReceiveLine(Row DetnewRow,Row nextRow, ViewObject bidDetvoForInsert) {
         DetnewRow.setAttribute("RfqLinesSno", nextRow.getAttribute("RfqLinesSno"));
