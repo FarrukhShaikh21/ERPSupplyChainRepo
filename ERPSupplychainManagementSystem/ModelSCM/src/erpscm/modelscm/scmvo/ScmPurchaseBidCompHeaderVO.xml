@@ -241,24 +241,6 @@
          Hint="showAndExecute"/>
    </ListBinding>
    <ListBinding
-      Name="LovApprovalStatusSno"
-      ListVOName="AccSysApprovalStatusVO"
-      ListRangeSize="-1"
-      NullValueFlag="none"
-      MRUCount="0">
-      <AttrArray Name="AttrNames">
-         <Item Value="ApprovalStatusSno"/>
-      </AttrArray>
-      <AttrArray Name="AttrExpressions"/>
-      <AttrArray Name="ListAttrNames">
-         <Item Value="ApprovalStatusSno"/>
-      </AttrArray>
-      <AttrArray Name="ListDisplayAttrNames">
-         <Item Value="StatusDescription"/>
-      </AttrArray>
-      <DisplayCriteria/>
-   </ListBinding>
-   <ListBinding
       Name="LovtxtRfqHeaderCode"
       ListVOName="AccScmPurchaseRfqHeaderVO"
       ListRangeSize="-1"
@@ -289,6 +271,24 @@
       <DisplayCriteria
          Name="ScmPurchaseRfqHeaderFindVC"
          Hint="showAndExecute"/>
+   </ListBinding>
+   <ListBinding
+      Name="LovApprovalStatusSno"
+      ListVOName="AccSysApprovalStatusVO"
+      ListRangeSize="-1"
+      NullValueFlag="none"
+      MRUCount="0">
+      <AttrArray Name="AttrNames">
+         <Item Value="ApprovalStatusSno"/>
+      </AttrArray>
+      <AttrArray Name="AttrExpressions"/>
+      <AttrArray Name="ListAttrNames">
+         <Item Value="ApprovalStatusSno"/>
+      </AttrArray>
+      <AttrArray Name="ListDisplayAttrNames">
+         <Item Value="StatusDescription"/>
+      </AttrArray>
+      <DisplayCriteria/>
    </ListBinding>
    <EntityUsage
       Name="ScmPurchaseBidCompHeader"

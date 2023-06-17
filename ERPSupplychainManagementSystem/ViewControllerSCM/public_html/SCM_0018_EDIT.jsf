@@ -944,7 +944,7 @@
                                                      valign="middle"/>
                                         <af:gridCell id="gc12" width="13%" marginStart="5px" marginEnd="5px"
                                                      halign="center" valign="middle">
-                                            <af:outputLabel value="#{bindings.ApprovalStatusSno.label}" id="ol7"/>
+                                            <af:outputLabel value="#{bindings.ApprovalStatusSno.label} #{bindings.ApprovalStatusSno.inputValue}" id="ol7"/>
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="21%" id="gc15" halign="stretch"
                                                      valign="middle">
@@ -955,7 +955,7 @@
                                                                     required="#{bindings.ApprovalStatusSno.hints.mandatory}"
                                                                     shortDesc="#{bindings.ApprovalStatusSno.hints.tooltip}"
                                                                     id="soc1" simple="true" contentStyle="width:100%"
-                                                                    visible="#{bindings.ApprovalStatusSno.inputValue!=1 &amp;&amp; bindings.ApprovalStatusSno.inputValue!=2}">
+                                                                    rendered="#{bindings.ApprovalStatusSno.inputValue!=1 &amp;&amp; bindings.ApprovalStatusSno.inputValue!=2}">
                                                     <f:selectItems value="#{bindings.ApprovalStatusSno.items}"
                                                                    id="si1"/>
                                                     <f:validator binding="#{bindings.ApprovalStatusSno.validator}"/>
@@ -963,9 +963,10 @@
                                                 <af:selectOneChoice label="Label 1"
                                                                     value="#{bindings.ApprovalStatusSno.inputValue}"
                                                                     id="soc2"
-                                                                    visible="#{bindings.ApprovalStatusSno.inputValue==1 || bindings.ApprovalStatusSno.inputValue==2}"
                                                                     simple="true" contentStyle="width:100%"
-                                                                    autoSubmit="true">
+                                                                    autoSubmit="true"
+                                                                    visible="#{bindings.ApprovalStatusSno.inputValue==1 || bindings.ApprovalStatusSno.inputValue==2}"
+                                                                    rendered="#{bindings.ApprovalStatusSno.inputValue==1 || bindings.ApprovalStatusSno.inputValue==2}">
                                                     <af:selectItem label="Prepared" value="1" id="si2"/>
                                                     <af:selectItem label="Reviewed" value="2" id="si3"/>
                                                 </af:selectOneChoice>

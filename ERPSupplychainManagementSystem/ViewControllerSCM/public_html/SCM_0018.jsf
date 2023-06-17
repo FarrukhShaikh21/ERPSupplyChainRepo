@@ -108,10 +108,10 @@
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10">
                                   <af:panelGroupLayout id="pgl9" layout="horizontal">
                                     <af:image id="i4"
-                                              shortDesc="Approval Status #{item.bindings.ApprovalStatusSno.inputValue}"
+                                              shortDesc="Approval Status #"
                                               source="#{resource['images:imgStatus.png']}"/>
                                     <af:spacer width="10" height="10" id="s6"/>
-                                    <af:outputFormatted value="#{item.bindings.ApprovalStatusSno.inputValue}"
+                                    <af:outputFormatted value="#{item.bindings.ApprovalStatusSno.inputValue+1==1?'PREPARED':item.bindings.ApprovalStatusSno.inputValue+1==2?'FORWARD':item.bindings.ApprovalStatusSno.inputValue+1==3?'REVERT':item.bindings.ApprovalStatusSno.inputValue+1==4?'DECLINED':item.bindings.ApprovalStatusSno.inputValue+1==5?'HOLD':'APPROVED'}"
                                                         id="of4" styleClass="ERPHeroDetailColor"/>
                                   </af:panelGroupLayout>
                                 </af:gridCell>
