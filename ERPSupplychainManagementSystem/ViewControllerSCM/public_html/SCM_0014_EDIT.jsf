@@ -725,10 +725,11 @@
                                                                                       model="#{bindings.txtCOADescription.listOfValuesModel}"
                                                                                       required="#{bindings.txtCOADescription.hints.mandatory}"
                                                                                       columns="#{bindings.txtCOADescription.hints.displayWidth}"
-                                                                                      shortDesc="#{bindings.txtCOADescription.hints.tooltip}">
+                                                                                      shortDesc="#{bindings.txtCOADescription.hints.tooltip}"
+                                                                                      disabled="#{bindings.RfqTypeSno.inputValue==2}"
+                                                                                      contentStyle="width:90%">
                                                             <f:validator binding="#{bindings.txtCOADescription.validator}"/>
                                                         </af:inputComboboxListOfValues>
-                                                        <af:spacer width="10" height="10" id="s8"/>
                                                         <af:inputComboboxListOfValues id="txtInventoryOrgNameId"
                                                                                       popupTitle="Search and Select: #{bindings.txtInventoryOrgName.hints.label}"
                                                                                       value="#{bindings.txtInventoryOrgName.inputValue}"
@@ -736,10 +737,10 @@
                                                                                       model="#{bindings.txtInventoryOrgName.listOfValuesModel}"
                                                                                       required="#{bindings.txtInventoryOrgName.hints.mandatory}"
                                                                                       columns="#{bindings.txtInventoryOrgName.hints.displayWidth}"
-                                                                                      shortDesc="#{bindings.txtInventoryOrgName.hints.tooltip}">
+                                                                                      shortDesc="#{bindings.txtInventoryOrgName.hints.tooltip}"
+                                                                                      disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                             <f:validator binding="#{bindings.txtInventoryOrgName.validator}"/>
                                                         </af:inputComboboxListOfValues>
-                                                        <af:spacer width="10" height="10" id="s9"/>
                                                         <af:inputComboboxListOfValues id="txtSubInventoryOrgNameId"
                                                                                       popupTitle="Search and Select: #{bindings.txtSubInventoryOrgName.hints.label}"
                                                                                       value="#{bindings.txtSubInventoryOrgName.inputValue}"
@@ -747,8 +748,20 @@
                                                                                       model="#{bindings.txtSubInventoryOrgName.listOfValuesModel}"
                                                                                       required="#{bindings.txtSubInventoryOrgName.hints.mandatory}"
                                                                                       columns="#{bindings.txtSubInventoryOrgName.hints.displayWidth}"
-                                                                                      shortDesc="#{bindings.txtSubInventoryOrgName.hints.tooltip}">
+                                                                                      shortDesc="#{bindings.txtSubInventoryOrgName.hints.tooltip}"
+                                                                                      disabled="#{bindings.RfqTypeSno.inputValue==2}">
                                                             <f:validator binding="#{bindings.txtSubInventoryOrgName.validator}"/>
+                                                        </af:inputComboboxListOfValues>
+                                                        <af:inputComboboxListOfValues id="iclov8"
+                                                                                      popupTitle="Search and Select: #{bindings.txtCOADescription.hints.label}"
+                                                                                      value="#{bindings.txtCOADescription.inputValue}"
+                                                                                      label="#{bindings.txtCOADescription.hints.label}"
+                                                                                      model="#{bindings.txtCOADescription.listOfValuesModel}"
+                                                                                      required="#{bindings.txtCOADescription.hints.mandatory}"
+                                                                                      columns="#{bindings.txtCOADescription.hints.displayWidth}"
+                                                                                      shortDesc="#{bindings.txtCOADescription.hints.tooltip}"
+                                                                                      disabled="#{bindings.RfqTypeSno.inputValue==2}">
+                                                            <f:validator binding="#{bindings.txtCOADescription.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:panelFormLayout>
                                                 </af:gridCell>
