@@ -359,14 +359,26 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      * @param value value to set the IS_SELECT
      */
     public void setIsSelect(String value) {
-        if (value.equals("Y")) {
+       
+        if (getScmPurchaseBidCompareItemVO().getAttribute("IsMultipleItem").toString().equals("Y")) {
+           setAttributeInternal(ISSELECT, value);
+            return;
+       }
+        System.out.println(getCompareItemSno());
+        System.out.println(getIsSelect());
+         if (value.equals("Y")) {
             Row r[] = this.getRowSet().getFilteredRows("IsSelect", "Y");
             if (r.length>0) {
                 r[0].setAttribute("IsSelect", "N");
             }
 
-        }
+        } 
+//         this.getRowSet().reset();
         setAttributeInternal(ISSELECT, value);
+        if (value.equals("N")) {
+            setBidCriteriaSno(null);
+            settxtBidCriteriaName(null);
+        }
     }
 
     /**
@@ -399,6 +411,9 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void setBidCriteriaSno(Integer value) {
         setAttributeInternal(BIDCRITERIASNO, value);
+        if (getScmPurchaseBidCompareItemVO().getAttribute("IsMultipleItem").toString().equals("Y") || getScmPurchaseBidCompHeaderVO().getAttribute("CompareHeaderSno")==null) {
+            return;
+       }
         ApplicationModule am=getDBTransaction().getRootApplicationModule();
         ViewObject vo=am.findViewObject("ScmPurchBidCompSuppSetSameRateCRUD");
         vo.setNamedWhereClauseParam("P_ADF_ITEM_ID", getScmPurchaseBidCompareItemVO().getAttribute("ItemId"));
@@ -406,7 +421,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         //            vo.executeQuery();
         vo.setWhereClause("IS_SELECT='Y'");
         vo.executeQuery();
-        Row r[]=vo.getFilteredRows("IsSelect", "Y");
+//        Row r[]=vo.getFilteredRows("IsSelect", "Y");
         vo.setRangeSize(-1);
         
         for (int i = 0; i < vo.getEstimatedRowCount(); i++) {
@@ -419,6 +434,8 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         //            Row rr[]=vo.getFilteredRows("SupplierSno", getSupplierSno());
         vo.setRangeSize(-1);           
         for (int i = 0; i < vo.getEstimatedRowCount(); i++) {
+            System.out.println(vo.getRowAtRangeIndex(i).getAttribute("CompareItemSno"));
+            System.out.println(getIsSelect()+ "isele");
             vo.getRowAtRangeIndex(i).setAttribute("IsSelect", getIsSelect());
             vo.getRowAtRangeIndex(i).setAttribute("BidCriteriaSno", getBidCriteriaSno());
         }

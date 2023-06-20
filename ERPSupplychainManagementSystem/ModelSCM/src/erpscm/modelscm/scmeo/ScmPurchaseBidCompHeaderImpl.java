@@ -66,7 +66,8 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
         ScmPurchaseRfqHeader,
         ScmPurchaseDemandHeader,
         ScmPurchaseBidCompareItem,
-        ScmPurchaseBidCompSupplier;
+        ScmPurchaseBidCompSupplier,
+        ScmPurchaseBidCompareItemVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -132,6 +133,7 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
+    public static final int SCMPURCHASEBIDCOMPAREITEMVO = AttributesEnum.ScmPurchaseBidCompareItemVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -784,6 +786,13 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
 
 
     /**
+     * Uses the link ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink to return rows of ScmPurchaseBidCompareItemVO
+     */
+    public RowIterator getScmPurchaseBidCompareItemVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPAREITEMVO);
+    }
+
+    /**
      * @param compareHeaderSno key constituent
 
      * @return a Key object based on given key constituents.
@@ -828,7 +837,9 @@ public class ScmPurchaseBidCompHeaderImpl extends ERPEntityImpl {
                                                               getCompanyId().toString());
             populateAttributeAsChanged(COMPAREHEADERCODE, Integer.parseInt(result));
         }
-
+        if (operation!=DML_DELETE) {
+            System.out.println("hello");
+       }
         super.doDML(operation, e);
     }
 }

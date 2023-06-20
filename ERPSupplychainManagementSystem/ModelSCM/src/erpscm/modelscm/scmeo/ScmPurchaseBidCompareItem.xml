@@ -355,6 +355,13 @@ return 0;]]></TransientExpression>
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvSubInvOrgScmPurBidComItemSubInventoryOrgSnoAssoc.ScmPurchaseBidCompareItem"
     Type="erpims.modelims.imseo.InvSubinventoryOrgImpl"
     IsUpdateable="true"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseBidCompHeaderVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"
+    ViewLinkEnd="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink.ScmPurchaseBidCompHeaderVO"
+    ViewLinkOtherEnd="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink.ScmPurchaseBidCompareItemVO"
+    Type="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVORowImpl"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmPurchaseBidCompItem"
     PrimaryKey="true">

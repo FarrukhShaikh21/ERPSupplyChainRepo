@@ -1046,6 +1046,46 @@
                                                           id="t1" columnStretching="column:c1"
                                                           partialTriggers="::txtRfqHeaderCodeId ::b6" autoHeightRows="5"
                                                           scrollPolicy="page" styleClass="AFStretchWidth">
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.IsMultipleItem.label}"
+                                                               id="c49">
+                                                        <af:inputText value="#{row.bindings.IsMultipleItem.inputValue}"
+                                                                      label="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.IsMultipleItem.label}"
+                                                                      required="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.IsMultipleItem.mandatory}"
+                                                                      columns="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.IsMultipleItem.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.IsMultipleItem.precision}"
+                                                                      shortDesc="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.IsMultipleItem.tooltip}"
+                                                                      id="it61">
+                                                            <f:validator binding="#{row.bindings.IsMultipleItem.validator}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.ItemId.label}"
+                                                               id="c48">
+                                                        <af:inputText value="#{row.bindings.ItemId.inputValue}"
+                                                                      label="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.ItemId.label}"
+                                                                      required="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.ItemId.mandatory}"
+                                                                      columns="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.ItemId.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.ItemId.precision}"
+                                                                      shortDesc="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.ItemId.tooltip}"
+                                                                      id="it60">
+                                                            <f:validator binding="#{row.bindings.ItemId.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.ItemId.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
+                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.CompareItemSno.label}"
+                                                               id="c47">
+                                                        <af:inputText value="#{row.bindings.CompareItemSno.inputValue}"
+                                                                      label="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.CompareItemSno.label}"
+                                                                      required="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.CompareItemSno.mandatory}"
+                                                                      columns="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.CompareItemSno.displayWidth}"
+                                                                      maximumLength="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.CompareItemSno.precision}"
+                                                                      shortDesc="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.CompareItemSno.tooltip}"
+                                                                      id="it59">
+                                                            <f:validator binding="#{row.bindings.CompareItemSno.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.CompareItemSno.format}"/>
+                                                        </af:inputText>
+                                                    </af:column>
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.txtCountBidSelected.label}"
                                                                id="c43" rendered="false">
                                                         <af:inputText value="#{row.bindings.txtCountBidSelected.inputValue}"
@@ -1205,7 +1245,7 @@
                                                                             required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.mandatory}"
                                                                             shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.tooltip}"
                                                                             id="soc4"
-                                                                            disabled="#{row.bindings.IsBidReceived.inputValue=='1'}"
+                                                                            disabled="#{row.bindings.IsBidReceived.inputValue=='1' || bindings.CompareHeaderCode.inputValue==null}"
                                                                             autoSubmit="true">
                                                             <f:selectItems value="#{row.bindings.IsSelect.items}"
                                                                            id="si5"/>
@@ -1223,7 +1263,7 @@
                                                                                       shortDesc="#{row.bindings.IsBidReceived.inputValue=='N'}"
                                                                                       contentStyle="width:100%"
                                                                                       autoSubmit="true"
-                                                                                      disabled="#{row.bindings.IsBidReceived.inputValue=='1'}">
+                                                                                      disabled="#{row.bindings.IsBidReceived.inputValue=='1' || row.bindings.IsSelect.inputValue=='1'}">
                                                             <f:validator binding="#{row.bindings.txtBidCriteriaName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:column>

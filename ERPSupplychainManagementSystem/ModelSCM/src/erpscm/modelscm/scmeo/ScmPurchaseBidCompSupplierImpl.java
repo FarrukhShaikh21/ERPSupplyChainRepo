@@ -397,9 +397,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      * @param value value to set the IsSelect
      */
     public void setIsSelect(String value) {
-        System.out.println(value + " is select");
         setAttributeInternal(ISSELECT, value);
-    }
+        }
 
     /**
      * Gets the attribute value for txtBidCriteriaName, using the alias name txtBidCriteriaName.
@@ -800,40 +799,11 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
            populateAttributeAsChanged(ISCOMPLETE, "N"); 
        }
         else if (operation==DML_UPDATE) {
-            System.out.println(getRemainingBalance()+ "grm");
+//            System.out.println(getRemainingBalance()+ "grm");
             populateAttributeAsChanged(ISCOMPLETE, getRemainingBalance().compareTo(new BigDecimal(0))==1?"N":"Y"); 
            
        }
-        if (operation!=DML_DELETE && 2==1) {
-            ApplicationModule am=getDBTransaction().getRootApplicationModule();
-            ViewObject vo=am.findViewObject("ScmPurchBidCompSuppSetSameRateCRUD");
-            vo.setNamedWhereClauseParam("P_ADF_ITEM_ID", getScmPurchaseBidCompareItem().getItemId());
-            vo.setNamedWhereClauseParam("P_ADF_COMPARE_HEADER_SNO", getCompareHeaderSno());
-//            vo.executeQuery();
-            vo.setWhereClause("IS_SELECT='Y'");
-            vo.executeQuery();
-            Row r[]=vo.getFilteredRows("IsSelect", "Y");
-            vo.setRangeSize(-1);
-           
-            for (int i = 0; i < vo.getEstimatedRowCount(); i++) {
-                vo.getRowAtRangeIndex(i).setAttribute("IsSelect", "N");
-            }
-            vo.setWhereClause(null);
-            vo.setWhereClause("Supplier_Sno="+getSupplierSno());
-            vo.executeQuery();
 
-//            Row rr[]=vo.getFilteredRows("SupplierSno", getSupplierSno());
-            vo.setRangeSize(-1);           
-           for (int i = 0; i < vo.getEstimatedRowCount(); i++) {
-                vo.getRowAtRangeIndex(i).setAttribute("IsSelect", getIsSelect());
-                vo.getRowAtRangeIndex(i).setAttribute("BidCriteriaSno", getBidCriteriaSno());
-            }
-
-            System.out.println(vo.getRowCount()+ "grc");
-//            Row r=vo.getFilteredRows("IsSelect", "Y")[0];
-            
-        
-       }
         super.doDML(operation, e);
     }
 }

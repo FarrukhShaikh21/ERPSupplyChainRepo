@@ -7,6 +7,8 @@ import erpims.modelims.imseo.InvItemImpl;
 import erpims.modelims.imseo.InvSubinventoryOrgImpl;
 import erpims.modelims.imseo.InvUnitTypeImpl;
 
+import erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVORowImpl;
+
 import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
@@ -49,7 +51,8 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         InvItem,
         InvUnitType,
         InvInventoryOrg,
-        InvSubinventoryOrg;
+        InvSubinventoryOrg,
+        ScmPurchaseBidCompHeaderVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -99,6 +102,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
     public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
     public static final int INVSUBINVENTORYORG = AttributesEnum.InvSubinventoryOrg.index();
+    public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -498,6 +502,14 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      */
     public void setInvSubinventoryOrg(InvSubinventoryOrgImpl value) {
         setAttributeInternal(INVSUBINVENTORYORG, value);
+    }
+
+
+    /**
+     * Uses the link ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink to return rows of ScmPurchaseBidCompareItemVO
+     */
+    public ScmPurchaseBidCompHeaderVORowImpl getScmPurchaseBidCompHeaderVO() {
+        return (ScmPurchaseBidCompHeaderVORowImpl) getAttributeInternal(SCMPURCHASEBIDCOMPHEADERVO);
     }
 
 
