@@ -612,6 +612,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -632,6 +633,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -640,68 +642,6 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtSubOrgDescription_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="txtInventoryOrgSno"
-    ColumnName="txt_Inventory_Org_Sno"
-    SQLType="INTEGER"
-    Type="java.lang.Integer"
-    ColumnType="INTEGER"
-    IsPersistent="false"
-    IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseBidCompareItem?.InventoryOrgSno]]></TransientExpression>
-    <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtInventoryOrgSno_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="txtSubinventoryOrgSno"
-    ColumnName="txt_Subinventory_Org_Sno"
-    SQLType="INTEGER"
-    Type="java.lang.Integer"
-    ColumnType="INTEGER"
-    IsPersistent="false"
-    IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseBidCompareItem?.SubinventoryOrgSno]]></TransientExpression>
-    <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtSubinventoryOrgSno_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="txtChartOfAccountId"
-    ColumnName="TXT_CHART_OF_ACCOUNT_ID"
-    SQLType="INTEGER"
-    Type="java.lang.Integer"
-    ColumnType="INTEGER"
-    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
-    IsPersistent="false"
-    IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseBidCompareItem?.ChartOfAccountId]]></TransientExpression>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtChartOfAccountId_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

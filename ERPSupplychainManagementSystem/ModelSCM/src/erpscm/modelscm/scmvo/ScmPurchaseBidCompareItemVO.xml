@@ -243,12 +243,6 @@
     EntityAttrName="txtOrgDescription"
     EntityUsage="ScmPurchaseBidCompareItem"
     AliasName="txt_Org_Description"/>
-  <ViewAttribute
-    Name="ChartOfAccountId"
-    PrecisionRule="true"
-    EntityAttrName="ChartOfAccountId"
-    EntityUsage="ScmPurchaseBidCompareItem"
-    AliasName="CHART_OF_ACCOUNT_ID"/>
   <ViewCriteria
     Name="ScmPurchaseBidCompareItemNonMultipleVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompareItemVO"
@@ -357,6 +351,11 @@
     Reversed="true"
     IsUpdateable="false"/>
   <ViewLinkAccessor
+    Name="ScmPurchaseBidCompSupplierVO"
+    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
     Name="InvInventoryOrgVO"
     ViewLink="erpscm.modelscm.scmvo.InvInventoryOrgScmPurBidComItemInventoryOrgSnoLink"
     Type="oracle.jbo.Row"
@@ -367,11 +366,6 @@
     ViewLink="erpscm.modelscm.scmvo.InvSubInvOrgScmPurBidComItemSubInventoryOrgSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="ScmPurchaseBidCompSupplierVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
-    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
