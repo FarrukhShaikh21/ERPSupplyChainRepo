@@ -52,8 +52,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         InvItem,
         InvUnitType,
         InvInventoryOrg,
-        InvSubinventoryOrg,
-        ScmPurchaseBidCompHeaderVO;
+        InvSubinventoryOrg;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -104,7 +103,6 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public static final int INVUNITTYPE = AttributesEnum.InvUnitType.index();
     public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
     public static final int INVSUBINVENTORYORG = AttributesEnum.InvSubinventoryOrg.index();
-    public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -427,6 +425,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         setAttributeInternal(TXTSUBORGDESCRIPTION, value);
     }
 
+
     /**
      * Gets the attribute value for ChartOfAccountId, using the alias name ChartOfAccountId.
      * @return the value of ChartOfAccountId
@@ -526,9 +525,6 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     /**
      * Uses the link ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink to return rows of ScmPurchaseBidCompareItemVO
      */
-    public ScmPurchaseBidCompHeaderVORowImpl getScmPurchaseBidCompHeaderVO() {
-        return (ScmPurchaseBidCompHeaderVORowImpl) getAttributeInternal(SCMPURCHASEBIDCOMPHEADERVO);
-    }
 
 
     /**

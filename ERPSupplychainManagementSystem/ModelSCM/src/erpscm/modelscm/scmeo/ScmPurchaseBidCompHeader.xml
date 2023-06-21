@@ -738,13 +738,6 @@
       AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurcBidCompHeadScmPurhBidCompSuppCompHeadSnoAsso.ScmPurchaseBidCompHeader"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false"/>
-   <ViewLinkAccessor
-      Name="ScmPurchaseBidCompareItemVO"
-      ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"
-      ViewLinkEnd="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink.ScmPurchaseBidCompareItemVO"
-      ViewLinkOtherEnd="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink.ScmPurchaseBidCompHeaderVO"
-      Type="oracle.jbo.RowIterator"
-      IsUpdateable="false"/>
    <Key
       Name="PkScmPurchaseBidCompHead"
       PrimaryKey="true" >
@@ -836,9 +829,9 @@
          Name="OnConditionExpr"><![CDATA[ApprovalStatusSno==2 || IsSupervised=='Y']]></validation:OnCondition>
       <validation:MsgIds>
          <validation:Item
-            Value="err_select_comparison"/>
-         <validation:Item
             Value="err_select_all_bids"/>
+         <validation:Item
+            Value="err_select_comparison"/>
       </validation:MsgIds>
       <validation:ResExpressions
          Name="ScmPurchaseBidCompHeaderBR_ResExprList">

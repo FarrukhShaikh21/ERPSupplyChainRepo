@@ -321,16 +321,7 @@ return 0;]]></TransientExpression>
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_COMPARE_ITEM">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompareItem.ChartOfAccountId_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
+    TableName="SCM_PURCHASE_BID_COMPARE_ITEM"/>
   <AccessorAttribute
     Name="ScmPurchaseBidCompHeader"
     Association="erpscm.modelscm.scmeo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoAsso"
@@ -373,13 +364,6 @@ return 0;]]></TransientExpression>
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvSubInvOrgScmPurBidComItemSubInventoryOrgSnoAssoc.ScmPurchaseBidCompareItem"
     Type="erpims.modelims.imseo.InvSubinventoryOrgImpl"
     IsUpdateable="true"/>
-  <ViewLinkAccessor
-    Name="ScmPurchaseBidCompHeaderVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink"
-    ViewLinkEnd="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink.ScmPurchaseBidCompHeaderVO"
-    ViewLinkOtherEnd="erpscm.modelscm.scmvo.ScmPurchBidCompHeadScmPurchBidCompItemComHeaderSnoLink.ScmPurchaseBidCompareItemVO"
-    Type="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVORowImpl"
-    IsUpdateable="false"/>
   <Key
     Name="PkScmPurchaseBidCompItem"
     PrimaryKey="true">

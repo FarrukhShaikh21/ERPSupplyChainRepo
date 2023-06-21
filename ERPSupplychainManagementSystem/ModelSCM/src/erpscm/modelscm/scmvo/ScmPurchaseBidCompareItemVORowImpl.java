@@ -47,9 +47,9 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
         ScmPurchaseBidCompHeaderVO,
         InvItemVO,
         InvUnitTypeVO,
-        ScmPurchaseBidCompSupplierVO,
         InvInventoryOrgVO,
         InvSubinventoryOrgVO,
+        ScmPurchaseBidCompSupplierVO,
         AccInvItemVO,
         AccSysGeneralValueVO;
         static AttributesEnum[] vals = null;
@@ -100,9 +100,9 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
-    public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
     public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int INVSUBINVENTORYORGVO = AttributesEnum.InvSubinventoryOrgVO.index();
+    public static final int SCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.ScmPurchaseBidCompSupplierVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
 
@@ -425,6 +425,7 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(TXTORGDESCRIPTION, value);
     }
 
+
     /**
      * Gets the attribute value for CHART_OF_ACCOUNT_ID using the alias name ChartOfAccountId.
      * @return the CHART_OF_ACCOUNT_ID
@@ -487,6 +488,7 @@ public class ScmPurchaseBidCompareItemVORowImpl extends ERPViewRowImpl {
      * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseBidCompSupplierVO.
      */
     public RowIterator getScmPurchaseBidCompSupplierVO() {
+        System.out.println(SCMPURCHASEBIDCOMPSUPPLIERVO +"SCMPURCHASEBIDCOMPSUPPLIERVO"+COMPAREITEMSNO);
         return (RowIterator) getAttributeInternal(SCMPURCHASEBIDCOMPSUPPLIERVO);
     }
 

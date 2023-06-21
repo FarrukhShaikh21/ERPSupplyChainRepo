@@ -235,6 +235,7 @@ public class ScmPurchaseBidCompHeaderVORowImpl extends ERPViewRowImpl {
             BidCompLine.setAttribute("RfqLinesSno", rfqLineRow.getAttribute("RfqLinesSno"));
             BidCompLine.setAttribute("InventoryOrgSno", rfqLineRow.getAttribute("InventoryOrgSno"));
             BidCompLine.setAttribute("SubinventoryOrgSno", rfqLineRow.getAttribute("SubinventoryOrgSno"));
+            BidCompLine.setAttribute("ChartOfAccountId", rfqLineRow.getAttribute("ChartOfAccountId"));
             
             getAccScmPurchaseRfqLinesMultipleExistsVC().setNamedWhereClauseParam("P_ADF_ITEM_ID",rfqLineRow.getAttribute("ItemId"));
             getAccScmPurchaseRfqLinesMultipleExistsVC().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", value==null?-1:value);
