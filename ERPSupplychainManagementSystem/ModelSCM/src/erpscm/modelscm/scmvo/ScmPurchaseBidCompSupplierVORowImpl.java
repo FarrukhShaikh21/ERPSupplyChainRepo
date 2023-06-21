@@ -63,6 +63,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtSubOrgDescription,
         txtOrgDescription,
         txtInventoryOrgSno,
+        txtSubinventoryOrgSno,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
@@ -132,6 +133,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTSUBORGDESCRIPTION = AttributesEnum.txtSubOrgDescription.index();
     public static final int TXTORGDESCRIPTION = AttributesEnum.txtOrgDescription.index();
     public static final int TXTINVENTORYORGSNO = AttributesEnum.txtInventoryOrgSno.index();
+    public static final int TXTSUBINVENTORYORGSNO = AttributesEnum.txtSubinventoryOrgSno.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
@@ -777,6 +779,22 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtInventoryOrgSno(Integer value) {
         setAttributeInternal(TXTINVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Subinventory_Org_Sno using the alias name txtSubinventoryOrgSno.
+     * @return the txt_Subinventory_Org_Sno
+     */
+    public Integer gettxtSubinventoryOrgSno() {
+        return (Integer) getAttributeInternal(TXTSUBINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Subinventory_Org_Sno using the alias name txtSubinventoryOrgSno.
+     * @param value value to set the txt_Subinventory_Org_Sno
+     */
+    public void settxtSubinventoryOrgSno(Integer value) {
+        setAttributeInternal(TXTSUBINVENTORYORGSNO, value);
     }
 
     /**
