@@ -46,6 +46,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
         SubinventoryOrgSno,
         txtOrgDescription,
         txtSubOrgDescription,
+        ChartOfAccountId,
         ScmPurchaseBidCompHeader,
         ScmPurchaseBidCompSupplier,
         InvItem,
@@ -96,6 +97,7 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int TXTORGDESCRIPTION = AttributesEnum.txtOrgDescription.index();
     public static final int TXTSUBORGDESCRIPTION = AttributesEnum.txtSubOrgDescription.index();
+    public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int SCMPURCHASEBIDCOMPHEADER = AttributesEnum.ScmPurchaseBidCompHeader.index();
     public static final int SCMPURCHASEBIDCOMPSUPPLIER = AttributesEnum.ScmPurchaseBidCompSupplier.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -423,6 +425,22 @@ public class ScmPurchaseBidCompareItemImpl extends ERPEntityImpl {
      */
     public void settxtSubOrgDescription(String value) {
         setAttributeInternal(TXTSUBORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for ChartOfAccountId, using the alias name ChartOfAccountId.
+     * @return the value of ChartOfAccountId
+     */
+    public Integer getChartOfAccountId() {
+        return (Integer) getAttributeInternal(CHARTOFACCOUNTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ChartOfAccountId.
+     * @param value value to set the ChartOfAccountId
+     */
+    public void setChartOfAccountId(Integer value) {
+        setAttributeInternal(CHARTOFACCOUNTID, value);
     }
 
     /**
