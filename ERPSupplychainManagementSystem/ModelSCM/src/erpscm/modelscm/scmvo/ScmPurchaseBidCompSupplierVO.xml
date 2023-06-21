@@ -402,6 +402,26 @@
     EntityAttrName="txtOrgDescription"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="txt_Org_Description"/>
+  <ViewAttribute
+    Name="txtSubinventoryOrgSno"
+    PrecisionRule="true"
+    EntityAttrName="txtSubinventoryOrgSno"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Subinventory_Org_Sno"/>
+  <ViewAttribute
+    Name="txtInventoryOrgSno"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtInventoryOrgSno"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Inventory_Org_Sno"/>
+  <ViewAttribute
+    Name="txtChartOfAccountId"
+    PrecisionRule="true"
+    EntityAttrName="txtChartOfAccountId"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="TXT_CHART_OF_ACCOUNT_ID"/>
   <ViewCriteria
     Name="ScmPurchaseBidCompSupplierByIsSelectVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
@@ -700,7 +720,7 @@
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="ScmPurchaseBidCompareItemVO"
-    ViewLink="erpscm.modelscm.scmeo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchBidCompItemScmPurchaseBidCompSuppCompItemSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
@@ -724,6 +744,10 @@
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="Rate"/>

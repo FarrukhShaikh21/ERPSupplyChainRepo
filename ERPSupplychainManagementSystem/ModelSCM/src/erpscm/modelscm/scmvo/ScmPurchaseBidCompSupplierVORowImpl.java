@@ -62,6 +62,9 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         RemainingBalance,
         txtSubOrgDescription,
         txtOrgDescription,
+        txtSubinventoryOrgSno,
+        txtInventoryOrgSno,
+        txtChartOfAccountId,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
@@ -130,6 +133,9 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
     public static final int TXTSUBORGDESCRIPTION = AttributesEnum.txtSubOrgDescription.index();
     public static final int TXTORGDESCRIPTION = AttributesEnum.txtOrgDescription.index();
+    public static final int TXTSUBINVENTORYORGSNO = AttributesEnum.txtSubinventoryOrgSno.index();
+    public static final int TXTINVENTORYORGSNO = AttributesEnum.txtInventoryOrgSno.index();
+    public static final int TXTCHARTOFACCOUNTID = AttributesEnum.txtChartOfAccountId.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
@@ -759,6 +765,54 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtOrgDescription(String value) {
         setAttributeInternal(TXTORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Subinventory_Org_Sno using the alias name txtSubinventoryOrgSno.
+     * @return the txt_Subinventory_Org_Sno
+     */
+    public Integer gettxtSubinventoryOrgSno() {
+        return (Integer) getAttributeInternal(TXTSUBINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Subinventory_Org_Sno using the alias name txtSubinventoryOrgSno.
+     * @param value value to set the txt_Subinventory_Org_Sno
+     */
+    public void settxtSubinventoryOrgSno(Integer value) {
+        setAttributeInternal(TXTSUBINVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Inventory_Org_Sno using the alias name txtInventoryOrgSno.
+     * @return the txt_Inventory_Org_Sno
+     */
+    public Integer gettxtInventoryOrgSno() {
+        return (Integer) getAttributeInternal(TXTINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Inventory_Org_Sno using the alias name txtInventoryOrgSno.
+     * @param value value to set the txt_Inventory_Org_Sno
+     */
+    public void settxtInventoryOrgSno(Integer value) {
+        setAttributeInternal(TXTINVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_CHART_OF_ACCOUNT_ID using the alias name txtChartOfAccountId.
+     * @return the TXT_CHART_OF_ACCOUNT_ID
+     */
+    public Integer gettxtChartOfAccountId() {
+        return (Integer) getAttributeInternal(TXTCHARTOFACCOUNTID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_CHART_OF_ACCOUNT_ID using the alias name txtChartOfAccountId.
+     * @param value value to set the TXT_CHART_OF_ACCOUNT_ID
+     */
+    public void settxtChartOfAccountId(Integer value) {
+        setAttributeInternal(TXTCHARTOFACCOUNTID, value);
     }
 
     /**
