@@ -256,6 +256,20 @@
                                           fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetRO.rangeSize}" id="t4"
                                           autoHeightRows="10" styleClass="AFStretchWidth" columnStretching="last"
                                           partialTriggers="::b3 ::b2" scrollPolicy="page" contentDelivery="immediate">
+                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.CompareSupplierSno.label}"
+                                               id="c50">
+                                        <af:inputText value="#{row.bindings.CompareSupplierSno.inputValue}"
+                                                      label="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.CompareSupplierSno.label}"
+                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.CompareSupplierSno.mandatory}"
+                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.CompareSupplierSno.displayWidth}"
+                                                      maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.CompareSupplierSno.precision}"
+                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.CompareSupplierSno.tooltip}"
+                                                      id="it62" readOnly="true">
+                                            <f:validator binding="#{row.bindings.CompareSupplierSno.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.CompareSupplierSno.format}"/>
+                                        </af:inputText>
+                                    </af:column>
                                     <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetRO.hints.txtGeneratePO.label}"
                                                id="c16" width="80">
                                         <af:inputText value="#{row.bindings.txtGeneratePO.inputValue}"
@@ -1029,11 +1043,7 @@
                                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
                                         <af:gridCell id="gc28" width="35%" halign="stretch" valign="stretch">
                                             <af:panelBox text="Bid Item" id="pb1" showDisclosure="false">
-                                                <f:facet name="toolbar">
-                                                    <af:button actionListener="#{bindings.Execute.execute}"
-                                                               text="Execute" disabled="#{!bindings.Execute.enabled}"
-                                                               id="b6"/>
-                                                </f:facet>
+                                                <f:facet name="toolbar"/>
                                                 <af:table value="#{bindings.ScmPurchaseBidCompareItemDetCRUD.collectionModel}"
                                                           var="row"
                                                           rows="#{bindings.ScmPurchaseBidCompareItemDetCRUD.rangeSize}"
@@ -1044,7 +1054,7 @@
                                                           rowSelection="single"
                                                           fetchSize="#{bindings.ScmPurchaseBidCompareItemDetCRUD.rangeSize}"
                                                           id="t1" columnStretching="column:c1"
-                                                          partialTriggers="::txtRfqHeaderCodeId ::b6" autoHeightRows="5"
+                                                          partialTriggers="::txtRfqHeaderCodeId" autoHeightRows="5"
                                                           scrollPolicy="page" styleClass="AFStretchWidth">
                                                     <af:column headerText="#{bindings.ScmPurchaseBidCompareItemDetCRUD.hints.IsMultipleItem.label}"
                                                                id="c49">
@@ -1151,124 +1161,146 @@
                                         </af:gridCell>
                                         <af:gridCell marginStart="5px" width="65%" marginEnd="5px" id="gc2"
                                                      halign="stretch" valign="stretch">
-                                            <af:panelBox text="#{bindings.txtItemName.inputValue}, Minumum Rate (#{bindings.txtMinimumRate.inputValue})" id="pb2"
-                                                         showDisclosure="false" background="medium">
-                                                <f:facet name="toolbar">
-                                                    <af:link text="Generate PO" id="l13" partialSubmit="true">
-                                                        <af:showPopupBehavior popupId="p5"/>
-                                                    </af:link>
-                                                </f:facet>
-                                                <af:inputText value="#{bindings.txtMinimumRate.inputValue}"
-                                                              label="#{bindings.txtMinimumRate.hints.label}"
-                                                              required="#{bindings.txtMinimumRate.hints.mandatory}"
-                                                              columns="#{bindings.txtMinimumRate.hints.displayWidth}"
-                                                              maximumLength="#{bindings.txtMinimumRate.hints.precision}"
-                                                              shortDesc="#{bindings.txtMinimumRate.hints.tooltip}"
-                                                              id="it18" rendered="false">
-                                                    <f:validator binding="#{bindings.txtMinimumRate.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.txtMinimumRate.format}"/>
-                                                </af:inputText>
-                                                <af:table value="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel}"
-                                                          var="row"
-                                                          rows="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.rangeSize}"
-                                                          emptyText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                          rowBandingInterval="0"
-                                                          selectedRowKeys="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel.selectedRow}"
-                                                          selectionListener="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel.makeCurrent}"
-                                                          rowSelection="single"
-                                                          fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.rangeSize}"
-                                                          id="t2" scrollPolicy="page" autoHeightRows="10"
-                                                          styleClass="AFStretchWidth">
-                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.label}"
-                                                               id="c3" width="150" displayIndex="-1">
-                                                        <af:inputText value="#{row.bindings.txtSupplierName.inputValue}"
-                                                                      label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.label}"
-                                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.mandatory}"
-                                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.precision}"
-                                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.tooltip}"
-                                                                      id="it3" readOnly="true">
-                                                            <f:validator binding="#{row.bindings.txtSupplierName.validator}"/>
+                                            <af:panelGridLayout id="pgl9">
+                                                <af:gridRow marginTop="5px" height="auto" id="gr12">
+                                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                 id="gc30" styleClass="ERPEntryAreaHeading"
+                                                                 halign="stretch">
+                                                        <af:panelGroupLayout id="pgl11" layout="horizontal">
+                                                            <af:outputText value="#{bindings.txtItemName.inputValue}, Minumum Rate:" id="ot5"
+                                                                           styleClass="ERPEntryAreaFont"/>
+                                                            <af:outputText value="#{bindings.txtMinimumRate.inputValue}"
+                                                                           id="ot2" styleClass="ERPEntryAreaFont">
+                                                                <af:convertNumber
+                                                                                  pattern="#{bindings.txtMinimumRate.format}"
+                                                                                  minIntegerDigits="1"
+                                                                                  maxIntegerDigits="10"
+                                                                                  minFractionDigits="0"
+                                                                                  maxFractionDigits="6"/>
+                                                            </af:outputText>
+                                                            <af:spacer width="50" height="10" id="s3"/>
+                                                            <af:link text="Generate PO" id="l13" partialSubmit="true"
+                                                                     styleClass="ERPEntryAreaFont">
+                                                                <af:showPopupBehavior popupId="p5"/>
+                                                            </af:link>
+                                                        </af:panelGroupLayout>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr13">
+                                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
+                                                                 id="gc31" halign="stretch">
+                                                        <af:inputText value="#{bindings.txtMinimumRate.inputValue}"
+                                                                      label="#{bindings.txtMinimumRate.hints.label}"
+                                                                      required="#{bindings.txtMinimumRate.hints.mandatory}"
+                                                                      columns="#{bindings.txtMinimumRate.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.txtMinimumRate.hints.precision}"
+                                                                      shortDesc="#{bindings.txtMinimumRate.hints.tooltip}"
+                                                                      id="it18" rendered="false">
+                                                            <f:validator binding="#{bindings.txtMinimumRate.validator}"/>
                                                         </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.label}"
-                                                               id="c4" width="70">
-                                                        <af:inputText value="#{row.bindings.Rate.inputValue}"
-                                                                      label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.label}"
-                                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.mandatory}"
-                                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.precision}"
-                                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.tooltip}"
-                                                                      id="it4" readOnly="true">
-                                                            <f:validator binding="#{row.bindings.Rate.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.label}"
-                                                               id="c5" width="60" minimumWidth="12">
-                                                        <af:inputText value="#{row.bindings.Quantity.inputValue}"
-                                                                      label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.label}"
-                                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.mandatory}"
-                                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.displayWidth}"
-                                                                      maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.precision}"
-                                                                      shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.tooltip}"
-                                                                      id="it5" readOnly="true">
-                                                            <f:validator binding="#{row.bindings.Quantity.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.format}"/>
-                                                        </af:inputText>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.label}"
-                                                               id="c7" width="90" minimumWidth="12">
-                                                        <af:link text="Receive" id="l11"
-                                                                 visible="#{row.bindings.IsBidReceived.inputValue=='1'}"
-                                                                 partialSubmit="true">
-                                                            <af:showPopupBehavior popupId="::p4"/>
-                                                        </af:link>
-                                                        <af:selectOneChoice value="#{row.bindings.IsBidReceived.inputValue}"
-                                                                            label="#{row.bindings.IsBidReceived.label}"
-                                                                            required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.mandatory}"
-                                                                            shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.tooltip}"
-                                                                            id="soc3" readOnly="true"
-                                                                            visible="#{row.bindings.IsBidReceived.inputValue=='0'}">
-                                                            <f:selectItems value="#{row.bindings.IsBidReceived.items}"
-                                                                           id="si4"/>
-                                                            <f:validator binding="#{row.bindings.IsBidReceived.validator}"/>
-                                                        </af:selectOneChoice>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.label}"
-                                                               id="c6" width="70" minimumWidth="12">
-                                                        <af:selectOneChoice value="#{row.bindings.IsSelect.inputValue}"
-                                                                            label="#{row.bindings.IsSelect.label}"
-                                                                            required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.mandatory}"
-                                                                            shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.tooltip}"
-                                                                            id="soc4"
-                                                                            disabled="#{row.bindings.IsBidReceived.inputValue=='1' || bindings.CompareHeaderCode.inputValue==null}"
-                                                                            autoSubmit="true">
-                                                            <f:selectItems value="#{row.bindings.IsSelect.items}"
-                                                                           id="si5"/>
-                                                            <f:validator binding="#{row.bindings.IsSelect.validator}"/>
-                                                        </af:selectOneChoice>
-                                                    </af:column>
-                                                    <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.label}"
-                                                               id="c8">
-                                                        <af:inputComboboxListOfValues id="txtBidCriteriaNameId"
-                                                                                      popupTitle="Search and Select: #{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.label}"
-                                                                                      value="#{row.bindings.txtBidCriteriaName.inputValue}"
-                                                                                      model="#{row.bindings.txtBidCriteriaName.listOfValuesModel}"
-                                                                                      required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.mandatory}"
-                                                                                      columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.displayWidth}"
-                                                                                      shortDesc="#{row.bindings.IsBidReceived.inputValue=='N'}"
-                                                                                      contentStyle="width:100%"
-                                                                                      autoSubmit="true"
-                                                                                      disabled="#{row.bindings.IsBidReceived.inputValue=='1' || row.bindings.IsSelect.inputValue=='1'}">
-                                                            <f:validator binding="#{row.bindings.txtBidCriteriaName.validator}"/>
-                                                        </af:inputComboboxListOfValues>
-                                                    </af:column>
-                                                </af:table>
-                                            </af:panelBox>
+                                                        <af:table value="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel}"
+                                                                  var="row"
+                                                                  rows="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.rangeSize}"
+                                                                  emptyText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                                  rowBandingInterval="0"
+                                                                  selectedRowKeys="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel.selectedRow}"
+                                                                  selectionListener="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.collectionModel.makeCurrent}"
+                                                                  rowSelection="single"
+                                                                  fetchSize="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.rangeSize}"
+                                                                  id="t2" scrollPolicy="page" autoHeightRows="10"
+                                                                  styleClass="AFStretchWidth"
+                                                                  columnStretching="column:c3">
+                                                            <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.label}"
+                                                                       id="c3" width="150" displayIndex="-1">
+                                                                <af:inputText value="#{row.bindings.txtSupplierName.inputValue}"
+                                                                              label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.label}"
+                                                                              required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.mandatory}"
+                                                                              columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.precision}"
+                                                                              shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtSupplierName.tooltip}"
+                                                                              id="it3" readOnly="true">
+                                                                    <f:validator binding="#{row.bindings.txtSupplierName.validator}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.label}"
+                                                                       id="c4" width="70">
+                                                                <af:inputText value="#{row.bindings.Rate.inputValue}"
+                                                                              label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.label}"
+                                                                              required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.mandatory}"
+                                                                              columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.precision}"
+                                                                              shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.tooltip}"
+                                                                              id="it4" readOnly="true">
+                                                                    <f:validator binding="#{row.bindings.Rate.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Rate.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.label}"
+                                                                       id="c5" width="60" minimumWidth="12">
+                                                                <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                                                                              label="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.label}"
+                                                                              required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.mandatory}"
+                                                                              columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.displayWidth}"
+                                                                              maximumLength="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.precision}"
+                                                                              shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.tooltip}"
+                                                                              id="it5" readOnly="true">
+                                                                    <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false"
+                                                                                      pattern="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.Quantity.format}"/>
+                                                                </af:inputText>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.label}"
+                                                                       id="c7" width="90" minimumWidth="12">
+                                                                <af:link text="Receive" id="l11"
+                                                                         visible="#{row.bindings.IsBidReceived.inputValue=='1'}"
+                                                                         partialSubmit="true">
+                                                                    <af:showPopupBehavior popupId="::p4"/>
+                                                                </af:link>
+                                                                <af:selectOneChoice value="#{row.bindings.IsBidReceived.inputValue}"
+                                                                                    label="#{row.bindings.IsBidReceived.label}"
+                                                                                    required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.mandatory}"
+                                                                                    shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsBidReceived.tooltip}"
+                                                                                    id="soc3" readOnly="true"
+                                                                                    visible="#{row.bindings.IsBidReceived.inputValue=='0'}">
+                                                                    <f:selectItems value="#{row.bindings.IsBidReceived.items}"
+                                                                                   id="si4"/>
+                                                                    <f:validator binding="#{row.bindings.IsBidReceived.validator}"/>
+                                                                </af:selectOneChoice>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.label}"
+                                                                       id="c6" width="70" minimumWidth="12">
+                                                                <af:selectOneChoice value="#{row.bindings.IsSelect.inputValue}"
+                                                                                    label="#{row.bindings.IsSelect.label}"
+                                                                                    required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.mandatory}"
+                                                                                    shortDesc="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.IsSelect.tooltip}"
+                                                                                    id="soc4"
+                                                                                    disabled="#{row.bindings.IsBidReceived.inputValue=='1' || bindings.CompareHeaderCode.inputValue==null}"
+                                                                                    autoSubmit="true">
+                                                                    <f:selectItems value="#{row.bindings.IsSelect.items}"
+                                                                                   id="si5"/>
+                                                                    <f:validator binding="#{row.bindings.IsSelect.validator}"/>
+                                                                </af:selectOneChoice>
+                                                            </af:column>
+                                                            <af:column headerText="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.label}"
+                                                                       id="c8">
+                                                                <af:inputComboboxListOfValues id="txtBidCriteriaNameId"
+                                                                                              popupTitle="Search and Select: #{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.label}"
+                                                                                              value="#{row.bindings.txtBidCriteriaName.inputValue}"
+                                                                                              model="#{row.bindings.txtBidCriteriaName.listOfValuesModel}"
+                                                                                              required="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.mandatory}"
+                                                                                              columns="#{bindings.ScmPurchaseBidCompSupplierDetCRUD.hints.txtBidCriteriaName.displayWidth}"
+                                                                                              shortDesc="#{row.bindings.IsBidReceived.inputValue=='N'}"
+                                                                                              contentStyle="width:100%"
+                                                                                              autoSubmit="true"
+                                                                                              disabled="#{row.bindings.IsBidReceived.inputValue=='1' || row.bindings.IsSelect.inputValue=='1'}">
+                                                                    <f:validator binding="#{row.bindings.txtBidCriteriaName.validator}"/>
+                                                                </af:inputComboboxListOfValues>
+                                                            </af:column>
+                                                        </af:table>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                            </af:panelGridLayout>
                                         </af:gridCell>
                                     </af:gridRow>
                                 </af:panelGridLayout>

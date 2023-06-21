@@ -24,6 +24,7 @@ import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
 import oracle.jbo.ApplicationModule;
+import oracle.jbo.JboException;
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.DBTransaction;
@@ -537,6 +538,7 @@ public class ERPSCMClass {
     }
     
     public void doShowPoGenerationPopupOnCompare(PopupFetchEvent pfe) {
+
         BindingContainer bc = ERPGlobalsClass.doGetERPBindings();
         System.out.println("one-tf");
         OperationBinding ob=(OperationBinding)bc.get("ExecuteWithParams1"); 

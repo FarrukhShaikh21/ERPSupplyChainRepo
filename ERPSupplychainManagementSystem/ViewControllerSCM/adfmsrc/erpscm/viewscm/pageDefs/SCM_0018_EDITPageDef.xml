@@ -169,6 +169,7 @@
           <Item Value="txtRemainingQtyForPO"/>
           <Item Value="txtOrgDescription"/>
           <Item Value="txtSubOrgDescription"/>
+          <Item Value="CompareSupplierSno"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -255,7 +256,5 @@
         <Item Value="txtMaxItemNameForMsg"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="ScmPurchaseBidCompareItemDetCRUDIterator" id="Execute" RequiresUpdateModel="true"
-            Action="iteratorExecute"/>
   </bindings>
 </pageDefinition>

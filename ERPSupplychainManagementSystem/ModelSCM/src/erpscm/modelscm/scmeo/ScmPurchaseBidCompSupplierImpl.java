@@ -75,6 +75,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         RemainingBalance,
         txtOrgDescription,
         txtSubOrgDescription,
+        txtInventoryOrgSno,
+        txtSubinventoryOrgSno,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
@@ -138,6 +140,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
     public static final int TXTORGDESCRIPTION = AttributesEnum.txtOrgDescription.index();
     public static final int TXTSUBORGDESCRIPTION = AttributesEnum.txtSubOrgDescription.index();
+    public static final int TXTINVENTORYORGSNO = AttributesEnum.txtInventoryOrgSno.index();
+    public static final int TXTSUBINVENTORYORGSNO = AttributesEnum.txtSubinventoryOrgSno.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -671,6 +675,39 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void settxtSubOrgDescription(String value) {
         setAttributeInternal(TXTSUBORGDESCRIPTION, value);
+    }
+
+
+    /**
+     * Gets the attribute value for txtInventoryOrgSno, using the alias name txtInventoryOrgSno.
+     * @return the value of txtInventoryOrgSno
+     */
+    public Integer gettxtInventoryOrgSno() {
+        return (Integer) getAttributeInternal(TXTINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtInventoryOrgSno.
+     * @param value value to set the txtInventoryOrgSno
+     */
+    public void settxtInventoryOrgSno(Integer value) {
+        setAttributeInternal(TXTINVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSubinventoryOrgSno, using the alias name txtSubinventoryOrgSno.
+     * @return the value of txtSubinventoryOrgSno
+     */
+    public Integer gettxtSubinventoryOrgSno() {
+        return (Integer) getAttributeInternal(TXTSUBINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSubinventoryOrgSno.
+     * @param value value to set the txtSubinventoryOrgSno
+     */
+    public void settxtSubinventoryOrgSno(Integer value) {
+        setAttributeInternal(TXTSUBINVENTORYORGSNO, value);
     }
 
     /**
