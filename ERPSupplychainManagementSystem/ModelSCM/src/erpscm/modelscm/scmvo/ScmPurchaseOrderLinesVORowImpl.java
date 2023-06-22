@@ -17,6 +17,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
+
     public static final int ENTITY_SCMPURCHASEORDERLINES = 0;
 
     /**
@@ -71,6 +72,8 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
         txtDiscountedAmount,
         txtTaxAmount,
         TaxPercent,
+        SubinventoryOrgSno,
+        InventoryOrgSno,
         ScmPurchaseOrderDiscountVO,
         InvItemVO,
         InvUnitTypeVO,
@@ -86,7 +89,8 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
         AccGlChartOfAccountsVO,
         AccInvUnitTypeVO,
         AccGlTaxTypeVO;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -108,6 +112,7 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int POLINESSNO = AttributesEnum.PoLinesSno.index();
     public static final int POHEADERSNO = AttributesEnum.PoHeaderSno.index();
     public static final int DEMANDLINESSNO = AttributesEnum.DemandLinesSno.index();
@@ -156,6 +161,8 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
     public static final int TXTDISCOUNTEDAMOUNT = AttributesEnum.txtDiscountedAmount.index();
     public static final int TXTTAXAMOUNT = AttributesEnum.txtTaxAmount.index();
     public static final int TAXPERCENT = AttributesEnum.TaxPercent.index();
+    public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
+    public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int SCMPURCHASEORDERDISCOUNTVO = AttributesEnum.ScmPurchaseOrderDiscountVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
@@ -939,6 +946,38 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
      */
     public void setTaxPercent(BigDecimal value) {
         setAttributeInternal(TAXPERCENT, value);
+    }
+
+    /**
+     * Gets the attribute value for SUBINVENTORY_ORG_SNO using the alias name SubinventoryOrgSno.
+     * @return the SUBINVENTORY_ORG_SNO
+     */
+    public Integer getSubinventoryOrgSno() {
+        return (Integer) getAttributeInternal(SUBINVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SUBINVENTORY_ORG_SNO using the alias name SubinventoryOrgSno.
+     * @param value value to set the SUBINVENTORY_ORG_SNO
+     */
+    public void setSubinventoryOrgSno(Integer value) {
+        setAttributeInternal(SUBINVENTORYORGSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for INVENTORY_ORG_SNO using the alias name InventoryOrgSno.
+     * @return the INVENTORY_ORG_SNO
+     */
+    public Integer getInventoryOrgSno() {
+        return (Integer) getAttributeInternal(INVENTORYORGSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for INVENTORY_ORG_SNO using the alias name InventoryOrgSno.
+     * @param value value to set the INVENTORY_ORG_SNO
+     */
+    public void setInventoryOrgSno(Integer value) {
+        setAttributeInternal(INVENTORYORGSNO, value);
     }
 
     /**

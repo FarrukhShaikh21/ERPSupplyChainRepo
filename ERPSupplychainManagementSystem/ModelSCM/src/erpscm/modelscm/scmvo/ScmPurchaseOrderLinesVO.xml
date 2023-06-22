@@ -949,6 +949,18 @@
     EntityAttrName="TaxPercent"
     EntityUsage="ScmPurchaseOrderLines"
     AliasName="TAX_PERCENT"/>
+  <ViewAttribute
+    Name="SubinventoryOrgSno"
+    PrecisionRule="true"
+    EntityAttrName="SubinventoryOrgSno"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="SUBINVENTORY_ORG_SNO"/>
+  <ViewAttribute
+    Name="InventoryOrgSno"
+    PrecisionRule="true"
+    EntityAttrName="InventoryOrgSno"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="INVENTORY_ORG_SNO"/>
   <ViewLinkAccessor
     Name="ScmPurchaseOrderDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"

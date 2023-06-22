@@ -936,6 +936,42 @@
         Value="TaxPercent"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="InventoryOrgSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="INVENTORY_ORG_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.InventoryOrgSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="SubinventoryOrgSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="SUBINVENTORY_ORG_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.SubinventoryOrgSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderDiscount"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdLinDisPoLinAssoc"

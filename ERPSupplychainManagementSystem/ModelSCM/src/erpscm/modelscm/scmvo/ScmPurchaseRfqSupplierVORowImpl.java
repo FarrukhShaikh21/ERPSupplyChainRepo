@@ -510,7 +510,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         
         for (int i = 0; i < supcompvo.getRowCount(); i++) {
             Row suprow=supcompvo.getRowAtRangeIndex(i);
-            if (suprow.getAttribute("txtGeneratePO")!=null && suprow.getAttribute("txtGeneratePO").equals("Y")) {
+            if (suprow.getAttribute("txtGeneratePO")!=null && suprow.getAttribute("txtGeneratePO").equals("Y") && suprow.getAttribute("txtGeneratePO").equals("Y")) {
                     Row[] filteredRows=null;
                     
                     if (gettxtIsMerge()!=null && gettxtIsMerge().equals("Y")) {

@@ -673,8 +673,8 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtGeneratePOQty(BigDecimal value) {
         try {
-            if (value != null && value.compareTo(new BigDecimal(0))==-1) {
-                ;
+            if (value != null && value.compareTo(new BigDecimal(0))!=1) {
+               throw new JboException("PO Quantity Should not be greater than zero.");
            }
             if (value != null && value.compareTo(gettxtRemainingQtyForPO()) ==1) {
                 throw new JboException("PO Quantity Should not be greater than Remaining Quantity.");
@@ -927,5 +927,9 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
        }
         return super.isAttributeUpdateable(i);
     }
+    public static void main(String[] args) {
+        BigDecimal value=new BigDecimal(1);
+        System.out.println(value.compareTo(new BigDecimal(0)));
+   }
 }
 
