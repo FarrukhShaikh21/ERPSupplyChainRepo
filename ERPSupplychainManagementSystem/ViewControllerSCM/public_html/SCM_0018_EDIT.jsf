@@ -1165,25 +1165,41 @@
                                                 <af:gridRow marginTop="5px" height="auto" id="gr12">
                                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px"
                                                                  id="gc30" styleClass="ERPEntryAreaHeading"
-                                                                 halign="stretch">
-                                                        <af:panelGroupLayout id="pgl11" layout="horizontal">
-                                                            <af:outputText value="#{bindings.txtItemName.inputValue}, Minumum Rate:" id="ot5"
-                                                                           styleClass="ERPEntryAreaFont"/>
-                                                            <af:outputText value="#{bindings.txtMinimumRate.inputValue}"
-                                                                           id="ot2" styleClass="ERPEntryAreaFont">
-                                                                <af:convertNumber
-                                                                                  pattern="#{bindings.txtMinimumRate.format}"
-                                                                                  minIntegerDigits="1"
-                                                                                  maxIntegerDigits="10"
-                                                                                  minFractionDigits="0"
-                                                                                  maxFractionDigits="6"/>
-                                                            </af:outputText>
-                                                            <af:spacer width="50" height="10" id="s3"/>
-                                                            <af:link text="Generate PO" id="l13" partialSubmit="true"
-                                                                     styleClass="ERPEntryAreaFont">
-                                                                <af:showPopupBehavior popupId="p5"/>
-                                                            </af:link>
-                                                        </af:panelGroupLayout>
+                                                                 halign="stretch" valign="stretch">
+                                                        <af:panelGridLayout id="pgl12">
+                                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                                                        id="gr14">
+                                                                <af:gridCell marginStart="5px" width="90%" id="gc32"
+                                                                             halign="stretch" valign="stretch">
+                                                                    <af:panelGroupLayout id="pgl11" layout="vertical"
+                                                                                         styleClass="AFStretchWidth">
+                                                                        <af:panelGroupLayout id="pgl13"
+                                                                                             layout="horizontal">
+                                                                            <af:outputText value="#{bindings.txtItemName.inputValue}, Minumum Rate:"
+                                                                                           id="ot5"
+                                                                                           styleClass="ERPEntryAreaFont"/>
+                                                                            <af:outputText value="#{bindings.txtMinimumRate.inputValue}"
+                                                                                           id="ot2"
+                                                                                           styleClass="ERPEntryAreaFont">
+                                                                                <af:convertNumber pattern="#{bindings.txtMinimumRate.format}"
+                                                                                                  minIntegerDigits="1"
+                                                                                                  maxIntegerDigits="10"
+                                                                                                  minFractionDigits="0"
+                                                                                                  maxFractionDigits="6"/>
+                                                                            </af:outputText>
+                                                                        </af:panelGroupLayout>
+                                                                    </af:panelGroupLayout>
+                                                                </af:gridCell>
+                                                                <af:gridCell marginStart="5px" width="10%"
+                                                                             marginEnd="5px" id="gc33" halign="center">
+                                                                    <af:link text="Generate PO" id="l13"
+                                                                             partialSubmit="true"
+                                                                             styleClass="ERPEntryAreaFont">
+                                                                        <af:showPopupBehavior popupId="p5"/>
+                                                                    </af:link>
+                                                                </af:gridCell>
+                                                            </af:gridRow>
+                                                        </af:panelGridLayout>
                                                     </af:gridCell>
                                                 </af:gridRow>
                                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr13">
