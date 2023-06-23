@@ -542,6 +542,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                 else {
                     filteredRows[0].setAttribute("PoRequestQuantity",new BigDecimal(filteredRows[0].getAttribute("PoRequestQuantity").toString()).add(new BigDecimal(suprow.getAttribute("txtGeneratePOQty").toString())));
                     filteredRows[0].setAttribute("PoApproveQuantity",new BigDecimal(filteredRows[0].getAttribute("PoApproveQuantity").toString()).add(new BigDecimal(suprow.getAttribute("txtGeneratePOQty").toString())));
+                    suprow.setAttribute("RemainingBalance", (suprow.getAttribute("txtRemainingQtyForPO" )));
                 }
                 
            }

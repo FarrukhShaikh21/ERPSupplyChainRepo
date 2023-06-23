@@ -65,6 +65,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtInventoryOrgSno,
         txtSubinventoryOrgSno,
         txtChartOfAccountId,
+        txtSelectedRate,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
@@ -136,6 +137,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTINVENTORYORGSNO = AttributesEnum.txtInventoryOrgSno.index();
     public static final int TXTSUBINVENTORYORGSNO = AttributesEnum.txtSubinventoryOrgSno.index();
     public static final int TXTCHARTOFACCOUNTID = AttributesEnum.txtChartOfAccountId.index();
+    public static final int TXTSELECTEDRATE = AttributesEnum.txtSelectedRate.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
@@ -673,13 +675,14 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtGeneratePOQty(BigDecimal value) {
         try {
+            System.out.println(value.compareTo(new BigDecimal(0)));
             if (value != null && value.compareTo(new BigDecimal(0))!=1) {
                throw new JboException("PO Quantity Should not be greater than zero.");
            }
             if (value != null && value.compareTo(gettxtRemainingQtyForPO()) ==1) {
                 throw new JboException("PO Quantity Should not be greater than Remaining Quantity.");
             }
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             // TODO: Add catch code
             e.printStackTrace();
             throw new JboException("PO Quantity Should not be greater than Remaining Quantity.");
@@ -813,6 +816,22 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtChartOfAccountId(Integer value) {
         setAttributeInternal(TXTCHARTOFACCOUNTID, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Selected_Rate using the alias name txtSelectedRate.
+     * @return the txt_Selected_Rate
+     */
+    public BigDecimal gettxtSelectedRate() {
+        return (BigDecimal) getAttributeInternal(TXTSELECTEDRATE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Selected_Rate using the alias name txtSelectedRate.
+     * @param value value to set the txt_Selected_Rate
+     */
+    public void settxtSelectedRate(BigDecimal value) {
+        setAttributeInternal(TXTSELECTEDRATE, value);
     }
 
     /**

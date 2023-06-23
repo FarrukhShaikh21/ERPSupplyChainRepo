@@ -1187,6 +1187,20 @@
                                                                                                   minFractionDigits="0"
                                                                                                   maxFractionDigits="6"/>
                                                                             </af:outputText>
+                                                                            <af:outputText value=", Selected Rate:"
+                                                                                           id="ot7"
+                                                                                           styleClass="ERPEntryAreaFont"/>
+                                                                            <af:outputText value="#{bindings.txtSelectedRate.inputValue}"
+                                                                                           id="ot6"
+                                                                                           styleClass="ERPEntryAreaFont">
+                                                                                <af:convertNumber
+                                                                                                  pattern="#{bindings.txtSelectedRate.format}"
+                                                                                                  minIntegerDigits="1"
+                                                                                                  maxIntegerDigits="10"
+                                                                                                  minFractionDigits="0"
+                                                                                                  maxFractionDigits="6"
+                                                                                                  roundingMode="HALF_UP"/>
+                                                                            </af:outputText>
                                                                         </af:panelGroupLayout>
                                                                     </af:panelGroupLayout>
                                                                 </af:gridCell>

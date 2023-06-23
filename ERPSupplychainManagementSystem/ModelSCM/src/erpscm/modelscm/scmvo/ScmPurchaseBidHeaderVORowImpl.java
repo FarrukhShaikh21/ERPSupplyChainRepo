@@ -255,6 +255,7 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
             newRow.setAttribute("UnitTypeSno", erpRfqrow.getAttribute("UnitTypeSno"));
             newRow.setAttribute("Quantity", erpRfqrow.getAttribute("Quantity"));
             newRow.setAttribute("BidPrice", erpRfqrow.getAttribute("AproxPrice"));
+            System.out.println(erpRfqrow.getAttribute("AproxPrice") +"<aaprice");
             newRow.setAttribute("ProjectId", erpRfqrow.getAttribute("ProjectId"));
             newRow.setAttribute("DepartmentId", erpRfqrow.getAttribute("DepartmentId"));
             newRow.setAttribute("DemandLinesSno", erpRfqrow.getAttribute("DemandLinesSno"));

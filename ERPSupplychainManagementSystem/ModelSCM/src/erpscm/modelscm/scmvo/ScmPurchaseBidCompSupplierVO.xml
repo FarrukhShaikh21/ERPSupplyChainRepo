@@ -426,6 +426,14 @@
     EntityAttrName="txtChartOfAccountId"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="txt_Chart_Of_Account_Id"/>
+  <ViewAttribute
+    Name="txtSelectedRate"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSelectedRate"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Selected_Rate"/>
   <ViewCriteria
     Name="ScmPurchaseBidCompSupplierByIsSelectVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
@@ -748,6 +756,10 @@
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="Rate"/>
