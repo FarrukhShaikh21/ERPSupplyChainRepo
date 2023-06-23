@@ -513,7 +513,14 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
      * @param value value to set the APROX_PRICE
      */
     public void setAproxPrice(BigDecimal value) {
-        setAttributeInternal(APROXPRICE, value);
+        
+        Row r[]=this.getViewObject().getFilteredRows("ItemId", getItemId());
+        if (r.length>0) {
+            for (int i = 0; i < r.length; i++) {
+                
+           }
+            setAttributeInternal(APROXPRICE, value);
+        }
     }
 
     /**
