@@ -10,6 +10,7 @@ import erpfms.modelfms.fmseo.GlTaxTypeImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
+import erpims.modelims.imseo.InvInventoryOrgImpl;
 import erpims.modelims.imseo.InvItemImpl;
 import erpims.modelims.imseo.InvUnitTypeImpl;
 
@@ -89,7 +90,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         GlChartOfAccounts,
         GlProjects,
         AdminCompany,
-        GlTaxType;
+        GlTaxType,
+        InvInventoryOrg;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -171,6 +173,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int GLTAXTYPE = AttributesEnum.GlTaxType.index();
+    public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1110,6 +1113,21 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      */
     public void setGlTaxType(GlTaxTypeImpl value) {
         setAttributeInternal(GLTAXTYPE, value);
+    }
+
+
+    /**
+     * @return the associated entity erpims.modelims.imseo.InvInventoryOrgImpl.
+     */
+    public InvInventoryOrgImpl getInvInventoryOrg() {
+        return (InvInventoryOrgImpl) getAttributeInternal(INVINVENTORYORG);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpims.modelims.imseo.InvInventoryOrgImpl.
+     */
+    public void setInvInventoryOrg(InvInventoryOrgImpl value) {
+        setAttributeInternal(INVINVENTORYORG, value);
     }
 
 

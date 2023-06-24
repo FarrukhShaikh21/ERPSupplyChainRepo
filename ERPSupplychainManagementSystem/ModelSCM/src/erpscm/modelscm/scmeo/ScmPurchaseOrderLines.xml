@@ -1035,6 +1035,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.GlTaxTypeScmPurchaseOrderLinesTaxTypeSnoAsso.ScmPurchaseOrderLines"
     Type="erpfms.modelfms.fmseo.GlTaxTypeImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InvInventoryOrg"
+    Association="erpscm.modelscm.scmeo.InvInventoryOrgScmPurchaseOrderLinesOrgInvOrgSnoAsso"
+    AssociationEnd="erpscm.modelscm.scmeo.InvInventoryOrgScmPurchaseOrderLinesOrgInvOrgSnoAsso.InvInventoryOrg"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.InvInventoryOrgScmPurchaseOrderLinesOrgInvOrgSnoAsso.ScmPurchaseOrderLines"
+    Type="erpims.modelims.imseo.InvInventoryOrgImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderLines"
     PrimaryKey="true">
@@ -1131,6 +1138,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.TaxTypeSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderLines7">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_INV_INVENTORY_ORG"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Order_Lines7"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.InventoryOrgSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
