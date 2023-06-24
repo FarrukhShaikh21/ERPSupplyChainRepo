@@ -679,9 +679,9 @@
       <validation:Item
         Value="ERR_PROJECT"/>
       <validation:Item
-        Value="ERR_LOCATIONID"/>
-      <validation:Item
         Value="ERR_DEPARTMENT"/>
+      <validation:Item
+        Value="ERR_LOCATIONID"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(LocationId==null)
@@ -704,20 +704,10 @@ return false;
 
 return true;]]></validation:TransientExpression>
   </validation:ExpressionValidationBean>
-  <validation:CollectionValidationBean
+  <validation:MethodValidationBean
     Name="ScmPurchaseDemandHeaderRule0"
-    Accessor="ScmPurchaseDemandLines"
-    CollAttribute="DemandHeaderSno"
-    ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader_Rule_0"
-    OperandType="LITERAL"
-    Inverse="false"
-    CompareType="GREATERTHAN"
-    CompareValue="0"
-    Operation="count">
-    <validation:OnCondition
-      Name="OnConditionExpr"
-      trustMode="untrusted"><![CDATA[ApprovalStatusSno==2]]></validation:OnCondition>
-  </validation:CollectionValidationBean>
+    ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader_Rule_1"
+    MethodName="validateScmPurchaseDemandHeader"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>

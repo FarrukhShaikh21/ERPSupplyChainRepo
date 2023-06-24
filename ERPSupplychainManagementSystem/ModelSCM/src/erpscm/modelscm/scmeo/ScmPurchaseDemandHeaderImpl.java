@@ -7,10 +7,17 @@ import erpfms.modelfms.fmseo.GlProjectsImpl;
 import erpglobals.modelglobals.ERPEntityImpl;
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
+import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 
+import java.util.ArrayList;
+
+import oracle.jbo.ApplicationModule;
+import oracle.jbo.JboException;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.ViewObject;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -20,7 +27,9 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
-    /**
+
+
+   /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     public enum AttributesEnum {
@@ -649,6 +658,14 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
 
 
     /**
+     * Validation method for ScmPurchaseDemandHeader.
+     */
+    public boolean validateScmPurchaseDemandHeader() {
+        System.out.println("validate scmpurchase dem header");
+        return true;
+    }
+
+    /**
      * @param demandHeaderSno key constituent
 
      * @return a Key object based on given key constituents.
@@ -685,6 +702,61 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
 
         }        
         super.doDML(operation, e);
+    }
+
+    @Override
+    public void beforeCommit(TransactionEvent transactionEvent) {
+        System.out.println(transactionEvent);
+        doCheckItemSameRateForAllOrg();
+        System.out.println("this is before commit");
+        // TODO Implement this method
+        super.beforeCommit(transactionEvent);
+    }
+    public void doCheckItemSameRateForAllOrg() {
+        ApplicationModule am = getDBTransaction().getRootApplicationModule();
+        ViewObject voSr=am.findViewObject("ScmPurchaseDemandLinesSameRateRO");
+        voSr.setNamedWhereClauseParam("P_ADF_DEMAND_HEADER_SNO", getDemandHeaderSno());
+        voSr.executeQuery();
+        voSr.setRangeSize(-1);
+        for (int ii = 0; ii < voSr.getRowCount(); ii++) {
+            
+            System.out.println("A");
+            
+            System.out.println("b");
+            ViewObject vo = am.findViewObject("ScmPurchDemandLinesByHeaderItemRO");
+            System.out.println("c");
+            vo.setNamedWhereClauseParam("P_ADF_DEMAND_HEADER_SNO", getDemandHeaderSno());
+            System.out.println("d");
+            vo.setNamedWhereClauseParam("P_ADF_ITEM_ID", voSr.getRowAtRangeIndex(ii).getAttribute("ItemId"));
+            System.out.println("e");
+
+            vo.executeQuery();
+            System.out.println("f");
+            if (vo.getEstimatedRowCount() > 0) {
+                vo.setRangeSize(-1);
+                System.out.println("g");
+                vo.setRangeSize(-1);
+                System.out.println("h");
+
+                for (int j = 0; j < vo.getEstimatedRowCount(); j++) {
+                    System.out.println("i");
+                    System.out.println(vo.getRowAtRangeIndex(j).getAttribute("ItemId"));
+                    System.out.println(vo.getRowAtRangeIndex(j).getAttribute("AproxPrice"));
+
+                    //                   System.out.println(getScmPurchaseDemandLines().getRowAtRangeIndex(i).getAttribute("ItemId"));
+                    //                   System.out.println(getScmPurchaseDemandLines().getRowAtRangeIndex(i).getAttribute("AproxPrice"));
+
+                    System.out.println(ii + "ii increate");
+                    if ((new BigDecimal(vo.getRowAtRangeIndex(j).getAttribute("AproxPrice").toString())).compareTo((new BigDecimal(voSr.getRowAtRangeIndex(ii).getAttribute("AproxPrice").toString()))) !=0) 
+                    {
+                        System.out.println("j");
+                        throw new JboException("Item ("+vo.getRowAtRangeIndex(j).getAttribute("txtItemName")+") Price should be same for all Inventory Organization.");
+                    }
+                }
+
+            }
+
+        }
     }
 }
 

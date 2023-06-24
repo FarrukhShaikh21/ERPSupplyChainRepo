@@ -423,6 +423,23 @@
       Name="ScmPurchaseBidCompSuppForIsSelectSameItemVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO.ScmPurchaseBidCompSuppForIsSelectSameItemVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="ScmPurchDemandLinesByHeaderItemRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandHeaderSnoVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.ScmPurchaseDemandHeaderSnoVC"/>
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandLinesByItemIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.ScmPurchaseDemandLinesByItemIDVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ScmPurchaseDemandLinesSameRateRO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandHeaderSnoVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.ScmPurchaseDemandHeaderSnoVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="FkScmPtDuePayHeadSnoLink1"
     ViewLinkObjectName="erpscm.modelscm.scmvo.FkScmPtDuePayHeadSnoLink"

@@ -883,6 +883,8 @@
         Value="ItemId"/>
       <validation:Item
         Value="UnitTypeSno"/>
+      <validation:Item
+        Value="AproxPrice"/>
     </validation:OnAttributes>
     <validation:MsgIds>
       <validation:Item
@@ -896,9 +898,13 @@
       <validation:Item
         Value="ERR_REQ_UNIT_TYPE"/>
       <validation:Item
+        Value="ERR_REQ_DEMAND_ACCOUNT"/>
+      <validation:Item
+        Value="ERR_REQ_APROX_PRICE"/>
+      <validation:Item
         Value="ERR_REQ_DEMAND_QUANTITY"/>
       <validation:Item
-        Value="ERR_REQ_DEMAND_ACCOUNT"/>
+        Value="ERR_REQ_DEMAND_QTY"/>
       <validation:Item
         Value="ERR_REQ_REQUIRED_DATE"/>
     </validation:MsgIds>
@@ -911,6 +917,18 @@ return false;
 if(UnitTypeSno==null)
 {
 adf.error.raise("ERR_REQ_UNIT_TYPE");
+return false;
+}
+
+if(AproxPrice==null)
+{
+adf.error.raise("ERR_REQ_APROX_PRICE");
+return false;
+}
+
+if(AproxPrice==null)
+{
+adf.error.raise("ERR_REQ_DEMAND_QTY");
 return false;
 }
 

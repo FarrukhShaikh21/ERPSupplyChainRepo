@@ -896,6 +896,9 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
            populateAttributeAsChanged(APPROVEQUANTITY, getDemandQuantity());
            populateAttributeAsChanged(TXTISDUPLICATEITEM, "ERPNO");
        }
+        if (operation==DML_DELETE) {
+            System.out.println("this is delete");
+       }
         System.out.println("this is purchase demand lines impl");
         super.doDML(operation, e);
     }

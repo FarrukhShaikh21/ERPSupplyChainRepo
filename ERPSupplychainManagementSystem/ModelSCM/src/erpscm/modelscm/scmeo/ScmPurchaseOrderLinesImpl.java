@@ -1157,6 +1157,9 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
             populateAttributeAsChanged(TAXAMOUNT, gettxtTaxAmount());
        }
         super.doDML(operation, e);
+        if (operation==DML_DELETE) {
+            getScmPurchaseBidCompSupplier().setAttribute("IsComplete", "N");
+       }
     }
 }
 
