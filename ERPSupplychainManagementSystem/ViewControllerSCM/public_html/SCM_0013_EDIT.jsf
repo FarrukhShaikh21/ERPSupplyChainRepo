@@ -433,7 +433,7 @@
                                                               columns="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.displayWidth}"
                                                               maximumLength="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.precision}"
                                                               shortDesc="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.tooltip}"
-                                                              id="it13" contentStyle="width:100%">
+                                                              id="it13" contentStyle="width:100%" autoSubmit="true">
                                                     <f:validator binding="#{row.bindings.AproxPrice.validator}"/>
                                                     <af:convertNumber groupingUsed="false"
                                                                       pattern="#{bindings.ScmPurchaseDemandLinesDetCRUD.hints.AproxPrice.format}"/>

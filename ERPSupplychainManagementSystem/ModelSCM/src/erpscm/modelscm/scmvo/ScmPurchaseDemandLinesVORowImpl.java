@@ -20,7 +20,7 @@ import oracle.jbo.RowSetIterator;
 // ---------------------------------------------------------------------
 public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
 
-
+Integer erpWork=0;
     public static final int ENTITY_SCMPURCHASEDEMANDLINES = 0;
 
     /**
@@ -513,14 +513,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
      * @param value value to set the APROX_PRICE
      */
     public void setAproxPrice(BigDecimal value) {
-        
-        Row r[]=this.getViewObject().getFilteredRows("ItemId", getItemId());
-        if (r.length>0) {
-            for (int i = 0; i < r.length; i++) {
-                
-           }
-            setAttributeInternal(APROXPRICE, value);
-        }
+        setAttributeInternal(APROXPRICE, value);
     }
 
     /**
