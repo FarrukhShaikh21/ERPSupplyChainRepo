@@ -13,11 +13,12 @@
     Name="ScmPurchaseOrderHeader"
     Cardinality="1"
     Source="true"
-    Owner="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader">
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader"
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseOrderHeader"/>
-      <Attr Name="_foreignKey" Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.PkScmPurchaseOrderHeader"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
@@ -28,11 +29,11 @@
   <AssociationEnd
     Name="ScmPurchaseOrderLines"
     Cardinality="-1"
-    Owner="erpscm.modelscm.scmeo.ScmPurchaseOrderLines">
+    Owner="erpscm.modelscm.scmeo.ScmPurchaseOrderLines"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="ScmPurchaseOrderLines"/>
-      <Attr Name="_foreignKey" Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.FkScmPurOrdLinPoHeadSno"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">

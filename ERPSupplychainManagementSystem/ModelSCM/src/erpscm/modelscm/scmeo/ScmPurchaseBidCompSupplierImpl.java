@@ -871,6 +871,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
            populateAttributeAsChanged(ISCOMPLETE, "N"); 
        }
         else if (operation==DML_UPDATE) {
+            System.out.println("i am calling from po lines");
 //            System.out.println(getRemainingBalance()+ "grm");
             populateAttributeAsChanged(ISCOMPLETE, getRemainingBalance().compareTo(new BigDecimal(0))==1?"N":"Y"); 
            
