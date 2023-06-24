@@ -12,6 +12,7 @@ import erpglobals.modelglobals.ERPEntityImpl;
 
 import erpims.modelims.imseo.InvInventoryOrgImpl;
 import erpims.modelims.imseo.InvItemImpl;
+import erpims.modelims.imseo.InvSubinventoryOrgImpl;
 import erpims.modelims.imseo.InvUnitTypeImpl;
 
 import java.math.BigDecimal;
@@ -82,6 +83,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         txtTaxAmount,
         InventoryOrgSno,
         SubinventoryOrgSno,
+        txtInventoryOrgName,
+        txtSubinventoryOrgName,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         InvItem,
@@ -91,7 +94,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         GlProjects,
         AdminCompany,
         GlTaxType,
-        InvInventoryOrg;
+        InvInventoryOrg,
+        InvSubinventoryOrg;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -164,6 +168,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int TXTTAXAMOUNT = AttributesEnum.txtTaxAmount.index();
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
+    public static final int TXTINVENTORYORGNAME = AttributesEnum.txtInventoryOrgName.index();
+    public static final int TXTSUBINVENTORYORGNAME = AttributesEnum.txtSubinventoryOrgName.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -174,6 +180,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
     public static final int GLTAXTYPE = AttributesEnum.GlTaxType.index();
     public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
+    public static final int INVSUBINVENTORYORG = AttributesEnum.InvSubinventoryOrg.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -992,6 +999,38 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtInventoryOrgName, using the alias name txtInventoryOrgName.
+     * @return the value of txtInventoryOrgName
+     */
+    public String gettxtInventoryOrgName() {
+        return (String) getAttributeInternal(TXTINVENTORYORGNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtInventoryOrgName.
+     * @param value value to set the txtInventoryOrgName
+     */
+    public void settxtInventoryOrgName(String value) {
+        setAttributeInternal(TXTINVENTORYORGNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSubinventoryOrgName, using the alias name txtSubinventoryOrgName.
+     * @return the value of txtSubinventoryOrgName
+     */
+    public String gettxtSubinventoryOrgName() {
+        return (String) getAttributeInternal(TXTSUBINVENTORYORGNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSubinventoryOrgName.
+     * @param value value to set the txtSubinventoryOrgName
+     */
+    public void settxtSubinventoryOrgName(String value) {
+        setAttributeInternal(TXTSUBINVENTORYORGNAME, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getScmPurchaseOrderDiscount() {
@@ -1128,6 +1167,21 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      */
     public void setInvInventoryOrg(InvInventoryOrgImpl value) {
         setAttributeInternal(INVINVENTORYORG, value);
+    }
+
+
+    /**
+     * @return the associated entity erpims.modelims.imseo.InvSubinventoryOrgImpl.
+     */
+    public InvSubinventoryOrgImpl getInvSubinventoryOrg() {
+        return (InvSubinventoryOrgImpl) getAttributeInternal(INVSUBINVENTORYORG);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity erpims.modelims.imseo.InvSubinventoryOrgImpl.
+     */
+    public void setInvSubinventoryOrg(InvSubinventoryOrgImpl value) {
+        setAttributeInternal(INVSUBINVENTORYORG, value);
     }
 
 
