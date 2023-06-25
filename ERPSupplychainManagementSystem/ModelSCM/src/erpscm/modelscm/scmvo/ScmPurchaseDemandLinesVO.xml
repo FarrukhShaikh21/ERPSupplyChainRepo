@@ -719,6 +719,18 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="BalanceQuantity"
+    PrecisionRule="true"
+    EntityAttrName="BalanceQuantity"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="BALANCE_QUANTITY"/>
+  <ViewAttribute
+    Name="IsComplete"
+    PrecisionRule="true"
+    EntityAttrName="IsComplete"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="IS_COMPLETE"/>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"

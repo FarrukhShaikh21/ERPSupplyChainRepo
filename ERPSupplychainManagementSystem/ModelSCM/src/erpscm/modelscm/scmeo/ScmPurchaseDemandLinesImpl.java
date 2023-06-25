@@ -66,6 +66,8 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         ChartOfAccountId,
         txtCOADescription,
         txtSubInvOrgDescription,
+        BalanceQuantity,
+        IsComplete,
         ScmPurchaseDemandHeader,
         GlProjects,
         AdminCompany,
@@ -135,6 +137,8 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int TXTSUBINVORGDESCRIPTION = AttributesEnum.txtSubInvOrgDescription.index();
+    public static final int BALANCEQUANTITY = AttributesEnum.BalanceQuantity.index();
+    public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -705,6 +709,38 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public void settxtSubInvOrgDescription(String value) {
         setAttributeInternal(TXTSUBINVORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for BalanceQuantity, using the alias name BalanceQuantity.
+     * @return the value of BalanceQuantity
+     */
+    public BigDecimal getBalanceQuantity() {
+        return (BigDecimal) getAttributeInternal(BALANCEQUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for BalanceQuantity.
+     * @param value value to set the BalanceQuantity
+     */
+    public void setBalanceQuantity(BigDecimal value) {
+        setAttributeInternal(BALANCEQUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for IsComplete, using the alias name IsComplete.
+     * @return the value of IsComplete
+     */
+    public String getIsComplete() {
+        return (String) getAttributeInternal(ISCOMPLETE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IsComplete.
+     * @param value value to set the IsComplete
+     */
+    public void setIsComplete(String value) {
+        setAttributeInternal(ISCOMPLETE, value);
     }
 
     /**

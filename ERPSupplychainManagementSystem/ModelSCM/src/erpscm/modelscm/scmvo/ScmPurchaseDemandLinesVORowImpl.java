@@ -20,8 +20,8 @@ import oracle.jbo.RowSetIterator;
 // ---------------------------------------------------------------------
 public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
 
-Integer erpWork=0;
     public static final int ENTITY_SCMPURCHASEDEMANDLINES = 0;
+    Integer erpWork=0;
 
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
@@ -63,6 +63,8 @@ Integer erpWork=0;
         ChartOfAccountId,
         txtCOADescription,
         txtSubInvOrgDescription,
+        BalanceQuantity,
+        IsComplete,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
@@ -144,6 +146,8 @@ Integer erpWork=0;
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int TXTSUBINVORGDESCRIPTION = AttributesEnum.txtSubInvOrgDescription.index();
+    public static final int BALANCEQUANTITY = AttributesEnum.BalanceQuantity.index();
+    public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -732,6 +736,38 @@ Integer erpWork=0;
      */
     public void settxtSubInvOrgDescription(String value) {
         setAttributeInternal(TXTSUBINVORGDESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for BALANCE_QUANTITY using the alias name BalanceQuantity.
+     * @return the BALANCE_QUANTITY
+     */
+    public BigDecimal getBalanceQuantity() {
+        return (BigDecimal) getAttributeInternal(BALANCEQUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for BALANCE_QUANTITY using the alias name BalanceQuantity.
+     * @param value value to set the BALANCE_QUANTITY
+     */
+    public void setBalanceQuantity(BigDecimal value) {
+        setAttributeInternal(BALANCEQUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for IS_COMPLETE using the alias name IsComplete.
+     * @return the IS_COMPLETE
+     */
+    public String getIsComplete() {
+        return (String) getAttributeInternal(ISCOMPLETE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for IS_COMPLETE using the alias name IsComplete.
+     * @param value value to set the IS_COMPLETE
+     */
+    public void setIsComplete(String value) {
+        setAttributeInternal(ISCOMPLETE, value);
     }
 
     /**
