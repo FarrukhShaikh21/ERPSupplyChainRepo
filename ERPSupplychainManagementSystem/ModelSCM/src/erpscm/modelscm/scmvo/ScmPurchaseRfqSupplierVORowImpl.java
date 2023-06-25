@@ -555,6 +555,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
             settxtPurchaseOrderNo((Integer) erpPOHeadvo.getCurrentRow().getAttribute("PoHeaderCode"));
 }
         supcompvo.executeQuery();
+        erpPOHeadvo.executeQuery();
+        erpPOLinesvo.executeQuery();
     }
 }
 

@@ -1245,7 +1245,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
             populateAttributeAsChanged(NETAMOUNT, gettxtNetAmount());
             populateAttributeAsChanged(TAXAMOUNT, gettxtTaxAmount());
        }
-        System.out.println(getScmPurchaseBidCompSupplier().getAttribute("txtRemainingQtyForPO")+ "txtrempoqty");
+//        System.out.println(getScmPurchaseBidCompSupplier().getAttribute("txtRemainingQtyForPO")+ "txtrempoqty");
             System.out.println("pre_del_after"+getCompareSupplierSno());
         
         if (getCompareSupplierSno()!=null) {
