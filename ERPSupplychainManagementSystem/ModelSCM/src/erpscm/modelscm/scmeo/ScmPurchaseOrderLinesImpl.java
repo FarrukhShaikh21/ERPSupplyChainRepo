@@ -1247,16 +1247,20 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
        }
         System.out.println(getScmPurchaseBidCompSupplier().getAttribute("txtRemainingQtyForPO")+ "txtrempoqty");
             System.out.println("pre_del_after"+getCompareSupplierSno());
-
-        getScmPurchaseBidCompSupplier().setAttribute("IsComplete", "N");
-        getScmPurchaseBidCompSupplier().setAttribute("RemainingBalance",
-                                                     getScmPurchaseBidCompSupplier().getAttribute("txtRemainingQtyForPO"));
         
+        if (getCompareSupplierSno()!=null) {
+            System.out.println("podelete");
+            getScmPurchaseBidCompSupplier().setAttribute("IsComplete", "N");
+            getScmPurchaseBidCompSupplier().setAttribute("RemainingBalance",getScmPurchaseBidCompSupplier().getAttribute("txtRemainingQtyForPO"));
+        }
+        
+        if (getDemandLinesSno()!=null) {
+            getScmPurchaseDemandLines().setAttribute("IsComplete", "N");
+            getScmPurchaseDemandLines().setAttribute("BalanceQuantity",getScmPurchaseDemandLines().getAttribute("txtRemainingDemandQty"));
+
+        }
         super.doDML(operation, e);
-            if (getCompareSupplierSno()!=null) {
-                System.out.println("podelete");
-               
-       }
+            
     }
 }
 
