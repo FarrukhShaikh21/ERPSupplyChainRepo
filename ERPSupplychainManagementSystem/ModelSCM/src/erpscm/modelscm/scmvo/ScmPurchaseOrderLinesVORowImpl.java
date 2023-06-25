@@ -75,6 +75,8 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
         TaxPercent,
         SubinventoryOrgSno,
         InventoryOrgSno,
+        txtInventoryOrgName,
+        txtSubinventoryOrgName,
         ScmPurchaseOrderDiscountVO,
         InvItemVO,
         InvUnitTypeVO,
@@ -91,7 +93,9 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
         AccGlProjectsVO,
         AccGlChartOfAccountsVO,
         AccInvUnitTypeVO,
-        AccGlTaxTypeVO;
+        AccGlTaxTypeVO,
+        AccInvInventoryOrgVO,
+        AccInvSubinventoryOrgVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -167,6 +171,8 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
     public static final int TAXPERCENT = AttributesEnum.TaxPercent.index();
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
+    public static final int TXTINVENTORYORGNAME = AttributesEnum.txtInventoryOrgName.index();
+    public static final int TXTSUBINVENTORYORGNAME = AttributesEnum.txtSubinventoryOrgName.index();
     public static final int SCMPURCHASEORDERDISCOUNTVO = AttributesEnum.ScmPurchaseOrderDiscountVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
@@ -184,6 +190,8 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
     public static final int ACCGLCHARTOFACCOUNTSVO = AttributesEnum.AccGlChartOfAccountsVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLTAXTYPEVO = AttributesEnum.AccGlTaxTypeVO.index();
+    public static final int ACCINVINVENTORYORGVO = AttributesEnum.AccInvInventoryOrgVO.index();
+    public static final int ACCINVSUBINVENTORYORGVO = AttributesEnum.AccInvSubinventoryOrgVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -987,6 +995,38 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for txt_Inventory_Org_Name using the alias name txtInventoryOrgName.
+     * @return the txt_Inventory_Org_Name
+     */
+    public String gettxtInventoryOrgName() {
+        return (String) getAttributeInternal(TXTINVENTORYORGNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Inventory_Org_Name using the alias name txtInventoryOrgName.
+     * @param value value to set the txt_Inventory_Org_Name
+     */
+    public void settxtInventoryOrgName(String value) {
+        setAttributeInternal(TXTINVENTORYORGNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Subinventory_Org_Name using the alias name txtSubinventoryOrgName.
+     * @return the txt_Subinventory_Org_Name
+     */
+    public String gettxtSubinventoryOrgName() {
+        return (String) getAttributeInternal(TXTSUBINVENTORYORGNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Subinventory_Org_Name using the alias name txtSubinventoryOrgName.
+     * @param value value to set the txt_Subinventory_Org_Name
+     */
+    public void settxtSubinventoryOrgName(String value) {
+        setAttributeInternal(TXTSUBINVENTORYORGNAME, value);
+    }
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseOrderDiscountVO.
      */
     public RowIterator getScmPurchaseOrderDiscountVO() {
@@ -1174,6 +1214,21 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
     public RowSet getAccGlTaxTypeVO() {
         return (RowSet) getAttributeInternal(ACCGLTAXTYPEVO);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccInvInventoryOrgVO.
+     */
+    public RowSet getAccInvInventoryOrgVO() {
+        return (RowSet) getAttributeInternal(ACCINVINVENTORYORGVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccInvSubinventoryOrgVO.
+     */
+    public RowSet getAccInvSubinventoryOrgVO() {
+        return (RowSet) getAttributeInternal(ACCINVSUBINVENTORYORGVO);
+    }
+
     public void doCalculatePODiscount(){
     getScmPurchaseOrderDiscountVO().setRangeSize(-1);
     for (int i = 0; i < getScmPurchaseOrderDiscountVO().getRowCount(); i++) {

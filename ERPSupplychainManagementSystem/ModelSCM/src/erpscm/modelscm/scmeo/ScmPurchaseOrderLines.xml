@@ -979,9 +979,11 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false"
     TableName="SCM_PURCHASE_ORDER_LINES">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[InvSubinventoryOrg?.OrgDescription]]></TransientExpression>
+      trustMode="trusted"><![CDATA[InvInventoryOrg?.OrgDescription]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -1002,6 +1004,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false"
     TableName="SCM_PURCHASE_ORDER_LINES">
     <TransientExpression
       trustMode="untrusted"><![CDATA[InvSubinventoryOrg?.SubinventoryDescription]]></TransientExpression>

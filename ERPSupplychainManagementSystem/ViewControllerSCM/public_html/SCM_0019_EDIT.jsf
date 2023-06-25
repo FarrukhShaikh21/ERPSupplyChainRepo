@@ -722,6 +722,26 @@
                                                 <af:gridCell marginStart="5px" width="34%" id="gc30" halign="stretch">
                                                     <af:panelFormLayout id="pfl2">
                                                         <f:facet name="footer"/>
+                                                        <af:inputComboboxListOfValues id="txtInventoryOrgNameId"
+                                                                                      popupTitle="Search and Select: #{bindings.txtInventoryOrgName.hints.label}"
+                                                                                      value="#{bindings.txtInventoryOrgName.inputValue}"
+                                                                                      label="#{bindings.txtInventoryOrgName.hints.label}"
+                                                                                      model="#{bindings.txtInventoryOrgName.listOfValuesModel}"
+                                                                                      required="#{bindings.txtInventoryOrgName.hints.mandatory}"
+                                                                                      columns="#{bindings.txtInventoryOrgName.hints.displayWidth}"
+                                                                                      shortDesc="#{bindings.txtInventoryOrgName.hints.tooltip}">
+                                                            <f:validator binding="#{bindings.txtInventoryOrgName.validator}"/>
+                                                        </af:inputComboboxListOfValues>
+                                                        <af:inputComboboxListOfValues id="txtSubinventoryOrgNameId"
+                                                                                      popupTitle="Search and Select: #{bindings.txtSubinventoryOrgName.hints.label}"
+                                                                                      value="#{bindings.txtSubinventoryOrgName.inputValue}"
+                                                                                      label="#{bindings.txtSubinventoryOrgName.hints.label}"
+                                                                                      model="#{bindings.txtSubinventoryOrgName.listOfValuesModel}"
+                                                                                      required="#{bindings.txtSubinventoryOrgName.hints.mandatory}"
+                                                                                      columns="#{bindings.txtSubinventoryOrgName.hints.displayWidth}"
+                                                                                      shortDesc="#{bindings.txtSubinventoryOrgName.hints.tooltip}">
+                                                            <f:validator binding="#{bindings.txtSubinventoryOrgName.validator}"/>
+                                                        </af:inputComboboxListOfValues>
                                                     </af:panelFormLayout>
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="33%" id="gc31" halign="stretch">

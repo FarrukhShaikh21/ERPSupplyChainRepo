@@ -170,5 +170,9 @@
         <Item Value="PoRequestQuantity"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" StaticList="false" Uses="LovtxtInventoryOrgName"
+                  id="txtInventoryOrgName"/>
+    <listOfValues IterBinding="ScmPurchaseOrderLinesDetCRUDIterator" StaticList="false" Uses="LovtxtSubinventoryOrgName"
+                  id="txtSubinventoryOrgName"/>
   </bindings>
 </pageDefinition>

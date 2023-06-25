@@ -103,6 +103,24 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccInvInventoryOrgVO"
+    ViewObjectName="erpims.modelims.imsvo.InvInventoryOrgVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccInvSubinventoryOrgVO"
+    ViewObjectName="erpims.modelims.imsvo.InvSubinventoryOrgVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvSubinventoryOrgByInvOrgSnoVC"
+      FullName="erpims.modelims.imsvo.InvSubinventoryOrgVO.InvSubinventoryOrgByInvOrgSnoVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_INVENTORY_ORG_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[InventoryOrgSno==null?-1:InventoryOrgSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
@@ -258,6 +276,56 @@
     <DisplayCriteria
       Name="GlTaxTypeVOFindVC"
       Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtInventoryOrgName"
+    ListVOName="AccInvInventoryOrgVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtInventoryOrgName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="InventoryOrgSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrgDescription"/>
+      <Item Value="InventoryOrgSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrgDescription"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InvInventoryOrgVOFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSubinventoryOrgName"
+    ListVOName="AccInvSubinventoryOrgVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSubinventoryOrgName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="SubinventoryOrgSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SubinventoryDescription"/>
+      <Item Value="SubinventoryOrgSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SubinventoryDescription"/>
+      <Item Value="SubinventoryOrgShortName"/>
+      <Item Value="SubinventoryOrgCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InvSubinventoryOrgFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderLines"
@@ -961,6 +1029,38 @@
     EntityAttrName="InventoryOrgSno"
     EntityUsage="ScmPurchaseOrderLines"
     AliasName="INVENTORY_ORG_SNO"/>
+  <ViewAttribute
+    Name="txtInventoryOrgName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtInventoryOrgName"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="txt_Inventory_Org_Name"
+    LOVName="LovtxtInventoryOrgName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSubinventoryOrgName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSubinventoryOrgName"
+    EntityUsage="ScmPurchaseOrderLines"
+    AliasName="txt_Subinventory_Org_Name"
+    LOVName="LovtxtSubinventoryOrgName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ScmPurchaseOrderDiscountVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurOrdLinDisPoLinLink"
