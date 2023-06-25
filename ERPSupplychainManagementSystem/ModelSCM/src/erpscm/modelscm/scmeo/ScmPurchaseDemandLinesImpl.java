@@ -68,6 +68,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         txtSubInvOrgDescription,
         BalanceQuantity,
         IsComplete,
+        txtRemainingDemandQty,
         ScmPurchaseDemandHeader,
         GlProjects,
         AdminCompany,
@@ -78,7 +79,8 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         InvInventoryOrg,
         ScmPurchaseBidLines,
         GlChartOfAccounts,
-        InvSubinventoryOrg;
+        InvSubinventoryOrg,
+        ScmPurchaseOrderLines;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -139,6 +141,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int TXTSUBINVORGDESCRIPTION = AttributesEnum.txtSubInvOrgDescription.index();
     public static final int BALANCEQUANTITY = AttributesEnum.BalanceQuantity.index();
     public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
+    public static final int TXTREMAININGDEMANDQTY = AttributesEnum.txtRemainingDemandQty.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -150,6 +153,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
     public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
     public static final int INVSUBINVENTORYORG = AttributesEnum.InvSubinventoryOrg.index();
+    public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -744,6 +748,22 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtRemainingDemandQty, using the alias name txtRemainingDemandQty.
+     * @return the value of txtRemainingDemandQty
+     */
+    public BigDecimal gettxtRemainingDemandQty() {
+        return (BigDecimal) getAttributeInternal(TXTREMAININGDEMANDQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtRemainingDemandQty.
+     * @param value value to set the txtRemainingDemandQty
+     */
+    public void settxtRemainingDemandQty(BigDecimal value) {
+        setAttributeInternal(TXTREMAININGDEMANDQTY, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseDemandHeaderImpl.
      */
     public ScmPurchaseDemandHeaderImpl getScmPurchaseDemandHeader() {
@@ -891,6 +911,14 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
 
 
     /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseOrderLines() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERLINES);
+    }
+
+
+    /**
      * @param demandLinesSno key constituent
 
      * @return a Key object based on given key constituents.
@@ -924,6 +952,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "LINE_NO",
                                                               this.getEntityDef().getSource(), "DEMAND_HEADER_SNO", getDemandHeaderSno().toString());
 
+            populateAttributeAsChanged(BALANCEQUANTITY, getDemandQuantity());
             populateAttributeAsChanged(LINENO, Integer.parseInt(result));
             
 
@@ -931,7 +960,9 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         if (operation!=DML_DELETE) {
            populateAttributeAsChanged(APPROVEQUANTITY, getDemandQuantity());
            populateAttributeAsChanged(TXTISDUPLICATEITEM, "ERPNO");
-       }
+            populateAttributeAsChanged(BALANCEQUANTITY, gettxtRemainingDemandQty());
+            populateAttributeAsChanged(ISCOMPLETE, getBalanceQuantity().compareTo(new BigDecimal(0)) == 1 ? "N" : "Y");
+        }
         if (operation==DML_DELETE) {
             System.out.println("this is delete");
        }
@@ -940,3 +971,16 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     }
 }
 
+/*
+ *         if (operation==DML_INSERT) {
+            populateAttributeAsChanged(REMAININGBALANCE, getQuantity()==null?new BigDecimal(0):getQuantity());
+           populateAttributeAsChanged(ISCOMPLETE, "N"); 
+       }
+        else if (operation==DML_UPDATE) {
+            System.out.println("i am calling from po lines");
+//            System.out.println(getRemainingBalance()+ "grm");
+            populateAttributeAsChanged(ISCOMPLETE, getRemainingBalance().compareTo(new BigDecimal(0))==1?"N":"Y"); 
+            populateAttributeAsChanged(REMAININGBALANCE, gettxtRemainingQtyForPO());
+           
+       }
+ */

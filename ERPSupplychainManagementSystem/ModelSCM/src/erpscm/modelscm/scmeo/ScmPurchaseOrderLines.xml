@@ -980,10 +980,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false"
-    TableName="SCM_PURCHASE_ORDER_LINES">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[InvInventoryOrg?.OrgDescription]]></TransientExpression>
+    IsQueriable="false">
+    <TransientExpression><![CDATA[InvInventoryOrg?.OrgDescription]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -1005,8 +1003,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false"
-    TableName="SCM_PURCHASE_ORDER_LINES">
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[InvSubinventoryOrg?.SubinventoryDescription]]></TransientExpression>
     <Properties>
@@ -1098,6 +1095,13 @@
     AssociationEnd="erpscm.modelscm.scmeo.InvSubinventoryScmPurcOrdLinesSubinventoryOrgSnoAssoc.InvSubinventoryOrg"
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvSubinventoryScmPurcOrdLinesSubinventoryOrgSnoAssoc.ScmPurchaseOrderLines"
     Type="erpims.modelims.imseo.InvSubinventoryOrgImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseDemandLines"
+    Association="erpscm.modelscm.scmeo.ScmPurchDemLinesScmPurcOrderLinesDemandLinesSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchDemLinesScmPurcOrderLinesDemandLinesSnoAssoc.ScmPurchaseDemandLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchDemLinesScmPurcOrderLinesDemandLinesSnoAssoc.ScmPurchaseOrderLines"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseDemandLinesImpl"
     IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderLines"
@@ -1217,6 +1221,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.SubinventoryOrgSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderLines9">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_DEMAND_LINES"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_ORDER_LINES9"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.DemandLinesSno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

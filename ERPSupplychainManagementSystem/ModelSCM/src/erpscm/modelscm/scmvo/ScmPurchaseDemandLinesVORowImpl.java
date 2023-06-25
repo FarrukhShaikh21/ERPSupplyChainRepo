@@ -65,6 +65,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
         txtSubInvOrgDescription,
         BalanceQuantity,
         IsComplete,
+        txtRemainingDemandQty,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
@@ -76,6 +77,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
         ScmPurchaseBidLinesVO,
         GlChartOfAccountsVO,
         InvSubinventoryOrgVO,
+        ScmPurchaseOrderLinesVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsQVO,
@@ -148,6 +150,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     public static final int TXTSUBINVORGDESCRIPTION = AttributesEnum.txtSubInvOrgDescription.index();
     public static final int BALANCEQUANTITY = AttributesEnum.BalanceQuantity.index();
     public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
+    public static final int TXTREMAININGDEMANDQTY = AttributesEnum.txtRemainingDemandQty.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -159,6 +162,7 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
     public static final int GLCHARTOFACCOUNTSVO = AttributesEnum.GlChartOfAccountsVO.index();
     public static final int INVSUBINVENTORYORGVO = AttributesEnum.InvSubinventoryOrgVO.index();
+    public static final int SCMPURCHASEORDERLINESVO = AttributesEnum.ScmPurchaseOrderLinesVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSQVO = AttributesEnum.AccGlProjectsQVO.index();
@@ -771,6 +775,22 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for TXT_REMAINING_DEMAND_QTY using the alias name txtRemainingDemandQty.
+     * @return the TXT_REMAINING_DEMAND_QTY
+     */
+    public BigDecimal gettxtRemainingDemandQty() {
+        return (BigDecimal) getAttributeInternal(TXTREMAININGDEMANDQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_REMAINING_DEMAND_QTY using the alias name txtRemainingDemandQty.
+     * @param value value to set the TXT_REMAINING_DEMAND_QTY
+     */
+    public void settxtRemainingDemandQty(BigDecimal value) {
+        setAttributeInternal(TXTREMAININGDEMANDQTY, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link GlProjectsVO.
      */
     public Row getGlProjectsVO() {
@@ -909,6 +929,13 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
      */
     public void setInvSubinventoryOrgVO(Row value) {
         setAttributeInternal(INVSUBINVENTORYORGVO, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseOrderLinesVO.
+     */
+    public RowIterator getScmPurchaseOrderLinesVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERLINESVO);
     }
 
     /**

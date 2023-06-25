@@ -684,7 +684,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_DEMAND_LINES">
+    TableName="SCM_PURCHASE_DEMAND_LINES"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -692,6 +693,27 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.IsComplete_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtRemainingDemandQty"
+    ColumnName="TXT_REMAINING_DEMAND_QTY"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(DemandQuantity==null?0:DemandQuantity) - (ScmPurchaseOrderLines?.sum("PoApproveQuantity")==null?0:ScmPurchaseOrderLines?.sum("PoApproveQuantity"))]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.txtRemainingDemandQty_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
@@ -774,6 +796,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvSubInvOrgScmPurchDemandLinesSubInvOrgSnoAssoc.ScmPurchaseDemandLines"
     Type="erpims.modelims.imseo.InvSubinventoryOrgImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseOrderLines"
+    Association="erpscm.modelscm.scmeo.ScmPurchDemLinesScmPurcOrderLinesDemandLinesSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchDemLinesScmPurcOrderLinesDemandLinesSnoAssoc.ScmPurchaseOrderLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchDemLinesScmPurcOrderLinesDemandLinesSnoAssoc.ScmPurchaseDemandLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="AltKeyScmPurchaseDemandLine"
     AltKey="true">
@@ -930,9 +959,9 @@
       <validation:Item
         Value="ERR_REQ_INVENTORY_ORG"/>
       <validation:Item
-        Value="ERR_REQ_ITEM_ID"/>
-      <validation:Item
         Value="ERR_REQ_DEMAND_QTY"/>
+      <validation:Item
+        Value="ERR_REQ_ITEM_ID"/>
       <validation:Item
         Value="ERR_REQ_DUPLICATE_ITEM"/>
       <validation:Item
@@ -940,13 +969,13 @@
       <validation:Item
         Value="ERR_REQ_UNIT_TYPE"/>
       <validation:Item
-        Value="ERR_REQ_APROX_PRICE"/>
-      <validation:Item
         Value="ERR_REQ_DEMAND_QUANTITY"/>
       <validation:Item
-        Value="ERR_REQ_DEMAND_ACCOUNT"/>
+        Value="ERR_REQ_APROX_PRICE"/>
       <validation:Item
         Value="ERR_REQ_REQUIRED_DATE"/>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_ACCOUNT"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(ItemId==null)

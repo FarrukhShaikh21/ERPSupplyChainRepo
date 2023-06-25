@@ -731,6 +731,14 @@
     EntityAttrName="IsComplete"
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="IS_COMPLETE"/>
+  <ViewAttribute
+    Name="txtRemainingDemandQty"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtRemainingDemandQty"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="TXT_REMAINING_DEMAND_QTY"/>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"
@@ -1024,6 +1032,11 @@
     ViewLink="erpscm.modelscm.scmvo.InvSubInvOrgScmPurchDemandLinesSubInvOrgSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseOrderLinesVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchDemLinesScmPurcOrderLinesDemandLinesSnoLink"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
