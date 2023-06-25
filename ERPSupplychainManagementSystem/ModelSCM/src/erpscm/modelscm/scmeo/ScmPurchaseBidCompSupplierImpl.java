@@ -874,6 +874,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
             System.out.println("i am calling from po lines");
 //            System.out.println(getRemainingBalance()+ "grm");
             populateAttributeAsChanged(ISCOMPLETE, getRemainingBalance().compareTo(new BigDecimal(0))==1?"N":"Y"); 
+            populateAttributeAsChanged(REMAININGBALANCE, gettxtRemainingQtyForPO());
            
        }
 

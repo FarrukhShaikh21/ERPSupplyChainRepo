@@ -729,7 +729,8 @@
                                                                                       model="#{bindings.txtInventoryOrgName.listOfValuesModel}"
                                                                                       required="#{bindings.txtInventoryOrgName.hints.mandatory}"
                                                                                       columns="#{bindings.txtInventoryOrgName.hints.displayWidth}"
-                                                                                      shortDesc="#{bindings.txtInventoryOrgName.hints.tooltip}">
+                                                                                      shortDesc="#{bindings.txtInventoryOrgName.hints.tooltip}"
+                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null}">
                                                             <f:validator binding="#{bindings.txtInventoryOrgName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                         <af:inputComboboxListOfValues id="txtSubinventoryOrgNameId"
@@ -739,7 +740,8 @@
                                                                                       model="#{bindings.txtSubinventoryOrgName.listOfValuesModel}"
                                                                                       required="#{bindings.txtSubinventoryOrgName.hints.mandatory}"
                                                                                       columns="#{bindings.txtSubinventoryOrgName.hints.displayWidth}"
-                                                                                      shortDesc="#{bindings.txtSubinventoryOrgName.hints.tooltip}">
+                                                                                      shortDesc="#{bindings.txtSubinventoryOrgName.hints.tooltip}"
+                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null}">
                                                             <f:validator binding="#{bindings.txtSubinventoryOrgName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:panelFormLayout>
