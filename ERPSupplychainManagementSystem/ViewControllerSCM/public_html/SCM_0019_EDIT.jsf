@@ -525,8 +525,7 @@
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.tooltip}"
-                                                                  id="it7" autoSubmit="true"
-                                                                  disabled="#{bindings.txtRfqHeaderCode.inputValue!=null}">
+                                                                  id="it7" autoSubmit="true">
                                                         <f:validator binding="#{row.bindings.PoRate.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.format}"
@@ -543,8 +542,7 @@
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.tooltip}"
-                                                                  id="it12" autoSubmit="true"
-                                                                  disabled="#{bindings.txtRfqHeaderCode.inputValue!=null}">
+                                                                  id="it12" autoSubmit="true">
                                                         <f:validator binding="#{row.bindings.PoApproveQuantity.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoApproveQuantity.format}"/>
