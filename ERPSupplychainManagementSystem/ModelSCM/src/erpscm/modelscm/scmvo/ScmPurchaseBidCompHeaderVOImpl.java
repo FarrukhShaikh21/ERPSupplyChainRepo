@@ -44,5 +44,20 @@ public class ScmPurchaseBidCompHeaderVOImpl extends ERPViewObjectImpl {
         super.afterRollback(transactionEvent);
     }
 
+    /**
+     * Returns the variable value for P_ADF_RFQ_HEADER_SNO.
+     * @return variable value for P_ADF_RFQ_HEADER_SNO
+     */
+    public Integer getP_ADF_RFQ_HEADER_SNO() {
+        return (Integer) ensureVariableManager().getVariableValue("P_ADF_RFQ_HEADER_SNO");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_RFQ_HEADER_SNO.
+     * @param value value to bind as P_ADF_RFQ_HEADER_SNO
+     */
+    public void setP_ADF_RFQ_HEADER_SNO(Integer value) {
+        ensureVariableManager().setVariableValue("P_ADF_RFQ_HEADER_SNO", value);
+    }
 }
 

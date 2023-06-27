@@ -26,6 +26,10 @@
       Name="P_ADF_COMPARE_HEADER_SNO"
       Kind="viewcriteria"
       Type="java.lang.Integer"/>
+   <Variable
+      Name="P_ADF_RFQ_HEADER_SNO"
+      Kind="viewcriteria"
+      Type="java.lang.Integer"/>
    <ViewAccessor
       Name="AccSysGeneralValueYesNoVO"
       ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
@@ -812,6 +816,42 @@
                </ViewCriteriaRow>
             </ViewCriteria>
          </ViewCriteriaItem>
+      </ViewCriteriaRow>
+   </ViewCriteria>
+   <ViewCriteria
+      Name="ScmPurchaseBidCompHeaderByRfqHeaderVC"
+      ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVO"
+      Conjunction="AND">
+      <Properties>
+         <CustomProperties>
+            <Property
+               Name="displayOperators"
+               Value="InAdvancedMode"/>
+            <Property
+               Name="autoExecute"
+               Value="false"/>
+            <Property
+               Name="allowConjunctionOverride"
+               Value="true"/>
+            <Property
+               Name="showInList"
+               Value="true"/>
+            <Property
+               Name="mode"
+               Value="Basic"/>
+         </CustomProperties>
+      </Properties>
+      <ViewCriteriaRow
+         Name="ScmPurchaseBidCompHeaderVOCriteria_row_0"
+         UpperColumns="1">
+         <ViewCriteriaItem
+            Name="RfqHeaderSno"
+            ViewAttribute="RfqHeaderSno"
+            Operator="="
+            Conjunction="AND"
+            Value=":P_ADF_RFQ_HEADER_SNO"
+            IsBindVarValue="true"
+            Required="Optional"/>
       </ViewCriteriaRow>
    </ViewCriteria>
    <ViewLinkAccessor

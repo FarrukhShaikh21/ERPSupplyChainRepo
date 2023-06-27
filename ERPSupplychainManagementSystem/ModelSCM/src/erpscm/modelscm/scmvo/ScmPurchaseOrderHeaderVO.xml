@@ -183,6 +183,25 @@
     Name="AccScmOrderTypeVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmOrderTypeVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccScmPurchaseBidCompHeaderVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseBidCompHeaderByRfqHeaderVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidCompHeaderVO.ScmPurchaseBidCompHeaderByRfqHeaderVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmPurchaseBidCompSupplierVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseBidCompSupplierByCompareHeaderSnoVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO.ScmPurchaseBidCompSupplierByCompareHeaderSnoVC"/>
+    <ViewCriteriaUsage
+      Name="ScmPurchaseBidCompSupplierByIsSelectVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO.ScmPurchaseBidCompSupplierByIsSelectVC"/>
+  </ViewAccessor>
   <ListBinding
     Name="LovPoTypeSno"
     ListVOName="AccSysGeneralValuePOTypeVO"

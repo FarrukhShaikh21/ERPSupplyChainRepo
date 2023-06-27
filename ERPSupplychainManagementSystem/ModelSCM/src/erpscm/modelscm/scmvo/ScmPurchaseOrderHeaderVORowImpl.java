@@ -16,6 +16,8 @@ import oracle.jbo.RowSet;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
+
+
     public static final int ENTITY_SCMPURCHASEORDERHEADER = 0;
 
     /**
@@ -105,8 +107,11 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
         AccScmSupplierSitesVO,
         AccScmSupplierSitesShipToVO,
         AccScmDeliveryTermVO,
-        AccScmOrderTypeVO;
-        private static AttributesEnum[] vals = null;
+        AccScmOrderTypeVO,
+        AccScmPurchaseBidCompHeaderVO,
+        AccScmPurchaseBidCompSupplierVO;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -128,6 +133,8 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int POHEADERSNO = AttributesEnum.PoHeaderSno.index();
     public static final int POHEADERCODE = AttributesEnum.PoHeaderCode.index();
     public static final int RFQHEADERSNO = AttributesEnum.RfqHeaderSno.index();
@@ -212,6 +219,8 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCSCMSUPPLIERSITESSHIPTOVO = AttributesEnum.AccScmSupplierSitesShipToVO.index();
     public static final int ACCSCMDELIVERYTERMVO = AttributesEnum.AccScmDeliveryTermVO.index();
     public static final int ACCSCMORDERTYPEVO = AttributesEnum.AccScmOrderTypeVO.index();
+    public static final int ACCSCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.AccScmPurchaseBidCompHeaderVO.index();
+    public static final int ACCSCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.AccScmPurchaseBidCompSupplierVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -273,6 +282,14 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setRfqHeaderSno(Integer value) {
         setAttributeInternal(RFQHEADERSNO, value);
+        getAccScmPurchaseBidCompHeaderVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value==null?-1:value);
+        getAccScmPurchaseBidCompHeaderVO().executeQuery();
+        if (getAccScmPurchaseBidCompHeaderVO().getEstimatedRowCount()>0) {
+           getAccScmPurchaseBidCompSupplierVO().setNamedWhereClauseParam("P_ADF_COMPARE_HEADER_SNO",getAccScmPurchaseBidCompHeaderVO().first().getAttribute("CompareHeaderSno") );
+           getAccScmPurchaseBidCompSupplierVO().setNamedWhereClauseParam("P_ADF_SUPPLIER_SNO", getSupplierSno()==null?-1:getSupplierSno());
+           getAccScmPurchaseBidCompSupplierVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value==null?-1:value);
+       }
+//        getscmp
     }
 
     /**
@@ -1367,5 +1384,20 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
     public RowSet getAccScmOrderTypeVO() {
         return (RowSet) getAttributeInternal(ACCSCMORDERTYPEVO);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccScmPurchaseBidCompHeaderVO.
+     */
+    public RowSet getAccScmPurchaseBidCompHeaderVO() {
+        return (RowSet) getAttributeInternal(ACCSCMPURCHASEBIDCOMPHEADERVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccScmPurchaseBidCompSupplierVO.
+     */
+    public RowSet getAccScmPurchaseBidCompSupplierVO() {
+        return (RowSet) getAttributeInternal(ACCSCMPURCHASEBIDCOMPSUPPLIERVO);
+    }
+
 }
 
