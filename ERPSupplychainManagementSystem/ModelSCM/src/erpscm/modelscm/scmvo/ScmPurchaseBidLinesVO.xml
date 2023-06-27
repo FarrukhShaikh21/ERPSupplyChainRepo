@@ -376,6 +376,26 @@
     EntityAttrName="InventoryOrgSno"
     EntityUsage="ScmPurchaseBidLines"
     AliasName="INVENTORY_ORG_SNO"/>
+  <ViewAttribute
+    Name="RemainingBalance"
+    PrecisionRule="true"
+    EntityAttrName="RemainingBalance"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="REMAINING_BALANCE"/>
+  <ViewAttribute
+    Name="IsComplete"
+    PrecisionRule="true"
+    EntityAttrName="IsComplete"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="IS_COMPLETE"/>
+  <ViewAttribute
+    Name="txtRemainingBidQty"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtRemainingBidQty"
+    EntityUsage="ScmPurchaseBidLines"
+    AliasName="TXT_REMAINING_BID_QTY"/>
   <ViewCriteria
     Name="ScmPurBidLinesByRFQHeadItemUnitVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO"

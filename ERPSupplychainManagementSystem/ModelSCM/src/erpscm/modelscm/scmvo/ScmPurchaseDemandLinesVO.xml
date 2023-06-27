@@ -720,12 +720,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="BalanceQuantity"
-    PrecisionRule="true"
-    EntityAttrName="BalanceQuantity"
-    EntityUsage="ScmPurchaseDemandLines"
-    AliasName="BALANCE_QUANTITY"/>
-  <ViewAttribute
     Name="IsComplete"
     PrecisionRule="true"
     EntityAttrName="IsComplete"
@@ -739,6 +733,12 @@
     EntityAttrName="txtRemainingDemandQty"
     EntityUsage="ScmPurchaseDemandLines"
     AliasName="TXT_REMAINING_DEMAND_QTY"/>
+  <ViewAttribute
+    Name="RemainingBalance"
+    PrecisionRule="true"
+    EntityAttrName="RemainingBalance"
+    EntityUsage="ScmPurchaseDemandLines"
+    AliasName="REMAINING_BALANCE"/>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderSnoVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"

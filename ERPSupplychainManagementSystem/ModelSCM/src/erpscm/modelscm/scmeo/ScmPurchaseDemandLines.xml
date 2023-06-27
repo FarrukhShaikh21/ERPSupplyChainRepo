@@ -658,26 +658,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="BalanceQuantity"
-    Precision="16"
-    Scale="6"
-    ColumnName="BALANCE_QUANTITY"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_DEMAND_LINES"
-    RetrievedOnInsert="true"
-    RetrievedOnUpdate="true">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.BalanceQuantity_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="IsComplete"
     Precision="1"
     ColumnName="IS_COMPLETE"
@@ -714,6 +694,26 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.txtRemainingDemandQty_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="RemainingBalance"
+    Precision="16"
+    Scale="6"
+    ColumnName="REMAINING_BALANCE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_DEMAND_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandLines.RemainingBalance_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
@@ -959,9 +959,9 @@
       <validation:Item
         Value="ERR_REQ_INVENTORY_ORG"/>
       <validation:Item
-        Value="ERR_REQ_DEMAND_QTY"/>
-      <validation:Item
         Value="ERR_REQ_ITEM_ID"/>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_QTY"/>
       <validation:Item
         Value="ERR_REQ_DUPLICATE_ITEM"/>
       <validation:Item
@@ -969,13 +969,13 @@
       <validation:Item
         Value="ERR_REQ_UNIT_TYPE"/>
       <validation:Item
-        Value="ERR_REQ_DEMAND_QUANTITY"/>
-      <validation:Item
         Value="ERR_REQ_APROX_PRICE"/>
       <validation:Item
-        Value="ERR_REQ_REQUIRED_DATE"/>
+        Value="ERR_REQ_DEMAND_QUANTITY"/>
       <validation:Item
         Value="ERR_REQ_DEMAND_ACCOUNT"/>
+      <validation:Item
+        Value="ERR_REQ_REQUIRED_DATE"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(ItemId==null)

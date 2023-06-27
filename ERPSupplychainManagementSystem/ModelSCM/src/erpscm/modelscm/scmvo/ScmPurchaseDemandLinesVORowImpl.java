@@ -63,9 +63,9 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
         ChartOfAccountId,
         txtCOADescription,
         txtSubInvOrgDescription,
-        BalanceQuantity,
         IsComplete,
         txtRemainingDemandQty,
+        RemainingBalance,
         GlProjectsVO,
         AdminCompanyVO,
         InvItemVO,
@@ -148,9 +148,9 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int TXTSUBINVORGDESCRIPTION = AttributesEnum.txtSubInvOrgDescription.index();
-    public static final int BALANCEQUANTITY = AttributesEnum.BalanceQuantity.index();
     public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
     public static final int TXTREMAININGDEMANDQTY = AttributesEnum.txtRemainingDemandQty.index();
+    public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -742,21 +742,6 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(TXTSUBINVORGDESCRIPTION, value);
     }
 
-    /**
-     * Gets the attribute value for BALANCE_QUANTITY using the alias name BalanceQuantity.
-     * @return the BALANCE_QUANTITY
-     */
-    public BigDecimal getBalanceQuantity() {
-        return (BigDecimal) getAttributeInternal(BALANCEQUANTITY);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for BALANCE_QUANTITY using the alias name BalanceQuantity.
-     * @param value value to set the BALANCE_QUANTITY
-     */
-    public void setBalanceQuantity(BigDecimal value) {
-        setAttributeInternal(BALANCEQUANTITY, value);
-    }
 
     /**
      * Gets the attribute value for IS_COMPLETE using the alias name IsComplete.
@@ -788,6 +773,22 @@ public class ScmPurchaseDemandLinesVORowImpl extends ERPViewRowImpl {
      */
     public void settxtRemainingDemandQty(BigDecimal value) {
         setAttributeInternal(TXTREMAININGDEMANDQTY, value);
+    }
+
+    /**
+     * Gets the attribute value for REMAINING_BALANCE using the alias name RemainingBalance.
+     * @return the REMAINING_BALANCE
+     */
+    public BigDecimal getRemainingBalance() {
+        return (BigDecimal) getAttributeInternal(REMAININGBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for REMAINING_BALANCE using the alias name RemainingBalance.
+     * @param value value to set the REMAINING_BALANCE
+     */
+    public void setRemainingBalance(BigDecimal value) {
+        setAttributeInternal(REMAININGBALANCE, value);
     }
 
     /**

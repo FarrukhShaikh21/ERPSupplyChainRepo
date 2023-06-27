@@ -54,6 +54,9 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
         ChartOfAccountId,
         SubInventoryOrgSno,
         InventoryOrgSno,
+        RemainingBalance,
+        IsComplete,
+        txtRemainingBidQty,
         ScmPurchaseRfqLinesVO,
         ScmPurchaseDemandLinesVO,
         InvItemVO,
@@ -125,6 +128,9 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubInventoryOrgSno.index();
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
+    public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
+    public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
+    public static final int TXTREMAININGBIDQTY = AttributesEnum.txtRemainingBidQty.index();
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
     public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
@@ -611,6 +617,55 @@ public class ScmPurchaseBidLinesVORowImpl extends ViewRowImpl {
      */
     public void setInventoryOrgSno(Integer value) {
         setAttributeInternal(INVENTORYORGSNO, value);
+    }
+
+
+    /**
+     * Gets the attribute value for REMAINING_BALANCE using the alias name RemainingBalance.
+     * @return the REMAINING_BALANCE
+     */
+    public BigDecimal getRemainingBalance() {
+        return (BigDecimal) getAttributeInternal(REMAININGBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for REMAINING_BALANCE using the alias name RemainingBalance.
+     * @param value value to set the REMAINING_BALANCE
+     */
+    public void setRemainingBalance(BigDecimal value) {
+        setAttributeInternal(REMAININGBALANCE, value);
+    }
+
+    /**
+     * Gets the attribute value for IS_COMPLETE using the alias name IsComplete.
+     * @return the IS_COMPLETE
+     */
+    public String getIsComplete() {
+        return (String) getAttributeInternal(ISCOMPLETE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for IS_COMPLETE using the alias name IsComplete.
+     * @param value value to set the IS_COMPLETE
+     */
+    public void setIsComplete(String value) {
+        setAttributeInternal(ISCOMPLETE, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_REMAINING_BID_QTY using the alias name txtRemainingBidQty.
+     * @return the TXT_REMAINING_BID_QTY
+     */
+    public BigDecimal gettxtRemainingBidQty() {
+        return (BigDecimal) getAttributeInternal(TXTREMAININGBIDQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_REMAINING_BID_QTY using the alias name txtRemainingBidQty.
+     * @param value value to set the TXT_REMAINING_BID_QTY
+     */
+    public void settxtRemainingBidQty(BigDecimal value) {
+        setAttributeInternal(TXTREMAININGBIDQTY, value);
     }
 
     /**

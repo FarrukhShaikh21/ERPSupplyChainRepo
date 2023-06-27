@@ -564,6 +564,68 @@
         Value="SubInventoryOrgSno"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="RemainingBalance"
+    Precision="16"
+    Scale="6"
+    ColumnName="REMAINING_BALANCE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_BID_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidLines.RemainingBalance_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="IsComplete"
+    Precision="1"
+    ColumnName="IS_COMPLETE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_BID_LINES"
+    DefaultValue="N">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidLines.IsComplete_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtRemainingBidQty"
+    ColumnName="TXT_REMAINING_BID_QTY"
+    SQLType="NUMERIC"
+    IsPersistent="false"
+    IsQueriable="false"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(Quantity==null?0:Quantity) - (ScmPurchaseOrderLines?.sum("PoApproveQuantity")==null?0:ScmPurchaseOrderLines?.sum("PoApproveQuantity"))]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidLines.txtRemainingBidQty_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseBidHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurBidLineHeadSnoAssoc"

@@ -66,9 +66,9 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         ChartOfAccountId,
         txtCOADescription,
         txtSubInvOrgDescription,
-        BalanceQuantity,
         IsComplete,
         txtRemainingDemandQty,
+        RemainingBalance,
         ScmPurchaseDemandHeader,
         GlProjects,
         AdminCompany,
@@ -139,9 +139,9 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int TXTSUBINVORGDESCRIPTION = AttributesEnum.txtSubInvOrgDescription.index();
-    public static final int BALANCEQUANTITY = AttributesEnum.BalanceQuantity.index();
     public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
     public static final int TXTREMAININGDEMANDQTY = AttributesEnum.txtRemainingDemandQty.index();
+    public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -715,21 +715,6 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         setAttributeInternal(TXTSUBINVORGDESCRIPTION, value);
     }
 
-    /**
-     * Gets the attribute value for BalanceQuantity, using the alias name BalanceQuantity.
-     * @return the value of BalanceQuantity
-     */
-    public BigDecimal getBalanceQuantity() {
-        return (BigDecimal) getAttributeInternal(BALANCEQUANTITY);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for BalanceQuantity.
-     * @param value value to set the BalanceQuantity
-     */
-    public void setBalanceQuantity(BigDecimal value) {
-        setAttributeInternal(BALANCEQUANTITY, value);
-    }
 
     /**
      * Gets the attribute value for IsComplete, using the alias name IsComplete.
@@ -761,6 +746,22 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
      */
     public void settxtRemainingDemandQty(BigDecimal value) {
         setAttributeInternal(TXTREMAININGDEMANDQTY, value);
+    }
+
+    /**
+     * Gets the attribute value for RemainingBalance, using the alias name RemainingBalance.
+     * @return the value of RemainingBalance
+     */
+    public BigDecimal getRemainingBalance() {
+        return (BigDecimal) getAttributeInternal(REMAININGBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RemainingBalance.
+     * @param value value to set the RemainingBalance
+     */
+    public void setRemainingBalance(BigDecimal value) {
+        setAttributeInternal(REMAININGBALANCE, value);
     }
 
     /**
@@ -952,7 +953,7 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
                 ERPGlobalPLSQLClass.doGetPrimaryKeyValueModel(getDBTransaction(), "LINE_NO",
                                                               this.getEntityDef().getSource(), "DEMAND_HEADER_SNO", getDemandHeaderSno().toString());
 
-            populateAttributeAsChanged(BALANCEQUANTITY, getDemandQuantity());
+            populateAttributeAsChanged(REMAININGBALANCE, getDemandQuantity());
             populateAttributeAsChanged(LINENO, Integer.parseInt(result));
             
 
@@ -960,8 +961,8 @@ public class ScmPurchaseDemandLinesImpl extends ERPEntityImpl {
         if (operation!=DML_DELETE) {
            populateAttributeAsChanged(APPROVEQUANTITY, getDemandQuantity());
            populateAttributeAsChanged(TXTISDUPLICATEITEM, "ERPNO");
-            populateAttributeAsChanged(BALANCEQUANTITY, gettxtRemainingDemandQty());
-            populateAttributeAsChanged(ISCOMPLETE, getBalanceQuantity().compareTo(new BigDecimal(0)) == 1 ? "N" : "Y");
+            populateAttributeAsChanged(REMAININGBALANCE, gettxtRemainingDemandQty());
+            populateAttributeAsChanged(ISCOMPLETE, getRemainingBalance().compareTo(new BigDecimal(0)) == 1 ? "N" : "Y");
         }
         if (operation==DML_DELETE) {
             System.out.println("this is delete");

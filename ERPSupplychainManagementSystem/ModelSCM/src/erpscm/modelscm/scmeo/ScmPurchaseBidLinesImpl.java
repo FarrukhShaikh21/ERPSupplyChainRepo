@@ -60,6 +60,9 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
         txtCOADescription,
         txtInvOrgDescription,
         txtSubInvOrgDescription,
+        RemainingBalance,
+        IsComplete,
+        txtRemainingBidQty,
         ScmPurchaseBidHeader,
         ScmPurchaseRfqLines,
         ScmPurchaseDemandLines,
@@ -124,6 +127,9 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
     public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
     public static final int TXTINVORGDESCRIPTION = AttributesEnum.txtInvOrgDescription.index();
     public static final int TXTSUBINVORGDESCRIPTION = AttributesEnum.txtSubInvOrgDescription.index();
+    public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
+    public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
+    public static final int TXTREMAININGBIDQTY = AttributesEnum.txtRemainingBidQty.index();
     public static final int SCMPURCHASEBIDHEADER = AttributesEnum.ScmPurchaseBidHeader.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
@@ -600,6 +606,55 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for RemainingBalance, using the alias name RemainingBalance.
+     * @return the value of RemainingBalance
+     */
+    public BigDecimal getRemainingBalance() {
+        return (BigDecimal) getAttributeInternal(REMAININGBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RemainingBalance.
+     * @param value value to set the RemainingBalance
+     */
+    public void setRemainingBalance(BigDecimal value) {
+        setAttributeInternal(REMAININGBALANCE, value);
+    }
+
+    /**
+     * Gets the attribute value for IsComplete, using the alias name IsComplete.
+     * @return the value of IsComplete
+     */
+    public String getIsComplete() {
+        return (String) getAttributeInternal(ISCOMPLETE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IsComplete.
+     * @param value value to set the IsComplete
+     */
+    public void setIsComplete(String value) {
+        setAttributeInternal(ISCOMPLETE, value);
+    }
+
+
+    /**
+     * Gets the attribute value for txtRemainingBidQty, using the alias name txtRemainingBidQty.
+     * @return the value of txtRemainingBidQty
+     */
+    public BigDecimal gettxtRemainingBidQty() {
+        return (BigDecimal) getAttributeInternal(TXTREMAININGBIDQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtRemainingBidQty.
+     * @param value value to set the txtRemainingBidQty
+     */
+    public void settxtRemainingBidQty(BigDecimal value) {
+        setAttributeInternal(TXTREMAININGBIDQTY, value);
+    }
+
+    /**
      * @return the associated entity ScmPurchaseBidHeaderImpl.
      */
     public ScmPurchaseBidHeaderImpl getScmPurchaseBidHeader() {
@@ -793,6 +848,10 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation!=DML_DELETE) {
+            populateAttributeAsChanged(REMAININGBALANCE, gettxtRemainingBidQty());
+            populateAttributeAsChanged(ISCOMPLETE, getRemainingBalance().compareTo(new BigDecimal(0)) == 1 ? "N" : "Y");
+        }
         super.doDML(operation, e);
     }
 }
