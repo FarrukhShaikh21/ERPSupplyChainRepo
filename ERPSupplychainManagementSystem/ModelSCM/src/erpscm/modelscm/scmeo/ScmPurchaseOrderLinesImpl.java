@@ -96,7 +96,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         GlTaxType,
         InvInventoryOrg,
         InvSubinventoryOrg,
-        ScmPurchaseDemandLines;
+        ScmPurchaseDemandLines,
+        ScmPurchaseBidLines;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -183,6 +184,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
     public static final int INVSUBINVENTORYORG = AttributesEnum.InvSubinventoryOrg.index();
     public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
+    public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1199,6 +1201,21 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      */
     public void setScmPurchaseDemandLines(ScmPurchaseDemandLinesImpl value) {
         setAttributeInternal(SCMPURCHASEDEMANDLINES, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmPurchaseBidLinesImpl.
+     */
+    public ScmPurchaseBidLinesImpl getScmPurchaseBidLines() {
+        return (ScmPurchaseBidLinesImpl) getAttributeInternal(SCMPURCHASEBIDLINES);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmPurchaseBidLinesImpl.
+     */
+    public void setScmPurchaseBidLines(ScmPurchaseBidLinesImpl value) {
+        setAttributeInternal(SCMPURCHASEBIDLINES, value);
     }
 
 

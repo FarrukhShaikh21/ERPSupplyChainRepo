@@ -641,6 +641,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.InvSubInventoryOrgScmPurchBidLinesSubInvOrgSnoAssoc.ScmPurchaseBidLines"
     Type="erpims.modelims.imseo.InvSubinventoryOrgImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseOrderLines"
+    Association="erpscm.modelscm.scmeo.ScmPurchaseBidLinesScmPurchaseOrderLinesBidLinesSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchaseBidLinesScmPurchaseOrderLinesBidLinesSnoAssoc.ScmPurchaseOrderLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchaseBidLinesScmPurchaseOrderLinesBidLinesSnoAssoc.ScmPurchaseBidLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmPurchaseBidLines"
     PrimaryKey="true">

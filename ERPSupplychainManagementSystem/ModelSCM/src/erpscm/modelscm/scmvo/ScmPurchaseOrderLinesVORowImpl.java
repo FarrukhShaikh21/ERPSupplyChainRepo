@@ -89,6 +89,7 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
         InvInventoryOrgVO,
         InvSubinventoryOrgVO,
         ScmPurchaseDemandLinesVO,
+        ScmPurchaseBidLinesVO,
         AccInvItemVO,
         AccAdminCompanyForDeptVO,
         AccGlProjectsVO,
@@ -186,6 +187,7 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
     public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int INVSUBINVENTORYORGVO = AttributesEnum.InvSubinventoryOrgVO.index();
     public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
+    public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCADMINCOMPANYFORDEPTVO = AttributesEnum.AccAdminCompanyForDeptVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
@@ -1187,6 +1189,20 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
      */
     public void setScmPurchaseDemandLinesVO(Row value) {
         setAttributeInternal(SCMPURCHASEDEMANDLINESVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link ScmPurchaseBidLinesVO.
+     */
+    public Row getScmPurchaseBidLinesVO() {
+        return (Row) getAttributeInternal(SCMPURCHASEBIDLINESVO);
+    }
+
+    /**
+     * Sets the master-detail link ScmPurchaseBidLinesVO between this object and <code>value</code>.
+     */
+    public void setScmPurchaseBidLinesVO(Row value) {
+        setAttributeInternal(SCMPURCHASEBIDLINESVO, value);
     }
 
     /**

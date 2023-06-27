@@ -1103,6 +1103,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchDemLinesScmPurcOrderLinesDemandLinesSnoAssoc.ScmPurchaseOrderLines"
     Type="erpscm.modelscm.scmeo.ScmPurchaseDemandLinesImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseBidLines"
+    Association="erpscm.modelscm.scmeo.ScmPurchaseBidLinesScmPurchaseOrderLinesBidLinesSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchaseBidLinesScmPurchaseOrderLinesBidLinesSnoAssoc.ScmPurchaseBidLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchaseBidLinesScmPurchaseOrderLinesBidLinesSnoAssoc.ScmPurchaseOrderLines"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseBidLinesImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderLines"
     PrimaryKey="true">
@@ -1144,6 +1151,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.UnitTypeSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderLines10">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_BID_LINES"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Order_Lines10"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.BidLinesSno"/>
     </AttrArray>
   </Key>
   <Key

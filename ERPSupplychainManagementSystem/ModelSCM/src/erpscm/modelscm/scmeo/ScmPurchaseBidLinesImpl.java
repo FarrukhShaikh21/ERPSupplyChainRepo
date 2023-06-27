@@ -70,7 +70,8 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
         ScmPurchaseBidCompSupplier,
         InvInventoryOrg,
         GlChartOfAccounts,
-        InvSubinventoryOrg;
+        InvSubinventoryOrg,
+        ScmPurchaseOrderLines;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -134,6 +135,7 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
     public static final int INVINVENTORYORG = AttributesEnum.InvInventoryOrg.index();
     public static final int GLCHARTOFACCOUNTS = AttributesEnum.GlChartOfAccounts.index();
     public static final int INVSUBINVENTORYORG = AttributesEnum.InvSubinventoryOrg.index();
+    public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -745,6 +747,14 @@ public class ScmPurchaseBidLinesImpl extends ERPEntityImpl {
     public void setInvSubinventoryOrg(InvSubinventoryOrgImpl value) {
         setAttributeInternal(INVSUBINVENTORYORG, value);
     }
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getScmPurchaseOrderLines() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERLINES);
+    }
+
 
     /**
      * @param bidLinesSno key constituent

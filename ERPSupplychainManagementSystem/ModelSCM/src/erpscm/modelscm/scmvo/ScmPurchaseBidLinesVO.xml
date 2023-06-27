@@ -510,6 +510,11 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseOrderLinesVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchaseBidLinesScmPurchaseOrderLinesBidLinesSnoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
