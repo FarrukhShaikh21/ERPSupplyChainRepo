@@ -982,7 +982,9 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[InvInventoryOrg?.OrgDescription]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmPurchaseBidCompSupplier?.txtRemainingQtyForPO]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -1020,6 +1022,15 @@
         Value="SubinventoryOrgSno"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtBalanceForMessage"
+    ColumnName="txt_Balance_For_Message"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsQueriable="false"
+    IsPersistent="false"
+    TableName="SCM_PURCHASE_ORDER_LINES"/>
   <AccessorAttribute
     Name="ScmPurchaseOrderDiscount"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdLinDisPoLinAssoc"
@@ -1285,7 +1296,7 @@ adf.error.raise("err_po_demand_quantity");
 return false;
 }
 
-if(DemandLinesSno ==null && CompareSupplierSno!=null && PoRequestQuantity > ScmPurchaseBidCompSupplier?.txtRemainingQtyForPO+ (PoRequestQuantity==null?0:PoRequestQuantity))
+if(DemandLinesSno==null && CompareSupplierSno!=null && PoRequestQuantity > ScmPurchaseBidCompSupplier?.txtRemainingQtyForPO+ (PoRequestQuantity==null?0:PoRequestQuantity))
 {
 adf.error.raise("err_po_compare_quantity");
 return false;

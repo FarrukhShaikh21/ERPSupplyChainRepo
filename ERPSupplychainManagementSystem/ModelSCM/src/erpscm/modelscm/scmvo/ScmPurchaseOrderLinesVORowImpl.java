@@ -77,6 +77,7 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
         InventoryOrgSno,
         txtInventoryOrgName,
         txtSubinventoryOrgName,
+        txtBalanceForMessage,
         ScmPurchaseOrderDiscountVO,
         InvItemVO,
         InvUnitTypeVO,
@@ -175,6 +176,7 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
     public static final int INVENTORYORGSNO = AttributesEnum.InventoryOrgSno.index();
     public static final int TXTINVENTORYORGNAME = AttributesEnum.txtInventoryOrgName.index();
     public static final int TXTSUBINVENTORYORGNAME = AttributesEnum.txtSubinventoryOrgName.index();
+    public static final int TXTBALANCEFORMESSAGE = AttributesEnum.txtBalanceForMessage.index();
     public static final int SCMPURCHASEORDERDISCOUNTVO = AttributesEnum.ScmPurchaseOrderDiscountVO.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
@@ -1028,6 +1030,22 @@ public class ScmPurchaseOrderLinesVORowImpl extends ViewRowImpl {
      */
     public void settxtSubinventoryOrgName(String value) {
         setAttributeInternal(TXTSUBINVENTORYORGNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Balance_For_Message using the alias name txtBalanceForMessage.
+     * @return the txt_Balance_For_Message
+     */
+    public BigDecimal gettxtBalanceForMessage() {
+        return (BigDecimal) getAttributeInternal(TXTBALANCEFORMESSAGE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Balance_For_Message using the alias name txtBalanceForMessage.
+     * @param value value to set the txt_Balance_For_Message
+     */
+    public void settxtBalanceForMessage(BigDecimal value) {
+        setAttributeInternal(TXTBALANCEFORMESSAGE, value);
     }
 
     /**

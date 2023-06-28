@@ -85,6 +85,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         SubinventoryOrgSno,
         txtInventoryOrgName,
         txtSubinventoryOrgName,
+        txtBalanceForMessage,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         InvItem,
@@ -172,6 +173,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int TXTINVENTORYORGNAME = AttributesEnum.txtInventoryOrgName.index();
     public static final int TXTSUBINVENTORYORGNAME = AttributesEnum.txtSubinventoryOrgName.index();
+    public static final int TXTBALANCEFORMESSAGE = AttributesEnum.txtBalanceForMessage.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -1032,6 +1034,22 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      */
     public void settxtSubinventoryOrgName(String value) {
         setAttributeInternal(TXTSUBINVENTORYORGNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtBalanceForMessage, using the alias name txtBalanceForMessage.
+     * @return the value of txtBalanceForMessage
+     */
+    public BigDecimal gettxtBalanceForMessage() {
+        return (BigDecimal) getAttributeInternal(TXTBALANCEFORMESSAGE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtBalanceForMessage.
+     * @param value value to set the txtBalanceForMessage
+     */
+    public void settxtBalanceForMessage(BigDecimal value) {
+        setAttributeInternal(TXTBALANCEFORMESSAGE, value);
     }
 
     /**
