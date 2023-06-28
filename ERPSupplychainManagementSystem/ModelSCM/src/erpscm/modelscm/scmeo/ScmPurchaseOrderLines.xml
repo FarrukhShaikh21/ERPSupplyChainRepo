@@ -10,7 +10,8 @@
   DBObjectName="SCM_PURCHASE_ORDER_LINES"
   AliasName="ScmPurchaseOrderLines"
   BindingStyle="JDBC"
-  RowClass="erpscm.modelscm.scmeo.ScmPurchaseOrderLinesImpl">
+  RowClass="erpscm.modelscm.scmeo.ScmPurchaseOrderLinesImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_superClass" Value="erpglobals.modelglobals.ERPEntityImpl"/>
@@ -1252,6 +1253,37 @@
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.DemandLinesSno"/>
     </AttrArray>
   </Key>
+  <validation:ExpressionValidationBean
+    Name="ScmPurchaseOrderLinesRule0"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="PoApproveQuantity"/>
+      <validation:Item
+        Value="PoRequestQuantity"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="untrusted"
+      Name="OnConditionExpr"><![CDATA[PoApproveQuantity!=null && PoRequestQuantity!=null]]></validation:OnCondition>
+    <validation:MsgIds>
+      <validation:Item
+        Value="err_po_demand_quantity"/>
+    </validation:MsgIds>
+    <validation:ResExpressions
+      Name="ScmPurchaseOrderLinesRule0_ResExprList">
+      <validation:Expression
+        trustMode="untrusted"
+        Name="0"><![CDATA[ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity)]]></validation:Expression>
+    </validation:ResExpressions>
+    <validation:TransientExpression
+      trustMode="untrusted"><![CDATA[if(DemandLinesSno !=null && PoRequestQuantity > ScmPurchaseDemandLines?.txtRemainingDemandQty)
+{
+adf.error.raise("err_po_demand_quantity");
+return false;
+}
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
