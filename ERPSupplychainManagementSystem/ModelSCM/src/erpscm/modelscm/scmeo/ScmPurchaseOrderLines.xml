@@ -1269,6 +1269,8 @@
     <validation:MsgIds>
       <validation:Item
         Value="err_po_demand_quantity"/>
+      <validation:Item
+        Value="err_po_compare_quantity"/>
     </validation:MsgIds>
     <validation:ResExpressions
       Name="ScmPurchaseOrderLinesRule0_ResExprList">
@@ -1277,9 +1279,15 @@
         Name="0"><![CDATA[ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity)]]></validation:Expression>
     </validation:ResExpressions>
     <validation:TransientExpression
-      trustMode="untrusted"><![CDATA[if(DemandLinesSno !=null && PoRequestQuantity > ScmPurchaseDemandLines?.txtRemainingDemandQty)
+      trustMode="untrusted"><![CDATA[if(DemandLinesSno !=null && PoRequestQuantity > ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity))
 {
 adf.error.raise("err_po_demand_quantity");
+return false;
+}
+
+if(DemandLinesSno ==null && CompareSupplierSno!=null && PoRequestQuantity > ScmPurchaseBidCompSupplier?.txtRemainingQtyForPO+ (PoRequestQuantity==null?0:PoRequestQuantity))
+{
+adf.error.raise("err_po_compare_quantity");
 return false;
 }
 return true;]]></validation:TransientExpression>
