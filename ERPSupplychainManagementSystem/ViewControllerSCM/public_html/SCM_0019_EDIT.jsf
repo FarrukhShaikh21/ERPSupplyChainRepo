@@ -316,7 +316,7 @@
                                                                       columns="#{bindings.txtRfqHeaderCode.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtRfqHeaderCode.hints.tooltip}"
                                                                       simple="true" autoSubmit="true"
-                                                                      partialTriggers="txtSupplierNameId"
+                                                                      partialTriggers="txtSupplierNameId txtLocationNameId"
                                                                       contentStyle="width:90%">
                                             <f:validator binding="#{bindings.txtRfqHeaderCode.validator}"/>
                                             <af:convertNumber groupingUsed="false"

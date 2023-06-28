@@ -94,7 +94,8 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         ScmSupplierSites,
         ScmSupplierSites1,
         ScmDeliveryTerm,
-        ScmOrderType;
+        ScmOrderType,
+        ScmSupplier;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -187,6 +188,7 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int SCMSUPPLIERSITES1 = AttributesEnum.ScmSupplierSites1.index();
     public static final int SCMDELIVERYTERM = AttributesEnum.ScmDeliveryTerm.index();
     public static final int SCMORDERTYPE = AttributesEnum.ScmOrderType.index();
+    public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1243,6 +1245,21 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
      */
     public void setScmOrderType(ScmOrderTypeImpl value) {
         setAttributeInternal(SCMORDERTYPE, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmSupplierImpl.
+     */
+    public ScmSupplierImpl getScmSupplier() {
+        return (ScmSupplierImpl) getAttributeInternal(SCMSUPPLIER);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmSupplierImpl.
+     */
+    public void setScmSupplier(ScmSupplierImpl value) {
+        setAttributeInternal(SCMSUPPLIER, value);
     }
 
 

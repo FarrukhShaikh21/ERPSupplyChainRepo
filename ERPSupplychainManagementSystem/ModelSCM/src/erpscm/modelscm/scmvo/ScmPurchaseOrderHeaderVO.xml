@@ -1216,6 +1216,12 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmSupplierVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmSupplierScmPurchaseOrderHeaderSupplierSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>

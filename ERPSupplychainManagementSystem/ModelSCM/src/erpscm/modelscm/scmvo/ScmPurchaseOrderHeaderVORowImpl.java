@@ -94,6 +94,7 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
         ScmSupplierSitesVO1,
         ScmDeliveryTermVO,
         ScmOrderTypeVO,
+        ScmSupplierVO,
         AccSysGeneralValuePOTypeVO,
         AccSysSystemParameterVO,
         AccAdminCompanyForCompVO,
@@ -205,6 +206,7 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
     public static final int SCMSUPPLIERSITESVO1 = AttributesEnum.ScmSupplierSitesVO1.index();
     public static final int SCMDELIVERYTERMVO = AttributesEnum.ScmDeliveryTermVO.index();
     public static final int SCMORDERTYPEVO = AttributesEnum.ScmOrderTypeVO.index();
+    public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int ACCSYSGENERALVALUEPOTYPEVO = AttributesEnum.AccSysGeneralValuePOTypeVO.index();
     public static final int ACCSYSSYSTEMPARAMETERVO = AttributesEnum.AccSysSystemParameterVO.index();
     public static final int ACCADMINCOMPANYFORCOMPVO = AttributesEnum.AccAdminCompanyForCompVO.index();
@@ -285,6 +287,12 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setRfqHeaderSno(Integer value) {
         setAttributeInternal(RFQHEADERSNO, value);
+        while(getScmPurchaseOrderLinesVO().getRowCount()>0) {
+            getScmPurchaseOrderLinesVO().first().remove();
+        }
+        if (value==null) {
+           return;
+       }
         ApplicationModule am = getApplicationModule();
         ViewObject erpPOHeadvo=am.findViewObject("ScmPurchaseOrderHeaderCRUD");
         ViewObject erpPOLinesvo=am.findViewObject("ScmPurchaseOrderLinesDetCRUD");
@@ -481,6 +489,10 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setSupplierSno(Integer value) {
         setAttributeInternal(SUPPLIERSNO, value);
+        setRfqHeaderSno(null);
+        setDemandHeaderSno(null);
+        setCompareHeaderSno(null);
+//        setRfqHeaderSno(null);
     }
 
     /**
@@ -514,6 +526,9 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
     public void setLocationId(Integer value) {
         setAttributeInternal(LOCATIONID, value);
         setCompanyId(doGetCompanyIDByLocation(value==null?0:value.intValue(), getGlobalCompanyId()));
+        setRfqHeaderSno(null);
+        setDemandHeaderSno(null);
+        setCompareHeaderSno(null);
     }
 
     /**
@@ -1295,6 +1310,20 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setScmOrderTypeVO(Row value) {
         setAttributeInternal(SCMORDERTYPEVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link ScmSupplierVO.
+     */
+    public Row getScmSupplierVO() {
+        return (Row) getAttributeInternal(SCMSUPPLIERVO);
+    }
+
+    /**
+     * Sets the master-detail link ScmSupplierVO between this object and <code>value</code>.
+     */
+    public void setScmSupplierVO(Row value) {
+        setAttributeInternal(SCMSUPPLIERVO, value);
     }
 
     /**

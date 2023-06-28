@@ -72,6 +72,16 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="LocationId"/>
+      <Item
+        Value="SupplierSno"/>
+      <Item
+        Value="txtLocationName"/>
+      <Item
+        Value="txtSupplierName"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="EmployeeSno"
@@ -893,14 +903,22 @@
     <TransientExpression><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
     <Dependencies>
       <Item
+        Value="LocationId"/>
+      <Item
         Value="RfqHeaderSno"/>
+      <Item
+        Value="SupplierSno"/>
+      <Item
+        Value="txtLocationName"/>
+      <Item
+        Value="txtSupplierName"/>
     </Dependencies>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.txtRfqHeaderCode_LABEL"/>
         <DISPLAYWIDTH
-          Value="10"/>
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -935,6 +953,10 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmSupplier?.SupplierName]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -943,6 +965,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="SupplierSno"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtSupplierBillToLocation"
@@ -1155,6 +1181,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmOrderTypeScmPurchOrderHeadOrderTypeSnoAsso.ScmPurchaseOrderHeader"
     Type="erpscm.modelscm.scmeo.ScmOrderTypeImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmSupplier"
+    Association="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseOrderHeaderSupplierSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseOrderHeaderSupplierSnoAssoc.ScmSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmSupplierScmPurchaseOrderHeaderSupplierSnoAssoc.ScmPurchaseOrderHeader"
+    Type="erpscm.modelscm.scmeo.ScmSupplierImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderHeader"
     PrimaryKey="true">
@@ -1241,6 +1274,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.OrderTypeSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderHeader13">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_SUPPLIER"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Scm_Purchase_Order_Header13"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.SupplierSno"/>
     </AttrArray>
   </Key>
   <Key
