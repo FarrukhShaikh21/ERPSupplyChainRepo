@@ -1023,14 +1023,41 @@
     </Dependencies>
   </Attribute>
   <Attribute
-    Name="txtBalanceForMessage"
-    ColumnName="txt_Balance_For_Message"
+    Name="txtBalanceQuantity"
+    ColumnName="txt_Balance_Quantity"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
     IsQueriable="false"
     IsPersistent="false"
-    TableName="SCM_PURCHASE_ORDER_LINES"/>
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtBalanceQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtBalanceMessage"
+    Precision="80"
+    ColumnName="txt_Balance_Message"
+    IsPersistent="false"
+    IsQueriable="false"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtBalanceMessage_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseOrderDiscount"
     Association="erpscm.modelscm.scmeo.FkScmPurOrdLinDisPoLinAssoc"
@@ -1290,15 +1317,9 @@
         Name="0"><![CDATA[ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity)]]></validation:Expression>
     </validation:ResExpressions>
     <validation:TransientExpression
-      trustMode="untrusted"><![CDATA[if(DemandLinesSno !=null && PoRequestQuantity > ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity))
+      trustMode="untrusted"><![CDATA[if(PoRequestQuantity > txtBalanceQuantity)
 {
 adf.error.raise("err_po_demand_quantity");
-return false;
-}
-
-if(DemandLinesSno==null && CompareSupplierSno!=null && PoRequestQuantity > ScmPurchaseBidCompSupplier?.txtRemainingQtyForPO+ (PoRequestQuantity==null?0:PoRequestQuantity))
-{
-adf.error.raise("err_po_compare_quantity");
 return false;
 }
 return true;]]></validation:TransientExpression>

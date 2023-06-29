@@ -85,7 +85,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         SubinventoryOrgSno,
         txtInventoryOrgName,
         txtSubinventoryOrgName,
-        txtBalanceForMessage,
+        txtBalanceQuantity,
+        txtBalanceMessage,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         InvItem,
@@ -173,7 +174,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int TXTINVENTORYORGNAME = AttributesEnum.txtInventoryOrgName.index();
     public static final int TXTSUBINVENTORYORGNAME = AttributesEnum.txtSubinventoryOrgName.index();
-    public static final int TXTBALANCEFORMESSAGE = AttributesEnum.txtBalanceForMessage.index();
+    public static final int TXTBALANCEQUANTITY = AttributesEnum.txtBalanceQuantity.index();
+    public static final int TXTBALANCEMESSAGE = AttributesEnum.txtBalanceMessage.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -1036,20 +1038,37 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         setAttributeInternal(TXTSUBINVENTORYORGNAME, value);
     }
 
+
     /**
-     * Gets the attribute value for txtBalanceForMessage, using the alias name txtBalanceForMessage.
-     * @return the value of txtBalanceForMessage
+     * Gets the attribute value for txtBalanceQuantity, using the alias name txtBalanceQuantity.
+     * @return the value of txtBalanceQuantity
      */
-    public BigDecimal gettxtBalanceForMessage() {
-        return (BigDecimal) getAttributeInternal(TXTBALANCEFORMESSAGE);
+    public BigDecimal gettxtBalanceQuantity() {
+        return (BigDecimal) getAttributeInternal(TXTBALANCEQUANTITY);
     }
 
     /**
-     * Sets <code>value</code> as the attribute value for txtBalanceForMessage.
-     * @param value value to set the txtBalanceForMessage
+     * Sets <code>value</code> as the attribute value for txtBalanceQuantity.
+     * @param value value to set the txtBalanceQuantity
      */
-    public void settxtBalanceForMessage(BigDecimal value) {
-        setAttributeInternal(TXTBALANCEFORMESSAGE, value);
+    public void settxtBalanceQuantity(BigDecimal value) {
+        setAttributeInternal(TXTBALANCEQUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for txtBalanceMessage, using the alias name txtBalanceMessage.
+     * @return the value of txtBalanceMessage
+     */
+    public String gettxtBalanceMessage() {
+        return (String) getAttributeInternal(TXTBALANCEMESSAGE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtBalanceMessage.
+     * @param value value to set the txtBalanceMessage
+     */
+    public void settxtBalanceMessage(String value) {
+        setAttributeInternal(TXTBALANCEMESSAGE, value);
     }
 
     /**
