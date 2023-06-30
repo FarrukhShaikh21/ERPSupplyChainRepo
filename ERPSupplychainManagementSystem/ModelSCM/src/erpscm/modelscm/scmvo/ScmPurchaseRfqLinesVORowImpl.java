@@ -72,6 +72,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         InvInventoryOrgVO,
         InvSubinventoryOrgVO,
         GlChartOfAccountsVO,
+        ScmPurchaseOrderLinesVO,
         AccInvItemVO,
         AccInvUnitTypeVO,
         AccGlProjectsVO,
@@ -151,6 +152,7 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     public static final int INVINVENTORYORGVO = AttributesEnum.InvInventoryOrgVO.index();
     public static final int INVSUBINVENTORYORGVO = AttributesEnum.InvSubinventoryOrgVO.index();
     public static final int GLCHARTOFACCOUNTSVO = AttributesEnum.GlChartOfAccountsVO.index();
+    public static final int SCMPURCHASEORDERLINESVO = AttributesEnum.ScmPurchaseOrderLinesVO.index();
     public static final int ACCINVITEMVO = AttributesEnum.AccInvItemVO.index();
     public static final int ACCINVUNITTYPEVO = AttributesEnum.AccInvUnitTypeVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
@@ -884,6 +886,13 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
      */
     public void setGlChartOfAccountsVO(Row value) {
         setAttributeInternal(GLCHARTOFACCOUNTSVO, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseOrderLinesVO.
+     */
+    public RowIterator getScmPurchaseOrderLinesVO() {
+        return (RowIterator) getAttributeInternal(SCMPURCHASEORDERLINESVO);
     }
 
     /**

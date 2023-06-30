@@ -954,6 +954,11 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseOrderLinesVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurRfqLinesScmPurOrderLinesRfqLinesSnoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ClientInterface
     Name="__clientInterface">
     <Method

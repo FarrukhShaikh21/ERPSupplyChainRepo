@@ -1179,6 +1179,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchaseBidLinesScmPurchaseOrderLinesBidLinesSnoAssoc.ScmPurchaseOrderLines"
     Type="erpscm.modelscm.scmeo.ScmPurchaseBidLinesImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseRfqLines"
+    Association="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurOrderLinesRfqLinesSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurOrderLinesRfqLinesSnoAssoc.ScmPurchaseRfqLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurOrderLinesRfqLinesSnoAssoc.ScmPurchaseOrderLines"
+    Type="erpscm.modelscm.scmeo.ScmPurchaseRfqLinesImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseOrderLines"
     PrimaryKey="true">
@@ -1231,6 +1238,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.BidLinesSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseOrderLines11">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_PURCHASE_QUOTATION_LINE"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_ORDER_LINES11"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.RfqLinesSno"/>
     </AttrArray>
   </Key>
   <Key
@@ -1332,24 +1350,21 @@
         Value="PoRequestQuantity"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      trustMode="trusted"
       Name="OnConditionExpr"><![CDATA[PoApproveQuantity!=null && PoRequestQuantity!=null]]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
-        Value="err_po_bid_quantity"/>
+        Value="err_po_compare_quantity"/>
       <validation:Item
         Value="err_po_demand_quantity"/>
       <validation:Item
-        Value="err_po_compare_quantity"/>
+        Value="err_po_bid_quantity"/>
     </validation:MsgIds>
     <validation:ResExpressions
       Name="ScmPurchaseOrderLinesRule0_ResExprList">
       <validation:Expression
-        trustMode="trusted"
         Name="0"><![CDATA[txtBalanceMessage]]></validation:Expression>
     </validation:ResExpressions>
-    <validation:TransientExpression
-      trustMode="trusted"><![CDATA[if(DemandLinesSno!=null && PoRequestQuantity > ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity))
+    <validation:TransientExpression><![CDATA[if(DemandLinesSno!=null && PoRequestQuantity > ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity))
 {
 settxtBalanceMessage(""+(ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity)));
 adf.error.raise("err_po_demand_quantity");

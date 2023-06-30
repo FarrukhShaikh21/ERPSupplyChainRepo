@@ -681,8 +681,7 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     IsPersistent="false"
-    IsQueriable="false"
-    TableName="SCM_PURCHASE_RFQ_LINES">
+    IsQueriable="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -762,6 +761,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.GlChartOfAccountScmPurchRfqLinesChartOfAccountIDAssoc.ScmPurchaseRfqLines"
     Type="erpfms.modelfms.fmseo.GlChartOfAccountsImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ScmPurchaseOrderLines"
+    Association="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurOrderLinesRfqLinesSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurOrderLinesRfqLinesSnoAssoc.ScmPurchaseOrderLines"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurRfqLinesScmPurOrderLinesRfqLinesSnoAssoc.ScmPurchaseRfqLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="AltKeyScmPurchaseRfqLines"
     AltKey="true">
