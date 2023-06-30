@@ -1433,6 +1433,31 @@
       Name="ScmPurchaseRfqHeaderRemainintRFQ_row_2"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="ScmPurchaseRfqLinesVO"
+        ViewAttribute="ScmPurchaseRfqLinesVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseRfqLinesVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseRfqLinesVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="IsComplete"
+              ViewAttribute="IsComplete"
+              Operator="="
+              Conjunction="AND"
+              Value="N"
+              UpperColumns="0"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
         Name="ScmPurchaseBidHeaderVO"
         ViewAttribute="ScmPurchaseBidHeaderVO"
         Operator="EXISTS"
@@ -1447,18 +1472,20 @@
             Name="ScmPurchaseBidHeaderVONestedCriteria_row_0"
             UpperColumns="1">
             <ViewCriteriaItem
+              Name="RfqHeaderSno"
+              ViewAttribute="RfqHeaderSno"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_RFQ_HEADER_SNO"
+              IsBindVarValue="true"
+              Required="Optional"/>
+            <ViewCriteriaItem
               Name="SupplierSno"
               ViewAttribute="SupplierSno"
               Operator="="
               Conjunction="AND"
               Value=":P_ADF_SUPPLIER_SNO"
               IsBindVarValue="true"
-              Required="Optional"/>
-            <ViewCriteriaItem
-              Name="ScmPurchaseBidLinesVO"
-              ViewAttribute="ScmPurchaseBidLinesVO"
-              Operator="EXISTS"
-              Conjunction="AND"
               Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>
