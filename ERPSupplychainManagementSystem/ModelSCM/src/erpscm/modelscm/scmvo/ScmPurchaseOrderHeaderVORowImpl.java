@@ -333,8 +333,8 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
        }
 //        
         else if(getDemandHeaderSno()==null){
-            getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_RFQ_HEADER_SNO", value==null?-1:value);
-            getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_SUPPLIER_SNO", getSupplierSno()==null?-1:getSupplierSno());
+            getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value==null?-1:value);
+            getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_SUPPLIER_SNO", getSupplierSno()==null?-1:getSupplierSno());
             String padfWhereClause="not exists( ";
             padfWhereClause+="select null from scm_purchase_order_header poh,";
             padfWhereClause+=" scm_purchase_order_lines pol where poh.po_header_sno=pol.po_header_sno ";
@@ -343,7 +343,7 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
             getAccScmPurchaseBidLinesVO().getViewObject().setWhereClause(padfWhereClause);
             getAccScmPurchaseBidLinesVO().executeQuery();
             System.out.println(getAccScmPurchaseBidLinesVO().getViewObject().getQuery());
-            
+            System.out.println(getAccScmPurchaseBidLinesVO().getRowCount()+"<grc");
             
 //            getAccScmPurchaseBidHeaderVO().executeQuery();
 //            RowSetIterator rsi=getAccScmPurchaseBidHeaderVO();
