@@ -265,7 +265,6 @@ public class ScmPurchaseBidHeaderVORowImpl extends ERPViewRowImpl {
             newRow.setAttribute("SubInventoryOrgSno", erpRfqrow.getAttribute("SubinventoryOrgSno"));
             newRow.setAttribute("Remarks", erpRfqrow.getAttribute("Remarks"));
             newRow.setAttribute("StatusSno", erpRfqrow.getAttribute("StatusSno"));
-            
             getScmPurchaseBidLinesVO().insertRow(newRow);
         }
 //            getScmPurchaseBidLinesVO().ex

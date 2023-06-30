@@ -117,7 +117,17 @@
   <ViewAccessor
     Name="AccScmSupplierVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmSupplierVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmSupplierByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmSupplierVO.ScmSupplierByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccAdminCompanyDept"
     ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
@@ -204,6 +214,14 @@
     <ViewCriteriaUsage
       Name="ScmPurchaseBidCompSupplierByIsSelectVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO.ScmPurchaseBidCompSupplierByIsSelectVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmPurchaseBidLinesVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseBidLinesBySupplierAndRFQForPOVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO.ScmPurchaseBidLinesBySupplierAndRFQForPOVC"/>
   </ViewAccessor>
   <ListBinding
     Name="LovPoTypeSno"
