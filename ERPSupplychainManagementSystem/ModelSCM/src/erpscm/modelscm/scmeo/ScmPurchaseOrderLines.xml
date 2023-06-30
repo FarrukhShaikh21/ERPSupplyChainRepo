@@ -136,8 +136,7 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_LINES">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[ScmPurchaseOrderHeader?.ScmPurchaseOrderLines?.max("LineNo")==null?1:ScmPurchaseOrderHeader?.ScmPurchaseOrderLines?.max("LineNo")+1]]></TransientExpression>
+    <TransientExpression><![CDATA[ScmPurchaseOrderHeader?.ScmPurchaseOrderLines?.max("LineNo")==null?1:ScmPurchaseOrderHeader?.ScmPurchaseOrderLines?.max("LineNo")+1]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -784,8 +783,7 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[(PoApproveQuantity==null?0:PoApproveQuantity)* (PoRate==null?0:PoRate)]]></TransientExpression>
+    <TransientExpression><![CDATA[(PoApproveQuantity==null?0:PoApproveQuantity)* (PoRate==null?0:PoRate)]]></TransientExpression>
     <Dependencies>
       <Item
         Value="PoApproveQuantity"/>
@@ -983,8 +981,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression><![CDATA[ScmPurchaseBidCompSupplier?.txtRemainingQtyForPO]]></TransientExpression>
-    <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -1023,23 +1020,6 @@
     </Dependencies>
   </Attribute>
   <Attribute
-    Name="txtBalanceQuantity"
-    ColumnName="txt_Balance_Quantity"
-    SQLType="NUMERIC"
-    IsQueriable="false"
-    IsPersistent="false"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtBalanceQuantity_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="txtBalanceMessage"
     Precision="80"
     ColumnName="txt_Balance_Message"
@@ -1047,12 +1027,62 @@
     IsQueriable="false"
     SQLType="VARCHAR"
     Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_LINES">
+    ColumnType="VARCHAR2">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtBalanceMessage_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtDemandBalance"
+    ColumnName="txt_Demand_Balance"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtDemandBalance_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtBidBalance"
+    ColumnName="txt_Bid_Balance"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsQueriable="false"
+    IsPersistent="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtBidBalance_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtCompareBalance"
+    ColumnName="txt_Compare_Balance"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderLines.txtCompareBalance_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
@@ -1302,9 +1332,11 @@
         Value="PoRequestQuantity"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      trustMode="untrusted"
+      trustMode="trusted"
       Name="OnConditionExpr"><![CDATA[PoApproveQuantity!=null && PoRequestQuantity!=null]]></validation:OnCondition>
     <validation:MsgIds>
+      <validation:Item
+        Value="err_po_bid_quantity"/>
       <validation:Item
         Value="err_po_demand_quantity"/>
       <validation:Item
@@ -1313,13 +1345,27 @@
     <validation:ResExpressions
       Name="ScmPurchaseOrderLinesRule0_ResExprList">
       <validation:Expression
-        trustMode="untrusted"
-        Name="0"><![CDATA[ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity)]]></validation:Expression>
+        trustMode="trusted"
+        Name="0"><![CDATA[txtBalanceMessage]]></validation:Expression>
     </validation:ResExpressions>
     <validation:TransientExpression
-      trustMode="untrusted"><![CDATA[if(PoRequestQuantity > txtBalanceQuantity)
+      trustMode="trusted"><![CDATA[if(DemandLinesSno!=null && PoRequestQuantity > ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity))
 {
+settxtBalanceMessage(""+(ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity)));
 adf.error.raise("err_po_demand_quantity");
+return false;
+}
+if(CompareSupplierSno!=null && PoRequestQuantity > ScmPurchaseBidCompSupplier?.txtRemainingQtyForPO+ (PoRequestQuantity==null?0:PoRequestQuantity))
+{
+settxtBalanceMessage(""+(ScmPurchaseBidCompSupplier?.txtRemainingQtyForPO+ (PoRequestQuantity==null?0:PoRequestQuantity)));
+adf.error.raise("err_po_compare_quantity");
+return false;
+}
+
+if(BidLinesSno!=null && PoRequestQuantity > ScmPurchaseBidLines?.txtRemainingBidQty+ (PoRequestQuantity==null?0:PoRequestQuantity))
+{
+settxtBalanceMessage(""+(ScmPurchaseBidLines?.txtRemainingBidQty+ (PoRequestQuantity==null?0:PoRequestQuantity)));
+adf.error.raise("err_po_bid_quantity");
 return false;
 }
 return true;]]></validation:TransientExpression>

@@ -85,8 +85,10 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         SubinventoryOrgSno,
         txtInventoryOrgName,
         txtSubinventoryOrgName,
-        txtBalanceQuantity,
         txtBalanceMessage,
+        txtDemandBalance,
+        txtBidBalance,
+        txtCompareBalance,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         InvItem,
@@ -174,8 +176,10 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int SUBINVENTORYORGSNO = AttributesEnum.SubinventoryOrgSno.index();
     public static final int TXTINVENTORYORGNAME = AttributesEnum.txtInventoryOrgName.index();
     public static final int TXTSUBINVENTORYORGNAME = AttributesEnum.txtSubinventoryOrgName.index();
-    public static final int TXTBALANCEQUANTITY = AttributesEnum.txtBalanceQuantity.index();
     public static final int TXTBALANCEMESSAGE = AttributesEnum.txtBalanceMessage.index();
+    public static final int TXTDEMANDBALANCE = AttributesEnum.txtDemandBalance.index();
+    public static final int TXTBIDBALANCE = AttributesEnum.txtBidBalance.index();
+    public static final int TXTCOMPAREBALANCE = AttributesEnum.txtCompareBalance.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -1040,22 +1044,6 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
 
 
     /**
-     * Gets the attribute value for txtBalanceQuantity, using the alias name txtBalanceQuantity.
-     * @return the value of txtBalanceQuantity
-     */
-    public BigDecimal gettxtBalanceQuantity() {
-        return (BigDecimal) getAttributeInternal(TXTBALANCEQUANTITY);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for txtBalanceQuantity.
-     * @param value value to set the txtBalanceQuantity
-     */
-    public void settxtBalanceQuantity(BigDecimal value) {
-        setAttributeInternal(TXTBALANCEQUANTITY, value);
-    }
-
-    /**
      * Gets the attribute value for txtBalanceMessage, using the alias name txtBalanceMessage.
      * @return the value of txtBalanceMessage
      */
@@ -1069,6 +1057,54 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      */
     public void settxtBalanceMessage(String value) {
         setAttributeInternal(TXTBALANCEMESSAGE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtDemandBalance, using the alias name txtDemandBalance.
+     * @return the value of txtDemandBalance
+     */
+    public BigDecimal gettxtDemandBalance() {
+        return (BigDecimal) getAttributeInternal(TXTDEMANDBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDemandBalance.
+     * @param value value to set the txtDemandBalance
+     */
+    public void settxtDemandBalance(BigDecimal value) {
+        setAttributeInternal(TXTDEMANDBALANCE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtBidBalance, using the alias name txtBidBalance.
+     * @return the value of txtBidBalance
+     */
+    public BigDecimal gettxtBidBalance() {
+        return (BigDecimal) getAttributeInternal(TXTBIDBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtBidBalance.
+     * @param value value to set the txtBidBalance
+     */
+    public void settxtBidBalance(BigDecimal value) {
+        setAttributeInternal(TXTBIDBALANCE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCompareBalance, using the alias name txtCompareBalance.
+     * @return the value of txtCompareBalance
+     */
+    public BigDecimal gettxtCompareBalance() {
+        return (BigDecimal) getAttributeInternal(TXTCOMPAREBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCompareBalance.
+     * @param value value to set the txtCompareBalance
+     */
+    public void settxtCompareBalance(BigDecimal value) {
+        setAttributeInternal(TXTCOMPAREBALANCE, value);
     }
 
     /**
