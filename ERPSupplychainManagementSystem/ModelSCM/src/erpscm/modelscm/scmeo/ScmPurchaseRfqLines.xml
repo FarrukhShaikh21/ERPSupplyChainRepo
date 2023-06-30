@@ -636,6 +636,62 @@
         Value="ChartOfAccountId"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="RemainingBalance"
+    Precision="16"
+    Scale="6"
+    ColumnName="REMAINING_BALANCE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.RemainingBalance_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="IsComplete"
+    Precision="1"
+    ColumnName="IS_COMPLETE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.IsComplete_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtRemainingRfqBalance"
+    ColumnName="TXT_REMAINING_RFQ_BALANCE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false"
+    TableName="SCM_PURCHASE_RFQ_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqLines.txtRemainingRfqBalance_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqHeader"
     Association="erpscm.modelscm.scmeo.FkScmPurQuoteLineHeadSnoAssoc"

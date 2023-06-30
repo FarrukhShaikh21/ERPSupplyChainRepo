@@ -59,6 +59,9 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
         txtInventoryOrgName,
         ChartOfAccountId,
         txtCOADescription,
+        txtRemainingRfqBalance,
+        IsComplete,
+        RemainingBalance,
         InvItemVO,
         InvUnitTypeVO,
         GlProjectsVO,
@@ -135,6 +138,9 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
     public static final int TXTINVENTORYORGNAME = AttributesEnum.txtInventoryOrgName.index();
     public static final int CHARTOFACCOUNTID = AttributesEnum.ChartOfAccountId.index();
     public static final int TXTCOADESCRIPTION = AttributesEnum.txtCOADescription.index();
+    public static final int TXTREMAININGRFQBALANCE = AttributesEnum.txtRemainingRfqBalance.index();
+    public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
+    public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
     public static final int INVITEMVO = AttributesEnum.InvItemVO.index();
     public static final int INVUNITTYPEVO = AttributesEnum.InvUnitTypeVO.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
@@ -695,6 +701,54 @@ public class ScmPurchaseRfqLinesVORowImpl extends ViewRowImpl {
      */
     public void settxtCOADescription(String value) {
         setAttributeInternal(TXTCOADESCRIPTION, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_REMAINING_RFQ_BALANCE using the alias name txtRemainingRfqBalance.
+     * @return the TXT_REMAINING_RFQ_BALANCE
+     */
+    public BigDecimal gettxtRemainingRfqBalance() {
+        return (BigDecimal) getAttributeInternal(TXTREMAININGRFQBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_REMAINING_RFQ_BALANCE using the alias name txtRemainingRfqBalance.
+     * @param value value to set the TXT_REMAINING_RFQ_BALANCE
+     */
+    public void settxtRemainingRfqBalance(BigDecimal value) {
+        setAttributeInternal(TXTREMAININGRFQBALANCE, value);
+    }
+
+    /**
+     * Gets the attribute value for IS_COMPLETE using the alias name IsComplete.
+     * @return the IS_COMPLETE
+     */
+    public String getIsComplete() {
+        return (String) getAttributeInternal(ISCOMPLETE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for IS_COMPLETE using the alias name IsComplete.
+     * @param value value to set the IS_COMPLETE
+     */
+    public void setIsComplete(String value) {
+        setAttributeInternal(ISCOMPLETE, value);
+    }
+
+    /**
+     * Gets the attribute value for REMAINING_BALANCE using the alias name RemainingBalance.
+     * @return the REMAINING_BALANCE
+     */
+    public BigDecimal getRemainingBalance() {
+        return (BigDecimal) getAttributeInternal(REMAININGBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for REMAINING_BALANCE using the alias name RemainingBalance.
+     * @param value value to set the REMAINING_BALANCE
+     */
+    public void setRemainingBalance(BigDecimal value) {
+        setAttributeInternal(REMAININGBALANCE, value);
     }
 
     /**

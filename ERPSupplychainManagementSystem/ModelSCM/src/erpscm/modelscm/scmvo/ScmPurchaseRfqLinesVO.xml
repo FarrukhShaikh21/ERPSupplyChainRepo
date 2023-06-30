@@ -629,6 +629,26 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtRemainingRfqBalance"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtRemainingRfqBalance"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="TXT_REMAINING_RFQ_BALANCE"/>
+  <ViewAttribute
+    Name="IsComplete"
+    PrecisionRule="true"
+    EntityAttrName="IsComplete"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="IS_COMPLETE"/>
+  <ViewAttribute
+    Name="RemainingBalance"
+    PrecisionRule="true"
+    EntityAttrName="RemainingBalance"
+    EntityUsage="ScmPurchaseRfqLines"
+    AliasName="REMAINING_BALANCE"/>
   <ViewCriteria
     Name="ScmPurchaseRfqLinesForBIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqLinesVO"
