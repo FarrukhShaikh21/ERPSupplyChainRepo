@@ -1350,21 +1350,26 @@
         Value="PoRequestQuantity"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      Name="OnConditionExpr"><![CDATA[PoApproveQuantity!=null && PoRequestQuantity!=null]]></validation:OnCondition>
+      Name="OnConditionExpr"
+      trustMode="trusted"><![CDATA[PoApproveQuantity!=null && PoRequestQuantity!=null]]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
-        Value="err_po_compare_quantity"/>
+        Value="err_po_bid_quantity"/>
+      <validation:Item
+        Value="err_po_rfq_quantity"/>
       <validation:Item
         Value="err_po_demand_quantity"/>
       <validation:Item
-        Value="err_po_bid_quantity"/>
+        Value="err_po_compare_quantity"/>
     </validation:MsgIds>
     <validation:ResExpressions
       Name="ScmPurchaseOrderLinesRule0_ResExprList">
       <validation:Expression
-        Name="0"><![CDATA[txtBalanceMessage]]></validation:Expression>
+        Name="0"
+        trustMode="trusted"><![CDATA[txtBalanceMessage]]></validation:Expression>
     </validation:ResExpressions>
-    <validation:TransientExpression><![CDATA[if(DemandLinesSno!=null && PoRequestQuantity > ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity))
+    <validation:TransientExpression
+      trustMode="trusted"><![CDATA[if(DemandLinesSno!=null && PoRequestQuantity > ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity))
 {
 settxtBalanceMessage(""+(ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoRequestQuantity==null?0:PoRequestQuantity)));
 adf.error.raise("err_po_demand_quantity");
@@ -1381,6 +1386,13 @@ if(BidLinesSno!=null && PoRequestQuantity > ScmPurchaseBidLines?.txtRemainingBid
 {
 settxtBalanceMessage(""+(ScmPurchaseBidLines?.txtRemainingBidQty+ (PoRequestQuantity==null?0:PoRequestQuantity)));
 adf.error.raise("err_po_bid_quantity");
+return false;
+}
+
+if(RfqLinesSno!=null && PoRequestQuantity > ScmPurchaseRfqLines?.txtRemainingRfqBalance+ (PoRequestQuantity==null?0:PoRequestQuantity))
+{
+settxtBalanceMessage(""+(ScmPurchaseRfqLines?.txtRemainingRfqBalance+ (PoRequestQuantity==null?0:PoRequestQuantity)));
+adf.error.raise("err_po_rfq_quantity");
 return false;
 }
 return true;]]></validation:TransientExpression>

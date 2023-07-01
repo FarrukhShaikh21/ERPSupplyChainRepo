@@ -942,11 +942,16 @@ public class ScmPurchaseRfqLinesImpl extends ERPEntityImpl {
                 getScmPurchaseDemandLines().setAttribute("StatusSno", 2);
 //                getScmPurchaseDemandLines().populateAttributeAsChanged(getScmPurchaseDemandLines().STATUSSNO, 2);
             }
+            populateAttributeAsChanged(REMAININGBALANCE, QUANTITY);
 
         }
         if (operation == DML_DELETE && getDemandLinesSno() != null) {
             getScmPurchaseDemandLines().setAttribute("StatusSno", 1);
         }
+        if (operation!=DML_DELETE) {
+           populateAttributeAsChanged(REMAININGBALANCE, gettxtRemainingRfqBalance());
+           populateAttributeAsChanged(ISCOMPLETE, getRemainingBalance().compareTo(new BigDecimal(0)) == 1 ? "N" : "Y");
+       }
         super.doDML(operation, e);
     }
 }

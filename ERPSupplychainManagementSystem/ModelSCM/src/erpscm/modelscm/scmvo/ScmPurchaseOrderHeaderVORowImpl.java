@@ -7,6 +7,7 @@ import erpscm.modelscm.scmeo.ScmPurchaseOrderHeaderImpl;
 import java.sql.Timestamp;
 
 import oracle.jbo.ApplicationModule;
+import oracle.jbo.JboException;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
@@ -297,7 +298,7 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
        }
         ApplicationModule am = getApplicationModule();
         ViewObject erpPOHeadvo=am.findViewObject("ScmPurchaseOrderHeaderCRUD");
-        ViewObject erpPOLinesvo=am.findViewObject("ScmPurchaseOrderLinesDetCRUD");
+//        ViewObject erpPOLinesvo=am.findViewObject("ScmPurchaseOrderLinesDetCRUD");
         
         getAccScmPurchaseBidCompHeaderVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value==null?-1:value);
         getAccScmPurchaseBidCompHeaderVO().executeQuery();
@@ -311,7 +312,7 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
            RowSetIterator rsi=getAccScmPurchaseBidCompSupplierVO();
            while(rsi.hasNext()) {
                Row bidCompRow=rsi.next();
-                    Row erpPoLinRow = erpPOLinesvo.createRow();
+                    Row erpPoLinRow = getScmPurchaseOrderLinesVO().createRow();
                     erpPoLinRow.setAttribute("ItemId", bidCompRow.getAttribute("txtItemId"));
                     erpPoLinRow.setAttribute("UnitTypeSno", bidCompRow.getAttribute("txtUnitTypeSno"));
                     erpPoLinRow.setAttribute("PoRequestQuantity", bidCompRow.getAttribute("RemainingBalance"));
@@ -326,9 +327,9 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
                     erpPoLinRow.setAttribute("InventoryOrgSno", bidCompRow.getAttribute("txtInventoryOrgSno"));
                     erpPoLinRow.setAttribute("SubinventoryOrgSno", bidCompRow.getAttribute("txtSubinventoryOrgSno"));
                     erpPoLinRow.setAttribute("ChartOfAccountId", bidCompRow.getAttribute("txtChartOfAccountId"));
-                    erpPoLinRow.setAttribute("LineNo", erpPOLinesvo.getRowCount());
+                    erpPoLinRow.setAttribute("LineNo", getScmPurchaseOrderLinesVO().getRowCount());
 //                    suprow.setAttribute("RemainingBalance", (suprow.getAttribute("txtRemainingQtyForPO" )));
-                    erpPOLinesvo.insertRow(erpPoLinRow);
+                    getScmPurchaseOrderLinesVO().insertRow(erpPoLinRow);
            }
        }
 //        
@@ -339,36 +340,41 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
             padfWhereClause+="select null from scm_purchase_order_header poh,";
             padfWhereClause+=" scm_purchase_order_lines pol where poh.po_header_sno=pol.po_header_sno ";
             padfWhereClause+=" and pol.rfq_lines_sno=scmpurchasebidlines.rfq_lines_sno ";
-            padfWhereClause+=" and poh.supplier_sno="+getSupplierSno()+" and poh.rfq_header_sno="+value+") ";
+            padfWhereClause+=" and poh.supplier_sno!="+getSupplierSno()+" and poh.rfq_header_sno="+value+") ";
             getAccScmPurchaseBidLinesVO().getViewObject().setWhereClause(padfWhereClause);
             getAccScmPurchaseBidLinesVO().executeQuery();
             System.out.println(getAccScmPurchaseBidLinesVO().getViewObject().getQuery());
             System.out.println(getAccScmPurchaseBidLinesVO().getRowCount()+"<grc");
             
-//            getAccScmPurchaseBidHeaderVO().executeQuery();
-//            RowSetIterator rsi=getAccScmPurchaseBidHeaderVO();
+            getAccScmPurchaseBidLinesVO().executeQuery();
+            if (getAccScmPurchaseBidLinesVO().getRowCount()==0) {
+                throw new JboException("Item does not available for PO or you have already selected this item against other supplier.");
+           }
+            RowSetIterator rsi=getAccScmPurchaseBidLinesVO();
             /**/
-//            while(rsi.hasNext()) {
-//                Row erpRfqrow=rsi.next();
-//                Row newRow=getScmPurchaseOrderLinesVO().createRow();
-//                newRow.setAttribute("RfqLinesSno", erpRfqrow.getAttribute("RfqLinesSno"));
-//                newRow.setAttribute("BidLinesSno", erpRfqrow.getAttribute("BidLinesSno"));
-//                newRow.setAttribute("ItemId", erpRfqrow.getAttribute("ItemId"));
-//                newRow.setAttribute("UnitTypeSno", erpRfqrow.getAttribute("UnitTypeSno"));
-//                newRow.setAttribute("Quantity", erpRfqrow.getAttribute("Quantity"));
-//                newRow.setAttribute("BidPrice", erpRfqrow.getAttribute("AproxPrice"));
+            while(rsi.hasNext()) {
+                Row erpRfqrow=rsi.next();
+                Row newRow=getScmPurchaseOrderLinesVO().createRow();
+                newRow.setAttribute("RfqLinesSno", erpRfqrow.getAttribute("RfqLinesSno"));
+                newRow.setAttribute("BidLinesSno", erpRfqrow.getAttribute("BidLinesSno"));
+                newRow.setAttribute("ItemId", erpRfqrow.getAttribute("ItemId"));
+                newRow.setAttribute("UnitTypeSno", erpRfqrow.getAttribute("UnitTypeSno"));
+                newRow.setAttribute("PoRequestQuantity", erpRfqrow.getAttribute("RemainingBalance"));
+                newRow.setAttribute("PoApproveQuantity", erpRfqrow.getAttribute("RemainingBalance"));
+                
+                newRow.setAttribute("PoRate", erpRfqrow.getAttribute("BidPrice"));
 //                System.out.println(erpRfqrow.getAttribute("AproxPrice") +"<aaprice");
-//                newRow.setAttribute("ProjectId", erpRfqrow.getAttribute("ProjectId"));
-//                newRow.setAttribute("DepartmentId", erpRfqrow.getAttribute("DepartmentId"));
-//                newRow.setAttribute("DemandLinesSno", erpRfqrow.getAttribute("DemandLinesSno"));
-//                newRow.setAttribute("SupplierItemName", erpRfqrow.getAttribute("SupplierItemName"));
-//                newRow.setAttribute("ChartOfAccountId", erpRfqrow.getAttribute("ChartOfAccountId"));
-//                newRow.setAttribute("InventoryOrgSno", erpRfqrow.getAttribute("InventoryOrgSno"));
-//                newRow.setAttribute("SubInventoryOrgSno", erpRfqrow.getAttribute("SubinventoryOrgSno"));
-//                newRow.setAttribute("Remarks", erpRfqrow.getAttribute("Remarks"));
-//                newRow.setAttribute("StatusSno", erpRfqrow.getAttribute("StatusSno"));
-//                getScmPurchaseOrderLinesVO().insertRow(newRow);
-//            }
+                newRow.setAttribute("ProjectId", erpRfqrow.getAttribute("ProjectId"));
+                newRow.setAttribute("DepartmentId", erpRfqrow.getAttribute("DepartmentId"));
+                newRow.setAttribute("DemandLinesSno", erpRfqrow.getAttribute("DemandLinesSno"));
+                newRow.setAttribute("SupplierItemName", erpRfqrow.getAttribute("SupplierItemName"));
+                newRow.setAttribute("ChartOfAccountId", erpRfqrow.getAttribute("ChartOfAccountId"));
+                newRow.setAttribute("InventoryOrgSno", erpRfqrow.getAttribute("InventoryOrgSno"));
+                newRow.setAttribute("SubinventoryOrgSno", erpRfqrow.getAttribute("SubInventoryOrgSno"));
+                newRow.setAttribute("SupplierItemName", erpRfqrow.getAttribute("SupplierItemName"));
+                newRow.setAttribute("StatusSno", 1);
+                getScmPurchaseOrderLinesVO().insertRow(newRow);
+            }
 
             /**/
         }

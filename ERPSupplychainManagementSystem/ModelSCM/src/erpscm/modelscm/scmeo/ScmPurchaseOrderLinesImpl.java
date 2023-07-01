@@ -1372,6 +1372,12 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
             getScmPurchaseBidLines().setAttribute("IsComplete", "N");
             //
         }
+        
+        if (getRfqLinesSno()!=null) {
+        //            getScmPurchaseDemandLines().setAttribute("BalanceQuantity",getScmPurchaseDemandLines().getAttribute("txtRemainingDemandQty"));
+            getScmPurchaseRfqLines().setAttribute("IsComplete", "N");
+            //
+        }
         super.doDML(operation, e);
             
     }
