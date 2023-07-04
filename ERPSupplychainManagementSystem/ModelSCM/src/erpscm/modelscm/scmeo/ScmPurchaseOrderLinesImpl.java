@@ -17,11 +17,19 @@ import erpims.modelims.imseo.InvUnitTypeImpl;
 
 import java.math.BigDecimal;
 
+import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 
+import oracle.jbo.ApplicationModule;
 import oracle.jbo.AttributeList;
+import oracle.jbo.JboException;
 import oracle.jbo.Key;
+import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
+import oracle.jbo.ViewObject;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -1354,32 +1362,84 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
        }
 //        System.out.println(getScmPurchaseBidCompSupplier().getAttribute("txtRemainingQtyForPO")+ "txtrempoqty");
             System.out.println("pre_del_after"+getCompareSupplierSno());
-        
-        if (getCompareSupplierSno()!=null) {
-            System.out.println("podelete");
-            getScmPurchaseBidCompSupplier().setAttribute("IsComplete", "N");
-//            getScmPurchaseBidCompSupplier().setAttribute("RemainingBalance",getScmPurchaseBidCompSupplier().getAttribute("txtRemainingQtyForPO"));
-        }
-        
-        if (getDemandLinesSno()!=null) {
-//            getScmPurchaseDemandLines().setAttribute("BalanceQuantity",getScmPurchaseDemandLines().getAttribute("txtRemainingDemandQty"));
-            getScmPurchaseDemandLines().setAttribute("IsComplete", "N");
-            //
-        }
-        
-        if (getBidLinesSno()!=null) {
-        //            getScmPurchaseDemandLines().setAttribute("BalanceQuantity",getScmPurchaseDemandLines().getAttribute("txtRemainingDemandQty"));
-            getScmPurchaseBidLines().setAttribute("IsComplete", "N");
-            //
-        }
-        
-        if (getRfqLinesSno()!=null) {
-        //            getScmPurchaseDemandLines().setAttribute("BalanceQuantity",getScmPurchaseDemandLines().getAttribute("txtRemainingDemandQty"));
-            getScmPurchaseRfqLines().setAttribute("IsComplete", "N");
-            //
-        }
+//        
+//        if (getCompareSupplierSno()!=null) {
+//            System.out.println("podelete");
+//            getScmPurchaseBidCompSupplier().setAttribute("IsComplete", "N");
+//        }
+//        
+//        if (getDemandLinesSno()!=null) {
+//            getScmPurchaseDemandLines().setAttribute("IsComplete", "N");
+//        }
+//        
+//        if (getBidLinesSno()!=null) {
+//            getScmPurchaseBidLines().setAttribute("IsComplete", "N");
+//        }
+//        
+//        if (getRfqLinesSno()!=null) {
+//            getScmPurchaseRfqLines().setAttribute("IsComplete", "N");
+//        }
         super.doDML(operation, e);
-            
+        PreparedStatement ps=null;
+        try {
+             ps =
+                getDBTransaction().createPreparedStatement("update scm_purchase_rfq_lines rfl set rfl.remaining_balance=(select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where rfq_lines_sno=" +
+                                                           getRfqLinesSno() + ") where rfl.rfq_lines_sno=" +
+                                                           getRfqLinesSno(), getDBTransaction().DEFAULT);
+            ps.executeUpdate();
+        } catch (SQLException sqle) {
+            // TODO: Add catch code
+            sqle.printStackTrace();
+        }
+        finally{
+            try {
+                ps.close();
+            } catch (SQLException f) {
+            }
+        }
+//        throw new JboException("Thisis exception");
     }
+   
+    public void doCheckBalanceQuantity() {
+        System.out.println("doprocessbeforeinsert");
+            System.out.println("preparefordml");
+            String poquantity="0";
+           PreparedStatement ps=getDBTransaction().createPreparedStatement("rollback", getDBTransaction().DEFAULT);
+            try {
+                ps.executeUpdate();
+                ps= getDBTransaction().createPreparedStatement("select coalesce(sum(po_approve_quantity),0) PoQuantity from scm_purchase_order_lines where po_lines_sno!="+getPoLinesSno()+" and rfq_lines_sno="+getRfqLinesSno(), getDBTransaction().DEFAULT);
+                ResultSet rs = ps.executeQuery();
+                rs.next();
+                poquantity=rs.getString(1);
+        //                System.out.println(rs.getString(1));
+                
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            finally{
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                }
+            }
+            BigDecimal rfqRemainingQty=getScmPurchaseRfqLines().getQuantity().subtract(new BigDecimal(poquantity));
+        //            System.out.println(getScmPurchaseRfqLines().getRemainingBalance());
+           if (rfqRemainingQty.compareTo(getPoRequestQuantity())==-1) {
+            throw new  JboException("Only ("+rfqRemainingQty+") RFQ quantity remaining. Before Insert Exception");
+           }
+    }
+    @Override
+    protected void prepareForDML(int i, TransactionEvent transactionEvent) {
+        if (i!=DML_DELETE) {
+           doCheckBalanceQuantity();
+       }
+        super.prepareForDML(i, transactionEvent);
+    }
+    
+    public static void main(String[] args) {
+        BigDecimal rfq=new BigDecimal(2);
+        BigDecimal Po = new BigDecimal(1);
+        System.out.println(rfq.compareTo(Po));
+   }
 }
 
