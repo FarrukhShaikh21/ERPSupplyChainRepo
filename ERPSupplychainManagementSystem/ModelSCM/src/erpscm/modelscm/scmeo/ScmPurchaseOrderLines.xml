@@ -980,7 +980,8 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[ScmPurchaseRfqLines?.txtRemainingRfqBalance+ (PoApproveQuantity==null?0:PoApproveQuantity)]]></TransientExpression>
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InvInventoryOrg?.OrgDescription]]></TransientExpression>
     <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
@@ -993,8 +994,6 @@
     <Dependencies>
       <Item
         Value="InventoryOrgSno"/>
-      <Item
-        Value="PoApproveQuantity"/>
     </Dependencies>
   </Attribute>
   <Attribute
@@ -1352,16 +1351,16 @@
         Value="PoRequestQuantity"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      Name="OnConditionExpr"><![CDATA[PoApproveQuantity!=null && PoRequestQuantity!=null]]></validation:OnCondition>
+      Name="OnConditionExpr"><![CDATA[2==1 && PoApproveQuantity!=null && PoRequestQuantity!=null]]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
         Value="err_po_bid_quantity"/>
       <validation:Item
-        Value="err_po_demand_quantity"/>
-      <validation:Item
         Value="err_po_rfq_quantity"/>
       <validation:Item
         Value="err_po_compare_quantity"/>
+      <validation:Item
+        Value="err_po_demand_quantity"/>
     </validation:MsgIds>
     <validation:ResExpressions
       Name="ScmPurchaseOrderLinesRule0_ResExprList">

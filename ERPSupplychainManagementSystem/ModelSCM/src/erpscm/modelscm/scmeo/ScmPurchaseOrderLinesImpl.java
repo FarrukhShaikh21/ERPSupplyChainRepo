@@ -1380,20 +1380,24 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
 //            getScmPurchaseRfqLines().setAttribute("IsComplete", "N");
 //        }
         super.doDML(operation, e);
-       
-        if (getDemandLinesSno()!=null) {
-            doUpdateSourceBalance("SCM_PURCHASE_DEMAND_LINES", "DEMAND_LINES_SNO", "DemandLinesSno","DEMAND_QUANTITY");
-        }
-        
-        if (getRfqLinesSno()!=null) {
-            doUpdateSourceBalance("SCM_PURCHASE_RFQ_LINES", "RFQ_LINES_SNO", "RfqLinesSno","QUANTITY");
-        }
-        if (getBidLinesSno()!=null) {
-            doUpdateSourceBalance("SCM_PURCHASE_BID_LINES", "BID_LINES_SNO", "BidLinesSno","QUANTITY");
-        }
-        
-        if (getCompareSupplierSno()!=null) {
-            doUpdateSourceBalance("SCM_PURCHASE_BID_COMP_SUPPLIER", "COMPARE_SUPPLIER_SNO", "CompareSupplierSno","QUANTITY");
+
+        if (2==1) {
+            if (getDemandLinesSno() != null) {
+                doUpdateSourceBalance("SCM_PURCHASE_DEMAND_LINES", "DEMAND_LINES_SNO", "DemandLinesSno",
+                                      "DEMAND_QUANTITY");
+            }
+
+            if (getRfqLinesSno() != null) {
+                doUpdateSourceBalance("SCM_PURCHASE_RFQ_LINES", "RFQ_LINES_SNO", "RfqLinesSno", "QUANTITY");
+            }
+            if (getBidLinesSno() != null) {
+                doUpdateSourceBalance("SCM_PURCHASE_BID_LINES", "BID_LINES_SNO", "BidLinesSno", "QUANTITY");
+            }
+
+            if (getCompareSupplierSno() != null) {
+                doUpdateSourceBalance("SCM_PURCHASE_BID_COMP_SUPPLIER", "COMPARE_SUPPLIER_SNO", "CompareSupplierSno",
+                                      "QUANTITY");
+            }
         }
 //        throw new JboException("Thisis exception");
     }
@@ -1449,17 +1453,19 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         if (i != DML_DELETE) {
 
             if (getRfqLinesSno() != null) {
-                doCheckBalanceQuantity("RFQ_LINES_SNO", "RfqLinesSno", "RFQ",getScmPurchaseRfqLines().getQuantity());
+                doCheckBalanceQuantity("RFQ_LINES_SNO", "RfqLinesSno", "RFQ", getScmPurchaseRfqLines().getQuantity());
             }
             if (getBidLinesSno() != null) {
-                doCheckBalanceQuantity("BID_LINES_SNO", "BidLinesSno", "BID",getScmPurchaseBidLines().getQuantity());
+                doCheckBalanceQuantity("BID_LINES_SNO", "BidLinesSno", "BID", getScmPurchaseBidLines().getQuantity());
             }
-            
+
             if (getCompareSupplierSno() != null) {
-                doCheckBalanceQuantity("COMPARE_SUPPLIER_SNO", "CompareSupplierSno", "Compare",getScmPurchaseBidCompSupplier().getQuantity());
+                doCheckBalanceQuantity("COMPARE_SUPPLIER_SNO", "CompareSupplierSno", "Compare",
+                                       getScmPurchaseBidCompSupplier().getQuantity());
             }
             if (getDemandLinesSno() != null) {
-                doCheckBalanceQuantity("DEMAND_LINES_SNO", "DemandLinesSno", "Demand",getScmPurchaseDemandLines().getApproveQuantity());
+                doCheckBalanceQuantity("DEMAND_LINES_SNO", "DemandLinesSno", "Demand",
+                                       getScmPurchaseDemandLines().getApproveQuantity());
             }
         }
         super.prepareForDML(i, transactionEvent);

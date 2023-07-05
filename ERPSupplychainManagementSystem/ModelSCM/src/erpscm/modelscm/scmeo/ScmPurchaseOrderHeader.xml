@@ -26,7 +26,8 @@
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_HEADER"
     PrimaryKey="true"
-    IsNotNull="true">
+    IsNotNull="true"
+    ChangeIndicator="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -554,7 +555,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="SCM_PURCHASE_ORDER_HEADER">
+    TableName="SCM_PURCHASE_ORDER_HEADER"
+    RetrievedOnUpdate="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
