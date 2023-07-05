@@ -1380,18 +1380,30 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
 //            getScmPurchaseRfqLines().setAttribute("IsComplete", "N");
 //        }
         super.doDML(operation, e);
+       
+        if (getDemandLinesSno()!=null) {
+            doUpdateSourceBalance("SCM_PURCHASE_DEMAND_LINES", "DEMAND_LINES_SNO", "DemandLinesSno","DEMAND_QUANTITY");
+        }
+        
         if (getRfqLinesSno()!=null) {
-            doUpdateSourceBalance("SCM_PURCHASE_RFQ_LINES", "RFQ_LINES_SNO", "RfqLinesSno");
+            doUpdateSourceBalance("SCM_PURCHASE_RFQ_LINES", "RFQ_LINES_SNO", "RfqLinesSno","QUANTITY");
+        }
+        if (getBidLinesSno()!=null) {
+            doUpdateSourceBalance("SCM_PURCHASE_BID_LINES", "BID_LINES_SNO", "BidLinesSno","QUANTITY");
+        }
+        
+        if (getCompareSupplierSno()!=null) {
+            doUpdateSourceBalance("SCM_PURCHASE_BID_COMP_SUPPLIER", "COMPARE_SUPPLIER_SNO", "CompareSupplierSno","QUANTITY");
         }
 //        throw new JboException("Thisis exception");
     }
    
-    public void doUpdateSourceBalance(String pTableName,String pDBColumn,String pGetter) {
+    public void doUpdateSourceBalance(String pTableName,String pDBColumn,String pGetter,String ERPQuantityColumn) {
         PreparedStatement ps=null;
         try {
             System.out.println("update "+pTableName+" rfl set rfl.remaining_balance=(select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) + ") where rfl."+pDBColumn+"="+getAttribute(pGetter));
              ps =
-                getDBTransaction().createPreparedStatement("update "+pTableName+" rfl set rfl.remaining_balance=(select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) + ") where rfl."+pDBColumn+"="+getAttribute(pGetter), getDBTransaction().DEFAULT);
+                getDBTransaction().createPreparedStatement("update "+pTableName+" rfl set rfl.is_complete=case when (select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) +")=rfl."+ERPQuantityColumn+" then 'Y' else 'N' end ,rfl.remaining_balance=(select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) + ") where rfl."+pDBColumn+"="+getAttribute(pGetter), getDBTransaction().DEFAULT);
             ps.executeUpdate();
         } catch (SQLException sqle) {
             // TODO: Add catch code
