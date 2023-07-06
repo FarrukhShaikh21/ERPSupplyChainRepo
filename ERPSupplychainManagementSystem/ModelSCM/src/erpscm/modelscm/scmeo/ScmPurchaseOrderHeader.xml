@@ -26,8 +26,7 @@
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_HEADER"
     PrimaryKey="true"
-    IsNotNull="true"
-    ChangeIndicator="true">
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -1073,6 +1072,23 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.txtOrderTypeName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtGenerateFromBidCompare"
+    Precision="80"
+    ColumnName="txt_Generate_From_Bid_Compare"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SCM_PURCHASE_ORDER_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.txtGenerateFromBidCompare_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

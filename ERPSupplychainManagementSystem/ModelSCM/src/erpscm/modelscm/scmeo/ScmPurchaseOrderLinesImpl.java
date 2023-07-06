@@ -28,6 +28,7 @@ import oracle.jbo.AttributeList;
 import oracle.jbo.JboException;
 import oracle.jbo.Key;
 import oracle.jbo.Row;
+import oracle.jbo.RowInconsistentException;
 import oracle.jbo.RowIterator;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.EntityDefImpl;
@@ -1345,7 +1346,13 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * Add locking logic here.
      */
     public void lock() {
-        super.lock();
+           try {
+           super.lock();
+           } catch (RowInconsistentException e) {
+           refresh(REFRESH_WITH_DB_ONLY_IF_UNCHANGED | REFRESH_CONTAINEES) ;
+           
+           super.lock();
+           }
     }
 
     /**
@@ -1360,8 +1367,27 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
             populateAttributeAsChanged(NETAMOUNT, gettxtNetAmount());
             populateAttributeAsChanged(TAXAMOUNT, gettxtTaxAmount());
        }
-//        System.out.println(getScmPurchaseBidCompSupplier().getAttribute("txtRemainingQtyForPO")+ "txtrempoqty");
-            System.out.println("pre_del_after"+getCompareSupplierSno());
+        if (operation!=DML_DELETE) {
+         
+
+               if (getRfqLinesSno() != null) {
+                   
+                   doCheckBalanceQuantity("RFQ_LINES_SNO", "RfqLinesSno", "RFQ", getScmPurchaseRfqLines().getQuantity());
+               }
+               if (getBidLinesSno() != null) {
+                   doCheckBalanceQuantity("BID_LINES_SNO", "BidLinesSno", "BID", getScmPurchaseBidLines().getQuantity());
+               }
+
+               if (getCompareSupplierSno() != null) {
+                   doCheckBalanceQuantity("COMPARE_SUPPLIER_SNO", "CompareSupplierSno", "Compare",
+                                          getScmPurchaseBidCompSupplier().getQuantity());
+               }
+               if (getDemandLinesSno() != null) {
+                   doCheckBalanceQuantity("DEMAND_LINES_SNO", "DemandLinesSno", "Demand",
+                                          getScmPurchaseDemandLines().getApproveQuantity());
+               }
+          
+       }
 //        
 //        if (getCompareSupplierSno()!=null) {
 //            System.out.println("podelete");
@@ -1381,7 +1407,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
 //        }
         super.doDML(operation, e);
 
-        if (2==1) {
+        if (1==1) {
             if (getDemandLinesSno() != null) {
                 doUpdateSourceBalance("SCM_PURCHASE_DEMAND_LINES", "DEMAND_LINES_SNO", "DemandLinesSno",
                                       "DEMAND_QUANTITY");
@@ -1405,9 +1431,9 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public void doUpdateSourceBalance(String pTableName,String pDBColumn,String pGetter,String ERPQuantityColumn) {
         PreparedStatement ps=null;
         try {
-            System.out.println("update "+pTableName+" rfl set rfl.remaining_balance=(select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) + ") where rfl."+pDBColumn+"="+getAttribute(pGetter));
+            System.out.println("update "+pTableName+" rfl set rfl.is_complete=case when (select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) +")=rfl."+ERPQuantityColumn+" then 'Y' else 'N' end ,rfl.remaining_balance=rfl."+ERPQuantityColumn+"-(select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) + ") where rfl."+pDBColumn+"="+getAttribute(pGetter));
              ps =
-                getDBTransaction().createPreparedStatement("update "+pTableName+" rfl set rfl.is_complete=case when (select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) +")=rfl."+ERPQuantityColumn+" then 'Y' else 'N' end ,rfl.remaining_balance=(select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) + ") where rfl."+pDBColumn+"="+getAttribute(pGetter), getDBTransaction().DEFAULT);
+                getDBTransaction().createPreparedStatement("update "+pTableName+" rfl set rfl.is_complete=case when (select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) +")=rfl."+ERPQuantityColumn+" then 'Y' else 'N' end ,rfl.remaining_balance=rfl."+ERPQuantityColumn+"-(select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) + ") where rfl."+pDBColumn+"="+getAttribute(pGetter), getDBTransaction().DEFAULT);
             ps.executeUpdate();
         } catch (SQLException sqle) {
             // TODO: Add catch code
@@ -1421,17 +1447,14 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         }
     }
     public void doCheckBalanceQuantity(String pERPDBColumn, String pERPGetter,String pType,BigDecimal pERPSourceQuantity) {
-        System.out.println("doprocessbeforeinsert");
-            System.out.println("preparefordml");
             String poquantity="0";
-           PreparedStatement ps=getDBTransaction().createPreparedStatement("rollback", getDBTransaction().DEFAULT);
+           PreparedStatement ps=getDBTransaction().createPreparedStatement("start TRANSACTION", getDBTransaction().DEFAULT);
             try {
                 ps.executeUpdate();
                 ps= getDBTransaction().createPreparedStatement("select coalesce(sum(po_approve_quantity),0) PoQuantity from scm_purchase_order_lines where po_lines_sno!="+getPoLinesSno()+" and "+pERPDBColumn+"="+getAttribute(pERPGetter), getDBTransaction().DEFAULT);
                 ResultSet rs = ps.executeQuery();
                 rs.next();
                 poquantity=rs.getString(1);
-        //                System.out.println(rs.getString(1));
                 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -1442,32 +1465,20 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
                 } catch (SQLException e) {
                 }
             }
+//        if (getRfqLinesSno().intValue()==136) {
+            System.out.println(getScmPurchaseRfqLines().getQuantity() + "qty");
+            System.out.println(getScmPurchaseRfqLines().getRemainingBalance() + "rembal");
+            System.out.println(pERPSourceQuantity + "pERPSourceQuantity");
+            System.out.println(poquantity + "poquantity");
+            System.out.println(pERPSourceQuantity.subtract(new BigDecimal(poquantity))+ "subtr");
+//        }
             BigDecimal rfqRemainingQty=pERPSourceQuantity.subtract(new BigDecimal(poquantity));
-        //            System.out.println(getScmPurchaseRfqLines().getRemainingBalance());
            if (rfqRemainingQty.compareTo(getPoRequestQuantity())==-1) {
             throw new  JboException("Only ("+rfqRemainingQty+") "+pType+"remaining. Before Insert Exception");
            }
     }
     @Override
     protected void prepareForDML(int i, TransactionEvent transactionEvent) {
-        if (i != DML_DELETE) {
-
-            if (getRfqLinesSno() != null) {
-                doCheckBalanceQuantity("RFQ_LINES_SNO", "RfqLinesSno", "RFQ", getScmPurchaseRfqLines().getQuantity());
-            }
-            if (getBidLinesSno() != null) {
-                doCheckBalanceQuantity("BID_LINES_SNO", "BidLinesSno", "BID", getScmPurchaseBidLines().getQuantity());
-            }
-
-            if (getCompareSupplierSno() != null) {
-                doCheckBalanceQuantity("COMPARE_SUPPLIER_SNO", "CompareSupplierSno", "Compare",
-                                       getScmPurchaseBidCompSupplier().getQuantity());
-            }
-            if (getDemandLinesSno() != null) {
-                doCheckBalanceQuantity("DEMAND_LINES_SNO", "DemandLinesSno", "Demand",
-                                       getScmPurchaseDemandLines().getApproveQuantity());
-            }
-        }
         super.prepareForDML(i, transactionEvent);
     }
     
@@ -1476,5 +1487,5 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         BigDecimal Po = new BigDecimal(1);
         System.out.println(rfq.compareTo(Po));
    }
-}
+  }
 

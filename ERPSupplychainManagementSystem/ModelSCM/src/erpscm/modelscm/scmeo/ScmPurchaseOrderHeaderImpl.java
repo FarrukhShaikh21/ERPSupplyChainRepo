@@ -12,6 +12,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowInconsistentException;
 import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
@@ -80,6 +81,7 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         DeliveryTermSno,
         txtDeliveryTermName,
         txtOrderTypeName,
+        txtGenerateFromBidCompare,
         ScmPurchaseOrderCharges,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderLines,
@@ -173,6 +175,7 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int DELIVERYTERMSNO = AttributesEnum.DeliveryTermSno.index();
     public static final int TXTDELIVERYTERMNAME = AttributesEnum.txtDeliveryTermName.index();
     public static final int TXTORDERTYPENAME = AttributesEnum.txtOrderTypeName.index();
+    public static final int TXTGENERATEFROMBIDCOMPARE = AttributesEnum.txtGenerateFromBidCompare.index();
     public static final int SCMPURCHASEORDERCHARGES = AttributesEnum.ScmPurchaseOrderCharges.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
@@ -1054,6 +1057,22 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtGenerateFromBidCompare, using the alias name txtGenerateFromBidCompare.
+     * @return the value of txtGenerateFromBidCompare
+     */
+    public String gettxtGenerateFromBidCompare() {
+        return (String) getAttributeInternal(TXTGENERATEFROMBIDCOMPARE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtGenerateFromBidCompare.
+     * @param value value to set the txtGenerateFromBidCompare
+     */
+    public void settxtGenerateFromBidCompare(String value) {
+        setAttributeInternal(TXTGENERATEFROMBIDCOMPARE, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getScmPurchaseOrderCharges() {
@@ -1290,8 +1309,15 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     /**
      * Add locking logic here.
      */
+    @Override
     public void lock() {
-        super.lock();
+           try {
+           super.lock();
+           } catch (RowInconsistentException e) {
+           refresh(REFRESH_WITH_DB_ONLY_IF_UNCHANGED | REFRESH_CONTAINEES) ;
+           
+           super.lock();
+           }
     }
 
     /**
@@ -1311,5 +1337,12 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
             }
         super.doDML(operation, e);
     }
+    @Override
+    public void beforeCommit(TransactionEvent transactionEvent) {
+        // TODO Implement this method
+        System.out.println("beforecommit-soheader");
+        super.beforeCommit(transactionEvent);
+    }
+    
 }
 

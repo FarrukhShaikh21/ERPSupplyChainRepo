@@ -311,7 +311,9 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
            getAccScmPurchaseBidCompSupplierVO().executeQuery();
            RowSetIterator rsi=getAccScmPurchaseBidCompSupplierVO();
            while(rsi.hasNext()) {
+               
                Row bidCompRow=rsi.next();
+               System.out.println(bidCompRow.getAttribute("CompareSupplierSno") + "<sheader");
                     Row erpPoLinRow = getScmPurchaseOrderLinesVO().createRow();
                     erpPoLinRow.setAttribute("ItemId", bidCompRow.getAttribute("txtItemId"));
                     erpPoLinRow.setAttribute("UnitTypeSno", bidCompRow.getAttribute("txtUnitTypeSno"));
