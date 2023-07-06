@@ -7,6 +7,8 @@ import erpscm.modelscm.scmvo.common.ScmPurchaseRfqSupplierVORow;
 
 import java.math.BigDecimal;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 
 
@@ -476,9 +478,20 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         supcompvo.setRangeSize(-1);
 
         for (int i = 0; i < supcompvo.getRowCount(); i++) {
-            if (supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO")!=null &&supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO").equals("Y") && supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePOQty")!=null && new BigDecimal(supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePOQty").toString()).intValue()>0 ) {
-                erpPoSelect=1;
-           }
+            if (supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO") != null &&
+                supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO").equals("Y") &&
+                supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePOQty") != null) {
+                erpPoSelect = 1;
+                //checking balance before generating
+                PreparedStatement ps =
+                    getDBTransaction().createPreparedStatement("start transaction;", getDBTransaction().DEFAULT);
+                try {
+                    ps.executeUpdate();
+                } catch (SQLException e) {
+                } finally {
+
+                }
+            }
         }
         if (erpPoSelect== 0) {
             throw new JboException("Please select item and enter quantity to generate Purchase Order");
@@ -491,6 +504,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         if (gettxtIsMerge()==null || gettxtIsMerge().equals("N")) {
             Row poheadRow=erpPOHeadvo.createRow();
             poheadRow.setAttribute("SupplierSno", getSupplierSno());
+            poheadRow.setAttribute("txtGenerateFromBidCompare", "Y");
             poheadRow.setAttribute("DemandHeaderSno", erpPurBidComp.getCurrentRow().getAttribute("DemandHeaderSno"));
             poheadRow.setAttribute("CompanyId", erpPurBidComp.getCurrentRow().getAttribute("CompanyId"));
             poheadRow.setAttribute("CompareHeaderSno", erpPurBidComp.getCurrentRow().getAttribute("CompareHeaderSno"));
@@ -557,6 +571,15 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         supcompvo.executeQuery();
         erpPOHeadvo.executeQuery();
         erpPOLinesvo.executeQuery();
+    }
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            if (i==6) {
+                break;
+           }
+            System.out.println(i);
+       }
+
     }
 }
 

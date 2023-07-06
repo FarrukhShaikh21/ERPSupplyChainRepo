@@ -80,6 +80,7 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
         DeliveryTermSno,
         txtDeliveryTermName,
         txtOrderTypeName,
+        txtGenerateFromBidCompare,
         ScmPurchaseOrderChargesVO,
         ScmPurchaseOrderDiscountVO,
         ScmPurchaseOrderLinesVO,
@@ -193,6 +194,7 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
     public static final int DELIVERYTERMSNO = AttributesEnum.DeliveryTermSno.index();
     public static final int TXTDELIVERYTERMNAME = AttributesEnum.txtDeliveryTermName.index();
     public static final int TXTORDERTYPENAME = AttributesEnum.txtOrderTypeName.index();
+    public static final int TXTGENERATEFROMBIDCOMPARE = AttributesEnum.txtGenerateFromBidCompare.index();
     public static final int SCMPURCHASEORDERCHARGESVO = AttributesEnum.ScmPurchaseOrderChargesVO.index();
     public static final int SCMPURCHASEORDERDISCOUNTVO = AttributesEnum.ScmPurchaseOrderDiscountVO.index();
     public static final int SCMPURCHASEORDERLINESVO = AttributesEnum.ScmPurchaseOrderLinesVO.index();
@@ -290,6 +292,9 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setRfqHeaderSno(Integer value) {
         setAttributeInternal(RFQHEADERSNO, value);
+        if (gettxtGenerateFromBidCompare()!=null && gettxtGenerateFromBidCompare().equals("Y")) {
+            return;
+       }
         while(getScmPurchaseOrderLinesVO().getRowCount()>0) {
             getScmPurchaseOrderLinesVO().first().remove();
         }
@@ -1173,6 +1178,22 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void settxtOrderTypeName(String value) {
         setAttributeInternal(TXTORDERTYPENAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Generate_From_Bid_Compare using the alias name txtGenerateFromBidCompare.
+     * @return the txt_Generate_From_Bid_Compare
+     */
+    public String gettxtGenerateFromBidCompare() {
+        return (String) getAttributeInternal(TXTGENERATEFROMBIDCOMPARE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Generate_From_Bid_Compare using the alias name txtGenerateFromBidCompare.
+     * @param value value to set the txt_Generate_From_Bid_Compare
+     */
+    public void settxtGenerateFromBidCompare(String value) {
+        setAttributeInternal(TXTGENERATEFROMBIDCOMPARE, value);
     }
 
     /**
