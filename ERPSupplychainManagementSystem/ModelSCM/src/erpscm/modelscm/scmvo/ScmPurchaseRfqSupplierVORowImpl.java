@@ -8,6 +8,7 @@ import erpscm.modelscm.scmvo.common.ScmPurchaseRfqSupplierVORow;
 import java.math.BigDecimal;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
@@ -478,18 +479,34 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         supcompvo.setRangeSize(-1);
 
         for (int i = 0; i < supcompvo.getRowCount(); i++) {
+            BigDecimal ERPPoGenQty=(BigDecimal)supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePOQty");
             if (supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO") != null &&
                 supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO").equals("Y") &&
-                supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePOQty") != null) {
+                ERPPoGenQty != null) {
                 erpPoSelect = 1;
+                String poquantity="0";
                 //checking balance before generating
                 PreparedStatement ps =
                     getDBTransaction().createPreparedStatement("start transaction;", getDBTransaction().DEFAULT);
                 try {
                     ps.executeUpdate();
+                    ps= getDBTransaction().createPreparedStatement("select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity), 0) PoQuantity from scm_purchase_order_lines where Compare_Supplier_Sno="+supcompvo.getRowAtRangeIndex(i).getAttribute("CompareSupplierSno"), getDBTransaction().DEFAULT);
+                    ResultSet rs = ps.executeQuery();
+                    rs.next();
+                    poquantity=rs.getString(1);
+                    
+                    if (ERPPoGenQty.compareTo(new BigDecimal(poquantity))==1) {
+                        ;//neet to write code here 07-jul-2023
+                   }
+                    
                 } catch (SQLException e) {
-                } finally {
-
+                    e.printStackTrace();
+                }
+                finally{
+                    try {
+                        ps.close();
+                    } catch (SQLException e) {
+                    }
                 }
             }
         }
@@ -573,13 +590,9 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         erpPOLinesvo.executeQuery();
     }
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            if (i==6) {
-                break;
-           }
-            System.out.println(i);
-       }
-
+    BigDecimal tobe=new BigDecimal("5");
+    BigDecimal generated=new BigDecimal("4");
+    System.out.println(tobe.compareTo(generated));
     }
 }
 
