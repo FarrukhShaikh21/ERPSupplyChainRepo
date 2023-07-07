@@ -485,6 +485,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                 ERPPoGenQty != null) {
                 erpPoSelect = 1;
                 String poquantity="0";
+                BigDecimal ERPCompareQty=new BigDecimal(supcompvo.getRowAtRangeIndex(i).getAttribute("Quantity").toString());
                 //checking balance before generating
                 PreparedStatement ps =
                     getDBTransaction().createPreparedStatement("start transaction;", getDBTransaction().DEFAULT);
@@ -494,9 +495,9 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                     ResultSet rs = ps.executeQuery();
                     rs.next();
                     poquantity=rs.getString(1);
-                    
-                    if (ERPPoGenQty.compareTo(new BigDecimal(poquantity))==1) {
-                        ;//neet to write code here 07-jul-2023
+                    ERPCompareQty=ERPCompareQty.subtract(new BigDecimal(poquantity));
+                    if (ERPPoGenQty.compareTo(ERPCompareQty)==1) {
+                      throw new JboException("Only ("+ERPCompareQty+") quantity is available for PO Generation.");
                    }
                     
                 } catch (SQLException e) {
