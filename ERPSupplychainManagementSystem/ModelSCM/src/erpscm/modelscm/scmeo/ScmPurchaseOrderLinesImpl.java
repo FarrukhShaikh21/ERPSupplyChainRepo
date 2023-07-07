@@ -1474,7 +1474,7 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
 //        }
             BigDecimal rfqRemainingQty=pERPSourceQuantity.subtract(new BigDecimal(poquantity));
            if (rfqRemainingQty.compareTo(getPoRequestQuantity())==-1) {
-            throw new  JboException("Only ("+rfqRemainingQty+") "+pType+"remaining. Before Insert Exception");
+            throw new  JboException("Only ("+rfqRemainingQty+") "+pType+" remaining. Item ("+gettxtItemName()+","+gettxtInventoryOrgName()+") Before Insert Exception");
            }
     }
     @Override
