@@ -774,6 +774,12 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseDemandLinesVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchDemLinesScmPurchBidCompSuppDemandLinesLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <SortCriteria>
     <Sort
       Attribute="Rate"/>

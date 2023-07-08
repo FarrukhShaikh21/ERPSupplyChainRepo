@@ -803,6 +803,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchDemLinesScmPurcOrderLinesDemandLinesSnoAssoc.ScmPurchaseDemandLines"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmPurchaseBidCompSupplier"
+    Association="erpscm.modelscm.scmeo.ScmPurchDemLinesScmPurchBidCompSuppDemandLinesAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmPurchDemLinesScmPurchBidCompSuppDemandLinesAssoc.ScmPurchaseBidCompSupplier"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchDemLinesScmPurchBidCompSuppDemandLinesAssoc.ScmPurchaseDemandLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="AltKeyScmPurchaseDemandLine"
     AltKey="true">
@@ -959,9 +966,9 @@
       <validation:Item
         Value="ERR_REQ_INVENTORY_ORG"/>
       <validation:Item
-        Value="ERR_REQ_ITEM_ID"/>
-      <validation:Item
         Value="ERR_REQ_DEMAND_QTY"/>
+      <validation:Item
+        Value="ERR_REQ_ITEM_ID"/>
       <validation:Item
         Value="ERR_REQ_DUPLICATE_ITEM"/>
       <validation:Item
@@ -969,13 +976,13 @@
       <validation:Item
         Value="ERR_REQ_UNIT_TYPE"/>
       <validation:Item
-        Value="ERR_REQ_APROX_PRICE"/>
-      <validation:Item
         Value="ERR_REQ_DEMAND_QUANTITY"/>
       <validation:Item
-        Value="ERR_REQ_DEMAND_ACCOUNT"/>
+        Value="ERR_REQ_APROX_PRICE"/>
       <validation:Item
         Value="ERR_REQ_REQUIRED_DATE"/>
+      <validation:Item
+        Value="ERR_REQ_DEMAND_ACCOUNT"/>
     </validation:MsgIds>
     <validation:TransientExpression
       trustMode="untrusted"><![CDATA[if(ItemId==null)

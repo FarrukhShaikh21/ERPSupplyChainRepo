@@ -89,7 +89,8 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         ScmPurchaseRfqSupplier,
         ScmPurchaseOrderLines,
         ScmPurchaseBidLines,
-        ScmPurchaseRfqLines;
+        ScmPurchaseRfqLines,
+        ScmPurchaseDemandLines;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -161,6 +162,7 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int SCMPURCHASEORDERLINES = AttributesEnum.ScmPurchaseOrderLines.index();
     public static final int SCMPURCHASEBIDLINES = AttributesEnum.ScmPurchaseBidLines.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
+    public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -911,6 +913,21 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void setScmPurchaseRfqLines(ScmPurchaseRfqLinesImpl value) {
         setAttributeInternal(SCMPURCHASERFQLINES, value);
+    }
+
+
+    /**
+     * @return the associated entity ScmPurchaseDemandLinesImpl.
+     */
+    public ScmPurchaseDemandLinesImpl getScmPurchaseDemandLines() {
+        return (ScmPurchaseDemandLinesImpl) getAttributeInternal(SCMPURCHASEDEMANDLINES);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity ScmPurchaseDemandLinesImpl.
+     */
+    public void setScmPurchaseDemandLines(ScmPurchaseDemandLinesImpl value) {
+        setAttributeInternal(SCMPURCHASEDEMANDLINES, value);
     }
 
 

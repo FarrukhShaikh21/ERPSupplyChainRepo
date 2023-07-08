@@ -77,6 +77,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         ScmPurchaseBidLinesVO,
         ScmPurchaseBidCompareItemVO,
         ScmPurchaseRfqLinesVO,
+        ScmPurchaseDemandLinesVO,
         AccSysGeneralValueVO,
         AccScmBidCriteriaVO;
         static AttributesEnum[] vals = null;
@@ -153,6 +154,7 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int SCMPURCHASEBIDLINESVO = AttributesEnum.ScmPurchaseBidLinesVO.index();
     public static final int SCMPURCHASEBIDCOMPAREITEMVO = AttributesEnum.ScmPurchaseBidCompareItemVO.index();
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
+    public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
     public static final int ACCSCMBIDCRITERIAVO = AttributesEnum.AccScmBidCriteriaVO.index();
 
@@ -930,6 +932,20 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void setScmPurchaseRfqLinesVO(Row value) {
         setAttributeInternal(SCMPURCHASERFQLINESVO, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link ScmPurchaseDemandLinesVO.
+     */
+    public Row getScmPurchaseDemandLinesVO() {
+        return (Row) getAttributeInternal(SCMPURCHASEDEMANDLINESVO);
+    }
+
+    /**
+     * Sets the master-detail link ScmPurchaseDemandLinesVO between this object and <code>value</code>.
+     */
+    public void setScmPurchaseDemandLinesVO(Row value) {
+        setAttributeInternal(SCMPURCHASEDEMANDLINESVO, value);
     }
 
     /**
