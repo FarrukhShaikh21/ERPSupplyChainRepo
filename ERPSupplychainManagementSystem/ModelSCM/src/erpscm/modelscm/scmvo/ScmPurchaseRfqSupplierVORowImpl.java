@@ -484,19 +484,20 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                 supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO").equals("Y") &&
                 ERPPoGenQty != null) {
                 erpPoSelect = 1;
+                if (supcompvo.getRowAtRangeIndex(i).getAttribute("DemandLinesSno") != null) {
+                    doCheckBalanceQuantity("DEMAND_LINES_SNO", "DemandLinesSno", "Demand",(BigDecimal) supcompvo.getRowAtRangeIndex(i).getAttribute("txtDemandQuantity"));
+                }
+                
                 if (supcompvo.getRowAtRangeIndex(i).getAttribute("RfqLinesSno") != null) {
                     
-//                    doCheckBalanceQuantity("RFQ_LINES_SNO", "RfqLinesSno", "RFQ", getScmPurchaseRfqLines().getQuantity());
+                    doCheckBalanceQuantity("RFQ_LINES_SNO", "RfqLinesSno", "RFQ",(BigDecimal) supcompvo.getRowAtRangeIndex(i).getAttribute("txtRFQQuantity"));
                 }
                 if (supcompvo.getRowAtRangeIndex(i).getAttribute("BidLinesSno")!= null) {
-//                    doCheckBalanceQuantity("BID_LINES_SNO", "BidLinesSno", "BID", getScmPurchaseBidLines().getQuantity());
+                    doCheckBalanceQuantity("BID_LINES_SNO", "BidLinesSno", "BID", (BigDecimal) supcompvo.getRowAtRangeIndex(i).getAttribute("txtBidQuantity"));
                 }
 
                 if (supcompvo.getRowAtRangeIndex(i).getAttribute("CompareSupplierSno") != null) {
-//                    doCheckBalanceQuantity("COMPARE_SUPPLIER_SNO", "CompareSupplierSno", "Compare",getScmPurchaseBidCompSupplier().getQuantity());
-                }
-                if (supcompvo.getRowAtRangeIndex(i).getAttribute("DemandLinesSno") != null) {
-//                    doCheckBalanceQuantity("DEMAND_LINES_SNO", "DemandLinesSno", "Demand",getScmPurchaseDemandLines().getApproveQuantity());
+                    doCheckBalanceQuantity("COMPARE_SUPPLIER_SNO", "CompareSupplierSno", "Compare",(BigDecimal)supcompvo.getRowAtRangeIndex(i).getAttribute("Quantity"));
                 }
                 /*String poquantity="0";
                 BigDecimal ERPCompareQty=new BigDecimal(supcompvo.getRowAtRangeIndex(i).getAttribute("Quantity").toString());

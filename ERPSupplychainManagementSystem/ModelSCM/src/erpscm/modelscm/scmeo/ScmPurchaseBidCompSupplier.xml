@@ -735,6 +735,10 @@
     IsPersistent="false"
     IsQueriable="false"
     ColumnType="NUMBER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseDemandLines?.ApproveQuantity==null?0:ScmPurchaseDemandLines?.ApproveQuantity]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
