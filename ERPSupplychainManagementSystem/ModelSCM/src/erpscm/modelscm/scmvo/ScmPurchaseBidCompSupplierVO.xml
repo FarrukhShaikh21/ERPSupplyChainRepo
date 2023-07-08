@@ -434,6 +434,30 @@
     EntityAttrName="txtSelectedRate"
     EntityUsage="ScmPurchaseBidCompSupplier"
     AliasName="txt_Selected_Rate"/>
+  <ViewAttribute
+    Name="txtBidQuantity"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtBidQuantity"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Bid_Quantity"/>
+  <ViewAttribute
+    Name="txtDemandQuantity"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtDemandQuantity"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_Demand_Quantity"/>
+  <ViewAttribute
+    Name="txtRFQQuantity"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtRFQQuantity"
+    EntityUsage="ScmPurchaseBidCompSupplier"
+    AliasName="txt_RFQQuantity"/>
   <ViewCriteria
     Name="ScmPurchaseBidCompSupplierByIsSelectVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
@@ -764,6 +788,10 @@
     <PropertiesBundle
       PropertiesFile="erpscm.modelscm.ModelSCMBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="Rate"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="Rate"/>

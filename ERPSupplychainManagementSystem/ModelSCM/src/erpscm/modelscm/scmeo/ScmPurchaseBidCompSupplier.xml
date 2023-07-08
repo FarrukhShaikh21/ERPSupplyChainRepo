@@ -714,7 +714,6 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -723,6 +722,60 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtSelectedRate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtDemandQuantity"
+    ColumnName="txt_Demand_Quantity"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    IsPersistent="false"
+    IsQueriable="false"
+    ColumnType="NUMBER"
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtDemandQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtRFQQuantity"
+    ColumnName="txt_RFQQuantity"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false"    
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtRFQQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtBidQuantity"
+    ColumnName="txt_Bid_Quantity"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false"
+    TableName="SCM_PURCHASE_BID_COMP_SUPPLIER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseBidCompSupplier.txtBidQuantity_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

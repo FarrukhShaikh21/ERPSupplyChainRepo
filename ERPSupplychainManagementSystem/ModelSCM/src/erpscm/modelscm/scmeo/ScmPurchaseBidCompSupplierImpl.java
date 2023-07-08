@@ -79,6 +79,9 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
         txtSubinventoryOrgSno,
         txtChartOfAccountId,
         txtSelectedRate,
+        txtDemandQuantity,
+        txtRFQQuantity,
+        txtBidQuantity,
         ScmPurchaseBidCompareItem,
         ScmSupplier,
         ScmBidCriteria,
@@ -146,6 +149,9 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
     public static final int TXTSUBINVENTORYORGSNO = AttributesEnum.txtSubinventoryOrgSno.index();
     public static final int TXTCHARTOFACCOUNTID = AttributesEnum.txtChartOfAccountId.index();
     public static final int TXTSELECTEDRATE = AttributesEnum.txtSelectedRate.index();
+    public static final int TXTDEMANDQUANTITY = AttributesEnum.txtDemandQuantity.index();
+    public static final int TXTRFQQUANTITY = AttributesEnum.txtRFQQuantity.index();
+    public static final int TXTBIDQUANTITY = AttributesEnum.txtBidQuantity.index();
     public static final int SCMPURCHASEBIDCOMPAREITEM = AttributesEnum.ScmPurchaseBidCompareItem.index();
     public static final int SCMSUPPLIER = AttributesEnum.ScmSupplier.index();
     public static final int SCMBIDCRITERIA = AttributesEnum.ScmBidCriteria.index();
@@ -743,6 +749,54 @@ public class ScmPurchaseBidCompSupplierImpl extends ERPEntityImpl {
      */
     public void settxtSelectedRate(BigDecimal value) {
         setAttributeInternal(TXTSELECTEDRATE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtDemandQuantity, using the alias name txtDemandQuantity.
+     * @return the value of txtDemandQuantity
+     */
+    public BigDecimal gettxtDemandQuantity() {
+        return (BigDecimal) getAttributeInternal(TXTDEMANDQUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDemandQuantity.
+     * @param value value to set the txtDemandQuantity
+     */
+    public void settxtDemandQuantity(BigDecimal value) {
+        setAttributeInternal(TXTDEMANDQUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for txtRFQQuantity, using the alias name txtRFQQuantity.
+     * @return the value of txtRFQQuantity
+     */
+    public BigDecimal gettxtRFQQuantity() {
+        return (BigDecimal) getAttributeInternal(TXTRFQQUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtRFQQuantity.
+     * @param value value to set the txtRFQQuantity
+     */
+    public void settxtRFQQuantity(BigDecimal value) {
+        setAttributeInternal(TXTRFQQUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for txtBidQuantity, using the alias name txtBidQuantity.
+     * @return the value of txtBidQuantity
+     */
+    public BigDecimal gettxtBidQuantity() {
+        return (BigDecimal) getAttributeInternal(TXTBIDQUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtBidQuantity.
+     * @param value value to set the txtBidQuantity
+     */
+    public void settxtBidQuantity(BigDecimal value) {
+        setAttributeInternal(TXTBIDQUANTITY, value);
     }
 
     /**

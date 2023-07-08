@@ -484,7 +484,21 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                 supcompvo.getRowAtRangeIndex(i).getAttribute("txtGeneratePO").equals("Y") &&
                 ERPPoGenQty != null) {
                 erpPoSelect = 1;
-                String poquantity="0";
+                if (supcompvo.getRowAtRangeIndex(i).getAttribute("RfqLinesSno") != null) {
+                    
+//                    doCheckBalanceQuantity("RFQ_LINES_SNO", "RfqLinesSno", "RFQ", getScmPurchaseRfqLines().getQuantity());
+                }
+                if (supcompvo.getRowAtRangeIndex(i).getAttribute("BidLinesSno")!= null) {
+//                    doCheckBalanceQuantity("BID_LINES_SNO", "BidLinesSno", "BID", getScmPurchaseBidLines().getQuantity());
+                }
+
+                if (supcompvo.getRowAtRangeIndex(i).getAttribute("CompareSupplierSno") != null) {
+//                    doCheckBalanceQuantity("COMPARE_SUPPLIER_SNO", "CompareSupplierSno", "Compare",getScmPurchaseBidCompSupplier().getQuantity());
+                }
+                if (supcompvo.getRowAtRangeIndex(i).getAttribute("DemandLinesSno") != null) {
+//                    doCheckBalanceQuantity("DEMAND_LINES_SNO", "DemandLinesSno", "Demand",getScmPurchaseDemandLines().getApproveQuantity());
+                }
+                /*String poquantity="0";
                 BigDecimal ERPCompareQty=new BigDecimal(supcompvo.getRowAtRangeIndex(i).getAttribute("Quantity").toString());
                 //checking balance before generating
                 PreparedStatement ps =
@@ -508,7 +522,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                         ps.close();
                     } catch (SQLException e) {
                     }
-                }
+                }*/
             }
         }
         if (erpPoSelect== 0) {
@@ -589,6 +603,38 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         supcompvo.executeQuery();
         erpPOHeadvo.executeQuery();
         erpPOLinesvo.executeQuery();
+    }
+    
+    public void doCheckBalanceQuantity(String pERPDBColumn, String pERPGetter,String pType,BigDecimal pERPSourceQuantity) {
+            String poquantity="0";
+           PreparedStatement ps=getDBTransaction().createPreparedStatement("start TRANSACTION", getDBTransaction().DEFAULT);
+            try {
+                ps.executeUpdate();
+                ps= getDBTransaction().createPreparedStatement("select coalesce(sum(po_approve_quantity),0) PoQuantity from scm_purchase_order_lines where po_lines_sno!="+1/*getPoLinesSno()*/+" and "+pERPDBColumn+"="+getAttribute(pERPGetter), getDBTransaction().DEFAULT);
+                ResultSet rs = ps.executeQuery();
+                rs.next();
+                poquantity=rs.getString(1);
+                
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            finally{
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                }
+            }
+    //        if (getRfqLinesSno().intValue()==136) {
+//            System.out.println(getScmPurchaseRfqLines().getQuantity() + "qty");
+//            System.out.println(getScmPurchaseRfqLines().getRemainingBalance() + "rembal");
+            System.out.println(pERPSourceQuantity + "pERPSourceQuantity");
+            System.out.println(poquantity + "poquantity");
+            System.out.println(pERPSourceQuantity.subtract(new BigDecimal(poquantity))+ "subtr");
+    //        }
+            BigDecimal rfqRemainingQty=pERPSourceQuantity.subtract(new BigDecimal(poquantity));
+           if (rfqRemainingQty.compareTo(/*getPoRequestQuantity()*/null)==-1) {
+            //throw new  JboException("Only ("+rfqRemainingQty+") "+pType+" remaining. Item ("+gettxtItemName()+","+gettxtInventoryOrgName()+") Before Insert Exception");
+           }
     }
     public static void main(String[] args) {
     BigDecimal tobe=new BigDecimal("5");

@@ -66,6 +66,9 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
         txtSubinventoryOrgSno,
         txtChartOfAccountId,
         txtSelectedRate,
+        txtBidQuantity,
+        txtDemandQuantity,
+        txtRFQQuantity,
         ScmSupplierVO,
         ScmBidCriteriaVO,
         ScmPurchaseBidCompHeaderVO,
@@ -138,6 +141,9 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
     public static final int TXTSUBINVENTORYORGSNO = AttributesEnum.txtSubinventoryOrgSno.index();
     public static final int TXTCHARTOFACCOUNTID = AttributesEnum.txtChartOfAccountId.index();
     public static final int TXTSELECTEDRATE = AttributesEnum.txtSelectedRate.index();
+    public static final int TXTBIDQUANTITY = AttributesEnum.txtBidQuantity.index();
+    public static final int TXTDEMANDQUANTITY = AttributesEnum.txtDemandQuantity.index();
+    public static final int TXTRFQQUANTITY = AttributesEnum.txtRFQQuantity.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int SCMBIDCRITERIAVO = AttributesEnum.ScmBidCriteriaVO.index();
     public static final int SCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.ScmPurchaseBidCompHeaderVO.index();
@@ -832,6 +838,54 @@ public class ScmPurchaseBidCompSupplierVORowImpl extends ViewRowImpl {
      */
     public void settxtSelectedRate(BigDecimal value) {
         setAttributeInternal(TXTSELECTEDRATE, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Bid_Quantity using the alias name txtBidQuantity.
+     * @return the txt_Bid_Quantity
+     */
+    public BigDecimal gettxtBidQuantity() {
+        return (BigDecimal) getAttributeInternal(TXTBIDQUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Bid_Quantity using the alias name txtBidQuantity.
+     * @param value value to set the txt_Bid_Quantity
+     */
+    public void settxtBidQuantity(BigDecimal value) {
+        setAttributeInternal(TXTBIDQUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_Demand_Quantity using the alias name txtDemandQuantity.
+     * @return the txt_Demand_Quantity
+     */
+    public BigDecimal gettxtDemandQuantity() {
+        return (BigDecimal) getAttributeInternal(TXTDEMANDQUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_Demand_Quantity using the alias name txtDemandQuantity.
+     * @param value value to set the txt_Demand_Quantity
+     */
+    public void settxtDemandQuantity(BigDecimal value) {
+        setAttributeInternal(TXTDEMANDQUANTITY, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_RFQQuantity using the alias name txtRFQQuantity.
+     * @return the txt_RFQQuantity
+     */
+    public BigDecimal gettxtRFQQuantity() {
+        return (BigDecimal) getAttributeInternal(TXTRFQQUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_RFQQuantity using the alias name txtRFQQuantity.
+     * @param value value to set the txt_RFQQuantity
+     */
+    public void settxtRFQQuantity(BigDecimal value) {
+        setAttributeInternal(TXTRFQQUANTITY, value);
     }
 
     /**
