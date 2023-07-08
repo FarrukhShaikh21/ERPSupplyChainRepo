@@ -497,7 +497,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                     poquantity=rs.getString(1);
                     ERPCompareQty=ERPCompareQty.subtract(new BigDecimal(poquantity));
                     if (ERPPoGenQty.compareTo(ERPCompareQty)==1) {
-                      throw new JboException("Only ("+ERPCompareQty+") quantity is available for PO Generation. Item ("+supcompvo.getRowAtRangeIndex(i).getAttribute("txtItemName")+","+supcompvo.getRowAtRangeIndex(i).getAttribute("txtSubOrgDescription")+")");
+                      throw new JboException("Only ("+ERPCompareQty+") quantity is available for PO Generation. Item ("+supcompvo.getRowAtRangeIndex(i).getAttribute("txtItemName")+","+supcompvo.getRowAtRangeIndex(i).getAttribute("txtOrgDescription")+")");
                    }
                     
                 } catch (SQLException e) {

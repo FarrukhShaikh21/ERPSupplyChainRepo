@@ -1351,7 +1351,7 @@
         Value="PoRequestQuantity"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      Name="OnConditionExpr"><![CDATA[2==1 && PoApproveQuantity!=null && PoRequestQuantity!=null]]></validation:OnCondition>
+      Name="OnConditionExpr"><![CDATA[PoApproveQuantity!=null && PoRequestQuantity!=null]]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
         Value="err_po_bid_quantity"/>
@@ -1369,27 +1369,27 @@
     </validation:ResExpressions>
     <validation:TransientExpression><![CDATA[if(DemandLinesSno!=null && PoApproveQuantity > ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoApproveQuantity==null?0:PoApproveQuantity))
 {
-settxtBalanceMessage(""+(ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoApproveQuantity==null?0:PoApproveQuantity)));
+settxtBalanceMessage(txtItemName+","+txtInventoryOrgName+":"+(ScmPurchaseDemandLines?.txtRemainingDemandQty+ (PoApproveQuantity==null?0:PoApproveQuantity)));
 adf.error.raise("err_po_demand_quantity");
 return false;
 }
 if(CompareSupplierSno!=null && PoRequestQuantity > ScmPurchaseBidCompSupplier?.txtRemainingQtyForPO+ (PoRequestQuantity==null?0:PoRequestQuantity))
 {
-settxtBalanceMessage(""+(ScmPurchaseBidCompSupplier?.txtRemainingQtyForPO+ (PoRequestQuantity==null?0:PoRequestQuantity)));
+settxtBalanceMessage(txtItemName+","+txtInventoryOrgName+":"+(ScmPurchaseBidCompSupplier?.txtRemainingQtyForPO+ (PoRequestQuantity==null?0:PoRequestQuantity)));
 adf.error.raise("err_po_compare_quantity");
 return false;
 }
 
 if(RfqLinesSno!=null && PoApproveQuantity > ScmPurchaseRfqLines?.txtRemainingRfqBalance+ (PoApproveQuantity==null?0:PoApproveQuantity))
 {
-settxtBalanceMessage(""+(ScmPurchaseRfqLines?.txtRemainingRfqBalance+ (PoApproveQuantity==null?0:PoApproveQuantity)));
+settxtBalanceMessage(txtItemName+","+txtInventoryOrgName+":"+(ScmPurchaseRfqLines?.txtRemainingRfqBalance+ (PoApproveQuantity==null?0:PoApproveQuantity)));
 adf.error.raise("err_po_rfq_quantity");
 return false;
 }
 
 if(BidLinesSno!=null && PoRequestQuantity > ScmPurchaseBidLines?.txtRemainingBidQty+ (PoRequestQuantity==null?0:PoRequestQuantity))
 {
-settxtBalanceMessage(""+(ScmPurchaseBidLines?.txtRemainingBidQty+ (PoRequestQuantity==null?0:PoRequestQuantity)));
+settxtBalanceMessage(txtItemName+","+txtInventoryOrgName+":"+(ScmPurchaseBidLines?.txtRemainingBidQty+ (PoRequestQuantity==null?0:PoRequestQuantity)));
 adf.error.raise("err_po_bid_quantity");
 return false;
 }
