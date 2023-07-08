@@ -768,6 +768,12 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmPurchaseRfqLinesVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmPurchRfqLinesScmPurchBidCompSuppRfqLinesSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <SortCriteria>
     <Sort
       Attribute="Rate"/>
