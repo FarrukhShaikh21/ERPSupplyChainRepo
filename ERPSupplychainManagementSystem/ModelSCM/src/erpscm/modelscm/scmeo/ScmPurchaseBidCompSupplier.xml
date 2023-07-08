@@ -752,6 +752,10 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseRfqLines?.Quantity==null?0:ScmPurchaseRfqLines?.Quantity]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -769,6 +773,10 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseBidLines?.Quantity==null?0:ScmPurchaseBidLines?.Quantity]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
