@@ -634,14 +634,16 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
             System.out.println(pERPSourceQuantity.subtract(new BigDecimal(poquantity))+ "subtr");
     //        }
             BigDecimal rfqRemainingQty=pERPSourceQuantity.subtract(new BigDecimal(poquantity));
-           if (rfqRemainingQty.compareTo(ERPPoQuantity)!=1) {
+            System.out.println(rfqRemainingQty+"RemainingQty");
+            System.out.println(ERPPoQuantity+"ERPPoQuantity");
+           if (rfqRemainingQty.compareTo(ERPPoQuantity)==-1) {
             throw new  JboException("Only ("+rfqRemainingQty+") "+pType+" remaining. Item ("+pERPItemName+") Before Po Generate.");
            }
     }
     public static void main(String[] args) {
-    BigDecimal tobe=new BigDecimal("5");
-    BigDecimal generated=new BigDecimal("4");
-    System.out.println(tobe.compareTo(generated));
+    BigDecimal rfqRemainingQty=new BigDecimal("2");
+    BigDecimal ERPPoQuantity=new BigDecimal("2");
+    System.out.println(rfqRemainingQty.compareTo(ERPPoQuantity));
     }
 }
 
