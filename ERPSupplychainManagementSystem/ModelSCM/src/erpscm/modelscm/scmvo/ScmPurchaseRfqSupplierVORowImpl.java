@@ -486,6 +486,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                 erpPoSelect = 1;
                 if (supcompvo.getRowAtRangeIndex(i).getAttribute("DemandLinesSno") != null) {
                     doCheckBalanceQuantity("DEMAND_LINES_SNO", supcompvo.getRowAtRangeIndex(i).getAttribute("DemandLinesSno").toString(), "Demand",(BigDecimal) supcompvo.getRowAtRangeIndex(i).getAttribute("txtDemandQuantity"),ERPPoGenQty,""+supcompvo.getRowAtRangeIndex(i).getAttribute("txtItemName")+","+supcompvo.getRowAtRangeIndex(i).getAttribute("txtOrgDescription"));
+                    System.out.println("dmd quantity");
                 }
                 
                 if (supcompvo.getRowAtRangeIndex(i).getAttribute("RfqLinesSno") != null) {
@@ -594,6 +595,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                 
            }
        }
+        System.out.println("before executing query");
         getDBTransaction().commit();
         if (gettxtIsMerge()!=null && gettxtIsMerge().equals("Y")) {
             settxtPurchaseOrderNo(gettxtMergePONumber());
@@ -637,6 +639,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
             System.out.println(rfqRemainingQty+"RemainingQty");
             System.out.println(ERPPoQuantity+"ERPPoQuantity");
            if (rfqRemainingQty.compareTo(ERPPoQuantity)==-1) {
+            this.getViewObject().executeQuery();
             throw new  JboException("Only ("+rfqRemainingQty+") "+pType+" remaining. Item ("+pERPItemName+") Before Po Generate.");
            }
     }
