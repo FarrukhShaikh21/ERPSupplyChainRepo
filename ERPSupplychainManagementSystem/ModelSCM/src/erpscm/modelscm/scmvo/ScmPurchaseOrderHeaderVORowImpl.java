@@ -473,12 +473,12 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
         while(getScmPurchaseOrderLinesVO().getRowCount()>0) {
             getScmPurchaseOrderLinesVO().first().remove();
         }
-        if (value==null ||  getRfqHeaderSno()==null) {
+        if (value==null ||  getRfqHeaderSno()!=null) {
            return;
         }
         
-        getAccScmPurchaseDemandHeaderVO().setNamedWhereClauseParam("P_ADF_DEMAND_HEADER_SNO",value==null?-1:value );
-        getAccScmPurchaseDemandHeaderVO().executeQuery();
+        getAccScmPurchaseDemandLinesVO().setNamedWhereClauseParam("P_ADF_DEMAND_HEADER_SNO",value==null?-1:value );
+        getAccScmPurchaseDemandLinesVO().executeQuery();
         RowSetIterator RsidmdHeader=getAccScmPurchaseDemandHeaderVO();
             while(RsidmdHeader.hasNext()) {
                 Row dmdRow=RsidmdHeader.next();
