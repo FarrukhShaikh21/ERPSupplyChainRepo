@@ -116,7 +116,8 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
         AccScmOrderTypeVO,
         AccScmPurchaseBidCompHeaderVO,
         AccScmPurchaseBidCompSupplierVO,
-        AccScmPurchaseBidLinesVO;
+        AccScmPurchaseBidLinesVO,
+        AccScmPurchaseDemandLinesVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -231,6 +232,7 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCSCMPURCHASEBIDCOMPHEADERVO = AttributesEnum.AccScmPurchaseBidCompHeaderVO.index();
     public static final int ACCSCMPURCHASEBIDCOMPSUPPLIERVO = AttributesEnum.AccScmPurchaseBidCompSupplierVO.index();
     public static final int ACCSCMPURCHASEBIDLINESVO = AttributesEnum.AccScmPurchaseBidLinesVO.index();
+    public static final int ACCSCMPURCHASEDEMANDLINESVO = AttributesEnum.AccScmPurchaseDemandLinesVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -295,16 +297,13 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
         if (gettxtGenerateFromBidCompare()!=null && gettxtGenerateFromBidCompare().equals("Y")) {
             return;
        }
+        //deleting the detail record
         while(getScmPurchaseOrderLinesVO().getRowCount()>0) {
             getScmPurchaseOrderLinesVO().first().remove();
         }
         if (value==null) {
            return;
        }
-        ApplicationModule am = getApplicationModule();
-        ViewObject erpPOHeadvo=am.findViewObject("ScmPurchaseOrderHeaderCRUD");
-//        ViewObject erpPOLinesvo=am.findViewObject("ScmPurchaseOrderLinesDetCRUD");
-        
         getAccScmPurchaseBidCompHeaderVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value==null?-1:value);
         getAccScmPurchaseBidCompHeaderVO().executeQuery();
         //fetching data from bid comparison table
@@ -466,6 +465,40 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setDemandHeaderSno(Integer value) {
         setAttributeInternal(DEMANDHEADERSNO, value);
+        
+        if (gettxtGenerateFromBidCompare()!=null && gettxtGenerateFromBidCompare().equals("Y")) {
+            return;
+        }
+        //deleting the detail record
+        while(getScmPurchaseOrderLinesVO().getRowCount()>0) {
+            getScmPurchaseOrderLinesVO().first().remove();
+        }
+        if (value==null ||  getRfqHeaderSno()==null) {
+           return;
+        }
+        
+        getAccScmPurchaseDemandHeaderVO().setNamedWhereClauseParam("P_ADF_DEMAND_HEADER_SNO",value==null?-1:value );
+        getAccScmPurchaseDemandHeaderVO().executeQuery();
+        RowSetIterator RsidmdHeader=getAccScmPurchaseDemandHeaderVO();
+            while(RsidmdHeader.hasNext()) {
+                Row dmdRow=RsidmdHeader.next();
+                Row erpPoLinRow = getScmPurchaseOrderLinesVO().createRow();
+                erpPoLinRow.setAttribute("ItemId", dmdRow.getAttribute("ItemId"));
+                erpPoLinRow.setAttribute("UnitTypeSno", dmdRow.getAttribute("UnitTypeSno"));
+                erpPoLinRow.setAttribute("PoRequestQuantity", dmdRow.getAttribute("ApproveQuantity"));
+                erpPoLinRow.setAttribute("PoApproveQuantity", dmdRow.getAttribute("ApproveQuantity"));
+                erpPoLinRow.setAttribute("PoRate", dmdRow.getAttribute("AproxPrice"));
+                erpPoLinRow.setAttribute("ProjectId", dmdRow.getAttribute("ProjectId"));
+                erpPoLinRow.setAttribute("DepartmentId", dmdRow.getAttribute("DepartmentId"));
+                erpPoLinRow.setAttribute("InventoryOrgSno", dmdRow.getAttribute("InventoryOrgSno"));
+                erpPoLinRow.setAttribute("SubinventoryOrgSno", dmdRow.getAttribute("SubinventoryOrgSno"));
+                erpPoLinRow.setAttribute("ChartOfAccountId", dmdRow.getAttribute("ChartOfAccountId"));
+                erpPoLinRow.setAttribute("LineNo", getScmPurchaseOrderLinesVO().getRowCount());
+                //                    suprow.setAttribute("RemainingBalance", (suprow.getAttribute("txtRemainingQtyForPO" )));
+                getScmPurchaseOrderLinesVO().insertRow(erpPoLinRow);
+                
+            }
+      
     }
 
     /**
@@ -1537,6 +1570,13 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
      */
     public RowSet getAccScmPurchaseBidLinesVO() {
         return (RowSet) getAttributeInternal(ACCSCMPURCHASEBIDLINESVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccScmPurchaseDemandLinesVO.
+     */
+    public RowSet getAccScmPurchaseDemandLinesVO() {
+        return (RowSet) getAttributeInternal(ACCSCMPURCHASEDEMANDLINESVO);
     }
 
 

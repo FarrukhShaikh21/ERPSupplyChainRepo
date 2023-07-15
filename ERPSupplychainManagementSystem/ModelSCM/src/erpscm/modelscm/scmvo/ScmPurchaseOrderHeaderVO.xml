@@ -223,6 +223,17 @@
       Name="ScmPurchaseBidLinesBySupplierAndRFQForPOVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseBidLinesVO.ScmPurchaseBidLinesBySupplierAndRFQForPOVC"/>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmPurchaseDemandLinesVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandHeaderSnoVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.ScmPurchaseDemandHeaderSnoVC"/>
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandLinesForPOGenVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO.ScmPurchaseDemandLinesForPOGenVC"/>
+  </ViewAccessor>
   <ListBinding
     Name="LovPoTypeSno"
     ListVOName="AccSysGeneralValuePOTypeVO"
