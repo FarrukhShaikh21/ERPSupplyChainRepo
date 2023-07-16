@@ -1466,11 +1466,11 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
                 }
             }
 //        if (getRfqLinesSno().intValue()==136) {
-            System.out.println(getScmPurchaseRfqLines().getQuantity() + "qty");
-            System.out.println(getScmPurchaseRfqLines().getRemainingBalance() + "rembal");
-            System.out.println(pERPSourceQuantity + "pERPSourceQuantity");
-            System.out.println(poquantity + "poquantity");
-            System.out.println(pERPSourceQuantity.subtract(new BigDecimal(poquantity))+ "subtr");
+//            System.out.println(getScmPurchaseRfqLines().getQuantity() + "qty");
+//            System.out.println(getScmPurchaseRfqLines().getRemainingBalance() + "rembal");
+//            System.out.println(pERPSourceQuantity + "pERPSourceQuantity");
+//            System.out.println(poquantity + "poquantity");
+//            System.out.println(pERPSourceQuantity.subtract(new BigDecimal(poquantity))+ "subtr");
 //        }
             BigDecimal rfqRemainingQty=pERPSourceQuantity.subtract(new BigDecimal(poquantity));
            if (rfqRemainingQty.compareTo(getPoRequestQuantity())==-1) {

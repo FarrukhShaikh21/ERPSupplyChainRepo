@@ -105,7 +105,20 @@
   <ViewAccessor
     Name="AccScmPurchaseDemandHeaderVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandHeaderByLocationVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO.ScmPurchaseDemandHeaderByLocationVC"/>
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandHeaderSupervisedVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO.ScmPurchaseDemandHeaderSupervisedVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATION_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[LocationId==null?-1:LocationId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
 <ViewAccessor
     Name="AccAdminCompanyVO"
     ViewObjectName="erpadm.modeladm.admvo.AdminCompanyVO"
@@ -396,10 +409,14 @@
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
       <Item Value="DemandHeaderSno"/>
+      <Item Value="TempDepartmentId"/>
+      <Item Value="TempProjectId"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="DemandHeaderCode"/>
       <Item Value="DemandHeaderSno"/>
+      <Item Value="TempDepartmentId"/>
+      <Item Value="TempProjectId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="DemandHeaderCode"/>

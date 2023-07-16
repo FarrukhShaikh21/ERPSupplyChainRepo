@@ -479,12 +479,14 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
         
         getAccScmPurchaseDemandLinesVO().setNamedWhereClauseParam("P_ADF_DEMAND_HEADER_SNO",value==null?-1:value );
         getAccScmPurchaseDemandLinesVO().executeQuery();
-        RowSetIterator RsidmdHeader=getAccScmPurchaseDemandHeaderVO();
+        RowSetIterator RsidmdHeader=getAccScmPurchaseDemandLinesVO();
             while(RsidmdHeader.hasNext()) {
                 Row dmdRow=RsidmdHeader.next();
                 Row erpPoLinRow = getScmPurchaseOrderLinesVO().createRow();
                 erpPoLinRow.setAttribute("ItemId", dmdRow.getAttribute("ItemId"));
+                erpPoLinRow.setAttribute("DemandLinesSno", dmdRow.getAttribute("DemandLinesSno"));
                 erpPoLinRow.setAttribute("UnitTypeSno", dmdRow.getAttribute("UnitTypeSno"));
+                System.out.println(dmdRow.getAttribute("ApproveQuantity")+"dmdRow");
                 erpPoLinRow.setAttribute("PoRequestQuantity", dmdRow.getAttribute("ApproveQuantity"));
                 erpPoLinRow.setAttribute("PoApproveQuantity", dmdRow.getAttribute("ApproveQuantity"));
                 erpPoLinRow.setAttribute("PoRate", dmdRow.getAttribute("AproxPrice"));
