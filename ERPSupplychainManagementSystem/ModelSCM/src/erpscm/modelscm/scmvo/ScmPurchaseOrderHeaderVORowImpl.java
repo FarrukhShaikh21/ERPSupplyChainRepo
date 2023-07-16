@@ -487,8 +487,8 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
                 erpPoLinRow.setAttribute("DemandLinesSno", dmdRow.getAttribute("DemandLinesSno"));
                 erpPoLinRow.setAttribute("UnitTypeSno", dmdRow.getAttribute("UnitTypeSno"));
                 System.out.println(dmdRow.getAttribute("ApproveQuantity")+"dmdRow");
-                erpPoLinRow.setAttribute("PoRequestQuantity", dmdRow.getAttribute("ApproveQuantity"));
-                erpPoLinRow.setAttribute("PoApproveQuantity", dmdRow.getAttribute("ApproveQuantity"));
+                erpPoLinRow.setAttribute("PoRequestQuantity", dmdRow.getAttribute("RemainingBalance"));
+                erpPoLinRow.setAttribute("PoApproveQuantity", dmdRow.getAttribute("RemainingBalance"));
                 erpPoLinRow.setAttribute("PoRate", dmdRow.getAttribute("AproxPrice"));
                 erpPoLinRow.setAttribute("ProjectId", dmdRow.getAttribute("ProjectId"));
                 erpPoLinRow.setAttribute("DepartmentId", dmdRow.getAttribute("DepartmentId"));

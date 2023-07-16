@@ -317,7 +317,8 @@
                                                                       shortDesc="#{bindings.txtRfqHeaderCode.hints.tooltip}"
                                                                       simple="true" autoSubmit="true"
                                                                       partialTriggers="txtSupplierNameId txtLocationNameId"
-                                                                      contentStyle="width:90%">
+                                                                      contentStyle="width:90%"
+                                                                      disabled="#{bindings.txtDemandHeaderCode.inputValue!=null}">
                                             <f:validator binding="#{bindings.txtRfqHeaderCode.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.txtRfqHeaderCode.format}"/>
@@ -336,7 +337,8 @@
                                                                       columns="#{bindings.txtTempProjectName.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
                                                                       simple="true" contentStyle="width:90%"
-                                                                      partialTriggers="txtLocationNameId txtRfqHeaderCodeId">
+                                                                      partialTriggers="txtLocationNameId txtRfqHeaderCodeId"
+                                                                      disabled="#{bindings.txtDemandHeaderCode.inputValue!=null}">
                                             <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
                                         </af:inputComboboxListOfValues>
                                     </af:gridCell>
@@ -356,7 +358,8 @@
                                                                       columns="#{bindings.txtTempDepartmentName.hints.displayWidth}"
                                                                       shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
                                                                       simple="true" contentStyle="width:90%"
-                                                                      partialTriggers="txtLocationNameId txtRfqHeaderCodeId">
+                                                                      partialTriggers="txtLocationNameId txtRfqHeaderCodeId"
+                                                                      disabled="#{bindings.txtDemandHeaderCode.inputValue!=null}">
                                             <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                         </af:inputComboboxListOfValues>
                                     </af:gridCell>
@@ -499,7 +502,7 @@
                                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.displayWidth}"
                                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtItemName.tooltip}"
                                                                                   contentStyle="width:90%"
-                                                                                  disabled="#{bindings.txtRfqHeaderCode.inputValue!=null}">
+                                                                                  disabled="#{bindings.txtRfqHeaderCode.inputValue!=null || bindings.txtDemandHeaderCode.inputValue!=null}">
                                                         <f:validator binding="#{row.bindings.txtItemName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
@@ -513,7 +516,7 @@
                                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.displayWidth}"
                                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.txtUnitTypeName.tooltip}"
                                                                                   contentStyle="width:90%"
-                                                                                  disabled="#{bindings.txtRfqHeaderCode.inputValue!=null}">
+                                                                                  disabled="#{bindings.txtRfqHeaderCode.inputValue!=null || bindings.txtDemandHeaderCode.inputValue!=null}">
                                                         <f:validator binding="#{row.bindings.txtUnitTypeName.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                 </af:column>
@@ -525,7 +528,8 @@
                                                                   columns="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.displayWidth}"
                                                                   maximumLength="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.precision}"
                                                                   shortDesc="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.tooltip}"
-                                                                  id="it7" autoSubmit="true">
+                                                                  id="it7" autoSubmit="true"
+                                                                  disabled="#{bindings.txtRfqHeaderCode.inputValue!=null || bindings.txtDemandHeaderCode.inputValue!=null}">
                                                         <f:validator binding="#{row.bindings.PoRate.validator}"/>
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.ScmPurchaseOrderLinesDetCRUD.hints.PoRate.format}"
@@ -728,7 +732,7 @@
                                                                                       required="#{bindings.txtInventoryOrgName.hints.mandatory}"
                                                                                       columns="#{bindings.txtInventoryOrgName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtInventoryOrgName.hints.tooltip}"
-                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null}">
+                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null || bindings.txtDemandHeaderCode.inputValue!=null}">
                                                             <f:validator binding="#{bindings.txtInventoryOrgName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                         <af:inputComboboxListOfValues id="txtSubinventoryOrgNameId"
@@ -739,7 +743,7 @@
                                                                                       required="#{bindings.txtSubinventoryOrgName.hints.mandatory}"
                                                                                       columns="#{bindings.txtSubinventoryOrgName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtSubinventoryOrgName.hints.tooltip}"
-                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null}">
+                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null || bindings.txtDemandHeaderCode.inputValue!=null}">
                                                             <f:validator binding="#{bindings.txtSubinventoryOrgName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:panelFormLayout>
@@ -755,7 +759,7 @@
                                                                                       required="#{bindings.txtCOADescription.hints.mandatory}"
                                                                                       columns="#{bindings.txtCOADescription.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtCOADescription.hints.tooltip}"
-                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null}">
+                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null || bindings.txtDemandHeaderCode.inputValue!=null}">
                                                             <f:validator binding="#{bindings.txtCOADescription.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                         <af:inputComboboxListOfValues id="iclov4"
@@ -766,7 +770,7 @@
                                                                                       required="#{bindings.txtDepartmentName.hints.mandatory}"
                                                                                       columns="#{bindings.txtDepartmentName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtDepartmentName.hints.tooltip}"
-                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null}">
+                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null || bindings.txtDemandHeaderCode.inputValue!=null}">
                                                             <f:validator binding="#{bindings.txtDepartmentName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                         <af:inputComboboxListOfValues id="iclov5"
@@ -777,7 +781,7 @@
                                                                                       required="#{bindings.txtProjectName.hints.mandatory}"
                                                                                       columns="#{bindings.txtProjectName.hints.displayWidth}"
                                                                                       shortDesc="#{bindings.txtProjectName.hints.tooltip}"
-                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null}">
+                                                                                      disabled="#{bindings.txtRfqHeaderCode.inputValue!=null || bindings.txtDemandHeaderCode.inputValue!=null}">
                                                             <f:validator binding="#{bindings.txtProjectName.validator}"/>
                                                         </af:inputComboboxListOfValues>
                                                     </af:panelFormLayout>
