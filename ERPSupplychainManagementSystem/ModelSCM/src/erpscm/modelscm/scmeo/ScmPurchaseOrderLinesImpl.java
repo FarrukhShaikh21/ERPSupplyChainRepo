@@ -10,6 +10,8 @@ import erpfms.modelfms.fmseo.GlTaxTypeImpl;
 
 import erpglobals.modelglobals.ERPEntityImpl;
 
+import erpglobals.modelglobals.ERPGlobalPLSQLClass;
+
 import erpims.modelims.imseo.InvInventoryOrgImpl;
 import erpims.modelims.imseo.InvItemImpl;
 import erpims.modelims.imseo.InvSubinventoryOrgImpl;
@@ -1431,7 +1433,6 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public void doUpdateSourceBalance(String pTableName,String pDBColumn,String pGetter,String ERPQuantityColumn) {
         PreparedStatement ps=null;
         try {
-            System.out.println("update "+pTableName+" rfl set rfl.is_complete=case when (select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) +")=rfl."+ERPQuantityColumn+" then 'Y' else 'N' end ,rfl.remaining_balance=rfl."+ERPQuantityColumn+"-(select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) + ") where rfl."+pDBColumn+"="+getAttribute(pGetter));
              ps =
                 getDBTransaction().createPreparedStatement("update "+pTableName+" rfl set rfl.is_complete=case when (select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) +")=rfl."+ERPQuantityColumn+" then 'Y' else 'N' end ,rfl.remaining_balance=rfl."+ERPQuantityColumn+"-(select coalesce(sum(po_approve_quantity),0)-coalesce(sum(Cancel_Quantity),0) from scm_purchase_order_lines where "+pDBColumn+"=" +getAttribute(pGetter) + ") where rfl."+pDBColumn+"="+getAttribute(pGetter), getDBTransaction().DEFAULT);
             ps.executeUpdate();
@@ -1448,9 +1449,13 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     }
     public void doCheckBalanceQuantity(String pERPDBColumn, String pERPGetter,String pType,BigDecimal pERPSourceQuantity) {
             String poquantity="0";
-           PreparedStatement ps=getDBTransaction().createPreparedStatement("start TRANSACTION", getDBTransaction().DEFAULT);
+           PreparedStatement ps=null;
             try {
+                String erpconntype=ERPGlobalPLSQLClass.doErpGetConnTypeModel(getDBTransaction());
+                if (!erpconntype.equals("ERPORACLE")) {
+                ps = getDBTransaction().createPreparedStatement("start TRANSACTION", getDBTransaction().DEFAULT);
                 ps.executeUpdate();
+            }
                 ps= getDBTransaction().createPreparedStatement("select coalesce(sum(po_approve_quantity),0) PoQuantity from scm_purchase_order_lines where po_lines_sno!="+getPoLinesSno()+" and "+pERPDBColumn+"="+getAttribute(pERPGetter), getDBTransaction().DEFAULT);
                 ResultSet rs = ps.executeQuery();
                 rs.next();

@@ -1,5 +1,7 @@
 package erpscm.modelscm.scmvo;
 
+import erpglobals.modelglobals.ERPGlobalPLSQLClass;
+
 import erpscm.modelscm.scmeo.ScmPurchaseRfqSupplierImpl;
 
 import erpscm.modelscm.scmvo.common.ScmPurchaseRfqSupplierVO;
@@ -611,8 +613,13 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
     public void doCheckBalanceQuantity(String pERPDBColumn, String pERPColumnValue,String pType,BigDecimal pERPSourceQuantity, BigDecimal ERPPoQuantity,String pERPItemName) {
 //              doCheckBalanceQuantity("DEMAND_LINES_SNO", supcompvo.getRowAtRangeIndex(i).getAttribute("DemandLinesSno").toString(), "Demand",(BigDecimal) supcompvo.getRowAtRangeIndex(i).getAttribute("txtDemandQuantity"),ERPPoGenQty,""+supcompvo.getRowAtRangeIndex(i).getAttribute("txtItemName")+","+supcompvo.getRowAtRangeIndex(i).getAttribute("txtOrgDescription"));
             String poquantity="0";
-           PreparedStatement ps=getDBTransaction().createPreparedStatement("start TRANSACTION", getDBTransaction().DEFAULT);
+           PreparedStatement ps=null;
             try {
+                String erpconntype=ERPGlobalPLSQLClass.doErpGetConnTypeModel(getDBTransaction());
+                if (!erpconntype.equals("ERPORACLE")) {
+                ps = getDBTransaction().createPreparedStatement("start TRANSACTION", getDBTransaction().DEFAULT);
+                ps.executeUpdate();
+                }
                 ps.executeUpdate();
                 ps= getDBTransaction().createPreparedStatement("select coalesce(sum(po_approve_quantity),0) PoQuantity from scm_purchase_order_lines where "+pERPDBColumn+"="+pERPColumnValue, getDBTransaction().DEFAULT);
                 ResultSet rs = ps.executeQuery();

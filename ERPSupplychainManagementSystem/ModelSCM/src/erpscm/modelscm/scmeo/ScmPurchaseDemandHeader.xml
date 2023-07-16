@@ -538,6 +538,25 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtRFQHeaderSno"
+    ColumnName="txt_RFQHeader_Sno"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    IsQueriable="false"
+    IsPersistent="false"
+    ColumnType="INTEGER">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeader?.max("RfqHeaderSno")]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpscm.modelscm.scmeo.ScmPurchaseDemandHeader.txtRFQHeaderSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseDemandLines"
     Association="erpscm.modelscm.scmeo.FkScmPurDemLinHeaderIdAssoc"

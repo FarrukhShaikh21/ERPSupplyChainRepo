@@ -60,6 +60,7 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
         txtLocationName,
         IsUnsupervised,
         ApprovalStatusSno,
+        txtRFQHeaderSno,
         ScmPurchaseDemandLines,
         GlProjects,
         AdminCompany,
@@ -119,6 +120,7 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int ISUNSUPERVISED = AttributesEnum.IsUnsupervised.index();
     public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
+    public static final int TXTRFQHEADERSNO = AttributesEnum.txtRFQHeaderSno.index();
     public static final int SCMPURCHASEDEMANDLINES = AttributesEnum.ScmPurchaseDemandLines.index();
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -576,6 +578,22 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtRFQHeaderSno, using the alias name txtRFQHeaderSno.
+     * @return the value of txtRFQHeaderSno
+     */
+    public Integer gettxtRFQHeaderSno() {
+        return (Integer) getAttributeInternal(TXTRFQHEADERSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtRFQHeaderSno.
+     * @param value value to set the txtRFQHeaderSno
+     */
+    public void settxtRFQHeaderSno(Integer value) {
+        setAttributeInternal(TXTRFQHEADERSNO, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getScmPurchaseDemandLines() {
@@ -658,14 +676,6 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
 
 
     /**
-     * Validation method for ScmPurchaseDemandHeader.
-     */
-    public boolean validateScmPurchaseDemandHeader() {
-        System.out.println("validate scmpurchase dem header");
-        return true;
-    }
-
-    /**
      * @param demandHeaderSno key constituent
 
      * @return a Key object based on given key constituents.
@@ -673,6 +683,15 @@ public class ScmPurchaseDemandHeaderImpl extends ERPEntityImpl {
     public static Key createPrimaryKey(Integer demandHeaderSno) {
         return new Key(new Object[] { demandHeaderSno });
     }
+
+    /**
+     * Validation method for ScmPurchaseDemandHeader.
+     */
+    public boolean validateScmPurchaseDemandHeader() {
+        System.out.println("validate scmpurchase dem header");
+        return true;
+    }
+
 
     /**
      * Add locking logic here.

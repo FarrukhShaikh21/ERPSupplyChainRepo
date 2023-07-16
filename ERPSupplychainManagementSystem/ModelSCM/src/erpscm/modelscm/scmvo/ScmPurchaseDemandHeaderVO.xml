@@ -525,6 +525,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtRFQHeaderSno"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtRFQHeaderSno"
+    EntityUsage="ScmPurchaseDemandHeader"
+    AliasName="txt_RFQHeader_Sno"/>
   <ViewCriteria
     Name="ScmPurchaseDemandHeaderByCompanyIDVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
@@ -1018,6 +1026,59 @@
         Value=":P_ADF_LOCATION_ID"
         IsBindVarValue="true"
         Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPurchaseDemandHeaderBalanceVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseDemandHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ScmPurchaseDemandLinesVO"
+        ViewAttribute="ScmPurchaseDemandLinesVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseDemandLinesVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseDemandLinesVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="IsComplete"
+              ViewAttribute="IsComplete"
+              Operator="="
+              Conjunction="AND"
+              Value="N"
+              UpperColumns="0"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

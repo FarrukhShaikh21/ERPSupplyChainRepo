@@ -317,8 +317,7 @@
                                                                       shortDesc="#{bindings.txtRfqHeaderCode.hints.tooltip}"
                                                                       simple="true" autoSubmit="true"
                                                                       partialTriggers="txtSupplierNameId txtLocationNameId"
-                                                                      contentStyle="width:90%"
-                                                                      disabled="#{bindings.txtDemandHeaderCode.inputValue!=null}">
+                                                                      contentStyle="width:90%">
                                             <f:validator binding="#{bindings.txtRfqHeaderCode.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.txtRfqHeaderCode.format}"/>

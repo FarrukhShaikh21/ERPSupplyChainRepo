@@ -95,6 +95,9 @@
     <ViewCriteriaUsage
       Name="ScmPurchaseRfqHeaderSupplierWiseVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO.ScmPurchaseRfqHeaderSupplierWiseVC"/>
+    <ViewCriteriaUsage
+      Name="ScmPurchaseRfqHeaderWithoutDemandVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO.ScmPurchaseRfqHeaderWithoutDemandVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_SUPPLIER_SNO">
         <TransientExpression
@@ -106,6 +109,9 @@
     Name="AccScmPurchaseDemandHeaderVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
     RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmPurchaseDemandHeaderBalanceVC"
+      FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO.ScmPurchaseDemandHeaderBalanceVC"/>
     <ViewCriteriaUsage
       Name="ScmPurchaseDemandHeaderByLocationVC"
       FullName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO.ScmPurchaseDemandHeaderByLocationVC"/>
@@ -377,16 +383,12 @@
       <Item Value="RfqHeaderSno"/>
       <Item Value="TempDepartmentId"/>
       <Item Value="TempProjectId"/>
-      <Item Value="txtDemandHeaderCode"/>
-      <Item Value="DemandHeaderSno"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="RfqHeaderCode"/>
       <Item Value="RfqHeaderSno"/>
       <Item Value="TempDepartmentId"/>
       <Item Value="TempProjectId"/>
-      <Item Value="txtDemandHeaderCode"/>
-      <Item Value="DemandHeaderSno"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="RfqHeaderCode"/>

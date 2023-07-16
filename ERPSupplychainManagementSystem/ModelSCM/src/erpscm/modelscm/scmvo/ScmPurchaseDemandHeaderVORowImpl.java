@@ -54,6 +54,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
         IsUnsupervised,
         txtSumDemandQuantity,
         ApprovalStatusSno,
+        txtRFQHeaderSno,
         ScmPurchaseDemandLinesVO,
         GlProjectsVO,
         AdminCompanyVO,
@@ -123,6 +124,7 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ISUNSUPERVISED = AttributesEnum.IsUnsupervised.index();
     public static final int TXTSUMDEMANDQUANTITY = AttributesEnum.txtSumDemandQuantity.index();
     public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
+    public static final int TXTRFQHEADERSNO = AttributesEnum.txtRFQHeaderSno.index();
     public static final int SCMPURCHASEDEMANDLINESVO = AttributesEnum.ScmPurchaseDemandLinesVO.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -615,6 +617,22 @@ public class ScmPurchaseDemandHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setApprovalStatusSno(Integer value) {
         setAttributeInternal(APPROVALSTATUSSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txt_RFQHeader_Sno using the alias name txtRFQHeaderSno.
+     * @return the txt_RFQHeader_Sno
+     */
+    public Integer gettxtRFQHeaderSno() {
+        return (Integer) getAttributeInternal(TXTRFQHEADERSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for txt_RFQHeader_Sno using the alias name txtRFQHeaderSno.
+     * @param value value to set the txt_RFQHeader_Sno
+     */
+    public void settxtRFQHeaderSno(Integer value) {
+        setAttributeInternal(TXTRFQHEADERSNO, value);
     }
 
     /**
