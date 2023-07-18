@@ -336,6 +336,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_LINES">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseOrderHeader?.TempDepartmentId]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -354,6 +356,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SCM_PURCHASE_ORDER_LINES">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[ScmPurchaseOrderHeader?.TempProjectId]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
