@@ -88,7 +88,20 @@
   <ViewAccessor
     Name="AccInvUnitTypeVO"
     ViewObjectName="erpims.modelims.imsvo.InvUnitTypeVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvUnitTypeByCompanyIDVC"
+      FullName="erpims.modelims.imsvo.InvUnitTypeVO.InvUnitTypeByCompanyIDVC"/>
+    <ViewCriteriaUsage
+      Name="InvUnitTypeVOActiveVC"
+      FullName="erpims.modelims.imsvo.InvUnitTypeVO.InvUnitTypeVOActiveVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseOrderHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccGlTaxTypeVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlTaxTypeVO"
@@ -106,7 +119,17 @@
   <ViewAccessor
     Name="AccInvInventoryOrgVO"
     ViewObjectName="erpims.modelims.imsvo.InvInventoryOrgVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvInventoryOrgByCompanyIDVC"
+      FullName="erpims.modelims.imsvo.InvInventoryOrgVO.InvInventoryOrgByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseOrderHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccInvSubinventoryOrgVO"
     ViewObjectName="erpims.modelims.imsvo.InvSubinventoryOrgVO"

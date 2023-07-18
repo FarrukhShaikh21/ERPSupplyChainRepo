@@ -72,16 +72,6 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
-    <Dependencies>
-      <Item
-        Value="LocationId"/>
-      <Item
-        Value="SupplierSno"/>
-      <Item
-        Value="txtLocationName"/>
-      <Item
-        Value="txtSupplierName"/>
-    </Dependencies>
   </Attribute>
   <Attribute
     Name="EmployeeSno"
@@ -902,18 +892,6 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression><![CDATA[ScmPurchaseRfqHeader?.RfqHeaderCode]]></TransientExpression>
-    <Dependencies>
-      <Item
-        Value="LocationId"/>
-      <Item
-        Value="RfqHeaderSno"/>
-      <Item
-        Value="SupplierSno"/>
-      <Item
-        Value="txtLocationName"/>
-      <Item
-        Value="txtSupplierName"/>
-    </Dependencies>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -1085,8 +1063,7 @@
     IsPersistent="false"
     IsQueriable="false"
     Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_ORDER_HEADER">
+    ColumnType="VARCHAR2">
     <Properties>
       <SchemaBasedProperties>
         <LABEL

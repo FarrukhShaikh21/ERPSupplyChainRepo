@@ -581,8 +581,11 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
      */
     public void setSupplierSno(Integer value) {
         setAttributeInternal(SUPPLIERSNO, value);
-        setRfqHeaderSno(null);
-        setDemandHeaderSno(null);
+        //in case po is based on rfq or demand
+        if (getRfqHeaderSno() !=null ) {
+            setRfqHeaderSno(null);
+//            setDemandHeaderSno(null);
+        }
         setCompareHeaderSno(null);
 //        setRfqHeaderSno(null);
     }
@@ -618,8 +621,12 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
     public void setLocationId(Integer value) {
         setAttributeInternal(LOCATIONID, value);
         setCompanyId(doGetCompanyIDByLocation(value==null?0:value.intValue(), getGlobalCompanyId()));
-        setRfqHeaderSno(null);
-        setDemandHeaderSno(null);
+        //in case po is based on rfq or demand
+        if (getRfqHeaderSno() !=null) {
+            setDemandHeaderSno(null);
+            setRfqHeaderSno(null);
+
+        }
         setCompareHeaderSno(null);
     }
 

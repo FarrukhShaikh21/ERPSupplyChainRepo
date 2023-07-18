@@ -72,7 +72,20 @@
   <ViewAccessor
     Name="AccGlProjectsVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlProjectsVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlProjectsActiveVC"
+      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsActiveVC"/>
+    <ViewCriteriaUsage
+      Name="GlProjectsByCompanyVC"
+      FullName="erpfms.modelfms.fmsvo.GlProjectsVO.GlProjectsByCompanyVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?-1:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccScmPaymentTermHeaderVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPaymentTermHeaderVO"
