@@ -1018,21 +1018,21 @@
             Name="AdminCompanyVONestedCriteria_row_0"
             UpperColumns="1">
             <ViewCriteriaItem
-              Name="CompanyName"
-              ViewAttribute="CompanyName"
+              Name="LocationName"
+              ViewAttribute="LocationName"
               Operator="CONTAINS"
               Conjunction="AND"
               Required="Optional"/>
             <ViewCriteriaItem
-              Name="CompanyShortName"
-              ViewAttribute="CompanyShortName"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Required="Optional"/>
-            <ViewCriteriaItem
-              Name="CompanyShortCode"
-              ViewAttribute="CompanyShortCode"
+              Name="LocationShortCode"
+              ViewAttribute="LocationShortCode"
               Operator="="
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="LocationShortName"
+              ViewAttribute="LocationShortName"
+              Operator="CONTAINS"
               Conjunction="AND"
               Required="Optional"/>
           </ViewCriteriaRow>
