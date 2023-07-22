@@ -100,15 +100,45 @@
   <ViewAccessor
     Name="AccInvSubinventoryOrgVO"
     ViewObjectName="erpims.modelims.imsvo.InvSubinventoryOrgVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvSubinventoryOrgByInvOrgSnoVC"
+      FullName="erpims.modelims.imsvo.InvSubinventoryOrgVO.InvSubinventoryOrgByInvOrgSnoVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_INVENTORY_ORG_SNO">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[InventoryOrgSno==null?0:InventoryOrgSno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccInvInventoryOrgVO"
     ViewObjectName="erpims.modelims.imsvo.InvInventoryOrgVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InvInventoryOrgByCompanyIDVC"
+      FullName="erpims.modelims.imsvo.InvInventoryOrgVO.InvInventoryOrgByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId==null?0:ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccGlChartOfAccountsVO"
     ViewObjectName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GlChartOfAccountsLastLevelVC"
+      FullName="erpfms.modelfms.fmsvo.GlChartOfAccountsVO.GlChartOfAccountsLastLevelVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ScmPurchaseRfqHeaderVO?.CompanyId==null?0:ScmPurchaseRfqHeaderVO?.CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtItemName"
     ListVOName="AccInvItemVO"
