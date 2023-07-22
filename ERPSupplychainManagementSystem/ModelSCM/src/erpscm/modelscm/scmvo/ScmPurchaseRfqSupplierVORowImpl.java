@@ -17,6 +17,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.ApplicationModule;
 import oracle.jbo.JboException;
+import oracle.jbo.NameValuePairs;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
@@ -538,7 +539,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
         ViewObject erpPOLinesvo=am.findViewObject("ScmPurchaseOrderLinesDetCRUD");
         
         if (gettxtIsMerge()==null || gettxtIsMerge().equals("N")) {
-            Row poheadRow=erpPOHeadvo.createRow();
+//            Row poheadRow=erpPOHeadvo.createRow();
+            NameValuePairs poheadRow=new NameValuePairs();
             poheadRow.setAttribute("SupplierSno", getSupplierSno());
             poheadRow.setAttribute("txtGenerateFromBidCompare", "Y");
             poheadRow.setAttribute("DemandHeaderSno", erpPurBidComp.getCurrentRow().getAttribute("DemandHeaderSno"));
@@ -552,8 +554,9 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
             poheadRow.setAttribute("RfqHeaderSno", getRfqHeaderSno());
             poheadRow.setAttribute("StatusId", 1);
             poheadRow.setAttribute("ApprovalStatusSno", 1);
-            erpPOHeadvo.insertRow(poheadRow);
-            erpPOHeadvo.setCurrentRow(poheadRow);
+            Row initrow=erpPOHeadvo.createAndInitRow(poheadRow);
+            erpPOHeadvo.insertRow(initrow);
+            erpPOHeadvo.setCurrentRow(initrow);
             erpPOHeaderSno=(Integer)poheadRow.getAttribute("PoHeaderSno");
             settxtPurchaseOrderSno(erpPOHeaderSno);
         }
@@ -569,7 +572,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                 }
                 
                 if (filteredRows==null || filteredRows.length == 0 ) {
-                    Row erpPoLinRow = erpPOLinesvo.createRow();
+//                    Row erpPoLinRow = erpPOLinesvo.createRow();
+                    NameValuePairs erpPoLinRow=new NameValuePairs();
                     erpPoLinRow.setAttribute("PoHeaderSno", erpPOHeaderSno);
                     erpPoLinRow.setAttribute("ItemId", suprow.getAttribute("txtItemId"));
                     erpPoLinRow.setAttribute("UnitTypeSno", suprow.getAttribute("txtUnitTypeSno"));
@@ -587,7 +591,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                     erpPoLinRow.setAttribute("ChartOfAccountId", suprow.getAttribute("txtChartOfAccountId"));
                     erpPoLinRow.setAttribute("LineNo", erpPOLinesvo.getRowCount());
 //                    suprow.setAttribute("RemainingBalance", (suprow.getAttribute("txtRemainingQtyForPO" )));
-                    erpPOLinesvo.insertRow(erpPoLinRow);
+                    Row lineInitRow=erpPOLinesvo.createAndInitRow(erpPoLinRow);
+                    erpPOLinesvo.insertRow(lineInitRow);
                 }
                 else {
                     filteredRows[0].setAttribute("PoRequestQuantity",new BigDecimal(filteredRows[0].getAttribute("PoRequestQuantity").toString()).add(new BigDecimal(suprow.getAttribute("txtGeneratePOQty").toString())));
@@ -620,8 +625,8 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
                 ps = getDBTransaction().createPreparedStatement("start TRANSACTION", getDBTransaction().DEFAULT);
                 ps.executeUpdate();
                 }
-                ps.executeUpdate();
                 ps= getDBTransaction().createPreparedStatement("select coalesce(sum(po_approve_quantity),0) PoQuantity from scm_purchase_order_lines where "+pERPDBColumn+"="+pERPColumnValue, getDBTransaction().DEFAULT);
+                ps.executeUpdate();
                 ResultSet rs = ps.executeQuery();
                 rs.next();
                 poquantity=rs.getString(1);

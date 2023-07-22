@@ -675,6 +675,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="TempDepartmentId"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtLocationName"
@@ -694,6 +698,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="LocationId"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtDemandHeaderCode"
@@ -706,6 +714,8 @@
     <TransientExpression
       trustMode="untrusted"><![CDATA[ScmPurchaseDemandHeader?.DemandHeaderCode]]></TransientExpression>
     <Dependencies>
+      <Item
+        Value="DemandHeaderSno"/>
       <Item
         Value="LocationId"/>
       <Item

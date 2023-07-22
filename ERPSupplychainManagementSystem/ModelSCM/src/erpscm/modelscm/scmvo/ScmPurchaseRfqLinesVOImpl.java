@@ -4,6 +4,7 @@ import erpscm.modelscm.scmvo.common.ScmPurchaseRfqLinesVO;
 
 import oracle.jbo.ApplicationModule;
 import oracle.jbo.JboException;
+import oracle.jbo.NameValuePairs;
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.ViewObjectImpl;
@@ -68,11 +69,14 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                             this.getApplicationModule().findViewObject("ScmPurchaseRfqSupplierDetCRUD");
                         Integer erpSupplierSno = (Integer) bidvoForSupplier.getCurrentRow().getAttribute("SupplierSno");
                         System.out.println("erpSupplierSno" + erpSupplierSno);
-                        Row newRow = bidvoForInsert.createRow();
+                        System.out.println("erpcompanyid" + rfqRow.getAttribute("CompanyId"));
+
+//                        Row newRow = bidvoForInsert.createRow();
+                        NameValuePairs newRow=new NameValuePairs();
                         System.out.println("one");
                         newRow.setAttribute("txtGenerateFromRFQ", "Y");
-                        newRow.setAttribute("LocationId", rfqRow.getAttribute("LocationId"));
                         newRow.setAttribute("CompanyId", rfqRow.getAttribute("CompanyId"));
+                        newRow.setAttribute("LocationId", rfqRow.getAttribute("LocationId"));
                         newRow.setAttribute("SupplierSno", erpSupplierSno);
                         System.out.println("two" + rfqRow.getAttribute("RfqHeaderSno"));
                         newRow.setAttribute("RfqHeaderSno", rfqRow.getAttribute("RfqHeaderSno"));
@@ -88,14 +92,16 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                         newRow.setAttribute("ApprovalStatusSno", 1);
                         newRow.setAttribute("StatusId", 1);
                         System.out.println("eight");
-                        bidvoForInsert.insertRow(newRow);
+                        Row nr=bidvoForInsert.createAndInitRow(newRow);
+                        bidvoForInsert.insertRow(nr);
                         System.out.println("before commit");
-                        bidvoForInsert.setCurrentRow(newRow);
+                        bidvoForInsert.setCurrentRow(nr);
                         erpMergeBidHeaderSno = (Integer) bidvoForInsert.getCurrentRow().getAttribute("BidHeaderSno");
                     }
                     System.out.println("headsno");
                     System.out.println(bidvoForInsert.getCurrentRow().getAttribute("RfqHeaderSno"));
-                    Row DetnewRow = bidDetvoForInsert.createRow();
+//                    Row DetnewRow = bidDetvoForInsert.createRow();
+                    NameValuePairs  DetnewRow=new NameValuePairs();
                     ///insert
                     DetnewRow.setAttribute("BidHeaderSno", erpMergeBidHeaderSno);
                     doCreateBidReceiveLine(DetnewRow, nextRow, bidDetvoForInsert);
@@ -108,7 +114,9 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
                     demLinMultile.executeQuery();
                     demLinMultile.setRangeSize(-1);
                     for (int j = 0; j < demLinMultile.getEstimatedRowCount(); j++) {
-                        Row newBidLine = bidDetvoForInsert.createRow();
+//                        Row newBidLine = bidDetvoForInsert.createRow();
+                        NameValuePairs newBidLine = new NameValuePairs();
+
                         newBidLine.setAttribute("BidHeaderSno", erpMergeBidHeaderSno);
                         demLinMultile.getRowAtRangeIndex(j).setAttribute("txtBidPrice",
                                                                          nextRow.getAttribute("txtBidPrice"));
@@ -178,7 +186,7 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         this.executeQuery();
 //        this.setWhereClause(null);
     }
-    public void doCreateBidReceiveLine(Row DetnewRow,Row nextRow, ViewObject bidDetvoForInsert) {
+    public void doCreateBidReceiveLine(NameValuePairs DetnewRow,Row nextRow, ViewObject bidDetvoForInsert) {
         DetnewRow.setAttribute("RfqLinesSno", nextRow.getAttribute("RfqLinesSno"));
         DetnewRow.setAttribute("DemandLinesSno", nextRow.getAttribute("DemandLinesSno"));
         DetnewRow.setAttribute("ItemId", nextRow.getAttribute("ItemId"));
@@ -195,7 +203,8 @@ public class ScmPurchaseRfqLinesVOImpl extends ViewObjectImpl implements ScmPurc
         DetnewRow.setAttribute("ChartOfAccountId", nextRow.getAttribute("ChartOfAccountId"));
          /////
         //               nextRow.setAttribute("txtGenerateBID", "G");
-         bidDetvoForInsert.insertRow(DetnewRow);
+         Row initRow=bidDetvoForInsert.createAndInitRow(DetnewRow);
+         bidDetvoForInsert.insertRow(initRow);
     }
 
     /**
