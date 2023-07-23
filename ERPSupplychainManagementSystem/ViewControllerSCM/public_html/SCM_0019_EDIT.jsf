@@ -338,7 +338,7 @@
                                                                       shortDesc="#{bindings.txtTempProjectName.hints.tooltip}"
                                                                       simple="true" contentStyle="width:90%"
                                                                       partialTriggers="txtLocationNameId txtRfqHeaderCodeId"
-                                                                      disabled="#{bindings.txtDemandHeaderCode.inputValue!=null}">
+                                                                      disabled="#{bindings.txtDemandHeaderCode.inputValue!=null || bindings.txtRfqHeaderCode.inputValue!=null}">
                                             <f:validator binding="#{bindings.txtTempProjectName.validator}"/>
                                         </af:inputComboboxListOfValues>
                                     </af:gridCell>
@@ -359,7 +359,7 @@
                                                                       shortDesc="#{bindings.txtTempDepartmentName.hints.tooltip}"
                                                                       simple="true" contentStyle="width:90%"
                                                                       partialTriggers="txtLocationNameId txtRfqHeaderCodeId"
-                                                                      disabled="#{bindings.txtDemandHeaderCode.inputValue!=null}">
+                                                                      disabled="#{bindings.txtDemandHeaderCode.inputValue!=null || bindings.txtRfqHeaderCode.inputValue!=null}">
                                             <f:validator binding="#{bindings.txtTempDepartmentName.validator}"/>
                                         </af:inputComboboxListOfValues>
                                     </af:gridCell>
@@ -718,7 +718,7 @@
                                     </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow id="gr16">
-                                    <af:gridCell id="gc50" halign="stretch">
+                                    <af:gridCell id="gc50" halign="stretch" width="100%" valign="stretch">
                                         <af:panelGridLayout id="pgl1">
                                             <af:gridRow marginTop="5px" height="auto" id="gr17">
                                                 <af:gridCell marginStart="5px" width="34%" id="gc30" halign="stretch">
@@ -824,9 +824,9 @@
                                         </af:panelGridLayout>
                                     </af:gridCell>
                                 </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
+                                <af:gridRow height="auto" marginBottom="5px" id="gr14">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc33"
-                                                 halign="stretch">
+                                                 halign="stretch" valign="stretch">
                                         <af:panelGridLayout id="pgl3">
                                             <af:gridRow id="gr12">
                                                 <af:gridCell id="gc28" styleClass="ERPEntryAreaHeading" halign="stretch"

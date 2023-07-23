@@ -492,6 +492,13 @@
       Name="ScmPurchaseBidLinesVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="RemainingBalance"
+        ViewAttribute="RemainingBalance"
+        Operator=">"
+        Conjunction="AND"
+        Value="0"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="ScmPurchaseBidHeaderVO"
         ViewAttribute="ScmPurchaseBidHeaderVO"
         Operator="EXISTS"
