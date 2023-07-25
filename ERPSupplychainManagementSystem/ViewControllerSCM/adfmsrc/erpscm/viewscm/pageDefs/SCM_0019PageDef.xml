@@ -7,6 +7,9 @@
     <page path="erptemplate.viewtemp.pageDefs.ERPTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="ScmPurchaseOrderHeaderRO" RangeSize="25" DataControl="ERPSCMModuleDataControl"
               id="ScmPurchaseOrderHeaderROIterator"/>
+    <searchRegion Criteria="ScmPurchaseOrderHeaderFindVO"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ScmPurchaseOrderHeaderROIterator" id="ScmPurchaseOrderHeaderFindVOQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="ScmPurchaseOrderHeaderROIterator" id="ScmPurchaseOrderHeaderRO">

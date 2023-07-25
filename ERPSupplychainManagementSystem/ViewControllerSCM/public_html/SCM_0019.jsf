@@ -8,14 +8,12 @@
         <af:dialog id="d2" type="ok">
           <f:facet name="buttonBar"/>
           <af:panelGroupLayout layout="vertical" id="pgl2">
-            <af:panelHeader text="Search BID" id="ph1">
+            <af:panelHeader text="Search PO" id="ph1">
               <af:query id="qryId1" headerText="Search" disclosed="true"
-                        value="#{bindings.ScmPurchaseBidCompHeaderFindVCQuery.queryDescriptor}"
-                        model="#{bindings.ScmPurchaseBidCompHeaderFindVCQuery.queryModel}"
-                        queryListener="#{bindings.ScmPurchaseBidCompHeaderFindVCQuery.processQuery}"
-                        queryOperationListener="#{bindings.ScmPurchaseBidCompHeaderFindVCQuery.processQueryOperation}"
-                        runQueryAutomatically="allSavedSearches" saveResultsLayout="never" saveQueryMode="hidden"
-                        modeChangeVisible="false"/>
+                        value="#{bindings.ScmPurchaseOrderHeaderFindVOQuery.queryDescriptor}"
+                        model="#{bindings.ScmPurchaseOrderHeaderFindVOQuery.queryModel}"
+                        queryListener="#{bindings.ScmPurchaseOrderHeaderFindVOQuery.processQuery}"
+                        queryOperationListener="#{bindings.ScmPurchaseOrderHeaderFindVOQuery.processQueryOperation}"/>
             </af:panelHeader>
           </af:panelGroupLayout>
         </af:dialog>
