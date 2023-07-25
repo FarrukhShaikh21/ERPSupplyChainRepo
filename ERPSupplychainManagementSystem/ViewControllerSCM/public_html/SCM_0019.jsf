@@ -92,10 +92,10 @@
                               <af:gridRow marginTop="5px" height="auto" id="gr7">
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc7">
                                   <af:panelGroupLayout id="pgl12" layout="horizontal">
-                                    <af:image id="i3" shortDesc="Bid Receive Date"
-                                              source="#{resource['images:imgDocumentDate.png']}"/>
+                                    <af:image id="i3" shortDesc="Supplier Name"
+                                              source="#{resource['images:imgSupplier.png']}"/>
                                     <af:spacer width="10" height="10" id="s4"/>
-                                    <af:outputFormatted value="#{item.bindings.txtDemandHeaderCode.inputValue}"
+                                    <af:outputFormatted value="#{item.bindings.txtSupplierName.inputValue}"
                                                         id="of10" styleClass="ERPHeroDetailColor">
                                       <af:convertNumber groupingUsed="false"
                                                         pattern="#{bindings.ScmPurchaseBidCompHeaderRO.hints.txtRfqHeaderCode.format}"/>
@@ -109,7 +109,7 @@
                                     <af:image id="i4" shortDesc="Approval Status"
                                               source="#{resource['images:imgStatus.png']}"/>
                                     <af:spacer width="10" height="10" id="s6"/>
-                                    <af:outputFormatted value="#{item.bindings.ApprovalStatusSno.inputValue==1?'PREPARED':item.bindings.ApprovalStatusSno.inputValue==2?'FORWARD':item.bindings.ApprovalStatusSno.inputValue==3?'REVERT':item.bindings.ApprovalStatusSno.inputValue==4?'DECLINED':item.bindings.ApprovalStatusSno.inputValue==5?'HOLD':'APPROVED'}"
+                                    <af:outputFormatted value="#{item.bindings.ApprovalStatusSno.inputValue==0?'PREPARED':item.bindings.ApprovalStatusSno.inputValue==1?'FORWARD':item.bindings.ApprovalStatusSno.inputValue==2?'REVERT':item.bindings.ApprovalStatusSno.inputValue==3?'DECLINED':item.bindings.ApprovalStatusSno.inputValue==4?'HOLD':'APPROVED'}"
                                                         id="of4" styleClass="ERPHeroDetailColor"/>
                                   </af:panelGroupLayout>
                                 </af:gridCell>
