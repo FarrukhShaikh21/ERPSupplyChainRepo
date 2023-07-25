@@ -339,7 +339,7 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
            }
        }
 //        
-        else if(getDemandHeaderSno()==null){
+        else if(1==1/*getDemandHeaderSno()==null*/){
             getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_RFQ_HEADER_SNO", value==null?-1:value);
             getAccScmPurchaseBidLinesVO().setNamedWhereClauseParam("P_ADF_SUPPLIER_SNO", getSupplierSno()==null?-1:getSupplierSno());
             String padfWhereClause="not exists( ";
@@ -582,6 +582,9 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
     public void setSupplierSno(Integer value) {
         setAttributeInternal(SUPPLIERSNO, value);
         //in case po is based on rfq or demand
+        if (getRfqHeaderSno() !=null && getDemandHeaderSno()!=null) {
+            setDemandHeaderSno(null);
+       }
         if (getRfqHeaderSno() !=null ) {
             setRfqHeaderSno(null);
 //            setDemandHeaderSno(null);

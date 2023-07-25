@@ -974,7 +974,7 @@
                                     <af:link text="UnSupervise" id="l20" partialSubmit="true"
                                              icon="#{resource['images:imgUnSuperviseRecord.png']}" iconPosition="top"
                                              action="#{pageFlowScope.OracleERPBean.doERPPopUnSuperviseRecord}"
-                                             disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.BidHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
+                                             disabled="#{bindings.IsSupervised.inputValue=='N' || bindings.PoHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowUnsupervise=='N'}"
                                              partialTriggers="l7" shortDesc="Un Supervise Record">
                                         <af:setActionListener from="#{'ScmPurchaseOrderHeaderCRUDIterator'}"
                                                               to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
@@ -982,7 +982,7 @@
                                     <af:link text="Supervise" id="l19" partialSubmit="true"
                                              icon="#{resource['images:imgSuperviseRecord.png']}" iconPosition="top"
                                              action="#{pageFlowScope.OracleERPBean.doERPPopSupervisedRecord}"
-                                             disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.BidHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
+                                             disabled="#{bindings.IsSupervised.inputValue=='Y' || bindings.PoHeaderCode.inputValue==null ||pageFlowScope.ERPMainTempBean.LERPAllowSupervise=='N'}"
                                              partialTriggers="l7" shortDesc="Supervise Record">
                                         <af:setActionListener from="#{'ScmPurchaseOrderHeaderCRUDIterator'}"
                                                               to="#{pageFlowScope.OracleERPBean.LIteratorName}"/>
