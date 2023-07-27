@@ -7,11 +7,16 @@ import erpfms.modelfms.fmseo.GlProjectsImpl;
 import erpglobals.modelglobals.ERPEntityImpl;
 import erpglobals.modelglobals.ERPGlobalPLSQLClass;
 
+import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 
+import oracle.jbo.ApplicationModule;
 import oracle.jbo.AttributeList;
+import oracle.jbo.JboException;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.ViewObject;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
@@ -956,6 +961,40 @@ public class ScmPurchaseBidHeaderImpl extends ERPEntityImpl {
 
         }         
         super.doDML(operation, e);
+    }
+    @Override
+    public void beforeCommit(TransactionEvent transactionEvent) {
+        System.out.println(transactionEvent);
+        doCheckItemSameRateForAllOrg();
+        System.out.println("this is before commit-bidlines");
+        // TODO Implement this method
+        super.beforeCommit(transactionEvent);
+    }
+    public void doCheckItemSameRateForAllOrg() {
+        ApplicationModule am = getDBTransaction().getRootApplicationModule();
+        ViewObject voSr=am.findViewObject("voTotalItems");
+        if (voSr!=null) {
+            voSr.remove();
+       }
+        voSr=am.createViewObjectFromQueryStmt("voTotalItems", "select i.item_id,i.description from scm_purchase_bid_lines bl,inv_item i where bl.item_id=i.item_id and bid_header_sno="+getBidHeaderSno()+ " group by i.item_id,i.description having count(i.item_id)>1");
+        voSr.executeQuery();
+        voSr.setRangeSize(-1);
+        for (int ii = 0; ii < voSr.getRowCount(); ii++) {
+            
+            ViewObject vo = am.findViewObject("voRateDefined");
+            if (vo!=null) {
+                vo.remove();
+           }
+            vo=am.createViewObjectFromQueryStmt("voRateDefined", "select distinct Bid_Price from scm_purchase_bid_lines where bid_header_sno="+getBidHeaderSno()+ " and item_id="+voSr.getRowAtRangeIndex(ii).getAttribute(0));
+               
+            vo.executeQuery();
+            if (vo.getEstimatedRowCount() > 1) {
+                vo.remove();
+                    throw new JboException("Item ("+voSr.getRowAtRangeIndex(ii).getAttribute(1)+") Price should be same for all Inventory Organization.");
+                
+            }
+
+        }
     }
 }
 
