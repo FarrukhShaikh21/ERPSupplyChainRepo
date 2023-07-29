@@ -225,6 +225,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmDeliveryTermScmPurOrdHeadDeliveryTermSnoAsso.ScmDeliveryTerm"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmPurchaseRfqHeader"
+    Association="erpscm.modelscm.scmeo.ScmDeliveryTermScmPurchaseRfqHeadDeliveryTermSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmDeliveryTermScmPurchaseRfqHeadDeliveryTermSnoAssoc.ScmPurchaseRfqHeader"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmDeliveryTermScmPurchaseRfqHeadDeliveryTermSnoAssoc.ScmDeliveryTerm"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkScmDeliveryTerm"
     PrimaryKey="true">

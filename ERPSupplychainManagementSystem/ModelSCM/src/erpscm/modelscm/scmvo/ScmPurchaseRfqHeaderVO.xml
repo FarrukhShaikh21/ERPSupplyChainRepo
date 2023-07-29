@@ -198,7 +198,17 @@
   <ViewAccessor
     Name="AccScmDeliveryTermVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmDeliveryTermVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ScmDeliveryTermByCompanyIDVC"
+      FullName="erpscm.modelscm.scmvo.ScmDeliveryTermVO.ScmDeliveryTermByCompanyIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_COMPANY_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtTempProjectName"
     ListVOName="AccGlProjectsVO"
@@ -1508,6 +1518,12 @@
     Name="ScmPurchaseOrderHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPurchfqHeadScmPurchOrdHeadRfqHeaderSnoLink"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ScmDeliveryTermVO"
+    ViewLink="erpscm.modelscm.scmvo.ScmDeliveryTermScmPurchaseRfqHeadDeliveryTermSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle

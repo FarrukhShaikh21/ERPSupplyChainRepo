@@ -815,6 +815,10 @@
     ColumnType="VARCHAR2"
     IsQueriable="false"
     IsPersistent="false">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[ScmDeliveryTerm?.DeliveryTermName]]></TransientExpression>
+    <RecalcCondition
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -823,6 +827,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="DeliveryTermSno"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="ScmPurchaseRfqLines"
@@ -894,6 +902,13 @@
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPurchfqHeadScmPurchOrdHeadRfqHeaderSnoAsso.ScmPurchaseRfqHeader"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ScmDeliveryTerm"
+    Association="erpscm.modelscm.scmeo.ScmDeliveryTermScmPurchaseRfqHeadDeliveryTermSnoAssoc"
+    AssociationEnd="erpscm.modelscm.scmeo.ScmDeliveryTermScmPurchaseRfqHeadDeliveryTermSnoAssoc.ScmDeliveryTerm"
+    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmDeliveryTermScmPurchaseRfqHeadDeliveryTermSnoAssoc.ScmPurchaseRfqHeader"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkScmPurchaseQuotationHead"
     PrimaryKey="true">
@@ -964,9 +979,7 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_HEADER5"/>
     </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.FobTermSno"/>
-    </AttrArray>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="fk_ScmPurchaseRfqHeader6">
@@ -974,6 +987,17 @@
       <Attr Name="_referencedKey" Value="PK_SCM_PUECHASE_DEMAND_HEADER"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_HEADER6"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.DemandHeaderSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_ScmPurchaseRfqHeader7">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_SCM_DELIVERY_TERM"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SCM_PURCHASE_RFQ_HEADER7"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.DemandHeaderSno"/>
@@ -1005,17 +1029,17 @@
       Name="OnConditionExpr"><![CDATA[IsSupervised=='N']]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
-        Value="ERR_PROJECT"/>
-      <validation:Item
         Value="ERR_VALID_DATES"/>
+      <validation:Item
+        Value="ERR_PROJECT"/>
       <validation:Item
         Value="ERR_LOCATIONID"/>
       <validation:Item
         Value="ERR_DUE_DATE_FUTURE"/>
       <validation:Item
-        Value="ERR_DEPARTMENT"/>
-      <validation:Item
         Value="ERR_CLOSE_DATE"/>
+      <validation:Item
+        Value="ERR_DEPARTMENT"/>
     </validation:MsgIds>
     <validation:TransientExpression><![CDATA[if(LocationId==null)
 {
