@@ -95,10 +95,6 @@
     ViewObjectName="erpscm.modelscm.scmvo.ScmFreightTermVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="AccScmFobTermVO"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmFobTermVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
     Name="AccScmPurchaseRfqHeaderVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
     RowLevelBinds="true">
@@ -859,12 +855,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="FobTermSno"
-    PrecisionRule="true"
-    EntityAttrName="FobTermSno"
-    EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="FOB_TERM_SNO"/>
-  <ViewAttribute
     Name="FreightTermSno"
     PrecisionRule="true"
     EntityAttrName="FreightTermSno"
@@ -1350,12 +1340,6 @@
   <ViewLinkAccessor
     Name="ScmFreightTermVO"
     ViewLink="erpscm.modelscm.scmvo.ScmFreightTermScmPurcOrdHeadFreightTermSnoLink"
-    Type="oracle.jbo.Row"
-    Reversed="true"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="ScmFobTermVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmFobTermScmPurchaseOrdHeadFobTermSnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

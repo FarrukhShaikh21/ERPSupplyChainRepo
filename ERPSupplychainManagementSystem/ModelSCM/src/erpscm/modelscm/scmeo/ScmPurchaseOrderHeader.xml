@@ -651,24 +651,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="FobTermSno"
-    Precision="6"
-    Scale="0"
-    ColumnName="FOB_TERM_SNO"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_ORDER_HEADER">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.FobTermSno_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="FreightTermSno"
     Precision="6"
     Scale="0"
@@ -1116,13 +1098,6 @@
     AssociationEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcOrdHeadFreightTermSnoAsso.ScmFreightTerm"
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcOrdHeadFreightTermSnoAsso.ScmPurchaseOrderHeader"
     Type="erpscm.modelscm.scmeo.ScmFreightTermImpl"
-    IsUpdateable="true"/>
-  <AccessorAttribute
-    Name="ScmFobTerm"
-    Association="erpscm.modelscm.scmeo.ScmFobTermScmPurchaseOrdHeadFobTermSnoAsso"
-    AssociationEnd="erpscm.modelscm.scmeo.ScmFobTermScmPurchaseOrdHeadFobTermSnoAsso.ScmFobTerm"
-    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFobTermScmPurchaseOrdHeadFobTermSnoAsso.ScmPurchaseOrderHeader"
-    Type="erpscm.modelscm.scmeo.ScmFobTermImpl"
     IsUpdateable="true"/>
   <AccessorAttribute
     Name="ScmPurchaseDemandHeader"

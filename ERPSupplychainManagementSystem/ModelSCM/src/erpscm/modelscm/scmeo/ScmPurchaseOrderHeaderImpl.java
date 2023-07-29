@@ -62,7 +62,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         CancelledDate,
         ApprovalStatusSno,
         CourierSno,
-        FobTermSno,
         FreightTermSno,
         PaymentTermHeaderSno,
         PoTypeSno,
@@ -90,7 +89,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         ScmPurchaseRfqHeader,
         ScmPaymentTermHeader,
         ScmFreightTerm,
-        ScmFobTerm,
         ScmPurchaseDemandHeader,
         ScmSupplierSites,
         ScmSupplierSites1,
@@ -156,7 +154,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int CANCELLEDDATE = AttributesEnum.CancelledDate.index();
     public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int COURIERSNO = AttributesEnum.CourierSno.index();
-    public static final int FOBTERMSNO = AttributesEnum.FobTermSno.index();
     public static final int FREIGHTTERMSNO = AttributesEnum.FreightTermSno.index();
     public static final int PAYMENTTERMHEADERSNO = AttributesEnum.PaymentTermHeaderSno.index();
     public static final int POTYPESNO = AttributesEnum.PoTypeSno.index();
@@ -184,7 +181,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int SCMPAYMENTTERMHEADER = AttributesEnum.ScmPaymentTermHeader.index();
     public static final int SCMFREIGHTTERM = AttributesEnum.ScmFreightTerm.index();
-    public static final int SCMFOBTERM = AttributesEnum.ScmFobTerm.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int SCMSUPPLIERSITES = AttributesEnum.ScmSupplierSites.index();
     public static final int SCMSUPPLIERSITES1 = AttributesEnum.ScmSupplierSites1.index();
@@ -750,21 +746,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         setAttributeInternal(COURIERSNO, value);
     }
 
-    /**
-     * Gets the attribute value for FobTermSno, using the alias name FobTermSno.
-     * @return the value of FobTermSno
-     */
-    public Integer getFobTermSno() {
-        return (Integer) getAttributeInternal(FOBTERMSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for FobTermSno.
-     * @param value value to set the FobTermSno
-     */
-    public void setFobTermSno(Integer value) {
-        setAttributeInternal(FOBTERMSNO, value);
-    }
 
     /**
      * Gets the attribute value for FreightTermSno, using the alias name FreightTermSno.
@@ -1162,19 +1143,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         setAttributeInternal(SCMFREIGHTTERM, value);
     }
 
-    /**
-     * @return the associated entity ScmFobTermImpl.
-     */
-    public ScmFobTermImpl getScmFobTerm() {
-        return (ScmFobTermImpl) getAttributeInternal(SCMFOBTERM);
-    }
-
-    /**
-     * Sets <code>value</code> as the associated entity ScmFobTermImpl.
-     */
-    public void setScmFobTerm(ScmFobTermImpl value) {
-        setAttributeInternal(SCMFOBTERM, value);
-    }
 
     /**
      * @return the associated entity ScmPurchaseDemandHeaderImpl.
