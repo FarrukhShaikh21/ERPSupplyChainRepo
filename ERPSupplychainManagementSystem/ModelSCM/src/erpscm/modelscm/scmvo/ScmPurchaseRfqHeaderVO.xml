@@ -83,23 +83,6 @@
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
-    Name="AccScmFreightTermVO"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmFreightTermVO"
-    RowLevelBinds="true">
-    <ViewCriteriaUsage
-      Name="ScmFreightTermActiveVC"
-      FullName="erpscm.modelscm.scmvo.ScmFreightTermVO.ScmFreightTermActiveVC"/>
-    <ViewCriteriaUsage
-      Name="ScmFreightTermByCompanyIDVC"
-      FullName="erpscm.modelscm.scmvo.ScmFreightTermVO.ScmFreightTermByCompanyIDVC"/>
-    <ParameterMap>
-      <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
-  </ViewAccessor>
-  <ViewAccessor
     Name="AccScmFobTermVO"
     ViewObjectName="erpscm.modelscm.scmvo.ScmFobTermVO"
     RowLevelBinds="true">
@@ -306,53 +289,6 @@
       Name="ScmPaymentTermHeaderFindVC"/>
   </ListBinding>
   <ListBinding
-    Name="LovtxtFreightTermName"
-    ListVOName="AccScmFreightTermVO"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="txtFreightTermName"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="FreightTermSno"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="FreightTermName"/>
-      <Item Value="FreightTermSno"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="FreightTermName"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LovtxtFobTermName"
-    ListVOName="AccScmFobTermVO"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="txtFobTermName"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="FobTermSno"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="FobTermName"/>
-      <Item Value="FobTermSno"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="FobTermName"/>
-    </AttrArray>
-    <DisplayCriteria
-      Name="ScmFobTermVOFindVC"/>
-  </ListBinding>
-  <ListBinding
     Name="LovRfqTypeSno"
     ListVOName="AccSysGeneralValueRFQTypeVO"
     ListRangeSize="-1"
@@ -521,6 +457,7 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="DeliveryTermName"/>
+      <Item Value="DeliveryTermShortName"/>
       <Item Value="DeliveryTermCode"/>
     </AttrArray>
     <DisplayCriteria/>
@@ -736,12 +673,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="FreightTermSno"
-    PrecisionRule="true"
-    EntityAttrName="FreightTermSno"
-    EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="FREIGHT_TERM_SNO"/>
-  <ViewAttribute
     Name="NoteToSupplier"
     PrecisionRule="true"
     EntityAttrName="NoteToSupplier"
@@ -822,38 +753,6 @@
     EntityUsage="ScmPurchaseRfqHeader"
     AliasName="TXT_PAYMENT_TERM_NAME"
     LOVName="LovtxtPaymentTermName">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="txtFreightTermName"
-    IsQueriable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    EntityAttrName="txtFreightTermName"
-    EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="TXT_FREIGHT_TERM_NAME"
-    LOVName="LovtxtFreightTermName">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="txtFobTermName"
-    IsQueriable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    EntityAttrName="txtFobTermName"
-    EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="TXT_FOB_TERM_NAME"
-    LOVName="LovtxtFobTermName">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -989,6 +888,8 @@
     AliasName="DELIVERY_TERM_SNO"/>
   <ViewAttribute
     Name="txtDeliveryTermName"
+    IsQueriable="false"
+    IsPersistent="false"
     PrecisionRule="true"
     EntityAttrName="txtDeliveryTermName"
     EntityUsage="ScmPurchaseRfqHeader"
@@ -1046,7 +947,6 @@
               ViewAttribute="TempAdminCompanyAccessVO"
               Operator="EXISTS"
               Conjunction="AND"
-              IsNestedCriteria="true"
               Required="Optional">
               <ViewCriteria
                 Name="TempAdminCompanyAccessVONestedCriteria"
@@ -1392,7 +1292,6 @@
               ViewAttribute="ScmPurchaseBidCompSupplierVO"
               Operator="EXISTS"
               Conjunction="AND"
-              IsNestedCriteria="true"
               Required="Optional">
               <ViewCriteria
                 Name="ScmPurchaseBidCompSupplierVONestedCriteria"
@@ -1454,7 +1353,6 @@
               ViewAttribute="ScmPurchaseDemandLinesVO"
               Operator="EXISTS"
               Conjunction="AND"
-              IsNestedCriteria="true"
               Required="Optional">
               <ViewCriteria
                 Name="ScmPurchaseDemandLinesVONestedCriteria"
@@ -1607,12 +1505,6 @@
   <ViewLinkAccessor
     Name="ScmPaymentTermHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPayTermHeadScmPurRFQHeadPaymentTermHeadSnoVL"
-    Type="oracle.jbo.Row"
-    Reversed="true"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="ScmFreightTermVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmFreightTermScmPurcRfqHeadFreightTermSnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

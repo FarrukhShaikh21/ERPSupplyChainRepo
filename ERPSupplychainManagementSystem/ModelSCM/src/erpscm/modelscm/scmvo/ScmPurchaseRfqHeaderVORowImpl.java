@@ -55,7 +55,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         CancelledBy,
         CancelledDate,
         RfqTypeSno,
-        FreightTermSno,
         NoteToSupplier,
         CourierSno,
         txtLocationName,
@@ -64,8 +63,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         txtTempProjectName,
         PaymentTermHeaderSno,
         txtPaymentTermName,
-        txtFreightTermName,
-        txtFobTermName,
         ValidFromDate,
         ValidToDate,
         DemandHeaderSno,
@@ -85,7 +82,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         AdminCompanyVO1,
         GlProjectsVO,
         ScmPaymentTermHeaderVO,
-        ScmFreightTermVO,
         ScmFobTermVO,
         ScmPurchaseDemandHeaderVO,
         ScmPurchaseBidHeaderVO,
@@ -94,7 +90,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         AccGlProjectsVO,
         AccAdminCompanyDepartment,
         AccScmPaymentTermHeaderVO,
-        AccScmFreightTermVO,
         AccScmFobTermVO,
         AccSysGeneralValueRFQTypeVO,
         AccAdminCompany,
@@ -158,7 +153,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int CANCELLEDBY = AttributesEnum.CancelledBy.index();
     public static final int CANCELLEDDATE = AttributesEnum.CancelledDate.index();
     public static final int RFQTYPESNO = AttributesEnum.RfqTypeSno.index();
-    public static final int FREIGHTTERMSNO = AttributesEnum.FreightTermSno.index();
     public static final int NOTETOSUPPLIER = AttributesEnum.NoteToSupplier.index();
     public static final int COURIERSNO = AttributesEnum.CourierSno.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
@@ -167,8 +161,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
     public static final int PAYMENTTERMHEADERSNO = AttributesEnum.PaymentTermHeaderSno.index();
     public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
-    public static final int TXTFREIGHTTERMNAME = AttributesEnum.txtFreightTermName.index();
-    public static final int TXTFOBTERMNAME = AttributesEnum.txtFobTermName.index();
     public static final int VALIDFROMDATE = AttributesEnum.ValidFromDate.index();
     public static final int VALIDTODATE = AttributesEnum.ValidToDate.index();
     public static final int DEMANDHEADERSNO = AttributesEnum.DemandHeaderSno.index();
@@ -188,7 +180,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ADMINCOMPANYVO1 = AttributesEnum.AdminCompanyVO1.index();
     public static final int GLPROJECTSVO = AttributesEnum.GlProjectsVO.index();
     public static final int SCMPAYMENTTERMHEADERVO = AttributesEnum.ScmPaymentTermHeaderVO.index();
-    public static final int SCMFREIGHTTERMVO = AttributesEnum.ScmFreightTermVO.index();
     public static final int SCMFOBTERMVO = AttributesEnum.ScmFobTermVO.index();
     public static final int SCMPURCHASEDEMANDHEADERVO = AttributesEnum.ScmPurchaseDemandHeaderVO.index();
     public static final int SCMPURCHASEBIDHEADERVO = AttributesEnum.ScmPurchaseBidHeaderVO.index();
@@ -197,7 +188,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
     public static final int ACCADMINCOMPANYDEPARTMENT = AttributesEnum.AccAdminCompanyDepartment.index();
     public static final int ACCSCMPAYMENTTERMHEADERVO = AttributesEnum.AccScmPaymentTermHeaderVO.index();
-    public static final int ACCSCMFREIGHTTERMVO = AttributesEnum.AccScmFreightTermVO.index();
     public static final int ACCSCMFOBTERMVO = AttributesEnum.AccScmFobTermVO.index();
     public static final int ACCSYSGENERALVALUERFQTYPEVO = AttributesEnum.AccSysGeneralValueRFQTypeVO.index();
     public static final int ACCADMINCOMPANY = AttributesEnum.AccAdminCompany.index();
@@ -692,21 +682,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(RFQTYPESNO, value);
     }
 
-    /**
-     * Gets the attribute value for FREIGHT_TERM_SNO using the alias name FreightTermSno.
-     * @return the FREIGHT_TERM_SNO
-     */
-    public Integer getFreightTermSno() {
-        return (Integer) getAttributeInternal(FREIGHTTERMSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for FREIGHT_TERM_SNO using the alias name FreightTermSno.
-     * @param value value to set the FREIGHT_TERM_SNO
-     */
-    public void setFreightTermSno(Integer value) {
-        setAttributeInternal(FREIGHTTERMSNO, value);
-    }
 
     /**
      * Gets the attribute value for NOTE_TO_SUPPLIER using the alias name NoteToSupplier.
@@ -836,38 +811,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(TXTPAYMENTTERMNAME, value);
     }
 
-
-    /**
-     * Gets the attribute value for TXT_FREIGHT_TERM_NAME using the alias name txtFreightTermName.
-     * @return the TXT_FREIGHT_TERM_NAME
-     */
-    public String gettxtFreightTermName() {
-        return (String) getAttributeInternal(TXTFREIGHTTERMNAME);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for TXT_FREIGHT_TERM_NAME using the alias name txtFreightTermName.
-     * @param value value to set the TXT_FREIGHT_TERM_NAME
-     */
-    public void settxtFreightTermName(String value) {
-        setAttributeInternal(TXTFREIGHTTERMNAME, value);
-    }
-
-    /**
-     * Gets the attribute value for TXT_FOB_TERM_NAME using the alias name txtFobTermName.
-     * @return the TXT_FOB_TERM_NAME
-     */
-    public String gettxtFobTermName() {
-        return (String) getAttributeInternal(TXTFOBTERMNAME);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for TXT_FOB_TERM_NAME using the alias name txtFobTermName.
-     * @param value value to set the TXT_FOB_TERM_NAME
-     */
-    public void settxtFobTermName(String value) {
-        setAttributeInternal(TXTFOBTERMNAME, value);
-    }
 
     /**
      * Gets the attribute value for VALID_FROM_DATE using the alias name ValidFromDate.
@@ -1101,6 +1044,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(DELIVERYTERMSNO, value);
     }
 
+
     /**
      * Gets the attribute value for TXT_DELIVERY_TERM_NAME using the alias name txtDeliveryTermName.
      * @return the TXT_DELIVERY_TERM_NAME
@@ -1187,19 +1131,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(SCMPAYMENTTERMHEADERVO, value);
     }
 
-    /**
-     * Gets the associated <code>Row</code> using master-detail link ScmFreightTermVO.
-     */
-    public Row getScmFreightTermVO() {
-        return (Row) getAttributeInternal(SCMFREIGHTTERMVO);
-    }
-
-    /**
-     * Sets the master-detail link ScmFreightTermVO between this object and <code>value</code>.
-     */
-    public void setScmFreightTermVO(Row value) {
-        setAttributeInternal(SCMFREIGHTTERMVO, value);
-    }
 
     /**
      * Gets the associated <code>Row</code> using master-detail link ScmFobTermVO.
@@ -1272,12 +1203,6 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         return (RowSet) getAttributeInternal(ACCSCMPAYMENTTERMHEADERVO);
     }
 
-    /**
-     * Gets the view accessor <code>RowSet</code> AccScmFreightTermVO.
-     */
-    public RowSet getAccScmFreightTermVO() {
-        return (RowSet) getAttributeInternal(ACCSCMFREIGHTTERMVO);
-    }
 
     /**
      * Gets the view accessor <code>RowSet</code> AccScmFobTermVO.

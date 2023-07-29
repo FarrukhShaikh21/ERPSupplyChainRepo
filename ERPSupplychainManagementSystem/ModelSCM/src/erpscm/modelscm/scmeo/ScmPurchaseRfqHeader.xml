@@ -522,24 +522,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="FreightTermSno"
-    Precision="6"
-    Scale="0"
-    ColumnName="FREIGHT_TERM_SNO"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="SCM_PURCHASE_RFQ_HEADER">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.FreightTermSno_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="NoteToSupplier"
     Precision="300"
     ColumnName="NOTE_TO_SUPPLIER"
@@ -697,44 +679,6 @@
     </Dependencies>
   </Attribute>
   <Attribute
-    Name="txtFobTermName"
-    Precision="100"
-    ColumnName="TXT_FOB_TERM_NAME"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    IsPersistent="false"
-    IsQueriable="false">
-    <TransientExpression><![CDATA[ScmFobTerm?.FobTermName]]></TransientExpression>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.txtFobTermName_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
-    Name="txtFreightTermName"
-    Precision="100"
-    ColumnName="TXT_FREIGHT_TERM_NAME"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    IsPersistent="false"
-    IsQueriable="false">
-    <TransientExpression><![CDATA[ScmFreightTerm?.FreightTermName]]></TransientExpression>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseRfqHeader.txtFreightTermName_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="ValidFromDate"
     ColumnName="VALID_FROM_DATE"
     SQLType="DATE"
@@ -878,7 +822,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SCM_PURCHASE_RFQ_HEADER">
+    IsQueriable="false"
+    IsPersistent="false">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -929,13 +874,6 @@
     AssociationEnd="erpscm.modelscm.scmeo.ScmPayTermHeadScmPurRFQHeadPaymentTermHeadSnoAsso.ScmPaymentTermHeader"
     AssociationOtherEnd="erpscm.modelscm.scmeo.ScmPayTermHeadScmPurRFQHeadPaymentTermHeadSnoAsso.ScmPurchaseRfqHeader"
     Type="erpscm.modelscm.scmeo.ScmPaymentTermHeaderImpl"
-    IsUpdateable="true"/>
-  <AccessorAttribute
-    Name="ScmFreightTerm"
-    Association="erpscm.modelscm.scmeo.ScmFreightTermScmPurcRfqHeadFreightTermSnoAsso"
-    AssociationEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcRfqHeadFreightTermSnoAsso.ScmFreightTerm"
-    AssociationOtherEnd="erpscm.modelscm.scmeo.ScmFreightTermScmPurcRfqHeadFreightTermSnoAsso.ScmPurchaseRfqHeader"
-    Type="erpscm.modelscm.scmeo.ScmFreightTermImpl"
     IsUpdateable="true"/>
   <AccessorAttribute
     Name="ScmFobTerm"
@@ -1085,17 +1023,17 @@
       Name="OnConditionExpr"><![CDATA[IsSupervised=='N']]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
-        Value="ERR_PROJECT"/>
-      <validation:Item
         Value="ERR_VALID_DATES"/>
+      <validation:Item
+        Value="ERR_PROJECT"/>
       <validation:Item
         Value="ERR_LOCATIONID"/>
       <validation:Item
         Value="ERR_DUE_DATE_FUTURE"/>
       <validation:Item
-        Value="ERR_DEPARTMENT"/>
-      <validation:Item
         Value="ERR_CLOSE_DATE"/>
+      <validation:Item
+        Value="ERR_DEPARTMENT"/>
     </validation:MsgIds>
     <validation:TransientExpression><![CDATA[if(LocationId==null)
 {
