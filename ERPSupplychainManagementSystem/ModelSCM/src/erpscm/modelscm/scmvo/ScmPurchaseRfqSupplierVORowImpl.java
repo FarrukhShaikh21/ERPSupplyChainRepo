@@ -549,6 +549,7 @@ public class ScmPurchaseRfqSupplierVORowImpl extends ViewRowImpl implements ScmP
             poheadRow.setAttribute("LocationId", erpPurBidComp.getCurrentRow().getAttribute("LocationId"));
             poheadRow.setAttribute("TempDepartmentId", erpPurBidComp.getCurrentRow().getAttribute("TempDepartmentId"));
             poheadRow.setAttribute("TempProjectId", erpPurBidComp.getCurrentRow().getAttribute("TempProjectId"));
+            poheadRow.setAttribute("DeliveryTermSno", getScmPurchaseRfqHeaderVO().getAttribute("DeliveryTermSno"));
             poheadRow.setAttribute("PoTypeSno", "2");
             poheadRow.setAttribute("OrderTypeSno", 1);
             poheadRow.setAttribute("RfqHeaderSno", getRfqHeaderSno());
