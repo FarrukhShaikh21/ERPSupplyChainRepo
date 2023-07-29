@@ -74,6 +74,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         ApprovalStatusSno,
         txtSumQuantity,
         txtBidHeaderCode,
+        DeliveryTermSno,
+        txtDeliveryTermName,
         ScmPurchaseRfqLines,
         ScmPurchaseRfqSupplier,
         AdminCompany,
@@ -156,6 +158,8 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int TXTSUMQUANTITY = AttributesEnum.txtSumQuantity.index();
     public static final int TXTBIDHEADERCODE = AttributesEnum.txtBidHeaderCode.index();
+    public static final int DELIVERYTERMSNO = AttributesEnum.DeliveryTermSno.index();
+    public static final int TXTDELIVERYTERMNAME = AttributesEnum.txtDeliveryTermName.index();
     public static final int SCMPURCHASERFQLINES = AttributesEnum.ScmPurchaseRfqLines.index();
     public static final int SCMPURCHASERFQSUPPLIER = AttributesEnum.ScmPurchaseRfqSupplier.index();
     public static final int ADMINCOMPANY = AttributesEnum.AdminCompany.index();
@@ -921,6 +925,38 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void settxtBidHeaderCode(Integer value) {
         setAttributeInternal(TXTBIDHEADERCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for DeliveryTermSno, using the alias name DeliveryTermSno.
+     * @return the value of DeliveryTermSno
+     */
+    public Integer getDeliveryTermSno() {
+        return (Integer) getAttributeInternal(DELIVERYTERMSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DeliveryTermSno.
+     * @param value value to set the DeliveryTermSno
+     */
+    public void setDeliveryTermSno(Integer value) {
+        setAttributeInternal(DELIVERYTERMSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtDeliveryTermName, using the alias name txtDeliveryTermName.
+     * @return the value of txtDeliveryTermName
+     */
+    public String gettxtDeliveryTermName() {
+        return (String) getAttributeInternal(TXTDELIVERYTERMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDeliveryTermName.
+     * @param value value to set the txtDeliveryTermName
+     */
+    public void settxtDeliveryTermName(String value) {
+        setAttributeInternal(TXTDELIVERYTERMNAME, value);
     }
 
     /**

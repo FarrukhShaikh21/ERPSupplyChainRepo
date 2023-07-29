@@ -229,6 +229,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccScmDeliveryTermVO"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmDeliveryTermVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtTempProjectName"
     ListVOName="AccGlProjectsVO"
@@ -494,6 +498,30 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtDeliveryTermName"
+    ListVOName="AccScmDeliveryTermVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtDeliveryTermName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="DeliveryTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DeliveryTermName"/>
+      <Item Value="DeliveryTermSno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DeliveryTermName"/>
+      <Item Value="DeliveryTermCode"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -953,6 +981,26 @@
     ColumnType="INTEGER"
     AliasName="VIEW_ATTR"
     SQLType="INTEGER"/>
+  <ViewAttribute
+    Name="DeliveryTermSno"
+    PrecisionRule="true"
+    EntityAttrName="DeliveryTermSno"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="DELIVERY_TERM_SNO"/>
+  <ViewAttribute
+    Name="txtDeliveryTermName"
+    PrecisionRule="true"
+    EntityAttrName="txtDeliveryTermName"
+    EntityUsage="ScmPurchaseRfqHeader"
+    AliasName="TXT_DELIVERY_TERM_NAME"
+    LOVName="LovtxtDeliveryTermName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="ScmPurchaseRfqHeaderCompanyAccessVC"
     ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"

@@ -66,10 +66,6 @@
     </attributeValues>
     <list IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovRfqTypeSno" id="RfqTypeSno"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
-    <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtFobTermName"
-                  id="txtFobTermName"/>
-    <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtFreightTermName"
-                  id="txtFreightTermName"/>
     <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtPaymentTermName"
                   id="txtPaymentTermName"/>
     <action IterBinding="ScmPurchaseRfqHeaderCRUDIterator" id="Delete" RequiresUpdateModel="false"
@@ -251,5 +247,7 @@
                   id="txtSubInventoryOrgName"/>
     <listOfValues IterBinding="ScmPurchaseRfqLinesDetCRUDIterator" StaticList="false" Uses="LovtxtCOADescription"
                   id="txtCOADescription"/>
+    <listOfValues IterBinding="ScmPurchaseRfqHeaderCRUDIterator" StaticList="false" Uses="LovtxtDeliveryTermName"
+                  id="txtDeliveryTermName"/>
   </bindings>
 </pageDefinition>

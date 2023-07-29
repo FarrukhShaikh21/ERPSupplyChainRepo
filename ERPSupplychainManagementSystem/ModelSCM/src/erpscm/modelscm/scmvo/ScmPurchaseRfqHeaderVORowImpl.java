@@ -77,6 +77,8 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         txtIsMerge,
         txtMergeBidHeaderCode,
         txtMergeBidHeaderSno,
+        DeliveryTermSno,
+        txtDeliveryTermName,
         ScmPurchaseRfqLinesVO,
         ScmPurchaseRfqSupplierVO,
         AdminCompanyVO,
@@ -101,7 +103,8 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         AccScmPurchaseDemandHeaderVO,
         AccScmPurchaseDemandLinesForRFQ,
         AccSysApprovalStatusVO,
-        AccSysGeneralValueVO;
+        AccSysGeneralValueVO,
+        AccScmDeliveryTermVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -177,6 +180,8 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int TXTISMERGE = AttributesEnum.txtIsMerge.index();
     public static final int TXTMERGEBIDHEADERCODE = AttributesEnum.txtMergeBidHeaderCode.index();
     public static final int TXTMERGEBIDHEADERSNO = AttributesEnum.txtMergeBidHeaderSno.index();
+    public static final int DELIVERYTERMSNO = AttributesEnum.DeliveryTermSno.index();
+    public static final int TXTDELIVERYTERMNAME = AttributesEnum.txtDeliveryTermName.index();
     public static final int SCMPURCHASERFQLINESVO = AttributesEnum.ScmPurchaseRfqLinesVO.index();
     public static final int SCMPURCHASERFQSUPPLIERVO = AttributesEnum.ScmPurchaseRfqSupplierVO.index();
     public static final int ADMINCOMPANYVO = AttributesEnum.AdminCompanyVO.index();
@@ -202,6 +207,7 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     public static final int ACCSCMPURCHASEDEMANDLINESFORRFQ = AttributesEnum.AccScmPurchaseDemandLinesForRFQ.index();
     public static final int ACCSYSAPPROVALSTATUSVO = AttributesEnum.AccSysApprovalStatusVO.index();
     public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
+    public static final int ACCSCMDELIVERYTERMVO = AttributesEnum.AccScmDeliveryTermVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1080,6 +1086,38 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for DELIVERY_TERM_SNO using the alias name DeliveryTermSno.
+     * @return the DELIVERY_TERM_SNO
+     */
+    public Integer getDeliveryTermSno() {
+        return (Integer) getAttributeInternal(DELIVERYTERMSNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DELIVERY_TERM_SNO using the alias name DeliveryTermSno.
+     * @param value value to set the DELIVERY_TERM_SNO
+     */
+    public void setDeliveryTermSno(Integer value) {
+        setAttributeInternal(DELIVERYTERMSNO, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_DELIVERY_TERM_NAME using the alias name txtDeliveryTermName.
+     * @return the TXT_DELIVERY_TERM_NAME
+     */
+    public String gettxtDeliveryTermName() {
+        return (String) getAttributeInternal(TXTDELIVERYTERMNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_DELIVERY_TERM_NAME using the alias name txtDeliveryTermName.
+     * @param value value to set the TXT_DELIVERY_TERM_NAME
+     */
+    public void settxtDeliveryTermName(String value) {
+        setAttributeInternal(TXTDELIVERYTERMNAME, value);
+    }
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link ScmPurchaseRfqLinesVO.
      */
     public RowIterator getScmPurchaseRfqLinesVO() {
@@ -1305,6 +1343,13 @@ public class ScmPurchaseRfqHeaderVORowImpl extends ERPViewRowImpl {
         return (RowSet) getAttributeInternal(ACCSYSGENERALVALUEVO);
     }
 
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccScmDeliveryTermVO.
+     */
+    public RowSet getAccScmDeliveryTermVO() {
+        return (RowSet) getAttributeInternal(ACCSCMDELIVERYTERMVO);
+    }
 
     @Override
     public boolean isAttributeUpdateable(int i) {
