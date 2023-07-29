@@ -39,9 +39,9 @@ public class ScmFobTermImpl extends ERPEntityImpl {
         UnSupervisedDate,
         SupervisedBy,
         UnSupervisedBy,
-        ScmPurchaseRfqHeader,
         ScmPurchaseOrderHeader;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -83,7 +83,6 @@ public class ScmFobTermImpl extends ERPEntityImpl {
     public static final int UNSUPERVISEDDATE = AttributesEnum.UnSupervisedDate.index();
     public static final int SUPERVISEDBY = AttributesEnum.SupervisedBy.index();
     public static final int UNSUPERVISEDBY = AttributesEnum.UnSupervisedBy.index();
-    public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
 
     /**
@@ -386,14 +385,6 @@ public class ScmFobTermImpl extends ERPEntityImpl {
      */
     public void setUnSupervisedBy(Integer value) {
         setAttributeInternal(UNSUPERVISEDBY, value);
-    }
-
-
-    /**
-     * @return the associated entity oracle.jbo.RowIterator.
-     */
-    public RowIterator getScmPurchaseRfqHeader() {
-        return (RowIterator) getAttributeInternal(SCMPURCHASERFQHEADER);
     }
 
 

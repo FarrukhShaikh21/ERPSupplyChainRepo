@@ -83,23 +83,6 @@
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
-    Name="AccScmFobTermVO"
-    ViewObjectName="erpscm.modelscm.scmvo.ScmFobTermVO"
-    RowLevelBinds="true">
-    <ViewCriteriaUsage
-      Name="ScmFobTermVOActiveVC"
-      FullName="erpscm.modelscm.scmvo.ScmFobTermVO.ScmFobTermVOActiveVC"/>
-    <ViewCriteriaUsage
-      Name="ScmFobTermVOByCompanyIdVC"
-      FullName="erpscm.modelscm.scmvo.ScmFobTermVO.ScmFobTermVOByCompanyIdVC"/>
-    <ParameterMap>
-      <PIMap Variable="P_ADF_COMPANY_ID">
-        <TransientExpression
-          trustMode="untrusted"><![CDATA[CompanyId==null?0:CompanyId]]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
-  </ViewAccessor>
-  <ViewAccessor
     Name="AccSysGeneralValueRFQTypeVO"
     ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
     RowLevelBinds="true">
@@ -701,12 +684,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="FobTermSno"
-    PrecisionRule="true"
-    EntityAttrName="FobTermSno"
-    EntityUsage="ScmPurchaseRfqHeader"
-    AliasName="FOB_TERM_SNO"/>
-  <ViewAttribute
     Name="txtTempDepartmentName"
     IsQueriable="false"
     IsPersistent="false"
@@ -947,7 +924,8 @@
               ViewAttribute="TempAdminCompanyAccessVO"
               Operator="EXISTS"
               Conjunction="AND"
-              Required="Optional">
+              Required="Optional"
+              IsNestedCriteria="true">
               <ViewCriteria
                 Name="TempAdminCompanyAccessVONestedCriteria"
                 ViewObjectName="erpglobals.modelglobals.globalsvo.TempAdminCompanyAccessVO"
@@ -1292,7 +1270,8 @@
               ViewAttribute="ScmPurchaseBidCompSupplierVO"
               Operator="EXISTS"
               Conjunction="AND"
-              Required="Optional">
+              Required="Optional"
+              IsNestedCriteria="true">
               <ViewCriteria
                 Name="ScmPurchaseBidCompSupplierVONestedCriteria"
                 ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseBidCompSupplierVO"
@@ -1353,7 +1332,8 @@
               ViewAttribute="ScmPurchaseDemandLinesVO"
               Operator="EXISTS"
               Conjunction="AND"
-              Required="Optional">
+              Required="Optional"
+              IsNestedCriteria="true">
               <ViewCriteria
                 Name="ScmPurchaseDemandLinesVONestedCriteria"
                 ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandLinesVO"
@@ -1505,12 +1485,6 @@
   <ViewLinkAccessor
     Name="ScmPaymentTermHeaderVO"
     ViewLink="erpscm.modelscm.scmvo.ScmPayTermHeadScmPurRFQHeadPaymentTermHeadSnoVL"
-    Type="oracle.jbo.Row"
-    Reversed="true"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="ScmFobTermVO"
-    ViewLink="erpscm.modelscm.scmvo.ScmFobTermScmPurcRfqHeadFobTermSnoVL"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

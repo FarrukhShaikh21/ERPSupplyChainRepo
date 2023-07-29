@@ -59,7 +59,6 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         NoteToSupplier,
         CourierSno,
         txtLocationName,
-        FobTermSno,
         txtTempDepartmentName,
         txtTempProjectName,
         PaymentTermHeaderSno,
@@ -79,7 +78,6 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         GlProjects,
         AdminCompany1,
         ScmPaymentTermHeader,
-        ScmFobTerm,
         ScmPurchaseDemandHeader,
         ScmPurchaseBidHeader,
         ScmPurchaseBidCompHeader,
@@ -140,7 +138,6 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int NOTETOSUPPLIER = AttributesEnum.NoteToSupplier.index();
     public static final int COURIERSNO = AttributesEnum.CourierSno.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
-    public static final int FOBTERMSNO = AttributesEnum.FobTermSno.index();
     public static final int TXTTEMPDEPARTMENTNAME = AttributesEnum.txtTempDepartmentName.index();
     public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
     public static final int PAYMENTTERMHEADERSNO = AttributesEnum.PaymentTermHeaderSno.index();
@@ -160,7 +157,6 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int ADMINCOMPANY1 = AttributesEnum.AdminCompany1.index();
     public static final int SCMPAYMENTTERMHEADER = AttributesEnum.ScmPaymentTermHeader.index();
-    public static final int SCMFOBTERM = AttributesEnum.ScmFobTerm.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int SCMPURCHASEBIDHEADER = AttributesEnum.ScmPurchaseBidHeader.index();
     public static final int SCMPURCHASEBIDCOMPHEADER = AttributesEnum.ScmPurchaseBidCompHeader.index();
@@ -678,21 +674,6 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
         setAttributeInternal(TXTLOCATIONNAME, value);
     }
 
-    /**
-     * Gets the attribute value for FobTermSno, using the alias name FobTermSno.
-     * @return the value of FobTermSno
-     */
-    public Integer getFobTermSno() {
-        return (Integer) getAttributeInternal(FOBTERMSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for FobTermSno.
-     * @param value value to set the FobTermSno
-     */
-    public void setFobTermSno(Integer value) {
-        setAttributeInternal(FOBTERMSNO, value);
-    }
 
     /**
      * Gets the attribute value for txtTempDepartmentName, using the alias name txtTempDepartmentName.
@@ -974,21 +955,6 @@ public class ScmPurchaseRfqHeaderImpl extends ERPEntityImpl {
      */
     public void setScmPaymentTermHeader(ScmPaymentTermHeaderImpl value) {
         setAttributeInternal(SCMPAYMENTTERMHEADER, value);
-    }
-
-
-    /**
-     * @return the associated entity ScmFobTermImpl.
-     */
-    public ScmFobTermImpl getScmFobTerm() {
-        return (ScmFobTermImpl) getAttributeInternal(SCMFOBTERM);
-    }
-
-    /**
-     * Sets <code>value</code> as the associated entity ScmFobTermImpl.
-     */
-    public void setScmFobTerm(ScmFobTermImpl value) {
-        setAttributeInternal(SCMFOBTERM, value);
     }
 
 
