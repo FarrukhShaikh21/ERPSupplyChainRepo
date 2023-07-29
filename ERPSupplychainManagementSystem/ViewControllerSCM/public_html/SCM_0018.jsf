@@ -68,7 +68,7 @@
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
                                   <af:panelGroupLayout id="pgl5" layout="horizontal">
                                     <af:image source="#{resource['images:imgDocumentDate.png']}" id="i2"
-                                              shortDesc="Bid Date"/>
+                                              shortDesc="Compare Date"/>
                                     <af:outputFormatted value="#{item.bindings.CompareDate.inputValue}" id="of7"
                                                         styleClass="ERPHeroDetailColor">
                                       <af:convertDateTime pattern="#{bindings.ScmPurchaseBidCompHeaderRO.hints.CompareDate.format}"/>
@@ -93,10 +93,11 @@
                               <af:gridRow marginTop="5px" height="auto" id="gr9">
                                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9">
                                   <af:panelGroupLayout id="pgl12" layout="horizontal">
-                                    <af:image id="i3" shortDesc="Bid Receive Date"
-                                              source="#{resource['images:imgDocumentDate.png']}"/>
+                                    <af:image id="i3"
+                                              shortDesc="#{item.bindings.txtDemandHeaderCode.inputValue==null?'RFQ Code':'Demand Code'}"
+                                              source="#{resource['images:imgDocument.png']}"/>
                                     <af:spacer width="10" height="10" id="s4"/>
-                                    <af:outputFormatted value="#{item.bindings.txtRfqHeaderCode.inputValue}" id="of10"
+                                    <af:outputFormatted value="#{item.bindings.txtDemandHeaderCode.inputValue==null?item.bindings.txtRfqHeaderCode.inputValue:item.bindings.txtDemandHeaderCode.inputValue}" id="of10"
                                                         styleClass="ERPHeroDetailColor">
                                       <af:convertNumber groupingUsed="false"
                                                         pattern="#{bindings.ScmPurchaseBidCompHeaderRO.hints.txtRfqHeaderCode.format}"/>
