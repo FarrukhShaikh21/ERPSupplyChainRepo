@@ -62,14 +62,12 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         CancelledDate,
         ApprovalStatusSno,
         CourierSno,
-        FreightTermSno,
         PaymentTermHeaderSno,
         PoTypeSno,
         txtTempDepartmentName,
         txtLocationName,
         txtTempProjectName,
         txtPaymentTermName,
-        txtFreightTermName,
         txtCourierName,
         txtRfqHeaderCode,
         txtDemandHeaderCode,
@@ -88,7 +86,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         GlProjects,
         ScmPurchaseRfqHeader,
         ScmPaymentTermHeader,
-        ScmFreightTerm,
         ScmPurchaseDemandHeader,
         ScmSupplierSites,
         ScmSupplierSites1,
@@ -154,14 +151,12 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int CANCELLEDDATE = AttributesEnum.CancelledDate.index();
     public static final int APPROVALSTATUSSNO = AttributesEnum.ApprovalStatusSno.index();
     public static final int COURIERSNO = AttributesEnum.CourierSno.index();
-    public static final int FREIGHTTERMSNO = AttributesEnum.FreightTermSno.index();
     public static final int PAYMENTTERMHEADERSNO = AttributesEnum.PaymentTermHeaderSno.index();
     public static final int POTYPESNO = AttributesEnum.PoTypeSno.index();
     public static final int TXTTEMPDEPARTMENTNAME = AttributesEnum.txtTempDepartmentName.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
     public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
-    public static final int TXTFREIGHTTERMNAME = AttributesEnum.txtFreightTermName.index();
     public static final int TXTCOURIERNAME = AttributesEnum.txtCourierName.index();
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
@@ -180,7 +175,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int GLPROJECTS = AttributesEnum.GlProjects.index();
     public static final int SCMPURCHASERFQHEADER = AttributesEnum.ScmPurchaseRfqHeader.index();
     public static final int SCMPAYMENTTERMHEADER = AttributesEnum.ScmPaymentTermHeader.index();
-    public static final int SCMFREIGHTTERM = AttributesEnum.ScmFreightTerm.index();
     public static final int SCMPURCHASEDEMANDHEADER = AttributesEnum.ScmPurchaseDemandHeader.index();
     public static final int SCMSUPPLIERSITES = AttributesEnum.ScmSupplierSites.index();
     public static final int SCMSUPPLIERSITES1 = AttributesEnum.ScmSupplierSites1.index();
@@ -748,22 +742,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
 
 
     /**
-     * Gets the attribute value for FreightTermSno, using the alias name FreightTermSno.
-     * @return the value of FreightTermSno
-     */
-    public Integer getFreightTermSno() {
-        return (Integer) getAttributeInternal(FREIGHTTERMSNO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for FreightTermSno.
-     * @param value value to set the FreightTermSno
-     */
-    public void setFreightTermSno(Integer value) {
-        setAttributeInternal(FREIGHTTERMSNO, value);
-    }
-
-    /**
      * Gets the attribute value for PaymentTermHeaderSno, using the alias name PaymentTermHeaderSno.
      * @return the value of PaymentTermHeaderSno
      */
@@ -859,21 +837,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         setAttributeInternal(TXTPAYMENTTERMNAME, value);
     }
 
-    /**
-     * Gets the attribute value for txtFreightTermName, using the alias name txtFreightTermName.
-     * @return the value of txtFreightTermName
-     */
-    public String gettxtFreightTermName() {
-        return (String) getAttributeInternal(TXTFREIGHTTERMNAME);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for txtFreightTermName.
-     * @param value value to set the txtFreightTermName
-     */
-    public void settxtFreightTermName(String value) {
-        setAttributeInternal(TXTFREIGHTTERMNAME, value);
-    }
 
     /**
      * Gets the attribute value for txtCourierName, using the alias name txtCourierName.
@@ -1127,20 +1090,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
      */
     public void setScmPaymentTermHeader(ScmPaymentTermHeaderImpl value) {
         setAttributeInternal(SCMPAYMENTTERMHEADER, value);
-    }
-
-    /**
-     * @return the associated entity ScmFreightTermImpl.
-     */
-    public ScmFreightTermImpl getScmFreightTerm() {
-        return (ScmFreightTermImpl) getAttributeInternal(SCMFREIGHTTERM);
-    }
-
-    /**
-     * Sets <code>value</code> as the associated entity ScmFreightTermImpl.
-     */
-    public void setScmFreightTerm(ScmFreightTermImpl value) {
-        setAttributeInternal(SCMFREIGHTTERM, value);
     }
 
 
