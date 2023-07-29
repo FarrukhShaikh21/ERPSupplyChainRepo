@@ -359,29 +359,6 @@
       Name="ScmFreightTermFindVC"/>
   </ListBinding>
   <ListBinding
-    Name="LovtxtFobTermName"
-    ListVOName="AccScmFobTermVO"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="txtFobTermName"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="FobTermSno"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="FobTermName"/>
-      <Item Value="FobTermSno"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="FobTermName"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
     Name="LovtxtRfqHeaderCode"
     ListVOName="AccScmPurchaseRfqHeaderVO"
     ListRangeSize="-1"
@@ -978,22 +955,6 @@
     EntityUsage="ScmPurchaseOrderHeader"
     AliasName="txt_Freight_Term_Name"
     LOVName="LovtxtFreightTermName">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="txtFobTermName"
-    PrecisionRule="true"
-    EntityAttrName="txtFobTermName"
-    EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="txt_Fob_Term_Name"
-    IsQueriable="false"
-    IsPersistent="false"
-    LOVName="LovtxtFobTermName">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

@@ -71,7 +71,6 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
         txtTempProjectName,
         txtPaymentTermName,
         txtFreightTermName,
-        txtFobTermName,
         txtRfqHeaderCode,
         txtDemandHeaderCode,
         txtSupplierName,
@@ -186,7 +185,6 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
     public static final int TXTTEMPPROJECTNAME = AttributesEnum.txtTempProjectName.index();
     public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
     public static final int TXTFREIGHTTERMNAME = AttributesEnum.txtFreightTermName.index();
-    public static final int TXTFOBTERMNAME = AttributesEnum.txtFobTermName.index();
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
@@ -1081,21 +1079,6 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
         setAttributeInternal(TXTFREIGHTTERMNAME, value);
     }
 
-    /**
-     * Gets the attribute value for txt_Fob_Term_Name using the alias name txtFobTermName.
-     * @return the txt_Fob_Term_Name
-     */
-    public String gettxtFobTermName() {
-        return (String) getAttributeInternal(TXTFOBTERMNAME);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for txt_Fob_Term_Name using the alias name txtFobTermName.
-     * @param value value to set the txt_Fob_Term_Name
-     */
-    public void settxtFobTermName(String value) {
-        setAttributeInternal(TXTFOBTERMNAME, value);
-    }
 
     /**
      * Gets the attribute value for txt_Rfq_Header_Code using the alias name txtRfqHeaderCode.

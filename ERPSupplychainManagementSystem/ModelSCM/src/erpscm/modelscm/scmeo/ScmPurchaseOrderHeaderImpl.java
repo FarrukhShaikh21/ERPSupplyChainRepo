@@ -72,7 +72,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         txtPaymentTermName,
         txtFreightTermName,
         txtCourierName,
-        txtFobTermName,
         txtRfqHeaderCode,
         txtDemandHeaderCode,
         txtSupplierName,
@@ -98,7 +97,8 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         ScmDeliveryTerm,
         ScmOrderType,
         ScmSupplier;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -166,7 +166,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
     public static final int TXTPAYMENTTERMNAME = AttributesEnum.txtPaymentTermName.index();
     public static final int TXTFREIGHTTERMNAME = AttributesEnum.txtFreightTermName.index();
     public static final int TXTCOURIERNAME = AttributesEnum.txtCourierName.index();
-    public static final int TXTFOBTERMNAME = AttributesEnum.txtFobTermName.index();
     public static final int TXTRFQHEADERCODE = AttributesEnum.txtRfqHeaderCode.index();
     public static final int TXTDEMANDHEADERCODE = AttributesEnum.txtDemandHeaderCode.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
@@ -911,21 +910,6 @@ public class ScmPurchaseOrderHeaderImpl extends ERPEntityImpl {
         setAttributeInternal(TXTCOURIERNAME, value);
     }
 
-    /**
-     * Gets the attribute value for txtFobTermName, using the alias name txtFobTermName.
-     * @return the value of txtFobTermName
-     */
-    public String gettxtFobTermName() {
-        return (String) getAttributeInternal(TXTFOBTERMNAME);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for txtFobTermName.
-     * @param value value to set the txtFobTermName
-     */
-    public void settxtFobTermName(String value) {
-        setAttributeInternal(TXTFOBTERMNAME, value);
-    }
 
     /**
      * Gets the attribute value for txtRfqHeaderCode, using the alias name txtRfqHeaderCode.

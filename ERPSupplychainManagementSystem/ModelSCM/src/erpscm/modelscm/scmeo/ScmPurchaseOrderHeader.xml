@@ -861,29 +861,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="txtFobTermName"
-    Precision="100"
-    ColumnName="txt_Fob_Term_Name"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    IsPersistent="false"
-    IsQueriable="false">
-    <TransientExpression><![CDATA[ScmFobTerm?.FobTermName]]></TransientExpression>
-    <Dependencies>
-      <Item
-        Value="FobTermSno"/>
-    </Dependencies>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader.txtFobTermName_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="txtRfqHeaderCode"
     ColumnName="txt_Rfq_Header_Code"
     SQLType="INTEGER"
