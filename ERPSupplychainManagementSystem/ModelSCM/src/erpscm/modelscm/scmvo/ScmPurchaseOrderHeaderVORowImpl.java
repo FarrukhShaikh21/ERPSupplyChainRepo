@@ -92,6 +92,7 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
         ScmOrderTypeVO,
         ScmSupplierVO,
         AccSysGeneralValuePOTypeVO,
+        AccSysGeneralValueVO,
         AccSysSystemParameterVO,
         AccAdminCompanyForCompVO,
         AccGlProjectsVO,
@@ -199,6 +200,7 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
     public static final int SCMORDERTYPEVO = AttributesEnum.ScmOrderTypeVO.index();
     public static final int SCMSUPPLIERVO = AttributesEnum.ScmSupplierVO.index();
     public static final int ACCSYSGENERALVALUEPOTYPEVO = AttributesEnum.AccSysGeneralValuePOTypeVO.index();
+    public static final int ACCSYSGENERALVALUEVO = AttributesEnum.AccSysGeneralValueVO.index();
     public static final int ACCSYSSYSTEMPARAMETERVO = AttributesEnum.AccSysSystemParameterVO.index();
     public static final int ACCADMINCOMPANYFORCOMPVO = AttributesEnum.AccAdminCompanyForCompVO.index();
     public static final int ACCGLPROJECTSVO = AttributesEnum.AccGlProjectsVO.index();
@@ -1344,6 +1346,13 @@ public class ScmPurchaseOrderHeaderVORowImpl extends ERPViewRowImpl {
      */
     public RowSet getAccSysGeneralValuePOTypeVO() {
         return (RowSet) getAttributeInternal(ACCSYSGENERALVALUEPOTYPEVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSysGeneralValueVO.
+     */
+    public RowSet getAccSysGeneralValueVO() {
+        return (RowSet) getAttributeInternal(ACCSYSGENERALVALUEVO);
     }
 
     /**

@@ -9,11 +9,13 @@
           <f:facet name="buttonBar"/>
           <af:panelGroupLayout layout="vertical" id="pgl2">
             <af:panelHeader text="Search PO" id="ph1">
-              <af:query id="qryId1" headerText="Search" disclosed="true"
+              <af:query id="qryId1" headerText="Search"
                         value="#{bindings.ScmPurchaseOrderHeaderFindVOQuery.queryDescriptor}"
                         model="#{bindings.ScmPurchaseOrderHeaderFindVOQuery.queryModel}"
                         queryListener="#{bindings.ScmPurchaseOrderHeaderFindVOQuery.processQuery}"
-                        queryOperationListener="#{bindings.ScmPurchaseOrderHeaderFindVOQuery.processQueryOperation}"/>
+                        queryOperationListener="#{bindings.ScmPurchaseOrderHeaderFindVOQuery.processQueryOperation}"
+                        resultComponentId="::pt1:lv1" saveQueryMode="hidden" saveResultsLayout="never"
+                        disclosed="true" runQueryAutomatically="allSavedSearches" modeChangeVisible="false"/>
             </af:panelHeader>
           </af:panelGroupLayout>
         </af:dialog>

@@ -9,7 +9,8 @@
               id="ScmPurchaseOrderHeaderROIterator"/>
     <searchRegion Criteria="ScmPurchaseOrderHeaderFindVO"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="ScmPurchaseOrderHeaderROIterator" id="ScmPurchaseOrderHeaderFindVOQuery"/>
+                  Binds="ScmPurchaseOrderHeaderROIterator" id="ScmPurchaseOrderHeaderFindVOQuery"
+                  InitialQueryOverridden="false"/>
   </executables>
   <bindings>
     <tree IterBinding="ScmPurchaseOrderHeaderROIterator" id="ScmPurchaseOrderHeaderRO">

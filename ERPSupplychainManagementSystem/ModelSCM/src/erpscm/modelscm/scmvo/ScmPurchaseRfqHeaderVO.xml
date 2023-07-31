@@ -1464,6 +1464,58 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="ScmPurchaseRfqHeaderNotInPOVC"
+    ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseRfqHeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ScmPurchaseRfqHeaderVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ScmPurchaseOrderHeaderVO"
+        ViewAttribute="ScmPurchaseOrderHeaderVO"
+        Operator="NOT EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        UpperColumns="0"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseOrderHeaderVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseOrderHeaderVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseOrderHeaderVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="ScmPurchaseOrderHeaderVONestedCriteria_ScmPurchaseOrderHeaderVONestedCriteria_row_0_PoHeaderSno"
+              ViewAttribute="PoHeaderSno"
+              Operator="ISNOTBLANK"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ScmPurchaseRfqLinesVO"
     ViewLink="erpscm.modelscm.scmvo.FkScmPurQuoteLineHeadSnoLink"

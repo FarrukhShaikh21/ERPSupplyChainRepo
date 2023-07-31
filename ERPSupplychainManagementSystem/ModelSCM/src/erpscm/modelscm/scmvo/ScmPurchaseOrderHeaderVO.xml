@@ -51,6 +51,22 @@
     </ParameterMap>
   </ViewAccessor>
 <ViewAccessor
+    Name="AccSysGeneralValueVO"
+    ViewObjectName="erpadm.modeladm.admvo.SysGeneralValueVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SysGeneralValueActiveVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueActiveVC"/>
+    <ViewCriteriaUsage
+      Name="SysGeneralValueByValueSetIDVC"
+      FullName="erpadm.modeladm.admvo.SysGeneralValueVO.SysGeneralValueByValueSetIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_VALUE_SET_ID">
+        <TransientExpression><![CDATA[4]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>  
+<ViewAccessor
     Name="AccSysSystemParameterVO"
     ViewObjectName="erpadm.modeladm.admvo.SysSystemParameterVO"
     RowLevelBinds="true">
@@ -581,6 +597,60 @@
     <DisplayCriteria
       Name="ScmOrderTypeFindVC"/>
   </ListBinding>
+  <ListBinding
+    Name="LovIsSupervised"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsSupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsCancelled"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsCancelled"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovIsUnsupervised"
+    ListVOName="AccSysGeneralValueVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IsUnsupervised"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ScmPurchaseOrderHeader"
     Entity="erpscm.modelscm.scmeo.ScmPurchaseOrderHeader"/>
@@ -744,7 +814,15 @@
     PrecisionRule="true"
     EntityAttrName="IsSupervised"
     EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="IS_SUPERVISED"/>
+    AliasName="IS_SUPERVISED"
+    LOVName="LovIsSupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SupervisedBy"
     PrecisionRule="true"
@@ -763,7 +841,15 @@
     PrecisionRule="true"
     EntityAttrName="IsUnsupervised"
     EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="IS_UNSUPERVISED"/>
+    AliasName="IS_UNSUPERVISED"
+    LOVName="LovIsUnsupervised">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UnSupervisedBy"
     PrecisionRule="true"
@@ -782,7 +868,15 @@
     PrecisionRule="true"
     EntityAttrName="IsCancelled"
     EntityUsage="ScmPurchaseOrderHeader"
-    AliasName="IS_CANCELLED"/>
+    AliasName="IS_CANCELLED"
+    LOVName="LovIsCancelled">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CancelledBy"
     PrecisionRule="true"
@@ -1145,6 +1239,53 @@
         Operator="BETWEEN"
         Conjunction="AND"
         Required="Optional"/>
+      <ViewCriteriaItem
+        Name="IsSupervised"
+        ViewAttribute="IsSupervised"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SupervisedDate"
+        ViewAttribute="SupervisedDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="IsUnsupervised"
+        ViewAttribute="IsUnsupervised"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="IsCancelled"
+        ViewAttribute="IsCancelled"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ScmPurchaseDemandHeaderVO"
+        ViewAttribute="ScmPurchaseDemandHeaderVO"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="ScmPurchaseDemandHeaderVONestedCriteria"
+          ViewObjectName="erpscm.modelscm.scmvo.ScmPurchaseDemandHeaderVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="ScmPurchaseDemandHeaderVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="DemandHeaderCode"
+              ViewAttribute="DemandHeaderCode"
+              Operator="="
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="ScmPurchaseRfqHeaderVO"
         ViewAttribute="ScmPurchaseRfqHeaderVO"
