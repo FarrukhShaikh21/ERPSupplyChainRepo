@@ -100,6 +100,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
         txtDemandBalance,
         txtBidBalance,
         txtCompareBalance,
+        IsComplete,
+        RemainingBalance,
         ScmPurchaseOrderDiscount,
         ScmPurchaseOrderHeader,
         InvItem,
@@ -192,6 +194,8 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     public static final int TXTDEMANDBALANCE = AttributesEnum.txtDemandBalance.index();
     public static final int TXTBIDBALANCE = AttributesEnum.txtBidBalance.index();
     public static final int TXTCOMPAREBALANCE = AttributesEnum.txtCompareBalance.index();
+    public static final int ISCOMPLETE = AttributesEnum.IsComplete.index();
+    public static final int REMAININGBALANCE = AttributesEnum.RemainingBalance.index();
     public static final int SCMPURCHASEORDERDISCOUNT = AttributesEnum.ScmPurchaseOrderDiscount.index();
     public static final int SCMPURCHASEORDERHEADER = AttributesEnum.ScmPurchaseOrderHeader.index();
     public static final int INVITEM = AttributesEnum.InvItem.index();
@@ -1121,6 +1125,38 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
     }
 
     /**
+     * Gets the attribute value for IsComplete, using the alias name IsComplete.
+     * @return the value of IsComplete
+     */
+    public String getIsComplete() {
+        return (String) getAttributeInternal(ISCOMPLETE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for IsComplete.
+     * @param value value to set the IsComplete
+     */
+    public void setIsComplete(String value) {
+        setAttributeInternal(ISCOMPLETE, value);
+    }
+
+    /**
+     * Gets the attribute value for RemainingBalance, using the alias name RemainingBalance.
+     * @return the value of RemainingBalance
+     */
+    public BigDecimal getRemainingBalance() {
+        return (BigDecimal) getAttributeInternal(REMAININGBALANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RemainingBalance.
+     * @param value value to set the RemainingBalance
+     */
+    public void setRemainingBalance(BigDecimal value) {
+        setAttributeInternal(REMAININGBALANCE, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getScmPurchaseOrderDiscount() {
@@ -1363,6 +1399,10 @@ public class ScmPurchaseOrderLinesImpl extends ERPEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+            populateAttributeAsChanged(REMAININGBALANCE,getRemainingBalance());
+       }
+        
         if (operation!=DML_DELETE) {
             populateAttributeAsChanged(DISCOUNTAMOUNT, gettxtDiscountAmount());
             populateAttributeAsChanged(GROSSAMOUNT, gettxtGrossAmount());
